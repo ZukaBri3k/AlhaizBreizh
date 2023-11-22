@@ -15,7 +15,6 @@ class Logement extends Controller
     public function ajouterLogementDB() {
 
         $tab = [
-            serial,
             "Villa stylée",
             "Voici une villa stylée",
             "Ma villa cool à louer",
@@ -46,7 +45,6 @@ class Logement extends Controller
         ];
 
         DB::insert('insert into logement (
-        id_logement,
         libelle_logement,
         accroche_logement,
         descriptif_logement,

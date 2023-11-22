@@ -48,7 +48,7 @@ class Logement extends Controller
         libelle_logement,
         accroche_logement,
         descriptif_logement,
-        nb_personnes_max,
+        nb_personne_max,
         longitude_logement,
         latitude_logement,
         adresse_logement,

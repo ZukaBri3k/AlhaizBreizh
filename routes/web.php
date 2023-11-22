@@ -50,7 +50,7 @@ Route::prefix('/account')->group(function () {
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('client/profil', [AccountController::class, "compteClient"])->name('myClientAccount')->middleware(['auth', 'isClient']);
-    Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount');
+    Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
 });

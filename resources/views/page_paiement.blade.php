@@ -62,5 +62,7 @@
         </form>
     </section>
     </div>
+
+    <x-FooterClient></x-FooterClient>
 </body>
 </html>

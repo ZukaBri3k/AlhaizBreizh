@@ -1,0 +1,134 @@
+footer {
+    background-color: #F6F5EE;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-weight: 400;
+	src: url("fonts/Montserrat-Regular.woff2") format("woff2"),
+}
+
+footer hr {
+    width: 90%;
+    margin: auto;
+}
+
+.haut img {
+    margin-left: 25%;
+    margin-top: 1%;
+}
+
+#logo_petit {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    #logo_grand {
+        display: none;
+    }
+
+    #logo_petit {
+        display: block;
+        width: 50%;
+    }
+
+    footer img {
+        width: 20%;
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+}
+
+footer button {
+    width: 111.429px;
+    height: 39.752px;
+    border: none;
+    border-radius: 6px;
+    background-color: #EC3B53;
+    float: right;
+    margin-right: 5%;
+    color: #FFF;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: -0.225px;
+}
+
+footer table {
+    margin: auto;
+    margin-top: 2%;
+    border-spacing: 6em 5px;
+    border-collapse: separate;
+}
+
+footer td {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.225px;
+}
+
+footer a {
+    outline: none;
+    text-decoration: none;
+}
+
+footer a:link {
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.haut {
+    display: flex;
+    align-items: baseline;
+}
+
+footer th {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 160% */
+    letter-spacing: -0.225px;
+}
+
+footer div p {
+    color: rgba(0, 0, 0, 0.80);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 160% */
+    letter-spacing: -0.225px;
+    margin-left: 5%;
+}
+
+.bas img {
+    width: 67.714px;
+    height: 78.509px;
+    margin-left: 2%;
+}
+
+.bas {
+    display: flex;
+    align-items: center;
+    margin-top: 1%;
+    padding-bottom: 3%;
+}
+
+.bas a {
+    margin-left: 2%;
+    color: rgba(0, 0, 0, 0.80);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    letter-spacing: -0.225px;
+}
+
+.bas p {
+    margin-top: 0%;
+    margin-bottom: 0%;
+}

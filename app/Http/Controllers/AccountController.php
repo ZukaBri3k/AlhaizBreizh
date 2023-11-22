@@ -44,4 +44,34 @@ class AccountController extends Controller
 
         return redirect()->route('login');
     }
+
+    //-----------------------------------------------------
+
+    public function inscriptionClientPopUp() {
+        return View("Compte/inscription_client_pop_up");
+    }
+
+    public function inscriptionClient() {
+        return View("Compte/inscription_proprio");
+    }
+
+    public function compteClient() {
+        return View("Compte/MonCompteClient");
+    }
+
+    //--------------------------------------------------------------
+
+    public function inscriptionProprietairePopUp() {
+        return View("Compte/inscription_proprietaire_pop_up");
+    }
+
+    
+
+    public function inscriptionProprietaire() {
+        return View('Compte/inscription_client');
+    }
+
+    public function compteProprietaire() {
+        return View("Compte/MonCompteProprietaire");
+    }
 }

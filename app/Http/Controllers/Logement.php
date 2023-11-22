@@ -76,4 +76,8 @@ class Logement extends Controller
         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?)', $tab);
     }
+
+    public function getInfoLogement(Request $request) {
+        dd(DB::select('select * from logement where id_logement = ?', $request->id));
+    } 
 }

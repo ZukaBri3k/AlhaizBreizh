@@ -36,9 +36,7 @@ Route::get('/paiement', function () {
 
 Route::prefix('/logement')->group(function() {
 
-    Route::get('/{id}/details', function(Request $req, $id) {
-        return view('details_logement', ['id_logement' => $id]);
-    })->where('id', '[0-9]+')->name('details');
+    Route::get('/{id}/details', [Logement::class, 'getInfoLogement'])->where('id', '[0-9]+')->name('details');
 
     Route::get('/creation', [Logement::class, "creation"])->name('creer_logement')->middleware(['auth', 'isProprietaire']);
 });

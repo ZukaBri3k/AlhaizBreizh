@@ -23,8 +23,9 @@ Route::get('/', function () {
 });
 
 Route::prefix('/devis')->group(function () {
-    Route::get('/proprietaire', [Devis::class, "devisProprietaire"])->name('devis_proprio')->middleware(['auth', 'isProprietaire']);
-    Route::get('/proprietaire', [Devis::class, "devisProprietaire2"])->name('devis_proprio2')->middleware(['auth', 'isProprietaire']);   
+
+    Route::get('/proprietaire', [Devis::class, "devisProprietaire"])->name('devis-proprio')->middleware(['auth', 'isProprietaire']);
+    Route::get('/proprietaire2', [Devis::class, "devisProprietaire2"])->name('devis-proprio2')->middleware(['auth', 'isProprietaire']);   
     Route::get('/client', [Devis::class, "devisClient"])->name('devis-client')->middleware(['auth', 'isClient']);
     Route::get('/creation', [Devis::class, "creationDevis"])->name('devis-page')->middleware(['auth', 'isProprietaire']);    
 });
@@ -51,7 +52,7 @@ Route::prefix('/account')->group(function () {
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('client/profil', [AccountController::class, "compteClient"])->name('myClientAccount')->middleware(['auth', 'isClient']);
-    Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
+    Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount');
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
 });

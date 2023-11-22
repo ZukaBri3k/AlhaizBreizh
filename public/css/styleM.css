@@ -1,0 +1,123 @@
+/* Réinitialisation des styles par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F6F5EE;
+    font-size: 18px; /* Augmentation de la taille de police par défaut */
+}
+
+.main {
+    max-width: 1000px; /* Augmentation de la largeur du contenu principal */
+    margin: 0 auto;
+    padding: 40px; /* Augmentation de la marge intérieure */
+    flex-grow: 1;
+}
+
+.boutons {
+    align-items: center;
+    margin-left: 27%;
+}
+
+.bouton-creer {
+    margin-top: 5%;
+    background-color: #ffffff;
+    color: #ff0000;
+    padding: 20px 40px; /* Augmentation de la taille du bouton */
+    border: none;
+    border-radius: 10px; /* Augmentation du rayon de la bordure */
+    cursor: pointer;
+    border: 2px solid #ff0000;
+}
+
+.rechercher {
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 20px 40px; /* Augmentation de la taille du bouton */
+    border: none;
+    border-radius: 10px; /* Augmentation du rayon de la bordure */
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    height: 70px; /* Augmentation de la hauteur du bouton */
+    line-height: 70px; /* Assurez-vous que la valeur de line-height est la même que la hauteur */
+}
+
+h2 {
+    font-size: 36px; /* Augmentation de la taille de police */
+    margin: 40px 0; /* Augmentation de la marge extérieure */
+}
+
+.messaging {
+    display: flex;
+}
+
+.contact-list {
+    margin-top: -10%;
+    flex: 1;
+    padding: 40px; /* Augmentation de la marge intérieure */
+}
+
+.contact {
+    padding: 20px 0; /* Augmentation de la marge intérieure */
+    cursor: pointer;
+    background-color: #fff;
+    margin-bottom: 4%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Augmentation du rayon de la bordure */
+}
+
+.contact > p {
+    margin: 1%;
+}
+
+.message-box {
+    flex: 3;
+    padding: 40px; /* Augmentation de la marge intérieure */
+    overflow-y: auto;
+    max-height: 600px; /* Augmentation de la hauteur maximale */
+    background-color: #ebeae1;
+    margin-right: 5%;
+    margin-left: 2%;
+    border-radius: 10px; /* Augmentation du rayon de la bordure */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2)
+}
+
+.message {
+    margin: 20px 0; /* Augmentation de la marge extérieure */
+    padding: 20px; /* Augmentation de la marge intérieure */
+    border-radius: 10px; /* Augmentation du rayon de la bordure */
+    font-size: 18px; /* Augmentation de la taille de police */
+}
+
+.message-received {
+    background-color: #f0f0f0;
+    text-align: left;
+    clear: both;
+    padding: 20px; /* Augmentation de la marge intérieure */
+}
+
+.message-sent {
+    background-color: #007BFF;
+    color: #fff;
+    text-align: right;
+    clear: both;
+    padding: 20px; /* Augmentation de la marge intérieure */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px; /* Augmentation de la marge intérieure */
+    text-align: center;
+    font-size: 24px; /* Augmentation de la taille de police */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 96vh;
+}

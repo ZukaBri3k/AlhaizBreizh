@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+    <button id="connexionButton">Connexion</button>
+
+    <div id="popup" class="popup">
+        
+        <div class="popup-content">
+            <span class="close" id="closeButton">&times;</span>
+            <h1>Connexion</h1>
+            <div id="radios">
+                <input type="radio" id="radiobtn" name="radiobtn" value="client" />
+                <label for="radiobtn" id="label_radio">Client</label>
+                <input type="radio" id="radiobtn" name="radiobtn" value="proprietaire" />
+                <label for="radiobtn">Propriétaire</label>            
+            </div>
+    
+            <form method="post">
+                <label for="email">Adresse mail</label>
+                <input type="mail" name="email" id="email" placeholder="exemplemail@mail.exemple" required="">
+                <label for="mdp" id="decal">Mot de Passe</label>
+                <div class="password-container">
+                    <input type="password" name="mdp" id="mdp" required>
+                    <i class="far fa-eye" id="togglePassword"></i>
+                </div>
+
+                
+                <a href="#">Mot de passe oublié</a>
+            </form>
+            <button id="connexion" type="submit">Connexion</button>
+            
+        </div>
+        <img src="images/maison.png" alt="IMAGE_MAISON">
+
+    </div>
+
+    <div id="blur-background" class="blur-background"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

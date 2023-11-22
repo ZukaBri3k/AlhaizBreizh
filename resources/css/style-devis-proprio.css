@@ -1,0 +1,81 @@
+body {
+    --couleur1: #F6F5EE;
+    --couleur2: white;
+    background-color: var(--couleur1);
+}
+
+header > img {
+    width: 20%;
+    height: 20%;
+}
+
+main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+}
+
+main > h1 {
+    text-align: center;
+    font-size: 300%;
+    font-weight: normal;
+}
+
+form {
+    margin: 50px;
+}
+
+input, textarea {
+    margin: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    font-size: large;
+}
+
+textarea {
+    width: 300px;
+    height: 150px;
+}
+
+.p2 > .champ1 > input {
+    width: 350px;
+}
+
+.p1, .p2, .p3 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+}
+
+label {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+form > section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+form > section > div {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    margin-left: 850px;
+    background-color: var(--couleur2);
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+button:hover {
+    background-color: black;
+    color: var(--couleur2);
+    transition: 0.5s;
+}

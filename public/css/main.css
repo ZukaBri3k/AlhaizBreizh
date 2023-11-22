@@ -1,0 +1,238 @@
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 400;
+	src: url("{{asset('fonts/Montserrat-Regular.woff2')}}") format(‘woff2’),
+}
+
+li.separer {
+    border-right: solid 1px black;
+}
+
+nav a{
+    color: #F6F5EE;
+}
+
+.logo_m {
+    display: none;
+}
+
+@media screen and (max-width: 573px) {
+
+    a#inscription {
+        display: none;
+    }
+
+    .logo_d {
+        display: inline-block;
+    }
+
+    .logo_m {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .logo_d {
+        display: none;
+    }
+
+    .logo_m {
+        display: inline-block;
+        width: 20%;
+    }
+
+    a#inscription {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    li.separer {
+        border-right: none;
+        border-bottom: solid 1px black;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+
+/***********************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+CSS de la page de paiement début
+************************************************************************************************************
+************************************************************************************************************
+***********************************************************************************************************/
+body.paiement {
+    background-color: #F6F5EE;
+}
+
+body.paiement h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-left: 1%;
+    letter-spacing: -0.6px;
+}
+
+body.paiement + input {
+    border-radius: 15px;
+    border: 1px solid #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -0.6px;
+    color: #000000;
+    background-color: #FFFFFF;
+    flex-shrink: 0;
+    padding: 1%;
+    margin: 1%;
+
+}
+
+body.paiement .form-control {
+    width: 50%;
+    border-radius: 0.8em;
+}
+
+body.paiement div {
+    display: flex;
+    margin: 1%;
+    align-items: center;
+}
+
+body.paiement .calendar-content {
+    display: flex;
+    align-items: baseline;
+}
+
+
+body.paiement .datepicker {
+    display: flex;
+    align-items: center;
+    padding: 1%;
+}
+
+body.paiement .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    border-radius: 0.8em;
+    flex: 0.5;
+    margin-left: 2%;
+}
+
+body.paiement h6 {
+    margin: 2%;
+}
+
+body.paiement .mb-3 {
+    padding: 2%;
+    margin: 1%;
+    margin-bottom: 0%!important;
+}
+
+body.paiement html body div form div.mb-3 + div.mb-3 + .datepicker + div.mb-3 input{
+    width: 20%;
+}
+body.paiement div form div.mb-3:first-child li {
+    list-style: none;
+    width: 18em;
+}
+
+body.paiement div form div.mb-3 li {
+    list-style: none;
+    width: 25%;
+}
+
+body.paiement div form div.datepicker div li {
+    list-style: none;
+}
+
+body.paiement div form div.datepicker + div.mb-3  li {
+    list-style: none;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+body.paiement div form div.mb-3 + div.mb-3 + .datepicker + div.mb-3 input{
+    width: 20%;
+    margin-left: 2%;
+}
+
+body.paiement section button:first-child {
+    background-color: #EC3B53;
+    border-radius: 0.5em;
+    border: none;
+    width: 40%;
+    height: 2em;
+    flex-shrink: 0;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+body.paiement section + section li {
+    list-style: none;
+    margin-left: 1%;
+    width: auto;
+}
+
+body.paiement section + span + section button {
+    background-color: #EC3B53;
+    border-radius: 0.5em;
+    border: none;
+    width: 70%;
+    height: 2em;
+    flex-shrink: 0;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
+}
+
+body.paiement section + span + section .mb-3 {
+    margin: 0%;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+}
+
+body.paiement section + span + section {
+    margin-left: 2%;
+}
+
+body.paiement .vertical-line{
+    border-left: 2px solid #000;
+    display: inline-block;
+    height: 25em;
+    margin: 0 20px;
+}
+
+body.paiement .image_nom {
+    width: 8%;
+}
+
+/***********************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+CSS de la page de paiement FIN
+************************************************************************************************************
+************************************************************************************************************
+***********************************************************************************************************/

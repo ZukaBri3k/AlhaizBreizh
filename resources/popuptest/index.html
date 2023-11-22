@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Page avec Pop-up</title>
+</head>
+<body>
+    <button id="open-popup">+</button>
+    <div id="popup-container">
+        <div class="popup">
+            <span id="close-popup" class="close-btn">&times;</span>
+            <div class="left">
+                <h2>Inscrivez vous, en tant que client :</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" placeholder="Entrez votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail">
+                    </div>
+                    <button class="btn-connect">Connexion</button>
+                </form>
+            </div>
+            <div class="right"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

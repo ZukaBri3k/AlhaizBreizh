@@ -1,0 +1,138 @@
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    backdrop-filter: none;
+    z-index: 2;
+
+}
+.blur-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+label{
+    font-size: 16px;
+    color: #909090;
+    padding-right: 13vw;
+}
+a{
+    padding-right: 10.2vw;
+    color: #4BCBFF;
+}
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    clip-path:ellipse(48% 35%);
+    background-color: #EC3B53;
+}
+
+#radios{
+    display: flex;
+    justify-content: left;
+    height: 50px;
+    width: 0;
+}
+input[type="radio"] {
+    padding: 0;
+    margin-top: -5.5px;
+    vertical-align: middle;
+  }
+#label_radio{
+    padding-right: 25px;
+}
+.blur-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.popup-form {
+    backdrop-filter: none; 
+}
+.popup-content{
+    display: flex;
+    flex-direction: column;
+
+}
+#decal{
+    margin-top: 2vw;
+}
+.popup-content>form{
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    font-size: 64px;
+    font-family: 'prociono';
+}
+.popup-content>button{
+    width: 25%;
+    border: 1px solid #EC3B53;
+    color: #EC3B53;
+    background-color: #fff;
+    margin-top: 2vw;
+    text-align: center;
+}
+.popup-content>button:hover{
+    background-color: #EC3B53;
+    color: #fff;
+}
+
+input{
+    border: 1px solid #000;
+    border-radius: 5px;
+    height: 2vw;
+}
+img{
+    display: flex;
+    width: 23vw;
+    height: 40vh;
+    padding-top: 40%;
+}
+#email>input{
+    width: 150%;
+}
+.password-container {
+    position: relative;
+    display: inline-block;
+}
+
+#mdp {
+    border: 1px solid #000;
+    border-radius: 5px;
+    height: 2vw;
+    padding-right: 15px; 
+    width: 100%;
+}
+
+#togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 0px; 
+    transform: translateY(-50%);
+    cursor: pointer;
+}

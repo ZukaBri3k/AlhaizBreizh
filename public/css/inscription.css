@@ -1,0 +1,58 @@
+
+
+.radio-container select{
+    margin-left: 10%;
+    border:2px solid #EC3B53;
+    border-radius: 25px;
+    padding : 20px;
+    font-size: 20px;
+    color: #EC3B53;
+    height: 6%;
+    background-color: white;
+  }
+  #genre{
+      width: 100px;
+  
+  }
+  body{
+      background-color: #f6f5ee   ;
+  }
+  
+  /* .private-info-section{
+      float: right;
+      float: top;
+  }    
+  
+  .public-info-section{
+      float: left ;
+  } */
+  
+  .gauche{
+      width: 70%;
+
+  }
+  
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+.private-info-section{
+    float: right;
+}
+
+#nom_logement_proposition_devis {
+    height: 8em;
+}
+
+#nom_logement_acceptation{
+    height: 8em;
+}
+
+#nom_logement_refus{
+    height: 8em;
+}
+#nom_logement_demande_devis{
+    height: 8em;
+}

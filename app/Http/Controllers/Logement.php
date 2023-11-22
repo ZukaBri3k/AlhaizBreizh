@@ -34,8 +34,8 @@ class Logement extends Controller
             "rien",
             "rien",
             "aucun",
-            [23],
-            ["eau"],
+            "23",
+            "eau",
             "photo.jpeg",
             "photo_sup.png",
             5,
@@ -74,6 +74,6 @@ class Logement extends Controller
         id_proprio_logement) values 
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-        ?, ?, ?, ?, ?, ?, ?, ?)', $tab);
+        ?, ?, ?, ?, ?, ?, ?)', $tab);
     }
 }

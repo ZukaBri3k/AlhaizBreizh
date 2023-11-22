@@ -57,3 +57,4 @@ Route::prefix('/account')->group(function () {
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
 });
 
+Route::get('test', [Logement::class, 'ajouterLogementDB']);

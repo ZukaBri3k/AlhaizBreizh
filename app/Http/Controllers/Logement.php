@@ -41,7 +41,7 @@ class Logement extends Controller
             5,
             5000,
             true,
-            1
+            2
         ];
 
         DB::insert('insert into logement (

@@ -18,7 +18,7 @@
 <a href="{{route('creer_logement')}}">Créer son logement
 </a>
 <br>
-<a href="{{route('devis_proprio')}}">Aller a sa messagerie propriétaire
+<a href="{{route('devis-proprio')}}">Aller a sa messagerie propriétaire
 </a>
 </form>
 </body>

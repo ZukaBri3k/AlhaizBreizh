@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Devis extends Controller
 {
@@ -26,6 +27,6 @@ class Devis extends Controller
     //---------------------
 
     public function creerDevisDB (Request $request) {
-        dd('test');
+        dd($request);
     }
 }

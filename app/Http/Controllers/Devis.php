@@ -22,4 +22,10 @@ class Devis extends Controller
     public function creationDevis () {
         return View('devis/index');
     }
+
+    //---------------------
+
+    public function creerDevisDB (Request $request) {
+        dd('test');
+    }
 }

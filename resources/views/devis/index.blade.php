@@ -30,7 +30,7 @@
             </div>
         </div>
         -->
-        <form id="myForm">
+        <form id="myForm" method='post' action="{{ route('enregDB') }}">
             <div class="header">
                 <div class="left-section">
                     <div class="company-name">Nom de l'entreprise</div>

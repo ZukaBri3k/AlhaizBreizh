@@ -51,9 +51,10 @@
                 @endforeach 
                 
                 <a href="#">Mot de passe oublié</a>
+                <button id="connexion" type="submit">Connexion</button>
             </form>
             
-            <button id="connexion" type="submit">Connexion</button>
+            
         </div>
        
 

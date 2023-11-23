@@ -8,7 +8,7 @@
 <body>
     <div class="container">
     <header>
-        <p>Place de la navbar</p>
+        <x-Navbar></x-Navbar>
     </header>
     <main>
         <section class="boutons">
@@ -173,7 +173,7 @@
     </main>
     </div>
     <footer>
-        <p>Place du footer</p>
+        <x-FooterClient></x-FooterClient>
     </footer>
 </body>
 <script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Messagerie</title>
-    <link rel="stylesheet" href="{{asset('css/styleM')}}">
+    <link rel="stylesheet" href="{{asset('css/styleM.css')}}">
 </head>
 <body>
     <div class="container">

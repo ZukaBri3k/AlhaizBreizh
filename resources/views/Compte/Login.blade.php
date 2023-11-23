@@ -52,6 +52,7 @@
                 
                 <a href="#">Mot de passe oublié</a>
             </form>
+            
             <button id="connexion" type="submit">Connexion</button>
         </div>
        

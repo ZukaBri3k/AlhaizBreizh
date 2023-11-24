@@ -16,11 +16,6 @@ class Navbar extends Component
      */
     public function __construct()
     {
-        if(Auth::check()) {
-            $this->role = Auth::user()->role;
-        } else {
-            $this->role = null;
-        }
         
     }
 
@@ -29,6 +24,12 @@ class Navbar extends Component
      */
     public function render(): View|Closure|string
     {
+        if(Auth::check()) {
+            $this->role = Auth::user()->role;
+        } else {
+            $this->role = null;
+        }
+
         return view('components.navbar', ["role" => $this->role]);
     }
 }

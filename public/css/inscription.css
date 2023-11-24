@@ -1,4 +1,6 @@
-
+*{
+    padding: 10px;
+}
 
 .radio-container select{
     margin-left: 10%;

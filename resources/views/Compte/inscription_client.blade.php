@@ -20,7 +20,7 @@
         <div class="gauche" >
             <div class="public-info-section">
             <h1>Infomation personnel public</h1>
-            <form action="traitement.php" method="post">
+            <form action="{{route ('myClientAccount')}}" method="get">
                 <div class="radio-container">
         
                 <label for="civ"></label>

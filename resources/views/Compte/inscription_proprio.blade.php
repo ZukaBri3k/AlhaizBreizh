@@ -109,10 +109,7 @@
                 <label for="codepostal"></label>
                 <input type="number" name="codepostal" id="codepostal" placeholder="code postal*" required>
                 <br></br>
-        
-                <label for="age"></label>
-                <input type="number" id="age" name="age" placeholder="Age*" required>  
-        
+                
                 <label for="date_naissance"></label>
                 <input type="date" id="date_naissance" name="date_naissance" placeholder="Date de date de naissance*" required>
                 <br></br>

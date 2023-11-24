@@ -5,7 +5,7 @@ footer {
 @font-face {
 	font-family: "Montserrat";
 	font-weight: 400;
-	src: url("fonts/Montserrat-Regular.woff2") format("woff2"),
+	src: url("{{asset('/fonts/Montserrat-Regular.woff2')}}") format("woff2");
 }
 
 footer hr {

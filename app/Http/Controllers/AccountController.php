@@ -52,7 +52,7 @@ class AccountController extends Controller
     }
 
     public function inscriptionClient() {
-        return View("Compte/inscription_proprio");
+        return View("Compte/inscription_client");
     }
 
     public function compteClient() {
@@ -68,7 +68,7 @@ class AccountController extends Controller
     
 
     public function inscriptionProprietaire() {
-        return View('Compte/inscription_client');
+        return View('Compte/inscription_proprio');
     }
 
     public function compteProprietaire() {

@@ -21,8 +21,8 @@ class Devis extends Controller
         return View('devis/devis-client');
     }
 
-    public function creationDevis () {
-        return View('devis/index');
+    public function creationDevis (Request $request) {
+        return View('devis/index', ['id_client' => $request->id_client]);
     }
 
     //---------------------

@@ -30,7 +30,7 @@
             </div>
         </div>
         -->
-        <form id="myForm" method='post' action="{{ route('devis-store', ['id_client' => $this->id_client]) }}">
+        <form id="myForm" method='post' action="{{ route('devis-store', ['id_client' => $id_client]) }}">
             @csrf
             <div class="header">
                 <div class="left-section">

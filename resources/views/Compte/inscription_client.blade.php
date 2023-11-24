@@ -20,12 +20,12 @@
         <div class="gauche" >
             <div class="public-info-section">
             <h1>Infomation personnel public</h1>
-            <form action="{{route ('myClientAccount')}}" method="get">
+            <form action="traitement.php" method="post">
                 <div class="radio-container">
         
                 <label for="civ"></label>
         
-                <select id="genre">
+                <select id="genre" >
                     <option selected>Genre</option>
                     <option value="Homme">Homme</option>
                     <option value="Femme">Femme</option>
@@ -83,9 +83,10 @@
         <br></br>
 
         <label for="nom_logement_demande_devis"></label>
-        <input type="text" name="nom_logement_demande_devis" id="nom_logement_demande_devis" placeholder="Je souhaiterais réserver le logement 
+        <textarea type="text" name="nom_logement_demande_devis" id="nom_logement_demande_devis" maxlength="500" spellcheck="true" rows="10" column="10" placeholder="Je souhaiterais réserver le logement 
         J’aimerais savoir si c’est possible 
-        d’avoir un devis.">
+        d’avoir un devis."></textarea>
+        <div class="counter"><span id="ton_compteur_demande_devis" >0</span>\500</div>
         <p>[nom logement]</p>
             <br></br>  
 
@@ -102,9 +103,10 @@
         <br></br>
 
         <label for="nom_logement_acceptation"></label>
-        <input type="text" name="nom_logement_acceptation" id="nom_logement_acceptation" placeholder="Je souhaiterais réserver le logement 
+        <textarea type="text" name="nom_logement_acceptation" id="nom_logement_acceptation" maxlength="500" spellcheck="true" rows="10" column="10" placeholder="Je souhaiterais réserver le logement 
         J’aimerais savoir si c’est possible 
-        d’avoir un devis.">
+        d’avoir un devis."></textarea>
+        <div class="counter"><span id="ton_compteur_accept_devis" >0</span>\500</div>
         <p>[nom logement]</p>   
             <br></br>  
 
@@ -127,10 +129,7 @@
                 <label for="codepostal"></label>
                 <input type="number" name="codepostal" id="codepostal" placeholder="code postal*" required>
                 <br></br>
-        
-                <label for="age"></label>
-                <input type="number" id="age" name="age" placeholder="Age*" required>  
-        
+                
                 <label for="date_naissance"></label>
                 <input type="date" id="date_naissance" name="date_naissance" placeholder="Date de date de naissance*" required>
                 <br></br>
@@ -142,7 +141,7 @@
                 <label for="motDePasse"></label>
                 <input type="password" id="motDePasse" name="motDePasse" placeholder="Mot de passe *" required>
                 <br><br>
-                
+            
                 <label for="confirmerMotDePasse"></label>
                 <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse" placeholder="confirmer Mot De Passe*"  required>
                 <br><br>
@@ -172,9 +171,12 @@
         <br></br>
 
         <label for="nom_logement_refus"></label>
-        <input type="text" name="nom_logement_refus" id="nom_logement_refus" placeholder="Je souhaiterais réserver le logement 
+        <textarea type="text" name="nom_logement_refus" id="nom_logement_refus" maxlength="500" spellcheck="true" rows="10" column="10" placeholder="Je souhaiterais réserver le logement 
         J’aimerais savoir si c’est possible 
-        d’avoir un devis.">
+        d’avoir un devis."></textarea>
+        <div class="counter"><span id="ton_compteur_refus_devis" >0</span>\500</div>
+        
+
         <p>[nom logement]</p>
             <br></br>  
 
@@ -194,5 +196,6 @@
 
         </footer>
     </form>
+    <script src="inscription_client.js"></script>
 </body>
 </html>

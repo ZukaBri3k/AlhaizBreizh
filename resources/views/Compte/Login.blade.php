@@ -25,25 +25,25 @@
                     
                     <div id="radio_btn_placement_client">
                     
-                        <input type="radio" id="radiobtn" name="radiobtn" value="client" class="radios"/>
-                        <label for="radiobtn" id="label_radio">Client</label>
+                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
+                        <label for="typeCompte" id="label_radio">Client</label>
                     
                     </div>
 
                     <div id="radio_btn_placement_proprio">
 
-                        <input type="radio" id="radiobtn" name="radiobtn" value="proprietaire" class="radios" />
-                        <label for="radiobtn">Propriétaire</label>    
+                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />
+                        <label for="typeCompte">Propriétaire</label>    
 
                     </div>
            
                 </div>
 
-                <label for="email">Adresse mail</label>
-                <input type="mail" name="email" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp" id="decal">Mot de Passe</label>
+                <label for="mail_pers">Adresse mail</label>
+                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
+                <label for="mdp_pers" id="decal">Mot de Passe</label>
                 <div class="password-container">
-                    <input type="password" name="mdp" id="mdp" required>
+                    <input type="password" name="mdp_pers" id="mdp" required>
                     <i class="far fa-eye" id="togglePassword"></i>
                 </div>
                 @foreach($errors->all() as $error)

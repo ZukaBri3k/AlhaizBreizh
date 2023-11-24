@@ -46,7 +46,7 @@ Route::prefix('/account')->group(function () {
     Route::get('client_pop_up/register', [AccountController::class, "inscriptionClientPopUp"])->name('inscription_client_pop');
     Route::get('proprietaire_pop_up/register', [AccountController::class, "inscriptionProprietairePopUp"])->name('inscription_proprio_pop');
     Route::get('proprietaire/register', [AccountController::class, "inscriptionProprietaire"])->name('inscription_proprio');
-    Route::g_et('client/register', [AccountController::class, "inscriptionClient"])->name('inscription_client');
+    Route::get('client/register', [AccountController::class, "inscriptionClient"])->name('inscription_client');
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Devis extends Controller
 {
@@ -21,5 +22,19 @@ class Devis extends Controller
 
     public function creationDevis () {
         return View('devis/index');
+    }
+
+    //---------------------
+
+    public function creerDevisDB (Request $request) {
+        $tab = [
+
+        ];
+
+        DB::insert('insert into devis (
+            nb_pers,
+            date_deb,
+            date_fin
+            ) values (?, ?)', [1, 'Dayle']);
     }
 }

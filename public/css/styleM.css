@@ -20,33 +20,23 @@ body {
 
 .boutons {
     align-items: center;
-    margin-left: 27%;
+    margin-left: 42%;
 }
 
 .bouton-creer {
     margin-top: 5%;
-    background-color: #ffffff;
-    color: #ff0000;
+    background-color: #fff;
+    color: #EC3B53;
     padding: 20px 40px; /* Augmentation de la taille du bouton */
     border: none;
     border-radius: 10px; /* Augmentation du rayon de la bordure */
     cursor: pointer;
-    border: 2px solid #ff0000;
-}
-
-.rechercher {
-    background-color: #ff0000;
-    color: #ffffff;
-    padding: 20px 40px; /* Augmentation de la taille du bouton */
-    border: none;
-    border-radius: 10px; /* Augmentation du rayon de la bordure */
-    cursor: pointer;
-    border: 2px solid #ffffff;
-    height: 70px; /* Augmentation de la hauteur du bouton */
-    line-height: 70px; /* Assurez-vous que la valeur de line-height est la même que la hauteur */
+    border: 2px solid #EC3B53;
+    margin-right: 15%;
 }
 
 h2 {
+    margin-left: 2000px;
     font-size: 36px; /* Augmentation de la taille de police */
     margin: 40px 0; /* Augmentation de la marge extérieure */
 }
@@ -66,28 +56,58 @@ h2 {
     cursor: pointer;
     background-color: #fff;
     margin-bottom: 4%;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px; /* Augmentation du rayon de la bordure */
+    height: 8%;
+    display: flex;
+    flex-direction: row;
 }
 
-.contact > p {
-    margin: 1%;
+.contact > .texte {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+}
+
+.date {
+    font-size: 90%;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding : 2%;
+}
+
+.boximg{
+    margin-left: 3%;
+}
+
+p5{
+    font-size: 70%;
+}
+.texte1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .message-box {
+    display: flex;
+    flex-direction: column-reverse;
     flex: 3;
-    padding: 40px; /* Augmentation de la marge intérieure */
+    padding: 40px;
     overflow-y: auto;
-    max-height: 600px; /* Augmentation de la hauteur maximale */
+    max-height: 800px;
+    height: 600px;
     background-color: #ebeae1;
     margin-right: 5%;
     margin-left: 2%;
-    border-radius: 10px; /* Augmentation du rayon de la bordure */
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2)
+    border: 5px solid #D6D6D6; /* Ajustez la largeur et la couleur de la bordure selon vos préférences */
+    border-radius: 10px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
+
 .message {
-    margin: 20px 0; /* Augmentation de la marge extérieure */
+    margin: 10px 0; /* Augmentation de la marge extérieure */
     padding: 20px; /* Augmentation de la marge intérieure */
     border-radius: 10px; /* Augmentation du rayon de la bordure */
     font-size: 18px; /* Augmentation de la taille de police */
@@ -97,27 +117,141 @@ h2 {
     background-color: #f0f0f0;
     text-align: left;
     clear: both;
-    padding: 20px; /* Augmentation de la marge intérieure */
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .message-sent {
-    background-color: #007BFF;
-    color: #fff;
+    background-color: #4BCBFF;
+    color: #000000;
     text-align: right;
     clear: both;
-    padding: 20px; /* Augmentation de la marge intérieure */
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px; /* Augmentation de la marge intérieure */
-    text-align: center;
-    font-size: 24px; /* Augmentation de la taille de police */
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    margin-left: auto; /* Ajout de cette propriété pour aligner le message-sent à droite */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 96vh;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.chat-box {
+    background-color: #386ca8;
+}
+
+.sms-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Utilisez justify-content pour l'espacement entre les éléments */
+    margin-top: 2%;
+}
+
+.message-input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 10px; /* Ajoutez une marge à droite pour l'espacement avec le bouton */
+    height: 140%;
+}
+
+.send-button {
+    background-color: #4BCBFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    width: 4em;
+    height: 140%;
+}
+
+
+.datereçu, .dateenvoyé {
+    font-size: 14px;
+    color: #777;
+    margin-top: 0px;
+}
+
+.datereçu {
+    text-align: left;
+    margin-right: 5px; /* Ajoutez une marge droite à la date */
+    display: flex;
+    align-items: center; /* Centrage vertical des éléments enfants */
+}
+
+.dateenvoyé {
+    text-align: right;
+    margin-left: auto; /* Ajout de cette propriété pour aligner la date à droite */
+    display: flex; /* Ajout de display flex */
+    align-items: center; /* Centrage vertical des éléments enfants */
+    flex-direction: row-reverse;
+}
+
+
+.moncercle {
+    background: #4BCBFF;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #4BCBFF;
+    margin-left: 5px; /* Ajustez la marge selon vos préférences */
+}
+
+.moncercle2 {
+    background: #fff;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #fff;
+    margin-right: 5px; /* Ajustez la marge selon vos préférences */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.pp{
+    border-radius: 50%;
+}
+
+.bords{
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin: 2%;
+    padding: 2%;
+    padding-right: 35%;
+}
+
+.rechercher {
+    padding: 12px 0; /* Augmentation de la marge intérieure */
+    cursor: pointer;
+    background-color: #EC3B53;
+    margin-bottom: 4%;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Augmentation du rayon de la bordure */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 8%;
+}
+
+.bouton-afficher-pdf{
+    margin-top: 5%;
+    background-color: #fff;
+    color: #EC3B53;
+    padding: 20px 40px; /* Augmentation de la taille du bouton */
+    border: none;
+    border-radius: 10px; /* Augmentation du rayon de la bordure */
+    cursor: pointer;
+    border: 2px solid #EC3B53;
+    margin-right: 15%;
 }

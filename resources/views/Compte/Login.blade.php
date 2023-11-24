@@ -19,31 +19,44 @@
             <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
             </a>
     
-            <form  action="{{ route('authenticate') }}" method="post">
+            <form action="{{ route('authenticate') }}" method="post">
                 @csrf
+                <div id="radios">
+                    
+                    <div id="radio_btn_placement_client">
+                    
+                        <input type="radio" id="radiobtn" name="radiobtn" value="client" class="radios"/>
+                        <label for="radiobtn" id="label_radio">Client</label>
+                    
+                    </div>
+
+                    <div id="radio_btn_placement_proprio">
+
+                        <input type="radio" id="radiobtn" name="radiobtn" value="proprietaire" class="radios" />
+                        <label for="radiobtn">Propriétaire</label>    
+
+                    </div>
+           
+                </div>
+
                 <label for="email">Adresse mail</label>
-                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp" name="mdp_pers" id="decal">Mot de Passe</label>
+                <input type="mail" name="email" id="email" placeholder="exemplemail@mail.exemple" required="">
+                <label for="mdp" id="decal">Mot de Passe</label>
                 <div class="password-container">
-                    <input type="password" name="mdp_pers" id="mdp" required>
+                    <input type="password" name="mdp" id="mdp" required>
                     <i class="far fa-eye" id="togglePassword"></i>
                 </div>
-                <div id="radios">
-                    <input type="radio" id="radiobtn" name="typeCompte" value="client" />
-                    <label for="radiobtn" id="label_radio">Client</label>
-                    <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" />
-                    <label for="radiobtn">Propriétaire</label>            
-                </div>
-
                 @foreach($errors->all() as $error)
                     {{ $error }}
-                @endforeach    
-
-                    <a href="#">Mot de passe oublié</a>
+                @endforeach 
+                
+                <a href="#">Mot de passe oublié</a>
                 <button id="connexion" type="submit">Connexion</button>
             </form>
+            
+            
         </div>
-        <img src="{{ asset('img/maison.png') }}" alt="IMAGE_MAISON">
+       
 
     </div>
 

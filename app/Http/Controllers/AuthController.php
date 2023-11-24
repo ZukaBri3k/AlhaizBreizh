@@ -16,11 +16,11 @@ class AuthController extends Controller
 
     public function authenticate(Request $request)
     {
-        dd($request);
+        //dd($request);
 
         $request->validate([
-            'email' => 'required|email',
-            'mdp' => 'required',
+            'mail_pers' => 'required|email',
+            'mdp_pers' => 'required',
             'typeCompte' => 'required'
         ]);
 

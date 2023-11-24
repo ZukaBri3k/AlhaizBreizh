@@ -33,7 +33,9 @@
                     <div id="radio_btn_placement_proprio">
 
                         <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />
-                        <label for="typeCompte" id="label_radio">Propriétaire</label>    
+
+                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
+
 
                     </div>
            
@@ -51,9 +53,10 @@
                 @endforeach 
                 
                 <a href="#">Mot de passe oublié</a>
+                <button id="connexion" type="submit">Connexion</button>
             </form>
             
-            <button id="connexion" type="submit">Connexion</button>
+            
         </div>
        
 

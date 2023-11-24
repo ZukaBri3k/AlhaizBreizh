@@ -30,7 +30,8 @@
             </div>
         </div>
         -->
-        <form id="myForm">
+        <form id="myForm" method='post' action="{{ route('devis-store') }}">
+            @csrf
             <div class="header">
                 <div class="left-section">
                     <div class="company-name">Nom de l'entreprise</div>
@@ -87,8 +88,8 @@
 
             <label for="heure_depart">Heure de départ :</label>
             <input type="time" id="heure_depart" name="heure_depart" value="10:00" required>
+            <button type="submit" id="genererPDF">Générer PDF</button>
         </form>
-        <button type="button" id="genererPDF">Générer PDF</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

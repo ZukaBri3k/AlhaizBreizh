@@ -74,24 +74,29 @@ input[type="radio"] {
     background-color: #fff;
     margin: 0;
   }
-input[type="radio"] {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid currentColor;
-  border-radius: 50%;
-  transform: translateY(-0.075em);
-}
+  input[type="radio"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+  }
   /*input[type="radio"]:focus {
     outline: max(2px, 0.15em) solid ;
     outline-offset: max(2px, 0.15em);
   }*/
   #label_radio{
     padding-left: 10px;
+  }
+  input[type="radio"] {
+    /* ...existing styles */
+  
+    display: grid;
+    place-content: center;
   }
  /* .radios:focus-within {
     color: red;

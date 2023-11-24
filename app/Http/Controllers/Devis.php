@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Devis extends Controller
 {
@@ -44,7 +45,8 @@ class Devis extends Controller
             3,
             false,
             $request->heure_arriv,
-            $request->heure_depart
+            $request->heure_depart,
+            Auth::user()->id
         ];
 
         DB::insert('insert into devis (
@@ -68,7 +70,7 @@ class Devis extends Controller
             id_client_devis
             ) values (
             ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?, ?, ?, ?, ?, ?
             )', $tab);
     }
 }

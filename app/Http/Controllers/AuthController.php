@@ -24,6 +24,7 @@ class AuthController extends Controller
         ]);
 
         if (auth()->attempt(['mail_pers' => $request->mail_pers, "password" => $request->mdp_pers])) {
+            dd('réussi');
             $request->session()->regenerate();
             if (in_array('1', explode(' ', auth()->user()->role)) && $request->typeCompte == 'client') {
                 return redirect()->route('myClientAccount');

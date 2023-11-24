@@ -1,7 +1,3 @@
-{{
-    use Illuminate\Support\Facades\Auth;
-    dd(Auth()::user());
-}}
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">

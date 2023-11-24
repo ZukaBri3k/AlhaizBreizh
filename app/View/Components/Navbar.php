@@ -16,7 +16,12 @@ class Navbar extends Component
      */
     public function __construct()
     {
-        $this->role = Auth::user()->role;
+        if(!Auth::guest) {
+            $this->role = Auth::user()->role;
+        } else {
+            $this->role = null;
+        }
+        
     }
 
     /**

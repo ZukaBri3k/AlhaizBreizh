@@ -11,14 +11,6 @@ body {
     font-size: 18px; /* Augmentation de la taille de police par défaut */
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px; /* Augmentation de la marge intérieure */
-    text-align: center;
-    font-size: 24px; /* Augmentation de la taille de police */
-}
-
 .main {
     max-width: 1000px; /* Augmentation de la largeur du contenu principal */
     margin: 0 auto;
@@ -143,19 +135,11 @@ p5{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-
-footer {
-    margin-top: 4%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px; /* Augmentation de la marge intérieure */
-    text-align: center;
-    font-size: 24px; /* Augmentation de la taille de police */
-}
-
 .container {
     display: flex;
     flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .chat-box {

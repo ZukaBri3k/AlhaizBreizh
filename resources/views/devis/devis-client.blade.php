@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <title>Messagerie</title>
     <link rel="stylesheet" href="{{asset('css/styleM.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
     <header>
         <x-Navbar></x-Navbar>
     </header>
+    <div class="container">
     <main>
         <section class="boutons">
             <form action="index.php" method="get" target="_blank">
                 <button id="refuserDevis" class="bouton-creer">Refuser le devis</button>
                 <button id="accepterDevis" class="bouton-creer">Accepter le devis</button>
             </form>
-            <h2>Votre messagerie avec BigPapoo<img class="pp" src="img/pp.png" alt="Avatar" class="avatar" width=5% height=5%></h2>
+            <h2>Votre messagerie avec BigPapoo<img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=5% height=5%></h2>
         </section>
         <section class="messaging">
             <div class="contact-list">
@@ -25,11 +26,11 @@
                         <p>Rechercher</p>
                     </div>
                     <div class="rechercherlogo">
-                        <img src="img/loupe.png" alt="loupe" alt="loupe" classe="loupe" width="70%" height="70%">
+                        <img src="{{asset ('img/loupe.png')}}" alt="loupe" alt="loupe" classe="loupe" width="70%" height="70%">
                     </div>
                 </div>
                 <div class="contact">
-                    <div class="boximg"><img class="pp" src="img/pp.png" alt="Avatar" class="avatar" width=100% height=100%></div>
+                    <div class="boximg"><img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=100% height=100%></div>
                     <div class="texte"> 
                         <p>Kyrill</p>
                         <br>
@@ -44,7 +45,7 @@
                     </div>
                 </div>
                 <div class="contact">
-                    <div class="boximg"><img class="pp" src="img/pp.png" alt="Avatar" class="avatar" width=100% height=100%></div>
+                    <div class="boximg"><img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=100% height=100%></div>
                     <div class="texte"> 
                         <p>BigPapoo</p>
                         <br>
@@ -59,7 +60,7 @@
                     </div>
                 </div>
                 <div class="contact">
-                    <div class="boximg"><img class="pp" src="img/pp.png" alt="Avatar" class="avatar" width=100% height=100%></div>
+                    <div class="boximg"><img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=100% height=100%></div>
                     <div class="texte"> 
                         <p>Fabienne</p>
                         <br>
@@ -74,7 +75,7 @@
                     </div>
                 </div>
                 <div class="contact">
-                    <div class="boximg"><img class="pp" src="img/pp.png" alt="Avatar" class="avatar" width=100% height=100%></div>
+                    <div class="boximg"><img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=100% height=100%></div>
                     <div class="texte"> 
                         <p>Nedelec</p>
                         <br>
@@ -92,7 +93,7 @@
             <div class="message-box">
                 <div class="sms-container">
                     <input type="text" class="message-input" placeholder="Saisissez ici votre message">
-                    <button class="send-button"><img src="img/Vector.png" alt="avion" width="50%" height="50%"></button>
+                    <button class="send-button"><img src="{{asset ('img/Vector.png')}}" alt="avion" width="50%" height="50%"></button>
                 </div>
                 <div class="dateenvoyé">
                 <?php
@@ -175,6 +176,7 @@
     <footer>
         <x-FooterClient></x-FooterClient>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 <script>
 document.getElementById("refuserDevis").addEventListener("click", function () {

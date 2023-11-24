@@ -74,5 +74,7 @@ class Devis extends Controller
             ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
             )', $tab);
+
+            return redirect->route('devis-proprio');
     }
 }

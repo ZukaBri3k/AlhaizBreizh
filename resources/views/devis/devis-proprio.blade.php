@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>Messagerie</title>
     <link rel="stylesheet" href="{{asset('css/styleM.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
     <header>
-        <x-Navbar></x-Navbar>
+        <p>Place de la navbar</p>
     </header>
     <main>
         <section class="boutons">
             <form action="index.php" method="get" target="_blank">
-                <button id="refuserDevis" class="bouton-creer">Refuser le devis</button>
-                <button id="accepterDevis" class="bouton-creer">Accepter le devis</button>
+                <button id="refuserDevis" class="bouton-creer">Créer un devis</button>
             </form>
             <h2>Votre messagerie avec BigPapoo<img class="pp" src="img/pp.png" alt="Avatar" class="avatar" width=5% height=5%></h2>
         </section>
@@ -112,7 +112,7 @@
                     <br>
                     Cordialement, [nom client].
                     Bonne journée.</p>
-                    <button id="afficherPdf" class="bouton-afficher-pdf">Afficher le devis</button>
+                    <button id="afficherPdf" class="bouton-afficher-pdf">Télécharger le devis</button>
                     <iframe id="pdfViewer" src="" style="display: none; width: 800px; height: 600px;"></iframe>
                     <button id="fermerPdf" class="bouton-afficher-pdf" style="display: none;">Fermer</button>
                 </div>
@@ -173,8 +173,9 @@
     </main>
     </div>
     <footer>
-        <x-FooterClient></x-FooterClient>
+        <p>Place du footer</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 <script>
 document.getElementById("refuserDevis").addEventListener("click", function () {

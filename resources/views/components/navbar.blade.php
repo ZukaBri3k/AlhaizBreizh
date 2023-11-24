@@ -169,12 +169,12 @@
             </ul>
             <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
                 <li class="navbar-item active">
-                    <a href="{{route('login')}}" class="nav-link" style="color: #F6F5EE">
+                    <a href="{{route('login')}}" class="nav-link" style="color: #EC3B53">
                         Connexion
                     </a>
                 </li>
                 <li class="navbar-item active">
-                    <a href="{{route('login')}}" class="nav-link" style="color: #F6F5EE">
+                    <a href="{{route('login')}}" class="nav-link" style="color: #EC3B53">
                         Inscription
                     </a>
                 </li>

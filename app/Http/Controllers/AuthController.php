@@ -18,12 +18,12 @@ class AuthController extends Controller
     {
 
         $request->validate([
-            'mail_pers' => 'required|email',
-            'mdp_pers' => 'required',
+            'email' => 'required|email',
+            'mdp' => 'required',
             'typeCompte' => 'required'
         ]);
 
-        if (auth()->attempt(['mail_pers' => $request->mail_pers, "password" => $request->mdp_pers])) {
+        if (auth()->attempt(['mail_pers' => $request->email, "password" => $request->mdp])) {
             $request->session()->regenerate();
             if (in_array('1', explode(' ', auth()->user()->role)) && $request->typeCompte == 'client') {
                 return redirect()->route('myClientAccount');

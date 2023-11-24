@@ -39,11 +39,11 @@
            
                 </div>
 
-                <label for="email">Adresse mail</label>
+                <label for="mail_pers">Adresse mail</label>
                 <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp" id="decal">Mot de Passe</label>
+                <label for="mdp_pers" id="decal">Mot de Passe</label>
                 <div class="password-container">
-                    <input type="password" name="password" id="mdp" required>
+                    <input type="password" name="mdp_pers" id="mdp" required>
                     <i class="far fa-eye" id="togglePassword"></i>
                 </div>
                 @foreach($errors->all() as $error)

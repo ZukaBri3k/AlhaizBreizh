@@ -27,6 +27,14 @@ class Devis extends Controller
     //---------------------
 
     public function creerDevisDB (Request $request) {
-        dd($request);
+        $tab = [
+
+        ];
+
+        DB::insert('insert into devis (
+            nb_pers,
+            date_deb,
+            date_fin
+            ) values (?, ?)', [1, 'Dayle']);
     }
 }

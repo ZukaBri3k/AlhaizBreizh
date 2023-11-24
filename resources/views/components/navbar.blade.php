@@ -168,9 +168,14 @@
                 </form>
             </ul>
             <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
-                <li class="navbar-item active dropdown">
+                <li class="navbar-item active">
                     <a href="{{route('login')}}" class="nav-link" style="color: #F6F5EE">
                         Connexion
+                    </a>
+                </li>
+                <li class="navbar-item active">
+                    <a href="{{route('login')}}" class="nav-link" style="color: #F6F5EE">
+                        Inscription
                     </a>
                 </li>
             </ul>

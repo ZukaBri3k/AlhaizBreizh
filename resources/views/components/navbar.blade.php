@@ -1,3 +1,4 @@
+@if ($role == 1)
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
@@ -58,3 +59,6 @@
     </div>
 </nav>
 <hr>
+@else
+<h1>Salut !</h1>
+@endif

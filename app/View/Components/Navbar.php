@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class Navbar extends Component
 {
+
+    public $role;
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        $role = Auth::user()->role;
-        dd($role);
+        $this->role = Auth::user()->role;
     }
 
     /**
@@ -23,6 +24,6 @@ class Navbar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.navbar');
+        return view('components.navbar', ["role" => $this->role]);
     }
 }

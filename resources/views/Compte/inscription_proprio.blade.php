@@ -86,11 +86,8 @@
                 <br></br>
         
                 <label for="nom_logement_proposition_devis"></label>
-                <input type="text" name="nom_logement_proposition_devis" id="nom_logement_proposition_devis" placeholder="Je souhaiterais réserver le logement
-
-                J’aimerais savoir si c’est possible 
-                d’avoir un devis.">
-                <p>[nom logement]</p>
+                <textarea type="text" name="nom_logement_proposition_devis" class="prep_message" id="nom_logement_proposition_devis" maxlength="500" spellcheck="true" rows="10" column="10" placeholder="Je souhaiterais réserver le logement.      J’aimerais savoir si c’est possible d’avoir un devis."></textarea>
+                <div class="counter"><span id="ton_compteur" >0</span>\500</div><p>[nom logement]</p>
                     <br></br>  
         
                 <label for="votre_nom_proposition_devis"></label>

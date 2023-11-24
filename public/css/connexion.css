@@ -92,6 +92,12 @@ input[type="radio"] {
   #label_radio{
     padding-left: 10px;
   }
+  input[type="radio"] {
+    /* ...existing styles */
+  
+    display: grid;
+    place-content: center;
+  }
  /* .radios:focus-within {
     color: red;
   }*/
@@ -103,7 +109,7 @@ input[type="radio"] {
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em red;
+    box-shadow: inset 1em 1em currentColor;
   }
   
   input[type="radio"]:checked::before {

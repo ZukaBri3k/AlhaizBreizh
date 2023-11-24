@@ -33,7 +33,7 @@
                     <div id="radio_btn_placement_proprio">
 
                         <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />
-                        <label for="typeCompte">Propriétaire</label>    
+                        <label for="typeCompte" id="label_radio">Propriétaire</label>    
 
                     </div>
            

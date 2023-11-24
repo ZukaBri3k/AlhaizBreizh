@@ -25,15 +25,17 @@
                     
                     <div id="radio_btn_placement_client">
                     
-                        <input type="radio" id="radiobtn" name="radiobtn" value="client" class="radios"/>
-                        <label for="radiobtn" id="label_radio">Client</label>
+                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
+                        <label for="typeCompte" id="label_radio">Client</label>
                     
                     </div>
 
                     <div id="radio_btn_placement_proprio">
 
                         <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />
-                        <label for="radiobtn" id="label_radio">Propriétaire</label>    
+
+                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
+
 
                     </div>
            

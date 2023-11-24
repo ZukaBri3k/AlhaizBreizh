@@ -24,6 +24,7 @@ class Navbar extends Component
      */
     public function render(): View|Closure|string
     {
+        dd("test");
         if(Auth::check()) {
             $this->role = Auth::user()->role;
         } else {

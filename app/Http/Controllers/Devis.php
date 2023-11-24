@@ -46,6 +46,7 @@ class Devis extends Controller
             false,
             $request->heure_arriv,
             $request->heure_depart,
+            $request->id_client,
             Auth::user()->id
         ];
 
@@ -67,10 +68,11 @@ class Devis extends Controller
             etat_devis,
             heure_arriv,
             heure_depart,
-            id_client_devis
+            id_client_devis,
+            id_proprio
             ) values (
             ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
             )', $tab);
     }
 }

@@ -66,8 +66,8 @@
                 <input type="text" id="pays" name="pays" placeholder="Pays* " required>
                 <br></br>
         
-                <label for="photoProfil">Inserer une Photo de profil* :</label>
-                <input type="file" id="photoProfil" name="photoProfil" accept="image/*">
+                <label for="photo_De_Profil">Inserer une Photo de profil* :</label>
+                <input type="file" id="photo_de_Profil" name="photo_de_Profil" accept="image/*">
                 <br><br>
             </div>
         

@@ -22,7 +22,7 @@ body {
 
 
 .carousel-control-prev-icon {
-    background-image: url("{{asset(/img/prev.png)}}") !important;
+    background-image: url("{{asset('/img/prev.png')}}") !important;
     width: 51% !important;
     height: 16% !important;
 }
@@ -50,13 +50,11 @@ body {
     background-color: #EC3B53 !important;
 }
 
-.carousel-control-next {
+.carousel-control-prev, .carousel-control-next {
     height: 60% !important;
     width: 10% !important;
-}
-.carousel-control-prev {
-    height: 60% !important;
-    width: 10% !important;
+    margin-top: 10% !important;
+    margin-bottom: 1% !important;
 }
 
 .carou {

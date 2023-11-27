@@ -179,7 +179,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 <script>
-document.getElementById("refuserDevis").addEventListener("click", function () {
+/*document.getElementById("refuserDevis").addEventListener("click", function () {
     // Effectuez ici toute action nécessaire, par exemple, enregistrez le refus du devis dans la base de données.
     // Redirigez ensuite l'utilisateur vers proprio.php avec un message.
     window.location.href = 'proprio2.php?refus=1';
@@ -189,7 +189,7 @@ document.getElementById("accepterDevis").addEventListener("click", function () {
     // Effectuez ici toute action nécessaire, par exemple, enregistrez le refus du devis dans la base de données.
     // Redirigez ensuite l'utilisateur vers proprio.php avec un message.
     window.location.href = 'proprio2.php?accept=1';
-});
+});*/
 
 document.getElementById("afficherPdf").addEventListener("click", function () {
     // Affichez le PDF en utilisant l'iframe

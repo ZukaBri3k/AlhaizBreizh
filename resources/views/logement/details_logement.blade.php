@@ -64,7 +64,7 @@
     </div>
     <div class="second">
       <div>
-        <h1>{{ $logement->libelle_logement }} {{$logement->}}[n° du logement (id)] et [description rapide]</h1>
+        <h1>{{ $logement->libelle_logement }} n°{{ $logement->id_logement }} / {{ $logement->accroche_logement }}</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           <div class="rectangle">
@@ -114,11 +114,7 @@
           </div>
       </div>
       <h1>Description :</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-        
-        culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>{{ $logement->descriptif_logement }}</p>
         <p>Paypal : Autorisé</p>
         <p>Condiditon d'annulation :</p>
         <h5>Flexibles :</h5>
@@ -126,10 +122,16 @@
         <hr>
         <h1>Logements similaires :</h1>
         <p>Carte de 2 logements</p>
+        <h1>Nombre de chambre, lit et salle de bain :</h1>
+        <p>{{ $logement->nb_chambre_logement }} Chambre(s)</p>
+        @for ($i = 0; $i < $logement->nb_chambre_logement; $i++)
+          <p>Chambre $i : {{}}</p>
+        @endfor
     </div>
       <div class="leStick">
           <p>à partir de : [prix] / mois</p>
-          <p>Propriétaire : [nomProprio]</p>
+          <p>Propriétaire : {{DB::select('select nom_personne from Personne where id_personne = {{ $logement->id_proprio_logement }}')}}</p>
+          <p>Nombre de personne max : {{ $logement->nb_personne_max }}</p>
           <ul>
             <li class="ville">Ville : [ville]</li>
           </ul>

@@ -136,7 +136,7 @@ input[type="radio"] {
     display: flex;
     flex-direction: column;
 }
-h1{
+.popup h1{
     font-size: 64px;
     font-family: 'prociono';
 }

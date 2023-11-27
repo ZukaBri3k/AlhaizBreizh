@@ -9,6 +9,7 @@
 </head>
 <body>
     <x-Navbar></x-Navbar>
+    <h1>{{ $logement->libelle_logement }}</h1>
     <!--Code pour le carrousel-->
     <div class="carou">
       <div id="carouselExampleIndicators" class="carousel slide">

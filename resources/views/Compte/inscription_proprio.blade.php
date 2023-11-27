@@ -13,9 +13,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
 
-    <header>
-        @include('components.navbar')
-    </header>
+<header>
+    <x-Navbar></x-Navbar>
+</header>
 <main>
     <h1>Inscription propriétaire</h1>
     <div class="wrapper">
@@ -86,11 +86,8 @@
                 <br></br>
         
                 <label for="nom_logement_proposition_devis"></label>
-                <input type="text" name="nom_logement_proposition_devis" id="nom_logement_proposition_devis" placeholder="Je souhaiterais réserver le logement
-
-                J’aimerais savoir si c’est possible 
-                d’avoir un devis.">
-                <p>[nom logement]</p>
+                <textarea type="text" name="nom_logement_proposition_devis" class="prep_message" id="nom_logement_proposition_devis" maxlength="500" spellcheck="true" rows="10" column="10" placeholder="Je souhaiterais réserver le logement.      J’aimerais savoir si c’est possible d’avoir un devis."></textarea>
+                <div class="counter"><span id="ton_compteur" >0</span>\500</div><p>[nom logement]</p>
                     <br></br>  
         
                 <label for="votre_nom_proposition_devis"></label>
@@ -112,10 +109,7 @@
                 <label for="codepostal"></label>
                 <input type="number" name="codepostal" id="codepostal" placeholder="code postal*" required>
                 <br></br>
-        
-                <label for="age"></label>
-                <input type="number" id="age" name="age" placeholder="Age*" required>  
-        
+
                 <label for="date_naissance"></label>
                 <input type="date" id="date_naissance" name="date_naissance" placeholder="Date de date de naissance*" required>
                 <br></br>
@@ -139,11 +133,11 @@
                 <input type="email" id="email" name="email" placeholder="email*" required>
                 <br><br>
         
-                <label for="identité_recto">Inserer une Photo de profil* :</label>
+                <label for="identité_recto">Inserer une Photo de votre carte d'identité_recto* :</label>
                 <input type="file" id="identité_recto" name="identité_recto" accept="image/*">
                 <br><br>
         
-                <label for="identité_verso">Inserer une Photo de profil* :</label>
+                <label for="identité_verso">Inserer une Photo de votre carte d'identité_verso* :</label>
                 <input type="file" id="identité_verso" name="identité_verso" accept="image/*">
                 <br><br>
         

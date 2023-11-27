@@ -25,7 +25,7 @@
                     
                     <div id="radio_btn_placement_client">
                     
-                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/
+                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
 
                         <label for="typeCompte" id="label_radio">Client</label>
 

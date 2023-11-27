@@ -57,3 +57,7 @@ Route::prefix('/account')->group(function () {
 });
 
 Route::get('test', [Logement::class, 'ajouterLogementDB']);
+
+Route::get('user-refuser/{id}',[Devis::class,'refusDevis'])->name('devis.refuser');
+
+Route::get('user-delete/{id}',[Devis::class,'delete'])->name('devis.valider');

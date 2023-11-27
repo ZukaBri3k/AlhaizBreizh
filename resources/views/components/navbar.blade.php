@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{assets('css/main.css')}}">
+<link rel="stylesheet" href="{{asset('css/main.css')}}">
 @auth
 @if ($role == 1)
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >

@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
 @auth
 @if ($role == 1)
+<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
@@ -120,6 +121,7 @@
 
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
+<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">

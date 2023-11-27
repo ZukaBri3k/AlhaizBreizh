@@ -115,34 +115,41 @@
       </div>
       <h1>Description :</h1>
       <p>{{ $logement->descriptif_logement }}</p>
-        <p>Paypal : Autorisé</p>
+      @if ($paypal[0]->paypal_proprio == "")
+        <p>Le propriétaire na pas paypal</p>
+      @else
+        <p>Le propriétaire a paypal</p>
+      @endif
         <p>Condiditon d'annulation :</p>
         <h5>Flexibles :</h5>
         <p>Remboursement intégral jusqu’à 3 jours avant la date d’arrivée</p>
-        <hr>
-        <h1>Logements similaires :</h1>
-        <p>Carte de 2 logements</p>
         <h1>Nombre de chambre, lit et salle de bain :</h1>
         <p>{{ $logement->nb_chambre_logement }} Chambre(s)</p>
         @for ($i = 0; $i < $logement->nb_chambre_logement; $i++)
-          <p>Chambre $i : {{}}</p>
+          <p>Chambre n°$i</p>
+          <p>Elle possède : {{ chambre->nb_lit_simple[$i] }} lit(s) simple(s)</p>
+          <p>Elle possède : {{ chambre->nb_lit_double[$i] }} lit(s) double(s)</p>
+          <p>Détail des lits de la chambre : {{ chambre->details_lit[$i] }}</p>
         @endfor
+        <hr>
+        <h1>Logements similaires :</h1>
+        <p>Carte de 2 logements</p>
     </div>
       <div class="leStick">
-          <p>à partir de : [prix] / mois</p>
-          <p>Propriétaire : {{DB::select('select nom_personne from Personne where id_personne = {{ $logement->id_proprio_logement }}')}}</p>
+          <p>à partir de : {{ $logement->prix_logement }} / mois</p>
+          <p>Propriétaire : {{ $nom_proprio->nom_pers }}</p>
           <p>Nombre de personne max : {{ $logement->nb_personne_max }}</p>
           <ul>
-            <li class="ville">Ville : [ville]</li>
+            <li class="ville">Ville : {{ $logement->ville_logement }}</li>
           </ul>
           <ul>
             <li class="calendar">Disponibilité : dès maintenant ou pas disponible maintenant</li>
           </ul>
           <ul>
-            <li class="dimension">Dimension : [dimension] m²</li>
+            <li class="dimension">Dimension : {{ $logement->surface_habitable_logement }} m²</li>
           </ul>
           <ul>
-            <li class="adresse">Adresse : [adresse]</li>
+            <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
           <button type="button">Contacter le propriétaire</button>
       </div>

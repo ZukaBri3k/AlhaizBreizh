@@ -65,7 +65,7 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="#" class="navbar-brand logo_d">
-            <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100px;"/>
+            <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="#" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
@@ -128,7 +128,7 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="#" class="navbar-brand logo_d">
-            <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100px;"/>
+            <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="#" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>

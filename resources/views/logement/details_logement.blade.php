@@ -9,7 +9,6 @@
 </head>
 <body>
     <x-Navbar></x-Navbar>
-    <h1>{{ $logement->libelle_logement }}</h1>
     <!--Code pour le carrousel-->
     <div class="carou">
       <div id="carouselExampleIndicators" class="carousel slide">
@@ -65,7 +64,7 @@
     </div>
     <div class="second">
       <div>
-        <h1>[Nom du logement] [n° du logement (id)] et [description rapide]</h1>
+        <h1>{{ $logement->libelle_logement }} {{$logement->}}[n° du logement (id)] et [description rapide]</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           <div class="rectangle">

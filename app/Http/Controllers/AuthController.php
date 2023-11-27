@@ -33,7 +33,7 @@ class AuthController extends Controller
             } else if (auth()->user()->role == '3') {
                 return redirect()->route('myAdminAccount');
             } else {
-                logout();
+                $this->logout();
             }
         }
         return redirect()->back()->withErrors("Les identifiants sont incorrectes");

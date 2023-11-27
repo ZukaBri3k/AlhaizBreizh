@@ -78,7 +78,7 @@ class Logement extends Controller
     }
 
     public function getInfoLogement(Request $request) {
-        return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0]]);
-        //dd(DB::select('select * from logement where id_logement = ?', [intval($request->id)]));
+        //return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0]]);
+        dd(DB::select('select * from logement where id_logement = ?', [intval($request->id)]));
     } 
 }

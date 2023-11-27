@@ -14,8 +14,8 @@
     <main>
         <section class="boutons">
             <form action="index.php" method="get" target="_blank">
-                <button id="refuserDevis" class="bouton-creer">Refuser le devis</button>
-                <button id="accepterDevis" class="bouton-creer">Accepter le devis</button>
+                <button id="refuserDevis" class="bouton-creer"><a href="{{ route('devis.refuser', $id) }}">Refuser le devis</button>
+                <button id="accepterDevis" class="bouton-creer"><a href="{{ route('devis.valider', $id) }}">Accepter le devis</button>
             </form>
             <h2>Votre messagerie avec BigPapoo<img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=5% height=5%></h2>
         </section>

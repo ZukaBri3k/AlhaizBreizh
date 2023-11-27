@@ -127,9 +127,9 @@
         <p>{{ $logement->nb_chambre_logement }} Chambre(s)</p>
         @for ($i = 0; $i < $logement->nb_chambre_logement; $i++)
           <p>Chambre n°$i</p>
-          <p>Elle possède : {{ chambre->nb_lit_simple[$i] }} lit(s) simple(s)</p>
-          <p>Elle possède : {{ chambre->nb_lit_double[$i] }} lit(s) double(s)</p>
-          <p>Détail des lits de la chambre : {{ chambre->details_lit[$i] }}</p>
+          <p>Elle possède : {{ $chambre->nb_lit_simple[$i] }} lit(s) simple(s)</p>
+          <p>Elle possède : {{ $chambre->nb_lit_double[$i] }} lit(s) double(s)</p>
+          <p>Détail des lits de la chambre : {{ $chambre->details_lit[$i] }}</p>
         @endfor
         <hr>
         <h1>Logements similaires :</h1>

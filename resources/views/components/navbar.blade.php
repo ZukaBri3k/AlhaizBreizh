@@ -51,7 +51,7 @@
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
                         <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
-                        <li><a href="{{ route('login') }}" class="dropdown-item">Propriétaire</a></li>
+                        <li><a href="{{ route('login') }}" class="dropdown-item">Mon propriétaire</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
                 </li>
@@ -112,7 +112,7 @@
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-proprio')}}" class="dropdown-item">Messages</a></li>
                         <li><a href="{{ route('myProprietaireAccount')}}" class="dropdown-item">Profile</a></li>
-                        <li><a href="{{ route('login') }}" class="dropdown-item">Propriétaire</a></li>
+                        <li><a href="{{ route('login') }}" class="dropdown-item">Mon compte client</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
                 </li>

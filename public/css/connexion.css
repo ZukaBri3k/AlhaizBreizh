@@ -159,7 +159,7 @@ input{
     height: 2vw;
     width: 100%;
 }
-img{
+.popup img{
     display: flex;
     width: 23vw;
     height: 40vh;

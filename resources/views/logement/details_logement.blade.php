@@ -115,7 +115,7 @@
       </div>
       <h1>Description :</h1>
       <p>{{ $logement->descriptif_logement }}</p>
-      @if ($paypal == null)
+      @if ($paypal == "")
         <p>Le propriétaire n'a pas paypal</p>
       @else
         <p>Le propriétaire a paypal</p>

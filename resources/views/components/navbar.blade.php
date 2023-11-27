@@ -126,7 +126,6 @@
 @endauth
 @guest
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
-<link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">

@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
-<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 @auth
 @if ($role == 1)
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
@@ -126,6 +125,7 @@
 @endif
 @endauth
 @guest
+<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
@@ -171,7 +171,7 @@
             </ul>
             <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
                 <li class="navbar-item active">
-                    <a href="{{route('login')}}" class="nav-link" style="color: #EC3B53">
+                    <a href="#" class="nav-link" style="color: #EC3B53">
                         Connexion
                     </a>
                 </li>

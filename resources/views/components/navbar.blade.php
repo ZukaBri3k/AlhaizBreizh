@@ -126,6 +126,7 @@
 @endauth
 @guest
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
+<link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
@@ -171,7 +172,7 @@
             </ul>
             <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
                 <li class="navbar-item active">
-                    <a href="#" class="nav-link" style="color: #EC3B53">
+                    <a href="#" class="nav-link" id="connexionButton" style="color: #EC3B53">
                         Connexion
                     </a>
                 </li>
@@ -231,7 +232,7 @@
                 @endforeach 
                 
                 <a href="#">Mot de passe oublié</a>
-                <button id="connexionButton" type="submit">Connexion</button>
+                <button id="connexion" type="submit">Connexion</button>
             </form>
             
             

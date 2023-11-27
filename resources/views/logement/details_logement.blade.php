@@ -115,12 +115,12 @@
       </div>
       <h1>Description :</h1>
       <p>{{ $logement->descriptif_logement }}</p>
-      @if ($paypal == "")
+      <!-- @if ($paypal == "")
         <p>Le propriétaire n'a pas paypal</p>
       @else
         <p>Le propriétaire a paypal</p>
       @endif
-        <p>Condiditon d'annulation :</p>
+        <p>Condiditon d'annulation :</p> -->
         <h5>Flexibles :</h5>
         <p>Remboursement intégral jusqu’à 3 jours avant la date d’arrivée</p>
         <h1>Nombre de chambre, lit et salle de bain :</h1>

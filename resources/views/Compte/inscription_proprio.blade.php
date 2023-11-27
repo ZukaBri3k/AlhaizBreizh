@@ -133,12 +133,12 @@
                 <input type="email" id="email" name="email" placeholder="email*" required>
                 <br><br>
         
-                <label for="identité_recto">Inserer une Photo de votre carte d'identité_recto* :</label>
-                <input type="file" id="identité_recto" name="identité_recto" accept="image/*">
+                <label for="piece_id_proprio_recto">Inserer une Photo de profil* :</label>
+                <input type="file" id="piece_id_proprio_recto" name="piece_id_proprio_recto" accept="image/*">
                 <br><br>
         
-                <label for="identité_verso">Inserer une Photo de votre carte d'identité_verso* :</label>
-                <input type="file" id="identité_verso" name="identité_verso" accept="image/*">
+                <label for="piece_id_proprio_verso">Inserer une Photo de profil* :</label>
+                <input type="file" id="piece_id_proprio_verso" name="piece_id_proprio_verso" accept="image/*">
                 <br><br>
         
             </div>

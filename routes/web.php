@@ -20,7 +20,7 @@ use \App\Http\Controllers\Devis;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('accueil');
 
 Route::prefix('/devis')->group(function () {
 

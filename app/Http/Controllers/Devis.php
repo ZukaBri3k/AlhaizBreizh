@@ -26,11 +26,13 @@ class Devis extends Controller
     }
 
     public function validationDevis (Request $request) {
-        dd(DB::update('update devis set etat_devis = true where ref_devis = 6'));
+        DB::update('update devis set etat_devis = true where ref_devis = 6');
+        return View("devis/devis-client");
     }
 
     public function refusDevis (Request $request) {
-        dd(DB::update('update devis set etat_devis = false where ref_devis = 6'));
+        DB::update('update devis set etat_devis = false where ref_devis = 6');
+        return View("devis/devis-client");
     }
 
     //---------------------

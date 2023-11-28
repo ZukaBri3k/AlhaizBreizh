@@ -121,10 +121,12 @@
         <h1>Nombre de chambre, lit et salle de bain :</h1>
         <p>{{ $logement->nb_chambre_logement }} Chambre(s)</p>
         @foreach ($chambre as $values)
-          <p>Chambre n°$i</p>
+        <div class="chambre">
+          <p>Chambre n°</p>
           <p>Elle possède : {{ $values->nb_lit_simple }} lit(s) simple(s)</p>
           <p>Elle possède : {{ $values->nb_lit_double }} lit(s) double(s)</p>
           <p>Détail des lits de la chambre : {{ $values->details_lit }}</p>
+        </div>
         @endforeach
         @if ($paypal[0]->paypal_proprio == null)
           <p>Le propriétaire n'a pas paypal</p>

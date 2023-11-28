@@ -83,6 +83,6 @@ class Logement extends Controller
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio)]), 
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio)])]); */
-        dd(DB::select('select nom_pers from personnes where id = ?', [2]));
+        dd(DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [2]));
     } 
 }

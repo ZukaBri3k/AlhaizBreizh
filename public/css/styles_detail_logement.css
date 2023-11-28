@@ -1,19 +1,19 @@
 @font-face {
 	font-family: 'Montserrat';
-    src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");
+    src: url("/public/fonts/Montserrat-Regular.woff2") format("woff2");
     font-weight: 500;
 }
 
 @font-face {
 	font-family: "Montserrat-Light";
 	font-weight: 400;
-    src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");
+    src: url("/public/fonts/Montserrat-Light.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "RocaOne";
 	font-weight: 400;
-    src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");
+    src: url("/public/fonts/RocaOne-Rg.woff2") format("woff2");
 }
 
 body {
@@ -22,13 +22,13 @@ body {
 
 
 .carousel-control-prev-icon {
-    background-image: url("{{asset('/img/prev.png')}}") !important;
+    background-image: url("/public/img/prev.png") !important;
     width: 51% !important;
     height: 16% !important;
 }
 
 .carousel-control-next-icon {
-    background-image: url("{{asset('/img/next.png')}}") !important;
+    background-image: url("/public/img/next.png") !important;
     width: 51% !important;
     height: 16% !important;
 }
@@ -148,28 +148,28 @@ body {
 }
 
 .calendar::before {
-    content: url("{{asset('/img/calendar.png)}}");
+    content: url("public/img/calendar.png");
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -12%;
 }
 
 .ville::before {
-    content: url("{{asset('/img/ville.png)}}");
+    content: url("public/img/ville.png");
     vertical-align: middle;
     margin-right: 4%;
     margin-left: -9%;
 }
 
 .adresse::before {
-    content: url("{{asset('/img/adresse.png)}}");
+    content: url("public/img/adresse.png");
     vertical-align: middle;
     margin-right: 5%;
     margin-left: -9%;
 }
 
 .dimension::before {
-    content: url("{{asset('/img/dimension.png)}}");
+    content: url("public/img/dimension.png");
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -9%;

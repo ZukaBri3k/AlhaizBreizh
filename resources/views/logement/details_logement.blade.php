@@ -126,13 +126,18 @@
           <p>Elle possède : {{ $values->nb_lit_double }} lit(s) double(s)</p>
           <p>Détail des lits de la chambre : {{ $values->details_lit }}</p>
         @endforeach
+        @if ($paypal->paypal_proprio == null)
+          <p>Le propriétaire n'a pas paypal</p>
+        @else
+          <p>Le propriétaire a paypal</p>
+        @endif
         <hr>
         <h1>Logements similaires :</h1>
         <p>Carte de 2 logements</p>
     </div>
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} / mois</p>
-          <p>Propriétaire : {{ $nom_proprio[0]}}</p>
+          <p>Propriétaire : {{ $nom_proprio->nom_pers }}</p>
           <p>Nombre de personne max : {{ $logement->nb_personne_max }}</p>
           <ul>
             <li class="ville">Ville : {{ $logement->ville_logement }}</li>

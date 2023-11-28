@@ -22,13 +22,13 @@ body {
 
 
 .carousel-control-prev-icon {
-    background-image: url("/public/img/prev.png") !important;
+    background-image: url("/img/prev.png") !important;
     width: 51% !important;
     height: 16% !important;
 }
 
 .carousel-control-next-icon {
-    background-image: url("/public/img/next.png") !important;
+    background-image: url("/img/next.png") !important;
     width: 51% !important;
     height: 16% !important;
 }

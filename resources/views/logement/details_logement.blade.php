@@ -137,7 +137,7 @@
     </div>
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} / mois</p>
-          <p>Propriétaire : {{ $nom_proprio }}</p>
+          <p>Propriétaire : {{ $nom_proprio->nom_pers }}</p>
           <p>Nombre de personne max : {{ $logement->nb_personne_max }}</p>
           <ul>
             <li class="ville">Ville : {{ $logement->ville_logement }}</li>

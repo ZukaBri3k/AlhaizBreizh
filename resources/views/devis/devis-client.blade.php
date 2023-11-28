@@ -13,6 +13,7 @@
     <div class="container">
     <main>
         <section class="boutons">
+            <button id="demanderDevis" class="bouton-creer"><a href="{{ route('devis.demander') }}">Demander le devis</a></button>
             <button id="refuserDevis" class="bouton-creer"><a href="{{ route('devis.refuser') }}">Refuser le devis</a></button>
             <button id="accepterDevis" class="bouton-creer"><a href="{{ route('devis.valider') }}">Accepter le devis</a></button>
             <h2>Votre messagerie avec BigPapoo<img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=5% height=5%></h2>

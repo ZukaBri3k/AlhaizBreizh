@@ -148,28 +148,28 @@ body {
 }
 
 .calendar::before {
-    content: url("public/img/calendar.png");
+    content: url("/img/calendar.png");
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -12%;
 }
 
 .ville::before {
-    content: url("public/img/ville.png");
+    content: url("/img/ville.png");
     vertical-align: middle;
     margin-right: 4%;
     margin-left: -9%;
 }
 
 .adresse::before {
-    content: url("public/img/adresse.png");
+    content: url("/public/img/adresse.png");
     vertical-align: middle;
     margin-right: 5%;
     margin-left: -9%;
 }
 
 .dimension::before {
-    content: url("public/img/dimension.png");
+    content: url("/public/img/dimension.png");
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -9%;

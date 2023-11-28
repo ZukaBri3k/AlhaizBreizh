@@ -1,19 +1,19 @@
 @font-face {
 	font-family: 'Montserrat';
-    src: url("/public/fonts/Montserrat-Regular.woff2") format("woff2");
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
     font-weight: 500;
 }
 
 @font-face {
 	font-family: "Montserrat-Light";
 	font-weight: 400;
-    src: url("/public/fonts/Montserrat-Light.woff2") format("woff2");
+    src: url("/fonts/Montserrat-Light.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "RocaOne";
 	font-weight: 400;
-    src: url("/public/fonts/RocaOne-Rg.woff2") format("woff2");
+    src: url("/fonts/RocaOne-Rg.woff2") format("woff2");
 }
 
 body {

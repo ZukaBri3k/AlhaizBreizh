@@ -126,7 +126,7 @@
           <p>Elle possède : {{ $values->nb_lit_double }} lit(s) double(s)</p>
           <p>Détail des lits de la chambre : {{ $values->details_lit }}</p>
         @endforeach
-        @if ($paypal->paypal_proprio == null)
+        @if ($paypal[0]->paypal_proprio == null)
           <p>Le propriétaire n'a pas paypal</p>
         @else
           <p>Le propriétaire a paypal</p>

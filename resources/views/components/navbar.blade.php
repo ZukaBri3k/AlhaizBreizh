@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
 @auth
 @if ($role == 1)
+<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
@@ -52,7 +53,7 @@
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
                         <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
-                        <li><a href="{{ route('login') }}" class="dropdown-item">Mon compte propriétaire</a></li>
+                        <li><a href="#" class="dropdown-item" id="connexionButton">Mon compte propriétaire</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
                 </li>
@@ -61,7 +62,66 @@
     </div>
 </nav>
 <hr>
+<div id="popup" class="popup">
+        
+        <div class="popup-content">
+            <span class="close" id="closeButton">&times;</span>
+            <h1>Connexion</h1>
+            <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
+            </a>
+    
+            <form action="{{ route('authenticate') }}" method="post">
+                @csrf
+                <div id="radios">
+                    
+                    <div id="radio_btn_placement_client">
+                    
+                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
+
+                        <label for="typeCompte" id="label_radio">Client</label>
+
+                    
+                    </div>
+
+                    <div id="radio_btn_placement_proprio">
+
+                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />   
+
+
+                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
+
+
+
+                    </div>
+           
+                </div>
+
+                <label for="mail_pers">Adresse mail</label>
+                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
+                <label for="mdp_pers" id="decal">Mot de Passe</label>
+                <div class="password-container">
+                    <input type="password" name="mdp_pers" id="mdp" required>
+                    <i class="far fa-eye" id="togglePassword"></i>
+                </div>
+                @foreach($errors->all() as $error)
+                    {{ $error }}
+                @endforeach 
+                
+                <a href="#">Mot de passe oublié</a>
+                <button id="connexion" type="submit">Connexion</button>
+            </form>
+            
+            
+        </div>
+       
+
+    </div>
+
+    <div id="blur-background" class="blur-background"></div>
+
+    <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
+<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
@@ -113,7 +173,7 @@
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
                         <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
-                        <li><a href="{{ route('login') }}" class="dropdown-item">Mon Compte Client</a></li>
+                        <li><a href="#" class="dropdown-item" id="connexionButton">Mon Compte Client</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
                 </li>
@@ -122,6 +182,64 @@
     </div>
 </nav>
 <hr>
+<div id="popup" class="popup">
+        
+        <div class="popup-content">
+            <span class="close" id="closeButton">&times;</span>
+            <h1>Connexion</h1>
+            <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
+            </a>
+    
+            <form action="{{ route('authenticate') }}" method="post">
+                @csrf
+                <div id="radios">
+                    
+                    <div id="radio_btn_placement_client">
+                    
+                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
+
+                        <label for="typeCompte" id="label_radio">Client</label>
+
+                    
+                    </div>
+
+                    <div id="radio_btn_placement_proprio">
+
+                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />   
+
+
+                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
+
+
+
+                    </div>
+           
+                </div>
+
+                <label for="mail_pers">Adresse mail</label>
+                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
+                <label for="mdp_pers" id="decal">Mot de Passe</label>
+                <div class="password-container">
+                    <input type="password" name="mdp_pers" id="mdp" required>
+                    <i class="far fa-eye" id="togglePassword"></i>
+                </div>
+                @foreach($errors->all() as $error)
+                    {{ $error }}
+                @endforeach 
+                
+                <a href="#">Mot de passe oublié</a>
+                <button id="connexion" type="submit">Connexion</button>
+            </form>
+            
+            
+        </div>
+       
+
+    </div>
+
+    <div id="blur-background" class="blur-background"></div>
+
+    <script src="{{ asset('js/connexion.js') }}"></script>
 @endif
 @endauth
 @guest

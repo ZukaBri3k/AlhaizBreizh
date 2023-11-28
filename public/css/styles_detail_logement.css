@@ -162,14 +162,14 @@ body {
 }
 
 .adresse::before {
-    content: url("/public/img/adresse.png");
+    content: url("/img/adresse.png");
     vertical-align: middle;
     margin-right: 5%;
     margin-left: -9%;
 }
 
 .dimension::before {
-    content: url("/public/img/dimension.png");
+    content: url("/img/dimension.png");
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -9%;

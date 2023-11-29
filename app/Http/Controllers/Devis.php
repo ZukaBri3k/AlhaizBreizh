@@ -45,7 +45,7 @@ class Devis extends Controller
         $dateDeb = $request->input('date_deb');
         $dateFin = $request->input('date_fin');
     
-        DB::table('devis_infos')->insert([
+        DB::table('devis')->insert([
             'nb_pers' => $nbPers,
             'date_deb' => $dateDeb,
             'date_fin' => $dateFin,

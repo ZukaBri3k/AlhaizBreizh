@@ -1,19 +1,22 @@
 @font-face {
 	font-family: 'Montserrat';
-    src: url("/public/fonts/Montserrat-Regular.woff2") format("woff2");
+	src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
     font-weight: 500;
 }
 
 @font-face {
 	font-family: "Montserrat-Light";
 	font-weight: 400;
-    src: url("/public/fonts/Montserrat-Light.woff2") format("woff2");
+	src: url("fonts/Montserrat-Light.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
 }
 
 @font-face {
 	font-family: "RocaOne";
 	font-weight: 400;
-    src: url("/public/fonts/RocaOne-Rg.woff2") format("woff2");
+	src: url("fonts/RocaOne-Rg.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
 }
 
 body {
@@ -22,13 +25,15 @@ body {
 
 
 .carousel-control-prev-icon {
-    background-image: url("/img/prev.png") !important;
+    background-image: url('images/prev.png') !important;
+    /*background-image: url('{{asset('/img/prev.png')}}') !important;*/
     width: 51% !important;
     height: 16% !important;
 }
 
 .carousel-control-next-icon {
-    background-image: url("/img/next.png") !important;
+    background-image: url('images/next.png') !important;
+    /*background-image: url('{{asset('/img/next.png')}}') !important;*/
     width: 51% !important;
     height: 16% !important;
 }
@@ -53,8 +58,8 @@ body {
 .carousel-control-prev, .carousel-control-next {
     height: 60% !important;
     width: 10% !important;
-    margin-top: 10% !important;
-    margin-bottom: 1% !important;
+    margin-top: 1% !important; /* Ajuste la marge autour de la zone cliquable */
+    margin-bottom: 1% !important; /* Ajuste la marge autour de la zone cliquable */
 }
 
 .carou {
@@ -148,28 +153,32 @@ body {
 }
 
 .calendar::before {
-    content: url("/img/calendar.png");
+    content: url('images/calendar.png');
+    /*content: url('{{asset('/img/calendar.png)}}')*/
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -12%;
 }
 
 .ville::before {
-    content: url("/img/ville.png");
+    content: url('images/ville.png');
+    /*content: url('{{asset('/img/ville.png)}}')*/
     vertical-align: middle;
     margin-right: 4%;
     margin-left: -9%;
 }
 
 .adresse::before {
-    content: url("/img/adresse.png");
+    content: url('images/adresse.png');
+    /*content: url('{{asset('/img/adresse.png)}}')*/
     vertical-align: middle;
     margin-right: 5%;
     margin-left: -9%;
 }
 
 .dimension::before {
-    content: url("/img/dimension.png");
+    content: url('images/dimension.png');
+    /*content: url('{{asset('/img/dimension.png)}}')*/
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -9%;
@@ -256,7 +265,7 @@ body {
     height: 50%;
     margin-left: 15%;
 }
-.Caracteristiques + h1 + p + p + p + h5{
+.Condition_annul h5{
     color: #000;
     font-family: 'Montserrat';
     font-size: 25px;
@@ -267,7 +276,7 @@ body {
     height: 50%;
     margin-left: 20%;
 }
-.Caracteristiques + h1 + p + p + p + h5 + p{
+.Condition_annul h5 + p{
     color: #000;
     font-family: 'Montserrat-Light';
     font-size: 20px;
@@ -279,12 +288,65 @@ body {
     margin-left: 20%;
 }
 
-.second hr {
-    margin: auto;
+.Condition_annul {
+    margin-left: 1%;
+}
+
+.nb_chambre {
+    margin-left: 15%;
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0rem;
+}
+
+.chambre {
+    margin-left: 15%;
+}
+
+.chambre p {
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0rem;
+}
+
+.chambre p:first-child {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0rem;
+}
+
+.not_paypal {
+    margin-left: 15%;
     margin-top: 5%;
-    width: 25%;
-    border: none;
-    border-bottom: 4px solid black;
-    border-radius: 20px;
-    opacity: 1;
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0rem;
+}
+
+.have_paypal {
+    margin-left: 15%;
+    margin-top: 5%;
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0rem;
 }

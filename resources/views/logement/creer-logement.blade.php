@@ -12,15 +12,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="{{asset('js/script_logement.js')}}"></script>
 </head>
 
 
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="{{asset('js/script_logement.js')}}"></script>
 <header>
         <x-Navbar></x-Navbar>
-    </header>
+</header>
 <main>
 <section class="part1">
 <form action="{{route('creer_logement', ['page' => 2])}}" method="GET">
@@ -91,6 +91,5 @@
     </form>
 </section> 
 </main>
-<script src="{{asset('js/script_logement.js')}}"></script>
 </body>
 </html>

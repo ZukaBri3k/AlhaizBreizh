@@ -188,7 +188,9 @@ input{
     
 
 }
-
+#connexion{
+    width: 25%;
+}
 #togglePassword {
     position: absolute;
     top: 50%;

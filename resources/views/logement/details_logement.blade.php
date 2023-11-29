@@ -50,7 +50,7 @@
         <h1>{{ $logement->libelle_logement }} n°{{ $logement->id_logement }} / {{ $logement->accroche_logement }}</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
-          foreach ($logement->nature_logement as $values)
+          @foreach ($logement->nature_logement as $values)
           <div class="rectangle">
               <img src="{{asset('/img/nature/$values.png')}}" class="d-block w-100">
               <p>{{ $values }}</p>

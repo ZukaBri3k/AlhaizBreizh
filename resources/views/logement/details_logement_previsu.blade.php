@@ -298,17 +298,18 @@
           </ul>
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
-          </ul>
-          <a href="{{route('devis-client')}}">
+          </ul> 
             <button type="button">Contacter le propriétaire</button>
-          </a>
       </div>
     </div>
 
       <div class="boutton_bas">
-        <a href="{{route('devis-client')}}">
-            <button type="button">Retour</button>
-        </a>
+          <button type="button" onclick="retour()">Retour</button>
+          <script>
+                function retour(){
+                    window.history.back();s
+                }
+            </script>  
         <a href="{{route('devis-client')}}">
             <button type="button" id="enreg_buton">Enregistrer</button>
         </a>

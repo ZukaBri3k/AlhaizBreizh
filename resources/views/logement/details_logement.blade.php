@@ -51,11 +51,33 @@
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           @php
-            $amenagement = [];
-            $service = [];
-            $charge = [];
-            $installation = [];
-            $amenagement = explode(";", $logement->amenagement_propose_logement);
+            if (sizeof($logement->amenagement_propose_logement) > 1) {
+              $amenagement = [];
+              $amenagement = explode(";", $logement->amenagement_propose_logement);
+            } else {
+              $amenagement = $logement->amenagement_propose_logement;
+            }
+
+            if (sizeof($logement->installation_logement) > 1) {
+              $installation = [];
+              $installation = explode(";", $logement->installation_logement);
+            } else {
+              $installation = $logement->installation_logement;
+            }
+
+            if (sizeof($logement->service_logement) > 1) {
+              $service = [];
+              $service = explode(";", $logement->service_logement);
+            } else {
+              $service = $logement->service_logement;
+            }
+
+            if (sizeof($logement->equipement_logement) > 1) {
+              $equipement = [];
+              $equipement = explode(";", $logement->equipement_logement);
+            } else {
+              $equipement = $logement->equipement_logement;
+            }
           @endphp
           <div class="rectangle">
             @php
@@ -69,21 +91,39 @@
                 $type = strtolower($logement->type_logement);
             @endphp
               <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-100">
-            <p>{{ $logement->type_logement }}</p>
+            <p>{!! $logement->type_logement !!}</p>
           </div>
         </div>
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
-          @foreach ($amenagement as $values)
+          @php
+            if(sizeof($amenagement) == 1) {
+            $value = strtolower($amenagement);
+            <div class="rectangle">
+              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
+              <p>{!! $amenagement !!}</p>
+            </div>
+            }
+          @endphp
+          @php
+          elseif(sizeof($amenagement) > 1) {
+          foreach ($amenagement as $values)
+          $value = strtolower($values);
           <div class="rectangle">
-            <img src="{{asset('/img/type/' . $values . '.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
+            <p>{!! $values !!}</p>
+          </div>
+          }
+          @endphp
+          @foreach ($installation as $values)
+          @php
+            $value = strtolower($values);
+          @endphp
+          <div class="rectangle">
+            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-100">
+            <p>{!! $values !!}</p>
           </div>
           @endforeach
-          <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
-          </div>
           <div class="rectangle">
             <<img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
             <p>Maison</p>

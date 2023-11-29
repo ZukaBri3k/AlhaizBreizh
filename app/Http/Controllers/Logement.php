@@ -52,8 +52,6 @@ class Logement extends Controller
                     'nb_lit_d' => $tab_lit_d,
                     'detail_lits' => $tab_details,
                 ]);
-
-                dd($request->session()->all());
                 return View("logement/creer-logement-p4");
                 break;
             case 5:

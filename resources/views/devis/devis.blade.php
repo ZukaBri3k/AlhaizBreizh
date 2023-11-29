@@ -114,7 +114,7 @@
            
 
  <!-- Ajoutez votre bouton Générer PDF -->
-            <button type="button" id="generatePDF">Générer PDF</button>
+            <button type="button" id="genererPDF">Générer PDF</button>
         </form>
     </section>
     <footer>

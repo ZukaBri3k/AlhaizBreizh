@@ -25,8 +25,6 @@
             <form action="{{route ('myProprietaireAccount')}}" method="get">
                 <div class="radio-container">
         
-                <label for="civ"></label>
-        
                 <select id="genre" >
                     <option selected>Genre</option>
                     <option value="Homme">Homme</option>
@@ -34,7 +32,7 @@
                     <option value="Non préscisé">Non préscisé</option>
                   </select>
         
-                  <select id="civilite" name="civilite"><br>
+                  <select id="civilite_pers" name="civilite_pers"><br>
                     <option selected>civilite</option>
                     <option class="lt" value="--">none</option>
                     <option value="M">M.</option>
@@ -49,27 +47,27 @@
         
         
         
-                <label for="nom"></label>
-                <input type="text" id="nom" name="nom" placeholder="Nom*" required>
+                <label for="nom_pers"></label>
+                <input type="text" id="nom_pers" name="nom_pers" placeholder="Nom*" required>
         
-                <label for="prenom"></label>
-                <input type="text" id="prenom" name="prenom" placeholder="Prenom* " required>
+                <label for="prenom_pers"></label>
+                <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Prenom* " required>
                 <br></br>
         
                 
-                <label for="pseudo"></label>
-                <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo*" required>
+                <label for="pseudo_pers"></label>
+                <input type="text" id="pseudo_pers" name="pseudo_pers" placeholder="Pseudo*" required>
         
-                <label for="ville"></label>
-                <input type="text" id="ville" name="ville" placeholder="Ville* " required>
+                <label for="ville_pers"></label>
+                <input type="text" id="ville_pers" name="ville_pers" placeholder="Ville* " required>
                 <br></br>
         
-                <label for="pays"></label>
-                <input type="text" id="pays" name="pays" placeholder="Pays* " required>
+                <label for="pays_pers"></label>
+                <input type="text" id="pays_pers" name="pays_pers   " placeholder="Pays* " required>
                 <br></br>
         
-                <label for="photoProfil">Inserer une Photo de profil* :</label>
-                <input type="file" id="photoProfil" name="photoProfil" accept="image/*">
+                <label for="photo_pers">Inserer une Photo de profil* :</label>
+                <input type="file" id="photo_pers" name="photo_pers" accept="image/*">
                 <br><br>
             </div>
         
@@ -102,24 +100,24 @@
            <div class="private-info-section">    
                     <h1>Information personnel privée</h1>
         
-                <label for="adresse"></label> 
-                <input type="text" id="adresse" name="adresse" placeholder="Adresse*" required>
+                <label for="adresse_pers"></label> 
+                <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Adresse*" required>
                 <br></br>
         
-                <label for="codepostal"></label>
-                <input type="number" name="codepostal" id="codepostal" placeholder="code postal*" required>
+                <label for="code_postal_pers"></label>
+                <input type="number" name="code_postal_pers" id="code_postal_pers" placeholder="code postal*" required>
                 <br></br>
 
-                <label for="date_naissance"></label>
-                <input type="date" id="date_naissance" name="date_naissance" placeholder="Date de date de naissance*" required>
+                <label for="date_de_naissance"></label>
+                <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Date de date de naissance*" required>
                 <br></br>
         
-                <label for="tel"></label>
-                <input type="tel" id="tel" name="tel" placeholder="Telephone*" required>
+                <label for="telephone_pers"></label>
+                <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Telephone*" required>
                 <br><br>
         
-                <label for="motDePasse"></label>
-                <input type="password" id="motDePasse" name="motDePasse" placeholder="Mot de passe *" required>
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="Mot de passe *" required>
                 <br><br>
                 
                 <label for="confirmerMotDePasse"></label>
@@ -129,16 +127,16 @@
                 <input type="number" id="iban" name="iban" placeholder="iban">
                 <br></br>
         
-                <label for="email"></label>
-                <input type="email" id="email" name="email" placeholder="email*" required>
+                <label for="mail_pers"></label>
+                <input type="email" id="mail_pers" name="mail_pers" placeholder="email*" required>
                 <br><br>
         
-                <label for="identité_recto">Inserer une Photo de votre carte d'identité_recto* :</label>
-                <input type="file" id="identité_recto" name="identité_recto" accept="image/*">
+                <label for="piece_id_proprio_recto">Inserer une Photo de profil* :</label>
+                <input type="file" id="piece_id_proprio_recto" name="piece_id_proprio_recto" accept="image/*">
                 <br><br>
         
-                <label for="identité_verso">Inserer une Photo de votre carte d'identité_verso* :</label>
-                <input type="file" id="identité_verso" name="identité_verso" accept="image/*">
+                <label for="piece_id_proprio_verso">Inserer une Photo de profil* :</label>
+                <input type="file" id="piece_id_proprio_verso" name="piece_id_proprio_verso" accept="image/*">
                 <br><br>
         
             </div>

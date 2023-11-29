@@ -25,12 +25,19 @@ class Devis extends Controller
         return View('devis/index', ['id_client' => $request->id_client]);
     }
 
-    public function validationDevis () {
-        dd(DB::update('update users set etat_devis = true where ref_devis = ?', [intval($request->id)]));
+    public function validationDevis (Request $request) {
+        DB::update('update devis set etat_devis = true where ref_devis = 6');
+        return redirect()->route('devis-client');
     }
 
-    public function refusDevis () {
-        dd(DB::update('update users set etat_devis = false where ref_devis = ?', [intval($request->id)]));
+    public function refusDevis (Request $request) {
+        DB::update('update devis set etat_devis = false where ref_devis = 6');
+        return redirect()->route('devis-client');
+    }
+
+    public function demandeDevis (Request $request) {
+        DB::update('update devis set etat_devis = false where ref_devis = 6');
+        return redirect()->route('devis-client');
     }
 
     //---------------------

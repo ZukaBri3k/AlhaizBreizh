@@ -130,6 +130,7 @@ function toggleButton3(button) {
     } else {
         boutonsCliques3.push(value);
     }
+    console.log(boutonsCliques3);
     document.getElementById('installation_logement').value = boutonsCliques3.join(',');
 }
 

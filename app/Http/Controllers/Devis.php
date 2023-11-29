@@ -14,7 +14,7 @@ class Devis extends Controller
     }
 
     public function devisProprietaire2 () {
-        return View('devis/devis-proprio2');
+        return View('devis/devis');
     }
 
     public function devisClient () {

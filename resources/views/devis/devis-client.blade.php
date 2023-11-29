@@ -194,6 +194,9 @@ const demanderDevis = document.getElementById("demanderDevis");
 const accepterDevis = document.getElementById("accepterDevis");
 const refuserDevis = document.getElementById("refuserDevis");
 
+document.getElementById("accepterDevis").style.display = "none";
+document.getElementById("refuserDevis").style.display = "none";
+
 demanderDevis.addEventListener("click", () => {
     document.getElementById("demanderDevis").style.display = "none";
     document.getElementById("refuserDevis").style.display = "flex";

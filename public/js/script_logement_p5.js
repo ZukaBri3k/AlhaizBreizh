@@ -136,7 +136,7 @@ function toggleButton3(button) {
 var test = document.getElementById('valider');
 test.addEventListener("click", () => {
     document.getElementById('installation_logement').value = boutonsCliques3.join(',');
-});
+}); 
 
 var boutonsCliques4 = [];
 

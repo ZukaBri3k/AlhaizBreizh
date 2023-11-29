@@ -24,10 +24,17 @@ class Logement extends Controller
                     'libelle' => $request->libelle,
                     'accroche' => $request->accroche
             ]);
-                dd($request->session()->all());
                 return View("logement/creer-logement-p2");
                 break;
             case 3:
+                session([
+                    'description' => $request->description,
+                    'surface' => $request->surface,
+                    'nb_p_max' => $request->nb_p_max,
+                    'nb_chambre' => $request->nb_chambre,
+                    'sdb' => $request->sdb,
+            ]);
+                dd($request->session()->all());
                 return View("logement/creer-logement-p3");
                 break;
             case 4:

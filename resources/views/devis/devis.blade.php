@@ -64,7 +64,7 @@
             </tr>
             <tr>
                 <td class="bordstp">Charges HT</td>
-                <td class="bordstp"<input type="text" id="chargesht" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="chargesht" name="user_name"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total HT</td>

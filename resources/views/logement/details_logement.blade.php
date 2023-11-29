@@ -51,11 +51,40 @@
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           @php
-            $amenagement = [];
-            $service = [];
-            $charge = [];
-            $installation = [];
-            $amenagement = explode(";", $logement->amenagement_propose_logement);
+            if (count(explode(";", $logement->amenagement_propose_logement)) > 1) {
+              $amenagement = [];
+              $amenagement = explode(";", $logement->amenagement_propose_logement);
+            } else {
+              $amenagement = $logement->amenagement_propose_logement;
+            }
+
+            if (count(explode(";", $logement->installation_offerte_logement)) > 1) {
+              $installation = [];
+              $installation = explode(";", $logement->installation_offerte_logement);
+            } else {
+              $installation = $logement->installation_offerte_logement;
+            }
+
+            if (count(explode(";", $logement->service_complementaire_logement)) > 1) {
+              $service = [];
+              $service = explode(";", $logement->service_complementaire_logement);
+            } else {
+              $service = $logement->service_complementaire_logement;
+            }
+
+            if (count(explode(";", $logement->equipement_propose_logement)) > 1) {
+              $equipement = [];
+              $equipement = explode(";", $logement->equipement_propose_logement);
+            } else {
+              $equipement = $logement->equipement_propose_logement;
+            }
+
+            if (count(explode(";", $logement->charge_additionnel_libelle)) > 1) {
+              $charge = [];
+              $charge = explode(";", $logement->charge_additionnel_libelle);
+            } else {
+              $charge = $logement->charge_additionnel_libelle;
+            }
           @endphp
           <div class="rectangle">
             @php
@@ -69,21 +98,41 @@
                 $type = strtolower($logement->type_logement);
             @endphp
               <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-100">
-            <p>{{ $logement->type_logement }}</p>
+            <p>{!! $logement->type_logement !!}</p>
           </div>
         </div>
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
-          @foreach ($amenagement as $values)
+          @php
+            if(sizeof($amenagement) == 1) {
+            $value = strtolower($amenagement);
+          @endphp
+            <div class="rectangle">
+              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
+              <p>{!! $amenagement !!}</p>
+            </div>
+          @php
+            }
+          elseif(sizeof($amenagement) > 1) {
+          foreach ($amenagement as $values)
+          $value = strtolower($values);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/' . $values . '.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
+            <p>{!! $values !!}</p>
           </div>
-          @endforeach
+          @php
+          }
+            foreach ($installation as $values) {
+              $value = strtolower($values);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-100">
+            <p>{!! $values !!}</p>
           </div>
+          @php
+            }
+          @endphp
           <div class="rectangle">
             <<img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
             <p>Maison</p>

@@ -38,10 +38,15 @@ class Logement extends Controller
                 break;
             case 4:
                 session([
-                    'nb_lit_s' => $request->nb_lit_s,
-                    'nb_lit_d' => $request->nb_lit_d,
-                    'detail_lits' => $request->detail_lits,
+                    'nb_lit_s' => [],
+                    'nb_lit_d' => [],
+                    'detail_lits' => [],
                 ]);
+                dd($request->session->get('nb_chambre'));
+                for ($i=1; $i <= session->get('nb_chambre'); $i++) { 
+                    dd($request->nb_lit_s_ . $i);
+                    array_push(session->get('nb_lit_s'), $request->nb_lit_s_ . $i);
+                }
                 return View("logement/creer-logement-p4");
                 break;
             case 5:

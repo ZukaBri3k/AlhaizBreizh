@@ -91,7 +91,7 @@ body {
     border-collapse: collapse;
 }
 
-.table-striped, tr, td {
+.table-striped, tr, .bordstp {
     border: 2px solid #000000;
 }
 

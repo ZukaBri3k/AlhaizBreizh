@@ -30,7 +30,7 @@
     <div>    
         <section class="p1">
 
-                @for($i = 0; $i < request()->get('nb_chambre'))
+                @for($i = 0; $i < request()->get('nb_chambre'); i++)
                     @verbatim
                             <div>
                                 <div class="abc">

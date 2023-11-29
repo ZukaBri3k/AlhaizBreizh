@@ -153,26 +153,26 @@ class AccountController extends Controller
             public function client_register(Request $request) {
 
                 $this->ajoute_personne($request);
-                $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
+                //$id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
                 $client=[
-                    "id" =>$id_client[0]->id,
+                    //"id" =>$id_client[0]->id,
                     "demande_devis_auto" =>   $request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis,
                     "msg_comfirm_devis" => $request->nom_prop_acceptation . " " . $request->nom_logement_acceptation . " " . $request->votre_nom_acceptation  ,
                     "msg_refus_devis" =>  $request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus,
                 ];
 
-                DB::insert('insert into client(
-                    id_client,
+                DB::insert('insert into client( 
                     demande_devis_auto,
                     msg_comfirm_devis,
                     msg_refus_devis
-                    )values(?, ?, ?, ?)
+                    )values(?, ?, ?,)
                     ',$client);
                 }
 
 
             }
 
+           
 
 
 

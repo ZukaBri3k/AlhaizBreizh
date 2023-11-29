@@ -44,16 +44,16 @@ class Devis extends Controller
         $nbPers = $request->input('nb_pers');
         $dateDeb = $request->input('date_deb');
         $dateFin = $request->input('date_fin');
-    
+
         DB::insert('
             INSERT INTO devis (
             nb_pers,
             date_deb,
-            date_fin
+            date_fin,
+            id_client_devis
             ) values (
             ?, ?, ?
-            )', [$nbPers, $dateDeb, $dateFin]);
-        DB::insert('INSERT INTO devis (id_client_devis) values (4)');
+            )', [$nbPers, $dateDeb, $dateFin, 4]);
         
         return redirect()->route('devis-proprio');
     }

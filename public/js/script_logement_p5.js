@@ -130,7 +130,7 @@ function toggleButton3(button) {
     } else {
         boutonsCliques3.push(value);
     }
-    document.getElementById('installation_logement').value = boutonsCliques3.join(';');
+    document.getElementById('installation_logement').value = boutonsCliques3.join(',');
 }
 
 var boutonsCliques4 = [];
@@ -143,5 +143,5 @@ function toggleButton4(button) {
     } else {
         boutonsCliques4.push(value);
     }
-    document.getElementById('services').value = boutonsCliques4.join(';');
+    document.getElementById('services').value = boutonsCliques4.join(',');
 }

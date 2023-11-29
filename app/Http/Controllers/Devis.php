@@ -41,6 +41,7 @@ class Devis extends Controller
     }
 
     public function infosDevis (Request $request) {
+        DB::insert('insert into devis 
         return redirect()->route('devis-proprio');
     }
 

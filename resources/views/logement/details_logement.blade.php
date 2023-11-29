@@ -51,28 +51,28 @@
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           @php
-            if (sizeof($logement) > 1) {
+            if (sizeof(explode(";", $logement->amenagement_propose_logement)) > 1) {
               $amenagement = [];
               $amenagement = explode(";", $logement->amenagement_propose_logement);
             } else {
               $amenagement = $logement->amenagement_propose_logement;
             }
 
-            if (sizeof($logement) > 1) {
+            if (sizeof(explode(";", $logement->installation_logement)) > 1) {
               $installation = [];
               $installation = explode(";", $logement->installation_logement);
             } else {
               $installation = $logement->installation_logement;
             }
 
-            if (sizeof($logement) > 1) {
+            if (sizeof(explode(";", $logement->service_logement)) > 1) {
               $service = [];
               $service = explode(";", $logement->service_logement);
             } else {
               $service = $logement->service_logement;
             }
 
-            if (sizeof($logement) > 1) {
+            if (sizeof(explode(";", $logement->equipement_logement)) > 1) {
               $equipement = [];
               $equipement = explode(";", $logement->equipement_logement);
             } else {

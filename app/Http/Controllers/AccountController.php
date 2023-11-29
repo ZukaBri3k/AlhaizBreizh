@@ -141,7 +141,7 @@ class AccountController extends Controller
         ];
         DB::insert('insert into proprietaire(
             id_proprio,
-            proposition_devis_auto,
+            proposition_auto_devis,
             piece_id_proprio_recto,
             piece_id_proprio_verso)
             values(

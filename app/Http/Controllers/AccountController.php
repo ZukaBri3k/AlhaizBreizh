@@ -99,9 +99,9 @@ class AccountController extends Controller
             $request->votre_nom_proposition_devis,
             $request->piece_id_proprio_recto,
             $request->piece_id_proprio_verso,
-        ]
+        ];
 
-    DB::insert('insert into proprietaire(
+    DB::insert('insert into personne(
         prenom_pers,
         nom_pers,
         pseudo_pers,

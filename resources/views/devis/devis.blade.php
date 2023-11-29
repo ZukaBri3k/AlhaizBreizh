@@ -44,38 +44,38 @@
                 <br>
                 <h3>Client</h3>
                 <label for="name">Nombre de personnes :</label>
-                <select id="name" name="name">
+                <select id="nb_pers" name="nb_pers">
                     <?php for($i = 1; $i <= 10; $i++): ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php endfor; ?>
                 </select>
                 <br>
                 <label for="name">Heure d'arrivée :</label>
-                <input type="text" id="name" name="user_name" />
+                <input type="text" id="date_deb" name="date_deb" />
                 <label for="name">Heure de départ :</label>
-                <input type="text" id="name" name="user_name" />
+                <input type="text" id="date_fin" name="date_fin" />
             </div>
         </div>
         <table border="1" class="table-striped">
             <tr>
                 <td class="bordstp">Tarif location HT</td>
-                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="user_name"/></td>
+                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="tarif_loc_HT"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Charges HT</td>
-                <td class="bordstp"><input type="text" id="chargesht" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="chargesht" name="charges_HT"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total HT</td>
-                <td class="bordstp"><input type="text" id="soustotalht" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="soustotalht" name="sous_tot_HT"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total TTC</td>
-                <td class="bordstp"><input type="text" id="soustotalttc" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="soustotalttc" name="sous_tot_TTC"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Taxe de séjour</td>
-                <td class="bordstp"><input type="text" id="taxedesejour" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="taxedesejour" name="taxe_de_séjour"/></td>
             </tr>
         </table>
         <div class="boxbasdroite">

@@ -22,6 +22,7 @@
         <div class="spacer"></div>
     </section>
     <section class="devis">
+        <form action"{{ route('infosDevis')}}" method="post">
         <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
         <div class="boxhaut">
             <div class="boxgauche">
@@ -101,6 +102,7 @@
         <a href="{{route ('infosDevis')}}">
             <button type="button" id="genererPDF">Générer PDF</button>
         </a>
+        </form>
     </section>
     <footer>
         <x-FooterClient></x-FooterClient>

@@ -75,6 +75,7 @@ class AccountController extends Controller
         return View("Compte/MonCompteProprietaire");
     }
       //--------------------------------------------------------------
+<<<<<<< HEAD
       public function ajoute_personne(Request $request) {
         $tab=[
             $request->prenom_pers,
@@ -121,3 +122,6 @@ class AccountController extends Controller
             ???????????????????)',$tab);
     }
 }
+=======
+}
+>>>>>>> a706fd8b42d3f5513df3b145dc25793b8b60fa89

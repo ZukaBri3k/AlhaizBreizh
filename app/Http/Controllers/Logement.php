@@ -8,8 +8,31 @@ use Illuminate\Support\Facades\DB;
 
 class Logement extends Controller
 {
-    public function Creation() {
-        return View("logement/creer_logement");
+    public function Creation(Request $request) {
+
+        switch ($request->page) {
+            case 1:
+                return View("logement/creer-logement-p1");
+                break;
+            case 2:
+                return View("logement/creer-logement-p2");
+                break;
+            case 3:
+                return View("logement/creer-logement-p3");
+                break;
+            case 4:
+                return View("logement/creer-logement-p4");
+                break;
+            case 5:
+                return View("logement/creer-logement-p5");
+                break;
+            case 6:
+                return View("logement/creer-logement-p6");
+                break;
+            case 7:
+                return View("logement/creer-logement-p7");
+                break;
+        }
     }
 
     public function ajouterLogementDB() {
@@ -78,7 +101,10 @@ class Logement extends Controller
     }
 
     public function getInfoLogement(Request $request) {
-        return View("logement/details_logement");
-        //dd(DB::select('select * from logement where id_logement = ?', [intval($request->id)]));
+        $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
+        return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
+        'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
+        'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
     } 
 }

@@ -24,6 +24,7 @@ nav a{
 
     .logo_d {
         display: inline-block;
+        box-sizing: content-box;
     }
 
     .logo_m {
@@ -34,6 +35,7 @@ nav a{
 @media screen and (max-width: 900px) {
     .logo_d {
         display: none;
+        box-sizing: content-box;
     }
 
     .logo_m {

@@ -37,7 +37,7 @@ class Personnes extends Authenticatable
         'role',
         'remember_token',
         'date_de_naissance',
-        'mail_pers'
+        'mail_pers',
     ];
 
     /**

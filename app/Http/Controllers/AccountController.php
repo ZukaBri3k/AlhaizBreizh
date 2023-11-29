@@ -142,7 +142,7 @@ class AccountController extends Controller
             votre_nom_proposition_devis,
             piece_id_proprio_recto,
             piece_id_proprio_verso)values(
-                ?, ?, ?, ?, ?, )',$proprietaire);
+                ?, ?, ?, ?, ? )',$proprietaire);
             }
 
 
@@ -178,7 +178,7 @@ class AccountController extends Controller
                     nom_prop_refus,
                     nom_logement_refus,
                     votre_nom_refus)values(
-                        ?, ?, ?, ?, ?, ?, ?, ?, ?, )
+                        ?, ?, ?, ?, ?, ?, ?, ?, ? )
                     ',$client);
                 }
 

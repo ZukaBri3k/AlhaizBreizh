@@ -111,7 +111,7 @@
             <br></br>  
 
         <label for="votre_nom_acceptation"></label>
-        <input type="text" name="votre_nom_demande_acceptation" id="votre_nom_acceptation" placeholder="Cordialement,
+        <input type="text" name="votre_nom_acceptation" id="votre_nom_acceptation" placeholder="Cordialement,
         Bonne journée">
         <p>[votre nom]</p>
         <br></br>

@@ -63,7 +63,7 @@
           </div>
           <div class="rectangle">
               <img src="{{asset('/img/type/'.$logement->type_logement.'.png')}}" class="d-block w-100">
-            <p>{{ logement->type_logement }}</p>
+            <p>{{ $logement->type_logement }}</p>
           </div>
         </div>
         <h1>Aménagements, installations :</h1>

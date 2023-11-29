@@ -11,13 +11,13 @@ class Logement extends Controller
     public function Creation(Request $request) {
 
         switch ($request->page) {
-            case 0:
+            case 1:
                 return View("logement/creer-logement");
                 break;
-            case 1:
+            case 2:
                 return View("logement/creer-logement-p1");
                 break;
-            case 2:
+            case 3:
                 session([
                     'adresse' => $request->adresse,
                     'ville' => $request->ville,
@@ -29,7 +29,7 @@ class Logement extends Controller
             ]);
                 return View("logement/creer-logement-p2");
                 break;
-            case 3:
+            case 4:
                 session([
                     'description' => $request->description,
                     'surface' => $request->surface,
@@ -39,7 +39,7 @@ class Logement extends Controller
             ]);
                 return View("logement/creer-logement-p3");
                 break;
-            case 4:
+            case 5:
                 $tab_lit_s = [];
                 $tab_lit_d = [];
                 $tab_details = [];
@@ -57,15 +57,15 @@ class Logement extends Controller
                 ]);
                 return View("logement/creer-logement-p4");
                 break;
-            case 5:
+            case 6:
 
                 //dd($request->session()->all());
                 return View("logement/creer-logement-p5");
                 break;
-            case 6:
+            case 7:
                 return View("logement/creer-logement-p6");
                 break;
-            case 7:
+            case 8:
                 return View("logement/creer-logement-fin");
                 break;
         }

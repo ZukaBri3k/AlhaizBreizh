@@ -279,7 +279,6 @@
           <p class="have_paypal">Le propriétaire a paypal</p>
         @endif
         <br>
-
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} / mois</p>
           <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>

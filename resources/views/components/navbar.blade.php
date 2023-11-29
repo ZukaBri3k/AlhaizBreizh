@@ -294,7 +294,7 @@
                     </a>
                 </li>
                 <li class="navbar-item active">
-                    <a href="{{route('client_register')}}" class="nav-link" style="color: #EC3B53">
+                    <a href="{{route('inscription_client')}}" class="nav-link" style="color: #EC3B53">
                         Inscription
                     </a>
                 </li>

@@ -75,11 +75,4 @@ class AccountController extends Controller
         return View("Compte/MonCompteProprietaire");
     }
       //--------------------------------------------------------------
-      public function Pop_up_Form(Request $request)
-      {
-          $donneesFormulaire = $request->all();
-          $donneesASauvegarder = array_slice($donneesFormulaire, 0, 3);
-          session(['donnees_stockée' => $donneesFormulaire]);
-          return redirect('Compte/inscription_proprio')
       
-      }

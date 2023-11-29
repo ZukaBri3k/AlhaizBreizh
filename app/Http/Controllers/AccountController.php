@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -76,7 +77,10 @@ class AccountController extends Controller
     }
       //--------------------------------------------------------------
     public function ajoute_personne(Request $request) {
+
+        
         $personne=[
+            $request->civilite_pers,
             $request->prenom_pers,
             $request->nom_pers,
             $request->pseudo_pers,
@@ -88,9 +92,8 @@ class AccountController extends Controller
             $request->date_de_naissance,
             $request->telephone_pers,
             $request->password,
-            $request->confirmerMotDePasse,    
             $request->iban,
-            $request->mail_perso,
+            $request->mail_pers,
         ];
 
         $proprietaire=[
@@ -101,7 +104,20 @@ class AccountController extends Controller
             $request->piece_id_proprio_verso,
         ];
 
-    DB::insert('insert into personne(
+        $client=[
+            $request->nom_prop_demande_devis,
+            $request->nom_logement_demande_devis,
+            $request->votre_nom_demande_devis,
+            $request->nom_prop_acceptation,
+            $request->nom_logement_acceptation,
+            $request->votre_nom_acceptation,
+            $request->nom_prop_refus,
+            $request->nom_logement_refus,
+            $request->votre_nom_refus,
+        ];
+
+    DB::insert('insert into personnes(
+        civilite_pers,
         prenom_pers,
         nom_pers,
         pseudo_pers,
@@ -113,11 +129,11 @@ class AccountController extends Controller
         date_de_naissance,
         telephone_pers,
         password,
-        confirmerMotDePasse,
         iban,
-        mail_pers)values(
+        mail_pers
+        )values(
             ?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, ?, ?, )',$personne);
+            ?, ?, ?, ?, ?, ?, ?)',$personne);
 
     DB::insert('insert into proprietaire(
         nom_client_proposition_devis,
@@ -126,5 +142,19 @@ class AccountController extends Controller
         piece_id_proprio_recto,
         piece_id_proprio_verso)values(
             ?, ?, ?, ?, ?, )',$proprietaire);
+
+    DB::insert('insert into client(
+        nom_prop_demande_devis,
+        nom_logement_demande_devis,
+        votre_nom_demande_devis,
+        nom_prop_acceptation,
+        nom_logement_acceptation,
+        votre_nom_acceptation,
+        nom_prop_refus,
+        nom_logement_refus,
+        votre_nom_refus)values(
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, )
+        ',$client);
     }
+
 }

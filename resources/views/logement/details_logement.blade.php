@@ -86,21 +86,27 @@
               $charge = $logement->charge_additionnel_libelle;
             }
           @endphp
-          <div class="rectangle">
+
+
+          <!-- Nature et type de logement -->
             @php
               $nature = strtolower($logement->nature_logement);
             @endphp
-              <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-100">
+            <div class="rectangle">
+              <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-80">
               <p>{{ $logement->nature_logement }}</p>
-          </div>
-          <div class="rectangle">
+            </div>
             @php
                 $type = strtolower($logement->type_logement);
             @endphp
-              <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-100">
-            <p>{!! $logement->type_logement !!}</p>
-          </div>
+            <div class="rectangle">
+              <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-80">
+              <p>{!! $logement->type_logement !!}</p>
+            </div>
         </div>
+
+
+        <!-- Aménagements -->
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
           @php
@@ -108,58 +114,142 @@
             $value = strtolower($amenagement);
           @endphp
             <div class="rectangle">
-              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
+              <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
               <p>{!! $amenagement !!}</p>
             </div>
           @php
             }
+            elseif($amenagement == "null") {
+            }
+
           elseif(sizeof($amenagement) > 1) {
-          foreach ($amenagement as $values)
-          $value = strtolower($values);
-          @endphp
-          <div class="rectangle">
-            <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
-            <p>{!! $values !!}</p>
-          </div>
+          foreach ($amenagement as $values) {
+            $value = strtolower($values);
+            @endphp
+            <div class="rectangle">
+              <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
+              <p>{!! $values !!}</p>
+            </div>
+            @php
+            }
+          } @endphp
+
+          <!-- Installations -->
           @php
-          }
+          if(sizeof($installation) > 1) {
             foreach ($installation as $values) {
-              $value = strtolower($values);
+            $value = strtolower($values);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-100">
+            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
           </div>
           @php
             }
+          }
+          elseif($installation == "null") {
+          } 
+          
+          elseif(sizeof($installation) == 1) {
+            $value = strtolower($installation);
           @endphp
           <div class="rectangle">
-            <<img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
+            <p>{!! $installation !!}</p>
           </div>
+          @php 
+            }
+          @endphp
         </div>
+
+
+        <!-- Services -->
         <h1>Services, Equipements :</h1>
         <div class="Caracteristiques">
+          @php
+            if(count(explode(";", $logement->service_complementaire_logement)) > 1) {
+            foreach ($service as $values) {
+              $value = strtolower($values);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
-          </div>
+            <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $values !!}</p>
+          @php 
+            }
+          } 
+          elseif($service == "null") {
+          }
+
+
+          elseif(count(explode(";", $logement->service_complementaire_logement)) == 1) {
+            $value = strtolower($service);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $service !!}</p>
           </div>
+          @php 
+            }
+          @endphp
+
+          <!-- Equipements -->
+          @php
+            if(count(explode(";", $logement->equipement_propose_logement)) > 1) {
+            foreach ($equipement as $values) {
+              $value = strtolower($values);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $values !!}</p>
           </div>
-      </div>
-      <h1>Charges additionnelles:</h1>
+          @php 
+            }
+          }
+          elseif($equipement == "null") {
+          }
+          
+          elseif(count(explode(";", $logement->equipement_propose_logement)) == 1) {
+            $value = strtolower($equipement);
+          @endphp
+          <div class="rectangle">
+            <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $equipement !!}</p>
+          </div>
+          @php 
+            }
+          @endphp
+          </div>
+
+
+          <!-- Charges additionnelles -->
+        <h1>Charges additionnelles:</h1>
         <div class="Caracteristiques">
+          @php
+            if(count(explode(";", $logement->charge_additionnel_libelle)) > 1) {
+            foreach ($charge as $values) {
+              $value = strtolower($values);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $values !!}</p>
           </div>
-      </div>
+          @php 
+            }
+          } 
+          elseif($charge == "null") {
+            }          
+          elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
+            $value = strtolower($charge);
+          @endphp
+          <div class="rectangle">
+            <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $charge !!}</p>
+          </div>
+          @php 
+            }
+          @endphp
+
+        </div>
       <h1>Description :</h1>
       <p>{{ $logement->descriptif_logement }}</p>
       <p>Condiditon d'annulation :</p>
@@ -197,7 +287,7 @@
             <li class="ville">Ville : {{ $logement->ville_logement }}</li>
           </ul>
           <ul>
-            <li class="calendar">Disponibilité : dès maintenant ou pas disponible maintenant</li>
+            <li class="calendar">Disponibilité : dès maintenant</li>
           </ul>
           <ul>
             <li class="dimension">Dimension : {{ $logement->surface_habitable_logement }} m²</li>
@@ -205,7 +295,9 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <button type="button">Contacter le propriétaire</button>
+          <a href="{{route('devis-client')}}">
+            <button type="button">Contacter le propriétaire</button>
+          </a>
       </div>
     </div>
     <x-FooterClient></x-FooterClient>

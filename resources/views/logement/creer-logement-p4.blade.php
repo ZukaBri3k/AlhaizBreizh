@@ -9,8 +9,7 @@
 <meta name="créer logement" content=""/>
 <meta name="keywords" content="AlHaizBreizh"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" sizes="16x16" href="./assets/IMG/logo.png">
-<link rel="stylesheet" href="./assets/CSS/style_logement.css">
+<link rel="stylesheet" href="{{asset('css/style_logement.css')}}">
 <!DOCTYPE html>
 </head>
 
@@ -25,7 +24,7 @@
     </header>
 <main>
 <section class="part1">
-<form action="creer-logement-p5.php" method="POST">
+<form action="{{route('creer_logement', ['page' => 5])}}" method="get">
     <div>    
         <section class="p1">
             <div class='p1-4'>
@@ -33,20 +32,20 @@
                     <div class='p1-4-nom'><h3>De quels aménagements dispose votre logement ?</h3><p title="obligatoire">* Veuillez selectionner au moins un aménagement de logement</p></div>
                     <div>
                         <div>
-                            <button style="margin-right:30px" id="btn16" name="terrasse" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/terrasse.svg"><p>Terrasse</p></button>
-                            <button style="margin-right:30px" id="btn17" name="jardin" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/jardin.svg"><p>Jardin</p></button>
+                            <button style="margin-right:30px" id="btn16" name="terrasse" onclick="toggleButton(this)" type="button"><img src="{{asset('img/terrasse.svg')}}"><p>Terrasse</p></button>
+                            <button style="margin-right:30px" id="btn17" name="jardin" onclick="toggleButton(this)" type="button"><img src="{{asset('img/jardin.svg')}}"><p>Jardin</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn18" name="balcon" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/balcon.svg"><p>Balcon</p></button>
-                            <button style="margin-right:30px" id="btn19" name="parking prive" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/parking_p.svg"><p>Parking privé</p></button>
+                            <button style="margin-right:30px" id="btn18" name="balcon" onclick="toggleButton(this)" type="button"><img src="{{asset('img/balcon.svg')}}"><p>Balcon</p></button>
+                            <button style="margin-right:30px" id="btn19" name="parking prive" onclick="toggleButton(this)" type="button"><img src="{{asset('img/parking_p.svg')}}"><p>Parking privé</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn20" name="parking public" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/parking.svg"><p>Parking public</p></button>
-                            <button style="margin-right:30px" id="btn21" name="patio" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/patio.svg"><p>Patio</p></button>
+                            <button style="margin-right:30px" id="btn20" name="parking public" onclick="toggleButton(this)" type="button"><img src="{{asset('img/parking.svg')}}"><p>Parking public</p></button>
+                            <button style="margin-right:30px" id="btn21" name="patio" onclick="toggleButton(this)" type="button"><img src="{{asset('img/amenagements/patio.png')}}"><p>Patio</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn22" name="salon hiver" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/salon_h.svg"><p>Salon d'hiver</p></button>
-                            <button style="margin-right:30px" id="btn23" name="veranda" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/veranda.svg"><p>Véranda</p></button>
+                            <button style="margin-right:30px" id="btn22" name="salon hiver" onclick="toggleButton(this)" type="button"><img src="{{asset('img/amenagements/salon_hiver.png')}}"><p>Salon d'hiver</p></button>
+                            <button style="margin-right:30px" id="btn23" name="veranda" onclick="toggleButton(this)" type="button"><img src="{{asset('img/amenagements/veranda.png')}}"><p>Véranda</p></button>
                         </div>
                    </div>
                    <input type="hidden" id="amenagement_logement" name="amenagement_logement" />
@@ -59,22 +58,22 @@
                     <div class='p2-4-nom'><h3>De quels équipements dispose votre logement ?</h3><p title="obligatoire">* Veuillez sélectionner au moins un équipement de logement</p></div>
                     <div>
                         <div>
-                            <button style="margin-right:30px" id="btn24" name="wifi" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/wifi.svg"><p>Wifi</p></button>
-                            <button style="margin-right:30px" id="btn25" name="tv" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/tv.svg"><p>Télévision</p></button>
-                            <button style="margin-right:30px" id="btn26" name="cuisine" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/cuisine.svg"><p>Cuisine</p></button>
+                            <button style="margin-right:30px" id="btn24" name="wifi" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/wifi.svg')}}"><p>Wifi</p></button>
+                            <button style="margin-right:30px" id="btn25" name="tv" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/tv.svg')}}"><p>Télévision</p></button>
+                            <button style="margin-right:30px" id="btn26" name="cuisine" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/cuisine.svg')}}"><p>Cuisine</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn27" name="lave-linge" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/lave_linge.svg"><p>Lave-linge</p></button>
-                            <button style="margin-right:30px" id="btn28" name="lave-vaisselle" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/lave_vaisselle.svg"><p>Lave-vaisselle</p></button>
-                            <button style="margin-right:30px" id="btn29" name="instrument" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/instru.svg"><p>Instrument</p></button>
+                            <button style="margin-right:30px" id="btn27" name="lave-linge" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/lave_linge.svg')}}"><p>Lave-linge</p></button>
+                            <button style="margin-right:30px" id="btn28" name="lave-vaisselle" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/lave_vaisselle.svg')}}"><p>Lave-vaisselle</p></button>
+                            <button style="margin-right:30px" id="btn29" name="instrument" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/instrument.png')}}"><p>Instrument</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn30" name="appareil_sport" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/sport.svg"><p>Appareils de sport</p></button>
-                            <button style="margin-right:30px" id="btn31" name="cheminee" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/cheminee.svg"><p>Cheminée</p></button>
-                            <button style="margin-right:30px" id="btn32" name="barbecue" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/barbecue.svg"><p>Barbecue</p></button>
+                            <button style="margin-right:30px" id="btn30" name="appareil_sport" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/appareils_de_sport.png')}}"><p>Appareils de sport</p></button>
+                            <button style="margin-right:30px" id="btn31" name="cheminee" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/cheminee.png')}}"><p>Cheminée</p></button>
+                            <button style="margin-right:30px" id="btn32" name="barbecue" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/barbecue.png')}}"><p>Barbecue</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn33" name="equip_pmr" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/pmr.svg"><p>Equipement PMR</p></button>
+                            <button style="margin-right:30px" id="btn33" name="equip_pmr" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/equipements_pmr.png')}}"><p>Equipement PMR</p></button>
                         </div>
                     </div>
                     <input type="hidden" id="equipement" name="equipement" />
@@ -99,7 +98,7 @@
     </form>
 </section> 
 </main>
-<script src="./assets/JS/script_logement_p4.js"></script>
+<script src="{{asset('js/script_logement_p4.js')}}"></script>
 
 </body>
 </html>

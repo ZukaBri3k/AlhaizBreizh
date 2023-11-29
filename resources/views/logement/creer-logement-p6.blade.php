@@ -9,8 +9,7 @@
 <meta name="créer logement" content=""/>
 <meta name="keywords" content="AlHaizBreizh"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" sizes="16x16" href="./assets/IMG/logo.png">
-<link rel="stylesheet" href="./assets/CSS/style_logement.css">
+<link rel="stylesheet" href="{{asset('css/style_logement.css')}}">
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
@@ -26,19 +25,19 @@
     </header>
 <main>
 <section class="part1">
-<form action="creer-logement-fin.php" method="POST">
+<form action="{{route('creer_logement', ['page' => 7])}}" method="get">
     <div>    
         <section class="p1">
                 <div class="p1-6">
                     <div class="abc">
                         <div class='p1-6-nom'><h3>Quelles sont les charges additionnelles que vous souhaitez proposer ?</h3></div>
                         <div>
-                            <button id="btn45" name="menage" onclick="toggleButton3(this)" type="button"><img src="./assets/IMG/menage.svg"><p>Ménage</p></button>
-                            <button id="btn46" name="animaux" onclick="toggleButton3(this)" type="button"><img src="./assets/IMG/animaux.svg"><p>Animaux</p></button>
+                            <button id="btn45" name="menage" onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/menage.png')}}"><p>Ménage</p></button>
+                            <button id="btn46" name="animaux" onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/animaux.png')}}"><p>Animaux</p></button>
                         </div>
                         <div>
-                            <button id="btn47" name="taxe" onclick="toggleButton3(this)" type="button"><img src="./assets/IMG/taxe.svg"><p>Taxe</p></button>
-                            <button id="btn48" name="personne supplémentaire"  onclick="toggleButton3(this)" type="button"><img src="./assets/IMG/personne_sup.svg"><p>Personne supplémentaire</p></button>
+                            <button id="btn47" name="taxe" onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/taxe.png')}}"><p>Taxe</p></button>
+                            <button id="btn48" name="personne supplémentaire"  onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/personne_suplementaire.png')}}"><p>Personne supplémentaire</p></button>
                         </div>
                     </div>
                     <input type="hidden" id="charge" name="charge" />
@@ -108,6 +107,6 @@
     </form>
 </section> 
 </main>
-<script src="./assets/JS/script_logement_p6.js"></script>
+<script src="{{asset('js/script_logement_p6.js')}}"></script>
 </body>
 </html>

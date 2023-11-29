@@ -37,28 +37,33 @@ class Logement extends Controller
                 return View("logement/creer-logement-p3");
                 break;
             case 4:
-                session([
-                    'nb_lit_s' => [],
-                    'nb_lit_d' => [],
-                    'detail_lits' => [],
-                ]);
-                dd($request->session->get('nb_chambre'));
-                for ($i=1; $i <= session->get('nb_chambre'); $i++) { 
-                    dd($request->nb_lit_s_ . $i);
-                    array_push(session->get('nb_lit_s'), $request->nb_lit_s_ . $i);
+                $tab_lit_s = [];
+                $tab_lit_d = [];
+                $tab_details = [];
+
+                for ($i=1; $i <= intval($request->session()->get('nb_chambre')); $i++) {
+                    array_push($tab_lit_s, $request->input("nb_lit_s_" . $i));
+                    array_push($tab_lit_d, $request->input("nb_lit_d_" . $i));
+                    array_push($tab_details, $request->input("detail_lits_" . $i));
                 }
+
+                session([
+                    'nb_lit_s' => $tab_lit_s,
+                    'nb_lit_d' => $tab_lit_d,
+                    'detail_lits' => $tab_details,
+                ]);
                 return View("logement/creer-logement-p4");
                 break;
             case 5:
 
-                dd($request->session()->all());
+                //dd($request->session()->all());
                 return View("logement/creer-logement-p5");
                 break;
             case 6:
                 return View("logement/creer-logement-p6");
                 break;
             case 7:
-                return View("logement/creer-logement-p7");
+                return View("logement/creer-logement-fin");
                 break;
         }
     }

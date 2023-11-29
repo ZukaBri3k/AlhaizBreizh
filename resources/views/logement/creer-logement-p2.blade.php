@@ -31,8 +31,8 @@
         <section class="p1">
             <div class='p1-2'>
                 <div class="abc">
-                <div class='p1-2-nom'><h3>Décrivez-nous votre logement  </h3><p title="obligatoire">* Tous les champs sont obligatoires et doivent être remplis</p></div>
-                    <div class='champ1'><textarea name="description"  placeholder="Saisissez la description du logement"></textarea></div>      
+                <div class='p1-2-nom'><h3>Décrivez-nous votre logement  </h3><p title="obligatoire">Tous les champs sont obligatoires et doivent être remplis</p></div>
+                    <div class='champ1'><textarea name="description" pattern="\w{10,500}" placeholder="Saisissez la description du logement" required></textarea></div>      
                 </div>
             </div>
         </section>
@@ -46,10 +46,10 @@
                         <p>Nombre de salle de bain : </p>      
                     </section>
                     <section class="p1-3-2">    
-                        <input name='surface' value = '' type='number'>
-                        <input name='nb_p_max' value = '' type='number'>
-                        <input name='nb_chambre' value = '' type='number'>
-                        <input name='sdb' value = '' type='number'>
+                        <input name='surface' value = '' type='number' required>
+                        <input name='nb_p_max' value = '' type='number' required>
+                        <input name='nb_chambre' value = '' type='number' required>
+                        <input name='sdb' value = '' type='number' required>
                     </section>    
                 </div>
             </div>

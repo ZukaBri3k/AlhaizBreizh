@@ -30,7 +30,7 @@
         <section class="p1">
             <div class='p1-4'>
                 <div class="abc">
-                    <div class='p1-4-nom'><h3>De quels aménagements dispose votre logement ?</h3><p title="obligatoire">* Veuillez selectionner au moins un aménagement de logement</p></div>
+                    <div class='p1-4-nom'><h3>De quels aménagements dispose votre logement ?</h3><p title="obligatoire">Veuillez selectionner au moins un aménagement de logement</p></div>
                     <div>
                         <div>
                             <button style="margin-right:30px" id="btn16" name="terrasse" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/terrasse.svg"><p>Terrasse</p></button>
@@ -49,14 +49,14 @@
                             <button style="margin-right:30px" id="btn23" name="veranda" onclick="toggleButton(this)" type="button"><img src="./assets/IMG/veranda.svg"><p>Véranda</p></button>
                         </div>
                    </div>
-                   <input type="hidden" id="amenagement_logement" name="amenagement_logement" />
+                   <input type="hidden" id="amenagement_logement" name="amenagement_logement" required/>
                 </div>
             </div>
         </section>
         <section class="p2">
             <div class='p2-4'>
                 <div class="abc">
-                    <div class='p2-4-nom'><h3>De quels équipements dispose votre logement ?</h3><p title="obligatoire">* Veuillez sélectionner au moins un équipement de logement</p></div>
+                    <div class='p2-4-nom'><h3>De quels équipements dispose votre logement ?</h3><p title="obligatoire">Veuillez sélectionner au moins un équipement de logement</p></div>
                     <div>
                         <div>
                             <button style="margin-right:30px" id="btn24" name="wifi" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/wifi.svg"><p>Wifi</p></button>
@@ -77,7 +77,7 @@
                             <button style="margin-right:30px" id="btn33" name="equip_pmr" onclick="toggleButton4(this)" type="button"><img src="./assets/IMG/pmr.svg"><p>Equipement PMR</p></button>
                         </div>
                     </div>
-                    <input type="hidden" id="equipement" name="equipement" />
+                    <input type="hidden" id="equipement" name="equipement" required/>
                 </div>
             </div>
         </section>

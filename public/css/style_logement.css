@@ -1013,13 +1013,8 @@ input::-o-outer-spin-button {
 	margin:0
 }
 
-    /* Appliquez la couleur par défaut à l'image SVG à l'intérieur du bouton */
-    .monBouton svg {
-        fill: #000000; /* Couleur par défaut */
-        transition: fill 0.3s; /* Ajoute une transition fluide */
-      }
-  
-      /* Au survol du bouton, changez la couleur de l'image SVG à l'intérieur du bouton */
-      .monBouton:hover svg {
-        fill: #ff0000; /* Nouvelle couleur au survol */
-      }
+.progress-bar{
+    height: 3px;
+    background-color: greenyellow;
+    animation-duration: 2s;
+}

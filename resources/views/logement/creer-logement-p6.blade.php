@@ -41,12 +41,12 @@
                             <button id="btn48" name="personne supplémentaire"  onclick="toggleButton3(this)" type="button"><img src="./assets/IMG/personne_sup.svg"><p>Personne supplémentaire</p></button>
                         </div>
                     </div>
-                    <input type="hidden" id="charge" name="charge" />
+                    <input type="hidden" id="charge" name="charge" required/>
                 </div>
                 <div class='p2-6'>
                     <div class="abc">
-                        <div class='p2-6-nom'><h3>Quel sera le prix par nuit de votre logement ?*</h3><p title="obligatoire">* Veuillez renseigner le prix par nuit du logement</p></div>
-                        <div><input name='prix' style="width:150px; margin-left:15px;" placeholder="Prix par nuit" value = '' type='number'>€</div>
+                        <div class='p2-6-nom'><h3>Quel sera le prix par nuit de votre logement ?</h3><p title="obligatoire">Veuillez renseigner le prix par nuit du logement</p></div>
+                        <div><input name='prix' style="width:150px; margin-left:15px;" placeholder="Prix par nuit" value = '' type='number' required>€</div>
                     </div>
                 </div>
         </section>
@@ -54,8 +54,8 @@
         <div class='p2-7'>
                 <div class="abc">
                     <div class='p2-7-nom'>
-                        <h3>Quelle sera votre condition d'annulation ?*</h3>
-                        <p style="width:600px" title="obligatoire">* Veuillez choisir une condition d'annulation du logement</p>
+                        <h3>Quelle sera votre condition d'annulation ?</h3>
+                        <p style="width:600px" title="obligatoire">Veuillez choisir une condition d'annulation du logement</p>
                     </div>
                     <div class="condition">
                         <button id="btn49" name="strictes" type="button"></button>
@@ -78,7 +78,7 @@
                             <p>Un·e propriétaire peut offrir une option non remboursable : le·la client·e paie 10% de moins son séjour, mais en cas d’annulation, la totalité du versement sera conservée, quelque soit la date de cette annulation.</p>
                         </div>    
                     </div>
-                    <input type="hidden" id="condition_annulation" name="condition_annulation" />
+                    <input type="hidden" id="condition_annulation" name="condition_annulation" required/>
                 </div>
             </div>
             <div class='p1-7'>

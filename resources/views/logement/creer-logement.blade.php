@@ -31,7 +31,7 @@
         <section class="p1">
             <div class='p1-1'>
                 <div class="abc">
-                    <div class='p1-1-nom'><h3>De quelle nature est votre logement ? </h3><p title="obligatoire">* Veuillez selectionner une nature de logement</p></div>
+                    <div class='p1-1-nom'><h3>De quelle nature est votre logement ? </h3><p title="obligatoire">Veuillez selectionner une nature de logement</p></div>
                     <div>
                         <button id="btn1" name="maison" type="button"><img src="./assets/IMG/maison.svg"><p>Maison</p></button>
                         <button id="btn2" name="appartement" type="button"><img class="appart" src="./assets/IMG/appartement.svg"><p>Appartement</p></button>
@@ -48,7 +48,7 @@
                         <button id="btn7" name="cabane" type="button"><img src="./assets/IMG/cabane.svg"><p>Cabane</p></button>
                         <button id="btn8" name="caravane" type="button"><img src="./assets/IMG/caravane.svg"><p>Caravane ou Camping-car</p></button>
                     </div>         
-                 <input type="hidden" id="nature_logement" name="nature_logement" />
+                 <input type="hidden" id="nature_logement" name="nature_logement" required/>
 
                 </div>
             </div>
@@ -73,7 +73,7 @@
                         <button id="btn15" name="triplex" type="button"><img src="./assets/IMG/triplex.svg"><p>Triplex</p></button>
                     </div>
                 </div>
-                <input type="hidden" id="type_logement" name="type_logement" />
+                <input type="hidden" id="type_logement" name="type_logement" required/>
             </div>
         </section>
     </div>

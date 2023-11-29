@@ -31,7 +31,7 @@
         <section class="p1">
             <div class='p1-5'>
                 <div class="abc">
-                    <div class='p1-5-nom'><h3>De quelles installations dispose votre logement ?</h3><p title="obligatoire">* Veuillez selectionner au moins une installation de logement</p></div>
+                    <div class='p1-5-nom'><h3>De quelles installations dispose votre logement ?</h3><p title="obligatoire">Veuillez selectionner au moins une installation de logement</p></div>
                     <div>
                         <div>
                             <button id="btn34" name="jacuzzi" onclick="toggleButton2(this)" type="button"><img src="./assets/IMG/jacuzzi.svg"><p>Jacuzzi</p></button>
@@ -47,6 +47,7 @@
                         </div>
                     </div>
                 </div>   
+                <input type="hidden" id="installation" name="installation" required/>
             </div> 
         </section>
         <section class="p2">
@@ -67,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <input type="hidden" id="services" name="services" />
+                <input type="hidden" id="services" name="services" required/>
             </div>
         </section>
     </div>        

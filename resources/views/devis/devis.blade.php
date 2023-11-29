@@ -98,7 +98,7 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <a href="{{route ('devis-proprio')}}">
+        <a href="{{route ('infosDevis')}}">
             <button type="button" id="genererPDF">Générer PDF</button>
         </a>
     </section>

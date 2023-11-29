@@ -172,9 +172,7 @@
           } 
           elseif($service == "aucun") {
           @endphp
-          <div class="rectangle">
-            <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-0">
-          </div>
+          
           @php
             }
           elseif(count(explode(";", $logement->service_complementaire_logement)) == 1) {

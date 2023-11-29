@@ -367,7 +367,11 @@ body {
     justify-content: center;
 }
 
-
+.boutton_bas {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
 
 .boutton_bas button {
     width: 10%;

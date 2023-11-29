@@ -310,7 +310,7 @@
                     window.history.back();s
                 }
             </script>  
-        <a href="{{route('devis-client')}}">
+        <a href="{{route('myProprietaireAccount')}}">
             <button type="button" id="enreg_buton">Enregistrer</button>
         </a>
       </div>  

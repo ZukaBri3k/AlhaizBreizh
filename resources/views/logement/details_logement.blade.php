@@ -178,6 +178,8 @@
           </div>
           @php 
             }
+            elseif($service == "aucun") {
+            }
           @endphp
 
           <!-- Equipements -->
@@ -228,7 +230,7 @@
           </div>
           @php 
             }
-            elseif($charge == "aucune") {
+            elseif($charge == "aucun") {
           @endphp
           <div class="rectangle">
             <p>{!! $charge !!}</p>

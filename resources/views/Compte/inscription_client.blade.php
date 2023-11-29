@@ -119,7 +119,8 @@
             </div>
                 
                 
-           <div class="private-info-section">    
+           <div class="private-info-section"> 
+           <h4><a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>   
                     <h1>Information personnel privée</h1>
         
                 <label for="adresse_pers"></label> 

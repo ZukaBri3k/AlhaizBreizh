@@ -24,7 +24,7 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('details_previsu',[id=>4])}}" method="get">
+<form action="{{route('details_previsu',['id' => 4])}}" method="get">
     <div>    
         <section class="p1">        
             <div class='p1-8'>

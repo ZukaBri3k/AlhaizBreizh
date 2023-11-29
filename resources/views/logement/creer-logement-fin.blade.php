@@ -24,7 +24,7 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('myProprietaireAccount')}}" method="get">
+<form action="{{route('details_previsu')}}" method="get">
     <div>    
         <section class="p1">        
             <div class='p1-8'>
@@ -88,7 +88,7 @@
             <svg width="100" height="100">
 
             </svg>
-                Texte du bouton
+                Previsualisation
             </button>
         </div>    
     </div>    

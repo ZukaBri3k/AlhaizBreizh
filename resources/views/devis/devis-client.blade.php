@@ -190,8 +190,18 @@ document.getElementById("accepterDevis").addEventListener("click", function () {
     window.location.href = 'proprio2.php?accept=1';
 });*/
 
-document.getElementById("demanderDevis").addEventListener("click", function () {
+document.getElementById("demanderDevis").addEventListener("click", function (event) {
+    // Empêchez le comportement par défaut du lien (la redirection)
+    event.preventDefault();
+
+    // Effectuez ici toute action nécessaire, par exemple, enregistrez la demande de devis dans la base de données.
+
+    // Désactivez le lien pour empêcher les clics ultérieurs
     this.classList.add('hide-button');
+    this.removeEventListener('click', arguments.callee); // Retire l'écouteur pour éviter les clics supplémentaires
+
+    // Redirigez l'utilisateur vers la route prévue (vous pouvez ajuster le chemin de la route)
+    window.location.href = this.getAttribute('href');
 });
 
 document.getElementById("afficherPdf").addEventListener("click", function () {

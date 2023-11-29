@@ -164,7 +164,7 @@ class AccountController extends Controller
                 ];
 
                 DB::insert('insert into client(
-                    id,
+                    id_client,
                     demande_devis_auto,
                     msg_comfirm_devis,
                     msg_refus_devis

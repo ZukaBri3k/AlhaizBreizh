@@ -47,7 +47,7 @@
     </div>
     <div class="second">
       <div>
-        <h1>{{ htmlentites($logement->libelle_logement) }} n°{{ htmlentites($logement->id_logement) }} / {{ htmlentites($logement->accroche_logement) }}</h1>
+        <h1>{{!! $logement->libelle_logement !!}} n°{{!! $logement->id_logement !!}} / {{!! $logement->accroche_logement !!}}</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           @php

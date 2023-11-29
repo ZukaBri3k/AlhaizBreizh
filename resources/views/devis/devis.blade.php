@@ -14,7 +14,7 @@
         <div class="spacer"></div>
                 <a class="retour" href="proprio.php">
             <div>
-                <img src="img/retour.png" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
+                <img src="{{asset ('img/retour.png')}}" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
             </div>
             <p>Retour</p>
         </a>
@@ -22,7 +22,7 @@
         <div class="spacer"></div>
     </section>
     <section class="devis">
-        <img src="img/grandlogo.png" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
+        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
         <div class="boxhaut">
             <div class="boxgauche">
                 <h3>Nom du propriétaire</h3>

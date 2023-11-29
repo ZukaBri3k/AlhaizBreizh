@@ -116,14 +116,16 @@
           </div>
           @php
           }
-            foreach ($installation as $values)
+            foreach ($installation as $values) {
               $value = strtolower($values);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-100">
             <p>{!! $values !!}</p>
           </div>
-          @endforeach
+          @php
+            }
+          @endphp
           <div class="rectangle">
             <<img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
             <p>Maison</p>

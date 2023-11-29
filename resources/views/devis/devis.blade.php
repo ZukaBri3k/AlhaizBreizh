@@ -27,22 +27,26 @@
         <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" classe="grandlogo" width="30%">
         <div class="boxhaut">
             <div class="boxgauche">
+                <!-- Ajout des champs pour le propriétaire -->
                 <h3>Nom du propriétaire</h3>
                 <p>Adresse du propriétaire</p>
                 <p>ville, code postal, France</p>
                 <p>Numéro de téléphone</p>
                 <p>Adresse mail</p>
                 <div class="espace"></div>
+                <!-- Les dates de début et de fin du séjour -->
                 <p>Date de début du séjour : <input type="date" id="startDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
                 <p>Date de fin du séjour : <input type="date" id="endDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
             </div>
             <div class="boxdroite">
+                <!-- Informations sur le devis -->
                 <h3>Devis</h3>
                 <p>Numéro du devis : <span class="greyText">D-2023-001</span></p>
                 <p>Date d'émission du devis : 01/01/2023</p>
                 <p>Date d'expiration du devis : 01/02/2023</p>
                 <p>Conditions d'annulation de la réservation</p>
                 <br>
+                <!-- Informations sur le client -->
                 <h3>Client</h3>
                 <label for="name">Nombre de personnes :</label>
                 <select id="name" name="name">
@@ -51,12 +55,14 @@
                     <?php endfor; ?>
                 </select>
                 <br>
+                <!-- Heure d'arrivée et heure de départ -->
                 <label for="heureArrivee">Heure d'arrivée :</label>
                 <input type="text" id="heureArrivee" name="heureArrivee" />
                 <label for="heureDepart">Heure de départ :</label>
                 <input type="text" id="heureDepart" name="heureDepart" />
             </div>
         </div>
+        <!-- Tableau pour les coûts -->
         <table border="1" class="table-striped">
             <tr>
                 <td class="bordstp">Tarif location HT</td>
@@ -79,6 +85,7 @@
                 <td class="bordstp"><input type="text" id="taxedesejour" name="taxedesejour"/></td>
             </tr>
         </table>
+        <!-- Informations additionnelles et formulaire caché -->
         <div class="boxbasdroite">
             <p id="fraisservicettc">Frais de service TTC : </p>
             <p id="fraisserviceht">Frais de service HT : </p>
@@ -100,17 +107,17 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <form id="pdfForm" method="post" action="save-to-database.php">
-            <!-- Ajoutez des champs cachés pour stocker les valeurs -->
+        <!-- Formulaire avec champs cachés pour stocker les valeurs -->
+        <form id="pdfForm" method="post" action="{{ route('creer-devis-db') }}">
             <input type="hidden" name="tariflocht" id="hiddenTarifLocht" />
             <input type="hidden" name="chargesht" id="hiddenChargesHt" />
             <input type="hidden" name="nombrePersonnes" id="hiddenNombrePersonnes" />
             <input type="hidden" name="heureArrivee" id="hiddenHeureArrivee" />
             <input type="hidden" name="heureDepart" id="hiddenHeureDepart" />
 
-           
+            <!-- Ajoutez d'autres champs cachés pour d'autres valeurs si nécessaire -->
 
- <!-- Ajoutez votre bouton Générer PDF -->
+            <!-- Bouton Générer PDF -->
             <button type="button" id="genererPDF">Générer PDF</button>
         </form>
     </section>

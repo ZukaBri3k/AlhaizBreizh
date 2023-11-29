@@ -53,8 +53,6 @@
                 <input type="text" id="name" name="user_name" />
                 <label for="name">Heure de départ :</label>
                 <input type="text" id="name" name="user_name" />
-                <label for="name">pays :</label>
-                <input type="text" id="name" name="user_name" />
             </div>
         </div>
         <table border="1" class="table-striped">

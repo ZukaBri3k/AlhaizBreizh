@@ -27,7 +27,7 @@
         <section class="p1">
             <div class='p1-1'>
                 <div class="abc">
-                    <div class='p1-1-nom'><h3>De quelle nature est votre logement ? </h3></div>
+                    <div class='p1-1-nom'><h3>De quelle nature est votre logement ? *</h3></div>
                     <div>
                         <button id="btn1" name="maison" type="button"><img src="{{ asset('/img/nature/maison.png') }}"><p>Maison</p></button>
                         <button id="btn2" name="appartement" type="button"><img class="appart" src="{{ asset('/img/nature/appartement.png') }}"><p>Appartement</p></button>
@@ -52,7 +52,7 @@
         <section class="p2">
             <div class='p2-2'>
                 <div class="abc">
-                    <div class='p2-2-nom'><h3>De quel type est votre logement ?</h3></div>
+                    <div class='p2-2-nom'><h3>De quel type est votre logement ? *</h3></div>
                     <div>
                         <button id="btn9" name="T1" type="button"><img src="{{ asset('/img/type/t1.png') }}"><p>T1</p></button>
                         <button id="btn10" name="T2" type="button"><img src="{{ asset('/img/type/t2.png') }}"><p>T2</p></button>

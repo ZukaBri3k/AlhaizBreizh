@@ -82,7 +82,7 @@
             <button name="btn_retour" onclick="retour()" class="validation">RETOUR</button>
             <script>
                 function retour(){
-                    window.location.href = 'index.php';
+                    window.location.href = "{{ route('myProprietaireAccount') }}";
                 }
             </script>
             <button name="btn_validation" class="validation" type="submit">SUIVANT</button>

@@ -379,9 +379,9 @@ body {
     border: none;
     border-radius: 20px;
     background-color: #EC3B53;
-    margin-left: 20%;
     color: #FFF;
     text-align: center;
+    font-size: 20px;
     letter-spacing: -0.225px;
     color: #FFF;
     text-align: center;
@@ -392,5 +392,5 @@ body {
 }
 
 .boutton_bas button + button {
-    margin-left: 5%;
+    margin-left: 10%;
 }

@@ -55,8 +55,6 @@
                 <input type="text" id="heureArrivee" name="heureArrivee" />
                 <label for="heureDepart">Heure de départ :</label>
                 <input type="text" id="heureDepart" name="heureDepart" />
-                <label for="pays">Pays :</label>
-                <input type="text" id="pays" name="pays" />
             </div>
         </div>
         <table border="1" class="table-striped">
@@ -109,7 +107,6 @@
             <input type="hidden" name="nombrePersonnes" id="hiddenNombrePersonnes" />
             <input type="hidden" name="heureArrivee" id="hiddenHeureArrivee" />
             <input type="hidden" name="heureDepart" id="hiddenHeureDepart" />
-            <input type="hidden" name="pays" id="hiddenPays" />
 
            
 
@@ -162,13 +159,12 @@
 
             updateTotals();
 
-            document.getElementById('generatePDF').addEventListener('click', function () {
+            document.getElementById('genererPDF').addEventListener('click', function () {
                 document.getElementById('hiddenTarifLocht').value = tariflochtInput.value;
                 document.getElementById('hiddenChargesHt').value = chargeshtInput.value;
                 document.getElementById('hiddenNombrePersonnes').value = document.getElementById('name').value;
                 document.getElementById('hiddenHeureArrivee').value = document.getElementById('heureArrivee').value;
                 document.getElementById('hiddenHeureDepart').value = document.getElementById('heureDepart').value;
-                document.getElementById('hiddenPays').value = document.getElementById('pays').value;
 
                 document.getElementById('pdfForm').submit();
             });

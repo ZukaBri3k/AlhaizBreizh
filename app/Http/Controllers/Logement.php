@@ -8,8 +8,67 @@ use Illuminate\Support\Facades\DB;
 
 class Logement extends Controller
 {
-    public function Creation() {
-        return View("logement/creer_logement");
+    public function Creation(Request $request) {
+
+        switch ($request->page) {
+            case 1:
+                return View("logement/creer-logement");
+                break;
+            case 2:
+                return View("logement/creer-logement-p1");
+                break;
+            case 3:
+                session([
+                    'adresse' => $request->adresse,
+                    'ville' => $request->ville,
+                    'code_postal' => $request->cp,
+                    'longitude' => $request->longitude,
+                    'latitude' => $request->latitude,
+                    'libelle' => $request->libelle,
+                    'accroche' => $request->accroche
+            ]);
+                return View("logement/creer-logement-p2");
+                break;
+            case 4:
+                session([
+                    'description' => $request->description,
+                    'surface' => $request->surface,
+                    'nb_p_max' => $request->nb_p_max,
+                    'nb_chambre' => $request->nb_chambre,
+                    'sdb' => $request->sdb,
+            ]);
+                return View("logement/creer-logement-p3");
+                break;
+            case 5:
+                $tab_lit_s = [];
+                $tab_lit_d = [];
+                $tab_details = [];
+
+                for ($i=1; $i <= intval($request->session()->get('nb_chambre')); $i++) {
+                    array_push($tab_lit_s, $request->input("nb_lit_s_" . $i));
+                    array_push($tab_lit_d, $request->input("nb_lit_d_" . $i));
+                    array_push($tab_details, $request->input("detail_lits_" . $i));
+                }
+
+                session([
+                    'nb_lit_s' => $tab_lit_s,
+                    'nb_lit_d' => $tab_lit_d,
+                    'detail_lits' => $tab_details,
+                ]);
+                return View("logement/creer-logement-p4");
+                break;
+            case 6:
+
+                //dd($request->session()->all());
+                return View("logement/creer-logement-p5");
+                break;
+            case 7:
+                return View("logement/creer-logement-p6");
+                break;
+            case 8:
+                return View("logement/creer-logement-fin");
+                break;
+        }
     }
 
     public function ajouterLogementDB() {
@@ -83,5 +142,13 @@ class Logement extends Controller
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
-    } 
+    }
+
+    public function getInfoLogementPrevisu(Request $request) {
+        $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
+        return View("logement/details_logement_previsu" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
+        'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
+        'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+    }
 }

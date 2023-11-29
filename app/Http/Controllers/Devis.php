@@ -14,7 +14,7 @@ class Devis extends Controller
     }
 
     public function devisProprietaire2 () {
-        return View('devis/devis-proprio2');
+        return View('devis/devis');
     }
 
     public function devisClient () {
@@ -38,6 +38,25 @@ class Devis extends Controller
     public function demandeDevis (Request $request) {
         DB::update('update devis set etat_devis = false where ref_devis = 6');
         return redirect()->route('devis-client');
+    }
+
+    public function infosDevis(Request $request) {
+        $nbPers = $request->input('nb_pers');
+        $dateDeb = $request->input('date_deb');
+        $dateFin = $request->input('date_fin');
+
+        DB::insert('
+            INSERT INTO devis (
+            nb_pers,
+            date_deb,
+            date_fin,
+            id_client_devis,
+            id_proprio
+            ) values (
+            ?, ?, ?, ?, ?
+            )', [$nbPers, $dateDeb, $dateFin, 1, 2]);
+        
+        return redirect()->route('devis-proprio');
     }
 
     //---------------------

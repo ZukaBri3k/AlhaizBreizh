@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F6F5EE;
+    font-size: 18px; /* Augmentation de la taille de police par défaut */
+}
+
+.hautDePage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 3%;
+    margin-top: 6%;
+}
+
+.hautDePage > h2 {
+    position: absolute;
+    font-size: 36px;
+    text-align: center;
+}
+
+.retour {
+    position: absolute;
+    left: 0;
+    padding: 12px 0;
+    cursor: pointer;
+    background-color: #EC3B53;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 2%;
+    margin-left: 7.5%;
+}
+
+.bords{
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin: 2%;
+    padding: 2%;
+}
+
+.hautDePage > .spacer {
+    flex-grow: 1;
+}
+
+.devis {
+    background-color: #fff;
+    margin: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Pour s'assurer que les coins arrondis sont respectés */
+}
+
+.devis h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333; /* Couleur de texte plus sombre pour le contraste */
+}
+
+.boxhaut {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boxgauche,
+.boxdroite {
+    width: 38%; /* Ajuster la largeur des côtés gauche et droit */
+}
+
+.boxgauche p,
+.boxdroite p {
+    margin-bottom: 10px;
+}
+
+.table-striped {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table-striped, tr, .bordstp {
+    border: 2px solid #000000;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    color: white;
+}
+
+.boxbasdroite,
+.boxbasgauche {
+    margin-top: 20px;
+}
+
+.boxbasdroite p,
+.boxbasgauche p {
+    margin-bottom: 10px;
+}
+
+.boxbasdroite h3 {
+    margin-top: 10px;
+}
+
+.table-left-shift {
+    width: 60%;
+}
+
+.table-striped tr:nth-child(odd) {
+    background-color: #D9D9D9;
+}
+
+.table-striped tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.date-input {
+    /* Ajoutez vos styles personnalisés ici */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.boxbasdroite {
+    margin-left: 70%;
+}
+
+span {
+    color: #888;
+}
+
+.boxdroite input {
+    display: block;
+    margin-bottom: 10px; /* Ajoute un espacement entre chaque label et champ de saisie */
+}
+
+.boxbasgauche select {
+    display: block;
+    margin-bottom: 10px; /* Ajoute un espacement entre chaque label et champ de saisie */
+}
+
+.espace {
+    margin-top: 70%;
+}
+
+#genererPDF {
+    background-color: #4BCBFF;
+    width: 100%;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    font-weight: bold;
+}

@@ -124,8 +124,9 @@
             </div>
             @php
             }
-          }
+          } @endphp
           <!-- Installations -->
+          @php
           if(sizeof($installation) > 1) {
             foreach ($installation as $values) {
             $value = strtolower($values);

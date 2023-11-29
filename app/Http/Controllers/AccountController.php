@@ -137,7 +137,7 @@ class AccountController extends Controller
             "id" => $id_proprio[0]->id,
             $request->piece_id_proprio_recto,
             $request->piece_id_proprio_verso,            
-            "proposition_devis_auto" => $request->votre_nom_proposition_devis. " " .$request->nom_logement_proposition_devis. " " . $request->nom_client_proposition_devis,
+            "'".$request->votre_nom_proposition_devis. " " .$request->nom_logement_proposition_devis. " " . $request->nom_client_proposition_devis."'",
         ];
         DB::insert('insert into proprietaire(
             proposition_devis_auto,

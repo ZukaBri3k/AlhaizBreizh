@@ -94,7 +94,7 @@ class AccountController extends Controller
             $request->password,
             $request->confirmerMotDePasse,    
             $request->iban,
-            $request->mail_perso,
+            $request->mail_pers,
         ];
 
         $proprietaire=[

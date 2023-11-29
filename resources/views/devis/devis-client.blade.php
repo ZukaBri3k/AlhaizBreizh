@@ -196,6 +196,20 @@ demanderDevis.addEventListener("click", () => {
     document.getElementById("demanderDevis").style.display = "none";
 });
 
+const accepterDevis = document.getElementById("accepterDevis");
+
+demanderDevis.addEventListener("click", () => {
+    document.getElementById("accepterDevis").style.display = "none";
+    document.getElementById("refuserDevis").style.display = "none";
+});
+
+const refuserDevis = document.getElementById("refuserDevis");
+
+demanderDevis.addEventListener("click", () => {
+    document.getElementById("refuserDevis").style.display = "none";
+    document.getElementById("accepterDevis").style.display = "none";
+});
+
 document.getElementById("afficherPdf").addEventListener("click", function () {
     // Affichez le PDF en utilisant l'iframe
     document.getElementById("pdfViewer").src = 'Mon_Devis.pdf'; // Assurez-vous que le chemin du PDF est correct

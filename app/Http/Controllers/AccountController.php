@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -74,4 +75,87 @@ class AccountController extends Controller
     public function compteProprietaire() {
         return View("Compte/MonCompteProprietaire");
     }
+      //--------------------------------------------------------------
+    public function ajoute_personne(Request $request) {
+
+        
+        $personne=[
+            $request->civilite_pers,
+            $request->prenom_pers,
+            $request->nom_pers,
+            $request->pseudo_pers,
+            $request->ville_pers,
+            $request->pays_pers,
+            $request->photo_pers,
+            $request->adresse_pers,
+            $request->code_postal_pers,
+            $request->date_de_naissance,
+            $request->telephone_pers,
+            $request->password,
+            $request->confirmerMotDePasse,    
+            $request->iban,
+            $request->mail_pers,
+        ];
+
+        $proprietaire=[
+            $request->nom_client_proposition_devis,
+            $request->nom_logement_proposition_devis,
+            $request->votre_nom_proposition_devis,
+            $request->piece_id_proprio_recto,
+            $request->piece_id_proprio_verso,
+        ];
+
+        $client=[
+            $request->nom_prop_demande_devis,
+            $request->nom_logement_demande_devis,
+            $request->votre_nom_demande_devis,
+            $request->nom_prop_acceptation,
+            $request->nom_logement_acceptation,
+            $request->votre_nom_acceptation,
+            $request->nom_prop_refus,
+            $request->nom_logement_refus,
+            $request->votre_nom_refus,
+        ];
+
+    DB::insert('insert into personne(
+        civilite_pers
+        prenom_pers,
+        nom_pers,
+        pseudo_pers,
+        ville_pers,
+        pays_pers,
+        photo_pers,
+        adresse_pers,
+        code_postal_pers,
+        date_de_naissance,
+        telephone_pers,
+        password,
+        confirmerMotDePasse,
+        iban,
+        mail_pers)values(
+            ?, ?, ?, ?, ?, ?, ?, 
+            ?, ?, ?, ?, ?, ?, ?, ?, )',$personne);
+
+    DB::insert('insert into proprietaire(
+        nom_client_proposition_devis,
+        nom_logement_proposition_devis,
+        votre_nom_proposition_devis,
+        piece_id_proprio_recto,
+        piece_id_proprio_verso)values(
+            ?, ?, ?, ?, ?, )',$proprietaire);
+
+    DB::insert('insert into client(
+        nom_prop_demande_devis,
+        nom_logement_demande_devis,
+        votre_nom_demande_devis,
+        nom_prop_acceptation,
+        nom_logement_acceptation,
+        votre_nom_acceptation,
+        nom_prop_refus,
+        nom_logement_refus,
+        votre_nom_refus)values(
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, )
+        ',$client);
+    }
+
 }

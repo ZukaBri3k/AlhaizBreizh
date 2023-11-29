@@ -20,16 +20,16 @@
                    </h4>
 
             <form action="{{route ('inscription_client')}}">
-            <label for="prenom">Prenom :</label>
-            <input type="text" id="prenom" name="prenom" required>
+            <label for="prenom_pers">Prenom :</label>
+            <input type="text" id="prenom_pers" name="prenom_pers" required>
             <br><br>
 
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
+            <label for="nom_pers">Nom :</label>
+            <input type="text" id="nom_pers" name="nom_pers" required>
             <br><br>
 
-            <label for="email">E-mail :</label>
-            <input type="email" id="email" name="email" required>
+            <label for="mail_pers">E-mail :</label>
+            <input type="email" id="mail_pers" name="mail_pers" required>
             <br><br>
 
             <input type="submit" value="S'inscrire">

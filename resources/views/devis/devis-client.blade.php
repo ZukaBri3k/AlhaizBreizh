@@ -13,10 +13,9 @@
     <div class="container">
     <main>
         <section class="boutons">
-            <form action="index.php" method="get" target="_blank">
-                <button id="refuserDevis" class="bouton-creer"><a href="{{ route('devis.refuser', $id) }}">Refuser le devis</button>
-                <button id="accepterDevis" class="bouton-creer"><a href="{{ route('devis.valider', $id) }}">Accepter le devis</button>
-            </form>
+            <button id="demanderDevis" class="bouton-creer"><a href="{{ route('devis.demander') }}">Demander le devis</a></button>
+            <button id="refuserDevis" class="bouton-creer"><a href="{{ route('devis.refuser') }}">Refuser le devis</a></button>
+            <button id="accepterDevis" class="bouton-creer"><a href="{{ route('devis.valider') }}">Accepter le devis</a></button>
             <h2>Votre messagerie avec BigPapoo<img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=5% height=5%></h2>
         </section>
         <section class="messaging">
@@ -179,7 +178,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 <script>
-document.getElementById("refuserDevis").addEventListener("click", function () {
+/*document.getElementById("refuserDevis").addEventListener("click", function () {
     // Effectuez ici toute action nécessaire, par exemple, enregistrez le refus du devis dans la base de données.
     // Redirigez ensuite l'utilisateur vers proprio.php avec un message.
     window.location.href = 'proprio2.php?refus=1';
@@ -189,6 +188,29 @@ document.getElementById("accepterDevis").addEventListener("click", function () {
     // Effectuez ici toute action nécessaire, par exemple, enregistrez le refus du devis dans la base de données.
     // Redirigez ensuite l'utilisateur vers proprio.php avec un message.
     window.location.href = 'proprio2.php?accept=1';
+});*/
+
+const demanderDevis = document.getElementById("demanderDevis");
+const accepterDevis = document.getElementById("accepterDevis");
+const refuserDevis = document.getElementById("refuserDevis");
+
+document.getElementById("accepterDevis").style.display = "none";
+document.getElementById("refuserDevis").style.display = "none";
+
+demanderDevis.addEventListener("click", () => {
+    document.getElementById("demanderDevis").style.display = "none";
+    document.getElementById("refuserDevis").style.display = "flex";
+    document.getElementById("accepterDevis").style.display = "flex";
+});
+
+accepterDevis.addEventListener("click", () => {
+    document.getElementById("accepterDevis").style.display = "none";
+    document.getElementById("refuserDevis").style.display = "none";
+});
+
+refuserDevis.addEventListener("click", () => {
+    document.getElementById("refuserDevis").style.display = "none";
+    document.getElementById("accepterDevis").style.display = "none";
 });
 
 document.getElementById("afficherPdf").addEventListener("click", function () {

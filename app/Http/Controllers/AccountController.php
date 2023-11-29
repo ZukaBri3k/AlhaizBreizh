@@ -132,9 +132,10 @@ class AccountController extends Controller
         password,
         confirmerMotDePasse,
         iban,
-        mail_pers)values(
+        mail_pers
+        )values(
             ?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, ?, ?, ?, )',$personne);
+            ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
     DB::insert('insert into proprietaire(
         nom_client_proposition_devis,

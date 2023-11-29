@@ -58,7 +58,7 @@
                     <div class='p2-4-nom'><h3>De quels équipements dispose votre logement ?</h3><p title="obligatoire">* Veuillez sélectionner au moins un équipement de logement</p></div>
                     <div>
                         <div>
-                            <button style="margin-right:30px" id="btn24" name="wifi" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/wifi.svg')}"><p>Wifi</p></button>
+                            <button style="margin-right:30px" id="btn24" name="wifi" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/wifi.svg')}}"><p>Wifi</p></button>
                             <button style="margin-right:30px" id="btn25" name="tv" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/tv.svg')}}"><p>Télévision</p></button>
                             <button style="margin-right:30px" id="btn26" name="cuisine" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/cuisine.svg')}}"><p>Cuisine</p></button>
                         </div>

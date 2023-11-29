@@ -12,12 +12,12 @@
     </header>
     <section class="hautDePage">
         <div class="spacer"></div>
-        <div class="retour">
+                <a class="retour" href="proprio.php">
             <div>
                 <img src="img/retour.png" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
             </div>
             <p>Retour</p>
-        </div>
+        </a>
         <h2>Créer votre devis</h2>
         <div class="spacer"></div>
     </section>

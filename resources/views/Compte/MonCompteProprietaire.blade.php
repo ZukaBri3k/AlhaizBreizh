@@ -15,7 +15,7 @@
         <x-Navbar></x-Navbar>
     </header>
 <h1>Bienvenu sur ton compte propriétaire !</h1>
-<a href="{{route('creer_logement')}}">Créer son logement
+<a href="{{route('creer_logement', ['page' => 0])}}">Créer son logement
 </a>
 <br>
 <a href="{{route('devis-proprio')}}">Aller a sa messagerie propriétaire

@@ -190,6 +190,12 @@ document.getElementById("accepterDevis").addEventListener("click", function () {
     window.location.href = 'proprio2.php?accept=1';
 });*/
 
+const demanderDevis = document.getElementById("demanderDevis");
+
+demanderDevis.addEventListener("click", () => {
+    document.getElementById("demanderDevis").style.display = "none";
+});
+
 document.getElementById("afficherPdf").addEventListener("click", function () {
     // Affichez le PDF en utilisant l'iframe
     document.getElementById("pdfViewer").src = 'Mon_Devis.pdf'; // Assurez-vous que le chemin du PDF est correct

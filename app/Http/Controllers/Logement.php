@@ -8,8 +8,48 @@ use Illuminate\Support\Facades\DB;
 
 class Logement extends Controller
 {
-    public function Creation() {
-        return View("logement/creer_logement");
+    public function Creation(Request $request) {
+
+        switch ($request->page) {
+            case 1:
+                return View("logement/creer-logement-p1");
+                break;
+            case 2:
+                session([
+                    'adresse' => $request->adresse,
+                    'ville' => $request->ville,
+                    'code_postal' => $request->cp,
+                    'longitude' => $request->longitude,
+                    'latitude' => $request->latitude,
+                    'libelle' => $request->libelle,
+                    'accroche' => $request->accroche
+            ]);
+                return View("logement/creer-logement-p2");
+                break;
+            case 3:
+                session([
+                    'description' => $request->description,
+                    'surface' => $request->surface,
+                    'nb_p_max' => $request->nb_p_max,
+                    'nb_chambre' => $request->nb_chambre,
+                    'sdb' => $request->sdb,
+            ]);
+                dd($request->session()->all());
+                return View("logement/creer-logement-p3");
+                break;
+            case 4:
+                return View("logement/creer-logement-p4");
+                break;
+            case 5:
+                return View("logement/creer-logement-p5");
+                break;
+            case 6:
+                return View("logement/creer-logement-p6");
+                break;
+            case 7:
+                return View("logement/creer-logement-p7");
+                break;
+        }
     }
 
     public function ajouterLogementDB() {

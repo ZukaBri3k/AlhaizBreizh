@@ -47,7 +47,7 @@
     </div>
     <div class="second">
       <div>
-        <h1>{{!! $logement->libelle_logement !!}} n°{{!! $logement->id_logement !!}} / {{!! $logement->accroche_logement !!}}</h1>
+        <h1>{!! $logement->libelle_logement !!} n°{!! $logement->id_logement !!} / {!! $logement->accroche_logement !!}</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           @php
@@ -58,12 +58,12 @@
             $amenagement = explode(";", $logement->amenagement_propose_logement);
           @endphp
           <div class="rectangle">
-              <img src="{{asset('/img/nature/' . $logement->nature_logement . '.png')}}" class="d-block w-100">
+              <img src="{{asset('/img/nature/'.$logement->nature_logement.'.png')}}" class="d-block w-100">
               <p>{{ $logement->nature_logement }}</p>
           </div>
           <div class="rectangle">
-              <img src="{{asset('/img/type/' . $logement->type_logement . '.png')}}" class="d-block w-100">
-            <p>Maison</p>
+              <img src="{{asset('/img/type/'.$logement->type_logement.'.png')}}" class="d-block w-100">
+            <p>{{ logement->type_logement }}</p>
           </div>
         </div>
         <h1>Aménagements, installations :</h1>

@@ -30,7 +30,7 @@
     <div>    
         <section class="p1">
             
-            @php 
+            {{
                 $i = 1;
                 while ($i < $_GET["nb_chambre"]){
                     echo    '
@@ -51,7 +51,7 @@
                             </div>
                             ';
                 }
-            @endphp
+            }}
         </section>
         <section class="p2">
         </section>

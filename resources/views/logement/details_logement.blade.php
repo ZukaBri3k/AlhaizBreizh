@@ -119,6 +119,9 @@
             </div>
           @php
             }
+            elseif($amenagement == "null") {
+            }
+
           elseif(sizeof($amenagement) > 1) {
           foreach ($amenagement as $values) {
             $value = strtolower($values);
@@ -143,7 +146,11 @@
           </div>
           @php
             }
-          } elseif(sizeof($installation) == 1) {
+          }
+          elseif($installation == "null") {
+          } 
+          
+          elseif(sizeof($installation) == 1) {
             $value = strtolower($installation);
           @endphp
           <div class="rectangle">
@@ -170,11 +177,10 @@
           @php 
             }
           } 
-          elseif($service == "aucun") {
-          @endphp
-          
-          @php
-            }
+          elseif($service == "null") {
+          }
+
+
           elseif(count(explode(";", $logement->service_complementaire_logement)) == 1) {
             $value = strtolower($service);
           @endphp
@@ -198,7 +204,11 @@
           </div>
           @php 
             }
-          } elseif(count(explode(";", $logement->equipement_propose_logement)) == 1) {
+          }
+          elseif($equipement == "null") {
+          }
+          
+          elseif(count(explode(";", $logement->equipement_propose_logement)) == 1) {
             $value = strtolower($equipement);
           @endphp
           <div class="rectangle">
@@ -225,7 +235,10 @@
           </div>
           @php 
             }
-          } elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
+          } 
+          elseif($charge == "null") {
+            }          
+          elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
             $value = strtolower($charge);
           @endphp
           <div class="rectangle">
@@ -233,13 +246,6 @@
             <p>{!! $charge !!}</p>
           </div>
           @php 
-            }
-            elseif($charge == "aucun") {
-          @endphp
-          <div class="rectangle">
-            <p>{!! $charge !!}</p>
-          </div>
-          @php
             }
           @endphp
 

@@ -63,7 +63,7 @@ class Logement extends Controller
                 return View("logement/creer-logement-p6");
                 break;
             case 7:
-                return View("logement/creer-logement-p7");
+                return View("logement/creer-logement-fin");
                 break;
         }
     }

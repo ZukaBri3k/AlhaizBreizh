@@ -9,31 +9,29 @@
 <meta name="keywords" content="AlHaizBreizh"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" sizes="16x16" href="./assets/IMG/logo.png">
-<link rel="stylesheet" href="./assets/CSS/style_logement.css">
+<link rel="stylesheet" href="{{asset('css/style_logement.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="./assets/JS/script_logement.js"></script>
+<script src="{{asset('js/script_logement.js')}}"></script>
 </head>
 
 
 <body>
-    <header>
-        <div>
-            <img class="img_header1" src="./assets/IMG/header_logo.png">
-            <img class="img_header2" src="./assets/IMG/profil.png">
-        </div>    
-        <hr>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<header>
+        <x-Navbar></x-Navbar>
     </header>
 <main>
 <section class="part1">
-<form action="previsualiser.php" method="POST">
+<form action="{{route('myProprietaireAccount')}}" method="get">
     <div>    
         <section class="p1">        
             <div class='p1-8'>
                     <div class="abc">
                         <div class='p1-8-nom'><h3>Quelle sera la photo de couverture de votre logement ?</h3><p title="obligatoire">* Veuillez insérer au moins une photo de couverture pour votre logement</p></div>
                             <div class="import_image">
-                                <label>Insérer une photo :</label><div><input id="btn40" name="image_1" type="file"><img src="./assets/IMG/Download.png"></input>
+                                <label>Insérer une photo :</label><div><input id="btn40" name="image_1" type="file"><img src="{{asset('img/Download.png')}}"></input>
 
                             </div>
                         </div>             
@@ -51,7 +49,7 @@
                         <label>Insérer une photo :</label>
                         <div>
                             <input id="btn38" name="image_2" type="file">
-                                <img src="./assets/IMG/Download.png">
+                                <img src="{{asset('img/Download.png')}}">
                             </input>
                         </div>
                     </div>
@@ -59,7 +57,7 @@
                         <label>Insérer une photo :</label>
                         <div>
                             <input id="btn39" name="image_3" type="file">
-                                <img src="./assets/IMG/Download.png">
+                                <img src="{{asset('img/Download.png')}}">
                             </input>
                         </div>
                     </div>
@@ -67,7 +65,7 @@
                         <label>Insérer une photo :</label>
                         <div>
                             <input id="btn40" name="image_4" type="file">
-                                <img src="./assets/IMG/Download.png">
+                                <img src="{{asset('img/Download.png')}}">
                             </input>
                         </div>
                     </div>
@@ -97,6 +95,6 @@
     </form>
 </section> 
 </main>
-<script src="./assets/JS/script_logement.js"></script>
+<script src="{{asset('script_logement.js')}}"></script>
 </body>
 </html>

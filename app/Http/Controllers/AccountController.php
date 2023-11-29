@@ -92,33 +92,13 @@ class AccountController extends Controller
             $request->date_de_naissance,
             $request->telephone_pers,
             $request->password,
-            $request->confirmerMotDePasse,    
             $request->iban,
             $request->mail_pers,
         ];
 
-        $proprietaire=[
-            $request->nom_client_proposition_devis,
-            $request->nom_logement_proposition_devis,
-            $request->votre_nom_proposition_devis,
-            $request->piece_id_proprio_recto,
-            $request->piece_id_proprio_verso,
-        ];
 
-        $client=[
-            $request->nom_prop_demande_devis,
-            $request->nom_logement_demande_devis,
-            $request->votre_nom_demande_devis,
-            $request->nom_prop_acceptation,
-            $request->nom_logement_acceptation,
-            $request->votre_nom_acceptation,
-            $request->nom_prop_refus,
-            $request->nom_logement_refus,
-            $request->votre_nom_refus,
-        ];
-
-    DB::insert('insert into personne(
-        civilite_pers
+    DB::insert('insert into personnes(
+        civilite_pers,
         prenom_pers,
         nom_pers,
         pseudo_pers,
@@ -130,32 +110,73 @@ class AccountController extends Controller
         date_de_naissance,
         telephone_pers,
         password,
-        confirmerMotDePasse,
         iban,
-        mail_pers)values(
+        mail_pers
+        )values(
             ?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, ?, ?, ?, )',$personne);
+            ?, ?, ?, ?, ?, ?, ?)',$personne);
 
-    DB::insert('insert into proprietaire(
-        nom_client_proposition_devis,
-        nom_logement_proposition_devis,
-        votre_nom_proposition_devis,
-        piece_id_proprio_recto,
-        piece_id_proprio_verso)values(
-            ?, ?, ?, ?, ?, )',$proprietaire);
+        }
 
-    DB::insert('insert into client(
-        nom_prop_demande_devis,
-        nom_logement_demande_devis,
-        votre_nom_demande_devis,
-        nom_prop_acceptation,
-        nom_logement_acceptation,
-        votre_nom_acceptation,
-        nom_prop_refus,
-        nom_logement_refus,
-        votre_nom_refus)values(
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, )
-        ',$client);
-    }
+   
 
-}
+
+
+
+
+
+
+    public function proprio_register(Request $request) {
+        $this->ajoute_personne($request);
+
+        $proprietaire=[
+            $request->nom_client_proposition_devis,
+            $request->nom_logement_proposition_devis,
+            $request->votre_nom_proposition_devis,
+            $request->piece_id_proprio_recto,
+            $request->piece_id_proprio_verso,
+        ];
+        DB::insert('insert into proprietaire(
+            nom_client_proposition_devis,
+            nom_logement_proposition_devis,
+            votre_nom_proposition_devis,
+            piece_id_proprio_recto,
+            piece_id_proprio_verso)values(
+                ?, ?, ?, ?, ? )',$proprietaire);
+            }
+
+
+
+
+
+
+
+
+            public function client_register(Request $request) {
+
+                $this->ajoute_personne($request);
+                $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
+                $client=[
+                    "id" => intval($id_client[0]->id),
+                    "demande_devis_auto" => "'" . $request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis."'",
+                    "msg_comfirm_devis" => "'".$request->nom_prop_acceptation ." ".$request->nom_logement_acceptation." ". $request->votre_nom_acceptation."'",
+                    "msg_refus_devis" => "'". $request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus."'",
+                ];
+
+                DB::insert('insert into client(
+                    id_client,
+                    demande_devis_auto,
+                    msg_comfirm_devis,
+                    msg_refus_devis
+                    )values(?, ?, ?, ? )
+                    ',$client);
+                }
+
+
+            }
+
+
+
+
+
+

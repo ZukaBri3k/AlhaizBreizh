@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <title>Formulaire PDF</title>
     <link rel="stylesheet" href="{{asset('css/styleD.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-
 <body>
     <header>
         <x-Navbar></x-Navbar>
     </header>
     <section class="hautDePage">
         <div class="spacer"></div>
-        <a class="retour" href="{{route ('devis-proprio')}}">
+                <a class="retour" href="{{route ('devis-proprio')}}">
             <div>
-                <img src="{{asset ('img/retour.png')}}" alt="retour" classe="retour" width="70%" height="70%">
+                <img src="{{asset ('img/retour.png')}}" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
             </div>
             <p>Retour</p>
         </a>
@@ -24,72 +22,66 @@
         <div class="spacer"></div>
     </section>
     <section class="devis">
-        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" classe="grandlogo" width="30%">
+        <form action"{{ route('infosDevis')}}" method="post">
+        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
         <div class="boxhaut">
             <div class="boxgauche">
-                <!-- Ajout des champs pour le propriétaire -->
                 <h3>Nom du propriétaire</h3>
                 <p>Adresse du propriétaire</p>
                 <p>ville, code postal, France</p>
                 <p>Numéro de téléphone</p>
                 <p>Adresse mail</p>
                 <div class="espace"></div>
-                <!-- Les dates de début et de fin du séjour -->
                 <p>Date de début du séjour : <input type="date" id="startDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
                 <p>Date de fin du séjour : <input type="date" id="endDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
             </div>
             <div class="boxdroite">
-                <!-- Informations sur le devis -->
                 <h3>Devis</h3>
                 <p>Numéro du devis : <span class="greyText">D-2023-001</span></p>
                 <p>Date d'émission du devis : 01/01/2023</p>
                 <p>Date d'expiration du devis : 01/02/2023</p>
                 <p>Conditions d'annulation de la réservation</p>
                 <br>
-                <!-- Informations sur le client -->
                 <h3>Client</h3>
                 <label for="name">Nombre de personnes :</label>
-                <select id="name" name="name">
+                <select id="nb_pers" name="nb_pers">
                     <?php for($i = 1; $i <= 10; $i++): ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php endfor; ?>
                 </select>
                 <br>
-                <!-- Heure d'arrivée et heure de départ -->
-                <label for="heureArrivee">Heure d'arrivée :</label>
-                <input type="text" id="heureArrivee" name="heureArrivee" />
-                <label for="heureDepart">Heure de départ :</label>
-                <input type="text" id="heureDepart" name="heureDepart" />
+                <label for="name">Heure d'arrivée :</label>
+                <input type="text" id="date_deb" name="date_deb" />
+                <label for="name">Heure de départ :</label>
+                <input type="text" id="date_fin" name="date_fin" />
             </div>
         </div>
-        <!-- Tableau pour les coûts -->
         <table border="1" class="table-striped">
             <tr>
                 <td class="bordstp">Tarif location HT</td>
-                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="tariflocht"/></td>
+                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="tarif_loc_HT"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Charges HT</td>
-                <td class="bordstp"><input type="text" id="chargesht" name="chargesht"/></td>
+                <td class="bordstp"><input type="text" id="chargesht" name="charges_HT"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total HT</td>
-                <td class="bordstp"><input type="text" id="soustotalht" name="soustotalht"/></td>
+                <td class="bordstp"><input type="text" id="soustotalht" name="sous_tot_HT"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total TTC</td>
-                <td class="bordstp"><input type="text" id="soustotalttc" name="soustotalttc"/></td>
+                <td class="bordstp"><input type="text" id="soustotalttc" name="sous_tot_TTC"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Taxe de séjour</td>
-                <td class="bordstp"><input type="text" id="taxedesejour" name="taxedesejour"/></td>
+                <td class="bordstp"><input type="text" id="taxedesejour" name="taxe_de_séjour"/></td>
             </tr>
         </table>
-        <!-- Informations additionnelles et formulaire caché -->
         <div class="boxbasdroite">
-            <p id="fraisservicettc">Frais de service TTC : </p>
-            <p id="fraisserviceht">Frais de service HT : </p>
-            <h3 id="prixtotal">Prix total : </h3>
+        <p id="fraisservicettc">Frais de service TTC : </p>
+        <p id="fraisserviceht">Frais de service HT : </p>
+        <h3 id="prixtotal">Prix total : </h3>
         </div>
         <div class="boxbasgauche">
             <p>délai d'acceptation :</p>
@@ -107,18 +99,9 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <!-- Formulaire avec champs cachés pour stocker les valeurs -->
-        <form id="pdfForm" method="post" action="{{ route('devis-proprio') }}">
-            <input type="hidden" name="tariflocht" id="hiddenTarifLocht" />
-            <input type="hidden" name="chargesht" id="hiddenChargesHt" />
-            <input type="hidden" name="nombrePersonnes" id="hiddenNombrePersonnes" />
-            <input type="hidden" name="heureArrivee" id="hiddenHeureArrivee" />
-            <input type="hidden" name="heureDepart" id="hiddenHeureDepart" />
-
-            <!-- Ajoutez d'autres champs cachés pour d'autres valeurs si nécessaire -->
-
-            <!-- Bouton Générer PDF -->
+        <a href="{{route ('infosDevis')}}">
             <button type="button" id="genererPDF">Générer PDF</button>
+        </a>
         </form>
     </section>
     <footer>
@@ -140,13 +123,16 @@
                 var prixtotalElement = document.getElementById('prixtotal');
                 var taxedesejourInput = document.getElementById('taxedesejour');
 
+                // Validation des champs de saisie
                 var tarifLocHT = parseFloat(tariflochtInput.value) || 0;
                 var chargesHT = parseFloat(chargeshtInput.value) || 0;
                 var taxedesejour = parseFloat(taxedesejourInput.value) || 0;
 
+                // Calculs
                 var soustotalht = tarifLocHT + chargesHT;
                 var soustotalttc = soustotalht * (1 + tauxTVA);
 
+                // Mise à jour des champs
                 soustotalhtInput.value = soustotalht.toFixed(2);
                 soustotalttcInput.value = soustotalttc.toFixed(2);
 
@@ -165,18 +151,7 @@
             taxedesejourInput.addEventListener('input', updateTotals);
 
             updateTotals();
-
-            document.getElementById('genererPDF').addEventListener('click', function () {
-                document.getElementById('hiddenTarifLocht').value = tariflochtInput.value;
-                document.getElementById('hiddenChargesHt').value = chargeshtInput.value;
-                document.getElementById('hiddenNombrePersonnes').value = document.getElementById('name').value;
-                document.getElementById('hiddenHeureArrivee').value = document.getElementById('heureArrivee').value;
-                document.getElementById('hiddenHeureDepart').value = document.getElementById('heureDepart').value;
-
-                document.getElementById('pdfForm').submit();
-            });
         });
     </script>
 </body>
-
-</html>
+</html>  

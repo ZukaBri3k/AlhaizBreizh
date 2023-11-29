@@ -40,7 +40,22 @@ class Devis extends Controller
         return redirect()->route('devis-client');
     }
 
-    public function infosDevis (Request $request) {
+    public function infosDevis(Request $request) {
+        $nbPers = $request->input('nb_pers');
+        $dateDeb = $request->input('date_deb');
+        $dateFin = $request->input('date_fin');
+
+        DB::insert('
+            INSERT INTO devis (
+            nb_pers,
+            date_deb,
+            date_fin,
+            id_client_devis,
+            id_proprio
+            ) values (
+            ?, ?, ?, ?, ?
+            )', [$nbPers, $dateDeb, $dateFin, 4, 4]);
+        
         return redirect()->route('devis-proprio');
     }
 

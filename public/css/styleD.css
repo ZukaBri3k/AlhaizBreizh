@@ -170,3 +170,7 @@ span {
     display: block;
     margin-bottom: 10px; /* Ajoute un espacement entre chaque label et champ de saisie */
 }
+
+.espace {
+    margin-top: 70%;
+}

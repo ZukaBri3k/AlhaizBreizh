@@ -134,17 +134,18 @@ class AccountController extends Controller
         $this->ajoute_personne($request,2);
         $id_proprio = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
         $proprietaire=[
-            "id" => $id_proprio[0]->id,
+            $id_proprio[0]->id,
             $request->piece_id_proprio_recto,
             $request->piece_id_proprio_verso,            
             "'".$request->votre_nom_proposition_devis. " " .$request->nom_logement_proposition_devis. " " . $request->nom_client_proposition_devis."'",
         ];
         DB::insert('insert into proprietaire(
+            id_proprio,
             proposition_devis_auto,
             piece_id_proprio_recto,
             piece_id_proprio_verso)
             values(
-                ?, ?, ? )',$proprietaire);
+                ?, ?, ?, ? )',$proprietaire);
             }
 
 

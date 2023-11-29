@@ -12,25 +12,25 @@ class Logement extends Controller
 
         switch ($request->page) {
             case 1:
-                return View("logement/creer_logement-p1");
+                return View("logement/creer-logement-p1");
                 break;
             case 2:
-                return View("logement/creer_logement-p2");
+                return View("logement/creer-logement-p2");
                 break;
             case 3:
-                return View("logement/creer_logement-p3");
+                return View("logement/creer-logement-p3");
                 break;
             case 4:
-                return View("logement/creer_logement-p4");
+                return View("logement/creer-logement-p4");
                 break;
             case 5:
-                return View("logement/creer_logement-p5");
+                return View("logement/creer-logement-p5");
                 break;
             case 6:
-                return View("logement/creer_logement-p6");
+                return View("logement/creer-logement-p6");
                 break;
             case 7:
-                return View("logement/creer_logement-p7");
+                return View("logement/creer-logement-p7");
                 break;
         }
     }

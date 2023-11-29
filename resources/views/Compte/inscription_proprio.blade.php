@@ -22,7 +22,7 @@
         <div class="gauche" >
             <div class="public-info-section">
             <h1>Infomation personnel public</h1>
-            <form action="{{route('client_register')}}" method="get">
+            <form action="{{route('proprio_register')}}" method="get">
                 <div class="radio-container">
         
                 <select id="genre" >

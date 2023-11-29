@@ -62,7 +62,7 @@ class Logement extends Controller
                 return View("logement/creer-logement-p5");
                 break;
             case 7:
-                dd($request->services);
+                //dd($request->services);
                 return View("logement/creer-logement-p6");
                 break;
             case 8:

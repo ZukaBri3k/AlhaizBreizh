@@ -24,7 +24,7 @@ class Logement extends Controller
                     'libelle' => $request->libelle,
                     'accroche' => $request->accroche
             ]);
-            dd($request->session()->all());
+                dd($request->session()->all());
                 return View("logement/creer-logement-p2");
                 break;
             case 3:

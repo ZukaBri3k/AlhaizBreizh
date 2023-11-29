@@ -58,11 +58,17 @@
             $amenagement = explode(";", $logement->amenagement_propose_logement);
           @endphp
           <div class="rectangle">
-              <img src="{{asset('/img/nature/'.$logement->nature_logement.'.png')}}" class="d-block w-100">
+            @php
+              $nature = lowercase($logement->nature_logement);
+            @endphp
+              <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-100">
               <p>{{ $logement->nature_logement }}</p>
           </div>
           <div class="rectangle">
-              <img src="{{asset('/img/type/'.$logement->type_logement.'.png')}}" class="d-block w-100">
+            @php
+                $type = lowercase($logement->type_logement);
+            @endphp
+              <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-100">
             <p>{{ $logement->type_logement }}</p>
           </div>
         </div>

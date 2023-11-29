@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Formulaire PDF</title>
     <link rel="stylesheet" href="{{asset('css/styleD.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
     <header>
         <x-Navbar></x-Navbar>
     </header>
     <section class="hautDePage">
         <div class="spacer"></div>
-                <a class="retour" href="{{route ('devis-proprio')}}">
+        <a class="retour" href="{{route ('devis-proprio')}}">
             <div>
-                <img src="{{asset ('img/retour.png')}}" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
+                <img src="{{asset ('img/retour.png')}}" alt="retour" classe="retour" width="70%" height="70%">
             </div>
             <p>Retour</p>
         </a>
@@ -22,7 +24,7 @@
         <div class="spacer"></div>
     </section>
     <section class="devis">
-        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
+        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" classe="grandlogo" width="30%">
         <div class="boxhaut">
             <div class="boxgauche">
                 <h3>Nom du propriétaire</h3>
@@ -49,40 +51,40 @@
                     <?php endfor; ?>
                 </select>
                 <br>
-                <label for="name">Heure d'arrivée :</label>
-                <input type="text" id="name" name="user_name" />
-                <label for="name">Heure de départ :</label>
-                <input type="text" id="name" name="user_name" />
-                <label for="name">pays :</label>
-                <input type="text" id="name" name="user_name" />
+                <label for="heureArrivee">Heure d'arrivée :</label>
+                <input type="text" id="heureArrivee" name="heureArrivee" />
+                <label for="heureDepart">Heure de départ :</label>
+                <input type="text" id="heureDepart" name="heureDepart" />
+                <label for="pays">Pays :</label>
+                <input type="text" id="pays" name="pays" />
             </div>
         </div>
         <table border="1" class="table-striped">
             <tr>
                 <td class="bordstp">Tarif location HT</td>
-                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="user_name"/></td>
+                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="tariflocht"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Charges HT</td>
-                <td class="bordstp"><input type="text" id="chargesht" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="chargesht" name="chargesht"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total HT</td>
-                <td class="bordstp"><input type="text" id="soustotalht" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="soustotalht" name="soustotalht"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total TTC</td>
-                <td class="bordstp"><input type="text" id="soustotalttc" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="soustotalttc" name="soustotalttc"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Taxe de séjour</td>
-                <td class="bordstp"><input type="text" id="taxedesejour" name="user_name"/></td>
+                <td class="bordstp"><input type="text" id="taxedesejour" name="taxedesejour"/></td>
             </tr>
         </table>
         <div class="boxbasdroite">
-        <p id="fraisservicettc">Frais de service TTC : </p>
-        <p id="fraisserviceht">Frais de service HT : </p>
-        <h3 id="prixtotal">Prix total : </h3>
+            <p id="fraisservicettc">Frais de service TTC : </p>
+            <p id="fraisserviceht">Frais de service HT : </p>
+            <h3 id="prixtotal">Prix total : </h3>
         </div>
         <div class="boxbasgauche">
             <p>délai d'acceptation :</p>
@@ -100,9 +102,20 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <a href="{{route ('devis-proprio')}}">
-            <button type="button" id="genererPDF">Générer PDF</button>
-        </a>
+        <form id="pdfForm" method="post" action="save-to-database.php">
+            <!-- Ajoutez des champs cachés pour stocker les valeurs -->
+            <input type="hidden" name="tariflocht" id="hiddenTarifLocht" />
+            <input type="hidden" name="chargesht" id="hiddenChargesHt" />
+            <input type="hidden" name="nombrePersonnes" id="hiddenNombrePersonnes" />
+            <input type="hidden" name="heureArrivee" id="hiddenHeureArrivee" />
+            <input type="hidden" name="heureDepart" id="hiddenHeureDepart" />
+            <input type="hidden" name="pays" id="hiddenPays" />
+
+           
+
+ <!-- Ajoutez votre bouton Générer PDF -->
+            <button type="button" id="generatePDF">Générer PDF</button>
+        </form>
     </section>
     <footer>
         <x-FooterClient></x-FooterClient>
@@ -123,16 +136,13 @@
                 var prixtotalElement = document.getElementById('prixtotal');
                 var taxedesejourInput = document.getElementById('taxedesejour');
 
-                // Validation des champs de saisie
                 var tarifLocHT = parseFloat(tariflochtInput.value) || 0;
                 var chargesHT = parseFloat(chargeshtInput.value) || 0;
                 var taxedesejour = parseFloat(taxedesejourInput.value) || 0;
 
-                // Calculs
                 var soustotalht = tarifLocHT + chargesHT;
                 var soustotalttc = soustotalht * (1 + tauxTVA);
 
-                // Mise à jour des champs
                 soustotalhtInput.value = soustotalht.toFixed(2);
                 soustotalttcInput.value = soustotalttc.toFixed(2);
 
@@ -151,7 +161,19 @@
             taxedesejourInput.addEventListener('input', updateTotals);
 
             updateTotals();
+
+            document.getElementById('generatePDF').addEventListener('click', function () {
+                document.getElementById('hiddenTarifLocht').value = tariflochtInput.value;
+                document.getElementById('hiddenChargesHt').value = chargeshtInput.value;
+                document.getElementById('hiddenNombrePersonnes').value = document.getElementById('name').value;
+                document.getElementById('hiddenHeureArrivee').value = document.getElementById('heureArrivee').value;
+                document.getElementById('hiddenHeureDepart').value = document.getElementById('heureDepart').value;
+                document.getElementById('hiddenPays').value = document.getElementById('pays').value;
+
+                document.getElementById('pdfForm').submit();
+            });
         });
     </script>
 </body>
-</html>    
+
+</html>

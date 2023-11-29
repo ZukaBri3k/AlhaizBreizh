@@ -154,6 +154,7 @@
           @php
             foreach ($service as $values) {
               $value = strtolower($values);
+          @endphp
           <div class="rectangle">
             <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
             <p>Maison</p>

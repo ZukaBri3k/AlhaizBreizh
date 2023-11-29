@@ -169,7 +169,7 @@
             <p>{!! $values !!}</p>
           @php 
             }
-          } elseif(explode(";", $logement->service_complementaire_logement) == 1) {
+          } elseif(count(explode(";", $logement->service_complementaire_logement)) == 1) {
             $value = strtolower($service);
           @endphp
           <div class="rectangle">
@@ -182,7 +182,7 @@
 
           <!-- Equipements -->
           @php
-            if(sizeof($equipement) > 1) {
+            if(count(explode(";", $logement->equipement_propose_logement)) > 1) {
             foreach ($equipement as $values) {
               $value = strtolower($values);
           @endphp
@@ -192,7 +192,7 @@
           </div>
           @php 
             }
-          } elseif(sizeof($equipement) == 1) {
+          } elseif(count(explode(";", $logement->equipement_propose_logement)) == 1) {
             $value = strtolower($equipement);
           @endphp
           <div class="rectangle">
@@ -209,7 +209,7 @@
         <h1>Charges additionnelles:</h1>
         <div class="Caracteristiques">
           @php
-            if(sizeof($charge) > 1) {
+            if(count(explode(";", $logement->charge_additionnel_libelle)) > 1) {
             foreach ($charge as $values) {
               $value = strtolower($values);
           @endphp
@@ -219,7 +219,7 @@
           </div>
           @php 
             }
-          } elseif(sizeof($charge) == 1) {
+          } elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
             $value = strtolower($charge);
           @endphp
           <div class="rectangle">

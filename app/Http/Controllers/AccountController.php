@@ -155,7 +155,7 @@ class AccountController extends Controller
             public function client_register(Request $request) {
 
                 $this->ajoute_personne($request);
-                $id_client = DB::select('select id from personnes where id = ? ',[$request->telephone_pers]);
+                $id_client = DB::select('select id from personnes where id = ? ',[$request->mail_pers]);
                 dd($id_client);
                 $client=[
                     "id" => $id_client,

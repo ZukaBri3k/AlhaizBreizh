@@ -100,6 +100,7 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
+        <button type="button" id="genererPDF">Générer PDF</button>
     </section>
     <footer>
         <x-FooterClient></x-FooterClient>

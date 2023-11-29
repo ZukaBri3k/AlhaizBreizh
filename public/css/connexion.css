@@ -1,3 +1,14 @@
+@font-face {
+    font-family: "Montserrat-Light";
+    font-weight: 400;
+    src: url("/fonts/Montserrat-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "RocaOne";
+    font-weight: 400;
+    src: url("/fonts/RocaOne-Rg.woff2") format("woff2");
+}
 .popup { /*important, sert a cacher la popup par defaut et tant que le bouton n'est pas cliqué*/
     display: none;
     position: fixed;
@@ -33,7 +44,6 @@ label{
     padding-right: 13vw;
 }
 a{
-    padding-right: 10.2vw;
     color: #4BCBFF;
 }
 .close { /*Boutton pour fermer la popup (la repasser en display : none;) cette action n'est pas effectué par le css, c'est juste pour le syle du boutton*/

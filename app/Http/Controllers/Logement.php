@@ -34,13 +34,19 @@ class Logement extends Controller
                     'nb_chambre' => $request->nb_chambre,
                     'sdb' => $request->sdb,
             ]);
-                dd($request->session()->all());
                 return View("logement/creer-logement-p3");
                 break;
             case 4:
+                session([
+                    'nb_lit_s' => $request->nb_lit_s,
+                    'nb_lit_d' => $request->nb_lit_d,
+                    'detail_lits' => $request->detail_lits,
+                ]);
                 return View("logement/creer-logement-p4");
                 break;
             case 5:
+
+                dd($request->session()->all());
                 return View("logement/creer-logement-p5");
                 break;
             case 6:

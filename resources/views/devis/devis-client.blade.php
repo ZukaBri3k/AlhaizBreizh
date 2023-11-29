@@ -191,9 +191,26 @@ document.getElementById("accepterDevis").addEventListener("click", function () {
 });*/
 
 const demanderDevis = document.getElementById("demanderDevis");
+const accepterDevis = document.getElementById("accepterDevis");
+const refuserDevis = document.getElementById("refuserDevis");
+
+document.getElementById("accepterDevis").style.display = "none";
+document.getElementById("refuserDevis").style.display = "none";
 
 demanderDevis.addEventListener("click", () => {
     document.getElementById("demanderDevis").style.display = "none";
+    document.getElementById("refuserDevis").style.display = "flex";
+    document.getElementById("accepterDevis").style.display = "flex";
+});
+
+accepterDevis.addEventListener("click", () => {
+    document.getElementById("accepterDevis").style.display = "none";
+    document.getElementById("refuserDevis").style.display = "none";
+});
+
+refuserDevis.addEventListener("click", () => {
+    document.getElementById("refuserDevis").style.display = "none";
+    document.getElementById("accepterDevis").style.display = "none";
 });
 
 document.getElementById("afficherPdf").addEventListener("click", function () {

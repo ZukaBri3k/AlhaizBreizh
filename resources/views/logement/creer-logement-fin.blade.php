@@ -84,10 +84,7 @@
                     window.history.back();
                 }
             </script>            
-            <button class="monBouton">
-            <svg width="100" height="100">
-
-            </svg>
+            <button name="btn_validation" class="validation">
                 Previsualisation
             </button>
         </div>    

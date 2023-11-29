@@ -47,28 +47,85 @@
     </div>
     <div class="second">
       <div>
-        <h1>{{ $logement->libelle_logement }} n°{{ $logement->id_logement }} / {{ $logement->accroche_logement }}</h1>
+        <h1>{!! $logement->libelle_logement !!} n°{!! $logement->id_logement !!} / {!! $logement->accroche_logement !!}</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
+          @php
+            if (sizeof($logement) > 1) {
+              $amenagement = [];
+              $amenagement = explode(";", $logement->amenagement_propose_logement);
+            } else {
+              $amenagement = $logement->amenagement_propose_logement;
+            }
+
+            if (sizeof($logement) > 1) {
+              $installation = [];
+              $installation = explode(";", $logement->installation_logement);
+            } else {
+              $installation = $logement->installation_logement;
+            }
+
+            if (sizeof($logement) > 1) {
+              $service = [];
+              $service = explode(";", $logement->service_logement);
+            } else {
+              $service = $logement->service_logement;
+            }
+
+            if (sizeof($logement) > 1) {
+              $equipement = [];
+              $equipement = explode(";", $logement->equipement_logement);
+            } else {
+              $equipement = $logement->equipement_logement;
+            }
+          @endphp
           <div class="rectangle">
-              <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            @php
+              $nature = strtolower($logement->nature_logement);
+            @endphp
+              <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-100">
+              <p>{{ $logement->nature_logement }}</p>
           </div>
           <div class="rectangle">
-              <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            @php
+                $type = strtolower($logement->type_logement);
+            @endphp
+              <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-100">
+            <p>{!! $logement->type_logement !!}</p>
           </div>
         </div>
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
+          @php
+            if(sizeof($amenagement) == 1) {
+            $value = strtolower($amenagement);
+          @endphp
+            <div class="rectangle">
+              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
+              <p>{!! $amenagement !!}</p>
+            </div>
+          @php
+            }
+          elseif(sizeof($amenagement) > 1) {
+          foreach ($amenagement as $values)
+          $value = strtolower($values);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
+            <p>{!! $values !!}</p>
           </div>
+          @php
+          }
+            foreach ($installation as $values) {
+              $value = strtolower($values);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-100">
+            <p>{!! $values !!}</p>
           </div>
+          @php
+            }
+          @endphp
           <div class="rectangle">
             <<img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
             <p>Maison</p>

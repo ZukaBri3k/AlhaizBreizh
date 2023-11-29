@@ -77,6 +77,8 @@ class AccountController extends Controller
     }
       //--------------------------------------------------------------
     public function ajoute_personne(Request $request) {
+
+        
         $personne=[
             $request->civilite_pers,
             $request->prenom_pers,
@@ -116,6 +118,7 @@ class AccountController extends Controller
         ];
 
     DB::insert('insert into personne(
+        civilite_pers
         prenom_pers,
         nom_pers,
         pseudo_pers,
@@ -131,7 +134,7 @@ class AccountController extends Controller
         iban,
         mail_pers)values(
             ?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, ?, ?, )',$personne);
+            ?, ?, ?, ?, ?, ?, ?, ?, )',$personne);
 
     DB::insert('insert into proprietaire(
         nom_client_proposition_devis,

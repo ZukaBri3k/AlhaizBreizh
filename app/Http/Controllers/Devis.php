@@ -40,6 +40,10 @@ class Devis extends Controller
         return redirect()->route('devis-client');
     }
 
+    public function infosDevis (Request $request) {
+        return redirect()->route('devis-proprio');
+    }
+
     //---------------------
 
     public function creerDevisDB (Request $request) {

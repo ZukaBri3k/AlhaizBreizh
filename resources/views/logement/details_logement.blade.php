@@ -86,20 +86,21 @@
               $charge = $logement->charge_additionnel_libelle;
             }
           @endphp
-          <div class="rectangle">
+          <!-- Nature et type de logement -->
             @php
               $nature = strtolower($logement->nature_logement);
             @endphp
+            <div class="rectangle">
               <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-80">
               <p>{{ $logement->nature_logement }}</p>
-          </div>
-          <div class="rectangle">
+            </div>
             @php
                 $type = strtolower($logement->type_logement);
             @endphp
+            <div class="rectangle">
               <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-80">
-            <p>{!! $logement->type_logement !!}</p>
-          </div>
+              <p>{!! $logement->type_logement !!}</p>
+            </div>
         </div>
         <!-- Aménagements -->
         <h1>Aménagements, installations :</h1>

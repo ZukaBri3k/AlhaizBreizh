@@ -114,7 +114,7 @@
             $value = strtolower($amenagement);
           @endphp
             <div class="rectangle">
-              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-80">
+              <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
               <p>{!! $amenagement !!}</p>
             </div>
           @php
@@ -124,7 +124,7 @@
             $value = strtolower($values);
             @endphp
             <div class="rectangle">
-              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-80">
+              <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
               <p>{!! $values !!}</p>
             </div>
             @php
@@ -169,7 +169,15 @@
             <p>{!! $values !!}</p>
           @php 
             }
-          } elseif(count(explode(";", $logement->service_complementaire_logement)) == 1) {
+          } 
+          elseif($service == "aucun") {
+          @endphp
+          <div class="rectangle">
+            <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-0">
+          </div>
+          @php
+            }
+          elseif(count(explode(";", $logement->service_complementaire_logement)) == 1) {
             $value = strtolower($service);
           @endphp
           <div class="rectangle">
@@ -177,13 +185,6 @@
             <p>{!! $service !!}</p>
           </div>
           @php 
-            }
-            elseif($service == "aucun") {
-          @endphp
-          <div class="rectangle">
-            <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-0">
-          </div>
-          @php
             }
           @endphp
 

@@ -74,4 +74,5 @@ class AccountController extends Controller
     public function compteProprietaire() {
         return View("Compte/MonCompteProprietaire");
     }
-}
+      //--------------------------------------------------------------
+      

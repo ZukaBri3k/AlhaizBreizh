@@ -42,10 +42,11 @@ class Logement extends Controller
                     'nb_lit_d' => $request->nb_lit_d,
                     'detail_lits' => $request->detail_lits,
                 ]);
-                dd($request->session()->all());
                 return View("logement/creer-logement-p4");
                 break;
             case 5:
+
+                dd($request->session()->all());
                 return View("logement/creer-logement-p5");
                 break;
             case 6:

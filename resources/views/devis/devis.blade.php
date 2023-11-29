@@ -12,17 +12,17 @@
     </header>
     <section class="hautDePage">
         <div class="spacer"></div>
-        <div class="retour">
+                <a class="retour" href="{{route ('devis-proprio')}}">
             <div>
-                <img src="img/retour.png" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
+                <img src="{{asset ('img/retour.png')}}" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
             </div>
             <p>Retour</p>
-        </div>
+        </a>
         <h2>Créer votre devis</h2>
         <div class="spacer"></div>
     </section>
     <section class="devis">
-        <img src="img/grandlogo.png" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
+        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
         <div class="boxhaut">
             <div class="boxgauche">
                 <h3>Nom du propriétaire</h3>
@@ -30,17 +30,7 @@
                 <p>ville, code postal, France</p>
                 <p>Numéro de téléphone</p>
                 <p>Adresse mail</p>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                <div class="espace"></div>
                 <p>Date de début du séjour : <input type="date" id="startDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
                 <p>Date de fin du séjour : <input type="date" id="endDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
             </div>
@@ -69,24 +59,24 @@
         </div>
         <table border="1" class="table-striped">
             <tr>
-                <td>Tarif location HT</td>
-                <td class="table-left-shift"><input type="text" id="tariflocht" name="user_name"/></td>
+                <td class="bordstp">Tarif location HT</td>
+                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="user_name"/></td>
             </tr>
             <tr>
-                <td>Charges HT</td>
-                <td><input type="text" id="chargesht" name="user_name"/></td>
+                <td class="bordstp">Charges HT</td>
+                <td class="bordstp"><input type="text" id="chargesht" name="user_name"/></td>
             </tr>
             <tr>
-                <td>Sous total HT</td>
-                <td><input type="text" id="soustotalht" name="user_name"/></td>
+                <td class="bordstp">Sous total HT</td>
+                <td class="bordstp"><input type="text" id="soustotalht" name="user_name"/></td>
             </tr>
             <tr>
-                <td>Sous total TTC</td>
-                <td><input type="text" id="soustotalttc" name="user_name"/></td>
+                <td class="bordstp">Sous total TTC</td>
+                <td class="bordstp"><input type="text" id="soustotalttc" name="user_name"/></td>
             </tr>
             <tr>
-                <td>Taxe de séjour</td>
-                <td><input type="text" id="taxedesejour" name="user_name"/></td>
+                <td class="bordstp">Taxe de séjour</td>
+                <td class="bordstp"><input type="text" id="taxedesejour" name="user_name"/></td>
             </tr>
         </table>
         <div class="boxbasdroite">
@@ -110,6 +100,9 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
+        <a href="{{route ('devis-proprio')}}">
+            <button type="button" id="genererPDF">Générer PDF</button>
+        </a>
     </section>
     <footer>
         <x-FooterClient></x-FooterClient>

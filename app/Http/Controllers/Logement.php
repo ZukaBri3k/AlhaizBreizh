@@ -15,15 +15,38 @@ class Logement extends Controller
                 return View("logement/creer-logement-p1");
                 break;
             case 2:
+                session([
+                    'adresse' => $request->adresse,
+                    'ville' => $request->ville,
+                    'code_postal' => $request->cp,
+                    'longitude' => $request->longitude,
+                    'latitude' => $request->latitude,
+                    'libelle' => $request->libelle,
+                    'accroche' => $request->accroche
+            ]);
                 return View("logement/creer-logement-p2");
                 break;
             case 3:
+                session([
+                    'description' => $request->description,
+                    'surface' => $request->surface,
+                    'nb_p_max' => $request->nb_p_max,
+                    'nb_chambre' => $request->nb_chambre,
+                    'sdb' => $request->sdb,
+            ]);
                 return View("logement/creer-logement-p3");
                 break;
             case 4:
+                session([
+                    'nb_lit_s' => $request->nb_lit_s,
+                    'nb_lit_d' => $request->nb_lit_d,
+                    'detail_lits' => $request->detail_lits,
+                ]);
                 return View("logement/creer-logement-p4");
                 break;
             case 5:
+
+                dd($request->session()->all());
                 return View("logement/creer-logement-p5");
                 break;
             case 6:

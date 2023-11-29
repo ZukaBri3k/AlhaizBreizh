@@ -190,18 +190,27 @@ document.getElementById("accepterDevis").addEventListener("click", function () {
     window.location.href = 'proprio2.php?accept=1';
 });*/
 
-document.getElementById("demanderDevis").addEventListener("click", function (event) {
-    // Empêchez le comportement par défaut du lien (la redirection)
-    event.preventDefault();
+const demanderDevis = document.getElementById("demanderDevis");
+const accepterDevis = document.getElementById("accepterDevis");
+const refuserDevis = document.getElementById("refuserDevis");
 
-    // Effectuez ici toute action nécessaire, par exemple, enregistrez la demande de devis dans la base de données.
+document.getElementById("accepterDevis").style.display = "none";
+document.getElementById("refuserDevis").style.display = "none";
 
-    // Désactivez le lien pour empêcher les clics ultérieurs
-    this.classList.add('hide-button');
-    this.removeEventListener('click', arguments.callee); // Retire l'écouteur pour éviter les clics supplémentaires
+demanderDevis.addEventListener("click", () => {
+    document.getElementById("demanderDevis").style.display = "none";
+    document.getElementById("refuserDevis").style.display = "flex";
+    document.getElementById("accepterDevis").style.display = "flex";
+});
 
-    // Redirigez l'utilisateur vers la route prévue (vous pouvez ajuster le chemin de la route)
-    window.location.href = this.getAttribute('href');
+accepterDevis.addEventListener("click", () => {
+    document.getElementById("accepterDevis").style.display = "none";
+    document.getElementById("refuserDevis").style.display = "none";
+});
+
+refuserDevis.addEventListener("click", () => {
+    document.getElementById("refuserDevis").style.display = "none";
+    document.getElementById("accepterDevis").style.display = "none";
 });
 
 document.getElementById("afficherPdf").addEventListener("click", function () {

@@ -1,11 +1,3 @@
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px; /* Augmentation de la marge intérieure */
-    text-align: center;
-    font-size: 24px; /* Augmentation de la taille de police */
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -16,14 +8,6 @@ body {
     font-family: Arial, sans-serif;
     background-color: #F6F5EE;
     font-size: 18px; /* Augmentation de la taille de police par défaut */
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px; /* Augmentation de la marge intérieure */
-    text-align: center;
-    font-size: 24px; /* Augmentation de la taille de police */
 }
 
 .hautDePage {
@@ -101,13 +85,13 @@ footer {
     margin-bottom: 10px;
 }
 
-table {
+.table-striped {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
 }
 
-table, th, td {
+.table-striped, tr, .bordstp {
     border: 2px solid #000000;
 }
 
@@ -169,4 +153,23 @@ span {
 .boxbasgauche select {
     display: block;
     margin-bottom: 10px; /* Ajoute un espacement entre chaque label et champ de saisie */
+}
+
+.espace {
+    margin-top: 70%;
+}
+
+#genererPDF {
+    background-color: #4BCBFF;
+    width: 100%;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    font-weight: bold;
 }

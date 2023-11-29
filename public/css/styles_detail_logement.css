@@ -392,3 +392,7 @@ body {
     font-weight: 739;
     line-height: normal;
 }
+
+.boutton_bas button + button {
+    float: right;
+}

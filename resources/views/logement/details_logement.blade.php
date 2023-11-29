@@ -86,6 +86,8 @@
               $charge = $logement->charge_additionnel_libelle;
             }
           @endphp
+
+
           <!-- Nature et type de logement -->
             @php
               $nature = strtolower($logement->nature_logement);
@@ -154,24 +156,24 @@
         </div>
 
 
-        <!-- Equipements -->
+        <!-- Services -->
         <h1>Services, Equipements :</h1>
         <div class="Caracteristiques">
           @php
-            if(sizeof($service) > 1) {
+            if(explode(";", $logement->service_complementaire_logement) > 1) {
             foreach ($service as $values) {
               $value = strtolower($values);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/'. $value .'.png')}}" class="d-block w-80">
+            <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
           @php 
             }
-          } elseif(sizeof($service) == 1) {
+          } elseif(explode(";", $logement->service_complementaire_logement) == 1) {
             $value = strtolower($service);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/'. $value .'.png')}}" class="d-block w-80">
+            <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
             <p>{!! $service !!}</p>
           </div>
           @php 
@@ -185,7 +187,7 @@
               $value = strtolower($values);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/equipement/'. $value .'.png')}}" class="d-block w-80">
+            <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
           </div>
           @php 
@@ -194,7 +196,7 @@
             $value = strtolower($equipement);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/equipement/'. $value .'.png')}}" class="d-block w-80">
+            <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
             <p>{!! $equipement !!}</p>
           </div>
           @php 
@@ -212,7 +214,7 @@
               $value = strtolower($values);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/charge/'. $value .'.png')}}" class="d-block w-80">
+            <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
           </div>
           @php 
@@ -221,7 +223,7 @@
             $value = strtolower($charge);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/charge/'. $value .'.png')}}" class="d-block w-80">
+            <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
             <p>{!! $charge !!}</p>
           </div>
           @php 

@@ -98,6 +98,7 @@
                 
                 
            <div class="private-info-section">    
+           <h6><a href="{{route ('inscription_client')}}"> je me suis trompé je souhaite créer un compte Client</a>
                     <h1>Information personnel privée</h1>
         
                 <label for="adresse_pers"></label> 

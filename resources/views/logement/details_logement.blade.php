@@ -279,7 +279,54 @@
           <p class="have_paypal">Le propriétaire a paypal</p>
         @endif
         <br>
-    </div>
+
+
+        <style>
+          /* Always set the map height explicitly to define the size of the div
+          * element that contains the map. */
+          #map {
+            height: 70%;
+          }
+          /* Optional: Makes the sample page fill the window. */
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+        </style>
+      </head>
+      <body>
+          <br>
+      <form name="carte" action="affichMap.php" method="POST">
+      <input type="text" name="latitude" placeholder="Latitude" />
+      <input type="text" name="longitude" placeholder="Longitude" />
+      <br/><br/>
+      <input type="submit"  name="envoyer" value="Localiser sur Google Map" onclick="initMap();"/>
+      </form>
+      <br/><br/>
+        <div id="map"></div>
+        <script type="text/javascript">
+          var map;
+              var latitude = {{ $logement->latitude_logement }} ;
+              var longitude = {{ $logement->longitude_logement }} ;
+          function initMap() {
+                var uluru= {lat: latitude, lng: longitude};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 14,
+                      center:uluru
+            });
+                    var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=maclefxxxxxxxxxxamoi&callback=initMap"
+        async defer></script>
+        </div>
+
+
+
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} / mois</p>
           <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>

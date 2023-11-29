@@ -354,8 +354,6 @@ body {
 /*****************Style de la prévisualisation*****************/
 
 .Vue_client {
-    margin-left: 15%;
-    margin-top: 5%;
     color: #FFF;
     font-family: 'Montserrat-Light';
     font-size: 25px;
@@ -364,4 +362,7 @@ body {
     line-height: normal;
     margin-bottom: 0rem;
     background-color: black;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
 }

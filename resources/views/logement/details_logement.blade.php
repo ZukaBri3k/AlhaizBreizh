@@ -295,7 +295,7 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <button type="button">Contacter le propriétaire</button>
+          <button type="button" href="{{route('devis-client')}}">Contacter le propriétaire</button>
       </div>
     </div>
     <x-FooterClient></x-FooterClient>

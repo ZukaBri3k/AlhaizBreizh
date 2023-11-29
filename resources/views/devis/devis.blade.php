@@ -12,7 +12,7 @@
     </header>
     <section class="hautDePage">
         <div class="spacer"></div>
-                <a class="retour" href="proprio.php">
+                <a class="retour" href="{{route ('devis-proprio')}}">
             <div>
                 <img src="{{asset ('img/retour.png')}}" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
             </div>

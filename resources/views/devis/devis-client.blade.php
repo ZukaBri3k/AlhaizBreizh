@@ -198,14 +198,14 @@ demanderDevis.addEventListener("click", () => {
 
 const accepterDevis = document.getElementById("accepterDevis");
 
-demanderDevis.addEventListener("click", () => {
+accepterDevis.addEventListener("click", () => {
     document.getElementById("accepterDevis").style.display = "none";
     document.getElementById("refuserDevis").style.display = "none";
 });
 
 const refuserDevis = document.getElementById("refuserDevis");
 
-demanderDevis.addEventListener("click", () => {
+refuserDevis.addEventListener("click", () => {
     document.getElementById("refuserDevis").style.display = "none";
     document.getElementById("accepterDevis").style.display = "none";
 });

@@ -12,9 +12,12 @@ class Logement extends Controller
 
         switch ($request->page) {
             case 1:
-                return View("logement/creer-logement-p1");
+                return View("logement/creer-logement");
                 break;
             case 2:
+                return View("logement/creer-logement-p1");
+                break;
+            case 3:
                 session([
                     'adresse' => $request->adresse,
                     'ville' => $request->ville,
@@ -26,7 +29,7 @@ class Logement extends Controller
             ]);
                 return View("logement/creer-logement-p2");
                 break;
-            case 3:
+            case 4:
                 session([
                     'description' => $request->description,
                     'surface' => $request->surface,
@@ -36,7 +39,7 @@ class Logement extends Controller
             ]);
                 return View("logement/creer-logement-p3");
                 break;
-            case 4:
+            case 5:
                 $tab_lit_s = [];
                 $tab_lit_d = [];
                 $tab_details = [];
@@ -54,15 +57,15 @@ class Logement extends Controller
                 ]);
                 return View("logement/creer-logement-p4");
                 break;
-            case 5:
+            case 6:
 
                 //dd($request->session()->all());
                 return View("logement/creer-logement-p5");
                 break;
-            case 6:
+            case 7:
                 return View("logement/creer-logement-p6");
                 break;
-            case 7:
+            case 8:
                 return View("logement/creer-logement-fin");
                 break;
         }
@@ -139,5 +142,13 @@ class Logement extends Controller
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
-    } 
+    }
+
+    public function getInfoLogementPrevisu(Request $request) {
+        $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
+        return View("logement/details_logement_previsu" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
+        'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
+        'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+    }
 }

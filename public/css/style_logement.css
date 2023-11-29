@@ -674,56 +674,6 @@ header>div{
 }
 
 
-#btn1>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn2>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn3>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn4>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn5>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn6>img{
-    height: 40%;
-    width: 40%;
-}
-#btn7>img{
-    height: 40%;
-    width: 40%;
-}
-#btn8>img{
-    height: 40%;
-    width: 40%;
-}
-#btn9>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn10>img{
-    height: 40%;
-    width: 40%;
-}
-#btn11>img{
-    height: 37%;
-    width: 37%;
-}
 #btn12>img{
     height: 40%;
     width: 20%;
@@ -959,7 +909,7 @@ header>div{
     margin-left: 20px;
     margin-right: 20px;
     height: 50px;
-    width: 8%;
+    width: 9%;
     border: solid black 1px;
     border-radius: 12px;
     background-color: #ffffff;

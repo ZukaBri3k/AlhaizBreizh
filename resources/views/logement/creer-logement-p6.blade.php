@@ -10,18 +10,16 @@
 <meta name="keywords" content="AlHaizBreizh"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{{asset('css/style_logement.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 
 <body>
-    <header>
-        <div>
-            <img class="img_header1" src="./assets/IMG/header_logo.png">
-            <img class="img_header2" src="./assets/IMG/profil.png">
-        </div>    
-        <hr>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<header>
+        <x-Navbar></x-Navbar>
     </header>
 <main>
 <section class="part1">
@@ -44,7 +42,7 @@
                 </div>
                 <div class='p2-6'>
                     <div class="abc">
-                        <div class='p2-6-nom'><h3>Quel sera le prix par nuit de votre logement ?*</h3><p title="obligatoire">* Veuillez renseigner le prix par nuit du logement</p></div>
+                        <div class='p2-6-nom'><h3>Quel sera le prix par nuit de votre logement ?*</h3></div>
                         <div><input name='prix' style="width:150px; margin-left:15px;" placeholder="Prix par nuit" value = '' type='number'>€</div>
                     </div>
                 </div>
@@ -54,7 +52,6 @@
                 <div class="abc">
                     <div class='p2-7-nom'>
                         <h3>Quelle sera votre condition d'annulation ?*</h3>
-                        <p style="width:600px" title="obligatoire">* Veuillez choisir une condition d'annulation du logement</p>
                     </div>
                     <div class="condition">
                         <button id="btn49" name="strictes" type="button"></button>

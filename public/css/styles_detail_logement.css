@@ -350,3 +350,47 @@ body {
     line-height: normal;
     margin-bottom: 0rem;
 }
+
+/*****************Style de la prévisualisation*****************/
+
+.Vue_client {
+    color: #FFF;
+    font-family: 'Montserrat-Light';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0rem;
+    background-color: black;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.boutton_bas {
+    display: flex;
+    justify-content: center;
+}
+
+.boutton_bas button {
+    height: 70px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 20px;
+    background-color: #EC3B53;
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: -0.225px;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 739;
+    line-height: normal;
+}
+
+#enreg_buton {
+    margin-left: 30%;
+}
+

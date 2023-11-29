@@ -42,8 +42,9 @@ Route::get('/paiement', function () {
 Route::prefix('/logement')->group(function() {
 
     Route::get('/{id}/details', [Logement::class, 'getInfoLogement'])->where('id', '[0-9]+')->name('details');
+    Route::get('/{id}/details_previsu', [Logement::class, 'getInfoLogementPrevisu'])->where('id', '[0-9]+')->name('details_previsu')->middleware(['auth', 'isProprietaire']);
 
-    Route::get('/creation/{page}', [Logement::class, "creation"])->where('page', '[0-7]')->name('creer_logement')->middleware(['auth', 'isProprietaire']);
+    Route::get('/creation/{page}', [Logement::class, "creation"])->where('page', '[0-8]')->name('creer_logement')->middleware(['auth', 'isProprietaire']);
 });
 
 Route::prefix('/account')->group(function () {
@@ -58,7 +59,8 @@ Route::prefix('/account')->group(function () {
     Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
+    Route::get('client_register', [AccountController::class,'client_register'])->name('client_register');
+
 });
 
 Route::get('test', [Logement::class, 'ajouterLogementDB']);
-Route::get('test1', [AccountController::class,'ajoute_personne'])->name('yolo');

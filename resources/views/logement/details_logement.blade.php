@@ -58,32 +58,32 @@
               $amenagement = $logement->amenagement_propose_logement;
             }
 
-            if (count(explode(";", $logement->installation_logement)) > 1) {
+            if (count(explode(";", $logement->installation_offerte_logement)) > 1) {
               $installation = [];
-              $installation = explode(";", $logement->installation_logement);
+              $installation = explode(";", $logement->installation_offerte_logement);
             } else {
-              $installation = $logement->installation_logement;
+              $installation = $logement->installation_offerte_logement;
             }
 
-            if (count(explode(";", $logement->service_logement)) > 1) {
+            if (count(explode(";", $logement->service_complementaire_logement)) > 1) {
               $service = [];
-              $service = explode(";", $logement->service_logement);
+              $service = explode(";", $logement->service_complementaire_logement);
             } else {
-              $service = $logement->service_logement;
+              $service = $logement->service_complementaire_logement;
             }
 
-            if (count(explode(";", $logement->equipement_logement)) > 1) {
+            if (count(explode(";", $logement->equipement_propose_logement)) > 1) {
               $equipement = [];
-              $equipement = explode(";", $logement->equipement_logement);
+              $equipement = explode(";", $logement->equipement_propose_logement);
             } else {
-              $equipement = $logement->equipement_logement;
+              $equipement = $logement->equipement_propose_logement;
             }
 
-            if (count(explode(";", $logement->charge_logement)) > 1) {
+            if (count(explode(";", $logement->charge_additionnel_libelle)) > 1) {
               $charge = [];
-              $charge = explode(";", $logement->charge_logement);
+              $charge = explode(";", $logement->charge_additionnel_libelle);
             } else {
-              $charge = $logement->charge_logement;
+              $charge = $logement->charge_additionnel_libelle;
             }
           @endphp
           <div class="rectangle">

@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <title>Formulaire PDF</title>
     <link rel="stylesheet" href="{{asset('css/styleD.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-
 <body>
     <header>
         <x-Navbar></x-Navbar>
     </header>
     <section class="hautDePage">
         <div class="spacer"></div>
-        <a class="retour" href="{{route ('devis-proprio')}}">
+                <a class="retour" href="{{route ('devis-proprio')}}">
             <div>
-                <img src="{{asset ('img/retour.png')}}" alt="retour" classe="retour" width="70%" height="70%">
+                <img src="{{asset ('img/retour.png')}}" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
             </div>
             <p>Retour</p>
         </a>
@@ -24,29 +22,25 @@
         <div class="spacer"></div>
     </section>
     <section class="devis">
-        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" classe="grandlogo" width="30%">
+        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
         <div class="boxhaut">
             <div class="boxgauche">
-                <!-- Ajout des champs pour le propriétaire -->
                 <h3>Nom du propriétaire</h3>
                 <p>Adresse du propriétaire</p>
                 <p>ville, code postal, France</p>
                 <p>Numéro de téléphone</p>
                 <p>Adresse mail</p>
                 <div class="espace"></div>
-                <!-- Les dates de début et de fin du séjour -->
                 <p>Date de début du séjour : <input type="date" id="startDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
                 <p>Date de fin du séjour : <input type="date" id="endDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
             </div>
             <div class="boxdroite">
-                <!-- Informations sur le devis -->
                 <h3>Devis</h3>
                 <p>Numéro du devis : <span class="greyText">D-2023-001</span></p>
                 <p>Date d'émission du devis : 01/01/2023</p>
                 <p>Date d'expiration du devis : 01/02/2023</p>
                 <p>Conditions d'annulation de la réservation</p>
                 <br>
-                <!-- Informations sur le client -->
                 <h3>Client</h3>
                 <label for="name">Nombre de personnes :</label>
                 <select id="name" name="name">
@@ -55,41 +49,40 @@
                     <?php endfor; ?>
                 </select>
                 <br>
-                <!-- Heure d'arrivée et heure de départ -->
-                <label for="heureArrivee">Heure d'arrivée :</label>
-                <input type="text" id="heureArrivee" name="heureArrivee" />
-                <label for="heureDepart">Heure de départ :</label>
-                <input type="text" id="heureDepart" name="heureDepart" />
+                <label for="name">Heure d'arrivée :</label>
+                <input type="text" id="name" name="user_name" />
+                <label for="name">Heure de départ :</label>
+                <input type="text" id="name" name="user_name" />
+                <label for="name">pays :</label>
+                <input type="text" id="name" name="user_name" />
             </div>
         </div>
-        <!-- Tableau pour les coûts -->
         <table border="1" class="table-striped">
             <tr>
                 <td class="bordstp">Tarif location HT</td>
-                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="tariflocht"/></td>
+                <td class="bordstp" class="table-left-shift"><input type="text" id="tariflocht" name="user_name"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Charges HT</td>
-                <td class="bordstp"><input type="text" id="chargesht" name="chargesht"/></td>
+                <td class="bordstp"><input type="text" id="chargesht" name="user_name"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total HT</td>
-                <td class="bordstp"><input type="text" id="soustotalht" name="soustotalht"/></td>
+                <td class="bordstp"><input type="text" id="soustotalht" name="user_name"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Sous total TTC</td>
-                <td class="bordstp"><input type="text" id="soustotalttc" name="soustotalttc"/></td>
+                <td class="bordstp"><input type="text" id="soustotalttc" name="user_name"/></td>
             </tr>
             <tr>
                 <td class="bordstp">Taxe de séjour</td>
-                <td class="bordstp"><input type="text" id="taxedesejour" name="taxedesejour"/></td>
+                <td class="bordstp"><input type="text" id="taxedesejour" name="user_name"/></td>
             </tr>
         </table>
-        <!-- Informations additionnelles et formulaire caché -->
         <div class="boxbasdroite">
-            <p id="fraisservicettc">Frais de service TTC : </p>
-            <p id="fraisserviceht">Frais de service HT : </p>
-            <h3 id="prixtotal">Prix total : </h3>
+        <p id="fraisservicettc">Frais de service TTC : </p>
+        <p id="fraisserviceht">Frais de service HT : </p>
+        <h3 id="prixtotal">Prix total : </h3>
         </div>
         <div class="boxbasgauche">
             <p>délai d'acceptation :</p>
@@ -107,7 +100,9 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <button type="button" id="genererPDF">Générer PDF</button>
+        <a href="{{route ('devis-proprio')}}">
+            <button type="button" id="genererPDF">Générer PDF</button>
+        </a>
     </section>
     <footer>
         <x-FooterClient></x-FooterClient>
@@ -128,13 +123,16 @@
                 var prixtotalElement = document.getElementById('prixtotal');
                 var taxedesejourInput = document.getElementById('taxedesejour');
 
+                // Validation des champs de saisie
                 var tarifLocHT = parseFloat(tariflochtInput.value) || 0;
                 var chargesHT = parseFloat(chargeshtInput.value) || 0;
                 var taxedesejour = parseFloat(taxedesejourInput.value) || 0;
 
+                // Calculs
                 var soustotalht = tarifLocHT + chargesHT;
                 var soustotalttc = soustotalht * (1 + tauxTVA);
 
+                // Mise à jour des champs
                 soustotalhtInput.value = soustotalht.toFixed(2);
                 soustotalttcInput.value = soustotalttc.toFixed(2);
 
@@ -156,5 +154,4 @@
         });
     </script>
 </body>
-
-</html>
+</html>  

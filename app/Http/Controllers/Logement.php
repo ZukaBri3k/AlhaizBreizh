@@ -44,16 +44,16 @@ class Logement extends Controller
                 ]);
                 for ($i=1; $i <= intval($request->session()->get('nb_chambre')); $i++) {
                     $nb_lit_s_ = $request->input("nb_lit_s_" . $i);
-                    $nb_lit_s = session()->get('nb_lit_s');
-                    array_push($nb_lit_s, $nb_lit_s_);
+                    $tab_nb_lit_s = session()->get('nb_lit_s');
+                    array_push($tab_nb_lit_s, $nb_lit_s_);
 
                     $nb_lit_d = $request->input("nb_lit_d_" . $i);
-                    $nb_lit_d = session()->get('nb_lit_d');
-                    array_push(session()->get('nb_lit_d'), $request->input("nb_lit_d_" . $i));
+                    $tab_nb_lit_d = session()->get('nb_lit_d');
+                    array_push($tab_nb_lit_d, $nb_lit_d);
 
                     $detail_lits = $request->input("detail_lits_" . $i);
-                    $detail_lits = session()->get('detail_lits');
-                    array_push(session()->get('detail_lits'), $request->input("detail_lits_" . $i));
+                    $tab_detail_lits = session()->get('detail_lits');
+                    array_push($tab_detail_lits, $detail_lits);
                 }
                 dd($request->session()->all());
                 return View("logement/creer-logement-p4");

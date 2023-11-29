@@ -30,7 +30,7 @@
     <div>    
         <section class="p1">
 
-                @for($i = 0; $i < request()->get('nb_chambre'); $i++)
+                @for($i = 1; $i <= request()->get('nb_chambre'); $i++)
                         <div>
                             <div class="abc">
                                 <h3>Chambre {{ $i }}</h3>

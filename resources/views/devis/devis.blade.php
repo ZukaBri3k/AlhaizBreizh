@@ -14,7 +14,7 @@
         <div class="spacer"></div>
                 <a class="retour" href="proprio.php">
             <div>
-                <img src="img/retour.png" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
+                <img src="{{asset ('img/retour.png')}}" alt="retour" alt="retour" classe="retour" width="70%" height="70%">
             </div>
             <p>Retour</p>
         </a>
@@ -22,7 +22,7 @@
         <div class="spacer"></div>
     </section>
     <section class="devis">
-        <img src="img/grandlogo.png" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
+        <img src="{{asset ('img/grandlogo.png')}}" alt="grandlogo" alt="grandlogo" classe="grandlogo" width="30%">
         <div class="boxhaut">
             <div class="boxgauche">
                 <h3>Nom du propriétaire</h3>
@@ -100,7 +100,9 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <button type="button" id="genererPDF">Générer PDF</button>
+        <a href="devis-proprio.blade.php">
+            <button type="button" id="genererPDF">Générer PDF</button>
+        </a>
     </section>
     <footer>
         <x-FooterClient></x-FooterClient>

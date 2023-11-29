@@ -49,13 +49,19 @@ resize: none;
 
 #nom_logement_acceptation{
     height: 8em;
+    resize: none;
+    
 }
 
 #nom_logement_refus{
     height: 8em;
+    resize: none;
+
 }
 #nom_logement_demande_devis{
     height: 8em;
+    resize: none;
+
 }
 
 /* Réinitialisation des styles */

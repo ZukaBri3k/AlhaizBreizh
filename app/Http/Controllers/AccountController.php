@@ -75,17 +75,14 @@ class AccountController extends Controller
         return View("Compte/MonCompteProprietaire");
     }
       //--------------------------------------------------------------
-      public function ajoute_personne(Request $request) {
-        $tab=[
+    public function ajoute_personne(Request $request) {
+        $personne=[
             $request->prenom_pers,
             $request->nom_pers,
             $request->pseudo_pers,
             $request->ville_pers,
             $request->pays_pers,
             $request->photo_pers,
-            $request->nom_client_proposition_devis,
-            $request->nom_logement_proposition_devis,
-            $request->votre_nom_proposition_devis,
             $request->adresse_pers,
             $request->code_postal_pers,
             $request->date_de_naissance,
@@ -94,9 +91,15 @@ class AccountController extends Controller
             $request->confirmerMotDePasse,    
             $request->iban,
             $request->mail_perso,
-
         ];
 
+        $proprietaire=[
+            $request->nom_client_proposition_devis,
+            $request->nom_logement_proposition_devis,
+            $request->votre_nom_proposition_devis,
+            $request->piece_id_proprio_recto,
+            $request->piece_id_proprio_verso,
+        ]
 
     DB::insert('insert into proprietaire(
         prenom_pers,

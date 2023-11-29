@@ -9,31 +9,30 @@
 <meta name="créer logement" content=""/>
 <meta name="keywords" content="AlHaizBreizh"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" sizes="16x16" href="./assets/IMG/logo.png">
-<link rel="stylesheet" href="./assets/CSS/style_logement.css">
+<link rel="stylesheet" href="{{asset('css/style_logement.css')}}">
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="./assets/JS/script_logement.js"></script>
+<script src="{{asset('js/script_logement.js')}}"></script>
 </head>
 
 
 <body>
     <header>
         <div>
-            <img class="img_header1" src="./assets/IMG/header_logo.png">
-            <img class="img_header2" src="./assets/IMG/profil.png">
+            <img class="img_header1" src="{{asset('img/Logo_desktop.png')}}">
+            <img class="img_header2" src="{{asset('img/profil.png')}}">
         </div>    
         <hr>
     </header>
 <main>
 <section class="part1">
-<form action="creer-logement-p4.php" method="POST">
+<form action="{{route('creer_logement', ['page' => 4])}}" method="GET">
     <div>    
         <section class="p1">
             
-            <?php 
+            @php 
                 $i = 1;
-                while ($i < $_POST["nb_chambre"]){
+                while ($i < $_GET["nb_chambre"]){
                     echo    '
                             <div>
                                 <div class="abc">
@@ -52,7 +51,7 @@
                             </div>
                             ';
                 }
-            ?>
+            @endphp
         </section>
         <section class="p2">
         </section>
@@ -73,6 +72,6 @@
     </form>
 </section> 
 </main>
-<script src="./assets/JS/script_logement.js"></script>
+<script src="{{asset('js/script_logement.js')}}"></script>
 </body>
 </html>

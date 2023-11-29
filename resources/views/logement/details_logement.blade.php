@@ -106,8 +106,6 @@
             </div>
           @php
             }
-          @endphp
-          @php
           elseif(sizeof($amenagement) > 1) {
           foreach ($amenagement as $values)
           $value = strtolower($values);

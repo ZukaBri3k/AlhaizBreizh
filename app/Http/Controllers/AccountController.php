@@ -155,30 +155,21 @@ class AccountController extends Controller
             public function client_register(Request $request) {
 
                 $this->ajoute_personne($request);
-
+                $id_client = DB::select('select id from personnes where id = ? ',[$request->telephone_pers]);
                 $client=[
-                    $request->nom_prop_demande_devis,
-                    $request->nom_logement_demande_devis,
-                    $request->votre_nom_demande_devis,
-                    $request->nom_prop_acceptation,
-                    $request->nom_logement_acceptation,
-                    $request->votre_nom_acceptation,
-                    $request->nom_prop_refus,
-                    $request->nom_logement_refus,
-                    $request->votre_nom_refus,
+                    "id" => $id_client[0],
+                    "demande_devis_auto" => $request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis,
+                    "msg_comfirm_devis" => $request->nom_prop_acceptation ." ".$request -> nom_logement_acceptation." ". $request->votre_nom_acceptation,
+                    "msg_refus_devis" => $request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus,
                 ];
 
                 DB::insert('insert into client(
-                    nom_prop_demande_devis,
-                    nom_logement_demande_devis,
-                    votre_nom_demande_devis,
-                    nom_prop_acceptation,
-                    nom_logement_acceptation,
-                    votre_nom_acceptation,
-                    nom_prop_refus,
-                    nom_logement_refus,
-                    votre_nom_refus)values(
-                        ?, ?, ?, ?, ?, ?, ?, ?, ? )
+                    id,
+                    demande_devis_auto,
+                    msg_comfirm_devis,
+                    msg_refus_devis
+                    )values(
+                        ?, ?, ?, ? )
                     ',$client);
                 }
 

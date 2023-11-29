@@ -50,10 +50,11 @@ class Devis extends Controller
             nb_pers,
             date_deb,
             date_fin,
-            id_client_devis
+            id_client_devis,
+            id_proprio
             ) values (
-            ?, ?, ?, ?
-            )', [$nbPers, $dateDeb, $dateFin, 4]);
+            ?, ?, ?, ?, ?
+            )', [$nbPers, $dateDeb, $dateFin, 4, 4]);
         
         return redirect()->route('devis-proprio');
     }

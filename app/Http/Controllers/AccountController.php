@@ -117,7 +117,7 @@ class AccountController extends Controller
             $request->votre_nom_refus,
         ];
 
-    DB::insert('insert into personne(
+    DB::insert('insert into personnes(
         civilite_pers,
         prenom_pers,
         nom_pers,

@@ -280,51 +280,62 @@
         @endif
         <br>
 
+        
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-        <style>
-          /* Always set the map height explicitly to define the size of the div
-          * element that contains the map. */
-          #map {
-            height: 70%;
-          }
-          /* Optional: Makes the sample page fill the window. */
-          html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-          }
-        </style>
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <script type="module" src="./index.js"></script>
       </head>
       <body>
-          <br>
-      <form name="carte" action="affichMap.php" method="POST">
-      <input type="text" name="latitude" placeholder="Latitude" />
-      <input type="text" name="longitude" placeholder="Longitude" />
-      <br/><br/>
-      <input type="submit"  name="envoyer" value="Localiser sur Google Map" onclick="initMap();"/>
-      </form>
-      <br/><br/>
+        <h3>My Google Maps Demo</h3>
+        <!--The div element for the map -->
         <div id="map"></div>
-        <script type="text/javascript">
-          var map;
-              var latitude = {{ $logement->latitude_logement }} ;
-              var longitude = {{ $logement->longitude_logement }} ;
-          function initMap() {
-                var uluru= {lat: latitude, lng: longitude};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 14,
-                      center:uluru
+
+        <!-- prettier-ignore -->
+        <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+            ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "beta"});</script>
+
+        <script> let map;
+          async function initMap() {
+            // The location of Uluru
+            const position = { lat: {{ $logement->latitude_logement }}, lng: {{ $logement->longitude_logement }} };
+            // Request needed libraries.
+            //@ts-ignore
+            const { Map } = await google.maps.importLibrary("maps");
+            const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+            // The map, centered at Uluru
+            map = new Map(document.getElementById("map"), {
+              zoom: 4,
+              center: position,
+              mapId: "DEMO_MAP_ID",
             });
-                    var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
+
+            // The marker, positioned at Uluru
+            const marker = new AdvancedMarkerView({
+              map: map,
+              position: position,
+              title: "Uluru",
             });
           }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=maclefxxxxxxxxxxamoi&callback=initMap"
-        async defer></script>
-        </div>
 
+          initMap(); </script>
+        </div>
+        <style>
+            #map {
+  height: 100%;
+}
+
+/*
+ * Optional: Makes the sample page fill the window.
+ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+        </style>
 
 
       <div class="leStick">

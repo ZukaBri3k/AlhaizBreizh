@@ -26,7 +26,7 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('creer_logement', ['page' => 2])}}" method="POST">
+<form action="{{route('creer_logement', ['page' => 2])}}" method="GET">
     <div>    
         <section class="p1">
             <div class="p2-1">

@@ -41,8 +41,8 @@
                         <button id="btn4" name="bateau" type="button"><img src="{{ asset('/img/nature/bateau.png') }}"><p>Bateau</p></button>
                     </div> 
                     <div>
-                        <button id="btn5" name="chambre_hote" type="button"><img src="{{ asset('/img/nature/chambre_d'hôte.png') }}"><p>Chambre d'hôtes</p></button>
-                        <button id="btn6" name="maison_hote" type="button"><img src="{{ asset('/img/nature/maison_d'hôte.png') }}"><p>Maison d'hôtes</p></button>
+                        <button id="btn5" name="chambre_hote" type="button"><img src="{{ asset('/img/nature/chambre_hote.png') }}"><p>Chambre d'hôtes</p></button>
+                        <button id="btn6" name="maison_hote" type="button"><img src="{{ asset('/img/nature/maison_hote.png') }}"><p>Maison d'hôtes</p></button>
                     </div>     
                     <div>
                         <button id="btn7" name="cabane" type="button"><img src="{{ asset('/img/nature/cabane.png') }}"><p>Cabane</p></button>

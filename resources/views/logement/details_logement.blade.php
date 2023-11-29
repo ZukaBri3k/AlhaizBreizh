@@ -90,17 +90,18 @@
             @php
               $nature = strtolower($logement->nature_logement);
             @endphp
-              <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-100">
+              <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-80">
               <p>{{ $logement->nature_logement }}</p>
           </div>
           <div class="rectangle">
             @php
                 $type = strtolower($logement->type_logement);
             @endphp
-              <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-100">
+              <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-80">
             <p>{!! $logement->type_logement !!}</p>
           </div>
         </div>
+        <!-- Aménagements -->
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
           @php
@@ -108,55 +109,69 @@
             $value = strtolower($amenagement);
           @endphp
             <div class="rectangle">
-              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
+              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-80">
               <p>{!! $amenagement !!}</p>
             </div>
           @php
             }
           elseif(sizeof($amenagement) > 1) {
-          foreach ($amenagement as $values)
-          $value = strtolower($values);
-          @endphp
-          <div class="rectangle">
-            <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
-            <p>{!! $values !!}</p>
-          </div>
-          @php
+          foreach ($amenagement as $values) {
+            $value = strtolower($values);
+            @endphp
+            <div class="rectangle">
+              <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-80">
+              <p>{!! $values !!}</p>
+            </div>
+            @php
+            }
           }
+          <!-- Installations -->
+          if(sizeof($installation) > 1) {
             foreach ($installation as $values) {
-              $value = strtolower($values);
+            $value = strtolower($values);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-100">
+            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
           </div>
           @php
             }
+          } elseif(sizeof($installation) == 1) {
+            $value = strtolower($installation);
           @endphp
           <div class="rectangle">
-            <<img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
-            <p>Maison</p>
+            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
+            <p>{!! $installation !!}</p>
           </div>
+          @php 
+            }
+          @endphp
         </div>
         <h1>Services, Equipements :</h1>
         <div class="Caracteristiques">
+          @php
+            foreach ($service as $values) {
+              $value = strtolower($values);
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
+            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
             <p>Maison</p>
           </div>
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
+            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
             <p>Maison</p>
           </div>
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
+            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
             <p>Maison</p>
           </div>
-      </div>
+          @php 
+            }
+          @endphp
+        </div>
       <h1>Charges additionnelles:</h1>
         <div class="Caracteristiques">
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-100">
+            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
             <p>Maison</p>
           </div>
       </div>

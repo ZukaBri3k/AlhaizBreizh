@@ -138,7 +138,8 @@ class AccountController extends Controller
         DB::insert('insert into proprietaire(
             proposition_devis_auto,
             piece_id_proprio_recto,
-            piece_id_proprio_verso)values(
+            piece_id_proprio_verso)
+            values(
                 ?, ?,  )',$proprietaire);
             }
 
@@ -154,7 +155,7 @@ class AccountController extends Controller
                 $this->ajoute_personne($request);
                 $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
                 $client=[
-                    "id" => $id_client[0]->id,
+                    "id" =>$id_client[0]->id,
                     "demande_devis_auto" =>   $request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis,
                     "msg_comfirm_devis" => $request->nom_prop_acceptation . " " . $request->nom_logement_acceptation . " " . $request->votre_nom_acceptation  ,
                     "msg_refus_devis" =>  $request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus,

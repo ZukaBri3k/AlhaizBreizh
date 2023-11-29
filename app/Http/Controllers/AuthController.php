@@ -32,6 +32,8 @@ class AuthController extends Controller
                 return redirect()->route('myProprietaireAccount');
             } else if (auth()->user()->role == '3') {
                 return redirect()->route('myAdminAccount');
+            } else {
+                $this->logout();
             }
         }
         return redirect()->back()->withErrors("Les identifiants sont incorrectes");
@@ -40,6 +42,6 @@ class AuthController extends Controller
     public function logout() {
         auth()->logout();
 
-        return redirect()->route('login');
+        return redirect()->route('accueil');
     }
 }

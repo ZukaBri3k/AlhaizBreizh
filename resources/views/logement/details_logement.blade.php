@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,6 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img src="images/rola.png" class="d-block w-100">
               <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
               <div>
               <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
@@ -29,27 +28,11 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img src="images/orlova.png" class="d-block w-100">
                 <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
               <div>
               <img src="{{asset('/img/auray.png')}}" class="d-block w-100">
               <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
               </div>
-            </div>
-            <div class="carousel-item">
-              <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-              <img src="{{asset('/img/auray.png')}}" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-              <img src="images/orlova.png" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-              <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
             </div>
           </div>
       </div>
@@ -64,7 +47,7 @@
     </div>
     <div class="second">
       <div>
-        <h1>[Nom du logement] [n° du logement (id)] et [description rapide]</h1>
+        <h1>{{ $logement->libelle_logement }} n°{{ $logement->id_logement }} / {{ $logement->accroche_logement }}</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           <div class="rectangle">
@@ -114,33 +97,49 @@
           </div>
       </div>
       <h1>Description :</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-        
-        culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Paypal : Autorisé</p>
-        <p>Condiditon d'annulation :</p>
+      <p>{{ $logement->descriptif_logement }}</p>
+      <p>Condiditon d'annulation :</p>
+      <div class="Condition_annul">
         <h5>Flexibles :</h5>
         <p>Remboursement intégral jusqu’à 3 jours avant la date d’arrivée</p>
-        <hr>
-        <h1>Logements similaires :</h1>
-        <p>Carte de 2 logements</p>
+      </div>
+      <h1>Nombre de chambre, lit et salle de bain :</h1>
+      <p class="nb_chambre">Il y'a {{ $logement->nb_chambre_logement }} Chambre(s)</p>
+        @foreach ($chambre as $values)
+        @php
+          $n = $loop->iteration;
+        @endphp
+        <br>
+        <div class="chambre">
+          <p>Chambre n°{{ $n }}</p>
+          <p>Elle possède : {{ $values->nb_lit_simple }} lit(s) simple(s)</p>
+          <p>Elle possède : {{ $values->nb_lit_double }} lit(s) double(s)</p>
+          <p>Détail des lits de la chambre : {{ $values->details_lit }}</p>
+        </div>
+        <br>
+        @endforeach
+        @if ($paypal[0]->paypal_proprio == null)
+          <p class="not_paypal">Le propriétaire n'a pas paypal</p>
+        @else
+          <p class="have_paypal">Le propriétaire a paypal</p>
+        @endif
+        <br>
     </div>
       <div class="leStick">
-          <p>à partir de : [prix] / mois</p>
-          <p>Propriétaire : [nomProprio]</p>
+          <p>à partir de : {{ $logement->prix_logement }} / mois</p>
+          <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>
+          <p>Nombre de personne max : {{ $logement->nb_personne_max }}</p>
           <ul>
-            <li class="ville">Ville : [ville]</li>
+            <li class="ville">Ville : {{ $logement->ville_logement }}</li>
           </ul>
           <ul>
             <li class="calendar">Disponibilité : dès maintenant ou pas disponible maintenant</li>
           </ul>
           <ul>
-            <li class="dimension">Dimension : [dimension] m²</li>
+            <li class="dimension">Dimension : {{ $logement->surface_habitable_logement }} m²</li>
           </ul>
           <ul>
-            <li class="adresse">Adresse : [adresse]</li>
+            <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
           <button type="button">Contacter le propriétaire</button>
       </div>

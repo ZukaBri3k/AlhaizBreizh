@@ -15,6 +15,16 @@ class Logement extends Controller
                 return View("logement/creer-logement-p1");
                 break;
             case 2:
+                $request->session([
+                    'adresse' => $request->adresse,
+                    'ville' => $request->ville,
+                    'code_postal' => $request->cp,
+                    'longitude' => $request->longitude,
+                    'latitude' => $request->latitude,
+                    'libelle' => $request->libelle,
+                    'accroche' => $request->accroche
+            ]);
+            dd($request->session()->all());
                 return View("logement/creer-logement-p2");
                 break;
             case 3:

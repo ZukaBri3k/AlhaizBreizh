@@ -107,19 +107,7 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <!-- Formulaire avec champs cachés pour stocker les valeurs -->
-        <form id="pdfForm" method="post" action="{{ route('devis-proprio') }}">
-            <input type="hidden" name="tariflocht" id="hiddenTarifLocht" />
-            <input type="hidden" name="chargesht" id="hiddenChargesHt" />
-            <input type="hidden" name="nombrePersonnes" id="hiddenNombrePersonnes" />
-            <input type="hidden" name="heureArrivee" id="hiddenHeureArrivee" />
-            <input type="hidden" name="heureDepart" id="hiddenHeureDepart" />
-
-            <!-- Ajoutez d'autres champs cachés pour d'autres valeurs si nécessaire -->
-
-            <!-- Bouton Générer PDF -->
-            <button type="button" id="genererPDF">Générer PDF</button>
-        </form>
+        <button type="button" id="genererPDF">Générer PDF</button>
     </section>
     <footer>
         <x-FooterClient></x-FooterClient>
@@ -165,16 +153,6 @@
             taxedesejourInput.addEventListener('input', updateTotals);
 
             updateTotals();
-
-            document.getElementById('genererPDF').addEventListener('click', function () {
-                document.getElementById('hiddenTarifLocht').value = tariflochtInput.value;
-                document.getElementById('hiddenChargesHt').value = chargeshtInput.value;
-                document.getElementById('hiddenNombrePersonnes').value = document.getElementById('name').value;
-                document.getElementById('hiddenHeureArrivee').value = document.getElementById('heureArrivee').value;
-                document.getElementById('hiddenHeureDepart').value = document.getElementById('heureDepart').value;
-
-                document.getElementById('pdfForm').submit();
-            });
         });
     </script>
 </body>

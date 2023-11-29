@@ -59,7 +59,7 @@
                     </div>
                     <div>
                         <button id="btn11" name="T3" type="button"><img src="{{ asset('/img/type/t3.png') }}"><p>T3</p></button>
-                        <button id="btn12" name="T4" type="button"><img src=".{{ asset('/img/type/t4.png') }}"><p>T4</p></button>
+                        <button id="btn12" name="T4" type="button"><img src="{{ asset('/img/type/t4.png') }}"><p>T4</p></button>
                     </div>
                     <div>
                         <button id="btn13" name="studio" type="button"><img src="{{ asset('/img/type/studio.png') }}"><p>Studio</p></button>

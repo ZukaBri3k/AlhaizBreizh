@@ -29,7 +29,7 @@
         <section class="p1">
             <div class='p1-2'>
                 <div class="abc">
-                <div class='p1-2-nom'><h3>Décrivez-nous votre logement  </h3><p title="obligatoire">* Tous les champs sont obligatoires et doivent être remplis</p></div>
+                <div class='p1-2-nom'><h3>Décrivez-nous votre logement  </h3></div>
                     <div class='champ1'><textarea name="description"  placeholder="Saisissez la description du logement"></textarea></div>      
                 </div>
             </div>

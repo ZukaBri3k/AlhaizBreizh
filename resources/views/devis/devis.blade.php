@@ -108,7 +108,7 @@
             </select>
         </div>
         <!-- Formulaire avec champs cachés pour stocker les valeurs -->
-        <form id="pdfForm" method="post" action="{{ route('creer-devis-db') }}">
+        <form id="pdfForm" method="post" action="{{ route('devis-proprio') }}">
             <input type="hidden" name="tariflocht" id="hiddenTarifLocht" />
             <input type="hidden" name="chargesht" id="hiddenChargesHt" />
             <input type="hidden" name="nombrePersonnes" id="hiddenNombrePersonnes" />

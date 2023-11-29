@@ -58,7 +58,7 @@ body {
 .carousel-control-prev, .carousel-control-next {
     height: 60% !important;
     width: 10% !important;
-    margin-top: 1% !important; /* Ajuste la marge autour de la zone cliquable */
+    margin-top: 9% !important; /* Ajuste la marge autour de la zone cliquable */
     margin-bottom: 1% !important; /* Ajuste la marge autour de la zone cliquable */
 }
 

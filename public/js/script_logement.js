@@ -2,6 +2,13 @@
 /*  Page creer-logement.php  */
 
 const bouton1 = document.getElementById("btn1");
+const bouton2 = document.getElementById("btn2");
+const bouton3 = document.getElementById("btn3");
+const bouton4 = document.getElementById("btn4");
+const bouton5 = document.getElementById("btn5");
+const bouton6 = document.getElementById("btn6");
+const bouton7 = document.getElementById("btn7");
+const bouton8 = document.getElementById("btn8");
 
 bouton1.addEventListener("click", () => {
     if(bouton1.style.backgroundColor == 'cyan'){
@@ -31,7 +38,6 @@ bouton1.addEventListener("click", () => {
 
     }
     });
-const bouton2 = document.getElementById("btn2");
 
 bouton2.addEventListener("click", () => {
     if(bouton2.style.backgroundColor == 'cyan'){
@@ -62,7 +68,7 @@ bouton2.addEventListener("click", () => {
 
     }
     });
-const bouton3 = document.getElementById("btn3");
+
 
 bouton3.addEventListener("click", () => {
     if(bouton3.style.backgroundColor == 'cyan'){
@@ -92,7 +98,6 @@ bouton3.addEventListener("click", () => {
 
     }
     });
-const bouton4 = document.getElementById("btn4");
 
 bouton4.addEventListener("click", () => {
     if(bouton4.style.backgroundColor == 'cyan'){
@@ -122,7 +127,6 @@ bouton4.addEventListener("click", () => {
 
     }
     });
-const bouton5 = document.getElementById("btn5");
 
 bouton5.addEventListener("click", () => {
 
@@ -153,7 +157,6 @@ if(bouton5.style.backgroundColor == 'cyan'){
 
     }
     });
-const bouton6 = document.getElementById("btn6");
 
 bouton6.addEventListener("click", () => {
 
@@ -184,7 +187,6 @@ bouton6.addEventListener("click", () => {
     
         }
     });
-const bouton7 = document.getElementById("btn7");
 
 bouton7.addEventListener("click", () => {
 
@@ -215,7 +217,6 @@ bouton7.addEventListener("click", () => {
     
         }
     });
-const bouton8 = document.getElementById("btn8");
 
 bouton8.addEventListener("click", () => {
     if(bouton8.style.backgroundColor == 'cyan'){

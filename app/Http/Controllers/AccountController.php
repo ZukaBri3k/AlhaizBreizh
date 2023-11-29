@@ -77,6 +77,7 @@ class AccountController extends Controller
       //--------------------------------------------------------------
     public function ajoute_personne(Request $request) {
         $personne=[
+            $request->civilite_pers,
             $request->prenom_pers,
             $request->nom_pers,
             $request->pseudo_pers,
@@ -99,6 +100,18 @@ class AccountController extends Controller
             $request->votre_nom_proposition_devis,
             $request->piece_id_proprio_recto,
             $request->piece_id_proprio_verso,
+        ];
+
+        $client=[
+            $request->nom_prop_demande_devis,
+            $request->nom_logement_demande_devis,
+            $request->votre_nom_demande_devis,
+            $request->nom_prop_acceptation,
+            $request->nom_logement_acceptation,
+            $request->votre_nom_acceptation,
+            $request->nom_prop_refus,
+            $request->nom_logement_refus,
+            $request->votre_nom_refus,
         ];
 
     DB::insert('insert into personne(
@@ -126,5 +139,19 @@ class AccountController extends Controller
         piece_id_proprio_recto,
         piece_id_proprio_verso)values(
             ?, ?, ?, ?, ?, )',$proprietaire);
+
+    DB::insert('insert into client(
+        nom_prop_demande_devis,
+        nom_logement_demande_devis,
+        votre_nom_demande_devis,
+        nom_prop_acceptation,
+        nom_logement_acceptation,
+        votre_nom_acceptation,
+        nom_prop_refus,
+        nom_logement_refus,
+        votre_nom_refus)values(
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, )
+        ',$client);
     }
+
 }

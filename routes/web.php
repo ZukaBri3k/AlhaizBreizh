@@ -61,4 +61,4 @@ Route::prefix('/account')->group(function () {
 });
 
 Route::get('test', [Logement::class, 'ajouterLogementDB']);
-Route::get('test1', [AccountController::class,'ajoutepersonneDB']);
+Route::get('test1', [AccountController::class,'ajoute_personne'])->name('yolo');

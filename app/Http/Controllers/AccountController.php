@@ -146,6 +146,7 @@ class AccountController extends Controller
             piece_id_proprio_verso)
             values(
                 ?, ?, ?, ? )',$proprietaire);
+                return redirect()->route('accueil');
             }
 
 
@@ -172,6 +173,7 @@ class AccountController extends Controller
                     msg_refus_devis
                     )values(?, ?, ?, ?)
                     ',$client);
+                    return redirect()->route('accueil');
                 }
 
 

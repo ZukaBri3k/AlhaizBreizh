@@ -38,24 +38,19 @@ class Logement extends Controller
                 break;
             case 4:
                 $tab_lit_s = [];
+                $tab_lit_d = [];
+                $tab_details = [];
 
                 for ($i=1; $i <= intval($request->session()->get('nb_chambre')); $i++) {
                     array_push($tab_lit_s, $request->input("nb_lit_s_" . $i));
-                    
-
-                    /*$nb_lit_d = $request->input("nb_lit_d_" . $i);
-                    $tab_nb_lit_d = session()->get('nb_lit_d');
-                    array_push($tab_nb_lit_d, $nb_lit_d);
-
-                    $detail_lits = $request->input("detail_lits_" . $i);
-                    $tab_detail_lits = session()->get('detail_lits');
-                    array_push($tab_detail_lits, $detail_lits);*/
+                    array_push($tab_lit_d, $request->input("nb_lit_d_" . $i));
+                    array_push($tab_details, $request->input("details_lits_" . $i));
                 }
 
                 session([
                     'nb_lit_s' => $tab_lit_s,
-                    'nb_lit_d' => [],
-                    'detail_lits' => [],
+                    'nb_lit_d' => $tab_lit_d,
+                    'detail_lits' => $tab_details,
                 ]);
 
                 dd($request->session()->all());

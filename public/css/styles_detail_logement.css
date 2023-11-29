@@ -370,7 +370,6 @@ body {
 .boutton_bas {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
 }
 
 .boutton_bas button {
@@ -391,6 +390,7 @@ body {
     line-height: normal;
 }
 
-.boutton_bas button + button {
-    margin-left: 10%;
+#enre_buton {
+    margin-left: 30%;
 }
+

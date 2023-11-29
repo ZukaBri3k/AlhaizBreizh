@@ -24,7 +24,7 @@
     </header>
 <main>
 <section class="part1">
-<form action="creer-logement-p5.php" method="get">
+<form action="{{route('creer_logement', ['page' => 5])}}" method="get">
     <div>    
         <section class="p1">
             <div class='p1-4'>
@@ -65,7 +65,7 @@
                         <div>
                             <button style="margin-right:30px" id="btn27" name="lave-linge" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/lave_linge.svg')}}"><p>Lave-linge</p></button>
                             <button style="margin-right:30px" id="btn28" name="lave-vaisselle" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/lave_vaisselle.svg')}}"><p>Lave-vaisselle</p></button>
-                            <button style="margin-right:30px" id="btn29" name="instrument" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/instrument.svg')}}"><p>Instrument</p></button>
+                            <button style="margin-right:30px" id="btn29" name="instrument" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/instrument.png')}}"><p>Instrument</p></button>
                         </div>
                         <div>
                             <button style="margin-right:30px" id="btn30" name="appareil_sport" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/appareils_de_sport.png')}}"><p>Appareils de sport</p></button>

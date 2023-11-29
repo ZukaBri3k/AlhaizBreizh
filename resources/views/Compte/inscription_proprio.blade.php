@@ -22,7 +22,7 @@
         <div class="gauche" >
             <div class="public-info-section">
             <h1>Infomation personnel public</h1>
-            <form action="{{route ('myProprietaireAccount')}}" method="get">
+            <form action="{{action('AccountController@ajoute_personne')}}" method="get">
                 <div class="radio-container">
         
                 <select id="genre" >

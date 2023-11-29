@@ -109,11 +109,6 @@ input[type="tel"] {
     margin-right: 10px; /* Ajoutez de la marge à droite entre les boutons */
 }
 
-/* Styles pour les boutons radio */
-.radio-container input[type="radio"] {
-    margin-right: 10px;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -184,7 +179,7 @@ input[type="password"],
 textarea {
     border: 1px solid #ccc;
     border-radius: 25px; /* Arrondir les coins */
-    max-width: 400px;
+    max-width: 200px;
     padding: 10px;
     width: 100%;
     margin: 0 auto;

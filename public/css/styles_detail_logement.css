@@ -350,3 +350,18 @@ body {
     line-height: normal;
     margin-bottom: 0rem;
 }
+
+/*****************Style de la prévisualisation*****************/
+
+.Vue_client {
+    margin-left: 15%;
+    margin-top: 5%;
+    color: #FFF;
+    font-family: 'Montserrat-Light';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0rem;
+    background-color: black;
+}

@@ -9,6 +9,9 @@
 </head>
 <body>
     <x-Navbar></x-Navbar>
+    <div class="Vue_client">
+      <h5>Vue du client</h5>
+    </div>
     <!--Code pour le carrousel-->
     <div class="carou">
       <div id="carouselExampleIndicators" class="carousel slide">
@@ -301,7 +304,15 @@
           </a>
       </div>
     </div>
-    <x-FooterClient></x-FooterClient>
+
+      <div>
+      <a href="{{route('devis-client')}}">
+            <button type="button">Contacter le propriétaire</button>
+      </a>
+      <a href="{{route('devis-client')}}">
+            <button type="button">Contacter le propriétaire</button>
+      </a>
+      </div>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

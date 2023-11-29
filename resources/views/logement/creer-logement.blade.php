@@ -9,7 +9,7 @@
 <meta name="keywords" content="AlHaizBreizh"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" sizes="16x16" href="./assets/IMG/logo.png">
-<link rel="stylesheet" href="./assets/CSS/style_logement.css">
+<link rel="stylesheet" href="{{asset('css/style_logement.css')}}">
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="./assets/JS/script_logement.js"></script>
@@ -17,12 +17,8 @@
 
 
 <body>
-    <header>
-        <div>
-            <img class="img_header1" src="./assets/IMG/header_logo.png">
-            <img class="img_header2" src="./assets/IMG/profil.png">
-        </div>    
-        <hr>
+<header>
+        <x-Navbar></x-Navbar>
     </header>
 <main>
 <section class="part1">

@@ -76,7 +76,7 @@ class AccountController extends Controller
         return View("Compte/MonCompteProprietaire");
     }
       //--------------------------------------------------------------
-    public function ajoute_personne(Request $request) {
+    public function ajoute_personne(Request $request, $role) {
 
         
         $personne=[
@@ -94,10 +94,12 @@ class AccountController extends Controller
             $request->password,
             $request->iban,
             $request->mail_pers,
+            $role,
         ];
 
 
     DB::insert('insert into personnes(
+        
         civilite_pers,
         prenom_pers,
         nom_pers,
@@ -111,10 +113,11 @@ class AccountController extends Controller
         telephone_pers,
         password,
         iban,
+        role,
         mail_pers
         )values(
             ?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, ?, ?)',$personne);
+            ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
         }
 
@@ -127,7 +130,7 @@ class AccountController extends Controller
 
 
     public function proprio_register(Request $request) {
-        $this->ajoute_personne($request);
+        $this->ajoute_personne($request,2);
         $id_proprio = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
         $proprietaire=[
             "id" => $id_proprio[0]->id,
@@ -151,8 +154,7 @@ class AccountController extends Controller
 
 
             public function client_register(Request $request) {
-
-                $this->ajoute_personne($request);
+                $this->ajoute_personne($request,1);
                 $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
                 $client=[
                     $id_client[0]->id,

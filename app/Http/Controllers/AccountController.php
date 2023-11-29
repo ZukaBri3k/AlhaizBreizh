@@ -118,7 +118,7 @@ class AccountController extends Controller
         ];
 
     DB::insert('insert into personne(
-        civilite_pers
+        civilite_pers,
         prenom_pers,
         nom_pers,
         pseudo_pers,

@@ -71,7 +71,6 @@
             } else {
               $service = $logement->service_complementaire_logement;
             }
-            dd(explode(";", $logement->service_complementaire_logement));
 
             if (count(explode(";", $logement->equipement_propose_logement)) > 1) {
               $equipement = [];
@@ -161,6 +160,7 @@
         <h1>Services, Equipements :</h1>
         <div class="Caracteristiques">
           @php
+          dd(if(explode(";", $logement->service_complementaire_logement) > 1));
             if(explode(";", $logement->service_complementaire_logement) > 1) {
             foreach ($service as $values) {
               $value = strtolower($values);

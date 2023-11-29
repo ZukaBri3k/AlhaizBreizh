@@ -42,7 +42,7 @@
                         </div>
                         <div class="boutonbas">
                             <button id="btn38" name="hammam" onclick="toggleButton2(this)" type="button"><img src="{{asset('img/installations/hammam.png')}}"><p>Hammam</p></button>
-                            <button id="btn39" name="espace travail" onclick="toggleButton2(this)" type="button"><img style="width: 30%" src="{{asset('img/installations/espace_travail.png')}}"><p>Espace de travail</p></button>
+                            <button id="btn39" name="espace travail" onclick="toggleButton2(this)" type="button"><img style="width: 30%" src="{{asset('img/installations/espace_de_travail.png')}}"><p>Espace de travail</p></button>
                         </div>
                     </div>
                 </div>   
@@ -59,7 +59,7 @@
                         </div>
                         <div>
                             <button id="btn42" name="taxi" onclick="toggleButton5(this)" type="button"><img src="{{asset('img/services/taxi.png')}}"><p>Taxi</p></button>
-                            <button id="btn43" name="ustensiles cuisine" onclick="toggleButton5(this)" type="button"><img src="{{asset('img/services/ustensile.png')}}"><p>Ustensiles de cuisine</p></button>
+                            <button id="btn43" name="ustensiles cuisine" onclick="toggleButton5(this)" type="button"><img src="{{asset('img/services/ustensiles_de_cuisine.png')}}"><p>Ustensiles de cuisine</p></button>
                         </div>
                         <div>
                             <button id="btn44" name="velo" onclick="toggleButton5(this)" type="button"><img src="{{asset('img/services/velo.png')}}"><p>Vélo</p></button>

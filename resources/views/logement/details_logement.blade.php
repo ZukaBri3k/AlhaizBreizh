@@ -99,25 +99,27 @@
           @php
             if(sizeof($amenagement) == 1) {
             $value = strtolower($amenagement);
+          @endphp
             <div class="rectangle">
               <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
               <p>{!! $amenagement !!}</p>
             </div>
+          @php
             }
           @endphp
           @php
           elseif(sizeof($amenagement) > 1) {
           foreach ($amenagement as $values)
           $value = strtolower($values);
+          @endphp
           <div class="rectangle">
             <img src="{{asset('/img/amenagement/' . $value . '.png')}}" class="d-block w-100">
             <p>{!! $values !!}</p>
           </div>
-          }
-          @endphp
-          @foreach ($installation as $values)
           @php
-            $value = strtolower($values);
+          }
+            foreach ($installation as $values)
+              $value = strtolower($values);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-100">

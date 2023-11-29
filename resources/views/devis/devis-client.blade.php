@@ -193,14 +193,7 @@ document.getElementById("accepterDevis").addEventListener("click", function () {
 const demanderDevis = document.getElementById("demanderDevis");
 
 demanderDevis.addEventListener("click", () => {
-    // Masquer le bouton
-    demanderDevis.style.display = "none";
-
-    // Attendre 500 millisecondes (ou ajustez selon vos besoins)
-    setTimeout(() => {
-        // Rediriger l'utilisateur après le délai
-        window.location.href = demanderDevis.getAttribute("href");
-    }, 500);
+    document.getElementById("demanderDevis").style.display = "none";
 });
 
 document.getElementById("afficherPdf").addEventListener("click", function () {

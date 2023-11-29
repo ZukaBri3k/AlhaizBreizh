@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -76,7 +77,6 @@ class AccountController extends Controller
     }
       //--------------------------------------------------------------
     public function ajoute_personne(Request $request) {
-        dd("TEST");
         $personne=[
             $request->civilite_pers,
             $request->prenom_pers,

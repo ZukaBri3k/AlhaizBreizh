@@ -156,6 +156,7 @@ class AccountController extends Controller
 
                 $this->ajoute_personne($request);
                 $id_client = DB::select('select id from personnes where id = ? ',[$request->telephone_pers]);
+                dd($id_client);
                 $client=[
                     "id" => $id_client,
                     "demande_devis_auto" => $request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis,

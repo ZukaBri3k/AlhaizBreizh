@@ -15,6 +15,7 @@ class Logement extends Controller
                 return View("logement/creer-logement");
                 break;
             case 2:
+                dd($request->nature_logement);
                 return View("logement/creer-logement-p1");
                 break;
             case 3:

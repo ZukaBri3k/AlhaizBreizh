@@ -41,11 +41,11 @@
                         </div>
                         <div>
                             <button style="margin-right:30px" id="btn20" name="parking public" onclick="toggleButton(this)" type="button"><img src="{{asset('img/parking.svg')}}"><p>Parking public</p></button>
-                            <button style="margin-right:30px" id="btn21" name="patio" onclick="toggleButton(this)" type="button"><img src="{{asset('img/patio.svg')}}"><p>Patio</p></button>
+                            <button style="margin-right:30px" id="btn21" name="patio" onclick="toggleButton(this)" type="button"><img src="{{asset('img/amenagements/patio.png')}}"><p>Patio</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn22" name="salon hiver" onclick="toggleButton(this)" type="button"><img src="{{asset('img/salon_h.svg')}}"><p>Salon d'hiver</p></button>
-                            <button style="margin-right:30px" id="btn23" name="veranda" onclick="toggleButton(this)" type="button"><img src="{{asset('img/veranda.svg')}}"><p>Véranda</p></button>
+                            <button style="margin-right:30px" id="btn22" name="salon hiver" onclick="toggleButton(this)" type="button"><img src="{{asset('img/amenagements/salon_hiver.png')}}"><p>Salon d'hiver</p></button>
+                            <button style="margin-right:30px" id="btn23" name="veranda" onclick="toggleButton(this)" type="button"><img src="{{asset('img/amenagements/veranda.png')}}"><p>Véranda</p></button>
                         </div>
                    </div>
                    <input type="hidden" id="amenagement_logement" name="amenagement_logement" />
@@ -65,15 +65,15 @@
                         <div>
                             <button style="margin-right:30px" id="btn27" name="lave-linge" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/lave_linge.svg')}}"><p>Lave-linge</p></button>
                             <button style="margin-right:30px" id="btn28" name="lave-vaisselle" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/lave_vaisselle.svg')}}"><p>Lave-vaisselle</p></button>
-                            <button style="margin-right:30px" id="btn29" name="instrument" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/instru.svg')}}"><p>Instrument</p></button>
+                            <button style="margin-right:30px" id="btn29" name="instrument" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/instrument.svg')}}"><p>Instrument</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn30" name="appareil_sport" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/sport.svg')}}"><p>Appareils de sport</p></button>
-                            <button style="margin-right:30px" id="btn31" name="cheminee" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/cheminee.svg')}}"><p>Cheminée</p></button>
-                            <button style="margin-right:30px" id="btn32" name="barbecue" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/barbecue.svg')}}"><p>Barbecue</p></button>
+                            <button style="margin-right:30px" id="btn30" name="appareil_sport" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/appareils_de_sport.png')}}"><p>Appareils de sport</p></button>
+                            <button style="margin-right:30px" id="btn31" name="cheminee" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/cheminee.png')}}"><p>Cheminée</p></button>
+                            <button style="margin-right:30px" id="btn32" name="barbecue" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/barbecue.png')}}"><p>Barbecue</p></button>
                         </div>
                         <div>
-                            <button style="margin-right:30px" id="btn33" name="equip_pmr" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/pmr.svg')}}"><p>Equipement PMR</p></button>
+                            <button style="margin-right:30px" id="btn33" name="equip_pmr" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/equipements/equipements_pmr.png')}}"><p>Equipement PMR</p></button>
                         </div>
                     </div>
                     <input type="hidden" id="equipement" name="equipement" />

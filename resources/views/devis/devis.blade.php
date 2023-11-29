@@ -100,7 +100,9 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <button type="button" id="genererPDF">Générer PDF</button>
+        <a href="devis-proprio.blade.php">
+            <button type="button" id="genererPDF">Générer PDF</button>
+        </a>
     </section>
     <footer>
         <x-FooterClient></x-FooterClient>

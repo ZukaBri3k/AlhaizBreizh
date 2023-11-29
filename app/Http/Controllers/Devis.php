@@ -49,26 +49,9 @@ class Devis extends Controller
             INSERT INTO devis (
             nb_pers,
             date_deb,
-            date_fin,
-            date_em,
-            date_val,
-            annul,
-            charges_ht,
-            sous_tot_ht,
-            sous_tot_ttc,
-            frais_serv_ht,
-            frais_serv_ttc,
-            taxe_de_sejour,
-            prix_tot,
-            delai,
-            etat_devis,
-            heure_arriv,
-            heure_depart,
-            id_client_devis,
-            id_proprio
+            date_fin
             ) values (
-            ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+            ?, ?, ?
             )', [$nbPers, $dateDeb, $dateFin]);
         DB::insert('INSERT INTO devis (id_client_devis) values (4)');
         

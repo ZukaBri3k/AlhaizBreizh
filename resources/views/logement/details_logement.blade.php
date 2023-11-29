@@ -279,7 +279,7 @@
           <p class="have_paypal">Le propriétaire a paypal</p>
         @endif
         <br>
-      </div>
+    </div>
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} / mois</p>
           <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>
@@ -300,6 +300,7 @@
             <button type="button">Contacter le propriétaire</button>
           </a>
       </div>
+    </div>
     <x-FooterClient></x-FooterClient>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

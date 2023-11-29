@@ -11,6 +11,9 @@ class Logement extends Controller
     public function Creation(Request $request) {
 
         switch ($request->page) {
+            case 0:
+                return View("logement/creer-logement");
+                break;
             case 1:
                 return View("logement/creer-logement-p1");
                 break;

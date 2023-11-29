@@ -26,27 +26,27 @@
     </header>
 <main>
 <section class="part1">
-<form action="creer-logement-p1.php" method="POST">
+<form action="{{route('creer_logement', ['page' => 1])}}" method="POST">
     <div>    
         <section class="p1">
             <div class='p1-1'>
                 <div class="abc">
-                    <div class='p1-1-nom'><h3>De quelle nature est votre logement ? </h3><p title="obligatoire">* Veuillez selectionner une nature de logement</p></div>
+                    <div class='p1-1-nom'><h3>De quelle nature est votre logement ? </h3></div>
                     <div>
-                        <button id="btn1" name="maison" type="button"><img src="./assets/IMG/maison.svg"><p>Maison</p></button>
-                        <button id="btn2" name="appartement" type="button"><img class="appart" src="./assets/IMG/appartement.svg"><p>Appartement</p></button>
+                        <button id="btn1" name="maison" type="button"><img src="{{ asset('/img/nature/maison.png') }}"><p>Maison</p></button>
+                        <button id="btn2" name="appartement" type="button"><img class="appart" src="{{ asset('/img/nature/appartement.png') }}"><p>Appartement</p></button>
                     </div>
                     <div>
-                        <button id="btn3" name="villa" type="button"><img src="./assets/IMG/villa.png"><p>Villa d'exception</p></button>
-                        <button id="btn4" name="bateau" type="button"><img src="./assets/IMG/bateau.png"><p>Bateau</p></button>
+                        <button id="btn3" name="villa" type="button"><img src="{{ asset('/img/nature/villa.png') }}"><p>Villa d'exception</p></button>
+                        <button id="btn4" name="bateau" type="button"><img src="{{ asset('/img/nature/bateau.png') }}"><p>Bateau</p></button>
                     </div> 
                     <div>
-                        <button id="btn5" name="chambre_hote" type="button"><img src="./assets/IMG/hotel.svg"><p>Chambre d'hôtes</p></button>
-                        <button id="btn6" name="maison_hote" type="button"><img src="./assets/IMG/maison_2.svg"><p>Maison d'hôtes</p></button>
+                        <button id="btn5" name="chambre_hote" type="button"><img src="{{ asset('/img/nature/chambre_d'hôte.png') }}"><p>Chambre d'hôtes</p></button>
+                        <button id="btn6" name="maison_hote" type="button"><img src="{{ asset('/img/nature/maison_d'hôte.png') }}"><p>Maison d'hôtes</p></button>
                     </div>     
                     <div>
-                        <button id="btn7" name="cabane" type="button"><img src="./assets/IMG/cabane.svg"><p>Cabane</p></button>
-                        <button id="btn8" name="caravane" type="button"><img src="./assets/IMG/caravane.svg"><p>Caravane ou Camping-car</p></button>
+                        <button id="btn7" name="cabane" type="button"><img src="{{ asset('/img/nature/cabane.png') }}"><p>Cabane</p></button>
+                        <button id="btn8" name="caravane" type="button"><img src="{{ asset('/img/nature/caravane.png') }}"><p>Caravane</p></button>
                     </div>         
                  <input type="hidden" id="nature_logement" name="nature_logement" />
 
@@ -56,21 +56,21 @@
         <section class="p2">
             <div class='p2-2'>
                 <div class="abc">
-                    <div class='p2-2-nom'><h3>De quel type est votre logement ?</h3><p title="obligatoire">* Veuillez sélectionner un  type de logement (pour en savoir plus, <a href="">cliquez ici</a>)</p></div>
+                    <div class='p2-2-nom'><h3>De quel type est votre logement ?</h3></div>
                     <div>
-                        <button id="btn9" name="T1" type="button"><img src="./assets/IMG/t1.svg"><p>T1</p></button>
-                        <button id="btn10" name="T2" type="button"><img src="./assets/IMG/t2.svg"><p>T2</p></button>
+                        <button id="btn9" name="T1" type="button"><img src="{{ asset('/img/type/t1.png') }}"><p>T1</p></button>
+                        <button id="btn10" name="T2" type="button"><img src="{{ asset('/img/type/t2.png') }}"><p>T2</p></button>
                     </div>
                     <div>
-                        <button id="btn11" name="T3" type="button"><img src="./assets/IMG/t3.svg"><p>T3</p></button>
-                        <button id="btn12" name="T4" type="button"><img src="./assets/IMG/t4.png"><p>T4</p></button>
+                        <button id="btn11" name="T3" type="button"><img src="{{ asset('/img/type/t3.png') }}"><p>T3</p></button>
+                        <button id="btn12" name="T4" type="button"><img src=".{{ asset('/img/type/t4.png') }}"><p>T4</p></button>
                     </div>
                     <div>
-                        <button id="btn13" name="studio" type="button"><img src="./assets/IMG/studio.png"><p>Studio</p></button>
-                        <button id="btn14" name="duplex" type="button"><img src="./assets/IMG/duplex.png"><p>Duplex</p></button>
+                        <button id="btn13" name="studio" type="button"><img src="{{ asset('/img/type/studio.png') }}"><p>Studio</p></button>
+                        <button id="btn14" name="duplex" type="button"><img src="{{ asset('/img/type/duplex.png') }}"><p>Duplex</p></button>
                     </div>
                     <div>
-                        <button id="btn15" name="triplex" type="button"><img src="./assets/IMG/triplex.svg"><p>Triplex</p></button>
+                        <button id="btn15" name="triplex" type="button"><img src="{{ asset('/img/type/triplex.png') }}"><p>Triplex</p></button>
                     </div>
                 </div>
                 <input type="hidden" id="type_logement" name="type_logement" />

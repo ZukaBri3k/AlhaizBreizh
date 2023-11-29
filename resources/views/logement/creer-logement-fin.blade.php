@@ -29,7 +29,7 @@
         <section class="p1">        
             <div class='p1-8'>
                     <div class="abc">
-                        <div class='p1-8-nom'><h3>Quelle sera la photo de couverture de votre logement ?</h3><p title="obligatoire">* Veuillez insérer au moins une photo de couverture pour votre logement</p></div>
+                        <div class='p1-8-nom'><h3>Quelle sera la photo de couverture de votre logement ?</h3></div>
                             <div class="import_image">
                                 <label>Insérer une photo :</label><div><input id="btn40" name="image_1" type="file"><img src="{{asset('img/Download.png')}}"></input>
 
@@ -43,7 +43,6 @@
                 <div class="abc">
                     <div class='p2-8-nom'>
                         <h3>Quelles seront les photos de votre logement ?</h3>
-                        <p title="obligatoire">* Veuillez insérer au moins une photo pour votre logement</p>
                     </div>
                     <div class="import_image">
                         <label>Insérer une photo :</label>

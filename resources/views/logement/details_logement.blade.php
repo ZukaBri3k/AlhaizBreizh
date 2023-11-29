@@ -102,6 +102,8 @@
               <p>{!! $logement->type_logement !!}</p>
             </div>
         </div>
+
+
         <!-- Aménagements -->
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
@@ -126,6 +128,7 @@
             @php
             }
           } @endphp
+
           <!-- Installations -->
           @php
           if(sizeof($installation) > 1) {
@@ -149,35 +152,90 @@
             }
           @endphp
         </div>
+
+
+        <!-- Equipements -->
         <h1>Services, Equipements :</h1>
         <div class="Caracteristiques">
           @php
+            if(sizeof($service) > 1) {
             foreach ($service as $values) {
               $value = strtolower($values);
           @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
-            <p>Maison</p>
-          </div>
+            <img src="{{asset('/img/type/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $values !!}</p>
+          @php 
+            }
+          } elseif(sizeof($service) == 1) {
+            $value = strtolower($service);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
-            <p>Maison</p>
-          </div>
-          <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
-            <p>Maison</p>
+            <img src="{{asset('/img/type/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $service !!}</p>
           </div>
           @php 
             }
           @endphp
-        </div>
-      <h1>Charges additionnelles:</h1>
-        <div class="Caracteristiques">
+
+          <!-- Equipements -->
+          @php
+            if(sizeof($equipement) > 1) {
+            foreach ($equipement as $values) {
+              $value = strtolower($values);
+          @endphp
           <div class="rectangle">
-            <img src="{{asset('/img/type/maison.png')}}" class="d-block w-80">
-            <p>Maison</p>
+            <img src="{{asset('/img/equipement/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $values !!}</p>
           </div>
-      </div>
+          @php 
+            }
+          } elseif(sizeof($equipement) == 1) {
+            $value = strtolower($equipement);
+          @endphp
+          <div class="rectangle">
+            <img src="{{asset('/img/equipement/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $equipement !!}</p>
+          </div>
+          @php 
+            }
+          @endphp
+          </div>
+
+
+          <!-- Charges additionnelles -->
+        <h1>Charges additionnelles:</h1>
+        <div class="Caracteristiques">
+          @php
+            if(sizeof($charge) > 1) {
+            foreach ($charge as $values) {
+              $value = strtolower($values);
+          @endphp
+          <div class="rectangle">
+            <img src="{{asset('/img/charge/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $values !!}</p>
+          </div>
+          @php 
+            }
+          } elseif(sizeof($charge) == 1) {
+            $value = strtolower($charge);
+          @endphp
+          <div class="rectangle">
+            <img src="{{asset('/img/charge/'. $value .'.png')}}" class="d-block w-80">
+            <p>{!! $charge !!}</p>
+          </div>
+          @php 
+            }
+            elseif($charge == "aucune") {
+          @endphp
+          <div class="rectangle">
+            <p>{!! $charge !!}</p>
+          </div>
+          @php
+            }
+          @endphp
+
+        </div>
       <h1>Description :</h1>
       <p>{{ $logement->descriptif_logement }}</p>
       <p>Condiditon d'annulation :</p>

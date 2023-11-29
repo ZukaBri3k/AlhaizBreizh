@@ -14,7 +14,9 @@
     <main>
         <section class="boutons">
             <form action="index.php" method="get" target="_blank">
-                <button id="creerdevis" class="bouton-creer">Créer un devis</button>
+                <a href="{{route ('devis')}}">
+                    <button id="creerdevis" class="bouton-creer">Créer un devis</button>
+                </a>
             </form>
             <h2>Votre messagerie avec BigPapoo<img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=5% height=5%></h2>
         </section>

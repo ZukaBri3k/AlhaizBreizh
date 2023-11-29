@@ -100,7 +100,7 @@
                 <option value="virement">Virement bancaire</option>
             </select>
         </div>
-        <a href="devis-proprio.blade.php">
+        <a href="{{route ('devis-proprio')}}">
             <button type="button" id="genererPDF">Générer PDF</button>
         </a>
     </section>

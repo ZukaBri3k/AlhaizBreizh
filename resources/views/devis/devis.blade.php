@@ -30,17 +30,7 @@
                 <p>ville, code postal, France</p>
                 <p>Numéro de téléphone</p>
                 <p>Adresse mail</p>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                <div class="espace"></div>
                 <p>Date de début du séjour : <input type="date" id="startDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
                 <p>Date de fin du séjour : <input type="date" id="endDate" class="date-input" min="2023-01-01" max="2030-12-31"></p>
             </div>

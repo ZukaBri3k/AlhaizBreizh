@@ -78,7 +78,7 @@
                 function retour(){
                     window.history.back();s
                 }
-            </script>            <button name="btn_validation"  class="validation" type="submit">SUIVANT</button>
+            </script>            <button name="btn_validation"  class="validation" type="submit" id="valider">SUIVANT</button>
         </div>    
     </div>    
     </form>

@@ -130,9 +130,13 @@ function toggleButton3(button) {
     } else {
         boutonsCliques3.push(value);
     }
-    console.log(boutonsCliques3);
     document.getElementById('installation_logement').value = boutonsCliques3.join(',');
 }
+
+var test = document.getElementById('valider');
+test.addEventListener("click", () => {
+    document.getElementById('installation_logement').value = boutonsCliques3.join(',');
+});
 
 var boutonsCliques4 = [];
 

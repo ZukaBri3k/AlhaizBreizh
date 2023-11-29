@@ -33,11 +33,11 @@
                         <div class='p1-6-nom'><h3>Quelles sont les charges additionnelles que vous souhaitez proposer ?</h3></div>
                         <div>
                             <button id="btn45" name="menage" onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/menage.png')}}"><p>Ménage</p></button>
-                            <button id="btn46" name="animaux" onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/animaux.svg')}}"><p>Animaux</p></button>
+                            <button id="btn46" name="animaux" onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/animaux.png')}}"><p>Animaux</p></button>
                         </div>
                         <div>
-                            <button id="btn47" name="taxe" onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/taxe.svg')}}"><p>Taxe</p></button>
-                            <button id="btn48" name="personne supplémentaire"  onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/personne_sup.svg')}}"><p>Personne supplémentaire</p></button>
+                            <button id="btn47" name="taxe" onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/taxe.png')}}"><p>Taxe</p></button>
+                            <button id="btn48" name="personne supplémentaire"  onclick="toggleButton3(this)" type="button"><img src="{{asset('img/charges/personne_suplementaire.png')}}"><p>Personne supplémentaire</p></button>
                         </div>
                     </div>
                     <input type="hidden" id="charge" name="charge" />

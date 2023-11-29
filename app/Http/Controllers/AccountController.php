@@ -92,7 +92,6 @@ class AccountController extends Controller
             $request->date_de_naissance,
             $request->telephone_pers,
             $request->password,
-            $request->confirmerMotDePasse,    
             $request->iban,
             $request->mail_pers,
         ];
@@ -130,12 +129,11 @@ class AccountController extends Controller
         date_de_naissance,
         telephone_pers,
         password,
-        confirmerMotDePasse,
         iban,
         mail_pers
         )values(
             ?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
+            ?, ?, ?, ?, ?, ?, ?)',$personne);
 
     DB::insert('insert into proprietaire(
         nom_client_proposition_devis,

@@ -95,20 +95,17 @@ class AccountController extends Controller
             $request->confirmerMotDePasse,    
             $request->iban,
             $request->mail_perso,
-            $request->piece_id_proprio_recto,
-            $request->piece_id_proprio_verso,
 
         ];
-       DB::insert('insert into personne(
+
+
+    DB::insert('insert into proprietaire(
         prenom_pers,
         nom_pers,
         pseudo_pers,
         ville_pers,
         pays_pers,
         photo_pers,
-        nom_client_proposition_devis,
-        nom_logement_proposition_devis,
-        votre_nom_proposition_devis,
         adresse_pers,
         code_postal_pers,
         date_de_naissance,
@@ -116,12 +113,16 @@ class AccountController extends Controller
         password,
         confirmerMotDePasse,
         iban,
-        mail_pers,
+        mail_pers)values(
+            ?, ?, ?, ?, ?, ?, ?, 
+            ?, ?, ?, ?, ?, ?, ?, )',$personne);
+
+    DB::insert('insert into proprietaire(
+        nom_client_proposition_devis,
+        nom_logement_proposition_devis,
+        votre_nom_proposition_devis,
         piece_id_proprio_recto,
         piece_id_proprio_verso)values(
-            ???????????????????)',$tab);
+            ?, ?, ?, ?, ?, )',$proprietaire);
     }
 }
-=======
-}
->>>>>>> a706fd8b42d3f5513df3b145dc25793b8b60fa89

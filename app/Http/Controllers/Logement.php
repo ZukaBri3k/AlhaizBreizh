@@ -42,8 +42,9 @@ class Logement extends Controller
                     'nb_lit_d' => [],
                     'detail_lits' => [],
                 ]);
-                for ($i=1; $i <= intval($request->session()->get('nb_chambre')); $i++) { 
-                    array_push(session()->get('nb_lit_s'), $request->input("nb_lit_s_" . $i));
+                for ($i=1; $i <= intval($request->session()->get('nb_chambre')); $i++) {
+                    $lit = $request->input("nb_lit_s_" . $i);
+                    array_push(session()->get('nb_lit_s'), $lit);
                     array_push(session()->get('nb_lit_d'), $request->input("nb_lit_d_" . $i));
                     array_push(session()->get('detail_lits'), $request->input("detail_lits_" . $i));
                 }

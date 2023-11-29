@@ -43,7 +43,7 @@ class Logement extends Controller
                     'detail_lits' => [],
                 ]);
                 for ($i=1; $i <= intval($request->session()->get('nb_chambre')); $i++) { 
-                    dd($request->nb_lit_s_ . $i);
+                    dd($request->input("nb_lit_s_" . $i));
                     array_push(session->get('nb_lit_s'), $request->nb_lit_s_ . $i);
                 }
                 return View("logement/creer-logement-p4");

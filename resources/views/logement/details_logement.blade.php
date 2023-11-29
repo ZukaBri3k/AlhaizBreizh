@@ -287,7 +287,7 @@
             <li class="ville">Ville : {{ $logement->ville_logement }}</li>
           </ul>
           <ul>
-            <li class="calendar">Disponibilité : dès maintenant ou pas disponible maintenant</li>
+            <li class="calendar">Disponibilité : dès maintenant</li>
           </ul>
           <ul>
             <li class="dimension">Dimension : {{ $logement->surface_habitable_logement }} m²</li>

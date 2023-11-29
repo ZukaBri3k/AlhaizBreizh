@@ -188,6 +188,6 @@
 
         </footer>
     </form>
-    <script src="inscription_client.js"></script>
+    <script src="{{asset('js/script_inscription_client.js')}}"></script>
 </body>
 </html>

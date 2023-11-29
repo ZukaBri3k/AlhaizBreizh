@@ -33,16 +33,16 @@
                 @for($i = 0; $i < request()->get('nb_chambre'); $i++)
                         <div>
                             <div class="abc">
-                                <h3>Chambre @{{ $i }}</h3>
+                                <h3>Chambre @php $i</h3>
                                 <section class="p1-3-1">
                                     <p>Nombre de lit simple : </p>
                                     <p>Nombre de lit double : </p>
                                     <p>Détails des lits disponibles : </p>    
                                 </section>
                                 <section class="p1-3-2">    
-                                    <input name="nb_lit_s_@{{$i}}" value = "" type="number">
-                                    <input name="nb_lit_d_@{{$i}}" value = "" type="number">
-                                    <textarea name="detail_lits_@{{$i}}" placeholder="Saisissez ici (255 caractères max)" value = "" type="text"/>
+                                    <input name="nb_lit_s" value = "" type="number">
+                                    <input name="nb_lit_d" value = "" type="number">
+                                    <textarea name="detail_lits" placeholder="Saisissez ici (255 caractères max)" value = "" type="text"/>
                                 </section>    
                             </div>
                         </div>

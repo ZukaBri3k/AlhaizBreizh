@@ -280,9 +280,7 @@
         @endif
         <br>
 
-        <div id="map"></div>
-
-        <!-- Fichiers Javascript -->
+        <!-- <div id="map"></div>
         <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
 	      <script type="text/javascript">
             // On initialise la latitude et la longitude de Paris (centre de la carte)
@@ -306,7 +304,7 @@
             initMap(); 
             };
         </script>
-
+ -->
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} / mois</p>
           <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>

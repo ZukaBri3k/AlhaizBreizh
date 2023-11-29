@@ -93,8 +93,9 @@ class AccountController extends Controller
             $request->telephone_pers,
             $request->password,
             $request->iban,
-            $request->mail_pers,
             $role,
+            $request->mail_pers,
+            
         ];
 
 

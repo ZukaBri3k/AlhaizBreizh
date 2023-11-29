@@ -98,27 +98,29 @@
       </div>
       <h1>Description :</h1>
       <p>{{ $logement->descriptif_logement }}</p>
-        <p>Condiditon d'annulation :</p>
+      <p>Condiditon d'annulation :</p>
+      <div class="Condition_annul">
         <h5>Flexibles :</h5>
         <p>Remboursement intégral jusqu’à 3 jours avant la date d’arrivée</p>
-        <h1>Nombre de chambre, lit et salle de bain :</h1>
-        <p>{{ $logement->nb_chambre_logement }} Chambre(s)</p>
+      </div>
+      <h1>Nombre de chambre, lit et salle de bain :</h1>
+      <p class="nb_chambre">Il y'a {{ $logement->nb_chambre_logement }} Chambre(s)</p>
         @foreach ($chambre as $values)
+        <br>
         <div class="chambre">
           <p>Chambre n°</p>
           <p>Elle possède : {{ $values->nb_lit_simple }} lit(s) simple(s)</p>
           <p>Elle possède : {{ $values->nb_lit_double }} lit(s) double(s)</p>
           <p>Détail des lits de la chambre : {{ $values->details_lit }}</p>
         </div>
+        <br>
         @endforeach
         @if ($paypal[0]->paypal_proprio == null)
-          <p>Le propriétaire n'a pas paypal</p>
+          <p class="not_paypal">Le propriétaire n'a pas paypal</p>
         @else
-          <p>Le propriétaire a paypal</p>
+          <p class="have_paypal">Le propriétaire a paypal</p>
         @endif
-        <hr>
-        <h1>Logements similaires :</h1>
-        <p>Carte de 2 logements</p>
+        <br>
     </div>
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} / mois</p>

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="utf-8" />
+<title>Créer mon logement</title>
+<meta name="créer logement" content=""/>
+<meta name="keywords" content="AlHaizBreizh"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/IMG/logo.png">
+<link rel="stylesheet" href="./assets/CSS/style_logement.css">
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="./assets/JS/script_logement.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div>
+            <img class="img_header1" src="./assets/IMG/header_logo.png">
+            <img class="img_header2" src="./assets/IMG/profil.png">
+        </div>    
+        <hr>
+    </header>
+<main>
+<section class="part1">
+<form action="creer-logement-p3.php" method="POST">
+    <div>    
+        <section class="p1">
+            <div class='p1-2'>
+                <div class="abc">
+                <div class='p1-2-nom'><h3>Décrivez-nous votre logement  </h3><p title="obligatoire">* Tous les champs sont obligatoires et doivent être remplis</p></div>
+                    <div class='champ1'><textarea name="description"  placeholder="Saisissez la description du logement"></textarea></div>      
+                </div>
+            </div>
+        </section>
+        <section class="p2">
+        <div class="p1-3">
+                <div class="abc">
+                    <section class="p1-3-1">
+                        <p>Surface habitable (m²) : </p>
+                        <p>Nombre de personnes max : </p>
+                        <p>Nombre de chambre(s) : </p>    
+                        <p>Nombre de salle de bain : </p>      
+                    </section>
+                    <section class="p1-3-2">    
+                        <input name='surface' value = '' type='number'>
+                        <input name='nb_p_max' value = '' type='number'>
+                        <input name='nb_chambre' value = '' type='number'>
+                        <input name='sdb' value = '' type='number'>
+                    </section>    
+                </div>
+            </div>
+        </section>
+    </div>        
+    <div class="bottom_window">
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div>   
+        <div class="bouton_bottom">     
+            <button name="btn_retour" type="button" onclick="retour()" class="validation">RETOUR</button>
+            <script>
+                function retour(){
+                    window.history.back();s
+                }
+            </script>            <button name="btn_validation"  class="validation" type="submit">SUIVANT</button>
+        </div>    
+    </div>    
+    </form>
+</section> 
+</main>
+<script src="./assets/JS/script_logement.js"></script>
+</body>
+</html>

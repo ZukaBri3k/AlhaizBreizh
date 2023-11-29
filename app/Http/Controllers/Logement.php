@@ -15,7 +15,7 @@ class Logement extends Controller
                 return View("logement/creer-logement-p1");
                 break;
             case 2:
-                $request->session([
+                session([
                     'adresse' => $request->adresse,
                     'ville' => $request->ville,
                     'code_postal' => $request->cp,

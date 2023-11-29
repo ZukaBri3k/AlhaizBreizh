@@ -71,6 +71,7 @@
             } else {
               $service = $logement->service_complementaire_logement;
             }
+            dd($service);
 
             if (count(explode(";", $logement->equipement_propose_logement)) > 1) {
               $equipement = [];

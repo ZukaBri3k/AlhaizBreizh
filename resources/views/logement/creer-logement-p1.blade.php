@@ -18,11 +18,7 @@
 
 <body>
     <header>
-        <div>
-            <img class="img_header1" src="{{asset('img/Logo_desktop.png')}}">
-            <img class="img_header2" src="{{asset('img/profil.png')}}">
-        </div>    
-        <hr>
+        <x-Navbar></x-Navbar>
     </header>
 <main>
 <section class="part1">

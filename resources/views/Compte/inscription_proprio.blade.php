@@ -67,7 +67,7 @@
                 <br></br>
         
                 <label for="photo_pers">Inserer une Photo de profil* :</label>
-                <input type="file" id="photo_pers" name="photo_pers" accept="image/*">
+                <input type="file" id="photo_pers" width="50%" name="photo_pers" accept="image/*">
                 <br><br>
             </div>
         

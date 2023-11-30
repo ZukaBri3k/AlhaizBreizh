@@ -269,7 +269,7 @@ p5{
     display: flex;
     flex-direction: column;
     margin-left: 2%;
-    margin-top: 5px; /* Ajustez la valeur de margin-top selon vos besoins */
+    margin-top: -5px; /* Ajustez la valeur de margin-top selon vos besoins */
 }
 
 

@@ -201,5 +201,7 @@ input[type="file"]{
 textarea{
 height: 16em;
 resize: none;
+border: 1px solid #ccc;
+border-radius: 25px; /* Arrondir les coins */
 }
 

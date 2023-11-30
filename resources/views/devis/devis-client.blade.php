@@ -33,7 +33,7 @@
                     <div class="texte"> 
                         <p>Kyrill</p>
                         <br>
-                        <p5>Tu te débrouilles pour...</p5>
+                        <p5>Tu peux terminer pour...</p5>
                     </div>
                     <div class="date">
                         <?php
@@ -78,7 +78,7 @@
                     <div class="texte"> 
                         <p>Nedelec</p>
                         <br>
-                        <p5>9,5/20 pour ton DS</p5>
+                        <p5>il faudrait que tu...</p5>
                     </div>
                     <div class="date">
                         <?php

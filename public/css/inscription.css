@@ -160,7 +160,6 @@ input[type="password"]
     border: 1px solid #ccc;
     border-radius: 25px; /* Arrondir les coins */
     max-width: 300px;
-    padding: 10px;
     width: 100%;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -204,6 +203,5 @@ resize: none;
 border: 1px solid #ccc;
 border-radius: 25px; /* Arrondir les coins */
 width: 22em;
-margin-left: -204px;
 }
 

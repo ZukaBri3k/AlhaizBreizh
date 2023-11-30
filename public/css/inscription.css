@@ -204,6 +204,6 @@ resize: none;
 border: 1px solid #ccc;
 border-radius: 25px; /* Arrondir les coins */
 width: 22em;
-margin: 5px;
+margin-left: -204px;
 }
 

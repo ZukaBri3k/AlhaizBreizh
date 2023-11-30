@@ -265,6 +265,14 @@ p5{
     margin-right: 15%;
 }
 
+.texte {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-top: auto; /* Adjust the margin-top to control the space between the name and the last message */
+}
+
+
 @media screen and (max-width: 768px) {
     .contact-list {
         padding: 20px;

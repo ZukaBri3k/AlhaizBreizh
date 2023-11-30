@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,7 +12,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="{{asset('js/script_logement.js')}}"></script>
 </head>
 
 
@@ -24,7 +22,7 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('creer_logement', ['page' => 3])}}" method="GET">
+<form action="{{route('creer_logement', ['page' => 4])}}" method="GET">
     <div>    
         <section class="p1">
             <div class='p1-2'>

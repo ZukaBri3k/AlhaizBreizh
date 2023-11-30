@@ -12,22 +12,22 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="{{asset('js/script_logement.js')}}"></script>
 </head>
 
 
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <header>
         <x-Navbar></x-Navbar>
-    </header>
+</header>
 <main>
 <section class="part1">
-<form action="{{route('creer_logement', ['page' => 1])}}" method="GET">
+<form action="{{route('creer_logement', ['page' => 2])}}" method="GET">
     <div>    
         <section class="p1">
             <div class='p1-1'>
                 <div class="abc">
-                    <div class='p1-1-nom'><h3>De quelle nature est votre logement ? </h3></div>
+                    <div class='p1-1-nom'><h3>De quelle nature est votre logement ? *</h3></div>
                     <div>
                         <button id="btn1" name="maison" type="button"><img src="{{ asset('/img/nature/maison.png') }}"><p>Maison</p></button>
                         <button id="btn2" name="appartement" type="button"><img class="appart" src="{{ asset('/img/nature/appartement.png') }}"><p>Appartement</p></button>
@@ -52,7 +52,7 @@
         <section class="p2">
             <div class='p2-2'>
                 <div class="abc">
-                    <div class='p2-2-nom'><h3>De quel type est votre logement ?</h3></div>
+                    <div class='p2-2-nom'><h3>De quel type est votre logement ? *</h3></div>
                     <div>
                         <button id="btn9" name="T1" type="button"><img src="{{ asset('/img/type/t1.png') }}"><p>T1</p></button>
                         <button id="btn10" name="T2" type="button"><img src="{{ asset('/img/type/t2.png') }}"><p>T2</p></button>
@@ -77,18 +77,14 @@
         <div class="progress-container">
             <div class="progress-bar" id="myBar"></div>
         </div>   
-        <div class="bouton_bottom">     
-            <button name="btn_retour" onclick="retour()" class="validation">RETOUR</button>
-            <script>
-                function retour(){
-                    window.location.href = 'index.php';
-                }
-            </script>
+        <div class="bouton_bottom">
+            <button name="btn_retour" onclick="{{ route('myProprietaireAccount') }}" class="validation">RETOUR</button>
             <button name="btn_validation" class="validation" type="submit">SUIVANT</button>
         </div>    
     </div>    
     </form>
 </section> 
 </main>
+<script src="{{asset('js/script_logement.js')}}"></script>
 </body>
 </html>

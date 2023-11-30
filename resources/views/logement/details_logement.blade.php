@@ -280,6 +280,7 @@
         @endif
         <br>
     </div>
+
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} / mois</p>
           <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>

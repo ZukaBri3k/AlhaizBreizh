@@ -23,7 +23,7 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('creer_logement', ['page' => 6])}}" method="get">
+<form action="{{route('creer_logement', ['page' => 7])}}" method="get">
     <div>    
         <section class="p1">
             <div class='p1-5'>
@@ -78,7 +78,7 @@
                 function retour(){
                     window.history.back();s
                 }
-            </script>            <button name="btn_validation"  class="validation" type="submit">SUIVANT</button>
+            </script>            <button name="btn_validation"  class="validation" type="submit" id="valider">SUIVANT</button>
         </div>    
     </div>    
     </form>

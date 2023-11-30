@@ -58,11 +58,11 @@ class Logement extends Controller
                 return View("logement/creer-logement-p4");
                 break;
             case 6:
-
                 //dd($request->session()->all());
                 return View("logement/creer-logement-p5");
                 break;
             case 7:
+                //dd($request->installation_logement);
                 return View("logement/creer-logement-p6");
                 break;
             case 8:

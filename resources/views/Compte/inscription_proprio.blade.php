@@ -22,7 +22,7 @@
         <div class="gauche" >
             <div class="public-info-section">
             <h1>Infomation personnel public</h1>
-            <form action="{{action('AccountController@ajoute_personne')}}" method="get">
+            <form action="{{route('proprio_register')}}" method="get">
                 <div class="radio-container">
         
                 <select id="genre" >
@@ -98,6 +98,7 @@
                 
                 
            <div class="private-info-section">    
+           <h6><a href="{{route ('inscription_client')}}"> je me suis trompé je souhaite créer un compte Client</a>
                     <h1>Information personnel privée</h1>
         
                 <label for="adresse_pers"></label> 

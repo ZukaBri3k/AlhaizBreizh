@@ -42,29 +42,7 @@
     float: right;
 }
 
-#nom_logement_proposition_devis {
-height: 16em;
-resize: none;
-width: 100%;
-}
 
-#nom_logement_acceptation{
-    height: 8em;
-    resize: none;
-    width: 100%;
-}
-
-#nom_logement_refus{
-    height: 8em;
-    resize: none;
-    width: 100%;
-
-}
-#nom_logement_demande_devis{
-    height: 8em;
-    resize: none;
-    width: 100%;
-}
 
 /* Réinitialisation des styles */
 * {
@@ -218,5 +196,10 @@ footer {
 
 input[type="file"]{
     width: 63%;
+}
+
+body .textarea{
+height: 16em;
+resize: none;
 }
 

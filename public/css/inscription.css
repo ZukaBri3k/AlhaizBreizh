@@ -155,8 +155,8 @@ header {
 
 input[type="text"],
 input[type="email"],
-input[type="password"],
-textarea {
+input[type="password"]
+{
     border: 1px solid #ccc;
     border-radius: 25px; /* Arrondir les coins */
     max-width: 300px;
@@ -198,7 +198,7 @@ input[type="file"]{
     width: 63%;
 }
 
-body .textarea{
+textarea{
 height: 16em;
 resize: none;
 }

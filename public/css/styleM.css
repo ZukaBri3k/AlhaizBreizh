@@ -56,14 +56,15 @@ h2 {
 
 
 .contact {
-    padding: 10px 0; /* Adjust the padding to make the boxes smaller */
+    padding: 5px 0; /* Adjust the padding to make the boxes smaller */
     cursor: pointer;
     background-color: #fff;
-    margin-bottom: 2%; /* Adjust the margin as needed */
+    margin-bottom: 1%; /* Adjust the margin as needed */
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: flex;
     flex-direction: row;
+    height: 4%; /* Adjust the height to make it half of the original */
 }
 
 
@@ -224,8 +225,10 @@ p5{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-.pp{
+.pp {
     border-radius: 50%;
+    width: 30px; /* Adjust the width of the profile pictures */
+    height: 30px; /* Adjust the height of the profile pictures */
 }
 
 .bords{

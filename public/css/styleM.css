@@ -56,15 +56,16 @@ h2 {
 
 
 .contact {
-    padding: 20px 0;
+    padding: 10px 0; /* Adjust the padding to make the boxes smaller */
     cursor: pointer;
     background-color: #fff;
-    margin-bottom: 4%;
+    margin-bottom: 2%; /* Adjust the margin as needed */
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: flex;
     flex-direction: row;
 }
+
 
 
 .contact > .texte {
@@ -111,11 +112,12 @@ p5{
 
 
 .message {
-    margin: 10px 0; /* Augmentation de la marge extérieure */
-    padding: 20px; /* Augmentation de la marge intérieure */
-    border-radius: 10px; /* Augmentation du rayon de la bordure */
-    font-size: 18px; /* Augmentation de la taille de police */
+    margin: 5px 0; /* Adjust the margin to make the message boxes smaller */
+    padding: 10px; /* Adjust the padding as needed */
+    border-radius: 10px;
+    font-size: 16px; /* Adjust the font size if needed */
 }
+
 
 .message-received {
     background-color: #f0f0f0;

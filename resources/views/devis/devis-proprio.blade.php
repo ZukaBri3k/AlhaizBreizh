@@ -13,9 +13,9 @@
     <div class="container">
     <main>
         <section class="boutons">
-            <form action="index.php" method="get" target="_blank">
-                <button id="refuserDevis" class="bouton-creer">Créer un devis</button>
-            </form>
+            <a href="{{route ('devis')}}">
+                <button id="creerdevis" class="bouton-creer">Créer un devis</button>
+            </a>
             <h2>Votre messagerie avec BigPapoo<img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=5% height=5%></h2>
         </section>
         <section class="messaging">
@@ -32,8 +32,7 @@
                     <div class="boximg"><img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=100% height=100%></div>
                     <div class="texte"> 
                         <p>Kyrill</p>
-                        <br>
-                        <p5>Tu te débrouilles pour...</p5>
+                        <p5>Tu peux terminer pour...</p5>
                     </div>
                     <div class="date">
                         <?php
@@ -47,7 +46,6 @@
                     <div class="boximg"><img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=100% height=100%></div>
                     <div class="texte"> 
                         <p>BigPapoo</p>
-                        <br>
                         <p5>Bonjour monsieur, ...</p5>
                     </div>
                     <div class="date">
@@ -62,7 +60,6 @@
                     <div class="boximg"><img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=100% height=100%></div>
                     <div class="texte"> 
                         <p>Fabienne</p>
-                        <br>
                         <p5>oui</p5>
                     </div>
                     <div class="date">
@@ -77,8 +74,7 @@
                     <div class="boximg"><img class="pp" src="{{asset ('img/pp.png')}}" alt="Avatar" class="avatar" width=100% height=100%></div>
                     <div class="texte"> 
                         <p>Nedelec</p>
-                        <br>
-                        <p5>9,5/20 pour ton DS</p5>
+                        <p5>il faudrait que tu...</p5>
                     </div>
                     <div class="date">
                         <?php
@@ -177,30 +173,4 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-<script>
-document.getElementById("refuserDevis").addEventListener("click", function () {
-    // Effectuez ici toute action nécessaire, par exemple, enregistrez le refus du devis dans la base de données.
-    // Redirigez ensuite l'utilisateur vers proprio.php avec un message.
-    window.location.href = 'proprio2.php?refus=1';
-});
-
-document.getElementById("accepterDevis").addEventListener("click", function () {
-    // Effectuez ici toute action nécessaire, par exemple, enregistrez le refus du devis dans la base de données.
-    // Redirigez ensuite l'utilisateur vers proprio.php avec un message.
-    window.location.href = 'proprio2.php?accept=1';
-});
-
-document.getElementById("afficherPdf").addEventListener("click", function () {
-    // Affichez le PDF en utilisant l'iframe
-    document.getElementById("pdfViewer").src = 'Mon_Devis.pdf'; // Assurez-vous que le chemin du PDF est correct
-    document.getElementById("pdfViewer").style.display = 'block';
-    document.getElementById("fermerPdf").style.display = 'block';
-});
-
-document.getElementById("fermerPdf").addEventListener("click", function () {
-    // Masquez l'iframe et le bouton "Fermer"
-    document.getElementById("pdfViewer").style.display = 'none';
-    document.getElementById("fermerPdf").style.display = 'none';
-});
-</script>
 </html>

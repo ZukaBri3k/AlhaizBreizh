@@ -23,7 +23,7 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('creer_logement', ['page' => 7])}}" method="get">
+<form action="{{route('creer_logement', ['page' => 8])}}" method="get">
     <div>    
         <section class="p1">
                 <div class="p1-6">
@@ -42,7 +42,7 @@
                 </div>
                 <div class='p2-6'>
                     <div class="abc">
-                        <div class='p2-6-nom'><h3>Quel sera le prix par nuit de votre logement ?*</h3><p title="obligatoire">* Veuillez renseigner le prix par nuit du logement</p></div>
+                        <div class='p2-6-nom'><h3>Quel sera le prix par nuit de votre logement ?*</h3></div>
                         <div><input name='prix' style="width:150px; margin-left:15px;" placeholder="Prix par nuit" value = '' type='number'>€</div>
                     </div>
                 </div>
@@ -52,7 +52,6 @@
                 <div class="abc">
                     <div class='p2-7-nom'>
                         <h3>Quelle sera votre condition d'annulation ?*</h3>
-                        <p style="width:600px" title="obligatoire">* Veuillez choisir une condition d'annulation du logement</p>
                     </div>
                     <div class="condition">
                         <button id="btn49" name="strictes" type="button"></button>

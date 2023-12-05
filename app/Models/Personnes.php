@@ -36,7 +36,8 @@ class Personnes extends Authenticatable
         'iban',
         'role',
         'remember_token',
-        'date_de_naissance'
+        'date_de_naissance',
+        'mail_pers',
     ];
 
     /**

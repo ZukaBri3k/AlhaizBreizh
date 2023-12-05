@@ -24,12 +24,12 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('creer_logement', ['page' => 2])}}" method="GET">
+<form action="{{route('creer_logement', ['page' => 3])}}" method="GET">
     <div>    
         <section class="p1">
             <div class="p2-1">
                     <div class="abc">
-                        <div class='p2-1-nom'><h3>Ou se situe votre logement ?</h3><p title="obligatoire">* Veuillez insérer au moins une photo de couverture pour votre logement</p></div>
+                        <div class='p2-1-nom'><h3>Ou se situe votre logement ?</h3></div>
                         <section class="p2-1-1">   
                             <div><img style="width:2.5%" src="{{asset('img/location.png')}}"><input style="width:500px; margin-left:15px;" name='adresse' placeholder="Saisissez votre adresse" value = '' type='text'></div>
                             <div><img style="width:3%" src="{{asset('img/bat.png')}}"><input style="width:500px; margin-left:15px;" name='ville' placeholder="Saisissez votre ville" value = '' type='text'></div>
@@ -45,7 +45,7 @@
         <section class="p2">
             <div class="p2-3">
                 <div class="abc">
-                    <div class='p2-3-nom'><h3>Quel sera le titre de votre logement ?</h3><p title="obligatoire">* Tous les champs sont obligatoires et doivent être remplis</p></div>
+                    <div class='p2-3-nom'><h3>Quel sera le titre de votre logement ?</h3></div>
                         <section class="p2-1-1">   
                             <div style="width:650px"><img src="{{asset('img/titre.svg')}}"><input style="width:500px; margin-left:15px;" name='libelle' placeholder="Saisissez le libellé du logement" value = '' type='text'></div>
                             <div style="width:650px"><img src="{{asset('img/libelle.svg')}}"><input style="width:500px; margin-left:15px;" name='accroche' value = '' placeholder="Saisissez l'accroche du logement" type='text'></div>

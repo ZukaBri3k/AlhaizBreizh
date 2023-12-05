@@ -22,12 +22,13 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('creer_logement', ['page' => 5])}}" method="get">
+<form action="{{route('creer_logement', ['page' => 6])}}" method="get">
     <div>    
         <section class="p1">
             <div class='p1-4'>
                 <div class="abc">
-                    <div class='p1-4-nom'><h3>De quels aménagements dispose votre logement ?</h3><p title="obligatoire">* Veuillez selectionner au moins un aménagement de logement</p></div>
+                    <div class='p1-4-nom'><h3>De quels aménagements dispose votre logement ?</h3>
+                </div>
                     <div>
                         <div>
                             <button style="margin-right:30px" id="btn16" name="terrasse" onclick="toggleButton(this)" type="button"><img src="{{asset('img/terrasse.svg')}}"><p>Terrasse</p></button>
@@ -53,7 +54,8 @@
         <section class="p2">
             <div class='p2-4'>
                 <div class="abc">
-                    <div class='p2-4-nom'><h3>De quels équipements dispose votre logement ?</h3><p title="obligatoire">* Veuillez sélectionner au moins un équipement de logement</p></div>
+                    <div class='p2-4-nom'><h3>De quels équipements dispose votre logement ?</h3>
+                </div>
                     <div>
                         <div>
                             <button style="margin-right:30px" id="btn24" name="wifi" onclick="toggleButton4(this)" type="button"><img src="{{asset('img/wifi.svg')}}"><p>Wifi</p></button>

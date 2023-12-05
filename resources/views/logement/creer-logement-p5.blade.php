@@ -23,12 +23,12 @@
     </header>
 <main>
 <section class="part1">
-<form action="{{route('creer_logement', ['page' => 6])}}" method="get">
+<form action="{{route('creer_logement', ['page' => 7])}}" method="get">
     <div>    
         <section class="p1">
             <div class='p1-5'>
                 <div class="abc">
-                    <div class='p1-5-nom'><h3>De quelles installations dispose votre logement ?</h3><p title="obligatoire">* Veuillez selectionner au moins une installation de logement</p></div>
+                    <div class='p1-5-nom'><h3>De quelles installations dispose votre logement ?</h3></div>
                     <div>
                         <div>
                             <button id="btn34" name="jacuzzi" onclick="toggleButton2(this)" type="button"><img src="{{asset('img/installations/jacuzzi.png')}}"><p>Jacuzzi</p></button>
@@ -49,7 +49,7 @@
         <section class="p2">
             <div class='p2-5'>
                 <div class="abc">
-                    <div class='p2-5-nom'><h3>De quels services dispose votre logement ?</h3><p title="obligatoire">* Veuillez sélectionner au moins un service de logement</p></div>
+                    <div class='p2-5-nom'><h3>De quels services dispose votre logement ?</h3></div>
                     <div>    
                         <div>
                             <button id="btn40" name="menage" onclick="toggleButton5(this)" type="button"><img src="{{asset('img/services/menage.png')}}"><p>Ménage</p></button>
@@ -78,7 +78,7 @@
                 function retour(){
                     window.history.back();s
                 }
-            </script>            <button name="btn_validation"  class="validation" type="submit">SUIVANT</button>
+            </script>            <button name="btn_validation"  class="validation" type="submit" id="valider">SUIVANT</button>
         </div>    
     </div>    
     </form>

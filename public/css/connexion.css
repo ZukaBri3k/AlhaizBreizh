@@ -21,16 +21,17 @@ html{
 button.btn-primary:disabled {
     background-color: #f3f1f1 !important;
     border-color: #eeebeb;
-}
+}   
 
 button.btn-primary {
-    background-color: #F6F5EE !important;
+    background-color: #EC3B53 !important;
     border-color: #eeebeb;
-    color: black;
+    color: #f3f1f1;
 }
 
 button.btn-primary:hover {
-    background-color: #EC3B53 !important;
+    background-color: #f3f1f1 !important;
+    color: #EC3B53 !important;;
 }
 
 --bs-card-bg{

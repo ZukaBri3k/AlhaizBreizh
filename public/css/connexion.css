@@ -3,7 +3,7 @@ html{
 }
 
 .fondfou {
-    background-image: url("img/tresbeau.png");
+    background-image: url("{{asset('/img/tresbeau.png')}}");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

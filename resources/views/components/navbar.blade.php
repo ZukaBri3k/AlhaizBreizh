@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
 @auth
 @if ($role == 1)
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
@@ -62,63 +63,83 @@
     </div>
 </nav>
 <hr>
-<div id="popup" class="popup">
-        
-        <div class="popup-content">
-            <span class="close" id="closeButton">&times;</span>
-            <h1>Connexion</h1>
-            <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
-            </a>
-    
-            <form action="{{ route('authenticate') }}" method="post">
-                @csrf
-                <div id="radios">
-                    
-                    <div id="radio_btn_placement_client">
-                    
-                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
-
-                        <label for="typeCompte" id="label_radio">Client</label>
-
-                    
+  <div id="popup" class="popup">
+    <div class="container py-5 h-100 center-popup">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <span class="close" id="closeButton">&times;</span>
+                    <div class="text-center">
+                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                      </div>
+                      <form>    
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
+                          <label class="form-check-label" for="radioOption1">Client</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption2" value="option2">
+                          <label class="form-check-label" for="radioOption2">Propriétaire</label>
+                        </div>  
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example11">email</label>
+                          <input type="email" id="form2Example11" class="form-control" placeholder="adresse mail" />
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example22">mot de passe</label>
+                          <input type="password" id="form2Example22" class="form-control" />
+                        </div>
+                        <div class="text-center pt-1 mb-5 pb-1">
+                          <button class="btn btn-primary btn-block fa-lg mb-3" type="button" disabled>Connexion</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                          <p class="mb-0 me-2">pas de compte ?</p>
+                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                        </div>
+                      </form>
                     </div>
-
-                    <div id="radio_btn_placement_proprio">
-
-                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />   
-
-
-                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
-
-
-
-                    </div>
-           
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center fondfou">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4"></div>
                 </div>
-
-                <label for="mail_pers">Adresse mail</label>
-                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp_pers" id="decal">Mot de Passe</label>
-                <div class="password-container">
-                    <input type="password" name="mdp_pers" id="mdp" required>
-                    <i class="far fa-eye" id="togglePassword"></i>
-                </div>
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach 
-                
-                <a href="#">Mot de passe oublié</a>
-                <button id="connexion" type="submit">Connexion</button>
-            </form>
-            
-            
+              </div>
+            </div>
+          </div>
         </div>
-       
-
+      </div>
     </div>
 
     <div id="blur-background" class="blur-background"></div>
+    <script>
+  document.getElementById('form2Example11').addEventListener('input', checkInput);
+  document.getElementById('form2Example22').addEventListener('input', checkInput);
 
+  function checkInput() {
+    var email = document.getElementById('form2Example11').value;
+    var password = document.getElementById('form2Example22').value;
+    if (email && password) {
+      document.querySelector('.btn-primary').disabled = false;
+    } else {
+      document.querySelector('.btn-primary').disabled = true;
+    }
+  }
+
+  // Call checkInput to set the initial state of the button
+  checkInput();
+
+  var images = ['img/beau.jpg', 'img/tresbeau.png']; // Remplacez par vos images
+  var index = 0;
+
+  function changeBackground() {
+    document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
+    index = (index + 1) % images.length;
+}
+
+setInterval(changeBackground, 3000); // Change toutes les 3 secondes
+</script>
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
@@ -182,61 +203,83 @@
     </div>
 </nav>
 <hr>
-<div id="popup" class="popup">
-        
-        <div class="popup-content">
-            <span class="close" id="closeButton">&times;</span>
-            <h1>Connexion</h1>
-            <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
-            </a>
-    
-            <form action="{{ route('authenticate') }}" method="post">
-                @csrf
-                <div id="radios">
-                    
-                    <div id="radio_btn_placement_client">
-                    
-                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
-
-                        <label for="typeCompte" id="label_radio">Client</label>
-
-                    
+  <div id="popup" class="popup">
+    <div class="container py-5 h-100 center-popup">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <span class="close" id="closeButton">&times;</span>
+                    <div class="text-center">
+                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                      </div>
+                      <form>    
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
+                          <label class="form-check-label" for="radioOption1">Client</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption2" value="option2">
+                          <label class="form-check-label" for="radioOption2">Propriétaire</label>
+                        </div>  
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example11">email</label>
+                          <input type="email" id="form2Example11" class="form-control" placeholder="adresse mail" />
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example22">mot de passe</label>
+                          <input type="password" id="form2Example22" class="form-control" />
+                        </div>
+                        <div class="text-center pt-1 mb-5 pb-1">
+                          <button class="btn btn-primary btn-block fa-lg mb-3" type="button" disabled>Connexion</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                          <p class="mb-0 me-2">pas de compte ?</p>
+                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                        </div>
+                      </form>
                     </div>
-
-                    <div id="radio_btn_placement_proprio">
-
-                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />   
-
-
-                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
-
-
-
-                    </div>
-           
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center fondfou">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4"></div>
                 </div>
-
-                <label for="mail_pers">Adresse mail</label>
-                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp_pers" id="decal">Mot de Passe</label>
-                <div class="password-container">
-                    <input type="password" name="mdp_pers" id="mdp" required>
-                    <i class="far fa-eye" id="togglePassword"></i>
-                </div>
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach 
-                
-                <a href="#">Mot de passe oublié</a>
-                <button id="connexion" type="submit">Connexion</button>
-            </form>
-            
-            
+              </div>
+            </div>
+          </div>
         </div>
-       
-
+      </div>
     </div>
 
+    <div id="blur-background" class="blur-background"></div>
+    <script>
+  document.getElementById('form2Example11').addEventListener('input', checkInput);
+  document.getElementById('form2Example22').addEventListener('input', checkInput);
+
+  function checkInput() {
+    var email = document.getElementById('form2Example11').value;
+    var password = document.getElementById('form2Example22').value;
+    if (email && password) {
+      document.querySelector('.btn-primary').disabled = false;
+    } else {
+      document.querySelector('.btn-primary').disabled = true;
+    }
+  }
+
+  // Call checkInput to set the initial state of the button
+  checkInput();
+
+  var images = ['img/beau.jpg', 'img/tresbeau.png']; // Remplacez par vos images
+  var index = 0;
+
+  function changeBackground() {
+    document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
+    index = (index + 1) % images.length;
+}
+
+setInterval(changeBackground, 3000); // Change toutes les 3 secondes
+</script>
     <div id="blur-background" class="blur-background"></div>
 
     <script src="{{ asset('js/connexion.js') }}"></script>
@@ -303,60 +346,83 @@
     </div>
 </nav>
 <hr>
-<div id="popup" class="popup">
-        
-        <div class="popup-content">
-            <span class="close" id="closeButton">&times;</span>
-            <h1>Connexion</h1>
-            <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
-            </a>
-    
-            <form action="{{ route('authenticate') }}" method="post">
-                @csrf
-                <div id="radios">
-                    
-                    <div id="radio_btn_placement_client">
-                    
-                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
-
-                        <label for="typeCompte" id="label_radio">Client</label>
-
-                    
+  <div id="popup" class="popup">
+    <div class="container py-5 h-100 center-popup">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <span class="close" id="closeButton">&times;</span>
+                    <div class="text-center">
+                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                      </div>
+                      <form>    
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
+                          <label class="form-check-label" for="radioOption1">Client</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption2" value="option2">
+                          <label class="form-check-label" for="radioOption2">Propriétaire</label>
+                        </div>  
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example11">email</label>
+                          <input type="email" id="form2Example11" class="form-control" placeholder="adresse mail" />
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example22">mot de passe</label>
+                          <input type="password" id="form2Example22" class="form-control" />
+                        </div>
+                        <div class="text-center pt-1 mb-5 pb-1">
+                          <button class="btn btn-primary btn-block fa-lg mb-3" type="button" disabled>Connexion</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                          <p class="mb-0 me-2">pas de compte ?</p>
+                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                        </div>
+                      </form>
                     </div>
-
-                    <div id="radio_btn_placement_proprio">
-
-                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />   
-
-
-                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
-
-
-
-                    </div>
-           
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center fondfou">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4"></div>
                 </div>
-
-                <label for="mail_pers">Adresse mail</label>
-                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp_pers" id="decal">Mot de Passe</label>
-                <div class="password-container">
-                    <input type="password" name="mdp_pers" id="mdp" required>
-                    <i class="far fa-eye" id="togglePassword"></i>
-                </div>
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach 
-                
-                <a href="#">Mot de passe oublié</a>
-                <button id="connexion" type="submit">Connexion</button>
-            </form>
-            
-            
+              </div>
+            </div>
+          </div>
         </div>
-       
-
+      </div>
     </div>
+
+    <div id="blur-background" class="blur-background"></div>
+    <script>
+  document.getElementById('form2Example11').addEventListener('input', checkInput);
+  document.getElementById('form2Example22').addEventListener('input', checkInput);
+
+  function checkInput() {
+    var email = document.getElementById('form2Example11').value;
+    var password = document.getElementById('form2Example22').value;
+    if (email && password) {
+      document.querySelector('.btn-primary').disabled = false;
+    } else {
+      document.querySelector('.btn-primary').disabled = true;
+    }
+  }
+
+  // Call checkInput to set the initial state of the button
+  checkInput();
+
+  var images = ['img/beau.jpg', 'img/tresbeau.png']; // Remplacez par vos images
+  var index = 0;
+
+  function changeBackground() {
+    document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
+    index = (index + 1) % images.length;
+}
+
+setInterval(changeBackground, 3000); // Change toutes les 3 secondes
+</script>
 
     <div id="blur-background" class="blur-background"></div>
 

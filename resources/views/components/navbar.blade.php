@@ -144,6 +144,10 @@
 
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
+
+  document.querySelector('.btn.btn-outline-danger').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'block';
+  });
 </script>
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
@@ -289,6 +293,10 @@
 
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
+
+  document.querySelector('.btn.btn-outline-danger').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'block';
+  });
 </script>
     <div id="blur-background" class="blur-background"></div>
 
@@ -437,6 +445,11 @@
 
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
+
+  document.getElementById('connexionButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default action of the link
+    document.getElementById('popup').style.display = 'block';
+  });
 </script>
 
     <div id="blur-background" class="blur-background"></div>

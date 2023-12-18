@@ -2,6 +2,10 @@ html{
     background-color: #F6F5EE;
 }
 
+.popup {
+    display: none;
+}
+
 .fondfou {
     background-image: url("{{asset('/img/tresbeau.png')}}");
     background-repeat: no-repeat;

@@ -137,9 +137,13 @@
   function changeBackground() {
     document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
     index = (index + 1) % images.length;
-}
+  }
 
-setInterval(changeBackground, 3000); // Change toutes les 3 secondes
+  // Set initial background
+  changeBackground();
+
+  // Change background every 3 seconds
+  setInterval(changeBackground, 3000);
 </script>
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
@@ -278,9 +282,13 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
   function changeBackground() {
     document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
     index = (index + 1) % images.length;
-}
+  }
 
-setInterval(changeBackground, 3000); // Change toutes les 3 secondes
+  // Set initial background
+  changeBackground();
+
+  // Change background every 3 seconds
+  setInterval(changeBackground, 3000);
 </script>
     <div id="blur-background" class="blur-background"></div>
 
@@ -422,9 +430,13 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
   function changeBackground() {
     document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
     index = (index + 1) % images.length;
-}
+  }
 
-setInterval(changeBackground, 3000); // Change toutes les 3 secondes
+  // Set initial background
+  changeBackground();
+
+  // Change background every 3 seconds
+  setInterval(changeBackground, 3000);
 </script>
 
     <div id="blur-background" class="blur-background"></div>

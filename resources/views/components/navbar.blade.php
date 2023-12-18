@@ -286,7 +286,7 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
 @endif
 @endauth
 @guest
-<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
+<link rel="stylesheet" href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">

@@ -76,21 +76,22 @@
                         <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
                       </div>
                       <form action="{{ route('authenticate') }}" method="post">    
+                        @csrf
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="option1" checked>
                           <label class="form-check-label" for="radioOption1">Client</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption2" value="option2">
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="option2">
                           <label class="form-check-label" for="radioOption2">Propriétaire</label>
                         </div>  
                         <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example11">email</label>
-                          <input type="email" id="form2Example11" class="form-control" placeholder="adresse mail" />
+                          <label class="form-label" for="mail_pers">email</label>
+                          <input type="email" id="form2Example11" name="mail_pers" class="form-control" placeholder="adresse mail" />
                         </div>
                         <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example22">mot de passe</label>
-                          <input type="password" id="form2Example22" class="form-control" />
+                          <label class="form-label" for="mdp_pers">mot de passe</label>
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
                         </div>
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
@@ -215,22 +216,23 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
                     <div class="text-center">
                         <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
                       </div>
-                      <form action="{{ route('authenticate') }}" method="post">   
+                      <form action="{{ route('authenticate') }}" method="post"> 
+                        @csrf
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="option1" checked>
                           <label class="form-check-label" for="radioOption1">Client</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption2" value="option2">
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="option2">
                           <label class="form-check-label" for="radioOption2">Propriétaire</label>
                         </div>  
                         <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example11">email</label>
-                          <input type="email" id="form2Example11" class="form-control" placeholder="adresse mail" />
+                          <label class="form-label" for="mail_pers">email</label>
+                          <input type="email" id="form2Example11" name="mail_pers" class="form-control" placeholder="adresse mail" />
                         </div>
                         <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example22">mot de passe</label>
-                          <input type="password" id="form2Example22" class="form-control" />
+                          <label class="form-label" for="mdp_pers">mot de passe</label>
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
                         </div>
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
@@ -359,21 +361,22 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
                         <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
                       </div>
                       <form action="{{ route('authenticate') }}" method="post">  
+                        @csrf
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="option1" checked>
                           <label class="form-check-label" for="radioOption1">Client</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="radioOption" id="radioOption2" value="option2">
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="option2">
                           <label class="form-check-label" for="radioOption2">Propriétaire</label>
                         </div>  
                         <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example11">email</label>
-                          <input type="email" id="form2Example11" class="form-control" placeholder="adresse mail" />
+                          <label class="form-label" for="mail_pers">email</label>
+                          <input type="email" id="form2Example11" name="mail_pers" class="form-control" placeholder="adresse mail" />
                         </div>
                         <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example22">mot de passe</label>
-                          <input type="password" id="form2Example22" class="form-control" />
+                          <label class="form-label" for="mdp_pers">mot de passe</label>
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
                         </div>
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>

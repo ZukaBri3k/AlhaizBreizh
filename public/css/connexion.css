@@ -4,7 +4,7 @@ html{
 
 .popup {
     display: none;
-    z-index: 9999; /* This should be higher than the z-index of all other elements */
+    z-index: 9999 !important;
 }
 
 .fondfou {

@@ -75,7 +75,7 @@
                     <div class="text-center">
                         <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
                       </div>
-                      <form>    
+                      <form action="{{ route('authenticate') }}" method="post">    
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
                           <label class="form-check-label" for="radioOption1">Client</label>
@@ -93,7 +93,7 @@
                           <input type="password" id="form2Example22" class="form-control" />
                         </div>
                         <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg mb-3" type="button" disabled>Connexion</button>
+                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">pas de compte ?</p>
@@ -215,7 +215,7 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
                     <div class="text-center">
                         <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
                       </div>
-                      <form>    
+                      <form action="{{ route('authenticate') }}" method="post">   
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
                           <label class="form-check-label" for="radioOption1">Client</label>
@@ -233,7 +233,7 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
                           <input type="password" id="form2Example22" class="form-control" />
                         </div>
                         <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg mb-3" type="button" disabled>Connexion</button>
+                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">pas de compte ?</p>
@@ -358,7 +358,7 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
                     <div class="text-center">
                         <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
                       </div>
-                      <form>    
+                      <form action="{{ route('authenticate') }}" method="post">  
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="radioOption" id="radioOption1" value="option1" checked>
                           <label class="form-check-label" for="radioOption1">Client</label>
@@ -376,7 +376,7 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
                           <input type="password" id="form2Example22" class="form-control" />
                         </div>
                         <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg mb-3" type="button" disabled>Connexion</button>
+                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">pas de compte ?</p>

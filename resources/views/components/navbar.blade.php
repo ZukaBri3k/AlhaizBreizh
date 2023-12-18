@@ -450,6 +450,17 @@
     event.preventDefault(); // Prevent the default action of the link
     document.getElementById('popup').style.display = 'block';
   });
+
+  document.getElementById('connexionButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default action of the link
+    document.getElementById('popup').style.display = 'block';
+    document.body.classList.add('blur-background'); // Add the blur class to the body
+});
+
+document.getElementById('closeButton').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'none';
+    document.body.classList.remove('blur-background'); // Remove the blur class from the body
+});
 </script>
 
     <div id="blur-background" class="blur-background"></div>

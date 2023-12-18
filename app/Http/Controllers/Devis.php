@@ -27,7 +27,7 @@ class Devis extends Controller
 
     public function validationDevis (Request $request) {
         DB::update('update devis set etat_devis = true where ref_devis = 6');
-        return redirect()->route('devis-client');
+        return redirect()->route('paiement');
     }
 
     public function refusDevis (Request $request) {
@@ -54,7 +54,7 @@ class Devis extends Controller
             id_proprio
             ) values (
             ?, ?, ?, ?, ?
-            )', [$nbPers, $dateDeb, $dateFin, 4, 4]);
+            )', [$nbPers, $dateDeb, $dateFin, 1, 2]);
         
         return redirect()->route('devis-proprio');
     }

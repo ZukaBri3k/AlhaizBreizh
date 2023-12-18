@@ -76,7 +76,7 @@ class AccountController extends Controller
         return View("Compte/MonCompteProprietaire");
     }
       //--------------------------------------------------------------
-    public function ajoute_personne(Request $request) {
+    public function ajoute_personne(Request $request, $role) {
 
         
         $personne=[
@@ -93,11 +93,14 @@ class AccountController extends Controller
             $request->telephone_pers,
             $request->password,
             $request->iban,
+            $role,
             $request->mail_pers,
+            
         ];
 
 
     DB::insert('insert into personnes(
+        
         civilite_pers,
         prenom_pers,
         nom_pers,
@@ -111,10 +114,11 @@ class AccountController extends Controller
         telephone_pers,
         password,
         iban,
+        role,
         mail_pers
         )values(
             ?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, ?, ?)',$personne);
+            ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
         }
 
@@ -127,22 +131,22 @@ class AccountController extends Controller
 
 
     public function proprio_register(Request $request) {
-        $this->ajoute_personne($request);
-
+        $this->ajoute_personne($request,2);
+        $id_proprio = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
         $proprietaire=[
-            $request->nom_client_proposition_devis,
-            $request->nom_logement_proposition_devis,
-            $request->votre_nom_proposition_devis,
+            $id_proprio[0]->id,
             $request->piece_id_proprio_recto,
-            $request->piece_id_proprio_verso,
+            $request->piece_id_proprio_verso,            
+            "'".$request->votre_nom_proposition_devis. " " .$request->nom_logement_proposition_devis. " " . $request->nom_client_proposition_devis."'",
         ];
         DB::insert('insert into proprietaire(
-            nom_client_proposition_devis,
-            nom_logement_proposition_devis,
-            votre_nom_proposition_devis,
+            id_proprio,
+            proposition_auto_devis,
             piece_id_proprio_recto,
-            piece_id_proprio_verso)values(
-                ?, ?, ?, ?, ? )',$proprietaire);
+            piece_id_proprio_verso)
+            values(
+                ?, ?, ?, ? )',$proprietaire);
+                return redirect()->route('accueil');
             }
 
 
@@ -153,28 +157,29 @@ class AccountController extends Controller
 
 
             public function client_register(Request $request) {
-
-                $this->ajoute_personne($request);
+                $this->ajoute_personne($request,1);
                 $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
                 $client=[
-                    "id" => intval($id_client[0]->id),
-                    "demande_devis_auto" => "'" . $request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis."'",
-                    "msg_comfirm_devis" => "'".$request->nom_prop_acceptation ." ".$request->nom_logement_acceptation." ". $request->votre_nom_acceptation."'",
-                    "msg_refus_devis" => "'". $request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus."'",
+                    $id_client[0]->id,
+                    "'".$request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis."'",
+                    "'".$request->nom_prop_acceptation . " " . $request->nom_logement_acceptation . " " . $request->votre_nom_acceptation."'"  ,
+                    "'".$request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus."'",
                 ];
 
-                DB::insert('insert into client(
+                DB::insert('insert into client( 
                     id_client,
                     demande_devis_auto,
-                    msg_comfirm_devis,
+                    msg_confirm_devis,
                     msg_refus_devis
-                    )values(?, ?, ?, ? )
+                    )values(?, ?, ?, ?)
                     ',$client);
+                    return redirect()->route('accueil');
                 }
 
 
             }
 
+           
 
 
 

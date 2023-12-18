@@ -42,21 +42,7 @@
     float: right;
 }
 
-#nom_logement_proposition_devis {
-height: 16em;
-resize: none;
-}
 
-#nom_logement_acceptation{
-    height: 8em;
-}
-
-#nom_logement_refus{
-    height: 8em;
-}
-#nom_logement_demande_devis{
-    height: 8em;
-}
 
 /* Réinitialisation des styles */
 * {
@@ -101,11 +87,6 @@ input[type="tel"] {
 
 .radio-container input[type="radio"] {
     margin-right: 10px; /* Ajoutez de la marge à droite entre les boutons */
-}
-
-/* Styles pour les boutons radio */
-.radio-container input[type="radio"] {
-    margin-right: 10px;
 }
 
 .container {
@@ -174,15 +155,15 @@ header {
 
 input[type="text"],
 input[type="email"],
-input[type="password"],
-textarea {
+input[type="password"]
+{
     border: 1px solid #ccc;
     border-radius: 25px; /* Arrondir les coins */
-    max-width: 400px;
-    padding: 10px;
+    max-width: 300px;
     width: 100%;
     margin: 0 auto;
     margin-bottom: 10px;
+    margin-left: 200px;
 }
 
 
@@ -211,5 +192,17 @@ footer {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+}
+
+input[type="file"]{
+    width: 63%;
+}
+
+textarea{
+height: 16em;
+resize: none;
+border: 1px solid #ccc;
+border-radius: 25px; /* Arrondir les coins */
+width: 22em;
 }
 

@@ -1,5 +1,4 @@
-<!-- <link rel="stylesheet" href="{{asset('css/main.css')}}">-->
-<link rel="stylesheet" href="{{asset('css/connexion.css')}}">
+<link rel="stylesheet" href="{{asset('css/main.css')}}">
 @auth
 @if ($role == 1)
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -287,7 +286,7 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
 @endif
 @endauth
 @guest
-<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
+<link rel="stylesheet" href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
         <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">

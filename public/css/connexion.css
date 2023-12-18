@@ -42,3 +42,9 @@ button.btn-primary:hover {
 --bs-card-bg{
     background-color: #F6F5EE !important;
 }
+
+.blur-background {
+    filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
+}

@@ -4,6 +4,7 @@ html{
 
 .popup {
     display: none;
+    position: relative;
     z-index: 9999 !important;
 }
 

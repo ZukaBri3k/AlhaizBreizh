@@ -131,7 +131,7 @@
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['img/beau.jpg', 'img/tresbeau.png']; // Remplacez par vos images
+  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {
@@ -271,7 +271,7 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['img/beau.jpg', 'img/tresbeau.png']; // Remplacez par vos images
+  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {
@@ -414,7 +414,7 @@ setInterval(changeBackground, 3000); // Change toutes les 3 secondes
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['img/beau.jpg', 'img/tresbeau.png']; // Remplacez par vos images
+  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {

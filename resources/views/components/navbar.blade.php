@@ -73,7 +73,7 @@
                   <div class="card-body p-md-5 mx-md-4">
                     <span class="close" id="closeButton">&times;</span>
                     <div class="text-center">
-                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                        <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
                       </div>
                       <form action="{{ route('authenticate') }}" method="post">    
                         @csrf
@@ -253,7 +253,7 @@ function removeBlur() {
                   <div class="card-body p-md-5 mx-md-4">
                     <span class="close" id="closeButton">&times;</span>
                     <div class="text-center">
-                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                    <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
                       </div>
                       <form action="{{ route('authenticate') }}" method="post"> 
                         @csrf
@@ -436,7 +436,7 @@ function removeBlur() {
                   <div class="card-body p-md-5 mx-md-4">
                     <span class="close" id="closeButton">&times;</span>
                     <div class="text-center">
-                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                    <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
                       </div>
                       <form action="{{ route('authenticate') }}" method="post">  
                         @csrf

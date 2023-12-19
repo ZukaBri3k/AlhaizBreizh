@@ -492,7 +492,7 @@ document.getElementById('closeButton').addEventListener('click', function() {
         event.preventDefault(); // Prevent the default action of the link
         document.getElementById('popup').style.display = 'block';
         Array.from(document.body.children).forEach(child => {
-            if (child.id !== 'popup') {
+            if (child.id !== 'popup' && child.id !== 'blur-background') {
                 child.classList.add('blur-background');
             }
         });
@@ -501,7 +501,9 @@ document.getElementById('closeButton').addEventListener('click', function() {
     document.getElementById('closeButton').addEventListener('click', function() {
         document.getElementById('popup').style.display = 'none';
         Array.from(document.body.children).forEach(child => {
-            child.classList.remove('blur-background');
+            if (child.id !== 'popup' && child.id !== 'blur-background') {
+                child.classList.remove('blur-background');
+            }
         });
     });
 });

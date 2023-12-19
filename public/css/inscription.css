@@ -1,25 +1,73 @@
 body {
+    background-color: #f6f5ee;
     display: flex;
-    justify-content: space-between;
-    padding: 0 50px; /* Ajoute un peu d'espace sur les côtés */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.left-section, .right-section {
-    flex: 1; /* Les deux sections prennent la même largeur */
-    margin: 20px; /* Ajoute un peu d'espace autour des sections */
+main {
+    display: flex;
+    align-items: center;
+}
+
+.left-section,
+.right-section {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
 }
 
 .divider {
-    width: 2px; /* Largeur de la barre verticale */
-    background-color: black; /* Couleur de la barre verticale */
-    height: 100%; /* Hauteur de la barre verticale */
+    width: 2px; /* Ajustez la largeur de la barre noire verticale selon vos besoins */
+    background-color: #000;
+    height: 80vh; /* Ajustez la hauteur selon vos besoins */
 }
 
 .form-container {
-    display: flex;
-    flex-direction: column; /* Les éléments du formulaire sont empilés verticalement */
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
 }
 
-button[type="submit"] {
-    align-self: flex-end; /* Le bouton de soumission est aligné à droite */
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-container input,
+.form-container button,
+.form-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}
+
+.left-section {
+    margin-right: 10px; /* Ajoute une marge entre la barre noire et la section de gauche */
+}
+
+.right-section {
+    margin-left: 10px; /* Ajoute une marge entre la barre noire et la section de droite */
+}
+
+.left-section,
+.right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

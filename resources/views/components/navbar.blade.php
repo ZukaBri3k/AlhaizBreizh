@@ -494,6 +494,7 @@ document.getElementById('closeButton').addEventListener('click', function() {
 });
 
 function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
     Array.from(document.body.children).forEach(child => {
         if (child.id !== 'popup' && child.id !== 'blur-background') {
             child.classList.add('blur-background');
@@ -502,12 +503,14 @@ function applyBlur() {
 }
 
 function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
     Array.from(document.body.children).forEach(child => {
         if (child.id !== 'popup' && child.id !== 'blur-background') {
             child.classList.remove('blur-background');
         }
     });
 }
+
 </script>
 
     <div id="blur-background" class="blur-background"></div>

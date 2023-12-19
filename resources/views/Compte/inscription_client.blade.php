@@ -21,9 +21,12 @@
         <div class="lapage">
             <div class="left-section">
                 <div class="form-container">
-                    <label for="civility">Civilité:</label>
-                    <button id="civility">M.</button>
-                    <button id="civility">Mme</button>
+                    <select id="civilite_pers" name="civilite_pers"><br>
+                        <option selected>civilite</option>
+                        <option class="lt" value="--">none</option>
+                        <option value="M">M.</option>
+                        <option value="MME">MME.</option>
+                    </select>
 
                     <label for="name">Nom:</label>
                     <input type="text" id="name" name="name">

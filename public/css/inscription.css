@@ -5,41 +5,17 @@ body{
   align-items: center;
 }
 
-.left-section, .right-section {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
+h1{
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5em;
+  color: #f6f5ee;
+  text-shadow: 2px 2px 2px #000000;
+  margin-top: 50px;
 }
 
-.divider {
-    width: 150px;
-    background-color: #000;
-    height: 4px;
-}
-
-.form-container {
-    padding: 20px;
-    max-width: 400px;
-    margin: auto;
-}
-
-.form-container label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.form-container input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-}
-
-.form-container button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+.lapage{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 50px;
 }

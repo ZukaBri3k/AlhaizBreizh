@@ -29,21 +29,21 @@
                     </select>
 
                     <label for="name">Nom:</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" placeholder="Entrez votre nom">
 
                     <label for="firstname">Prénom:</label>
-                    <input type="text" id="firstname" name="firstname">
+                    <input type="text" id="firstname" name="firstname" placeholder="Entrez votre prénom">
 
                     <label for="username">Pseudo:</label>
-                    <input type="text" id="username" name="username">
+                    <input type="text" id="username" name="username" placeholder="Choisissez un pseudo">
 
                     <label for="city">Ville:</label>
-                    <input type="text" id="city" name="city">
+                    <input type="text" id="city" name="city" placeholder="Entrez votre ville">
 
                     <label for="country">Pays:</label>
-                    <input type="text" id="country" name="country">
+                    <input type="text" id="country" name="country" placeholder="Entrez votre pays">
 
-                    <label for="profile-pic">Photo de Profil:</label>
+                    <label for="profile-pic">Insérer une photos de profile :</label>
                     <input type="file" id="profile-pic" name="profile-pic">
                 </div>
             </div>

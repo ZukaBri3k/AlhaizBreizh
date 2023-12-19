@@ -25,7 +25,12 @@ body{
     height: 80vh;
 }
 
-.left-section .right-section{
-  margin-left: 20px;
-  margin-right: 20px;
+.right-section{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.left-section{
+    margin-left: 20px;
+    margin-right: 20px;
 }

@@ -449,9 +449,7 @@ document.getElementById('closeButton').addEventListener('click', function() {
         </div>
       </div>
     </div>
-
-    <div id="blur-background" class="blur-background"></div>
-    <script>
+  <script>
   document.getElementById('form2Example11').addEventListener('input', checkInput);
   document.getElementById('form2Example22').addEventListener('input', checkInput);
 
@@ -482,31 +480,34 @@ document.getElementById('closeButton').addEventListener('click', function() {
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
-  });
-
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('connexionButton').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default action of the link
+        event.preventDefault();
         document.getElementById('popup').style.display = 'block';
-        Array.from(document.body.children).forEach(child => {
-            if (child.id !== 'popup' && child.id !== 'blur-background') {
-                child.classList.add('blur-background');
-            }
-        });
+        applyBlur();
     });
 
     document.getElementById('closeButton').addEventListener('click', function() {
         document.getElementById('popup').style.display = 'none';
-        Array.from(document.body.children).forEach(child => {
-            if (child.id !== 'popup' && child.id !== 'blur-background') {
-                child.classList.remove('blur-background');
-            }
-        });
+        removeBlur();
     });
 });
+
+function applyBlur() {
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.add('blur-background');
+        }
+    });
+}
+
+function removeBlur() {
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
+    });
+}
 </script>
 
     <div id="blur-background" class="blur-background"></div>

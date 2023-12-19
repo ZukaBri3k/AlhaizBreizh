@@ -440,14 +440,16 @@ function removeBlur() {
                       </div>
                       <form action="{{ route('authenticate') }}" method="post">  
                         @csrf
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="option1" checked>
-                          <label class="form-check-label" for="radioOption1">Client</label>
+                        <div id="radios">
+                          <div class="form-check" id="radio_btn_placement_client">
+                            <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="client" checked>
+                            <label class="form-check-label" for="radioOption1" id="label_radio">Client</label>
+                          </div>
+                          <div class="form-check" id="radio_btn_placement_proprio">
+                            <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="proprietaire">
+                            <label class="form-check-label" for="radioOption2" id="label_radio">Propriétaire</label>
+                          </div>  
                         </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="option2">
-                          <label class="form-check-label" for="radioOption2">Propriétaire</label>
-                        </div>  
                         <div class="form-outline mb-4">
                           <label class="form-label" for="mail_pers">email</label>
                           <input type="email" id="form2Example11" name="mail_pers" class="form-control" placeholder="adresse mail" />

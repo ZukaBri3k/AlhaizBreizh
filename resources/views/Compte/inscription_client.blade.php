@@ -20,6 +20,7 @@
         <h1>Création de votre compte client</h1>
         <div class="lapage">
             <div class="left-section">
+                <h2>Informations Personnelles publiques</h2>
                 <div class="form-container">
                     <select id="civilite_pers" name="civilite_pers"><br>
                         <option selected>civilite</option>
@@ -51,6 +52,7 @@
             <div class="divider"></div>
 
             <div class="right-section">
+                <h2>Informations Personnelles privées</h2>
                 <div class="form-container">
                     <label for="address">Adresse:</label>
                     <input type="text" id="address" name="address">

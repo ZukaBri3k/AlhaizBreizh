@@ -93,6 +93,9 @@
                           <label class="form-label" for="mdp_pers">mot de passe</label>
                           <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
                         </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
@@ -145,27 +148,37 @@
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('connexionButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'block';
+        applyBlur();
+    });
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+});
+
+function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
     Array.from(document.body.children).forEach(child => {
-        if (child.id !== 'popup') {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
             child.classList.add('blur-background');
         }
     });
-});
+}
 
-document.getElementById('closeButton').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
+function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
     Array.from(document.body.children).forEach(child => {
-        child.classList.remove('blur-background');
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
     });
-});
+}
+
 </script>
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
@@ -260,6 +273,9 @@ document.getElementById('closeButton').addEventListener('click', function() {
                           <label class="form-label" for="mdp_pers">mot de passe</label>
                           <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
                         </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
@@ -312,27 +328,37 @@ document.getElementById('closeButton').addEventListener('click', function() {
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('connexionButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'block';
+        applyBlur();
+    });
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+});
+
+function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
     Array.from(document.body.children).forEach(child => {
-        if (child.id !== 'popup') {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
             child.classList.add('blur-background');
         }
     });
-});
+}
 
-document.getElementById('closeButton').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
+function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
     Array.from(document.body.children).forEach(child => {
-        child.classList.remove('blur-background');
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
     });
-});
+}
+
 </script>
     <div id="blur-background" class="blur-background"></div>
 
@@ -430,6 +456,9 @@ document.getElementById('closeButton').addEventListener('click', function() {
                           <label class="form-label" for="mdp_pers">mot de passe</label>
                           <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
                         </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>

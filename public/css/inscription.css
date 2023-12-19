@@ -1,49 +1,25 @@
 body {
-    background-color: #f6f5ee;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.flex-container {
-    display: flex;
+    justify-content: space-between;
+    padding: 0 50px; /* Ajoute un peu d'espace sur les côtés */
 }
 
 .left-section, .right-section {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
+    flex: 1; /* Les deux sections prennent la même largeur */
+    margin: 20px; /* Ajoute un peu d'espace autour des sections */
 }
 
 .divider {
-    width: 150px;
-    background-color: #000;
-    height: 4px;
+    width: 2px; /* Largeur de la barre verticale */
+    background-color: black; /* Couleur de la barre verticale */
+    height: 100%; /* Hauteur de la barre verticale */
 }
 
 .form-container {
-    padding: 20px;
-    max-width: 400px;
-    margin: auto;
+    display: flex;
+    flex-direction: column; /* Les éléments du formulaire sont empilés verticalement */
 }
 
-.form-container label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.form-container input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-}
-
-.form-container button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+button[type="submit"] {
+    align-self: flex-end; /* Le bouton de soumission est aligné à droite */
 }

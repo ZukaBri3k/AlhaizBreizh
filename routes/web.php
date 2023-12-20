@@ -52,7 +52,6 @@ Route::prefix('/account')->group(function () {
     Route::get('proprietaire_pop_up/register', [AccountController::class, "inscriptionProprietairePopUp"])->name('inscription_proprio_pop');
     Route::get('proprietaire/register', [AccountController::class, "inscriptionProprietaire"])->name('inscription_proprio');
     Route::get('client/register', [AccountController::class, "inscriptionClient"])->name('inscription_client');
-    Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/client/profil', [AccountController::class, "compteClient"])->name('myClientAccount')->middleware(['auth', 'isClient']);

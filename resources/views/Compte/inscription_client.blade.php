@@ -16,72 +16,97 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <x-Navbar></x-Navbar>
-    <main>
-        <h1>Création de votre compte client</h1>
-        <div class="lapage">
-            <div class="left-section">
+    <main class="container">
+        <h1 class="text-center">Création de votre compte client</h1>
+        <div class="row lapage">
+            <div class="col-md-6">
                 <h2>Informations Personnelles publiques</h2>
                 <div class="form-container">
-                    <select id="civilite_pers" name="civilite_pers"><br>
-                        <option selected>civilite</option>
-                        <option class="lt" value="--">none</option>
-                        <option value="M">M.</option>
-                        <option value="MME">MME.</option>
+                    <label for="civilite_pers">Civilité:</label>
+                    <select id="civilite_pers" name="civilite_pers" onclick="showOptions()" class="form-control">
+                        <option selected disabled hidden>civilite</option>
                     </select>
 
+                    <script>
+                        function showOptions() {
+                            var select = document.getElementById('civilite_pers');
+                            select.innerHTML = ''; // Efface l'option civilité
+
+                            // Ajoute les options
+                            var options = ['none', 'M.', 'MME.'];
+                            options.forEach(function (option) {
+                                var optionElement = document.createElement('option');
+                                optionElement.value = option;
+                                optionElement.text = option;
+                                select.add(optionElement);
+                            });
+                        }
+                    </script>
+
                     <label for="name">Nom:</label>
-                    <input type="text" id="name" name="name" placeholder="Entrez votre nom">
+                    <input type="text" id="name" name="name" placeholder="Entrez votre nom" class="form-control">
 
                     <label for="firstname">Prénom:</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="Entrez votre prénom">
+                    <input type="text" id="firstname" name="firstname" placeholder="Entrez votre prénom"
+                        class="form-control">
 
                     <label for="username">Pseudo:</label>
-                    <input type="text" id="username" name="username" placeholder="Choisissez un pseudo">
+                    <input type="text" id="username" name="username" placeholder="Choisissez un pseudo"
+                        class="form-control">
 
                     <label for="city">Ville:</label>
-                    <input type="text" id="city" name="city" placeholder="Entrez votre ville">
+                    <input type="text" id="city" name="city" placeholder="Entrez votre ville" class="form-control">
 
                     <label for="country">Pays:</label>
-                    <input type="text" id="country" name="country" placeholder="Entrez votre pays">
+                    <input type="text" id="country" name="country" placeholder="Entrez votre pays"
+                        class="form-control">
 
-                    <label for="profile-pic">Insérer une photos de profile :</label>
-                    <input type="file" id="profile-pic" name="profile-pic">
+                    <label for="profile-pic">
+                        Insérer une photo de profil :
+                        <span class="upload-icon"><img src="Download.png"></span>
+                    </label>
+                    <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
                 </div>
             </div>
 
-            <div class="divider"></div>
-
-            <div class="right-section">
-                <h2>Informations Personnelles privées</h2>
+            <div class="col-md-6 divider">
+                <h2 class="h2">Informations Personnelles privées</h2>
                 <div class="form-container">
                     <label for="address">Adresse:</label>
-                    <input type="text" id="address" name="address">
+                    <input type="text" id="address" name="address" placeholder="Entrez votre adresse"
+                        class="form-control">
 
                     <label for="postal-code">Code Postal:</label>
-                    <input type="text" id="postal-code" name="postal-code">
+                    <input type="text" id="postal-code" name="postal-code" placeholder="Entrez votre code postal"
+                        class="form-control">
 
                     <label for="birthdate">Date de Naissance:</label>
-                    <input type="date" id="birthdate" name="birthdate">
+                    <input type="date" id="birthdate" name="birthdate" placeholder="Entrez votre date de naissance"
+                        class="form-control">
 
                     <label for="phone">Numéro de Téléphone:</label>
-                    <input type="tel" id="phone" name="phone">
+                    <input type="tel" id="phone" name="phone" placeholder="Entrez votre numéro de téléphone"
+                        class="form-control">
 
                     <label for="email">Adresse E-mail:</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" placeholder="Entrez votre adresse E-mail"
+                        class="form-control">
 
                     <label for="password">Mot de Passe:</label>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
+                        class="form-control">
 
                     <label for="confirm-password">Confirmation du Mot de Passe:</label>
-                    <input type="password" id="confirm-password" name="confirm-password">
+                    <input type="password" id="confirm-password" name="confirm-password"
+                        placeholder="Confirmez votre mot de passe" class="form-control">
 
                     <label for="iban">IBAN:</label>
-                    <input type="text" id="iban" name="iban">
-
-                    <button type="submit">Créer le Compte</button>
+                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
                 </div>
             </div>
         </div>
+        <button type="submit" class="create-account-btn btn btn-primary">Créer le Compte</button>
+        <br>
         <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
     </main>
 </body>

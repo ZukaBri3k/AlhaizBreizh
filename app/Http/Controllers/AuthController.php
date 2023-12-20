@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function login(): View {
-        return view('Compte.Login');
-    }
 
     public function authenticate(Request $request)
     {

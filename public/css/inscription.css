@@ -108,7 +108,7 @@ select{
   color: red; /* Texte rouge */
   border-radius: 8px;
   padding-right: 30px; /* Ajoute de l'espace à droite pour l'icône */
-  background-image: url('Arrow.png'); /* Ajoutez le chemin de votre icône de flèche */
+  background-image: url("{{asset('/img/Arrow.png')}}"); /* Ajoutez le chemin de votre icône de flèche */
   background-repeat: no-repeat; /* Ne pas répéter l'image */
   background-position: right 10px center; /* Positionne l'image à droite avec un espace de 10px */
 }

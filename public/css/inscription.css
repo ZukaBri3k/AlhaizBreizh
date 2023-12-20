@@ -1,18 +1,19 @@
-body{
+body {
   background-color: #f6f5ee;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.lapage{
+.lapage {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 50px;
+  text-align: center; /* Ajoutez cette ligne */
 }
 
-.form-container{
+.form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,21 +21,148 @@ body{
 }
 
 .divider {
-    width: 2px;
-    background-color: #000;
-    height: 80vh;
+  position: relative;
 }
 
-.right-section{
-    margin-left: 50px;
-    margin-right: 20px;
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -10px; /* Ajustez la valeur négative pour créer une marge à gauche */
+  width: 2px; /* Ajustez la largeur de la marge gauche selon vos besoins */
+  background-color: #000; /* Couleur de la marge gauche */
+  border-radius: 10px;
+  margin-left: 1.5%;
 }
 
-.left-section{
-    margin-left: 20px;
-    margin-right: 50px;
+@media (max-width: 767px) {
+  .lapage {
+    flex-direction: column; /* Inverse l'ordre des colonnes en mode responsive */
+  }
+
+  .divider::before {
+    left: 0; /* Réglez la marge sur le haut au lieu de la gauche */
+    top: -10px; /* Ajustez la valeur négative pour créer une marge au-dessus */
+    bottom: 0;
+    width: 100%; /* Ajustez la largeur à 100% pour remplir toute la largeur de la div */
+    height: 2px; /* Ajustez la hauteur selon vos besoins */
+    border-radius: 0; /* Pas besoin de bord arrondi */
+    margin-top: 1.5%;
+  }
+
+  .col-md-6 {
+    margin-top: 20px; /* Ajoutez une marge au-dessus de la colonne */
+    margin-bottom: 20px;
+  }
 }
 
-h1{
-    text-align: center;
+
+
+
+.right-section {
+  margin-left: 50px;
+  margin-right: 20px;
+  align-self: flex-start; /* Aligner en haut */
+}
+
+.left-section {
+  margin-left: 20px;
+  margin-right: 50px;
+  align-self: flex-start; /* Aligner en haut */
+}
+
+h1 {
+  text-align: center;
+}
+
+.h2 {
+  margin-top: 20px; /* Ajouter cette ligne pour réduire la marge du titre h2 */
+}
+
+input {
+  width: 75%;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  align-self: flex-start; /* Aligner les labels à gauche */
+  margin-bottom: 5px; /* Ajouter un espace entre les labels et les champs */
+}
+
+label{
+  align-self: flex-start; /* Aligner les labels à gauche */
+  margin-bottom: 5px; /* Ajouter un espace entre les labels et les champs */
+}
+
+select{
+  align-self: flex-start; /* Aligner les labels à gauche */
+  margin-bottom: 5px; /* Ajouter un espace entre les labels et les champs */
+}
+
+/* Bouton civilité */
+#civilite_pers {
+  border: 2px solid red; /* Bords rouges */
+  background-color: white; /* Fond blanc */
+  color: red; /* Texte rouge */
+  border-radius: 8px;
+  padding-right: 30px; /* Ajoute de l'espace à droite pour l'icône */
+  background-image: url('Arrow.png'); /* Ajoutez le chemin de votre icône de flèche */
+  background-repeat: no-repeat; /* Ne pas répéter l'image */
+  background-position: right 10px center; /* Positionne l'image à droite avec un espace de 10px */
+}
+
+/* Style pour la flèche déroulante (triangle) */
+#civilite_pers::-ms-expand {
+  display: none; /* Masque la flèche pour les navigateurs Edge */
+}
+
+/* Rotation de 180 degrés pour l'icône */
+#civilite_pers::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 6px 0;
+  border-color: red transparent transparent transparent;
+  position: absolute;
+  top: 50%;
+  right: 15px; /* Ajustez la position selon vos besoins */
+  transform: translateY(-50%) rotate(180deg); /* Rotation de 180 degrés */
+}
+
+
+
+.upload-icon {
+  cursor: pointer; /* Change le curseur en main au survol */
+  margin-left: 5px; /* Ajoute une marge à gauche pour l'espacement */
+}
+
+.upload-icon img {
+  width: 20px; /* Ajustez la taille en fonction de vos besoins */
+  height: 20px; /* Ajustez la taille en fonction de vos besoins */
+  cursor: pointer; /* Change le curseur en main au survol */
+  margin-left: 5px; /* Ajoute une marge à gauche pour l'espacement */
+}
+
+button[type="submit"] {
+  background-color: rgb(255, 255, 255); /* Fond rouge */
+  color: red; /* Texte blanc */
+  padding: 10px 20px; /* Ajoutez un peu d'espace autour du texte */
+  border-radius: 8px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur en main au survol */
+  font-size: 16px; /* Taille de la police */
+  margin-top: 10px; /* Ajoute un peu d'espace au-dessus du bouton */  
+  border-color: red;
+}
+
+button[type="submit"]:hover {
+  background-color: red; /* Changement de couleur au survol */
+  color: white; /* Changement de couleur au survol */
+}
+
+.create-account-btn {
+  width: 100%;
+  margin-top: 10px;
 }

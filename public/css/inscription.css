@@ -76,6 +76,8 @@ h1 {
   text-align: center;
 }
 
+
+
 input {
   width: 75%;
   height: 40px;
@@ -104,7 +106,7 @@ select{
   color: red; /* Texte rouge */
   border-radius: 8px;
   padding-right: 30px; /* Ajoute de l'espace à droite pour l'icône */
-  background-image: url('/img/Arrow.png') !important;
+  background-image: url('Arrow.png'); /* Ajoutez le chemin de votre icône de flèche */
   background-repeat: no-repeat; /* Ne pas répéter l'image */
   background-position: right 10px center; /* Positionne l'image à droite avec un espace de 10px */
 }
@@ -128,7 +130,22 @@ select{
   transform: translateY(-50%) rotate(180deg); /* Rotation de 180 degrés */
 }
 
+.create-account-button {
+  background-color: #EC3B53; /* Fond rouge */
+  color: white; /* Texte blanc */
+  padding: 10px 20px; /* Ajoutez un peu d'espace autour du texte */
+  border-radius: 8px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur en main au survol */
+  font-size: 16px; /* Taille de la police */
+  margin-top: 10px; /* Ajoute un peu d'espace au-dessus du bouton */  
+  border-color: #EC3B53;
+}
 
+.create-account-button:hover {
+  background-color: white; /* Changement de couleur au survol */
+  color: #EC3B53; /* Changement de couleur au survol */
+  border-color: #EC3B53;
+}
 
 .upload-icon {
   cursor: pointer; /* Change le curseur en main au survol */
@@ -140,22 +157,6 @@ select{
   height: 20px; /* Ajustez la taille en fonction de vos besoins */
   cursor: pointer; /* Change le curseur en main au survol */
   margin-left: 5px; /* Ajoute une marge à gauche pour l'espacement */
-}
-
-button[type="submit"] {
-  background-color: rgb(255, 255, 255); /* Fond rouge */
-  color: red; /* Texte blanc */
-  padding: 10px 20px; /* Ajoutez un peu d'espace autour du texte */
-  border-radius: 8px; /* Coins arrondis */
-  cursor: pointer; /* Change le curseur en main au survol */
-  font-size: 16px; /* Taille de la police */
-  margin-top: 10px; /* Ajoute un peu d'espace au-dessus du bouton */  
-  border-color: red;
-}
-
-button[type="submit"]:hover {
-  background-color: red; /* Changement de couleur au survol */
-  color: white; /* Changement de couleur au survol */
 }
 
 .create-account-btn {

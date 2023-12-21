@@ -23,10 +23,12 @@
                 <h2>Informations Personnelles publiques</h2>
                 <div class="form-container">
                     <label for="civilite_pers">Civilité:</label>
-                    <select id="civilite_pers" name="civilite_pers" onclick="showOptions()" class="form-control">
-                        <option selected disabled hidden>civilite</option>
-                    </select>
-
+                    <select id="civilite_pers" name="civilite_pers" class="form-control">
+                    <option selected disabled hidden>civilite</option>
+                    <option value="none">none</option>
+                    <option value="M.">M.</option>
+                    <option value="MME.">MME.</option>
+                </select>
                     <script>
                         function showOptions() {
                             var select = document.getElementById('civilite_pers');

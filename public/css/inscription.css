@@ -76,8 +76,6 @@ h1 {
   text-align: center;
 }
 
-
-
 input {
   width: 75%;
   height: 40px;
@@ -106,7 +104,7 @@ select{
   color: red; /* Texte rouge */
   border-radius: 8px;
   padding-right: 30px; /* Ajoute de l'espace à droite pour l'icône */
-  background-image: url('Arrow.png'); /* Ajoutez le chemin de votre icône de flèche */
+  background-image: url('/img/Arrow.png') !important;
   background-repeat: no-repeat; /* Ne pas répéter l'image */
   background-position: right 10px center; /* Positionne l'image à droite avec un espace de 10px */
 }
@@ -130,6 +128,18 @@ select{
   transform: translateY(-50%) rotate(180deg); /* Rotation de 180 degrés */
 }
 
+.upload-icon {
+  cursor: pointer; /* Change le curseur en main au survol */
+  margin-left: 5px; /* Ajoute une marge à gauche pour l'espacement */
+}
+
+.upload-icon img {
+  width: 20px; /* Ajustez la taille en fonction de vos besoins */
+  height: 20px; /* Ajustez la taille en fonction de vos besoins */
+  cursor: pointer; /* Change le curseur en main au survol */
+  margin-left: 5px; /* Ajoute une marge à gauche pour l'espacement */
+}
+
 .create-account-button {
   background-color: #EC3B53; /* Fond rouge */
   color: white; /* Texte blanc */
@@ -145,18 +155,6 @@ select{
   background-color: white; /* Changement de couleur au survol */
   color: #EC3B53; /* Changement de couleur au survol */
   border-color: #EC3B53;
-}
-
-.upload-icon {
-  cursor: pointer; /* Change le curseur en main au survol */
-  margin-left: 5px; /* Ajoute une marge à gauche pour l'espacement */
-}
-
-.upload-icon img {
-  width: 20px; /* Ajustez la taille en fonction de vos besoins */
-  height: 20px; /* Ajustez la taille en fonction de vos besoins */
-  cursor: pointer; /* Change le curseur en main au survol */
-  margin-left: 5px; /* Ajoute une marge à gauche pour l'espacement */
 }
 
 .create-account-btn {

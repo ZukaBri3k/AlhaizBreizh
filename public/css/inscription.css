@@ -76,7 +76,7 @@ h1 {
   text-align: center;
 }
 
-input {
+form-control {
   width: 75%;
   height: 40px;
   border-radius: 8px;

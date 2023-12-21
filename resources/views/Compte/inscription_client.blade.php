@@ -63,11 +63,35 @@
                     <input type="text" id="country" name="country" placeholder="Entrez votre pays"
                         class="form-control">
 
-                    <label for="profile-pic">
+                        <label for="profile-pic">
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
                     <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
+                    <div id="profile-pic-message"></div>
+                    <div id="profile-pic-preview"></div>
+                    <script>
+                        document.getElementById('profile-pic').addEventListener('change', function () {
+                            var fileInput = this;
+                            var file = fileInput.files[0];
+
+                            if (file) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    var previewElement = document.getElementById('profile-pic-preview');
+                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="Profile Preview" style="max-width: 100%;">';
+
+                                    var fileName = fileInput.value.split('\\').pop();
+                                    var message = "Photo de profil enregistrée : " + fileName;
+
+                                    document.getElementById('profile-pic-message').innerText = message;
+                                };
+
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                 </div>
             </div>
 

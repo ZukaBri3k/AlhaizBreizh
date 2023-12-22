@@ -1,194 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/inscription.css')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <header>
-        @include('components.navbar')
-    </header>
-<main>
-    <h1>Inscription client</h1>
-    <div class="wrapper">
-        <div class="gauche" >
-            <div class="public-info-section">
-            <h1>Infomation personnel public</h1>
-            <form action="{{route('client_register')}}" method="get">
-                <div class="radio-container">
-        
-                <label for="civ"></label>
-        
-                <select id="genre" >
-                    <option selected>Genre</option>
-                    <option value="Homme">Homme</option>
-                    <option value="Femme">Femme</option>
-                    <option value="Non préscisé">Non préscisé</option>
-                  </select>
-        
-                  <select id="civilite_pers" name="civilite_pers"><br>
-                    <option selected>civilite</option>
-                    <option class="lt" value="--">none</option>
-                    <option value="M">M.</option>
-                    <option value="MME">MME.</option>
-                  </select>
-        
-        
-                <br><br>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <x-Navbar></x-Navbar>
+    <main class="container">
+        <h1 class="text-center">Création de votre compte client</h1>
+        <div class="row lapage">
+            <div class="col-md-6">
+                <h2>Informations Personnelles publiques</h2>
+                <div class="form-container">
+                    <label for="civilite_pers">Civilité:</label>
+                    <select id="civilite_pers" name="civilite_pers" class="form-control">
+                    <option selected disabled hidden>civilite</option>
+                    <option value="none">none</option>
+                    <option value="M.">M.</option>
+                    <option value="MME.">MME.</option>
+                </select>
+                    <script>
+                        function showOptions() {
+                            var select = document.getElementById('civilite_pers');
+                            select.innerHTML = ''; // Efface l'option civilité
+
+                            // Ajoute les options
+                            var options = ['none', 'M.', 'MME.'];
+                            options.forEach(function (option) {
+                                var optionElement = document.createElement('option');
+                                optionElement.value = option;
+                                optionElement.text = option;
+                                select.add(optionElement);
+                            });
+                        }
+                    </script>
+
+                    <label for="name">Nom:</label>
+                    <input type="text" id="name" name="name" placeholder="Entrez votre nom" class="form-control">
+
+                    <label for="firstname">Prénom:</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Entrez votre prénom"
+                        class="form-control">
+
+                    <label for="username">Pseudo:</label>
+                    <input type="text" id="username" name="username" placeholder="Choisissez un pseudo"
+                        class="form-control">
+
+                    <label for="city">Ville:</label>
+                    <input type="text" id="city" name="city" placeholder="Entrez votre ville" class="form-control">
+
+                    <label for="country">Pays:</label>
+                    <input type="text" id="country" name="country" placeholder="Entrez votre pays"
+                        class="form-control">
+
+                        <label for="profile-pic">
+                        Insérer une photo de profil :
+                        <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
+                    </label>
+                    <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
+                    <div id="profile-pic-message"></div>
+                    <div id="profile-pic-preview"></div>
+                    <script>
+                        document.getElementById('profile-pic').addEventListener('change', function () {
+                            var fileInput = this;
+                            var file = fileInput.files[0];
+
+                            if (file) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    var previewElement = document.getElementById('profile-pic-preview');
+                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="Profile Preview" style="max-width: 100%;">';
+
+                                    var fileName = fileInput.value.split('\\').pop();
+                                    var message = "Photo de profil enregistrée : " + fileName;
+
+                                    document.getElementById('profile-pic-message').innerText = message;
+                                };
+
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                 </div>
-        
-                <br><br>
-        
-        
-        
-                <label for="nom_pers"></label>
-                <input type="text" id="nom_pers" name="nom_pers" placeholder="Nom*" required>
-        
-                <label for="prenom_pers"></label>
-                <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Prenom* " required>
-                <br></br>
-        
-                
-                <label for="pseudo_pers"></label>
-                <input type="text" id="pseudo_pers" name="pseudo_pers" placeholder="Pseudo*" required>
-        
-                <label for="ville_pers"></label>
-                <input type="text" id="ville_pers" name="ville_pers" placeholder="Ville* " required>
-                <br></br>
-        
-                <label for="pays_pers"></label>
-                <input type="text" id="pays_pers" name="pays_pers" placeholder="Pays* " required>
-                <br></br>
-        
-                <label for="photo_pers">Inserer une Photo de profil* :</label>
-                <input type="file" id="photo_pers" name="photo_pers" accept="image/*">
-                <br><br>
             </div>
-        
-            <div class="messages_prop_devis" >
-        
-                <h1>Messages automatique</h1>
-        
-                <h3>Messages de demande de devis</h3>
 
-        <label for="nom_prop_demande_devis"></label>
-        <input type="text" name="nom_prop_demande_devis" id="nom_prop_demande_devis" placeholder="Bonjour Monsieur/Madame">
-        <p>[nom propriétaire]</p>
-        <br></br>
+            <div class="col-md-6 divider">
+                <h2 class="h2">Informations Personnelles privées</h2>
+                <div class="form-container">
+                    <label for="address">Adresse:</label>
+                    <input type="text" id="address" name="address" placeholder="Entrez votre adresse"
+                        class="form-control">
 
-        <label for="nom_logement_demande_devis"></label>
-        <textarea type="text" name="nom_logement_demande_devis" id="nom_logement_demande_devis" maxlength="500" spellcheck="true" rows="10" column="10" placeholder="Je souhaiterais réserver le logement 
-        J’aimerais savoir si c’est possible 
-        d’avoir un devis."></textarea>
-        <div class="counter"><span id="ton_compteur_demande_devis" >0</span>\500</div>
-        <p>[nom logement]</p>
-            <br></br>  
+                    <label for="postal-code">Code Postal:</label>
+                    <input type="text" id="postal-code" name="postal-code" placeholder="Entrez votre code postal"
+                        class="form-control">
 
-        <label for="votre_nom_demande_devis"></label>
-        <input type="text" name="votre_nom_demande_devis" id="votre_nom_demande_devis" placeholder="Cordialement,
-        Bonne journée">
-        <p>[votre nom]</p>
-        <br></br>
-        <h3>Messages d'acceptation de devis</h3>
+                    <label for="birthdate">Date de Naissance:</label>
+                    <input type="date" id="birthdate" name="birthdate" placeholder="Entrez votre date de naissance"
+                        class="form-control">
 
-        <label for="nom_prop_acceptation"></label>
-        <input type="text" name="nom_prop_acceptation" id="nom_prop_demande_acceptation" placeholder="Bonjour Monsieur/Madame">
-        <p>[nom propriétaire]</p>
-        <br></br>
+                    <label for="phone">Numéro de Téléphone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Entrez votre numéro de téléphone"
+                        class="form-control">
 
-        <label for="nom_logement_acceptation"></label>
-        <textarea type="text" name="nom_logement_acceptation" id="nom_logement_acceptation" maxlength="500" spellcheck="true" rows="10" column="10" placeholder="Je souhaiterais réserver le logement 
-        J’aimerais savoir si c’est possible 
-        d’avoir un devis."></textarea>
-        <div class="counter"><span id="ton_compteur_accept_devis" >0</span>\500</div>
-        <p>[nom logement]</p>   
-            <br></br>  
+                    <label for="email">Adresse E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Entrez votre adresse E-mail"
+                        class="form-control">
 
-        <label for="votre_nom_acceptation"></label>
-        <input type="text" name="votre_nom_acceptation" id="votre_nom_acceptation" placeholder="Cordialement,
-        Bonne journée">
-        <p>[votre nom]</p>
-        <br></br>
-                </div>  
+                    <label for="password">Mot de Passe:</label>
+                    <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
+                        class="form-control">
+
+                    <label for="confirm-password">Confirmation du Mot de Passe:</label>
+                    <input type="password" id="confirm-password" name="confirm-password"
+                        placeholder="Confirmez votre mot de passe" class="form-control">
+
+                    <label for="iban">IBAN:</label>
+                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
+                </div>
             </div>
-                
-                
-           <div class="private-info-section"> 
-           <h6><a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>   
-                    <h1>Information personnel privée</h1>
-        
-                <label for="adresse_pers"></label> 
-                <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Adresse*" required>
-                <br></br>
-        
-                <label for="code_postal_pers"></label>
-                <input type="number" name="code_postal_pers" id="code_postal_pers" placeholder="code postal*" required>
-                <br></br>
-                
-                <label for="date_de_naissance"></label>
-                <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Date de date de naissance*" required>
-                <br></br>
-        
-                <label for="telephone_pers"></label>
-                <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Telephone*" required>
-                <br><br>
-        
-                <label for="password"></label>
-                <input type="password" id="password" name="password" placeholder="Mot de passe *" required>
-                <br><br>
-            
-                <label for="confirmerMotDePasse"></label>
-                <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse" placeholder="confirmer Mot De Passe*"  required>
-                <br><br>
-                <label for="iban"></label>
-                <input type="number" id="iban" name="iban" placeholder="iban">
-                <br></br>
-        
-                <label for="mail_pers"></label>
-                <input type="email" id="mail_pers" name="mail_pers" placeholder="email*" required>
-                <br><br>
-
-
-
-                <h3>Messages de refus de devis</h3>
-
-        <label for="nom_prop_refus"></label>
-        <input type="text" name="nom_prop_refus" id="nom_prop_refus" placeholder="Bonjour Monsieur/Madame">
-        <p>[nom propriétaire]</p>
-        <br></br>
-
-        <label for="nom_logement_refus"></label>
-        <textarea type="text" name="nom_logement_refus" id="nom_logement_refus" maxlength="500" spellcheck="true" rows="10" column="10" placeholder="Je souhaiterais réserver le logement 
-        J’aimerais savoir si c’est possible 
-        d’avoir un devis."></textarea>
-        <div class="counter"><span id="ton_compteur_refus_devis" >0</span>\500</div>
-        
-
-        <p>[nom logement]</p>
-            <br></br>  
-
-        <label for="votre_nom_refus"></label>
-        <input type="text" name="votre_nom_refus" id="votre_nom_refus" placeholder="Cordialement,
-        Bonne journée">
-        <p>[votre nom]</p>
-        <br></br>
-            </div>
-    </div>
-
-       
-
-        <input type="submit" value="S'inscrire">
+        </div>
+        <button type="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
+        <br>
+        <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
     </main>
-        <footer>
-
-        </footer>
-    </form>
-    <script src="{{asset('js/script_inscription_client.js')}}"></script>
 </body>
+<x-FooterClient></x-FooterClient>
 </html>

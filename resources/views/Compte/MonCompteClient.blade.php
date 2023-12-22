@@ -157,7 +157,9 @@
         <h5>Déconnexion</h5>
         <hr>
         <div class="Donnees">
-            <button class="button_api">Déconnexion</button>
+            <a href="{{ route('logout') }}">
+                <button class="button_api">Déconnexion</button>
+            </a>
         </div>
     </div>
 

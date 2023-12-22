@@ -58,8 +58,7 @@ class AccountController extends Controller
 
     public function compteClient(Request $request) {
         $id_proprio = DB::select('select * from personnes where id = ?', [intval($request->id)]);
-        dd($id_proprio);
-        return View("Compte/MonCompteClient");
+        return View("Compte/MonCompteClient" , ['logement' => DB::select('select * from client where id_client = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
     }
 
     //--------------------------------------------------------------

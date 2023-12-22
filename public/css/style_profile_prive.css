@@ -1,31 +1,31 @@
 @font-face {
 	font-family: 'Montserrat';
-    src: url("{{asset('/fonts/Montserrat-Regular.woff2')}}") format("woff2");
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
     font-weight: 500;
 }
 
 @font-face {
 	font-family: "Montserrat-Light";
 	font-weight: 400;
-    src: url("{{asset('/fonts/Montserrat-Light.woff2')}}") format("woff2");
+    src: url("/fonts/Montserrat-Light.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "Montserrat-ExtraLight";
 	font-weight: 400;
-    src: url("{{asset('/fonts/Montserrat-ExtraLight.woff2')}}") format("woff2");
+    src: url("/fonts/Montserrat-ExtraLight.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "Montserrat-Thin";
 	font-weight: 400;
-    src: url("{{asset('/fonts/Montserrat-Thin.woff2')}}") format("woff2");
+    src: url("/fonts/Montserrat-Thin.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "RocaOne";
 	font-weight: 400;
-    src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");
+    src: url("/fonts/RocaOne-Rg.woff2") format("woff2");
 }
 
 body {

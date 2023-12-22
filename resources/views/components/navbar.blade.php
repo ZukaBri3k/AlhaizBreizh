@@ -4,7 +4,7 @@
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('myClientAccount', ['id' => 1])}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="#" class="navbar-brand logo_m">
@@ -124,7 +124,7 @@
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('myClientAccount', ['id' => 1])}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="#" class="navbar-brand logo_m">
@@ -172,7 +172,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
-                        <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myClientAccount', ['id' => 1])}}" class="dropdown-item">Profile</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon Compte Client</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
@@ -246,7 +246,7 @@
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('myClientAccount', ['id' => 1])}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="#" class="navbar-brand logo_m">

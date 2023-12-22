@@ -2,10 +2,10 @@
 <footer>
     <hr>
     <div class="haut">
-        <a href="{{route('myClientAccount')}}" id="logo_grand">
+        <a href="{{route('myClientAccount', ['id' => 1])}}" id="logo_grand">
             <img src="{{asset('/img/logo_footer.png')}}">
         </a>
-        <a href="{{route('myClientAccount')}}" id="logo_petit">
+        <a href="{{route('myClientAccount', ['id' => 1])}}" id="logo_petit">
             <img src="{{asset('/img/logo_petit.png')}}">
         </a>
         
@@ -17,7 +17,6 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="#">Messagerie</a></td>
                     <td><a href="#">Propriétaire</a></td>
                     <td><a href="#">A propos</a></td>
                 </tr>

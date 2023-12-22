@@ -287,3 +287,11 @@ button:hover {
     align-items: center;
 }
 /*Fin partie sur la clé API*/
+
+.button_deco {
+    width: 150%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-left: 0 !important;
+}
+

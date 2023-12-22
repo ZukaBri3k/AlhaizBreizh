@@ -158,7 +158,7 @@
         <hr>
         <div class="Donnees">
             <a href="{{ route('logout') }}">
-                <button class="button_api">Déconnexion</button>
+                <button class="button_deco">Déconnexion</button>
             </a>
         </div>
     </div>

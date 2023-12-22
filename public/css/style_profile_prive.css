@@ -39,19 +39,19 @@ body {
 }
 
 button {
-    border-radius: 6px;
+    border-radius: 6px !important;
     border: 1px solid #EC3B53;
     background: #FFF;
     color: #EC3B53;
     text-align: center;
-    font-family: 'Montserrat';
-    font-size: 20px;
+    font-family: 'Montserrat' !important;
+    font-size: 20px !important;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
+    line-height: normal !important;
     letter-spacing: -0.3px;
     width: 8%;
-    margin-left: 5%;
+    margin-left: 5% !important;
 }
 
 button:hover {

@@ -273,6 +273,10 @@ button:hover {
     cursor: pointer;
 }
 
+.radio_form input:checked {
+    background-color: #EC3B53 !important;
+}
+
 .radio_form div {
     width: 115%;
 }

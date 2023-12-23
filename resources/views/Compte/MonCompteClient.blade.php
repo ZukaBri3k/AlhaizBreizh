@@ -28,37 +28,37 @@
             <div class="donnees_precise">
                 <div class="elem">
                     <p>Nom d'utilisateur :</p>
-                    <p>BigPapoo</p>
+                    <p>{!! $personnes->pseudo_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Nom :</p>
-                    <p>Quiniou</p>
+                    <p>{!! $personnes-> nom_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Prenom :</p>
-                    <p>Gildas</p>
+                    <p>{!! $personnes->prenom_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Ville :</p>
-                    <p>Lannion</p>
+                    <p>{!! $personnes->ville_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Pays :</p>
-                    <p>France</p>
+                    <p>{!! $personnes->pays_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Civilité :</p>
-                    <p>Français</p>
+                    <p>{!! $personnes->civilite_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Genre :</p>
-                    <p>Homme</p>
+                    <p>{!! $personnes->genre_pers !!}</p>
                 </div>
             </div>
         </div>
@@ -74,42 +74,50 @@
             <div class="donnees_precise">
                 <div class="elem">
                     <p>Adresse :</p>
-                    <p>3 rue Edouard Branly</p>
+                    <p>{!! $personnes->adresse_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Code Postal :</p>
-                    <p>22300</p>
+                    <p>{!! $personnes->code_postal_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Âge :</p>
-                    <p>50 ans</p>
+                    <p>{!! $personnes->age_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Numéro de téléphone :</p>
-                    <p>06 01 01 01 01</p>
+                    <p>{!! $personnes->telephone_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Email :</p>
-                    <p>example@email.com</p>
+                    <p>{!! $personnes->mail_pers !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Date de naissance :</p>
-                    <p>24 Janvier 2004</p>
+                    <p>{!! $personnes->date_de_naissance !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>Mot de passe :</p>
-                    <p>**********</p>
+                    @php
+                        $password = $personnes->password;
+                        $password = str_repeat("*", strlen($password));
+                    @endphp
+                    <p>{!! $password !!}</p>
                 </div>
                 <hr>
                 <div class="elem">
                     <p>IBAN :</p>
-                    <p>**********</p>
+                    @php
+                        $iban = $personnes->iban;
+                        $iban = str_repeat("*", strlen($iban));
+                    @endphp
+                    <p>{!! $iban !!}</p>
                 </div>
             </div>
         </div>

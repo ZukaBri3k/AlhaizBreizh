@@ -106,9 +106,10 @@
                     <p>Mot de passe :</p>
                     @php
                         $password = $personnes->password;
-                        $password = str_repeat("*", strlen($password));
+                        $hashedPassword = Hash::check($password, $hashedPassword);
+                        $hashedPassword = str_repeat("*", strlen($hashedPassword));
                     @endphp
-                    <p>{!! $password !!}</p>
+                    <p>{!! $hashedPassword !!}</p>
                 </div>
                 <hr>
                 <div class="elem">

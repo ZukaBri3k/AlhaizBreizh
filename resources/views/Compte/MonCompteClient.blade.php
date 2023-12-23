@@ -102,7 +102,7 @@
                     @php
                         setlocale(LC_TIME, "fr_FR");
                         $date = $personnes->date_de_naissance;
-                        $formattedDate = strftime('%A %d %B %G', strtotime($date));
+                        $formattedDate = strftime('%d %B %G', strtotime($date));
                     @endphp
                     <p>{!! $formattedDate !!}</p>
                 </div>

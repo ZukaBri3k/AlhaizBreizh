@@ -100,6 +100,7 @@
                 <div class="elem">
                     <p>Date de naissance :</p>
                     @php
+                        setlocale(LC_TIME, 'fr_FR.utf8','fra'); // Définit la locale en français
                         $date = $personnes->date_de_naissance;
                         $formattedDate = strftime('%d %B %Y', strtotime($date));
                     @endphp

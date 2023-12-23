@@ -84,7 +84,7 @@
                 <hr>
                 <div class="elem">
                     <p>Âge :</p>
-                    <p>{!! $personnes->age_pers !!}</p>
+                    <p>{!! $personnes->age_pers !!} ans</p>
                 </div>
                 <hr>
                 <div class="elem">
@@ -99,7 +99,11 @@
                 <hr>
                 <div class="elem">
                     <p>Date de naissance :</p>
-                    <p>{!! $personnes->date_de_naissance !!}</p>
+                    @php
+                        $date = $personnes->date_de_naissance;
+                        $formattedDate = date('d F Y', strtotime($date));
+                    @endphp
+                    <p>{!! $formattedDate !!}</p>
                 </div>
                 <hr>
                 <div class="elem">

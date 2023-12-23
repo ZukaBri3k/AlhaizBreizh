@@ -132,7 +132,7 @@
                 </div>
                 <hr>
                 <div class="elem">
-                    <p>Clé privilégier :</p>
+                    <p>Clé privilégiée :</p>
                     <p>123456789</p>
                     <button class="button_api">Supprimer sa clé</button>
                 </div>

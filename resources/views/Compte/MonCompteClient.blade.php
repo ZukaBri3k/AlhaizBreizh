@@ -101,7 +101,7 @@
                     <p>Date de naissance :</p>
                     @php
                         $date = $personnes->date_de_naissance;
-                        $formattedDate = date('d F Y', strtotime($date));
+                        $formattedDate = strftime('%d %B %Y', strtotime($date));
                     @endphp
                     <p>{!! $formattedDate !!}</p>
                 </div>

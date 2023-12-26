@@ -15,9 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 <body class="paiement">
-<header>
         <x-Navbar></x-Navbar>
-    </header>
 <h1>Procédure de paiement :</h1>
     <div>
         <section>

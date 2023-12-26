@@ -1,7 +1,7 @@
 <header>
         <x-Navbar></x-Navbar>
     </header>
-<h1>Bienvenu sur ton compte admin !</h1>
+<h1>Bienvenue sur ton compte admin !</h1>
 
 <a href="#" onclick="document.getElementById('deco').submit()">
     <form action="{{route('logout')}}" method="post" id="deco">@csrf</form>

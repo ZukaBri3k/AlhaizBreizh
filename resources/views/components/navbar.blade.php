@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
 @auth
 @if ($role == 1)
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('myClientAccount', ['id' => 1])}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="#" class="navbar-brand logo_m">
@@ -52,7 +53,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
-                        <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myClientAccount', ['id' => 1])}}" class="dropdown-item">Profile</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon compte propriétaire</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
@@ -62,69 +63,129 @@
     </div>
 </nav>
 <hr>
-<div id="popup" class="popup">
-        
-        <div class="popup-content">
-            <span class="close" id="closeButton">&times;</span>
-            <h1>Connexion</h1>
-            <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
-            </a>
-    
-            <form action="{{ route('authenticate') }}" method="post">
-                @csrf
-                <div id="radios">
-                    
-                    <div id="radio_btn_placement_client">
-                    
-                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
-
-                        <label for="typeCompte" id="label_radio">Client</label>
-
-                    
+  <div id="popup" class="popup">
+    <div class="container py-5 h-100 center-popup">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <span class="close" id="closeButton">&times;</span>
+                    <div class="text-center">
+                        <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
+                      </div>
+                      <form action="{{ route('authenticate') }}" method="post">    
+                        @csrf
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="option1" checked>
+                          <label class="form-check-label" for="radioOption1">Client</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="option2">
+                          <label class="form-check-label" for="radioOption2">Propriétaire</label>
+                        </div>  
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="mail_pers">email</label>
+                          <input type="email" id="form2Example11" name="mail_pers" class="form-control" placeholder="adresse mail" />
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="mdp_pers">mot de passe</label>
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                        </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
+                        <div class="text-center pt-1 mb-5 pb-1">
+                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                          <p class="mb-0 me-2">pas de compte ?</p>
+                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                        </div>
+                      </form>
                     </div>
-
-                    <div id="radio_btn_placement_proprio">
-
-                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />   
-
-
-                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
-
-
-
-                    </div>
-           
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center fondfou">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4"></div>
                 </div>
-
-                <label for="mail_pers">Adresse mail</label>
-                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp_pers" id="decal">Mot de Passe</label>
-                <div class="password-container">
-                    <input type="password" name="mdp_pers" id="mdp" required>
-                    <i class="far fa-eye" id="togglePassword"></i>
-                </div>
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach 
-                
-                <a href="#">Mot de passe oublié</a>
-                <button id="connexion" type="submit">Connexion</button>
-            </form>
-            
-            
+              </div>
+            </div>
+          </div>
         </div>
-       
-
+      </div>
     </div>
 
     <div id="blur-background" class="blur-background"></div>
+    <script>
+  document.getElementById('form2Example11').addEventListener('input', checkInput);
+  document.getElementById('form2Example22').addEventListener('input', checkInput);
 
+  function checkInput() {
+    var email = document.getElementById('form2Example11').value;
+    var password = document.getElementById('form2Example22').value;
+    if (email && password) {
+      document.querySelector('.btn-primary').disabled = false;
+    } else {
+      document.querySelector('.btn-primary').disabled = true;
+    }
+  }
+
+  // Call checkInput to set the initial state of the button
+  checkInput();
+
+  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var index = 0;
+
+  function changeBackground() {
+    document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
+    index = (index + 1) % images.length;
+  }
+
+  // Set initial background
+  changeBackground();
+
+  // Change background every 3 seconds
+  setInterval(changeBackground, 3000);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('connexionButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'block';
+        applyBlur();
+    });
+
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+});
+
+function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.add('blur-background');
+        }
+    });
+}
+
+function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
+    });
+}
+
+</script>
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('myClientAccount', ['id' => 1])}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="#" class="navbar-brand logo_m">
@@ -172,7 +233,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
-                        <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myClientAccount', ['id' => 1])}}" class="dropdown-item">Profile</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon Compte Client</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
@@ -182,71 +243,133 @@
     </div>
 </nav>
 <hr>
-<div id="popup" class="popup">
-        
-        <div class="popup-content">
-            <span class="close" id="closeButton">&times;</span>
-            <h1>Connexion</h1>
-            <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
-            </a>
-    
-            <form action="{{ route('authenticate') }}" method="post">
-                @csrf
-                <div id="radios">
-                    
-                    <div id="radio_btn_placement_client">
-                    
-                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
-
-                        <label for="typeCompte" id="label_radio">Client</label>
-
-                    
+  <div id="popup" class="popup">
+    <div class="container py-5 h-100 center-popup">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <span class="close" id="closeButton">&times;</span>
+                    <div class="text-center">
+                    <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
+                      </div>
+                      <form action="{{ route('authenticate') }}" method="post"> 
+                        @csrf
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="option1" checked>
+                          <label class="form-check-label" for="radioOption1">Client</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="option2">
+                          <label class="form-check-label" for="radioOption2">Propriétaire</label>
+                        </div>  
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="mail_pers">email</label>
+                          <input type="email" id="form2Example11" name="mail_pers" class="form-control" placeholder="adresse mail" />
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="mdp_pers">mot de passe</label>
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                        </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
+                        <div class="text-center pt-1 mb-5 pb-1">
+                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                          <p class="mb-0 me-2">pas de compte ?</p>
+                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                        </div>
+                      </form>
                     </div>
-
-                    <div id="radio_btn_placement_proprio">
-
-                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />   
-
-
-                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
-
-
-
-                    </div>
-           
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center fondfou">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4"></div>
                 </div>
-
-                <label for="mail_pers">Adresse mail</label>
-                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp_pers" id="decal">Mot de Passe</label>
-                <div class="password-container">
-                    <input type="password" name="mdp_pers" id="mdp" required>
-                    <i class="far fa-eye" id="togglePassword"></i>
-                </div>
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach 
-                
-                <a href="#">Mot de passe oublié</a>
-                <button id="connexion" type="submit">Connexion</button>
-            </form>
-            
-            
+              </div>
+            </div>
+          </div>
         </div>
-       
-
+      </div>
     </div>
 
+    <div id="blur-background" class="blur-background"></div>
+    <script>
+  document.getElementById('form2Example11').addEventListener('input', checkInput);
+  document.getElementById('form2Example22').addEventListener('input', checkInput);
+
+  function checkInput() {
+    var email = document.getElementById('form2Example11').value;
+    var password = document.getElementById('form2Example22').value;
+    if (email && password) {
+      document.querySelector('.btn-primary').disabled = false;
+    } else {
+      document.querySelector('.btn-primary').disabled = true;
+    }
+  }
+
+  // Call checkInput to set the initial state of the button
+  checkInput();
+
+  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var index = 0;
+
+  function changeBackground() {
+    document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
+    index = (index + 1) % images.length;
+  }
+
+  // Set initial background
+  changeBackground();
+
+  // Change background every 3 seconds
+  setInterval(changeBackground, 3000);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('connexionButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'block';
+        applyBlur();
+    });
+
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+});
+
+function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.add('blur-background');
+        }
+    });
+}
+
+function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
+    });
+}
+
+</script>
     <div id="blur-background" class="blur-background"></div>
 
     <script src="{{ asset('js/connexion.js') }}"></script>
 @endif
 @endauth
 @guest
-<link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
+<link rel="stylesheet" href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('myClientAccount', ['id' => 1])}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="#" class="navbar-brand logo_m">
@@ -303,60 +426,123 @@
     </div>
 </nav>
 <hr>
-<div id="popup" class="popup">
-        
-        <div class="popup-content">
-            <span class="close" id="closeButton">&times;</span>
-            <h1>Connexion</h1>
-            <a href="{{route ('inscription_client_pop')}}">Pas de compte ? Inscrivez-vous en client ici !
-            </a>
-    
-            <form action="{{ route('authenticate') }}" method="post">
-                @csrf
-                <div id="radios">
-                    
-                    <div id="radio_btn_placement_client">
-                    
-                        <input type="radio" id="radiobtn" name="typeCompte" value="client" class="radios"/>
-
-                        <label for="typeCompte" id="label_radio">Client</label>
-
-                    
+  <div id="popup" class="popup">
+    <div class="container py-5 h-100 center-popup">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <span class="close" id="closeButton">&times;</span>
+                    <div class="text-center">
+                    <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
+                      </div>
+                      <form action="{{ route('authenticate') }}" method="post">  
+                        @csrf
+                        <div id="radios">
+                          <div class="form-check" id="radio_btn_placement_client">
+                            <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="client" checked>
+                            <label class="form-check-label" for="radioOption1" id="label_radio">Client</label>
+                          </div>
+                          <div class="form-check" id="radio_btn_placement_proprio">
+                            <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="proprietaire">
+                            <label class="form-check-label" for="radioOption2" id="label_radio">Propriétaire</label>
+                          </div>  
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="mail_pers">email</label>
+                          <input type="email" id="form2Example11" name="mail_pers" class="form-control" placeholder="adresse mail" />
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="mdp_pers">mot de passe</label>
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                        </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
+                        <div class="text-center pt-1 mb-5 pb-1">
+                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                          <p class="mb-0 me-2">pas de compte ?</p>
+                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                        </div>
+                      </form>
                     </div>
-
-                    <div id="radio_btn_placement_proprio">
-
-                        <input type="radio" id="radiobtn" name="typeCompte" value="proprietaire" class="radios" />   
-
-
-                        <label for="typeCompte" id="label_radio">Propriétaire</label>      
-
-
-
-                    </div>
-           
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center fondfou">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4"></div>
                 </div>
-
-                <label for="mail_pers">Adresse mail</label>
-                <input type="mail" name="mail_pers" id="email" placeholder="exemplemail@mail.exemple" required="">
-                <label for="mdp_pers" id="decal">Mot de Passe</label>
-                <div class="password-container">
-                    <input type="password" name="mdp_pers" id="mdp" required>
-                    <i class="far fa-eye" id="togglePassword"></i>
-                </div>
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach 
-                
-                <a href="#">Mot de passe oublié</a>
-                <button id="connexion" type="submit">Connexion</button>
-            </form>
-            
-            
+              </div>
+            </div>
+          </div>
         </div>
-       
-
+      </div>
     </div>
+  <script>
+  document.getElementById('form2Example11').addEventListener('input', checkInput);
+  document.getElementById('form2Example22').addEventListener('input', checkInput);
+
+  function checkInput() {
+    var email = document.getElementById('form2Example11').value;
+    var password = document.getElementById('form2Example22').value;
+    if (email && password) {
+      document.querySelector('.btn-primary').disabled = false;
+    } else {
+      document.querySelector('.btn-primary').disabled = true;
+    }
+  }
+
+  // Call checkInput to set the initial state of the button
+  checkInput();
+
+  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var index = 0;
+
+  function changeBackground() {
+    document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
+    index = (index + 1) % images.length;
+  }
+
+  // Set initial background
+  changeBackground();
+
+  // Change background every 3 seconds
+  setInterval(changeBackground, 3000);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('connexionButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'block';
+        applyBlur();
+    });
+
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+});
+
+function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.add('blur-background');
+        }
+    });
+}
+
+function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
+    });
+}
+
+</script>
 
     <div id="blur-background" class="blur-background"></div>
 

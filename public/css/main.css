@@ -277,7 +277,11 @@ CSS de la d'accueil début
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 100%;
+    width: 100%; 
+}
+
+#accueil .mieuxNote .card {
+    margin-left: 5vw;
 }
 
 #accueil .mieuxNote h2 {

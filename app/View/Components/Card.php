@@ -12,10 +12,10 @@ class Card extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $title,
+        public string $titre,
         public string $desc,
-        public string $photo,
-        public int $note
+        public int $note,
+        public int $prix
         )
     {
         //

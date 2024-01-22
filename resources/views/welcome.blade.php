@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
 </head>
 <body id="accueil">
-    <x-Navbar></x-Navbar>
+    
     <div>
         <div class="video-container">
             <img src="{{asset('/img/paysage.jpg')}}" />

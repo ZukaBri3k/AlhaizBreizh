@@ -27,7 +27,7 @@
 
     <section class="autres">
         <h2>Nos logements les plus récents</h2>
-        <div class="liste-logement">
+        <div class="liste-card">
             @foreach ($logementsRecents as $logement)
                 <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->descriptif_logement}}" note=0 prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}"></x-Card>
             @endforeach

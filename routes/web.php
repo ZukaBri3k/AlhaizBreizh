@@ -7,6 +7,7 @@ use \App\Http\Controllers\AccountController;
 use \App\Http\Controllers\Logement;
 use \App\Http\Controllers\Devis;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,3 +65,7 @@ Route::prefix('/account')->group(function () {
 });
 
 Route::get('test', [Logement::class, 'ajouterLogementDB']);
+
+Route::get('/testcal    ', function () {
+    return view('/calendrier/calendrier');
+})->name('calendrier');

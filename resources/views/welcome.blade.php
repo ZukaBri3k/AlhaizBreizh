@@ -11,7 +11,7 @@
     <x-Navbar></x-Navbar>
     <div>
         <div class="video-container">
-            <video src="./video_accueil.mp4" autoplay type="video/mp4" muted loop preload="auto"></video>
+            <video src="{{asset('./video/video.mp4')}}" autoplay type="video/mp4" muted loop preload="auto"></video>
         </div>
         <h1>Découvrez les meilleurs<br> logements<br> de toute la Bretagne</h1>
     </div>

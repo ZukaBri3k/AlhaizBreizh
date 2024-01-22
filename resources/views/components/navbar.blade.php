@@ -185,10 +185,10 @@ function removeBlur() {
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
-        <a href="{{route('myClientAccount', ['id' => 1])}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
-        <a href="#" class="navbar-brand logo_m">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
@@ -369,10 +369,10 @@ function removeBlur() {
 <link rel="stylesheet" href="{{asset('css/connexion.css')}}">
 <nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
     <div class="container-fluid">
-        <a href="{{route('myClientAccount', ['id' => 1])}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
-        <a href="#" class="navbar-brand logo_m">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">

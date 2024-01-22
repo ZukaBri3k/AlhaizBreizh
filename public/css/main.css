@@ -261,7 +261,7 @@ CSS de la d'accueil début
     object-position: bottom;
 }
 
-.accueil .video-container h1 {
+.accueil .video-container + h1 {
     text-align: center;
     position: absolute;
     top: 30vh;

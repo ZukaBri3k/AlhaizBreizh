@@ -1,4 +1,4 @@
-<a class="lienCard" href="google.com">
+<a class="lienCard" href="{{$lien}}">
     <div class="cardLogement">
         <img src="maison.jpg" alt="maison">
 

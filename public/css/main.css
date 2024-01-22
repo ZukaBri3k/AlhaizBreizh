@@ -349,7 +349,7 @@ CSS du composant Card début
 ***********************************************************************************************************/
 
 .cardLogement {
-    margin: 0;
+    margin: 0 0 5vh 0;
     padding: 0;
     width: 284px;
     height: 389px;
@@ -362,7 +362,7 @@ CSS du composant Card début
 }
 
 .cardLogement img {
-    width: 99%;
+    width: 100%;
     border-radius: 10px  10px 0 0;
 }
 
@@ -391,7 +391,7 @@ CSS du composant Card début
 }
 
 .desc {
-    width: 100%;
+    width: 99%;
     height: 70px;
     overflow: hidden;
 }

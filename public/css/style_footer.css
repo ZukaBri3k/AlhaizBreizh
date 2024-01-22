@@ -1,11 +1,11 @@
-footer {
-    background-color: #F6F5EE;
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 400;
+    src: url("{{asset('/fonts/Montserrat-Regular.woff2')}}") format("woff2");
 }
 
-@font-face {
-	font-family: "Montserrat";
-	font-weight: 400;
-	src: url("{{asset('/fonts/Montserrat-Regular.woff2')}}") format("woff2");
+footer {
+    background-color: #F6F5EE;
 }
 
 footer hr {
@@ -14,7 +14,7 @@ footer hr {
 }
 
 .haut img {
-    margin-left: 25%;
+    width: 25%;
     margin-top: 1%;
 }
 
@@ -30,23 +30,22 @@ footer hr {
     #logo_petit {
         display: block;
         width: 50%;
+        margin: auto; /* Centrer l'image sur les petits écrans */
     }
 
     footer img {
-        width: 20%;
-        margin-left: 10%;
+        width: 70%; /* Ajustez la largeur comme nécessaire */
+        margin: auto; /* Centrer l'image sur les petits écrans */
         margin-top: 5%;
     }
 }
 
 footer button {
-    width: 111.429px;
+    width: 100%; /* Ajustez la largeur comme nécessaire */
     height: 39.752px;
     border: none;
     border-radius: 6px;
     background-color: #EC3B53;
-    float: right;
-    margin-right: 5%;
     color: #FFF;
     text-align: center;
     font-size: 15px;
@@ -56,22 +55,26 @@ footer button {
 footer table {
     margin: auto;
     margin-top: 2%;
-    border-spacing: 6em 5px;
-    border-collapse: separate;
+    border-spacing: 0; /* Ajustez l'espacement entre les cellules */
+    border-collapse: collapse;
+    width: 100%; /* Utilisez la largeur complète du conteneur */
 }
 
-footer td {
+footer td, footer th {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.225px;
+    padding: 10px; /* Ajoutez un remplissage pour un espacement */
+    text-align: center; /* Centrez le texte */
 }
 
 footer a {
     outline: none;
     text-decoration: none;
+    color: rgba(0, 0, 0, 0.75);
 }
 
 footer a:link {
@@ -81,16 +84,8 @@ footer a:link {
 .haut {
     display: flex;
     align-items: baseline;
-}
-
-footer th {
-    color: #000;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: -0.225px;
+    flex-wrap: wrap; /* Permettre le passage à la ligne sur les petits écrans */
+    justify-content: space-around; /* Espacement égal entre les éléments */
 }
 
 footer div p {
@@ -101,24 +96,29 @@ footer div p {
     font-weight: 500;
     line-height: 24px;
     letter-spacing: -0.225px;
-    margin-left: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center; /* Centrez le texte */
 }
 
 .bas img {
-    width: 67.714px;
-    height: 78.509px;
+    width: 50px; /* Ajustez la largeur comme nécessaire */
+    height: auto; /* Ajustez la hauteur automatiquement */
     margin-left: 2%;
 }
 
 .bas {
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Permettre le passage à la ligne sur les petits écrans */
+    justify-content: space-around; /* Espacement égal entre les éléments */
     margin-top: 1%;
     padding-bottom: 3%;
+    text-align: center; /* Centrez le texte */
 }
 
 .bas a {
-    margin-left: 2%;
+    margin-top: 2%;
     color: rgba(0, 0, 0, 0.80);
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
@@ -129,6 +129,6 @@ footer div p {
 }
 
 .bas p {
-    margin-top: 0%;
-    margin-bottom: 0%;
+    margin-top: 0;
+    margin-bottom: 0;
 }

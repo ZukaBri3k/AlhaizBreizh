@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class Welcome extends Controller
 {
-    //
+    public function affichage() {
+        return view('welcome');
+    }
 }

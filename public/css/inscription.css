@@ -55,6 +55,10 @@ body {
     margin-top: 20px; /* Ajoutez une marge au-dessus de la colonne */
     margin-bottom: 20px;
   }
+
+  .col-md-6 .form-container {
+    margin: 0; /* Ajustez la marge à l'intérieur de la colonne */
+  }
 }
 
 

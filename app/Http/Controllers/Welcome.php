@@ -10,7 +10,7 @@ class Welcome extends Controller
 {
     public function affichage() {
 
-        $logements = DB::select("SELECT * FROM logement LIMIT 4");
+        $logements = DB::select("SELECT * FROM logement ORDER BY moyenne_avis_logement DESC LIMIT 4");
 
         foreach ($logements as $logement) {
             $logement->lien = "/logement/" . $logement->id_logement . "/details";

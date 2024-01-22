@@ -56,8 +56,9 @@ class AccountController extends Controller
         return View("Compte/inscription_client");
     }
 
-    public function compteClient() {
-        return View("Compte/MonCompteClient");
+    public function compteClient(Request $request) {
+        $id_personnes = DB::select('select * from personnes where id = ?', [intval($request->id)]);
+        return View("Compte/MonCompteClient" , ['personnes' => DB::select('select * from personnes where id = ?', [intval($id_personnes[0]->id)]) [0]]);
     }
 
     //--------------------------------------------------------------

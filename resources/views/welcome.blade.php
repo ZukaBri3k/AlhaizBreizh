@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
 </head>
 <body id="accueil">
-    
+    <x-Navbar></x-Navbar>
     <div>
         <div class="video-container">
             <img src="{{asset('/img/paysage.jpg')}}" />
@@ -20,7 +20,7 @@
         <h2>Logements les mieux notés :</h2>
         <div class="liste-card">
             @foreach ($logements as $logement)
-                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->descriptif_logement}}" note=0 prix={{$logement->prix_logement}}></x-Card>
+                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->descriptif_logement}}" note=0 prix="{{$logement->prix_logement}}"></x-Card>
             @endforeach
         </div>
     </section>

@@ -15,7 +15,7 @@ class Card extends Component
         public string $titre,
         public string $desc,
         public int $note,
-        public int $prix
+        public string $prix
         )
     {
         $this->titre = $titre;

@@ -11,7 +11,7 @@
     <x-Navbar></x-Navbar>
     <div>
         <div class="video-container">
-            <img src="{{/img/paysage.jpg}}" />
+            <img src="{{asset('/img/paysage.jpg')}}" />
         </div>
         <h1>Découvrez les meilleurs<br> logements<br> de toute la Bretagne</h1>
     </div>

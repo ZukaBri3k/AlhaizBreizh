@@ -19,7 +19,7 @@
     <section class="mieuxNote">
         <h2>Logements les mieux notés :</h2>
         <div class="liste-card">
-            <x-Card titre="test titre" desc="Voilà une description" note="5.0" prix="100"></x-Card>
+            <x-Card titre="test titre" desc="Voilà une description" note=5.0 prix=100></x-Card>
         </div>
     </section>
 

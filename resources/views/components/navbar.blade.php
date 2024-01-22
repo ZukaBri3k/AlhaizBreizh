@@ -3,12 +3,12 @@
 @if ($role == 1)
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
-        <a href="#" class="navbar-brand logo_m">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
@@ -53,7 +53,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
-                        <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myClientAccount', ['id' => 1])}}" class="dropdown-item">Profile</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon compte propriétaire</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
@@ -183,12 +183,12 @@ function removeBlur() {
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
-        <a href="#" class="navbar-brand logo_m">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
@@ -233,7 +233,7 @@ function removeBlur() {
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
-                        <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myClientAccount', ['id' => 1])}}" class="dropdown-item">Profile</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon Compte Client</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
@@ -367,12 +367,12 @@ function removeBlur() {
 @endauth
 @guest
 <link rel="stylesheet" href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
-        <a href="#" class="navbar-brand logo_m">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">

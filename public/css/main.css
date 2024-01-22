@@ -370,6 +370,7 @@ CSS du composant Card début
     display: block;
     width: 20px;
     height: 20px;
+    margin-left: 1vw;
     background-image: url("/img/etoile.png");
     background-size: contain;
 }
@@ -382,7 +383,7 @@ CSS du composant Card début
 
 .note {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-right: 15px;
 }
 

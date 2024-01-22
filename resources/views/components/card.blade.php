@@ -1,4 +1,21 @@
+<a class="lienCard" href="google.com">
+    <div class="card">
+        <img src="maison.jpg" alt="maison">
 
-<div id="card">
-    <h1>{{ $title }}</h1>
-</div>
+        <div>
+            <div class="premLigne">
+                <h3>{{$titre}}</h3>
+                <div class="note">
+                    <i class="icon"></i>
+                    <p>{{$note}}</p>
+                </div>            
+            </div>
+            <div class="desc">
+                <p>{{$desc}}</p>
+            </div>
+        </div>
+        <div class="prix">
+            <p><strong>{{$prix}}</strong> par nuit</p>
+        </div>
+    </div> 
+</a>

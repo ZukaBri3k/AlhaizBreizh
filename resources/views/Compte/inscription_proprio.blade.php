@@ -64,7 +64,7 @@
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
-                    <input type="file" id="photo_pers" name="profile-pic" style="display: none;">
+                    <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
                     <div id="profile-pic-message"></div>
                     <div id="profile-pic-preview"></div>
                     <script>

@@ -10,8 +10,9 @@ class Welcome extends Controller
 {
     public function affichage() {
 
-        dd(DB::select("SELECT * FROM logement"));
+        $logements = DB::select("SELECT * FROM logement");
+        dd($logements[0].id_logement);
 
-        return view('welcome');
+        return view('welcome', ['logements' => $logement]);
     }
 }

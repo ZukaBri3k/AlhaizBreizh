@@ -19,7 +19,8 @@
     <section class="mieuxNote">
         <h2>Logements les mieux notés :</h2>
         <div class="liste-card">
-            <x-Card titre="test titre" desc="Voilà une description" note=5.0 prix=100></x-Card>
+            @foreach ($logements as $logement)
+                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->descriptif_logement}}" note=0 prix={{$logement->prix_logement}}></x-Card>
         </div>
     </section>
 

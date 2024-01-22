@@ -18,7 +18,10 @@ class Card extends Component
         public int $prix
         )
     {
-        //
+        $this->titre = $titre;
+        $this->desc = $desc;
+        $this->note = $note;
+        $this->prix = $prix;
     }
 
     /**

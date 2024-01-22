@@ -16,11 +16,11 @@
     <x-Navbar></x-Navbar>
     <main class="container">
         <h1 class="text-center">Création de votre compte propriétaire</h1>
+        <form action="{{route('proprio_register')}}" method="get">
         <div class="row lapage">
             <div class="col-md-6">
                 <h2>Informations Personnelles publiques</h2>
                 <div class="form-container">
-                <form action="{{route('proprio_register')}}" method="get">
                 <label for="civilite_pers">Civilité:</label>
                 <select id="civilite_pers" name="civilite_pers" class="form-control">
                     <option selected disabled hidden>Genre</option>
@@ -45,8 +45,8 @@
                     </script>
 
             
-                    <label for="name">Nom:</label>
-                    <input type="text" id="name" name="name" placeholder="Entrez votre nom" class="form-control">
+                    <label for="nom_pers">Nom:</label>
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control">
 
                     <label for="prenom_pers">Prénom:</label>
                     <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom"

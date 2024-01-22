@@ -45,16 +45,15 @@
                     </script>
 
             
-                    <label for="nom_pers">Nom:</label>
-                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control">
+                    <label for="name">Nom:</label>
+                    <input type="text" id="name" name="name" placeholder="Entrez votre nom" class="form-control">
 
                     <label for="prenom_pers">Prénom:</label>
                     <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom"
                         class="form-control">
 
                     <label for="pseudo_pers">Pseudo:</label>
-                    <input type="text" id="pseudo_pers" name="pseudo_pers" placeholder="Choisissez un pseudo"
-                        class="form-control">
+                    <input type="text" id="pseudo_pers" name="pseudo_pers" placeholder="Choisissez un pseudo" class="form-control">
 
                     <label for="ville_pers">Ville:</label>
                     <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control">

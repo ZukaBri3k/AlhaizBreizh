@@ -49,8 +49,7 @@
                     <input type="text" id="name" name="name" placeholder="Entrez votre nom" class="form-control">
 
                     <label for="firstname">Prénom:</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="Entrez votre prénom"
-                        class="form-control">
+                    <input type="text" id="firstname" name="firstname" placeholder="Entrez votre prénom" class="form-control">
 
                     <label for="username">Pseudo:</label>
                     <input type="text" id="username" name="username" placeholder="Choisissez un pseudo"

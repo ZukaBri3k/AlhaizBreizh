@@ -399,6 +399,7 @@ CSS du composant Card début
 
 .prix p {
     margin: 0;
+    color: #EC3B53;
 }
 
 .prix, .premLigne, .desc{

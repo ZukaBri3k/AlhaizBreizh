@@ -21,6 +21,7 @@
         <div class="liste-card">
             @foreach ($logements as $logement)
                 <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->descriptif_logement}}" note=0 prix={{$logement->prix_logement}}></x-Card>
+            @endforeach
         </div>
     </section>
 

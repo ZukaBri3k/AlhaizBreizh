@@ -18,6 +18,7 @@
     <x-Navbar></x-Navbar>
     <main class="container">
         <h1 class="text-center">Création de votre compte client</h1>
+        <form action="{{route('proprio_register')}}" method="get">
         <div class="row lapage">
             <div class="col-md-6">
                 <h2>Informations Personnelles publiques</h2>
@@ -25,7 +26,7 @@
                     <label for="civilite_pers">Civilité:</label>
                     <select id="civilite_pers" name="civilite_pers" class="form-control">
                     <option selected disabled hidden>civilite</option>
-                    <option value="none">none</option>
+                    <option value="--">none</option>
                     <option value="M.">M.</option>
                     <option value="MME.">MME.</option>
                 </select>
@@ -45,21 +46,21 @@
                         }
                     </script>
 
-                    <label for="name">Nom:</label>
-                    <input type="text" id="name" name="name" placeholder="Entrez votre nom" class="form-control">
+                    <label for="nom_pers">Nom:</label>
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control">
 
-                    <label for="firstname">Prénom:</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="Entrez votre prénom" class="form-control">
+                    <label for="prenom_pers">Prénom:</label>
+                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control">
 
-                    <label for="username">Pseudo:</label>
-                    <input type="text" id="username" name="username" placeholder="Choisissez un pseudo"
+                    <label for="pseudo_pers">Pseudo:</label>
+                    <input type="text" id="pseudo_pers" name="pseudo_pers" placeholder="Choisissez un pseudo"
                         class="form-control">
 
-                    <label for="city">Ville:</label>
-                    <input type="text" id="city" name="city" placeholder="Entrez votre ville" class="form-control">
+                    <label for="ville_pers">Ville:</label>
+                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control">
 
-                    <label for="country">Pays:</label>
-                    <input type="text" id="country" name="country" placeholder="Entrez votre pays"
+                    <label for="pays_pers">Pays:</label>
+                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays"
                         class="form-control">
 
                         <label for="profile-pic">
@@ -97,32 +98,32 @@
             <div class="col-md-6 divider">
                 <h2 class="h2">Informations Personnelles privées</h2>
                 <div class="form-container">
-                    <label for="address">Adresse:</label>
-                    <input type="text" id="address" name="address" placeholder="Entrez votre adresse"
+                    <label for="adresse_pers">Adresse:</label>
+                    <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Entrez votre adresse"
                         class="form-control">
 
-                    <label for="postal-code">Code Postal:</label>
-                    <input type="text" id="postal-code" name="postal-code" placeholder="Entrez votre code postal"
+                    <label for="code_postal_pers">Code Postal:</label>
+                    <input type="text" id="code_postal_pers" name="code_postal_pers" placeholder="Entrez votre code postal"
                         class="form-control">
 
-                    <label for="birthdate">Date de Naissance:</label>
-                    <input type="date" id="birthdate" name="birthdate" placeholder="Entrez votre date de naissance"
+                    <label for="date_de_naissance">Date de Naissance:</label>
+                    <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Entrez votre date de naissance"
                         class="form-control">
 
-                    <label for="phone">Numéro de Téléphone:</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Entrez votre numéro de téléphone"
+                    <label for="telephone_pers">Numéro de Téléphone:</label>
+                    <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
                         class="form-control">
 
-                    <label for="email">Adresse E-mail:</label>
-                    <input type="email" id="email" name="email" placeholder="Entrez votre adresse E-mail"
+                    <label for="mail_pers">Adresse E-mail:</label>
+                    <input type="email" id="mail_pers" name="mail_pers" placeholder="Entrez votre adresse E-mail"
                         class="form-control">
 
                     <label for="password">Mot de Passe:</label>
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
                         class="form-control">
 
-                    <label for="confirm-password">Confirmation du Mot de Passe:</label>
-                    <input type="password" id="confirm-password" name="confirm-password"
+                    <label for="confirmerMotDePasse">Confirmation du Mot de Passe:</label>
+                    <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"
                         placeholder="Confirmez votre mot de passe" class="form-control">
 
                     <label for="iban">IBAN:</label>

@@ -11,7 +11,7 @@ class Welcome extends Controller
     public function affichage() {
 
         $logements = DB::select("SELECT * FROM logement");
-        dd($logements[0].id_logement);
+        dd($logements[0]["id_logement"]);
 
         return view('welcome', ['logements' => $logement]);
     }

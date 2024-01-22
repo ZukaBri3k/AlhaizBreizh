@@ -366,7 +366,7 @@ CSS du composant Card début
     border-radius: 10px  10px 0 0;
 }
 
-.icon {
+.cardLogement .icon {
     display: block;
     width: 20px;
     height: 20px;

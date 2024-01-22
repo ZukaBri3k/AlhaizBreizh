@@ -6,8 +6,8 @@
             <div class="premLigne">
                 <h3>{!!$titre!!}</h3>
                 <div class="note">
-                    <i class="icon"></i>
                     <p>{{$note}}</p>
+                    <i class="icon"></i>
                 </div>            
             </div>
             <div class="desc">

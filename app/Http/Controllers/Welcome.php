@@ -10,7 +10,7 @@ class Welcome extends Controller
 {
     public function affichage() {
 
-        dd(DB::table('logement'));
+        dd(DB::select("SELECT * FROM logement"));
 
         return view('welcome');
     }

@@ -89,7 +89,7 @@ footer th {
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px; /* 160% */
+    line-height: 24px;
     letter-spacing: -0.225px;
 }
 
@@ -99,7 +99,7 @@ footer div p {
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px; /* 160% */
+    line-height: 24px;
     letter-spacing: -0.225px;
     margin-left: 5%;
 }
@@ -124,7 +124,7 @@ footer div p {
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 160% */
+    line-height: 24px;
     letter-spacing: -0.225px;
 }
 

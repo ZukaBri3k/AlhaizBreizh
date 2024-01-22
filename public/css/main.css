@@ -363,6 +363,7 @@ CSS du composant Card début
 
 .cardLogement img {
     width: 100%;
+    height: 50%;
     border-radius: 10px  10px 0 0;
 }
 

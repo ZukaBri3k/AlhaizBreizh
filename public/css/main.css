@@ -342,7 +342,7 @@ CSS du composant Card début
 ************************************************************************************************************
 ***********************************************************************************************************/
 
-.card {
+.cardLogement {
     margin: 0;
     padding: 0;
     width: 284px;
@@ -355,7 +355,7 @@ CSS du composant Card début
     justify-content: space-between;
 }
 
-.card img {
+.cardLogement img {
     width: 100%;
     border-radius: 10px  10px 0 0;
 }
@@ -408,7 +408,7 @@ CSS du composant Card début
     color: black;
 }
 
-.card h3 {
+.cardLogement h3 {
     margin: 0;
 }
 

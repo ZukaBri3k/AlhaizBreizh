@@ -91,7 +91,7 @@
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="mdp_pers">mot de passe</label>
-                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" placeholder="mot de passe" />
                         </div>
                         @foreach($errors->all() as $error)
                           {{ $error }}
@@ -271,7 +271,7 @@ function removeBlur() {
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="mdp_pers">mot de passe</label>
-                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" placeholder="mot de passe" />
                         </div>
                         @foreach($errors->all() as $error)
                           {{ $error }}
@@ -456,7 +456,7 @@ function removeBlur() {
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="mdp_pers">mot de passe</label>
-                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" placeholder="mot de passe" />
                         </div>
                         @foreach($errors->all() as $error)
                           {{ $error }}

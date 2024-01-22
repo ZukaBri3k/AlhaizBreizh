@@ -12,6 +12,10 @@ class Welcome extends Controller
 
         $logements = DB::select("SELECT * FROM logement");
 
+        foreach ($logements as $logement) {
+            $logement->lien = "site-sae-ubisoufte.bigpapoo.com/logement/" . $logement->id_logement . "/details";
+        }
+
         return view('welcome', ['logements' => $logements]);
     }
 }

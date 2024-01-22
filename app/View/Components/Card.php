@@ -15,13 +15,15 @@ class Card extends Component
         public string $titre,
         public string $desc,
         public int $note,
-        public string $prix
+        public string $prix,
+        public string $lien
         )
     {
         $this->titre = $titre;
         $this->desc = $desc;
         $this->note = $note;
         $this->prix = $prix;
+        $this->lien = $lien;
     }
 
     /**

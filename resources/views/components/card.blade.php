@@ -1,6 +1,6 @@
 <a class="lienCard" href="{{$lien}}">
     <div class="cardLogement">
-        <img src="maison.jpg" alt="maison">
+        <img src="{{asset('/img/logements/logement{{$id}}/couverture.jpg')}}" alt="Image de couverture de la maison">
 
         <div>
             <div class="premLigne">

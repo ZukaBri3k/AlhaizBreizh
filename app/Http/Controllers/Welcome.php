@@ -14,6 +14,7 @@ class Welcome extends Controller
 
         foreach ($logements as $logement) {
             $logement->lien = "/logement/" . $logement->id_logement . "/details";
+            $logement->id = $logement->id_logement;
         }
 
         return view('welcome', ['logements' => $logements]);

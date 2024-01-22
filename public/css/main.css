@@ -254,14 +254,14 @@ CSS de la d'accueil début
     z-index: -1;
 }
 
-video {
+.video-container img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: bottom;
 }
 
-header h1 {
+.accueil .video-container h1 {
     text-align: center;
     position: absolute;
     top: 30vh;
@@ -269,35 +269,35 @@ header h1 {
     color: white;
 }
 
-body {
+.accueil {
     background-color: #F6F5EE;
 }
 
-.mieuxNote {
+.accueil .mieuxNote {
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
 }
 
-.mieuxNote h2 {
+.accueil .mieuxNote h2 {
     text-align: center;
     color: #EC3B53;
     margin-top: 50px;
 }
 
-.liste-card {
+.accueil .liste-card {
     display: flex;
     justify-content: flex-start;
     margin-top: 100px;
 }
 
-.liste-card .card {
+.accueil .liste-card .card {
     margin-right: 37.5px;
     margin-left: 37.5px;
 }
 
-.autres .liste-logement{
+.accueil .autres .liste-logement{
     display: flex;
     position: relative;
     justify-content: center;
@@ -305,13 +305,13 @@ body {
     flex-wrap: wrap;
 }
 
-.autres .liste-logement .card {
+.accueil .autres .liste-logement .card {
     margin-bottom: 50px;
     margin-right: 37.5px;
     margin-left: 37.5px;
 }
 
-.autres h2 {
+.accueil .autres h2 {
     text-align: center;
     color: #EC3B53;
     margin: 50px 50px;

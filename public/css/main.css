@@ -292,7 +292,7 @@ CSS de la d'accueil début
 
 #accueil .liste-card {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: 100px;
 }
 

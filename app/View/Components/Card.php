@@ -14,7 +14,7 @@ class Card extends Component
     public function __construct(
         public string $titre,
         public string $desc,
-        public int $note,
+        public string $note,
         public string $prix,
         public string $lien,
         public string $id

@@ -247,10 +247,6 @@ CSS de la d'accueil début
 ************************************************************************************************************
 ***********************************************************************************************************/
 
-.accueil {
-    background-color: red;
-}
-
 .video-container {
     width: 100%;
     height: 100vh;
@@ -265,7 +261,7 @@ CSS de la d'accueil début
     object-position: bottom;
 }
 
-.accueil h1{
+#accueil h1{
     text-align: center;
     position: absolute;
     top: 30vh;
@@ -273,35 +269,35 @@ CSS de la d'accueil début
     color: white;
 }
 
-.accueil {
+#accueil {
     background-color: #F6F5EE;
 }
 
-.accueil .mieuxNote {
+#accueil .mieuxNote {
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
 }
 
-.accueil .mieuxNote h2 {
+#accueil .mieuxNote h2 {
     text-align: center;
     color: #EC3B53;
     margin-top: 50px;
 }
 
-.accueil .liste-card {
+#accueil .liste-card {
     display: flex;
     justify-content: flex-start;
     margin-top: 100px;
 }
 
-.accueil .liste-card .card {
+#accueil .liste-card .card {
     margin-right: 37.5px;
     margin-left: 37.5px;
 }
 
-.accueil .autres .liste-logement{
+#accueil .autres .liste-logement{
     display: flex;
     position: relative;
     justify-content: center;
@@ -309,13 +305,13 @@ CSS de la d'accueil début
     flex-wrap: wrap;
 }
 
-.accueil .autres .liste-logement .card {
+#accueil .autres .liste-logement .card {
     margin-bottom: 50px;
     margin-right: 37.5px;
     margin-left: 37.5px;
 }
 
-.accueil .autres h2 {
+#accueil .autres h2 {
     text-align: center;
     color: #EC3B53;
     margin: 50px 50px;

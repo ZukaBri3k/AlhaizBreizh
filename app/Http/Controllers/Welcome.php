@@ -12,6 +12,6 @@ class Welcome extends Controller
 
         $logements = DB::select("SELECT * FROM logement");
 
-        return view('welcome', ['logements' => $logement]);
+        return view('welcome', ['logements' => $logements]);
     }
 }

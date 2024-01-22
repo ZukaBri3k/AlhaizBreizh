@@ -6,6 +6,7 @@ use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\AccountController;
 use \App\Http\Controllers\Logement;
 use \App\Http\Controllers\Devis;
+use \App\Http\Controllers\Welcome;
 
 /*
 |--------------------------------------------------------------------------

@@ -319,6 +319,7 @@ CSS de la d'accueil début
 
 #accueil nav {
     background-color: rgba(0, 0, 0, 0);
+    position: absolute;
 }
 
 #accueil nav + hr {

@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Données envoyées avec succès !', response);
       },
       error: function(error) {
-        console.error('Erreur lors de l\'envoi des données :', error);
+        alert('Erreur lors de l\'envoi des données :', error);
       }
     });
   });

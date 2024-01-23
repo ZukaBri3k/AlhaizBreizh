@@ -27,22 +27,22 @@
 
     <section class="autres">
         <h2>Nos logements les plus récents</h2>
-        <div class="liste-card">
-            <div>
-                <script>
+        <div>
+            <script>
 
-                    function test() {
-                        let listeLogement = @json($logementsRecents);
-                        listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
-                        
-                        let ListeCard = document.getElementsByClassName("liste-card")[1];
-                        let card = ListeCard.children[0];
-                        ListeCard.removeChild(card);
-                        ListeCard.appendChild(card);
-                    }
-                </script>
-                <button onclick="test()">Test</button>
-            </div>
+                function test() {
+                    let listeLogement = @json($logementsRecents);
+                    listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
+                    
+                    let ListeCard = document.getElementsByClassName("liste-card")[1];
+                    let card = ListeCard.children[0];
+                    ListeCard.removeChild(card);
+                    ListeCard.appendChild(card);
+                }
+            </script>
+            <button onclick="test()">Test</button>
+        </div>
+        <div class="liste-card">
             @foreach ($logementsRecents as $logement)
                 <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}"></x-Card>
             @endforeach

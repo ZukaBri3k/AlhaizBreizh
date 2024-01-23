@@ -178,12 +178,12 @@ class AccountController extends Controller
         }
 
         $tabcle = [
-            $id,
             $cle,
-            $privi
+            $privi,
+            $id
         ];
 
-        DB::insert('insert into cle(cle, id_personnes, privilege) values(?, ?, ? )', $tabcle);
+        DB::insert('insert into cle(cle, privilege, id_personnes) values(?, ?, ? )', $tabcle);
         return redirect()->route('myClientAccount', ['id' => $id]);
     }
 }

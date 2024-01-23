@@ -37,12 +37,44 @@
     },
     editable: true,
     droppable: true, // this allows things to be dropped onto the calendar
+    eventOverlap: false,
+    eventResizableFromStart: true,  
     eventClick: function(info) {
+      console.log("Event Clicked:", info.event);
+
       if (confirm("Voulez-vous vraiment supprimer cet événement?")) {
-        calendar.getEventById(info.event.id).remove(); // Supprime l'événement du calendrier
+        console.log("User confirmed deletion");
+
+        info.event.remove(); // Supprime l'événement du calendrier
+
+        // Supprimer l'événement du tableau
+        var index = eventsArray.findIndex(function(event) {
+          return event.id === info.event.id;
+        });
+
+        if (index !== -1) {
+          eventsArray.splice(index, 1);
+        }
+
+        console.log("After removal:", eventsArray);
       }
     },
-    
+    eventReceive: function(info) {
+      // Ajouter l'événement au tableau lorsque reçu
+      eventsArray.push(info.event);
+      console.log("Event received and added to array:", info.event);
+      console.log("Current array:", eventsArray);
+    },
+    eventDidMount: function(info) {
+      // Appliquer des styles spécifiques après le rendu
+      if (info.event.title === 'réservé') {
+        info.el.style.backgroundColor = 'red';
+        info.el.style.color = 'white';
+      } else if (info.event.title === 'indisponible') {
+        info.el.style.backgroundColor = 'gray';
+        info.el.style.color = 'white';
+      }
+    },
   });
 
   calendar.render();  
@@ -56,11 +88,11 @@
     <strong>Draggable Events</strong>
   </p>
 
-  <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-    <div class='fc-event-main ' id='1'>réservé</div>
+  <div class='fc-event fc-h-eventres fc-daygrid-event fc-daygrid-block-event' data-title="réservé">
+    <div class='fc-event-main 'data-title="réservé">réservé</div>
   </div>
-  <div class='fc-event fc-h-event  fc-daygrid-event fc-daygrid-block-event'>
-    <div class='fc-event-main'>indisponible</div>
+  <div class='fc-event fc-h-eventindis  fc-daygrid-event fc-daygrid-block-event' data-title="indisponible  ">
+    <div class='fc-event-main' data-title="indisponible">indisponible</div>
   </div>
 
 </div>
@@ -104,19 +136,38 @@
   max-width: 1100px;
   margin: 20px auto;
 }
-.fc-h-event1{
-  background-color:red;   
-}
-.fc-daygrid-event.fc-h-event{
-  background-color:red; 
-  
-}
-.fc-h-event .fc-event-main {
+
+.fc-h-event .fc-event-main  {
   color: black; 
   font-size: large;
   font-style: italic;
 }
+
+  /* Style pour un événement spécifique (par exemple, réservé) */
+  .fc-event-draggable.fc-event[data-title="réservé"] {
+    background-color: red !important;
+    color: white !important;
+  }
+
+  /* Style pour un autre événement spécifique (par exemple, indisponible) */
+  .fc-event-draggable.fc-event[data-title="indisponible"] {
+    background-color: gray !important;
+    color: white !important;
+  }
+  .fc-h-eventindis{
+  background-color: gray !important;
+  color: black; 
+  font-size: large;
+  font-style: italic;
+ }
+ .fc-h-eventres{
+  background-color: red !important;
+  color: black; 
+  font-size: large;
+  font-style: italic;
+ }
   </style>
+
 
   
 </body>

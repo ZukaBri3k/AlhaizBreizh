@@ -182,14 +182,6 @@ class AccountController extends Controller
             privilege)
             values(
                 ?, ?, ? )',$id, $cle, $privi);
-        return redirect()->back();
-        
+        return redirect()->route('myClientAccount');
     }
-}  
-
-           
-
-
-
-
-
+}

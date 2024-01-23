@@ -31,7 +31,7 @@
             <div>
                 <script>
                     let listeLogement = @json($logementsRecents);
-                    listeLogement = listeLogement.sort((a, b) => (a.prix_logement > b.prix_logement) ? -1 : 1);
+                    listeLogements.sort((a, b) => a.prix_logement - b.prix_logement);
                     console.log(listeLogement);
                 </script>
             </div>

@@ -19,7 +19,7 @@ use \App\Http\Controllers\Welcome;
 |
 */
 
-Route::get('/', [Welcome::class, "affichage"])->name('accueil');
+Route::get('/{mode}', [Welcome::class, "affichage"])->name('accueil');
 
 Route::prefix('/devis')->group(function () {
 

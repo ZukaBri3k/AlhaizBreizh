@@ -17,7 +17,7 @@
                 <h3>Pages</h3>
                 <ul>
                     <li><a href="{{route('devis-client')}}">Messagerie</a></li>
-                    <li><a href="{{route('inscription_proprio_pop')}}">Propriétaire</a></li>
+                    <li><a href="{{route('inscription_proprio')}}">Propriétaire</a></li>
                     <li><a href="#">À propos</a></li>
                 </ul>
             </div>

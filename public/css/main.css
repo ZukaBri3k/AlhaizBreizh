@@ -355,6 +355,10 @@ nav {
     position: absolute;
 }
 
+#accueil nav > div {
+    position: sticky;
+}
+
 #accueil nav + hr {
     display: none;
 }

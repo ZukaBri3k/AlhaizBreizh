@@ -29,18 +29,27 @@
         <h2>Nos logements les plus récents</h2>
         <div>
             <script>
-
-                function test() {
-                    
+                let tri = 0;
+                function TriPrix() {
                     let ListeCard = document.querySelectorAll(".autres .lienCard");
                     let tabCard = Array.from(ListeCard);
-
-                    tabCard.sort((a, b) => {
-                        let prixA = parseInt(a.classList[2]);
-                        let prixB = parseInt(b.classList[2]);
-                        return prixA - prixB;
-                    });
                     
+                    if(tri == 0) {
+                        tri = 1;
+                        tabCard.sort((a, b) => {
+                            let prixA = parseInt(a.classList[2]);
+                            let prixB = parseInt(b.classList[2]);
+                            return prixA - prixB;
+                        });
+                    } else {
+                        tri = 0;
+                        tabCard.sort((a, b) => {
+                            let prixA = parseInt(a.classList[2]);
+                            let prixB = parseInt(b.classList[2]);
+                            return prixB - prixA;
+                        });
+                    }
+
                     let conteneurCard = document.querySelector(".autres .liste-card");
                     conteneurCard.innerHTML = "";
 
@@ -48,11 +57,13 @@
                         conteneurCard.appendChild(carte);
                     });
 
+                    
+
                     //console.log(tabCard);
                     
                 }
             </script>
-            <button onclick="test()">Test</button>
+            <button onclick="triPrix()">Test</button>
         </div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)

@@ -38,7 +38,7 @@
                     tabCard.sort((a, b) => {
                         let prixA = parseInt(a.classList[2]);
                         let prixB = parseInt(b.classList[2]);
-                        return prixA - prixB;
+                        return prixB - prixA;
                     });
                     
                     let conteneurCard = document.querySelector(".autres .liste-card");

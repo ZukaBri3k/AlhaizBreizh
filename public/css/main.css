@@ -354,11 +354,15 @@ CSS du composant Card début
     width: 284px;
     height: 389px;
     border-radius: 10px;
-    border: 1px #6D6D6D solid ;
     background-color: #F6F5EE;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.cardLogement:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    background-color: #d0d0ce;
 }
 
 .cardLogement img {

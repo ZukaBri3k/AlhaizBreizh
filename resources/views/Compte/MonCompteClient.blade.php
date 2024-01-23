@@ -152,7 +152,7 @@
                             <label for="prive">Privilégiée</label>
                         </div>
                         <div>
-                            <input type="radio" id="nonprive" name="nonprivilege" value="nonprive">
+                            <input type="radio" id="nonprive" name="privilege" value="nonprive">
                             <label for="nonprive">Non privilégiée</label>
                         </div>
                     </div>

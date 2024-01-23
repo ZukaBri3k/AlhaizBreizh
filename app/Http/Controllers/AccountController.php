@@ -170,7 +170,7 @@ class AccountController extends Controller
         $id = auth()->user()->id;
         $cle = rand(1000000, 9999999);
 
-        if ($request->privilege == "privilege") {
+        if ($request->privilege == "prive") {
             $privi = true;
         } else {
             $privi = false;

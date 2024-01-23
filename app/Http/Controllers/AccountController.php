@@ -100,24 +100,24 @@ class AccountController extends Controller
         ];
 
 
-    DB::insert('insert into personnes(
-        
-        civilite_pers,
-        prenom_pers,
-        nom_pers,
-        pseudo_pers,
-        ville_pers,
-        pays_pers,
-        photo_pers,
-        adresse_pers,
-        code_postal_pers,
-        date_de_naissance,
-        telephone_pers,
-        password,
-        iban,
-        role,
-        mail_pers
-        )values(
+        DB::insert('insert into personnes(
+            
+            civilite_pers,
+            prenom_pers,
+            nom_pers,
+            pseudo_pers,
+            ville_pers,
+            pays_pers,
+            photo_pers,
+            adresse_pers,
+            code_postal_pers,
+            date_de_naissance,
+            telephone_pers,
+            password,
+            iban,
+            role,
+            mail_pers
+            )values(
             ?, ?, ?, ?, ?, ?, ?, 
             ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
@@ -132,6 +132,7 @@ class AccountController extends Controller
             $request->piece_id_proprio_verso,            
             "'".$request->votre_nom_proposition_devis. " " .$request->nom_logement_proposition_devis. " " . $request->nom_client_proposition_devis."'",
         ];
+
         DB::insert('insert into proprietaire(
             id_proprio,
             proposition_auto_devis,
@@ -139,7 +140,7 @@ class AccountController extends Controller
             piece_id_proprio_verso)
             values(
                 ?, ?, ?, ? )',$proprietaire);
-                return redirect()->route('accueil');
+        return redirect()->route('accueil');
     }
 
 
@@ -160,7 +161,7 @@ class AccountController extends Controller
             msg_refus_devis
             )values(?, ?, ?, ?)
             ',$client);
-            return redirect()->route('accueil');
+        return redirect()->route('accueil');
     }
 
 
@@ -181,8 +182,8 @@ class AccountController extends Controller
             $cle,
             $privi
         ];
-
+        dd($tabcle);
         DB::insert('insert into cle(cle, id_proprio, privilege) values(?, ?, ? )', $tabcle);
-        return redirect()->back();
+        return redirect()->route('myClientAccount', ['id' => $id]);
     }
 }

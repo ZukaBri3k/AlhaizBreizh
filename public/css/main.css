@@ -328,10 +328,14 @@ nav {
     margin-left: 37.5px;
 }
 
+#accueil .autres {
+    padding-top: 50px;
+}
+
 #accueil .autres h2 {
     text-align: center;
     color: #EC3B53;
-    margin: 50px 50px;
+    margin: 0px 50px 50px 50px;
 }
 
 #accueil nav {

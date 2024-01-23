@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="prix">
-            <p><strong>{{$prix}}</strong> par nuit</p>
+            <p><strong>{{$prix}}</strong> € par nuit</p>
         </div>
     </div> 
 </a>

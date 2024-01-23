@@ -34,7 +34,7 @@
                     let listeLogement = @json($logementsRecents);
                     listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
                     
-                    let ListeCard = document.querrySelectorAll(".autres .lienCard");
+                    let ListeCard = document.querySelectorAll(".autres .lienCard");
                     console.log(ListeCard);
                     //console.log(ListeCard.children[0].children[0].children[2].children[0].children[0].textContent);
                     

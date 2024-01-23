@@ -18,6 +18,8 @@
   <div class='fc-event fc-h-eventindis  fc-daygrid-event fc-daygrid-block-event' data-title="indisponible  ">
     <div class='fc-event-main' data-title="indisponible">indisponible</div>
   </div>
+  <button id="validate-button">Valider</button>
+
 
 </div>
 

@@ -37,7 +37,7 @@
                         
                         let ListeCard = document.getElementsByClassName("liste-card")[1];
                         let card = ListeCard.getElementsByClassName("cardLogement")[0];
-                        ListeCard.deleteChild(card);
+                        ListeCard.removeChild(card);
                         ListeCard.appendChild(card);                    
                     }
                 </script>

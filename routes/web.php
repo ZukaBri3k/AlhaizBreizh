@@ -6,6 +6,8 @@ use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\AccountController;
 use \App\Http\Controllers\Logement;
 use \App\Http\Controllers\Devis;
+use \App\Http\Controllers\Welcome;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,7 @@ use \App\Http\Controllers\Devis;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('accueil');
+Route::get('/', [Welcome::class, "affichage"])->name('accueil');
 
 Route::prefix('/devis')->group(function () {
 
@@ -64,3 +64,10 @@ Route::prefix('/account')->group(function () {
 });
 
 Route::get('test', [Logement::class, 'ajouterLogementDB']);
+
+
+Route::get('/testcal', function () {
+    return view('/calendrier/calendrier');
+})->name('calendrier');
+
+Route::post('mettre-a-jour-disponibilite', 'CalController@mettreAJourDisponibilite');

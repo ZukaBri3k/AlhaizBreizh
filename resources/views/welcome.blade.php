@@ -44,9 +44,8 @@
                     let conteneurCard = document.querySelector(".autres .liste-card");
                     conteneurCard.innerHTML = "";
 
-                    tabCard.reverse();
                     tabCard.forEach((carte) => {
-                        conteneurCartes.appendChild(carte);
+                        conteneurCard.appendChild(carte);
                     });
 
                     //console.log(tabCard);

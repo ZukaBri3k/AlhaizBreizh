@@ -54,7 +54,7 @@ Route::prefix('/account')->group(function () {
     Route::get('client/register', [AccountController::class, "inscriptionClient"])->name('inscription_client');
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::post('genereCle/{privilege}', [AccountController::class, 'generationCle'])->name('genereCle')->middleware(['auth', 'isClient']);
+    Route::post('genereCle/', [AccountController::class, 'generationCle'])->name('genereCle')->middleware(['auth', 'isClient']);
     Route::get('/client/profil/{id}', [AccountController::class, "compteClient"])->where('id', '[0-9]+')->name('myClientAccount')->middleware(['auth', 'isClient']);
     Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);

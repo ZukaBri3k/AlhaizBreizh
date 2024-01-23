@@ -143,16 +143,16 @@
                 </div>
                 <hr>
             </div>
-            <form action="{{route('genereCle')}}" method="get" class="api">
+            <form action="{{route('genereCle', )}} " method="post" class="api">
                 <h3>Générer sa clé :</h3>
                 <div class="elem">
                     <div class="radio_form">
                         <div>
-                            <input type="radio" id="prive" name="cle" value="prive" checked>
+                            <input type="radio" id="prive" name="privilege" value="prive" checked>
                             <label for="prive">Privilégiée</label>
                         </div>
                         <div>
-                            <input type="radio" id="nonprive" name="cle" value="nonprive">
+                            <input type="radio" id="nonprive" name="nonprivilege" value="nonprive">
                             <label for="nonprive">Non privilégiée</label>
                         </div>
                     </div>

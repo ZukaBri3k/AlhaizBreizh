@@ -35,7 +35,7 @@
                     listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
                     
                     let ListeCard = document.getElementsByClassName("liste-card")[1];
-                    console.log(ListeCard.children[0].children[0].children[2].children[0].children[0].value);
+                    console.log(ListeCard.children[0].children[0].children[2].children[0].children[0].innerHTML);
                     let card = ListeCard.children[0];
                     ListeCard.removeChild(card);
                     ListeCard.appendChild(card);

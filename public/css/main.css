@@ -251,7 +251,7 @@ CSS de la d'accueil début
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    z-index: -1;
+    z-index: -5;
 }
 
 .video-container img {
@@ -260,6 +260,10 @@ CSS de la d'accueil début
     object-fit: cover;
     object-position: bottom;
     position: fixed;
+}
+
+#accueil section {
+    background-color: #F6F5EE;
 }
 
 #accueil h1{

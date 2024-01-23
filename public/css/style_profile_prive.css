@@ -233,10 +233,15 @@ button:hover {
 /*Partie sur la clé API*/
 
 .button_api {
-    width: 21%;
+    width: 90%;
+    height: 2.2em;
     padding-top: 1%;
     padding-bottom: 1%;
     margin-left: 0;
+}
+
+.a_api {
+    width: 22% !important;
 }
 
 .button_form {

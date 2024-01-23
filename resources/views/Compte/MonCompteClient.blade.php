@@ -130,7 +130,26 @@
         <p class="line_info">Cette clé ne doit pas être partagée <strong>et être gardée privée.</strong></p>
         <div class="Donnees">
             <div class="donnees_precise">
-                <div class="elem">
+                @php
+                    foreach ($cle as $cles) {
+                        if ($cles->privilege == false) {
+                            echo "<div class='elem'>
+                                    <p>Clé :</p>
+                                    <p>" . $cle->cle . "</p>
+                                    <button class='button_api'>Supprimer sa clé</button>
+                                </div>
+                                <hr>";
+                        } else {
+                            echo "<div class='elem'>
+                                    <p>Clé privilégiée :</p>
+                                    <p>" . $cle->cle . "</p>
+                                    <button class='button_api'>Supprimer sa clé</button>
+                                </div>
+                                <hr>";
+                        }
+                    }
+                @endphp
+                <!-- <div class="elem">
                     <p>Clé :</p>
                     <p>123456789</p>
                     <button class="button_api" href="{{route('deleteCle', '123456789')}}">Supprimer sa clé</button>
@@ -141,7 +160,7 @@
                     <p>123456789</p>
                     <button class="button_api">Supprimer sa clé</button>
                 </div>
-                <hr>
+                <hr> -->
             </div>
             <form action="{{route('genereCle')}} " method="post" class="api">
                 @csrf

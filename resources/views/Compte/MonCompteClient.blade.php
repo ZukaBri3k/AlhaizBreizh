@@ -131,8 +131,8 @@
         <div class="Donnees">
             <div class="donnees_precise">
                 @php
-                    foreach ($cle as $cles) {
-                        if ($cles->privilege == false) {
+                    foreach ($cles as $cle) {
+                        if ($cle->privilege == false) {
                             echo "<div class='elem'>
                                     <p>Clé :</p>
                                     <p>" . $cle->cle . "</p>

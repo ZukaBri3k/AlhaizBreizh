@@ -259,6 +259,7 @@ CSS de la d'accueil début
     width: 100%;
     object-fit: cover;
     object-position: bottom;
+    position: fixed;
 }
 
 #accueil h1{
@@ -413,7 +414,6 @@ CSS du composant Card début
 }
 
 .prix {
-    margin-top: 5px;
     margin-bottom: 5px;
 }
 

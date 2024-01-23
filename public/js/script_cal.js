@@ -79,17 +79,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Envoyer les données au serveur Laravel via Ajax
     $.ajax({
-      url: ('/mettre-a-jour-disponibilite'),
-      method: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({ events: formattedEvents }),
-      success: function(response) {
-        console.log('Données envoyées avec succès !', response);
-      },
-      error: function(error) {
-        console.error('Erreur lors de l\'envoi des données :', error);
-      }
-    });
+        url: '/mettre-a-jour-disponibilite',
+        method: 'POST',
+        contentType: 'application/json',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: JSON.stringify({ events: formattedEvents }),
+        success: function(response) {
+          console.log('Données envoyées avec succès !', response);
+        },
+        error: function(error) {
+          console.error('Erreur lors de l\'envoi des données :', error);
+        }
+      });
   });
   
   calendar.render();  

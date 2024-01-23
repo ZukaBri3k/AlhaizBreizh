@@ -121,9 +121,7 @@ class AccountController extends Controller
             ?, ?, ?, ?, ?, ?, ?, 
             ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
-        }
-
-    
+    }
 
     public function proprio_register(Request $request) {
         $this->ajoute_personne($request,2);
@@ -142,7 +140,7 @@ class AccountController extends Controller
             values(
                 ?, ?, ?, ? )',$proprietaire);
                 return redirect()->route('accueil');
-            }
+    }
 
 
     public function client_register(Request $request) {
@@ -164,6 +162,7 @@ class AccountController extends Controller
             ',$client);
             return redirect()->route('accueil');
     }
+
 
     //--------------------------------------------------------------
     

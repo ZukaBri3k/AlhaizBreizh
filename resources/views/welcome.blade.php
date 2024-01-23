@@ -33,19 +33,22 @@
                 function triPrix() {
                     let ListeCard = document.querySelectorAll(".autres .lienCard");
                     let tabCard = Array.from(ListeCard);
+                    let btnTriPrix = document.querySelector("#btnTriPrix");
                     
                     if(tri == 0) {
                         tri = 1;
+                        btnTriPrix.innerHTML = "Trier par prix décroissant";
                         tabCard.sort((a, b) => {
-                            let prixA = parseInt(a.classList[2]);
-                            let prixB = parseInt(b.classList[2]);
+                            let prixA = parseInt(a.classList[1]);
+                            let prixB = parseInt(b.classList[1]);
                             return prixA - prixB;
                         });
                     } else {
                         tri = 0;
+                        btnTriPrix.innerHTML = "Trier par prix décroissant";
                         tabCard.sort((a, b) => {
-                            let prixA = parseInt(a.classList[2]);
-                            let prixB = parseInt(b.classList[2]);
+                            let prixA = parseInt(a.classList[1]);
+                            let prixB = parseInt(b.classList[1]);
                             return prixB - prixA;
                         });
                     }
@@ -63,7 +66,7 @@
                     
                 }
             </script>
-            <button onclick="triPrix()">Test</button>
+            <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
         </div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)

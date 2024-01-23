@@ -30,7 +30,7 @@
 <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script><!-- Cloudflare Pages Analytics -->  
 
 
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <script src="{{asset('js/script_cal.js')}}"></script>
 </body>
 </html>

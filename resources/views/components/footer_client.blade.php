@@ -10,6 +10,7 @@
 
 <body>
     <footer class="footer">
+    <hr class="footer-line">
         <div class="footer-container">
             <img src="{{asset('/img/logo_footer.png')}}" alt="IUT Logo" class="footer-logo">
             <div class="footer-column">
@@ -35,6 +36,9 @@
                     <li><a href="#">Partenaires</a></li>
                     <li><a href="#">Carrières</a></li>
                 </ul>
+            </div>
+            <div class=""footer-column>
+                <button type="button">Profile</button>
             </div>
         </div>
         <hr class="footer-line">

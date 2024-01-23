@@ -38,12 +38,13 @@
                     tabCard.sort((a, b) => {
                         let prixA = parseInt(a.classList[2]);
                         let prixB = parseInt(b.classList[2]);
-                        return prixB - prixA;
+                        return prixA - prixB;
                     });
                     
                     let conteneurCard = document.querySelector(".autres .liste-card");
                     conteneurCard.innerHTML = "";
 
+                    tabCard.reverse();
                     tabCard.forEach((carte) => {
                         conteneurCartes.appendChild(carte);
                     });

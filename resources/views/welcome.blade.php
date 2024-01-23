@@ -35,8 +35,15 @@
                     listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
                     
                     let ListeCard = document.querySelectorAll(".autres .lienCard");
-                    console.log(ListeCard);
-                    //console.log(ListeCard.children[0].children[0].children[2].children[0].children[0].textContent);
+                    let tabCard = Array.from(ListeCard);
+
+                    tabCard.sort(function(a, b) {
+                        var prixA = parseInt(a.classList[2]);
+                        var prixB = parseInt(b.classList[2]);
+                        return prixA - prixB;
+                    });
+                    
+                    console.log(tabCard);
                     
                 }
             </script>

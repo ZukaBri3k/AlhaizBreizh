@@ -176,12 +176,7 @@ class AccountController extends Controller
             $privi = false;
         }
 
-        DB::insert('insert into cle(
-            cle,
-            id_proprio,
-            privilege)
-            values(
-                ?, ?, ? )',$id, $cle, $privi);
-        return redirect()->route('myClientAccount');
+        DB::insert('insert into cle(cle, id_proprio, privilege) values(?, ?, ? )',[$id, $cle, $privi]);
+        return redirect()->back();
     }
 }

@@ -87,13 +87,28 @@ body {
 }
 
 .footer-logo {
-    width: 500px; /* Ajustez la taille selon vos besoins */
-    height: auto;
-    margin-bottom: 15px;
+    width: 300px; /* Ajustez la taille selon vos besoins */
+    height: 90px;
+    margin-top: 30px;
 }
 
 @media screen and (max-width: 900px) {
     .footer-logo {
         display: none;
     }
+}
+
+footer button {
+    width: 111.429px;
+    height: 39.752px;
+    border: none;
+    border-radius: 6px;
+    background-color: #EC3B53;
+    float: right;
+    margin-right: 5%;
+    color: #FFF;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: -0.225px;
+    margin-top: 50px;
 }

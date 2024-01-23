@@ -168,6 +168,7 @@ class AccountController extends Controller
     //--------------------------------------------------------------
 
     public function generationCle(Request $request) {
+        dd($request);
         $id = auth()->user()->id;
         $cle = rand(1000000, 9999999);
 

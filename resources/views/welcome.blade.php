@@ -27,7 +27,7 @@
 
     <section class="autres">
         <h2>Nos logements les plus récents</h2>
-        <div>
+        <div class="ListeBtnTri">
             <script>
                 let tri = 0;
                 function triPrix() {

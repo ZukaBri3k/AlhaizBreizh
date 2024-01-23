@@ -69,4 +69,4 @@ Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
 
-Route::post('/mettre-a-jour-disponibilite', 'CalController@mettreAJourDisponibilite');
+Route::post('mettre-a-jour-disponibilite', 'CalController@mettreAJourDisponibilite');

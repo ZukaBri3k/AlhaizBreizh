@@ -45,7 +45,7 @@
                         });
                     } else {
                         tri = 0;
-                        btnTriPrix.innerHTML = "Trier par prix décroissant";
+                        btnTriPrix.innerHTML = "Trier par prix croissant";
                         tabCard.sort((a, b) => {
                             let prixA = parseInt(a.classList[1]);
                             let prixB = parseInt(b.classList[1]);

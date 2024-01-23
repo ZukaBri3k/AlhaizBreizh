@@ -32,13 +32,14 @@
                 <script>
 
                     function test() {
+                        console.log("test");
                         let listeLogement = @json($logementsRecents);
                         listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
                         console.log(listeLogement);
                         $logementsRecents = listeLogement;
                     }
                 </script>
-                <button onclick="test">Test</button>
+                <button onclick="test()">Test</button>
             </div>
             @foreach ($logementsRecents as $logement)
                 <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}"></x-Card>

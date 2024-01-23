@@ -262,8 +262,13 @@ CSS de la d'accueil début
     position: fixed;
 }
 
+nav {
+    z-index: 1;
+}
+
 #accueil section {
     background-color: #F6F5EE;
+    z-index: 1;
 }
 
 #accueil h1{

@@ -76,7 +76,7 @@ class AccountController extends Controller
     public function compteProprietaire() {
         return View("Compte/MonCompteProprietaire");
     }
-      //--------------------------------------------------------------
+    //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
 
         
@@ -176,9 +176,21 @@ class AccountController extends Controller
                     ',$client);
                     return redirect()->route('accueil');
                 }
+    //--------------------------------------------------------------
+    public function generationCle(Request $request, $privilege) {
+        $id = auth()->user()->id;
+        $cle = rand(1000000, 9999999);
 
-
-            }
+        DB::insert('insert into cle(
+            cle,
+            id_proprio,
+            privilege)
+            values(
+                ?, ?, ? )',$id, $cle, $privilege);
+        return redirect()->back();
+        
+    }
+}
 
            
 

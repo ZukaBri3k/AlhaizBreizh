@@ -64,6 +64,10 @@ Route::prefix('/account')->group(function () {
 
 Route::get('test', [Logement::class, 'ajouterLogementDB']);
 
-Route::get('/testcal    ', function () {
+
+Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
+
+Route::post('/mettre-a-jour-disponibilite', 'CalController@mettreAJourDisponibilite');
+

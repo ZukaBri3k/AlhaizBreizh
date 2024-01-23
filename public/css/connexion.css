@@ -13,6 +13,7 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    transition: background-image 0.5s ease-in-out; /* Ajoutez cette ligne pour la transition */
 }
 
 

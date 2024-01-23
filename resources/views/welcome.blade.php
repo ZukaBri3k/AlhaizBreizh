@@ -31,8 +31,6 @@
             <script>
 
                 function test() {
-                    let listeLogement = @json($logementsRecents);
-                    listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
                     
                     let ListeCard = document.querySelectorAll(".autres .lienCard");
                     let tabCard = Array.from(ListeCard);
@@ -43,7 +41,14 @@
                         return prixA - prixB;
                     });
                     
-                    console.log(tabCard);
+                    let conteneurCard = document.querySelector(".autres .liste-card");
+                    conteneurCard.innerHTML = "";
+
+                    tabCard.forEach((carte) => {
+                        conteneurCartes.appendChild(carte);
+                    });
+
+                    //console.log(tabCard);
                     
                 }
             </script>

@@ -164,7 +164,8 @@ class AccountController extends Controller
             )values(?, ?, ?, ?)
             ',$client);
             return redirect()->route('accueil');
-        }
+    }
+
     //--------------------------------------------------------------
     public function generationCle(Request $request, $privilege) {
         $id = auth()->user()->id;

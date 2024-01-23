@@ -289,7 +289,8 @@ nav {
     position: absolute;
     top: 30vh;
     width: 100%;
-    color: white;
+    color: #EC3B53;
+    font-size: 30vh;
 }
 
 #accueil {
@@ -352,11 +353,15 @@ nav {
 
 #accueil nav {
     background-color: rgba(0, 0, 0, 0);
-    position: sticky;
+    position: absolute;
 }
 
 #accueil nav + hr {
     display: none;
+}
+
+#accueil footer {
+    position: relative;
 }
 
 /***********************************************************************************************************

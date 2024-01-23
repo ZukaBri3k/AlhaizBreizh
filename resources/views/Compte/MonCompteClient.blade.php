@@ -131,9 +131,9 @@
         <div class="Donnees">
             <div class="donnees_precise">
                 @php
-                $url = route('deleteCle', ['cle' => $cle->cle]);
                     foreach ($cles as $cle) {
                         if ($cle->privilege == false) {
+                            $url = route('deleteCle', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cle->cle . "</p>
@@ -141,6 +141,7 @@
                                 </div>
                                 <hr>";
                         } else {
+                            $url = route('deleteCle', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
                                     <p>" . $cle->cle . "</p>

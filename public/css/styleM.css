@@ -11,14 +11,6 @@ body {
     font-size: 18px; /* Augmentation de la taille de police par défaut */
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px; /* Augmentation de la marge intérieure */
-    text-align: center;
-    font-size: 24px; /* Augmentation de la taille de police */
-}
-
 .main {
     max-width: 1000px; /* Augmentation de la largeur du contenu principal */
     margin: 0 auto;
@@ -54,22 +46,28 @@ h2 {
 }
 
 .contact-list {
-    margin-top: -10%;
-    flex: 1;
-    padding: 40px; /* Augmentation de la marge intérieure */
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    overflow-y: auto;
+    max-height: 800px;
+    height: 600px;
 }
 
+
 .contact {
-    padding: 20px 0; /* Augmentation de la marge intérieure */
+    padding: 10px 0; /* Adjust the padding to keep the content visible */
     cursor: pointer;
     background-color: #fff;
-    margin-bottom: 4%;
+    margin-bottom: 2%; /* Adjust the margin as needed */
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 10px; /* Augmentation du rayon de la bordure */
-    height: 8%;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
+    height: 15%; /* Adjust the height as needed */
 }
+
+
 
 .contact > .texte {
     display: flex;
@@ -101,25 +99,26 @@ p5{
     display: flex;
     flex-direction: column-reverse;
     flex: 3;
-    padding: 40px;
+    padding: 20px;
     overflow-y: auto;
     max-height: 800px;
     height: 600px;
     background-color: #ebeae1;
     margin-right: 5%;
     margin-left: 2%;
-    border: 5px solid #D6D6D6; /* Ajustez la largeur et la couleur de la bordure selon vos préférences */
+    border: 5px solid #D6D6D6;
     border-radius: 10px;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 
 .message {
-    margin: 10px 0; /* Augmentation de la marge extérieure */
-    padding: 20px; /* Augmentation de la marge intérieure */
-    border-radius: 10px; /* Augmentation du rayon de la bordure */
-    font-size: 18px; /* Augmentation de la taille de police */
+    margin: 5px 0; /* Adjust the margin to make the message boxes smaller */
+    padding: 10px; /* Adjust the padding as needed */
+    border-radius: 10px;
+    font-size: 16px; /* Adjust the font size if needed */
 }
+
 
 .message-received {
     background-color: #f0f0f0;
@@ -143,19 +142,11 @@ p5{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-
-footer {
-    margin-top: 4%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px; /* Augmentation de la marge intérieure */
-    text-align: center;
-    font-size: 24px; /* Augmentation de la taille de police */
-}
-
 .container {
     display: flex;
     flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .chat-box {
@@ -234,8 +225,10 @@ footer {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-.pp{
+.pp {
     border-radius: 50%;
+    width: 40px; /* Adjust the width of the profile pictures */
+    height: 40px; /* Adjust the height of the profile pictures */
 }
 
 .bords{
@@ -257,7 +250,7 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: row;
-    height: 8%;
+    height: 15%;
 }
 
 .bouton-afficher-pdf{
@@ -270,4 +263,22 @@ footer {
     cursor: pointer;
     border: 2px solid #EC3B53;
     margin-right: 15%;
+}
+
+.texte {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-top: -5px; /* Ajustez la valeur de margin-top selon vos besoins */
+}
+
+
+@media screen and (max-width: 768px) {
+    .contact-list {
+        padding: 20px;
+    }
+
+    .contact {
+        margin-bottom: 2%;
+    }
 }

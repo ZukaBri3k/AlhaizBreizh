@@ -1,8 +1,21 @@
 @font-face {
-	font-family: 'Montserrat';
-	font-weight: 400;
-	src: url("{{asset('fonts/Montserrat-Regular.woff2')}}") format(‘woff2’),
+    font-family: 'Montserrat';
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
 }
+
+@font-face {
+    font-family: "Montserrat-Light";
+    font-weight: 400;
+    src: url("/fonts/Montserrat-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "RocaOne";
+    font-weight: 400;
+    src: url("/fonts/RocaOne-Rg.woff2") format("woff2");
+}
+
 
 body{
     --couleur1: #F6F5EE;
@@ -17,11 +30,12 @@ header>div>img{
 }
 
 main{
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: larger;
 }
 
 h1{
+    margin: 3%;
     text-align: center;
     font-size: 200%;
     font-weight: normal;
@@ -106,9 +120,6 @@ label{
     padding-right: 0px;
 }
 
-
-
-
 .barre{
     border-left: solid 1px black;
 }
@@ -173,7 +184,7 @@ label{
     margin-bottom: 20px;
 
 }
-
+/*
 .bouton_bottom{
     height: 125px;
     margin-left: 50px;
@@ -181,18 +192,18 @@ label{
     border: 1px solid black;
     border-radius: 30px;
 }
-
+*/
 .part1>form{
     display: flex;
     flex-direction: column;
 }
 
-
+/*
 .part1>form>div{
     display: flex;
     flex-direction: row;
 }
-
+*/
 .p1-3>.abc{
     display: flex;
     flex-direction: row;
@@ -216,14 +227,27 @@ label{
 
 }
 
+p{
+    margin-bottom: 6%;
+    font-size: large;
+    font-family: 'Montserrat';
+    font-weight:500;
+}
+
 .p1-3-2{
     display: flex;
     flex-direction: column;
 }
 
+.p1-3{
+    margin-top: 30%;
+}
+
 
 .p1-4{
     display: flex;
+    margin-left: -15%;
+    width: 150%;
 }
 
 .p1-4-1{
@@ -257,11 +281,11 @@ label{
 
 .p1-4>.abc>div>div{
     display: flex;
-    justify-content: space-around;
 }
 
 .p1-5{
     display: flex;
+    margin-left: -12%;
 }
 
 .p1-5-1{
@@ -286,6 +310,7 @@ label{
 .p1-5>.abc>div>div{
     display: flex;
     justify-content: space-around;
+    width: 75%;
 }
 
 .p1-5>.abc>div>div>button{
@@ -299,6 +324,8 @@ label{
 }
 .p1-6{
     display: flex;
+    width: 200%;
+    margin-left: -25%;
 }
 
 .p1-6-1{
@@ -357,7 +384,6 @@ label{
 .p1-7>.abc>div>button{
     width: 40px;
     height: 40px;
-    margin-left: 40px;
     background-color: #ffffff;
     border: 3px solid black;
     border-radius: 30px;
@@ -410,7 +436,6 @@ label{
 
 .part1>form>div{
     display: flex;
-    flex-direction: row;
 }
 
 .p2-2>.abc>div>button{
@@ -424,15 +449,24 @@ label{
 
 }
 
+.condition{
+    display: flex;
+    flex-direction: row;
+}
+
 .p2{
     display: flex;
     flex-direction: column;
 }
 
-
+.p2-3{
+    margin-top: 25%;
+    margin-left: -25%;
+}
 
 .p2-4{
     display: flex;
+    margin-left: -10%;
 }
 
 .p2-4-1>p{
@@ -456,10 +490,13 @@ label{
 
 .p2-5{
     display: flex;
+    margin-left: -35%;
+
 }
 
 .p2-5>.abc>div>div{
     display: flex;
+    width: 85%;
     justify-content: space-around;
 }
 
@@ -474,19 +511,47 @@ label{
 }
 
 .p2-7>.abc>div>button{
-    width: 40px;
+    margin-top: -3%;
     height: 40px;
-    margin-left: 40px;
+    width: 40px;
     background-color: #ffffff;
     border: 3px solid black;
     border-radius: 30px;
     margin-bottom: 20px;
+    flex-shrink: 0;
+}
 
+
+.p2-6{
+    display:flex ;
+    width: 200%;
+    margin-left: -30%;
+}
+
+.p2-7>.abc>div>div>p{
+    width: 100%;
+    margin-left: 5%;
+
+}
+
+.p1-7{
+    display:flex ;
+    flex-direction: row;
+    width: 70%;
+    margin-left: 20%;
+    margin-top: -2%;
+}
+.condition>div{
+    display: flex;
+    flex-direction: column;
+    margin-top: -5%;
 }
 
 .p2-7{
     display:flex ;
     flex-direction: row;
+    width: 70%;
+    margin-left: 20%;
 }
 
 .p2-8-1>p{
@@ -500,16 +565,13 @@ label{
 
 
 .p1{
-    padding-right: 150px;
-    margin-left: 100px;
-    margin-bottom: 60px;
-    margin-right: 0px;
+    margin-left: 12%;
+
 }
 
 
 .p2{
-    padding-left: 150px;
-    border-left: solid black 1px;
+    margin-left: 12%;
     display: flex;
     flex-direction: column;
 }
@@ -586,22 +648,7 @@ label{
     width: 100%;
 }
 
-.validation{
-    margin-left: 10%;
-    height: 100px;
-    width: 80%;
-    border: solid black 3px;
-    border-radius: 30px;
-    background-color: #ffffff;
-    margin-bottom: 100px;
-    font-size: large;
-    font-family: 'Montserrat';
 
-}
-.validation:hover{
-    background-color: black;
-    color: #ffffff;
-}
 
 .img_header2{
     
@@ -626,147 +673,303 @@ header>div{
     justify-content: space-between;
 }
 
-#btn24>img{
-    height: 40%;
-    width: 40%;
-}
-#btn25>img{
-    height: 40%;
-    width: 40%;
-}
-#btn26>img{
-    height: 40%;
-    width: 40%;
-}
 
-#btn15>img{
-    height: 40%;
-    width: 40%;
-}
-#btn16>img{
-    height: 40%;
-    width: 40%;
-}
-#btn17>img{
-    height: 40%;
-    width: 40%;
-}
-#btn18>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn5>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn6>img{
-    height: 40%;
-    width: 40%;
-}
-#btn7>img{
-    height: 40%;
-    width: 40%;
-}
-#btn8>img{
-    height: 40%;
-    width: 40%;
-}
-#btn9>img{
-    height: 40%;
-    width: 40%;
-}
-
-#btn10>img{
-    height: 40%;
-    width: 40%;
-}
-#btn11>img{
-    height: 40%;
-    width: 40%;
-}
 #btn12>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
 #btn13>img{
     height: 40%;
-    width: 40%;
+    width: 25%;
 }
 #btn14>img{
     height: 40%;
     width: 20%;
 }
 
+#btn15>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn16>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn17>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn18>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn19>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn20>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn21>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn22>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn23>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn24>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn25>img{
+    height: 40%;
+    width: 20%;
+}
+
+
+#btn24>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn25>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn26>img{
+    height: 40%;
+    width: 20%;
+}
 
 #btn27>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
+
 #btn28>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
 #btn29>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
+
 #btn30>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
+
 #btn31>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
 
 #btn32>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
+
 #btn33>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
+
 #btn34>img{
     height: 40%;
-    width: 40%;
+    width: 20%;
 }
 
-.btn_validation{
-    display: inline;
-    width: 30px;
-    height: 30px;
-    padding: 10px;
-    text-decoration: none;
-    border: black 2px solid;
-    border-radius: 50px;
-    align-items: center;
-    align-self: center;
-    background-color: white;
-    margin-left: 50px;
-    margin-bottom: 15px;
+#btn35>img{
+    height: 40%;
+    width: 20%;
 }
 
-footer{
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%; 
-        background-color: #F6F5EE;
-        color: #fff; 
-        padding: 10px; 
-        text-align: center; 
-        border: black 1px solid;
+#btn36>img{
+    height: 40%;
+    width: 20%;
 }
+
+#btn37>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn38>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn39>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn40>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn41>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn42>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn43>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn44>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn45>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn46>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn47>img{
+    height: 40%;
+    width: 20%;
+}
+
+#btn48>img{
+    height: 40%;
+    width: 20%;
+}
+
+
   .progress-container {
+    height: 2px;
     width: 100%;
-    background-color: #f1f1f1;
+    background-color: black;
   }
   
   .progress-bar {
-    height: 30px;
-    background-color: #4caf50;
+    height: 2px;
+    background-color: red;
     width: 0;
   }
+
+  .bottom_window{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    background-color: #F6F5EE;
+    color: #fff; 
+    text-align: center; 
+    height: 70px;
+
+  }
+
+  .bouton_bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+    height: 40px;
+    width: 100%;
+  }
+
+  .validation{
+    justify-content: center;
+    margin-top: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 50px;
+    width: 9%;
+    border: solid black 1px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-size: large;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+.validation:hover{
+    background-color: black;
+    color: #ffffff;
+}
+
+  .enregistrer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 50px;
+    width: 15%;
+    border: solid black 1px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-size: large;
+    font-family: 'Montserrat';
+    font-weight: bold;
+ }
+.enregistrer:hover{
+    background-color: black;
+    color: #ffffff;
+}
+
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+ 
+/* Chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+	margin:0;
+}
+ 
+/* Opéra*/
+input::-o-inner-spin-button,
+input::-o-outer-spin-button { 
+	-o-appearance: none;
+	margin:0
+}
+
+    /* Appliquez la couleur par défaut à l'image SVG à l'intérieur du bouton */
+    .monBouton svg {
+        fill: #000000; /* Couleur par défaut */
+        transition: fill 0.3s; /* Ajoute une transition fluide */
+      }
+  
+      /* Au survol du bouton, changez la couleur de l'image SVG à l'intérieur du bouton */
+      .monBouton:hover svg {
+        fill: #ff0000; /* Nouvelle couleur au survol */
+      }

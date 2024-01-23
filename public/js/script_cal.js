@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var containerEl = document.getElementById('external-events');
   var calendarEl = document.getElementById('calendar');
   var checkbox = document.getElementById('drop-remove');
-  var validateButton = document.getElementById('validate-button');
 
   // initialize the external events
   // -----------------------------------------------------------------

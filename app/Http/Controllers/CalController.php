@@ -35,7 +35,7 @@ class CalController extends Controller
                 $disponibiliteParJour[$dayName] = false;
             }
         }
-
+        CalController::where('evenement',$evenement)->update(['disponibilite'=>$disponibiliteParJour[$dayName]]);
         // Mettez à jour la base de données avec la nouvelle disponibilité
         // (remplacez cette partie par votre logique spécifique pour mettre à jour la base de données)
         // Exemple hypothétique :

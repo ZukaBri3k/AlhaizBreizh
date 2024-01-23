@@ -326,6 +326,11 @@ nav {
     margin-top: 5vh;
 }
 
+#accueil .liste-card .cardLogement:first-child {
+    margin-left: 0;
+    margin-top: 5vh;
+}
+
 #accueil .mieuxNote h2 {
     font-family: 'Montserrat';
     text-align: center;
@@ -340,28 +345,12 @@ nav {
     flex-wrap: wrap;
 }
 
-#accueil .liste-card .card {
-    margin-right: 37.5px;
-    margin-left: 37.5px;
-}
-
-#accueil .liste-card .card:first-child {
-    margin-right: 0;
-    margin-left: 37.5px;
-}
-
 #accueil .autres .liste-logement{
     display: flex;
     position: relative;
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
-}
-
-#accueil .autres .liste-logement .card {
-    margin-bottom: 50px;
-    margin-right: 37.5px;
-    margin-left: 37.5px;
 }
 
 #accueil .autres {

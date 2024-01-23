@@ -144,6 +144,7 @@
                 <hr>
             </div>
             <form action="{{route('genereCle')}} " method="post" class="api">
+                @csrf
                 <h3>Générer sa clé :</h3>
                 <div class="elem">
                     <div class="radio_form">

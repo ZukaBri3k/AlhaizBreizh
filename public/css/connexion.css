@@ -49,3 +49,7 @@ button.btn-primary:hover {
     pointer-events: none;
     user-select: none;
 }
+
+.close{
+    cursor: pointer;
+}

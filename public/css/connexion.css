@@ -52,4 +52,5 @@ button.btn-primary:hover {
 
 .close{
     cursor: pointer;
+    font-size: 24px;
 }

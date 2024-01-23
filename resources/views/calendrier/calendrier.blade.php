@@ -10,9 +10,7 @@
 <body>
 
 <div id='external-events'>
-  <p>
-    <strong>Draggable Events</strong>
-  </p>
+  
 
   <div class='fc-event fc-h-eventres fc-daygrid-event fc-daygrid-block-event' data-title="réservé">
     <div class='fc-event-main 'data-title="réservé">réservé</div>

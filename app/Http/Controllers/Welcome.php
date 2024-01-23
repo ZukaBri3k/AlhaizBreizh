@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class Welcome extends Controller
 {
-    public function affichage() {
+    public function affichage($mode) {
+
+        if(mode == 0) {
+            dd("test");
+        }
 
         $logements = DB::select("SELECT * FROM logement ORDER BY moyenne_avis_logement DESC LIMIT 4");
 

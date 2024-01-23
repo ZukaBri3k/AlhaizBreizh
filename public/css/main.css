@@ -326,11 +326,6 @@ nav {
     margin-top: 5vh;
 }
 
-#accueil .liste-card .lienCard:first-child {
-    margin-left: 0;
-    margin-top: 5vh;
-}
-
 #accueil .mieuxNote h2 {
     font-family: 'Montserrat';
     text-align: center;
@@ -343,6 +338,7 @@ nav {
     justify-content: center;
     margin-top: 50px;
     flex-wrap: wrap;
+    padding-right: -5vw;
 }
 
 #accueil .autres .liste-logement{

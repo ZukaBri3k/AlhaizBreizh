@@ -36,9 +36,9 @@
                         listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
                         
                         let ListeCard = document.getElementsByClassName("liste-card")[1];
-                        let card = ListeCard.getElementsByClassName("cardLogement")[0];
+                        let card = ListeCard.children[0];
                         ListeCard.removeChild(card);
-                        ListeCard.appendChild(card);                    
+                        ListeCard.appendChild(card);
                     }
                 </script>
                 <button onclick="test()">Test</button>

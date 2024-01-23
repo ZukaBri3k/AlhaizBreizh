@@ -143,7 +143,7 @@
                 </div>
                 <hr>
             </div>
-            <form action="" method="get" class="api">
+            <form action="{{route('genereCle')}}" method="get" class="api">
                 <h3>Générer sa clé :</h3>
                 <div class="elem">
                     <div class="radio_form">

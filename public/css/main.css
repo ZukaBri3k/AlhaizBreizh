@@ -8,8 +8,8 @@ CSS de la navbar début
 
 @font-face {
 	font-family: 'Montserrat';
-	font-weight: 400;
-	src: url("/fonts/Montserrat-Regular.woff2") format(‘woff2’),
+	src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
 }
 
 li.separer {

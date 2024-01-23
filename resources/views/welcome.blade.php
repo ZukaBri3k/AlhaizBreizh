@@ -34,11 +34,10 @@
                     let listeLogement = @json($logementsRecents);
                     listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
                     
-                    let ListeCard = document.getElementsByClassName("liste-card")[1];
-                    console.log(ListeCard.children[0].children[0].children[2].children[0].children[0].textContent);
-                    let card = ListeCard.children[0];
-                    ListeCard.removeChild(card);
-                    ListeCard.appendChild(card);
+                    let ListeCard = document.querrySelectorAll(".autres .lienCard");
+                    console.log(ListeCard);
+                    //console.log(ListeCard.children[0].children[0].children[2].children[0].children[0].textContent);
+                    
                 }
             </script>
             <button onclick="test()">Test</button>

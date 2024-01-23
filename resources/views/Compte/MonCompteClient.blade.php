@@ -140,10 +140,11 @@
                                 </div>
                                 <hr>";
                         } else {
+                            $url = route('deleteCle', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
                                     <p>" . $cle->cle . "</p>
-                                    <a href="{{ route('deleteCle', ['cle' => $cle->cle]) }}"><button class='button_api'>Supprimer sa clé</button></a>
+                                    <a href='$url'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         }

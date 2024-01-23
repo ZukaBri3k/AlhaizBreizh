@@ -135,6 +135,6 @@
         <br>
         <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
     </main>
+    <x-FooterClient></x-FooterClient>
 </body>
-<x-FooterClient></x-FooterClient>
 </html>

@@ -9,7 +9,7 @@ CSS de la navbar début
 @font-face {
 	font-family: 'Montserrat';
 	font-weight: 400;
-	src: url("{{asset('fonts/Montserrat-Regular.woff2')}}") format(‘woff2’),
+	src: url("fonts/Montserrat-Regular.woff2") format(‘woff2’),
 }
 
 li.separer {
@@ -285,6 +285,7 @@ nav {
 }
 
 #accueil h1{
+    font-family: 'Montserrat', Arial;
     text-align: center;
     position: absolute;
     top: 30vh;

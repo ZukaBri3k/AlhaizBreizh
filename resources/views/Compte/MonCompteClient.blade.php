@@ -133,7 +133,7 @@
                 <div class="elem">
                     <p>Clé :</p>
                     <p>123456789</p>
-                    <button class="button_api">Supprimer sa clé</button>
+                    <button class="button_api" href="{{route('deleteCle', '123456789')}}">Supprimer sa clé</button>
                 </div>
                 <hr>
                 <div class="elem">

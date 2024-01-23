@@ -186,4 +186,10 @@ class AccountController extends Controller
         DB::insert('insert into cle(cle, privilege, id_personnes) values(?, ?, ? )', $tabcle);
         return redirect()->route('myClientAccount', ['id' => $id]);
     }
+
+    public function deleteCle(Request $request, $cle) {
+        $id = auth()->user()->id;
+        DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
+        return redirect()->route('myClientAccount', ['id' => $id]);
+    }
 }

@@ -35,8 +35,8 @@
                         console.log("test");
                         let listeLogement = @json($logementsRecents);
                         listeLogement.sort((a, b) => a.prix_logement - b.prix_logement);
-                        console.log(listeLogement);
                         $logementsRecents = listeLogement;
+                        console.log(@json($logementsRecents));
                     }
                 </script>
                 <button onclick="test()">Test</button>

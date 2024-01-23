@@ -150,35 +150,28 @@ class AccountController extends Controller
                 return redirect()->route('accueil');
             }
 
+    public function client_register(Request $request) {
+        $this->ajoute_personne($request,1);
+        $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
+        $client=[
+            $id_client[0]->id,
+            "'".$request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis."'",
+            "'".$request->nom_prop_acceptation . " " . $request->nom_logement_acceptation . " " . $request->votre_nom_acceptation."'"  ,
+            "'".$request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus."'",
+        ];
+
+        DB::insert('insert into client( 
+            id_client,
+            demande_devis_auto,
+            msg_confirm_devis,
+            msg_refus_devis
+            )values(?, ?, ?, ?)
+            ',$client);
+            return redirect()->route('accueil');
+    }
 
 
-
-
-
-
-
-            public function client_register(Request $request) {
-                $this->ajoute_personne($request,1);
-                $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
-                $client=[
-                    $id_client[0]->id,
-                    "'".$request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis."'",
-                    "'".$request->nom_prop_acceptation . " " . $request->nom_logement_acceptation . " " . $request->votre_nom_acceptation."'"  ,
-                    "'".$request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus."'",
-                ];
-
-                DB::insert('insert into client( 
-                    id_client,
-                    demande_devis_auto,
-                    msg_confirm_devis,
-                    msg_refus_devis
-                    )values(?, ?, ?, ?)
-                    ',$client);
-                    return redirect()->route('accueil');
-                }
-
-
-            }
+}
 
            
 

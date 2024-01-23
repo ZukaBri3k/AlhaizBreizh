@@ -364,6 +364,7 @@ nav {
 }
 
 #accueil .autres h2 {
+    margin: 50px 0;
     font-family: 'Montserrat';
     text-align: center;
     color: rgb(236, 59, 83);
@@ -407,6 +408,7 @@ nav {
     color: #F6F5EE;
     padding: 5px 15px;
     font-family: 'Montserrat';
+    transition: 0.4s;
 }
 
 #accueil .listeBtnTri button + button{

@@ -1,5 +1,4 @@
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   var Calendar = FullCalendar.Calendar;
   var Draggable = FullCalendar.Draggable;
 
@@ -71,5 +70,4 @@
   });
 
   calendar.render();  
-    });
-    </script>   
+    });   

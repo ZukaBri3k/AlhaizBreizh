@@ -321,12 +321,12 @@ nav {
     padding-bottom: 50px;
 }
 
-#accueil .liste-card .cardLogement {
+#accueil .liste-card .lienCard {
     margin-left: 5vw;
     margin-top: 5vh;
 }
 
-#accueil .liste-card .cardLogement:first-child {
+#accueil .liste-card .lienCard:first-child {
     margin-left: 0;
     margin-top: 5vh;
 }

@@ -345,6 +345,11 @@ nav {
     margin-left: 37.5px;
 }
 
+#accueil .liste-card .card:first-child {
+    margin-right: 0;
+    margin-left: 37.5px;
+}
+
 #accueil .autres .liste-logement{
     display: flex;
     position: relative;

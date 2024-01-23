@@ -317,7 +317,8 @@ nav {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 100%; 
+    width: 100%;
+    padding-bottom: 50px;
 }
 
 #accueil .liste-card .cardLogement {
@@ -378,6 +379,13 @@ nav {
 
 #accueil footer {
     position: relative;
+}
+
+#accueil .listeBtnTri {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
 }
 
 /***********************************************************************************************************

@@ -37,9 +37,9 @@
                     let ListeCard = document.querySelectorAll(".autres .lienCard");
                     let tabCard = Array.from(ListeCard);
 
-                    tabCard.sort(function(a, b) {
-                        var prixA = parseInt(a.classList[2]);
-                        var prixB = parseInt(b.classList[2]);
+                    tabCard.sort((a, b) => {
+                        let prixA = parseInt(a.classList[2]);
+                        let prixB = parseInt(b.classList[2]);
                         return prixA - prixB;
                     });
                     

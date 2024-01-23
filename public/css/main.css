@@ -352,10 +352,6 @@ nav {
 
 #accueil nav {
     background-color: rgba(0, 0, 0, 0);
-    position: absolute;
-}
-
-#accueil nav > div {
     position: sticky;
 }
 

@@ -30,7 +30,7 @@
         <div>
             <script>
                 let tri = 0;
-                function TriPrix() {
+                function triPrix() {
                     let ListeCard = document.querySelectorAll(".autres .lienCard");
                     let tabCard = Array.from(ListeCard);
                     

@@ -16,8 +16,8 @@
             <div class="footer-column">
                 <h3>Pages</h3>
                 <ul>
-                    <li><a href="#">Messagerie</a></li>
-                    <li><a href="#">Propriétaire</a></li>
+                    <li><a href="{{route('devis-client')}}">Messagerie</a></li>
+                    <li><a href="{{route('inscription_proprio_pop')}}">Propriétaire</a></li>
                     <li><a href="#">À propos</a></li>
                 </ul>
             </div>
@@ -25,7 +25,7 @@
                 <h3>Compte</h3>
                 <ul>
                     <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Inscription</a></li>
+                    <li><a href="{{route ('inscription_client')}}">Inscription</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>

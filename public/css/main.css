@@ -330,13 +330,13 @@ nav {
     font-family: 'Montserrat';
     text-align: center;
     color: #EC3B53;
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 #accueil .liste-card {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 50px;
     flex-wrap: wrap;
 }
 
@@ -410,7 +410,7 @@ nav {
 }
 
 #accueil .listeBtnTri button + button{
-    padding-left: 10px;
+    margin-left: 15px;
 }
 
 

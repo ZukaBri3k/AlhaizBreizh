@@ -143,7 +143,7 @@
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
                                     <p>" . $cle->cle . "</p>
-                                    <button class='button_api'>Supprimer sa clé</button>
+                                    <a href="{{ route('deleteCle', ['cle' => $cle->cle]) }}"><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         }

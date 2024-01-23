@@ -3,12 +3,12 @@
 @if ($role == 1)
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
-        <a href="#" class="navbar-brand logo_m">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
@@ -53,7 +53,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
-                        <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myClientAccount', ['id' => 1])}}" class="dropdown-item">Profile</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon compte propriétaire</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
@@ -73,7 +73,7 @@
                   <div class="card-body p-md-5 mx-md-4">
                     <span class="close" id="closeButton">&times;</span>
                     <div class="text-center">
-                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                        <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
                       </div>
                       <form action="{{ route('authenticate') }}" method="post">    
                         @csrf
@@ -91,8 +91,11 @@
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="mdp_pers">mot de passe</label>
-                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" placeholder="mot de passe" />
                         </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
@@ -145,37 +148,47 @@
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('connexionButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'block';
+        applyBlur();
+    });
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+});
+
+function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
     Array.from(document.body.children).forEach(child => {
-        if (child.id !== 'popup') {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
             child.classList.add('blur-background');
         }
     });
-});
+}
 
-document.getElementById('closeButton').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
+function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
     Array.from(document.body.children).forEach(child => {
-        child.classList.remove('blur-background');
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
     });
-});
+}
+
 </script>
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
-        <a href="#" class="navbar-brand logo_m">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
@@ -220,7 +233,7 @@ document.getElementById('closeButton').addEventListener('click', function() {
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
-                        <li><a href="{{ route('myClientAccount')}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myClientAccount', ['id' => 1])}}" class="dropdown-item">Profile</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon Compte Client</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
@@ -240,7 +253,7 @@ document.getElementById('closeButton').addEventListener('click', function() {
                   <div class="card-body p-md-5 mx-md-4">
                     <span class="close" id="closeButton">&times;</span>
                     <div class="text-center">
-                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                    <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
                       </div>
                       <form action="{{ route('authenticate') }}" method="post"> 
                         @csrf
@@ -258,8 +271,11 @@ document.getElementById('closeButton').addEventListener('click', function() {
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="mdp_pers">mot de passe</label>
-                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" placeholder="mot de passe" />
                         </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
@@ -312,27 +328,37 @@ document.getElementById('closeButton').addEventListener('click', function() {
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('connexionButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'block';
+        applyBlur();
+    });
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+});
+
+function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
     Array.from(document.body.children).forEach(child => {
-        if (child.id !== 'popup') {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
             child.classList.add('blur-background');
         }
     });
-});
+}
 
-document.getElementById('closeButton').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
+function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
     Array.from(document.body.children).forEach(child => {
-        child.classList.remove('blur-background');
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
     });
-});
+}
+
 </script>
     <div id="blur-background" class="blur-background"></div>
 
@@ -341,12 +367,12 @@ document.getElementById('closeButton').addEventListener('click', function() {
 @endauth
 @guest
 <link rel="stylesheet" href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg" style="background-color: #F6F5EE" >
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a href="{{route('myClientAccount')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
-        <a href="#" class="navbar-brand logo_m">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_m">
             <img src="{{asset('/img/Logo_mobile.png')}}" class="d-inline-block align-top" style="width: 15%"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
@@ -410,26 +436,31 @@ document.getElementById('closeButton').addEventListener('click', function() {
                   <div class="card-body p-md-5 mx-md-4">
                     <span class="close" id="closeButton">&times;</span>
                     <div class="text-center">
-                        <img src="img/grandlogo.png" style="width: 185px;" alt="logo">
+                    <img src="{{asset('/img/Logo_desktop.png')}}" style="width: 185px;" alt="logo">
                       </div>
                       <form action="{{ route('authenticate') }}" method="post">  
                         @csrf
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="option1" checked>
-                          <label class="form-check-label" for="radioOption1">Client</label>
+                        <div id="radios">
+                          <div class="form-check" id="radio_btn_placement_client">
+                            <input class="form-check-input" type="radio" name="typeCompte" id="radioOption1" value="client" checked>
+                            <label class="form-check-label" for="radioOption1" id="label_radio">Client</label>
+                          </div>
+                          <div class="form-check" id="radio_btn_placement_proprio">
+                            <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="proprietaire">
+                            <label class="form-check-label" for="radioOption2" id="label_radio">Propriétaire</label>
+                          </div>  
                         </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="typeCompte" id="radioOption2" value="option2">
-                          <label class="form-check-label" for="radioOption2">Propriétaire</label>
-                        </div>  
                         <div class="form-outline mb-4">
                           <label class="form-label" for="mail_pers">email</label>
                           <input type="email" id="form2Example11" name="mail_pers" class="form-control" placeholder="adresse mail" />
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="mdp_pers">mot de passe</label>
-                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" />
+                          <input type="password" id="form2Example22" name="mdp_pers" class="form-control" placeholder="mot de passe" />
                         </div>
+                        @foreach($errors->all() as $error)
+                          {{ $error }}
+                        @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
@@ -449,9 +480,7 @@ document.getElementById('closeButton').addEventListener('click', function() {
         </div>
       </div>
     </div>
-
-    <div id="blur-background" class="blur-background"></div>
-    <script>
+  <script>
   document.getElementById('form2Example11').addEventListener('input', checkInput);
   document.getElementById('form2Example22').addEventListener('input', checkInput);
 
@@ -482,31 +511,37 @@ document.getElementById('closeButton').addEventListener('click', function() {
   // Change background every 3 seconds
   setInterval(changeBackground, 3000);
 
-  document.getElementById('connexionButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default action of the link
-    document.getElementById('popup').style.display = 'block';
-  });
-
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('connexionButton').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default action of the link
+        event.preventDefault();
         document.getElementById('popup').style.display = 'block';
-        Array.from(document.body.children).forEach(child => {
-            if (child.id !== 'popup' && child.id !== 'blur-background') {
-                child.classList.add('blur-background');
-            }
-        });
+        applyBlur();
     });
 
     document.getElementById('closeButton').addEventListener('click', function() {
         document.getElementById('popup').style.display = 'none';
-        Array.from(document.body.children).forEach(child => {
-            if (child.id !== 'popup' && child.id !== 'blur-background') {
-                child.classList.remove('blur-background');
-            }
-        });
+        removeBlur();
     });
 });
+
+function applyBlur() {
+    // Ajoutez la classe 'blur-background' à tous les éléments de la page, sauf la popup
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.add('blur-background');
+        }
+    });
+}
+
+function removeBlur() {
+    // Supprimez la classe 'blur-background' de tous les éléments de la page
+    Array.from(document.body.children).forEach(child => {
+        if (child.id !== 'popup' && child.id !== 'blur-background') {
+            child.classList.remove('blur-background');
+        }
+    });
+}
+
 </script>
 
     <div id="blur-background" class="blur-background"></div>

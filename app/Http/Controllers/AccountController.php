@@ -165,17 +165,23 @@ class AccountController extends Controller
 
 
     //--------------------------------------------------------------
-    
-    public function generationCle(Request $request, $privilege) {
+
+    public function generationCle(Request $request) {
         $id = auth()->user()->id;
         $cle = rand(1000000, 9999999);
+
+        if ($request->privilege == "privilege") {
+            $privi = true;
+        } else {
+            $privi = false;
+        }
 
         DB::insert('insert into cle(
             cle,
             id_proprio,
             privilege)
             values(
-                ?, ?, ? )',$id, $cle, $privilege);
+                ?, ?, ? )',$id, $cle, $privi);
         return redirect()->back();
         
     }

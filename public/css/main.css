@@ -289,7 +289,8 @@ nav {
     position: absolute;
     top: 30vh;
     width: 100%;
-    color: #EC3B53;
+    color: #F6F5EE;
+    text-shadow: 0px 0px 10px rgba(236,59,83,0.75);
     font-size: 10vh;
 }
 
@@ -311,9 +312,7 @@ nav {
 
 #accueil .mieuxNote h2 {
     text-align: center;
-    color: #F6F5EE;
     margin-top: 50px;
-    text-shadow: 0px 0px 10px rgba(236,59,83,0.75);
 }
 
 #accueil .liste-card {

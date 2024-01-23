@@ -30,8 +30,9 @@
         <div class="liste-card">
             <div>
                 <script>
-                    let listeLogement = @json($logementsRecents)
-                    listeLogement.sort((a, b) => (a.prix_logement > b.prix_logement) ? -1 : 1)
+                    let listeLogement = @json($logementsRecents);
+                    listeLogement.sort((a, b) => (a.prix_logement > b.prix_logement) ? -1 : 1);
+                    console.log(listeLogement);
                 </script>
             </div>
             @foreach ($logementsRecents as $logement)

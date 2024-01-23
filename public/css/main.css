@@ -311,8 +311,9 @@ nav {
 
 #accueil .mieuxNote h2 {
     text-align: center;
-    color: #EC3B53;
+    color: #F6F5EE;
     margin-top: 50px;
+    text-shadow: 0px 0px 10px rgba(236,59,83,0.75);
 }
 
 #accueil .liste-card {
@@ -347,7 +348,7 @@ nav {
 
 #accueil .autres h2 {
     text-align: center;
-    color: #EC3B53;
+    color: rgb(236, 59, 83);
     margin: 0px 50px 50px 50px;
 }
 
@@ -381,7 +382,7 @@ CSS du composant Card début
 ***********************************************************************************************************/
 
 .cardLogement {
-    margin: 0 0 5vh 0;
+    margin: 0 0 0 0;
     padding: 0;
     width: 284px;
     height: 389px;

@@ -62,7 +62,8 @@
                 }
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
-            <button id="btnTriPrix" onclick="triPrix()">Filtrer les résultats</button>
+            <select id=""></select>
+            <button id="btnFiltre" onclick="triPrix()">Filtrer les résultats</button>
         </div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)

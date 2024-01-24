@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('css/cal.css')}}"></head>
 <body>
 <form id="eventsForm" action="{{ route('ajouter-evenements') }}" method="post">
-   
+   @csrf
     
 <div id='external-events'>
   

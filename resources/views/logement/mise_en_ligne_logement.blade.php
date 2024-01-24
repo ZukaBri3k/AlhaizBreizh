@@ -481,7 +481,7 @@
         <h3 class="section-title">Quel sera le prix par nuit de votre logement ? *</h3>
         <div id="alignement_input_euro">
             <input type="text" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
-            <img src="images/euro" alt="Symbole euro">
+            <img src="{{asset('img/symbole_euro.png')}}" alt="Symbole euro">
         </div>
         
     </div>

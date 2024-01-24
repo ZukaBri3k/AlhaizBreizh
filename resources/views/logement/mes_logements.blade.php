@@ -110,7 +110,7 @@
                     tabDevis.forEach((devis) => {
                         if (filtre == "Aucun") {
                             devis.style.display = "block";
-                        }else if(carte.classList[2] != filtre) {
+                        }else if(devis.classList[2] != filtre) {
                             devis.style.display = "none";
                         } else {
                             devis.style.display = "block";

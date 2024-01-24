@@ -744,7 +744,7 @@ CSS du composant devis début
     transition: 0.4s;
 }
 
-.mesLogementsPage .listeMesReservations h2 {
+.mesLogementsPage .mesReservations h2 {
     margin: 10vh 0;
     color: #EC3B53;
     font-family: 'Montserrat';

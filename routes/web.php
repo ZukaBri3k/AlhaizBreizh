@@ -78,4 +78,4 @@ Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
 
-Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementsDB'])->name('ajouterEvenementsDB');
+Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementsDB'])->name('ajouter-evenements');

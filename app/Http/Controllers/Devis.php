@@ -37,8 +37,101 @@ class Devis extends Controller
     }
 
     public function demandeDevis (Request $request) {
-        DB::update('update devis set etat_devis = false where ref_devis = 6');
-        return redirect()->route('devis-client');
+        $client = DB::select('select * from personnes where id = ?', [Auth::user()->id]);
+
+        $dateDebut = new DateTime($request->date_deb);
+        $dateFin = new DateTime($request->date_fin);
+
+        if($client[0]->role == 1 && $dateDebut < $dateFin) {
+
+            $id_logement = $request->id;
+    
+            $interval = $dateDebut->diff($dateFin);
+    
+            $nombreDeJours = $interval->days;
+    
+            $prixtot = $nombreDeJours * $request->prix_tot;
+    
+            $tabDevis = [
+                NULL,
+                $request->dateDebut,
+                $request->dateFin,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                $prixtot,
+                NULL,
+                false,
+                NULL,
+                NULL,
+                auth()->user()->id,
+                $request->id_proprio
+            ];
+
+            $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id], [$request->dateDebut], [$request->dateFin]);
+
+            DB::insert('insert into devis (
+                nb_pers,
+                date_deb,
+                date_fin,
+                date_em,
+                date_val,
+                annul,
+                charges_ht,
+                sous_tot_ht,
+                sous_tot_ttc,
+                frais_serv_ht,
+                frais_serv_ttc,
+                taxe_de_sejour,
+                prix_tot,
+                delai,
+                etat_devis,
+                heure_arriv,
+                heure_depart,
+                id_client_devis,
+                id_proprio
+                ) values (
+                ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+                )', $tabDevis);
+
+                $tabReservation = [
+                    $id_logement,
+                    false,
+                    $client[0]->mail_pers,
+                    $devis[0]->ref_devis,
+                    NULL,
+                    NULL,
+                    NULL,
+                    NULL,
+                    NULL,
+                    NULL,
+                    NULL,
+                ];
+                DB::insert('insert into devis (
+                    id_logement_reserv,
+                    confirm_reserv,
+                    mail_reserv,
+                    facture_reserv,
+                    num_carte,
+                    date_carte,
+                    crypt_carte,
+                    annul_strict_reserv,
+                    annul_flex_reserv,
+                    annul_nrembours_reserv,
+                    facture_davoir_reserv
+                    ) values (
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                    ?, ?, ?
+                    )', $tabReservation);
+        }
+        return redirect()->back();
     }
 
     public function infosDevis(Request $request) {

@@ -11,10 +11,13 @@
 <body class="mesLogementsPage">
     <x-Navbar></x-Navbar>
     
-    <section id="mesLogements">
+    <section class="mesLogements">
+        <h2>Mes logements :</h2>
         @foreach($logements as $logement)
             <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
+            <a href="{{route('setHL', ['id' => $logement->id])}}">Mettre hors ligne</a>
         @endforeach
+        <hr>
     </section>
 
 

@@ -474,3 +474,13 @@ body {
     color: #000;
     font-family: 'Montserrat';
 }
+
+.demande_devis .datepicker-input::placeholder {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.225px;
+}

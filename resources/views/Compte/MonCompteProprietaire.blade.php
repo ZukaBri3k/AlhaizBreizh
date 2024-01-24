@@ -16,7 +16,7 @@
     </div>
     <div>
         <h1>Créer ses logements</h1>
-        <a href="{{route('creation_logement')}}"><button>Créer un logement</button></a>
+        <a href="{{route('mise_en_ligne_logement')}}"><button>Créer un logement</button></a>
 
     <div class="Titre">
         <h1>Information de votre compte propriétaire</h1>

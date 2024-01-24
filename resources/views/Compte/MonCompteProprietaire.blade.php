@@ -10,12 +10,12 @@
 <body>
     <x-Navbar></x-Navbar>
 
-    <div>
+    <div class="element_en_tete">
         <h1>Acceder à ses logements : </h1>
         <a href="{{route('mes_logements')}}"><button>Mes logements</button></a>
     </div>
-    <div>
-        <h1>Créer ses logements</h1>
+    <div class="element_en_tete">
+        <h1>Créer ses logements :</h1>
         <a href="{{route('mise_en_ligne_logement')}}"><button>Créer un logement</button></a>
 
     <div class="Titre">

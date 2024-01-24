@@ -1,5 +1,5 @@
 <div class="devis">
-    <p>{{$libelle_logement}}</p>
+    <p>{{$libelle}}</p>
     <p>{{$pseudo_client}}</p>
     <p>{{$date_deb}}</p>
     <p>{{$date_fin}}</p>

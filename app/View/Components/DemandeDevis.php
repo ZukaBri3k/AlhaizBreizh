@@ -19,7 +19,7 @@ class DemandeDevis extends Component
         public string $idLogement
     )
     {
-        $this->libelle_logement = $libelle;
+        $this->libelle = $libelle;
         $this->pseudo_client = $pseudoClient;
         $this->date_deb = $dateDeb;
         $this->date_fin = $dateFin;

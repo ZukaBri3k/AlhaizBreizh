@@ -22,7 +22,7 @@
             <h3>Compte</h3>
             <ul>
                 <li><a href="#">Accueil</a></li>
-                <li><a href="{{route ('inscription_client')}}">Inscription</a></li>
+                <li><a href="{{route ('inscription_proprio')}}">Inscription</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
@@ -35,7 +35,9 @@
             </ul>
         </div>
         <div class=""footer-column>
+        <a href="{{route ('MonCompteClient')}}">
             <button type="button">Profile</button>
+        </a>
         </div>
     </div>
     <hr class="footer-line">
@@ -80,7 +82,9 @@
             </ul>
         </div>
         <div class=""footer-column>
+        <a href="{{route ('MonCompteProprietaire')}}">
             <button type="button">Profile</button>
+        </a>
         </div>
     </div>
     <hr class="footer-line">

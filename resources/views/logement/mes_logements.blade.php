@@ -58,6 +58,21 @@
 
         <div class="btnTriFiltre">
             <script>
+                function compareDates(dateString1, dateString2) {
+                    var date1 = new Date(dateString1);
+                    var date2 = new Date(dateString2);
+
+                    // Comparaison des dates
+                    if (date1 < date2) {
+                        return -1;
+                    } else if (date1 > date2) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+
+
                 let tri = 0;
                 function triDate() {
                     let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
@@ -67,19 +82,12 @@
                     if(tri == 0) {
                         tri = 1;
                         btnTriDate.innerHTML = "Trier par date (du plus ancien)";
-                        tabDevis.sort((a, b) => {
-                            let prixA = new Date(a.classList[1]);
-                            let prixB = new Date(b.classList[1]);
-                            return prixA > prixB;
-                        });
+                        tabDevis.sort(compareDates);
                     } else {
                         tri = 0;
                         btnTriDate.innerHTML = "Trier par date (du plus récent)";
-                        tabDevis.sort((a, b) => {
-                            let prixA = Date(a.classList[1]);
-                            let prixB = Date(b.classList[1]);
-                            return prixB > prixA;
-                        });
+                        tabDevis.sort(compareDates);
+                        tabDevis.reverse();
                     }
 
                     let conteneurDevis = document.querySelector(".listeMesReservations");

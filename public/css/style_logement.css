@@ -109,7 +109,7 @@ body{
     width: 50%;
     border-right: 1px solid #000;
     margin-top: 5vh;
-    height: 835px;
+    height: 880px;
 }
 
 #droite_page_2{
@@ -229,7 +229,7 @@ body {
 
 #colonne_gauche_page_3{
     width: 50%;
-    height: 635px;
+    height: 680px;
     border-right: 1px solid black;
 }
 #colonne_droite_page_3{
@@ -331,7 +331,7 @@ textarea {
 #gauche_page_5 {
     border-right: 1px solid #000; /* Trait de séparation */
     padding-right: 10px; /* Marge à droite pour l'espace entre les boutons et le trait de séparation */
-    height: 1200px;
+    height: 1280px;
 }
 
 #droite_page_5 {
@@ -380,7 +380,7 @@ textarea {
 #gauche_page_6 {
     border-right: 1px solid #000; /* Trait de séparation */
     padding-right: 10px; /* Marge à droite pour l'espace entre les boutons et le trait de séparation */
-    height: 750px;
+    height: 800px;
 }
 
 
@@ -414,7 +414,7 @@ textarea {
 #gauche_page_7{
     border-right: 1px solid #000;
     padding-right: 10px;
-    height: 800px;
+    height: 870px;
 }
 #alignement_input_euro{
     margin-right: 25%;
@@ -500,7 +500,7 @@ textarea {
 #gauche_page_8{
     border-right: 1px solid #000;
     padding-right: 10px;
-    height: 800px;
+    height: 870px;
 }
 .custom-button{
     padding-left: 5%;

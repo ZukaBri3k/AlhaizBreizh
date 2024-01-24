@@ -114,7 +114,7 @@ class Logement extends Controller
 
         //dd($tabDevis);
 
-        return View("logement/mes_logements", ['logements' => $logements, 'devis' => $tabDevis]);
+        return View("logement/mes_logements", ['logements' => $logements, 'tabDevis' => $tabDevis]);
     }
 
 

@@ -54,8 +54,14 @@ Route::prefix('/account')->group(function () {
     Route::get('client/register', [AccountController::class, "inscriptionClient"])->name('inscription_client');
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::post('genereCle', [AccountController::class, 'generationCle'])->name('genereCle')->middleware(['auth', 'isClient']);
+    Route::get('deleteCle/{cle}', [AccountController::class, 'deleteCle'])->name('deleteCle')->middleware(['auth', 'isClient']);
     Route::get('/client/profil/{id}', [AccountController::class, "compteClient"])->where('id', '[0-9]+')->name('myClientAccount')->middleware(['auth', 'isClient']);
+    Route::post('/client/profil/{id}#api_chemin', [AccountController::class, "compteClient"])->where('id', '[0-9]+')->name('myClientAccountAPI')->middleware(['auth', 'isClient']);
+    
     Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
+
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
     Route::get('client_register', [AccountController::class,'client_register'])->name('client_register');
@@ -64,6 +70,9 @@ Route::prefix('/account')->group(function () {
 
 Route::get('test', [Logement::class, 'ajouterLogementDB']);
 
-Route::get('/testcal    ', function () {
+
+Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
+
+Route::post('mettre-a-jour-disponibilite', 'CalController@mettreAJourDisponibilite');

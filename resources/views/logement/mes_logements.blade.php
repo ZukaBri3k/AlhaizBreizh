@@ -78,13 +78,13 @@
                     let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
                     let tabDevis = Array.from(ListeDevis);
                     let btnTriDate = document.querySelector("#btnTriDate");
-                    console.log(tabDevis);
                     if(tri == 0) {
                         tri = 1;
                         btnTriDate.innerHTML = "Trier par date (du plus ancien)";
                         tabDevis.sort((a,b) => {
                             compareDates(a.classList[1], b.classList[1]);
                         });
+                        console.log(tabDevis);
                     } else {
                         tri = 0;
                         btnTriDate.innerHTML = "Trier par date (du plus récent)";

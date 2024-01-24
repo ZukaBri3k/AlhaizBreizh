@@ -11,13 +11,14 @@ class Navbar extends Component
 {
 
     public $role;
+    public $id;
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        $this->id = Auth::user()->id;
         if(Auth::check()) {
+            $this->id = Auth::user()->id;
             $this->role = Auth::user()->role;
         } else {
             $this->role = null;

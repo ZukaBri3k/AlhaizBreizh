@@ -401,8 +401,16 @@ nav {
     transition: 0.4s;
 }
 
-#accueil .listeBtnTri button + button{
+#accueil .listeBtnTri button + select + button{
     margin-left: 15px;
+}
+
+#accueil .listeBtnTri button + select {
+    margin-left: 25px;
+    border-left: 1px solid #F6F5EE;
+    background-color: #EC3B53;
+    border-radius: 6px;
+    color: #F6F5EE;
 }
 
 

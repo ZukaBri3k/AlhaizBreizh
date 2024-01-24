@@ -33,7 +33,7 @@ Route::prefix('/devis')->group(function () {
     Route::get('user-refuser',[Devis::class,'refusDevis'])->name('devis.refuser')->middleware(['auth', 'isClient']);
     Route::get('user-valider',[Devis::class,'validationDevis'])->name('devis.valider')->middleware(['auth', 'isClient']);
 
-    Route::post('user-demander',[Devis::class,'demandeDevis'])->name('devis.demande')->middleware(['auth', 'isClient']);
+    Route::post('/demande_devis',[Devis::class,'demande_devis'])->name('demande_devis')->middleware(['auth', 'isClient']);
 
     Route::get('/infosdevis',[Devis::class,'infosDevis'])->name('infosDevis')->middleware(['auth', 'isProprietaire']);
 });

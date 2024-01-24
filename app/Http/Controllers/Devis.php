@@ -35,7 +35,7 @@ class Devis extends Controller
         return redirect()->route('devis-client');
     }
 
-    public function demandeDevis (Request $request) {
+    public function demande_devis (Request $request) {
         $client = DB::select('select * from personnes where id = ?', [Auth::user()->id]);
 
         $dateDebut = new DateTime($request->date_deb);

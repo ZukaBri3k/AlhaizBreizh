@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   validateButton.addEventListener('click', function() {
     // Récupérer tous les événements du calendrier
-    var allEvents = calendar.getEvents(eventEl);
+    var allEvents = calendar.getEvents();
 
     // Vérifier si des événements existent
     if (allEvents.length > 0) {

@@ -21,8 +21,8 @@
     <div class='fc-event-main' data-title="indisponible">indisponible</div>
   </div>
   <input type="hidden" name="events" id="eventsInput">
-    <button type="submit">Valider les événements</button>
-
+    <button type="submit" id="validate-button">Valider les événements</button>
+</input>
 
 
 </div>

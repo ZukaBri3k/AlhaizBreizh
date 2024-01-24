@@ -31,13 +31,11 @@ class CalController extends Controller
     public function ajouterEvenementDB(Request $request)
     {
         
-        $events = json_decode($request->input('events'), true);
-
-        
             $start_date = ['start_date'];
             $end_date = ['end_date'];
             $statut = ['statut'];
             $date = ['date'];
+        
         DB::table('calendrier')->insert([
             'jour' => $date,
             'disponibilite' => true,

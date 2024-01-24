@@ -99,7 +99,9 @@ class Logement extends Controller
 
     public function getLogementsProprietaire(Request $request) {
         $id = auth()->user()->id;
-        $logements =DB::select("select * from logement where id_proprio_logement = ?", [$id]);
+        $logements = DB::select("select * from logement where id_proprio_logement = ?", [$id]);
+        $devis = DB::select("select * from devis where id_proprio_devis = ?", [$id]);
+        dd($devis);
 
         foreach ($logements as $logement) {
             $logement->lien = "/logement/" . $logement->id_logement . "/details";

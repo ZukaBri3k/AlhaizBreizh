@@ -300,3 +300,10 @@ button:hover {
     margin-left: 0 !important;
 }
 
+.element_en_tete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+}

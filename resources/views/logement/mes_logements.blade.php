@@ -34,19 +34,19 @@
         <hr>
     </section>
 
-    <section class="mesLogements">
+    <section class="mesDevis">
         <h2>Mes demande de devis :</h2>
 
         <div class="listeMesDevis">
             @foreach($tabDevis as $devis)
-                <x-DemandeDevis libelleLogement="Salut" pseudoClient="{{$devis->pseudo_pers}}" dateDeb="{{$devis->date_deb}}" dateFin="{{$devis->date_fin}}" idLogement="{{$devis->id_logement}}"></x-DemandeDevis>
+                <x-DemandeDevis libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}"></x-DemandeDevis>
             @endforeach
         </div>
         <hr>
     </section>
 
 
-
+    <x-FooterClient></x-FooterClient>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>

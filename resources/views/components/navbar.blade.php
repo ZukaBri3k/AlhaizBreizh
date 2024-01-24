@@ -3,9 +3,9 @@
 @if ($role == 1)
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" style="width: 100%">
     <div class="container-fluid">
-        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%; margin-left: 7%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="{{route('accueil')}}" class="navbar-brand logo_m">
@@ -46,14 +46,14 @@
                     </button>
                 </form>
             </ul>
-            <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
+            <ul class="navbar-nav ms-auto d-none d-lg-inline-flex" style="margin-right: 7%">
                 <li class="navbar-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="#" style="color: #F6F5EE" id="inscription" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg fill="#000000" height="75px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 402.161 402.161" xml:space="preserve" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M201.08,49.778c-38.794,0-70.355,31.561-70.355,70.355c0,18.828,7.425,40.193,19.862,57.151 c14.067,19.181,32,29.745,50.493,29.745c18.494,0,36.426-10.563,50.494-29.745c12.437-16.958,19.862-38.323,19.862-57.151 C271.436,81.339,239.874,49.778,201.08,49.778z M201.08,192.029c-13.396,0-27.391-8.607-38.397-23.616 c-10.46-14.262-16.958-32.762-16.958-48.28c0-30.523,24.832-55.355,55.355-55.355s55.355,24.832,55.355,55.355 C256.436,151.824,230.372,192.029,201.08,192.029z"></path> <path d="M201.08,0C109.387,0,34.788,74.598,34.788,166.292c0,91.693,74.598,166.292,166.292,166.292 s166.292-74.598,166.292-166.292C367.372,74.598,292.773,0,201.08,0z M201.08,317.584c-30.099-0.001-58.171-8.839-81.763-24.052 c0.82-22.969,11.218-44.503,28.824-59.454c6.996-5.941,17.212-6.59,25.422-1.615c8.868,5.374,18.127,8.099,27.52,8.099 c9.391,0,18.647-2.724,27.511-8.095c8.201-4.97,18.39-4.345,25.353,1.555c17.619,14.93,28.076,36.526,28.895,59.512 C259.25,308.746,231.178,317.584,201.08,317.584z M296.981,283.218c-3.239-23.483-15.011-45.111-33.337-60.64 c-11.89-10.074-29.1-11.256-42.824-2.939c-12.974,7.861-26.506,7.86-39.483-0.004c-13.74-8.327-30.981-7.116-42.906,3.01 c-18.31,15.549-30.035,37.115-33.265,60.563c-33.789-27.77-55.378-69.868-55.378-116.915C49.788,82.869,117.658,15,201.08,15 c83.423,0,151.292,67.869,151.292,151.292C352.372,213.345,330.778,255.448,296.981,283.218z"></path> <path d="M302.806,352.372H99.354c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h203.452c4.142,0,7.5-3.358,7.5-7.5 C310.307,355.73,306.948,352.372,302.806,352.372z"></path> <path d="M302.806,387.161H99.354c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h203.452c4.142,0,7.5-3.358,7.5-7.5 C310.307,390.519,306.948,387.161,302.806,387.161z"></path> </g> </g> </g> </g></svg>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('devis-client')}}" class="dropdown-item">Messages</a></li>
-                        <li><a href="{{ route('myClientAccount', ['id' => 1])}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myClientAccount', ['id' => $id])}}" class="dropdown-item">Profile</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon compte propriétaire</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>
@@ -183,9 +183,9 @@ function removeBlur() {
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)
 <link rel="stylesheet" type='text/css' href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" style="width: 100%">
     <div class="container-fluid">
-        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%; margin-left: 7%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="{{route('accueil')}}" class="navbar-brand logo_m">
@@ -226,7 +226,7 @@ function removeBlur() {
                     </button>
                 </form>
             </ul>
-            <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
+            <ul class="navbar-nav ms-auto d-none d-lg-inline-flex" style="margin-right: 7%">
                 <li class="navbar-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="#" style="color: #F6F5EE" id="inscription" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg fill="#000000" height="75px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 402.161 402.161" xml:space="preserve" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M201.08,49.778c-38.794,0-70.355,31.561-70.355,70.355c0,18.828,7.425,40.193,19.862,57.151 c14.067,19.181,32,29.745,50.493,29.745c18.494,0,36.426-10.563,50.494-29.745c12.437-16.958,19.862-38.323,19.862-57.151 C271.436,81.339,239.874,49.778,201.08,49.778z M201.08,192.029c-13.396,0-27.391-8.607-38.397-23.616 c-10.46-14.262-16.958-32.762-16.958-48.28c0-30.523,24.832-55.355,55.355-55.355s55.355,24.832,55.355,55.355 C256.436,151.824,230.372,192.029,201.08,192.029z"></path> <path d="M201.08,0C109.387,0,34.788,74.598,34.788,166.292c0,91.693,74.598,166.292,166.292,166.292 s166.292-74.598,166.292-166.292C367.372,74.598,292.773,0,201.08,0z M201.08,317.584c-30.099-0.001-58.171-8.839-81.763-24.052 c0.82-22.969,11.218-44.503,28.824-59.454c6.996-5.941,17.212-6.59,25.422-1.615c8.868,5.374,18.127,8.099,27.52,8.099 c9.391,0,18.647-2.724,27.511-8.095c8.201-4.97,18.39-4.345,25.353,1.555c17.619,14.93,28.076,36.526,28.895,59.512 C259.25,308.746,231.178,317.584,201.08,317.584z M296.981,283.218c-3.239-23.483-15.011-45.111-33.337-60.64 c-11.89-10.074-29.1-11.256-42.824-2.939c-12.974,7.861-26.506,7.86-39.483-0.004c-13.74-8.327-30.981-7.116-42.906,3.01 c-18.31,15.549-30.035,37.115-33.265,60.563c-33.789-27.77-55.378-69.868-55.378-116.915C49.788,82.869,117.658,15,201.08,15 c83.423,0,151.292,67.869,151.292,151.292C352.372,213.345,330.778,255.448,296.981,283.218z"></path> <path d="M302.806,352.372H99.354c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h203.452c4.142,0,7.5-3.358,7.5-7.5 C310.307,355.73,306.948,352.372,302.806,352.372z"></path> <path d="M302.806,387.161H99.354c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h203.452c4.142,0,7.5-3.358,7.5-7.5 C310.307,390.519,306.948,387.161,302.806,387.161z"></path> </g> </g> </g> </g></svg>
@@ -367,9 +367,9 @@ function removeBlur() {
 @endauth
 @guest
 <link rel="stylesheet" href="{{asset('css/connexion.css')}}">
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" style="width: 100%">
     <div class="container-fluid">
-        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%">
+        <a href="{{route('accueil')}}" class="navbar-brand logo_d" style="width: 10%; margin-left: 7%">
             <img src="{{asset('/img/Logo_desktop.png')}}" class="d-inline-block align-top" style="width: 100%;"/>
         </a>
         <a href="{{route('accueil')}}" class="navbar-brand logo_m">

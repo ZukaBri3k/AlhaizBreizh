@@ -11,6 +11,7 @@ class Navbar extends Component
 {
 
     public $role;
+    public $id;
     /**
      * Create a new component instance.
      */

@@ -108,8 +108,8 @@ class Logement extends Controller
 
     public function setLogementHorsLigne(Request $request) {
         $enLigne = DB::select('select en_ligne from logement where id_logement = ?', [intval($request->id)]);
-        dd($enLigne[0]["en_ligne"]);
-        if($enLigne[0]["en_ligne"] == false) {
+        //dd($enLigne[0]->en_ligne);
+        if($enLigne[0]->en_ligne == false) {
             DB::update('update logement set en_ligne = true where id_logement = ?', [intval($request->id)]);
         } else {
             DB::update('update logement set en_ligne = false where id_logement = ?', [intval($request->id)]);

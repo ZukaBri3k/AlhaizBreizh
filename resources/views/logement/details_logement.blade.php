@@ -341,6 +341,7 @@
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
           <form action="{{route('demande_devis')}}" method="post" class="demande_devis">
+            @csrf
             <div>
               <label for="dateDebut">Date de début</label>
               <input type="date" id="dateDebut" name="dateDebut" value="dateDebut" class="datepicker-input">

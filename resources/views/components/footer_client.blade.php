@@ -35,7 +35,7 @@
             </ul>
         </div>
         <div class=""footer-column>
-        <a href="{{route ('MonCompteClient')}}">
+        <a href="{{route ('myClientAccount')}}">
             <button type="button">Profile</button>
         </a>
         </div>
@@ -82,7 +82,7 @@
             </ul>
         </div>
         <div class=""footer-column>
-        <a href="{{route ('MonCompteProprietaire')}}">
+        <a href="{{route ('myProprietaireAccount', ['id' => $id])}}">
             <button type="button">Profile</button>
         </a>
         </div>
@@ -128,9 +128,6 @@
                 <li><a href="#">Partenaires</a></li>
                 <li><a href="#">Carrières</a></li>
             </ul>
-        </div>
-        <div class=""footer-column>
-            <button type="button">Profile</button>
         </div>
     </div>
     <hr class="footer-line">

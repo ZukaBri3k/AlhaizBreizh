@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Auth;
 
 class FooterClient extends Component
 {
@@ -13,7 +14,11 @@ class FooterClient extends Component
      */
     public function __construct()
     {
-        //
+        if(Auth::check()) {
+            $this->id = Auth::user()->id;
+        } else {
+            $this->role = null;
+        }
     }
 
     /**

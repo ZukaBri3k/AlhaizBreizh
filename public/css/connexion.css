@@ -13,6 +13,7 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    transition: background-image 1.25s ease-in-out; /* Ajoutez cette ligne pour la transition */
 }
 
 
@@ -52,4 +53,5 @@ button.btn-primary:hover {
 
 .close{
     cursor: pointer;
+    font-size: 24px;
 }

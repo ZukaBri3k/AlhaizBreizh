@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var containerEl = document.getElementById('external-events');
   var calendarEl = document.getElementById('calendar');
   var validateButton = document.getElementById('validate-button');
-  var eventsArray = [];  
+  var eventsArray = []  ;  
 
   // initialize the external events
   // -----------------------------------------------------------------
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   validateButton.addEventListener('click', function() {
     // Récupérer tous les événements du calendrier
-    var allEvents = calendar.getEvents(eventE1);
+    var allEvents = calendar.getEvents();
 
     // Vérifier si des événements existent
     if (allEvents.length > 0) {

@@ -14,7 +14,7 @@
     <a href="{{route('devis-client')}}">Demander le devis</a>
 
     <div class="Titre">
-        <h1>Information de votre compte client</h1>
+        <h1>Information de votre compte propriétaire</h1>
         <button>Modifier</button>
     </div>
     <div class="Profile_Public">
@@ -119,6 +119,16 @@
                         $iban = str_repeat("*", strlen($iban));
                     @endphp
                     <p>{!! $iban !!}</p>
+                </div>
+                <div class="elem">
+                    <p>Carte d'identité :</p>
+                    @php
+                        if ($proprietaire->piece_id_proprio == false) {
+                            echo "<p>Pas encore validé</p>";
+                        } else {
+                            echo "<p>Validé</p>";
+                        }
+                    @endphp
                 </div>
             </div>
         </div>

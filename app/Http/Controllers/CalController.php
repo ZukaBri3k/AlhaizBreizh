@@ -16,11 +16,12 @@ class CalController extends Controller
 
         // Ajoutez votre logique pour insérer ces dates dans la base de données.
         // Notez que vous devez adapter cette logique à votre modèle de base de données.
-        dd($start_date);
         // Exemple hypothétique d'insertion dans la base de données :
         DB::table('calendrier')->insert([
+            'statut_propriete' =>true,
             'jour' => $start_date,
             'disponibilite' => true,
+
             // ... autres colonnes ...
         ]);
 

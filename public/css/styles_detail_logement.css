@@ -484,3 +484,7 @@ body {
     line-height: normal;
     letter-spacing: -0.225px;
 }
+
+.demande_devis div {
+    display: flex;
+}

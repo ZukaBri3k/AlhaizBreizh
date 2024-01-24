@@ -30,14 +30,14 @@ class CalController extends Controller
     }
     public function ajouterEvenementDB(Request $request)
     {
-        var_dump ($request->input('events'));
+        
         $events = json_decode($request->input('events'), true);
-dd($events);
-        foreach ($events as $event) {
-            $start_date = $event['start_date'];
-            $end_date = $event['end_date'];
-            $statut = $event['statut'];
-            $date = $event['date'];
+
+        
+            $start_date = ['start_date'];
+            $end_date = ['end_date'];
+            $statut = ['statut'];
+            $date = ['date'];
         DB::table('calendrier')->insert([
             'jour' => $date,
             'disponibilite' => true,
@@ -55,7 +55,7 @@ dd($events);
             // Si c'est réservé, mettez également à jour la disponibilité à false
             DB::table('calendrier')->whereIn('jour', $joursIndisponibles)->update(['disponibilite' => false]);
         }
-    };
+    
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     
 }

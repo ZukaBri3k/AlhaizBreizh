@@ -62,8 +62,35 @@ document.addEventListener('DOMContentLoaded', function() {
         info.el.style.backgroundColor = 'gray';
         info.el.style.color = 'white';
       }
+      validateButton.addEventListener('click', function() {
+        // Récupérer tous les événements du calendrier
+        var allEvents = calendar.getEvents();
+    
+        // Convertir les dates en format ISO8601
+        var formattedEvents = allEvents.map(function(event) {
+            return {
+                start_date: event.start.toISOString(),
+                end_date: event.end ? event.end.toISOString() : null,
+                // Ajouter le champ "date" avec la valeur du jour vérifié
+                date: event.start.toDateString(), // ou ajustez selon le format que vous souhaitez
+                statut: (event.title === 'réservé') ? 'reserve' : 'indisponible', // ajustez selon votre logique
+            };
+        });
+    
+        // Ajouter les champs au formulaire
+        var form = document.getElementById('eventForm');
+        var eventsInput = document.createElement('input');
+        eventsInput.type = 'hidden';
+        eventsInput.name = 'events';
+        eventsInput.value = JSON.stringify(formattedEvents);
+        form.appendChild(eventsInput);
+    
+        // Soumettre le formulaire
+        form.submit();
+    });
     },
   });
+  
   
   calendar.render();  
     });   

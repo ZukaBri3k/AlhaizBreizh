@@ -8,40 +8,35 @@ use App\Models\calendrier; // Assurez-vous de remplacer 'VotreModel' par le mod�
 
 class CalController extends Controller
 {
-    public function mettreAJourDisponibilite()
+    public function ajouterEvenementDB(Request $request)
     {
-        // Initialisez le tableau de disponibilité par jour avec tous les jours à true
-        $disponibiliteParJour = [
-            'Lundi' => true,
-            'Mardi' => true,
-            'Mercredi' => true,
-            'Jeudi' => true,
-            'Vendredi' => true,
-            'Samedi' => true,
-            'Dimanche' => true,
-        ];
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+        $statut = $request->input('statut'); // Ajoutez une variable pour le statut de l'événement
 
-        // Récupérez tous les événements de votre base de données (remplacez 'VotreModel' par le modèle approprié)
-        $evenements = Calcontroller::all();
+        // Ajoutez votre logique pour insérer ces dates dans la table "votre_table".
+        // Notez que vous devez adapter cette logique à votre modèle de base de données.
 
-        // Parcourez tous les événements et mettez à jour la disponibilité par jour
-        foreach ($evenements as $evenement) {
-            $startDayOfWeek = Carbon::parse($evenement->start_date)->dayOfWeek;
-            $endDayOfWeek = $evenement->end_date ? Carbon::parse($evenement->end_date)->dayOfWeek : $startDayOfWeek;
+        // Exemple hypothétique d'insertion dans la table "votre_table" :
+        DB::table('votre_table')->insert([
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'statut' => $statut,
+            // ... autres colonnes ...
+        ]);
 
-            // Mettez à jour la disponibilité pour les jours couverts par l'événement
-            for ($i = $startDayOfWeek; $i <= $endDayOfWeek; $i++) {
-                $dayName = Carbon::now()->startOfWeek()->addDays($i)->format('l');
-                $disponibiliteParJour[$dayName] = false;
-            }
+        // Mettez à jour la table "calendrier" pour marquer les jours comme non disponibles.
+        $joursIndisponibles = $this->getJoursIndisponibles($start_date, $end_date);
+
+        // Assurez-vous que votre logique de mise à jour de la disponibilité est correcte
+        // Notez que vous devez adapter cette logique à votre modèle de base de données.
+        if ($statut === 'indisponible') {
+            DB::table('calendrier')->whereIn('jour', $joursIndisponibles)->update(['disponibilite' => false]);
+        } elseif ($statut === 'reserve') {
+            // Si c'est réservé, mettez également à jour la disponibilité à false
+            DB::table('calendrier')->whereIn('jour', $joursIndisponibles)->update(['disponibilite' => false]);
         }
-        CalController::where('evenement',$evenement)->update(['disponibilite'=>$disponibiliteParJour[$dayName]]);
-        // Mettez à jour la base de données avec la nouvelle disponibilité
-        // (remplacez cette partie par votre logique spécifique pour mettre à jour la base de données)
-        // Exemple hypothétique :
-        // VotreModel::where('date', $date)->update(['disponibilite' => $nouvelleDisponibilite]);
 
-        // Retournez une réponse
-        return response()->json(['message' => 'Disponibilité mise à jour avec succès.']);
+        return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     }
 }

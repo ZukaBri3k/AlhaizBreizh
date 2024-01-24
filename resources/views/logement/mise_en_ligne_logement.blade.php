@@ -221,7 +221,7 @@
         <div>
             <h3>Décrivez vos chambres *</h3>
             <div id="chambres_container" class="chambres-container"></div>
-            <input type="hidden" id="total_lits" name="total_lits" value="">
+            <input type="hidden" id="total_lits" name="nb_lit_total" value="">
 
         </div>
         <div id="footer">

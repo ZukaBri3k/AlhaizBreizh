@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('eventForm');
     var eventsInput = document.createElement('input');
     eventsInput.type = 'hidden';
-    eventsInput.name = 'events';
+    eventsInput.name = 'eventE1';
     eventsInput.value = JSON.stringify(formattedEvents);
     form.appendChild(eventsInput);
     console.log(eventE1);

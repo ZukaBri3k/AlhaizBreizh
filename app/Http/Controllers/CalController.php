@@ -38,7 +38,7 @@ dd($events);
             $statut = $event['statut'];
             $date = $event['date'];
         DB::table('calendrier')->insert([
-            'jour' => $start_date,
+            'jour' => $date,
             'disponibilite' => true,
             // ... autres colonnes ...
         ]);

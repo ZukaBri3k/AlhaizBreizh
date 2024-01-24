@@ -633,8 +633,8 @@ CSS du composant devis début
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 10vh;
-    margin-bottom: 15px;
+    height: 15vh;
+    margin: 15px 0;
 }
 
 .mesLogementsPage .devis .vignette {
@@ -649,6 +649,34 @@ CSS du composant devis début
 .mesLogementsPage .devis .vignette img {
     width: 100%;
     height: 50%;
+}
+
+.mesLogementsPage .devis .validerDevis{
+    border: 1px solid #21610B;
+    color: #21610B;
+    font-family: 'Montserrat';
+    background-color: #F6F5EE;
+}
+
+.mesLogementsPage .devis .validerDevis:hover{
+    color: #F6F5EE;
+    font-family: 'Montserrat';
+    background-color: #21610B;
+}
+
+.mesLogementsPage .devis .refuserDevis{
+    border: 1px solid #EC3B53;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    background-color: #F6F5EE;
+    transition: 0.4s;
+}
+
+.mesLogementsPage .devis .refuserDevis:hover{
+    color: #F6F5EE;
+    font-family: 'Montserrat';
+    background-color: #EC3B53;
+    transition: 0.4s;
 }
 
 /***********************************************************************************************************

@@ -633,11 +633,15 @@ CSS du composant devis début
 }
 
 .mesLogements .devis .vignette {
-    width: 5%;
+    width: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.mesLogements .devis .vignette img {
+    width: max-content;
 }
 
 /***********************************************************************************************************

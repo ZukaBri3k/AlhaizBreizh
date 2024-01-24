@@ -432,10 +432,6 @@ body {
         margin-left: 0;
     }
 
-    .second {
-        flex-direction: column;
-    }
-
     .second div {
         width: 90%;
         height: auto;

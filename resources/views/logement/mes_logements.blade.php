@@ -25,7 +25,7 @@
                             $textbouton = "Mettre en ligne";
                         }
                     @endphp
-                    <a href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                    <a class="btnHL" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
                 </div>
             @endforeach
         </div>

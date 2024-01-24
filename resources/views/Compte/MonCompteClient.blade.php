@@ -100,12 +100,9 @@
                 <div class="elem">
                     <p>Date de naissance :</p>
                     @php
-                        use Carbon\Carbon;
-
-                        Carbon::setLocale('fr');
                         $date = $personnes->date_de_naissance;
-                        $carbonDate = new Carbon($date);
-                        $formattedDate = $carbonDate->formatLocalized('%d %B %Y');
+                        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                        $formattedDate = $formatter->format(new DateTime($date));
                     @endphp
                     <p>{!! $formattedDate !!}</p>
                 </div>

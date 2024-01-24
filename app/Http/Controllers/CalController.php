@@ -16,7 +16,7 @@ class CalController extends Controller
 
         // Ajoutez votre logique pour insérer ces dates dans la base de données.
         // Notez que vous devez adapter cette logique à votre modèle de base de données.
-
+        dd($start_date);
         // Exemple hypothétique d'insertion dans la base de données :
         DB::table('calendrier')->insert([
             'jour' => $start_date,
@@ -25,5 +25,5 @@ class CalController extends Controller
         ]);
 
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
-    }
+    }x
 }

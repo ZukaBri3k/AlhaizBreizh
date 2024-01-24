@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     alert(events);
         if (events.length > 0) {
       // Si un événement est présent, obtenir la date du calendrier
-      var date = calendar.fullCalendar('getDate');
+      var date = calendar.getDate();
       alert("La date actuelle du calendrier est " + date.format());
     } else {
       // Si aucun événement n'est présent, afficher un message

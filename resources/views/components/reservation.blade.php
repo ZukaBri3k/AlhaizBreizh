@@ -6,5 +6,5 @@
     <p><strong>Client :</strong> {{$pseudo}}</p>
     <p><strong>Du</strong> {{$dated}}</p>
     <p><strong>au</strong> {{$datef}}</p>
-    <p><strong>prix</strong></p>
+    <p><strong>{{$prix}} €</strong></p>
 </div>

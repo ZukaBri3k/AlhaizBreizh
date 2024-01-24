@@ -68,7 +68,9 @@
                     let filtre = selectionFiltre.value;
 
                     tabCard.forEach((carte) => {
-                        if(carte.classList[2] != filtre) {
+                        if (filtre == "Aucun") {
+                            carte.style.display = "block";
+                        }else if(carte.classList[2] != filtre) {
                             carte.style.display = "none";
                         } else {
                             carte.style.display = "block";
@@ -78,6 +80,7 @@
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
             <select id="selectionFiltre">
+                <option value="Aucun">Aucun</option>
                 <option value="Appartement">Appartements</option>
                 <option value="Villa">Villa</option>
                 <option value="Maison">Maison</option>

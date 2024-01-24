@@ -120,6 +120,7 @@
                     @endphp
                     <p>{!! $iban !!}</p>
                 </div>
+                <hr>
                 <div class="elem">
                     <p>Carte d'identité :</p>
                     @php

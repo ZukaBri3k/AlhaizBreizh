@@ -555,7 +555,7 @@
     </div>
     <div id="footer">
         <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
-        <button type="button" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
+        <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
     </div>
 </div>
 </form>

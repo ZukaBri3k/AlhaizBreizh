@@ -86,7 +86,8 @@ class Logement extends Controller
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'calendrier' => DB::select('select * from calendrier where id_logement = ? AND jour = ?', [intval($request->id)], current_date())]);
     }
 
     public function getInfoLogementPrevisu(Request $request) {

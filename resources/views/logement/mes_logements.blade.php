@@ -80,13 +80,13 @@
                     let btnTriDate = document.querySelector("#btnTriDate");
                     if(tri == 0) {
                         tri = 1;
-                        btnTriDate.innerHTML = "Trier par date (du plus ancien)";
+                        btnTriDate.innerHTML = "Trier par date (du plus récent)";
                         tabDevis.sort((a,b) => {
                             return compareDates(a.classList[1], b.classList[1]);
                         });
                     } else {
                         tri = 0;
-                        btnTriDate.innerHTML = "Trier par date (du plus récent)";
+                        btnTriDate.innerHTML = "Trier par date (du plus ancien)";
                         tabDevis.sort((a,b) => {
                             return compareDates(a.classList[1], b.classList[1]);
                         });

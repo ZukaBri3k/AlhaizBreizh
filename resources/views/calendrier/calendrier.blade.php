@@ -29,7 +29,7 @@
   <div id='calendar'></div>
 </div>
 </form>
-<button id="my-button">Obtenir la date du calendrier</button>
+
 <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script><!-- Cloudflare Pages Analytics -->  
 
 

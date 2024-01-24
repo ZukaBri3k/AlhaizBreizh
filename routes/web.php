@@ -31,7 +31,7 @@ Route::prefix('/devis')->group(function () {
     Route::get('/creation/{id_client}', [Devis::class, "creationDevis"])->where('id_client', '[0-9]+')->name('devis-page')->middleware(['auth', 'isProprietaire']);
     Route::post('/enregDB/{id_client}', [Devis::class, "creerDevisDB"])->where('id_client', '[0-9]+')->name('devis-store')->middleware();
 
-    Route::post('user-demander',[Devis::class,'demandeDevis'])->name('devis.demande')->middleware(['auth', 'isClient']);
+    Route::post('/demande_devis',[Devis::class,'demande_devis'])->name('demande_devis')->middleware(['auth', 'isClient']);
 
     Route::get('/infosdevis',[Devis::class,'infosDevis'])->name('infosDevis')->middleware(['auth', 'isProprietaire']);
 

@@ -43,9 +43,12 @@ class Devis extends Controller
 
             $id_logement = $request->id;
     
-            $interval = $request->dateDebut->diff($request->dateFin);
-    
-            $nombreDeJours = $interval->days;
+            $dateDebut = strtotime($request->dateDebut);
+            $dateFin = strtotime($request->dateFin);
+
+            $nombreDeSecondes = $dateFin - $dateDebut;
+
+            $nombreDeJours = $nombreDeSecondes / (60 * 60 * 24);
     
             $prixtot = $nombreDeJours * $request->prix_tot;
     

@@ -10,9 +10,6 @@
 <body>
     <x-Navbar></x-Navbar>
 
-    <h1>Acceder à ses logements : </h1>
-    <a href="{{route('mes_logements')}}"><button>Mes logements</button></a>
-
     <div class="Titre">
         <h1>Information de votre compte client</h1>
         <button style="display: none">Modifier</button>

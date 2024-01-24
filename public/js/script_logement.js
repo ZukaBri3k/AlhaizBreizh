@@ -216,11 +216,13 @@ function validatePage3() {
 
 function validatePage4() {
     const nombreDeChambres = parseInt(document.getElementById("nombre_de_chambre_input").value);
+    let totalLits = 0;
 
     for (let i = 1; i <= nombreDeChambres; i++) {
         const nombreLitsSimples = document.getElementById(`chambres_container_${i}_lits_simples`).value;
         const nombreLitsDoubles = document.getElementById(`chambres_container_${i}_lits_doubles`).value;
         const detailsLits = document.getElementById(`chambres_container_${i}_details_lits`).value;
+
         if (
             nombreLitsSimples.trim() === '' ||
             nombreLitsDoubles.trim() === '' ||
@@ -229,10 +231,17 @@ function validatePage4() {
             alert(`Veuillez remplir tous les champs pour la Chambre ${i} sur la page 4.`);
             return false;
         }
+
+        // Ajoutez le nombre de lits simples et doubles pour obtenir le total
+        totalLits += parseInt(nombreLitsSimples) + parseInt(nombreLitsDoubles);
     }
-    
+
+    // Mettez à jour le champ total_lits
+    document.getElementById("total_lits").value = totalLits;
+
     page_4_to_page_5();
 }
+
 function selectItem_droite(button, inputId) {
     const allButtons = document.querySelectorAll('#droite_page_2 .image-button');
     if (button.classList.contains('selected')) {

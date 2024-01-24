@@ -219,6 +219,8 @@
         <div>
             <h3>Décrivez vos chambres *</h3>
             <div id="chambres_container" class="chambres-container"></div>
+            <input type="hidden" id="total_lits" name="total_lits" value="">
+
         </div>
         <div id="footer">
             <button type="button" id="retour_page_4" class="bouttons_retour" onclick="page_4_to_page_3()"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   

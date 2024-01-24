@@ -18,7 +18,7 @@ class CalController extends Controller
         // Notez que vous devez adapter cette logique à votre modèle de base de données.
 
         // Exemple hypothétique d'insertion dans la base de données :
-        DB::table('votre_table')->insert([
+        DB::table('calendrier')->insert([
             'start_date' => $start_date,
             'end_date' => $end_date,
             // ... autres colonnes ...

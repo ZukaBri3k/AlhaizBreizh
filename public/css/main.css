@@ -525,3 +525,82 @@ CSS de la page mes logements début
 ************************************************************************************************************
 ***********************************************************************************************************/
 
+.mesLogementsPage {
+    background-color: #F6F5EE;
+}
+
+.mesLogementsPage nav {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.mesLogementsPage .listeMesLogement {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+}
+
+.mesLogementsPage .lienCard {
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    margin-left: 5vw;
+    margin-top: 5vh;
+}
+
+.mesLogementsPage .mesLogements hr {
+    width: 90%;
+    margin: 5vh auto;
+    color: rgba(0,0,0,0.50);
+}
+
+.mesLogementsPage .mesLogements h2 {
+    margin: 50px 0;
+    font-family: 'Montserrat';
+    text-align: center;
+    color: rgb(236, 59, 83);
+    margin: 0px 50px 50px 50px;
+}
+
+.mesLogements .logementEnLigne {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mesLogements .btnHL {
+    margin-top: 15px;
+    padding: 5px;
+    background-color: #F6F5EE;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    text-decoration: none;
+    margin-left: 5vw;
+}
+
+.mesLogements .HL {
+    color: #EC3B53;
+    background-color: #F6F5EE;
+    border: 1px solid #EC3B53;
+}
+
+.mesLogements .HL:hover {
+    color: #F6F5EE;
+    background-color: #EC3B53;
+    transition: 0.4s;
+}
+
+.mesLogements .EL {
+    color: #21610B;
+    background-color: #F6F5EE;
+    border: 1px solid #21610B;
+}
+
+.mesLogements .EL:hover {
+    color: #F6F5EE;
+    background-color: #21610B;
+    transition: 0.4s;
+}

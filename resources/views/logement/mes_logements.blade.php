@@ -8,13 +8,43 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <title>Document</title>
 </head>
-<body>
+<body class="mesLogementsPage">
     <x-Navbar></x-Navbar>
     
-    <section id="mesLogements">
-        @foreach($logements as $logement)
-            <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
-        @endforeach
+    <section class="mesLogements">
+        <h2>Mes logements :</h2>
+
+        <div class="listeMesLogement">
+            @foreach($logements as $logement)
+                <div class="logementEnLigne">
+                    <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
+                    @php
+                        $textbouton = "Mettre hors ligne";
+                        $classBtnHL = "HL";
+    
+                        if($logement->en_ligne == false){
+                            $textbouton = "Mettre en ligne";
+                            $classBtnHL = "EL";
+                        }
+                    @endphp
+                    <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                </div>
+            @endforeach
+        </div>
+        <hr>
+    </section>
+
+    <section class="mesLogements">
+        <h2>Mes logements :</h2>
+
+        <div class="listeMesDevis">
+            @foreach($tabDevis as $devis)
+                <div class="devis">
+                    <p></p>
+                </div>
+            @endforeach
+        </div>
+        <hr>
     </section>
 
 

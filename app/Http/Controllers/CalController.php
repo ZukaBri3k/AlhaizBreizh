@@ -4,24 +4,59 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Models\calendrier; // Assurez-vous de remplacer 'VotreModel' par le modèle que vous utilisez pour les événements
+use App\Models\calendrier; 
+use Illuminate\Support\Facades\DB;
 
 class CalController extends Controller
 {
-    public function ajouterEvenementsDB(Request $request) {
-        // Récupérez les événements formatés à partir de la chaîne JSON
-        $formattedEvents = json_decode($request->input('events'), true);
-    
-        // Vérifiez si $formattedEvents est un tableau non vide avant d'itérer
-        if (is_array($formattedEvents) && !empty($formattedEvents)) {
-            // Insérez les événements dans la base de données
-            foreach ($formattedEvents as $event) {
-                DB::insert('insert into evenements (start_date, end_date) values (?, ?)', [$event['start_date'], $event['end_date']]);
-            }
-    
-            return redirect()->back()->with('success', 'Événements ajoutés avec succès.');
-        } else {
-            return redirect()->back()->with('error', 'Aucun événement à ajouter.');
+    private function getJoursIndisponibles($start_date, $end_date)
+    {
+        $joursIndisponibles = [];
+
+        // Convertissez les dates en objets Carbon pour faciliter la manipulation des dates
+        $startDate = Carbon::parse($start_date);
+        $endDate = Carbon::parse($end_date);
+
+        // Bouclez sur chaque jour entre la date de début et la date de fin
+        while ($startDate->lte($endDate)) {
+            // Ajoutez le jour à la liste
+            $joursIndisponibles[] = $startDate->toDateString();
+
+            // Passez au jour suivant
+            $startDate->addDay();
         }
+
+        return $joursIndisponibles;
     }
+    public function ajouterEvenementDB(Request $request)
+    {
+        $events = json_decode($request->input('events'), true);
+dd($events);
+        foreach ($events as $event) {
+            $start_date = $event['start_date'];
+            $end_date = $event['end_date'];
+            $statut = $event['statut'];
+            $date = $event['date'];
+        DB::table('calendrier')->insert([
+            'jour' => $start_date,
+            'disponibilite' => true,
+            // ... autres colonnes ...
+        ]);
+
+        // Mettez à jour la table "calendrier" pour marquer les jours comme non disponibles.
+        $joursIndisponibles = $this->getJoursIndisponibles($start_date, $end_date);
+
+        // Assurez-vous que votre logique de mise à jour de la disponibilité est correcte
+        // Notez que vous devez adapter cette logique à votre modèle de base de données.
+        if ($statut === 'indisponible') {
+            DB::table('calendrier')->whereIn('jour', $joursIndisponibles)->update(['disponibilite' => false]);
+        } elseif ($statut === 'reserve') {
+            // Si c'est réservé, mettez également à jour la disponibilité à false
+            DB::table('calendrier')->whereIn('jour', $joursIndisponibles)->update(['disponibilite' => false]);
+        }
+    };
+        return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
+    
+}
+    
 }

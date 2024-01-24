@@ -300,3 +300,23 @@ button:hover {
     margin-left: 0 !important;
 }
 
+.element_en_tete {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 6%;
+}
+
+.element_en_tete button{
+    width: 121%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.element_en_tete h1 {
+    font-size: 40px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    font-family: 'Montserrat-Light';
+} 

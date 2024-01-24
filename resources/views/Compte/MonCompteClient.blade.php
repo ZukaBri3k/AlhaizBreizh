@@ -10,12 +10,9 @@
 <body>
     <x-Navbar></x-Navbar>
 
-    <h6>Demande de devis : </h6>
-    <a href="{{route('devis-client')}}">Demander le devis</a>
-
     <div class="Titre">
         <h1>Information de votre compte client</h1>
-        <button>Modifier</button>
+        <button style="display: none">Modifier</button>
     </div>
     <div class="Profile_Public">
         <h5>Profil public</h5>

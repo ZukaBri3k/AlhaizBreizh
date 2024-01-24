@@ -18,7 +18,6 @@
                 Par la suite, nous vous demanderons de <br>spécifier l'emplacement 
                 géographique et la capacité d'accueil de <br>l'hébergement.</p>
         </div>
-       
             <div id="footer">
                 <button  type="button" id="retour_page_1" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
                 <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
@@ -92,7 +91,7 @@
                         <span>Caravane</span>
                     </button>
                 </div>
-                <input type="hidden" id="selectedHousing" name="nature_logement" value=""  >
+                <input type="hidden" id="selectedHousing" name="nature_logement" value="" >
         </div>
         <div id="droite_page_2">
             
@@ -100,13 +99,13 @@
             <br>
             <div id="t1-t2">
 
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize')" class="image-button boutton_selection" value="t1">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="t1">
                     <div class="image-container">
                         <img src="{{asset('img/type/t1.png')}}" alt="T1">
                     </div>
                     <span>T1</span>
                 </button>
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize')" class="image-button boutton_selection" value="t2">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="t2">
                     <div class="image-container">
                         <img src="{{asset('img/type/t2.png')}}" alt="T2">
                     </div>
@@ -114,13 +113,13 @@
                 </button>
             </div>
             <div id="t3-t4">
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize')" class="image-button boutton_selection" value="t3">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="t3">
                     <div class="image-container">
                         <img src="{{asset('img/type/t3.png')}}" alt="T3">
                     </div>
                     <span>T3</span>
                 </button>
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize')" class="image-button boutton_selection" value="t4">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="t4">
                     <div class="image-container">
                         <img src="{{asset('img/type/t4.png')}}" alt="T4">
                     </div>
@@ -128,13 +127,13 @@
                 </button>
             </div>
             <div id="studio-duplex">
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize')" class="image-button boutton_selection" value="studio">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="studio">
                     <div class="image-container">
                         <img src="{{asset('img/type/studio.png')}}" alt="Studio">
                     </div>
                     <span>Studio</span>
                 </button>
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize')" class="image-button boutton_selection" value="duplex">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="duplex">
                     <div class="image-container">
                         <img src="{{asset('img/type/duplex.png')}}" alt="Duplex">
                     </div>
@@ -142,7 +141,7 @@
                 </button>
 
             </div>
-            <button type="button" onclick="selectItem_droite(this, 'selectedSize')" class="image-button boutton_selection" value="triplex" id="triplex">
+            <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="triplex" id="triplex">
                 <div class="image-container">
                     <img src="{{asset('img/type/triplex.png')}}" alt="Triplex">
                 </div>
@@ -150,7 +149,7 @@
             </button>
         </div>
 
-        <input type="hidden" id="selectedSize" name="type_logement" value="">
+        <input type="hidden" id="selectedSize1" name="type_logement" value="">
         <div id="footer">
             <button  type="button" id="retour_page_2" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
             <button  type="button" onclick="validateForm()"id="suivant_page_2" class="bouttons_suivant" >Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
@@ -219,8 +218,6 @@
         <div>
             <h3>Décrivez vos chambres *</h3>
             <div id="chambres_container" class="chambres-container"></div>
-            <input type="hidden" id="total_lits" name="total_lits" value="">
-
         </div>
         <div id="footer">
             <button type="button" id="retour_page_4" class="bouttons_retour" onclick="page_4_to_page_3()"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
@@ -471,7 +468,7 @@
         </button>
         <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="personne_supp">
             <div class="image-container">
-                <img src="{{asset('img/charges/personne_suplementaire.png')}}" alt="Personne">
+                <img src="{{asset('img/services/personne_suplementaire.png')}}" alt="Personne">
             </div>
             <span>Personne suplémentaire</span>
             <input type="hidden" id="selectedPage7ValuesGauche" name="charge_additionnel_libelle" value="">
@@ -483,7 +480,7 @@
         <h3 class="section-title">Quel sera le prix par nuit de votre logement ? *</h3>
         <div id="alignement_input_euro">
             <input type="text" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
-            <img src="{{asset('img/symbole_euro.png')}}" alt="Symbole euro">
+            <img src="images/euro" alt="Symbole euro">
         </div>
         
     </div>

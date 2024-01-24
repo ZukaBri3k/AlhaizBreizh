@@ -72,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
     alert(events);
         if (events.length > 0) {
       // Si un événement est présent, obtenir la date du calendrier
-      var firstEventDate = events[0].start.toISOString(); // Problème possible ici
-      var correctedDate = new Date(firstEventDate);
-      xhr.send('date=' + encodeURIComponent(firstEventDate));
+      var date = events[0].start.toISOString(); // Problème possible ici
+      var correctedDate = new Date(date);
+      xhr.send('date=' + encodeURIComponent(date));
         }
   });
   calendar.render();  

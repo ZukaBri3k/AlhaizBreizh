@@ -100,9 +100,9 @@
                 <div class="elem">
                     <p>Date de naissance :</p>
                     @php
-                        setlocale(LC_TIME, "fr_FR");
                         $date = $personnes->date_de_naissance;
-                        $formattedDate = strftime('%d %B %G', strtotime($date));
+                        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                        $formattedDate = $formatter->format(new DateTime($date));
                     @endphp
                     <p>{!! $formattedDate !!}</p>
                 </div>
@@ -124,16 +124,37 @@
         </div>
     </div>
 
-    <div class="Profile_Privee">
+    <div class="Profile_Privee", id="api_chemin">
         <h5>Clé API</h5>
         <hr>
         <p class="line_info">Cette clé ne doit pas être partagée <strong>et être gardée privée.</strong></p>
         <div class="Donnees">
             <div class="donnees_precise">
-                <div class="elem">
+                @php
+                    foreach ($cles as $cle) {
+                        if ($cle->privilege == false) {
+                            $url = route('deleteCle', ['cle' => $cle->cle]);
+                            echo "<div class='elem'>
+                                    <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                    <p>" . $cle->cle . "</p>
+                                    <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
+                                </div>
+                                <hr>";
+                        } else {
+                            $url = route('deleteCle', ['cle' => $cle->cle]);
+                            echo "<div class='elem'>
+                                    <p>Clé privilégiée :</p>
+                                    <p>" . $cle->cle . "</p>
+                                    <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
+                                </div>
+                                <hr>";
+                        }
+                    }
+                @endphp
+                <!-- <div class="elem">
                     <p>Clé :</p>
                     <p>123456789</p>
-                    <button class="button_api">Supprimer sa clé</button>
+                    <button class="button_api" href="{{route('deleteCle', '123456789')}}">Supprimer sa clé</button>
                 </div>
                 <hr>
                 <div class="elem">
@@ -141,18 +162,19 @@
                     <p>123456789</p>
                     <button class="button_api">Supprimer sa clé</button>
                 </div>
-                <hr>
+                <hr> -->
             </div>
-            <form action="" method="get" class="api">
+            <form action="{{route('genereCle')}} " method="post" class="api">
+                @csrf
                 <h3>Générer sa clé :</h3>
                 <div class="elem">
                     <div class="radio_form">
                         <div>
-                            <input type="radio" id="prive" name="cle" value="prive" checked>
+                            <input type="radio" id="prive" name="privilege" value="prive" checked>
                             <label for="prive">Privilégiée</label>
                         </div>
                         <div>
-                            <input type="radio" id="nonprive" name="cle" value="nonprive">
+                            <input type="radio" id="nonprive" name="privilege" value="nonprive">
                             <label for="nonprive">Non privilégiée</label>
                         </div>
                     </div>

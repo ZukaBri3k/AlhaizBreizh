@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'Montserrat';
-	src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+	src: url("fonts/Montserrat-Regular.woff2") format("woff2");
     /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
     font-weight: 500;
 }
@@ -8,14 +8,14 @@
 @font-face {
 	font-family: "Montserrat-Light";
 	font-weight: 400;
-	src: url("/fonts/Montserrat-Light.woff2") format("woff2");
+	src: url("fonts/Montserrat-Light.woff2") format("woff2");
     /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
 }
 
 @font-face {
 	font-family: "RocaOne";
 	font-weight: 400;
-	src: url("/fonts/RocaOne-Rg.woff2") format("woff2");
+	src: url("fonts/RocaOne-Rg.woff2") format("woff2");
     /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
 }
 
@@ -25,15 +25,13 @@ body {
 
 
 .carousel-control-prev-icon {
-    background-image: url('/img/prev.png') !important;
-    /*background-image: url('{{asset('/img/prev.png')}}') !important;*/
+    background-image: url('../img/prev.png') !important;
     width: 51% !important;
     height: 16% !important;
 }
 
 .carousel-control-next-icon {
-    background-image: url('/img/next.png') !important;
-    /*background-image: url('{{asset('/img/next.png')}}') !important;*/
+    background-image: url('../img/next.png') !important;
     width: 51% !important;
     height: 16% !important;
 }
@@ -58,7 +56,7 @@ body {
 .carousel-control-prev, .carousel-control-next {
     height: 60% !important;
     width: 10% !important;
-    margin-top: 9% !important; /* Ajuste la marge autour de la zone cliquable */
+    margin-top: 1% !important; /* Ajuste la marge autour de la zone cliquable */
     margin-bottom: 1% !important; /* Ajuste la marge autour de la zone cliquable */
 }
 
@@ -91,13 +89,10 @@ body {
 
 .second h1 + h1{
     margin-top: 8%;
-    height: 50px;
 }
 
 .Caracteristiques + h1{
     margin-top: 0;
-    height: 50px;
-    width: 55%;
 }
 
 .second {
@@ -153,23 +148,21 @@ body {
 }
 
 .calendar::before {
-    content: url('/img/calendar.png');
-    /*content: url('{{asset('/img/calendar.png)}}')*/
+    content: url('../img/calendar.png');
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -12%;
 }
 
 .ville::before {
-    content: url('/img/ville.png');
-    /*content: url('{{asset('/img/ville.png)}}')*/
+    content: url('../img/ville.png');
     vertical-align: middle;
     margin-right: 4%;
     margin-left: -9%;
 }
 
 .adresse::before {
-    content: url('/img/adresse.png');
+    content: url('../img/adresse.png');
     /*content: url('{{asset('/img/adresse.png)}}')*/
     vertical-align: middle;
     margin-right: 5%;
@@ -177,7 +170,7 @@ body {
 }
 
 .dimension::before {
-    content: url('/img/dimension.png');
+    content: url('../img/dimension.png');
     /*content: url('{{asset('/img/dimension.png)}}')*/
     vertical-align: middle;
     margin-right: 2%;
@@ -204,7 +197,7 @@ body {
 
 .Caracteristiques {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permet le passage à la ligne lorsque l'espace est insuffisant */
     margin-left: 11%;
     width: 50%;
 }
@@ -351,45 +344,93 @@ body {
     margin-bottom: 0rem;
 }
 
-/*****************Style de la prévisualisation*****************/
+@media (min-width: 768px) {
+    .carou {
+        width: 60%;
+        height: 70%;
+        margin: auto;
+        margin-top: 2%;
+    }
 
-.Vue_client {
-    color: #FFF;
-    font-family: 'Montserrat-Light';
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-bottom: 0rem;
-    background-color: black;
-    padding: 2%;
-    display: flex;
-    justify-content: center;
+    .carou img {
+        width: 70% !important;
+        height: 55% !important;
+        margin-left: 5%;
+    }
+
+    .second {
+        flex-direction: row;
+    }
+
+    .second div {
+        width: 60%;
+        height: 100%;
+    }
+
+    .leStick {
+        margin-top: 5%;
+        width: 30% !important;
+    }
+
+    .Caracteristiques {
+        margin-left: 5%;
+        width: 70%;
+    }
+
+    .rectangle {
+        width: 27% !important;
+        height: 0% !important;
+    }
 }
 
-.boutton_bas {
-    display: flex;
-    justify-content: center;
+/* Styles pour les écrans de petite taille */
+@media (max-width: 767px) {
+    .carou {
+        width: 90%;
+        height: 50%;
+        margin: auto;
+        margin-top: 2%;
+    }
+
+    .carou img {
+        width: 100% !important;
+        height: auto !important;
+        margin-left: 0;
+    }
+
+    .second {
+        flex-direction: column;
+    }
+
+    .second div {
+        width: 100%;
+        height: auto;
+    }
+
+    .leStick {
+        margin-top: 5%;
+        width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5%;
+    }
+
+    .Caracteristiques {
+        width: 90%; /* Ajustez selon vos besoins */
+        margin-left: 5%;
+        margin-top: 50px;
+    }
+
+    .rectangle {
+        width: 45% !important; /* Ajustez selon vos besoins */
+    }
+
+    .carousel-control-prev-icon{
+        display: none !important;
+    }
+
+    .carousel-control-next-icon{
+        display: none !important;
+    }
 }
 
-.boutton_bas button {
-    height: 70px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    border-radius: 20px;
-    background-color: #EC3B53;
-    color: #FFF;
-    text-align: center;
-    font-size: 20px;
-    letter-spacing: -0.225px;
-    color: #FFF;
-    text-align: center;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 739;
-    line-height: normal;
-}
-
-#enreg_buton {
-    margin-left: 30%;
-}

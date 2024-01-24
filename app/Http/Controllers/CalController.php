@@ -30,10 +30,13 @@ class CalController extends Controller
     }
     public function ajouterEvenementDB(Request $request)
     {
-        $start_date = $request->input('start_date');
-        $end_date = $request->input('end_date');
-        $statut = $request->input('statut'); 
-        DD($start_date);
+        $events = json_decode($request->input('events'), true);
+
+        foreach ($events as $event) {
+            $start_date = $event['start_date'];
+            $end_date = $event['end_date'];
+            $statut = $event['statut'];
+            $date = $event['date'];
         DB::table('calendrier')->insert([
             'jour' => $start_date,
             'disponibilite' => true,
@@ -54,5 +57,6 @@ class CalController extends Controller
 
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     }
+}
     
 }

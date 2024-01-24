@@ -7,6 +7,7 @@ use \App\Http\Controllers\AccountController;
 use \App\Http\Controllers\Logement;
 use \App\Http\Controllers\Devis;
 use \App\Http\Controllers\Welcome;
+use \App\Http\Controllers\CalController;
 
 
 /*
@@ -45,7 +46,6 @@ Route::prefix('/logement')->group(function() {
     Route::get('/{id}/details_previsu', [Logement::class, 'getInfoLogementPrevisu'])->where('id', '[0-9]+')->name('details_previsu')->middleware(['auth', 'isProprietaire']);
 
     Route::post('mise_en_ligne_logement', [Logement::class, 'ajouterLogementDB'])->name('creation_logement')->middleware(['auth', 'isProprietaire']);
-});
 
 Route::prefix('/account')->group(function () {
     Route::get('client_pop_up/register', [AccountController::class, "inscriptionClientPopUp"])->name('inscription_client_pop');
@@ -78,4 +78,4 @@ Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
 
-Route::post('mettre-a-jour-disponibilite', 'CalController@mettreAJourDisponibilite');
+Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementsDB'])->name('ajouter-evenements');

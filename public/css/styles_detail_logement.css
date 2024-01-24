@@ -43,8 +43,7 @@ body {
 }
 
 .carousel-item.active div img {
-    width: 218.33px !important;
-    height: 186.76px !important;
+    width: 120% !important;
     padding-bottom: 10% !important;
     margin-left: 2% !important;
     padding-bottom: 4% !important;
@@ -70,8 +69,8 @@ body {
 }
 
 .carou img {
-    width: 509.36px !important;
-    height: 339.58px !important;
+    width: 70% !important;
+    height: 55% !important;
     margin-left: 5%;
 }
 
@@ -407,7 +406,7 @@ body {
     }
 
     .rectangle {
-        width: 170px !important;
+        width: 210px !important;
         height: 0% !important;
     }
 }

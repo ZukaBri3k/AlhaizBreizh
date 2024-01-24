@@ -525,6 +525,13 @@ CSS de la page mes logements début
 ************************************************************************************************************
 ***********************************************************************************************************/
 
+.mesLogementsPage .mesReservations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .mesLogementsPage {
     background-color: #F6F5EE;
 }

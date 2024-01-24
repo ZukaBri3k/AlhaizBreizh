@@ -46,8 +46,16 @@ Route::prefix('/logement')->group(function() {
     Route::get('/{id}/details_previsu', [Logement::class, 'getInfoLogementPrevisu'])->where('id', '[0-9]+')->name('details_previsu')->middleware(['auth', 'isProprietaire']);
 
     Route::get('/mes-logements', [Logement::class, 'getLogementsProprietaire'])->name('mes_logements')->middleware(['auth', 'isProprietaire']);
+<<<<<<< HEAD
     Route::post('/mise_en_ligne_logement', [Logement::class, 'mise_en_ligne_logement'])->name('mise_en_ligne_logement')->middleware(['auth', 'isProprietaire']);
     Route::post('/creation_base_logement', [Logement::class, 'ajouterLogementDB'])->name('creation_logement')->middleware(['auth', 'isProprietaire']);
+=======
+
+    Route::post('/mise_en_ligne_logement', [Logement::class, 'mise_en_ligne_logement'])->name('creation_logement')->middleware(['auth', 'isProprietaire']);
+    Route::get('/setHL/{id}', [Logement::class, 'setLogementHorsLigne'])->name('setHL')->middleware(['auth', 'isProprietaire']);
+    Route::post('/mise_en_ligne_logement', [Logement::class, 'ajouterLogementDB'])->name('mise_en_ligne_logement')->middleware(['auth', 'isProprietaire']);
+
+>>>>>>> 5bca079dbe9d4c915ecdf2409e839ddbff09421a
 });
 
 Route::prefix('/account')->group(function () {
@@ -74,11 +82,11 @@ Route::prefix('/account')->group(function () {
     route::get('proprio_register',[AccountController::class,'proprio_register'])->name('proprio_register');
 });
 
-Route::get('test', [Logement::class, 'ajouterLogementDB']);
+Route::post('test', [Logement::class, 'ajouterLogementDB']);
 
 
 Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
 
-Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementsDB'])->name('ajouter-evenements');
+Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementDB'])->name('ajouter-evenements');

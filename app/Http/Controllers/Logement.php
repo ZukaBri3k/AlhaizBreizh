@@ -78,7 +78,7 @@ class Logement extends Controller
     }
 
     public function mise_en_ligne_logement() {
-        return View("logement/mise_ligne_logement");
+        return View("logement/mise_en_ligne_logement");
     }
 
     public function getInfoLogement(Request $request) {

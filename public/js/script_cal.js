@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   document.getElementById('my-button').addEventListener('click', function() {
     // Vérifier s'il y a des événements actuellement présents sur le calendrier
-    var events = calendar.getDate('EventE1');
+    var events = calendar.fullCalendar('getEvents');
     alert(events);
         if (events.length > 0) {
       // Si un événement est présent, obtenir la date du calendrier

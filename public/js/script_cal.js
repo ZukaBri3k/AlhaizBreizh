@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             eventsInput.name = 'events';
             eventsInput.value = JSON.stringify(formattedEvents);
             form.appendChild(eventsInput);
-        
+            console.log(eventE1);
             // Soumettre le formulaire
             form.submit();
         });

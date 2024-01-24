@@ -525,3 +525,19 @@ CSS de la page mes logements début
 ************************************************************************************************************
 ***********************************************************************************************************/
 
+.mesLogementsPage {
+    background-color: #F6F5EE;
+}
+
+.mesLogementsPage nav {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+}
+
+.mesLogementsPage .mesLogements {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+}

@@ -112,7 +112,6 @@
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
           @php
-            
             if(count(explode(";", $logement->amenagement_propose_logement)) == 1) {
             $value = strtolower($amenagement);
             $value = str_replace(' ', '_', $value);
@@ -123,7 +122,7 @@
             </div>
           @php
             }
-            elseif($amenagement == "null" || $service == "") {
+            elseif($amenagement == "null" || $amenagement == "") {
               @endphp
             <div class="rectangle" style="display : none;">
               <img src="{{asset('/img/amenagements/a.png')}}" class="d-block w-80">
@@ -159,7 +158,7 @@
           @php
             }
           }
-          elseif($installation == "null" || $service == "") {
+          elseif($installation == "null" || $amenagement == "") {
             @endphp
             <div class="rectangle" style="display : none;">
             <img src="{{asset('/img/installations/a.png')}}" class="d-block w-80">
@@ -234,7 +233,7 @@
           @php 
             }
           }
-          elseif($equipement == "null" || $service == "") {
+          elseif($equipement == "null" || $equipement == "") {
             @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/equipements/a.png')}}" class="d-block w-80">
@@ -273,7 +272,7 @@
           @php 
             }
           } 
-          elseif($charge == "null" || $service == "") {
+          elseif($charge == "null" || $charge == "") {
             @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/charges/a.png')}}" class="d-block w-80">

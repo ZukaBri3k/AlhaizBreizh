@@ -72,6 +72,9 @@ class Logement extends Controller
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?)', $tab);
+
+        $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement], auth()->user()->id);
+        return redirect()->route('getInfoLogementPrevisu', ['id' => $id_logement[0]->id_logement]);
     }
 
     public function getInfoLogement(Request $request) {

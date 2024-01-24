@@ -7,6 +7,7 @@ use \App\Http\Controllers\AccountController;
 use \App\Http\Controllers\Logement;
 use \App\Http\Controllers\Devis;
 use \App\Http\Controllers\Welcome;
+use \App\Http\Controllers\CalController;
 
 
 /*
@@ -74,5 +75,4 @@ Route::get('test', [Logement::class, 'ajouterLogementDB']);
 Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
-
-Route::post('mettre-a-jour-disponibilite', 'CalController@mettreAJourDisponibilite');
+Route::post('/ajouter-evenements', [CalController::class,'VotreController@ajouterEvenementsDB']);

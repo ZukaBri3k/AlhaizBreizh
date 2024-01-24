@@ -109,7 +109,7 @@ class Logement extends Controller
         $tabDevis = DB::select("select * from devis where id_proprio = ?", [$id]);
 
         foreach($tabDevis as $devis) {
-            $devis->client = DB::select("select * from personnes where id = ?", [$id])[0];
+            $devis->client = DB::select("select * from personnes where id = ?", [$devis->id_client_devis])[0];
         }
 
         dd($tabDevis);

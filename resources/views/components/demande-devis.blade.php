@@ -7,7 +7,7 @@
     <p>{{$dated}}</p>
     <p>{{$datef}}</p>
     <div class="btn">
-        <a href="#" class="validerDevis">Accepter le devis</a>
+        <a href="{{route('validerDevis', ['id_devis' => $iddevis])}}" class="validerDevis">Accepter le devis</a>
         <a href="#" class="refuserDevis">Refuser le devis</a>
     </div>
 </div>

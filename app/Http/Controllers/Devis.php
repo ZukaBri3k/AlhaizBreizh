@@ -26,13 +26,13 @@ class Devis extends Controller
     }
 
     public function validationDevis (Request $request) {
-        DB::update('update devis set etat_devis = true where ref_devis = 6');
-        return redirect()->route('paiement');
+        DB::update('update devis set etat_devis = true where ref_devis = ?', [$request->id_devis]);
+        return redirect()->back();
     }
 
     public function refusDevis (Request $request) {
-        DB::update('update devis set etat_devis = false where ref_devis = 6');
-        return redirect()->route('devis-client');
+        DB::update('update devis set etat_devis = false where ref_devis = ?', [$request->id_devis]);
+        return redirect()->back();
     }
 
     public function demandeDevis (Request $request) {

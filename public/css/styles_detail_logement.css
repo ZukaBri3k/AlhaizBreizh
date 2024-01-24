@@ -459,7 +459,7 @@ body {
 }
 
 .demande_devis .datepicker-input {
-    width: 85%;
+    width: 50%;
     height: 40px;
     border-radius: 10px;
     border: solid 1px #EC3B53;
@@ -487,4 +487,16 @@ body {
 
 .demande_devis div {
     display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.demande_devis label {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }

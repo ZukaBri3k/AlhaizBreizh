@@ -17,6 +17,7 @@ class Card extends Component
         public string $note,
         public string $prix,
         public string $lien,
+        public string $id,
         public string $natLogement
         )
     {
@@ -25,6 +26,7 @@ class Card extends Component
         $this->note = $note;
         $this->prix = $prix;
         $this->lien = $lien;
+        $this->id = $id;
         $this->natLogement = $natLogement;
     }
 

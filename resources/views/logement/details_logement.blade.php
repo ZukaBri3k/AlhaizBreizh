@@ -124,10 +124,12 @@
           @php
             }
             elseif($amenagement == "null") {
+              @endphp
             <div class="rectangle" style="display : none;">
               <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
               <p>{!! $amenagement !!}</p>
             </div>
+            @php
             }
 
           elseif(count(explode(";", $logement->amenagement_propose_logement)) > 1) {
@@ -158,10 +160,12 @@
             }
           }
           elseif($installation == "null") {
+            @endphp
             <div class="rectangle" style="display : none;">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
           </div>
+          @php
           } 
           
           elseif(count(explode(";", $logement->installation_offerte_logement)) == 1) {
@@ -195,10 +199,12 @@
             }
           } 
           elseif($service == "null") {
+            @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
                 <p>{!! $values !!}</p>
             </div>
+            @php
           }
 
 
@@ -229,10 +235,12 @@
             }
           }
           elseif($equipement == "null") {
+            @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
                 <p>{!! $values !!}</p>
             </div>
+            @php
           }
           
           elseif(count(explode(";", $logement->equipement_propose_logement)) == 1) {
@@ -266,10 +274,12 @@
             }
           } 
           elseif($charge == "null") {
+            @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
                 <p>{!! $values !!}</p>
             </div>
+            @php
             }
           elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
             $value = strtolower($charge);

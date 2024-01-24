@@ -39,7 +39,7 @@ class Devis extends Controller
     public function demande_devis (Request $request) {
         $client = DB::select('select * from personnes where id = ?', [Auth::user()->id]);
 
-        if($client[0]->role == 1 && $dateDebut < $dateFin) {
+        if($client[0]->role == 1 && $request->dateDebut < $request->dateFin) {
 
             $id_logement = $request->id;
     

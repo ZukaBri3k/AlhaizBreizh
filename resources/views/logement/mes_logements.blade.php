@@ -36,7 +36,11 @@
 
     <section class="mesDevis">
         <h2>Mes demande de devis :</h2>
-
+        @php 
+            if(count($tabDevis) == 0){
+                echo "<p class='aucunDevis'>Vous n'avez aucune demande de devis.</p>";
+            }
+        @endphp
         <div class="listeMesDevis">
             @foreach($tabDevis as $devis)
                 <x-DemandeDevis libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}"></x-DemandeDevis>
@@ -46,7 +50,11 @@
 
     <section class="mesReservations">
         <h2>Mes réservations :</h2>
-
+        @php 
+            if(count($tabReserv) == 0){
+                echo "<p class='aucuneReservation'>Vous n'avez aucune réservation.</p>";
+            }
+        @endphp
         <div class="listeMesReservations">
             @foreach($tabReserv as $reserv)
                 <x-Reservation libelle="{{$reserv->libelle_logement}}" pseudo="{{$reserv->pseudo_pers}}" dated="{{$reserv->date_deb}}" datef="{{$reserv->date_fin}}" id="{{$reserv->id_logement}}" iddevis="{{$reserv->ref_devis}}" idreservation="{{$reserv->id_reserv}}" prix="{{$reserv->prix_tot}}"></x-Reservation>

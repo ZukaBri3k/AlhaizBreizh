@@ -77,7 +77,7 @@ class Logement extends Controller
         return redirect()->route('getInfoLogementPrevisu', ['id' => $id_logement[0]->id_logement]);
     }
 
-    public function mise_ligne_logement() {
+    public function mise_en_ligne_logement() {
         return View("logement/mise_ligne_logement");
     }
 

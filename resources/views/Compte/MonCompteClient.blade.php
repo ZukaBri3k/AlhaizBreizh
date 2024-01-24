@@ -10,8 +10,8 @@
 <body>
     <x-Navbar></x-Navbar>
 
-    <h6>Demande de devis : </h6>
-    <a href="{{route('devis-client')}}">Demander le devis</a>
+    <h1>Acceder à ses logements : </h1>
+    <a href="{{route('mes_logements')}}"><button>Mes logements</button></a>
 
     <div class="Titre">
         <h1>Information de votre compte client</h1>

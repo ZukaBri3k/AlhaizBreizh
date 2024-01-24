@@ -117,7 +117,7 @@ body{
     margin-top: 5vh;
 
 }
-button {
+/*button {
     background-color: #F6F5EE;
     border: 1px solid #4BCBFF;
     border-radius: 20px;
@@ -137,7 +137,7 @@ button {
   button.selected2 {
     background-color: #4BCBFF;
     color: #000;
-  }
+  }*/
 
   .image-button {
     display: flex;

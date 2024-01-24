@@ -156,6 +156,7 @@ class Logement extends Controller
 
     public function getLogementsProprietaire(Request $request) {
         $id = auth()->user()->id_personne;
+        dd($id);
         $logements =DB::select("select * from logement where id_proprio_logement = ?", [$id]);
 
         return View("logement/mes_logements", ['logements' => $logements]);

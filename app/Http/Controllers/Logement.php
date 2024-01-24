@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Logement extends Controller
 {
@@ -150,5 +151,12 @@ class Logement extends Controller
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+    }
+
+    public function getLogementsProprietaire(Request $request) {
+        $id = auth()->user()->id();
+        $logements =DB::select("select * from logement where id_proprio_logement = ?", [$id]);
+
+        return View("logement/mes_logements", ['logements' => $logements]);
     }
 }

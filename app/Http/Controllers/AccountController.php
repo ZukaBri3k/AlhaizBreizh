@@ -148,7 +148,7 @@ class AccountController extends Controller
             values(
                 ?, ?, ?, ? )',$proprietaire);
                 return redirect()->route('accueil');
-            }
+    }
 
     public function client_register(Request $request) {
         $this->ajoute_personne($request,1);

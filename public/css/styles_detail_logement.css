@@ -346,7 +346,7 @@ body {
 }
 
 /* Styles pour les écrans de petite taille */
-@media (max-width: 767px) {
+@media (max-width: 800px) {
     .second {
         flex-direction: column;
     }

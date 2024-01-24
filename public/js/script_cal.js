@@ -72,8 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
     alert(events);
         if (events.length > 0) {
       // Si un événement est présent, obtenir la date du calendrier
-      var firstEventDate = events[0].start.toISOString();
-    alert("La date du premier événement sur le calendrier est " + firstEventDate);
+      var firstEventDate = events[0].start.toISOString(); // Problème possible ici
+      var correctedDate = new Date(firstEventDate);
+      alert("La date du premier événement sur le calendrier est " + correctedDate.toISOString());
     } else {
       // Si aucun événement n'est présent, afficher un message
       alert("Aucun événement draggable n'est présent sur le calendrier.");

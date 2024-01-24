@@ -13,7 +13,11 @@ class FooterClient extends Component
      */
     public function __construct()
     {
-        //
+        if(Auth::check()) {
+            $this->id = Auth::user()->id;
+        } else {
+            $this->role = null;
+        }
     }
 
     /**

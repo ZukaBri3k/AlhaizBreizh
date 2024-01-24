@@ -232,7 +232,7 @@ function removeBlur() {
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{route('mes_logements')}}" class="dropdown-item">Mes logements</a></li>
-                        <li><a href="{{ route('myProprietaireAccount', ['id' => $id])}}" class="dropdown-item">Profile</a></li>
+                        <li><a href="{{ route('myProprietaireAccount', ['id' => $id])}}" class="dropdown-item">Profil</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon Compte Client</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
                     </ul>

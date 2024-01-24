@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class DemandeDevis extends Component
+class Reservation extends Component
 {
     /**
      * Create a new component instance.
@@ -18,7 +18,9 @@ class DemandeDevis extends Component
         public string $datef,
         public string $id,
         public string $iddevis,
-        public string $idreservation
+        public string $idreservation,
+        public string $prix,
+        public string $natlogement
     )
     {
         $this->libelle = $libelle;
@@ -28,6 +30,8 @@ class DemandeDevis extends Component
         $this->idlogement = $id;
         $this->iddevis = $iddevis;
         $this->idreservation = $idreservation;
+        $this->prix = $prix;
+        $this->natlogement = $natlogement;
     }
 
     /**
@@ -35,6 +39,6 @@ class DemandeDevis extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.demande-devis');
+        return view('components.reservation');
     }
 }

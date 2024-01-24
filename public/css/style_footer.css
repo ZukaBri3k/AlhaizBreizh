@@ -112,3 +112,22 @@ footer button {
     letter-spacing: -0.225px;
     margin-top: 50px;
 }
+
+.footer-address {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.basgauche {
+    margin: 0;
+}
+
+.basdroite {
+    margin-right: 5%;
+}
+
+.basdroite span {
+    text-decoration: underline; /* Soulignement */
+}

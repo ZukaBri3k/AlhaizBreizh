@@ -186,7 +186,7 @@
                 <div id="description_logement_precise">
                     <div id="nombre_de_personnes">
                     <label for="nombre_de_personne">Nombre de personne(s) : </label>
-                    <textarea name="nb_personnes_max" id="" cols="5" rows="1" required></textarea>
+                    <textarea name="nb_personne_max" id="" cols="5" rows="1" required></textarea>
                     </div>
                     <br>
                     <div id="nombre_de_personnes">

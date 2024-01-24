@@ -69,4 +69,4 @@ Route::get('test', [Logement::class, 'ajouterLogementDB']);
 Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
-Route::post('/ajouter-evenements', [CalController::class,'VotreController@ajouterEvenementsDB']);
+Route::post('/ajouter-evenements', 'VotreController@ajouterEvenementsDB')->name('ajouter-evenements');

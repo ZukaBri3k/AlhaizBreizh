@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     },
   });
-  
   validateButton.addEventListener('click', function() {
     // Récupérer tous les événements du calendrier
     var allEvents = calendar.getEvents();
@@ -77,19 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     });
 
-    // Envoyer les données au serveur Laravel via Ajax
-    $.ajax({
-        url: '/ajouter-evenements',
-        method: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({ events: formattedEvents }),
-        success: function(response) {
-            console.log('Événements envoyés avec succès !', response);
-        },
-        error: function(error) {
-            console.error('Erreur lors de l\'envoi des événements :', error);
-        }
-    });
+    // Remplir le champ d'entrée du formulaire avec les événements formatés
+    document.getElementById('eventsInput').value = JSON.stringify(formattedEvents);
+
+    // Soumettre le formulaire
+    document.getElementById('eventsForm').submit();
 });
   
   calendar.render();  

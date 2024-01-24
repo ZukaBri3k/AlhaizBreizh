@@ -1,4 +1,4 @@
-<a class="lienCard {{$prix}} {{$natLogement}}" href="{{$lien}}">
+<a class="lienCard {{$prix}} {{$natLogement}}" href="{{route('details'), ['id' => $id]}}">
     <div class="cardLogement">
         <img src="{{asset('/img/logements/logement' . $id . '/couverture.jpg')}}" alt="Image de couverture de la maison">
 

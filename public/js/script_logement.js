@@ -177,7 +177,7 @@ function validateForm() {
         return;
     }
 
-    var selectedSizeInput = document.getElementById('selectedSize');
+    var selectedSizeInput = document.getElementById('selectedSize1');
     if (!selectedSizeInput.value) {
         alert("Veuillez sélectionner un type de logement.");
         return;
@@ -191,7 +191,7 @@ function validatePage3() {
     const titreLogement = document.getElementsByName('libelle_logement')[0].value;
     const accrocheLogement = document.getElementsByName('accroche_logement')[0].value;
     const descriptionLogement = document.getElementById('description_logement_input').value;
-    const nombrePersonne = document.getElementsByName('nb_personne_max')[0].value;
+    const nombrePersonne = document.getElementsByName('nb_personnes_max')[0].value;
     const surface = document.getElementsByName('surface_habitable_logement')[0].value;
     const nombreChambre = document.getElementsByName('nb_chambre_logement')[0].value;
     const nombreSalleDeBain = document.getElementsByName('nb_salle_de_bain_logement')[0].value;
@@ -217,13 +217,11 @@ function validatePage3() {
 
 function validatePage4() {
     const nombreDeChambres = parseInt(document.getElementById("nombre_de_chambre_input").value);
-    let totalLits = 0;
 
     for (let i = 1; i <= nombreDeChambres; i++) {
         const nombreLitsSimples = document.getElementById(`chambres_container_${i}_lits_simples`).value;
         const nombreLitsDoubles = document.getElementById(`chambres_container_${i}_lits_doubles`).value;
         const detailsLits = document.getElementById(`chambres_container_${i}_details_lits`).value;
-
         if (
             nombreLitsSimples.trim() === '' ||
             nombreLitsDoubles.trim() === '' ||
@@ -232,14 +230,8 @@ function validatePage4() {
             alert(`Veuillez remplir tous les champs pour la Chambre ${i} sur la page 4.`);
             return false;
         }
-
-        // Ajoutez le nombre de lits simples et doubles pour obtenir le total
-        totalLits += parseInt(nombreLitsSimples) + parseInt(nombreLitsDoubles);
     }
-
-    // Mettez à jour le champ total_lits
-    document.getElementById("total_lits").value = totalLits;
-
+    
     page_4_to_page_5();
 }
 

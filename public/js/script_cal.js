@@ -64,34 +64,35 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     },
   });
-  validateButton.addEventListener('click', function() {
-    // Récupérer tous les événements du calendrier
-    var allEvents = calendar.getEvents();
+ 
+    
+});
+  calendar.render();  
 
-    // Convertir les dates en format ISO8601
     validateButton.addEventListener('click', function() {
         // Récupérer tous les événements du calendrier
         var allEvents = calendar.getEvents();
     
-        // Récupérer le jour sélectionné dans le calendrier
-        var selectedDate = null;
-        if (allEvents.length > 0) {
-            selectedDate = allEvents[0].start.toDateString();
-        }
-    
-        // Ajouter le champ "date" avec la valeur du jour sélectionné
-        var form = document.getElementById('eventForm');
-        var dateInput = document.createElement('input');
-        dateInput.type = 'hidden';
-        dateInput.name = 'date';
-        dateInput.value = selectedDate;
-        form.appendChild(dateInput);
-    
-        // Soumettre le formulaire
-        form.submit();
+        // Convertir les dates en format ISO8601
+        validateButton.addEventListener('click', function() {
+            // Récupérer tous les événements du calendrier
+            var allEvents = calendar.getEvents();
+        
+            // Récupérer le jour sélectionné dans le calendrier
+            var selectedDate = null;
+            if (allEvents.length > 0) {
+                selectedDate = allEvents[0].start.toDateString();
+            }
+        
+            // Ajouter le champ "date" avec la valeur du jour sélectionné
+            var form = document.getElementById('eventForm');
+            var dateInput = document.createElement('input');
+            dateInput.type = 'hidden';
+            dateInput.name = 'date';
+            dateInput.value = selectedDate;
+            form.appendChild(dateInput);
+        
+            // Soumettre le formulaire
+            form.submit();
+        });
     });
-    
-});
-  calendar.render();  
-    });   
-

@@ -54,7 +54,7 @@
   font-style: italic;
  }
  .fc-h-eventres{
-  background-color: #EC3B53 !important;
+  background-color: red !important;
   color: black; 
   font-size: large;
   font-style: italic;
@@ -63,3 +63,6 @@
   background-color: #F6F5EE;
  }
  
+ button{
+  color: #EC3B53;
+ }

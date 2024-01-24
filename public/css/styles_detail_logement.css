@@ -58,6 +58,7 @@ body {
     width: 10% !important;
     margin-top: 1% !important; /* Ajuste la marge autour de la zone cliquable */
     margin-bottom: 1% !important; /* Ajuste la marge autour de la zone cliquable */
+    top: 10% !important;
 }
 
 .carou {
@@ -378,7 +379,7 @@ body {
     }
 
     .rectangle {
-        width: 27% !important;
+        width: 170px !important;
         height: 0% !important;
     }
 }
@@ -403,7 +404,7 @@ body {
     }
 
     .second div {
-        width: 100%;
+        width: 90%;
         height: auto;
     }
 

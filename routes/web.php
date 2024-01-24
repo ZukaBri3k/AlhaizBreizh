@@ -63,7 +63,7 @@ Route::prefix('/account')->group(function () {
     route::get('proprio_register',[AccountController::class,'proprio_register'])->name('proprio_register');
 });
 
-Route::get('test', [Logement::class, 'ajouterLogementDB']);
+Route::post('test', [Logement::class, 'ajouterLogementDB']);
 
 
 Route::get('/testcal', function () {

@@ -191,7 +191,7 @@ function validatePage3() {
     const titreLogement = document.getElementsByName('libelle_logement')[0].value;
     const accrocheLogement = document.getElementsByName('accroche_logement')[0].value;
     const descriptionLogement = document.getElementById('description_logement_input').value;
-    const nombrePersonne = document.getElementsByName('nb_personnes_max')[0].value;
+    const nombrePersonne = document.getElementsByName('nb_personne_max')[0].value;
     const surface = document.getElementsByName('surface_habitable_logement')[0].value;
     const nombreChambre = document.getElementsByName('nb_chambre_logement')[0].value;
     const nombreSalleDeBain = document.getElementsByName('nb_salle_de_bain_logement')[0].value;

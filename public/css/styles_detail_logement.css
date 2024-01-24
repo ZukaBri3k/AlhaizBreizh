@@ -25,15 +25,13 @@ body {
 
 
 .carousel-control-prev-icon {
-    background-image: url('prev.png') !important;
-    /*background-image: url('{{asset('/img/prev.png')}}') !important;*/
+    background-image: url('../img/prev.png') !important;
     width: 51% !important;
     height: 16% !important;
 }
 
 .carousel-control-next-icon {
-    background-image: url('next.png') !important;
-    /*background-image: url('{{asset('/img/next.png')}}') !important;*/
+    background-image: url('../img/next.png') !important;
     width: 51% !important;
     height: 16% !important;
 }
@@ -153,16 +151,14 @@ body {
 }
 
 .calendar::before {
-    content: url('calendar.png');
-    /*content: url('{{asset('/img/calendar.png)}}')*/
+    content: url('../img/calendar.png');
     vertical-align: middle;
     margin-right: 2%;
     margin-left: -12%;
 }
 
 .ville::before {
-    content: url('ville.png');
-    /*content: url('{{asset('/img/ville.png)}}')*/
+    content: url('../img/ville.png');
     vertical-align: middle;
     margin-right: 4%;
     margin-left: -9%;

@@ -74,7 +74,7 @@ class Devis extends Controller
                 $request->id_proprio
             ];
 
-            $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id], [$request->dateDebut], [$request->dateFin]);
+            $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id, $request->dateDebut, $request->dateFin]);
 
             DB::insert('insert into devis (
                 nb_pers,

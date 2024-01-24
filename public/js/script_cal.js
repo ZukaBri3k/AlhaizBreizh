@@ -64,35 +64,34 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     },
   });
- 
-    
-});
+  
+  
   calendar.render();  
+    });   
 
     validateButton.addEventListener('click', function() {
         // Récupérer tous les événements du calendrier
         var allEvents = calendar.getEvents();
     
         // Convertir les dates en format ISO8601
-        validateButton.addEventListener('click', function() {
-            // Récupérer tous les événements du calendrier
-            var allEvents = calendar.getEvents();
-        
-            // Récupérer le jour sélectionné dans le calendrier
-            var selectedDate = null;
-            if (allEvents.length > 0) {
-                selectedDate = allEvents[0].start.toDateString();
-            }
-        
-            // Ajouter le champ "date" avec la valeur du jour sélectionné
-            var form = document.getElementById('eventForm');
-            var dateInput = document.createElement('input');
-            dateInput.type = 'hidden';
-            dateInput.name = 'date';
-            dateInput.value = selectedDate;
-            form.appendChild(dateInput);
-        
-            // Soumettre le formulaire
-            form.submit();
+        var formattedEvents = allEvents.map(function(event) {
+            return {
+                start_date: event.start.toISOString(),
+                end_date: event.end ? event.end.toISOString() : null,
+                // Ajouter le champ "date" avec la valeur du jour vérifié
+                date: event.start.toDateString(), // ou ajustez selon le format que vous souhaitez
+                statut: (event.title === 'réservé') ? 'reserve' : 'indisponible', // ajustez selon votre logique
+            };
         });
+    
+        // Ajouter les champs au formulaire
+        var form = document.getElementById('eventForm');
+        var eventsInput = document.createElement('input');
+        eventsInput.type = 'hidden';
+        eventsInput.name = 'events';
+        eventsInput.value = JSON.stringify(formattedEvents);
+        form.appendChild(eventsInput);
+    
+        // Soumettre le formulaire
+        form.submit();
     });

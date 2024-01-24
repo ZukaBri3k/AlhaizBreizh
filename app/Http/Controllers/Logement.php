@@ -40,7 +40,7 @@ class Logement extends Controller
             $request->charge_additionnel_libelle,
             $request->charge_additionnel_prix,
         ];
-
+        dd($tab);
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,
@@ -99,14 +99,18 @@ class Logement extends Controller
 
     public function getLogementsProprietaire(Request $request) {
         $id = auth()->user()->id;
-        $logements =DB::select("select * from logement where id_proprio_logement = ?", [$id]);
-
+        $logements = DB::select("select * from logement where id_proprio_logement = ?", [$id]);
+        
         foreach ($logements as $logement) {
             $logement->lien = "/logement/" . $logement->id_logement . "/details";
             $logement->id = $logement->id_logement;
         }
+        
+        $tabDevis = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv");
 
-        return View("logement/mes_logements", ['logements' => $logements]);
+        //dd($tabDevis);
+
+        return View("logement/mes_logements", ['logements' => $logements, 'tabDevis' => $tabDevis]);
     }
 
 

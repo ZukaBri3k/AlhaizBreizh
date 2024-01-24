@@ -345,7 +345,37 @@ body {
     margin-bottom: 0rem;
 }
 
-@media (min-width: 768px) {
+/* Styles pour les écrans de petite taille */
+@media (max-width: 800px) {
+    .second {
+        flex-direction: column;
+    }
+
+    .second div {
+        width: 90%;
+        height: auto;
+    }
+
+    .leStick {
+        margin-top: 5%;
+        width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5%;
+    }
+
+    .Caracteristiques {
+        width: 90%; /* Ajustez selon vos besoins */
+        margin-left: 5%;
+        margin-top: 50px;
+    }
+
+    .rectangle {
+        width: 45% !important; /* Ajustez selon vos besoins */
+    }
+}
+
+@media(min-width: 768) {
     .carou {
         width: 60%;
         height: 70%;
@@ -358,11 +388,9 @@ body {
         height: 55% !important;
         margin-left: 5%;
     }
+}
 
-    .second {
-        flex-direction: row;
-    }
-
+@media (min-width: 568px) {
     .second div {
         width: 60%;
         height: 100%;
@@ -370,11 +398,10 @@ body {
 
     .leStick {
         margin-top: 5%;
-        width: 30% !important;
     }
 
     .Caracteristiques {
-        margin-left: 5%;
+        margin-left: 10%;
         width: 70%;
     }
 
@@ -385,7 +412,7 @@ body {
 }
 
 /* Styles pour les écrans de petite taille */
-@media (max-width: 767px) {
+@media (max-width: 567px) {
     .carou {
         width: 90%;
         height: 50%;
@@ -397,10 +424,6 @@ body {
         width: 100% !important;
         height: auto !important;
         margin-left: 0;
-    }
-
-    .second {
-        flex-direction: column;
     }
 
     .second div {

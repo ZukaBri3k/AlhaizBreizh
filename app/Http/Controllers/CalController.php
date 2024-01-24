@@ -54,9 +54,9 @@ dd($events);
             // Si c'est réservé, mettez également à jour la disponibilité à false
             DB::table('calendrier')->whereIn('jour', $joursIndisponibles)->update(['disponibilite' => false]);
         }
-
+    };
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
-    }
+    
 }
     
 }

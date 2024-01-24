@@ -37,7 +37,7 @@ class CalController extends Controller
         $statut = $request->input('statut'); 
 
         DB::table('calendrier')->insert([
-            'date' => $date,
+            'jour' => $date,
             'disponibilite' => true,
             // ... autres colonnes ...
         ]);

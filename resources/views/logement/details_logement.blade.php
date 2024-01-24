@@ -91,6 +91,7 @@
           <!-- Nature et type de logement -->
             @php
               $nature = strtolower($logement->nature_logement);
+              $nature = str_replace(' ', '_', $nature);
             @endphp
             <div class="rectangle">
               <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-80">
@@ -98,6 +99,7 @@
             </div>
             @php
                 $type = strtolower($logement->type_logement);
+
             @endphp
             <div class="rectangle">
               <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-80">
@@ -110,8 +112,10 @@
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
           @php
+            
             if(count(explode(";", $logement->amenagement_propose_logement)) == 1) {
             $value = strtolower($amenagement);
+            $value = str_replace(' ', '_', $value);
           @endphp
             <div class="rectangle">
               <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
@@ -120,11 +124,16 @@
           @php
             }
             elseif($amenagement == "null") {
+              <div class="rectangle" style="display : none">
+              <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
+              <p>{!! $amenagement !!}</p>
+            </div>
             }
 
           elseif(count(explode(";", $logement->amenagement_propose_logement)) > 1) {
           foreach ($amenagement as $values) {
             $value = strtolower($values);
+            $value = str_replace(' ', '_', $value);
             @endphp
             <div class="rectangle">
               <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
@@ -139,6 +148,7 @@
           if(count(explode(";", $logement->installation_offerte_logement)) > 1) {
             foreach ($installation as $values) {
             $value = strtolower($values);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
@@ -148,10 +158,15 @@
             }
           }
           elseif($installation == "null") {
+            <div class="rectangle" style="display : none">
+            <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
+            <p>{!! $values !!}</p>
+          </div>
           } 
           
           elseif(count(explode(";", $logement->installation_offerte_logement)) == 1) {
             $value = strtolower($installation);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
@@ -170,19 +185,26 @@
             if(count(explode(";", $logement->service_complementaire_logement)) > 1) {
             foreach ($service as $values) {
               $value = strtolower($values);
+              $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
+          </div>
           @php 
             }
           } 
           elseif($service == "null") {
+            <div class="rectangle" style="display : none">
+                <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
+                <p>{!! $values !!}</p>
+            </div>
           }
 
 
           elseif(count(explode(";", $logement->service_complementaire_logement)) == 1) {
             $value = strtolower($service);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
@@ -197,6 +219,7 @@
             if(count(explode(";", $logement->equipement_propose_logement)) > 1) {
             foreach ($equipement as $values) {
               $value = strtolower($values);
+              $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
@@ -206,10 +229,15 @@
             }
           }
           elseif($equipement == "null") {
+            <div class="rectangle" style="display : none">
+                <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
+                <p>{!! $values !!}</p>
+            </div>
           }
           
           elseif(count(explode(";", $logement->equipement_propose_logement)) == 1) {
             $value = strtolower($equipement);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
@@ -228,6 +256,7 @@
             if(count(explode(";", $logement->charge_additionnel_libelle)) > 1) {
             foreach ($charge as $values) {
               $value = strtolower($values);
+              $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
@@ -237,9 +266,14 @@
             }
           } 
           elseif($charge == "null") {
-            }          
+            <div class="rectangle" style="display : none">
+                <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
+                <p>{!! $values !!}</p>
+            </div>
+            }
           elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
             $value = strtolower($charge);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">

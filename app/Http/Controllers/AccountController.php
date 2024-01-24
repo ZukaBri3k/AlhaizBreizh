@@ -151,6 +151,7 @@ class AccountController extends Controller
             piece_id_proprio_verso)
             values(
                 ?, ?, ?, ? )',$proprietaire);
+
         return redirect()->route('accueil');
     }
 
@@ -180,7 +181,7 @@ class AccountController extends Controller
 
     public function generationCle(Request $request) {
         $id = auth()->user()->id;
-        $cle = rand(1000000, 9999999);
+        $cle = rand(10000000, 99999999);
 
         if ($request->privilege == "prive") {
             $privi = true;
@@ -202,5 +203,31 @@ class AccountController extends Controller
         $id = auth()->user()->id;
         DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
         return redirect()->route('myClientAccountAPI', ['id' => $id]);
+    }
+
+    public function generationClePro(Request $request) {
+        $id = auth()->user()->id;
+        $cle = rand(10000000, 99999999);
+
+        if ($request->privilege == "prive") {
+            $privi = true;
+        } else {
+            $privi = false;
+        }
+
+        $tabcle = [
+            $cle,
+            $privi,
+            $id
+        ];
+
+        DB::insert('insert into cle(cle, privilege, id_personnes) values(?, ?, ? )', $tabcle);
+        return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
+    }
+
+    public function deleteClePro(Request $request, $cle) {
+        $id = auth()->user()->id;
+        DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
+        return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
     }
 }

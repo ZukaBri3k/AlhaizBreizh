@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     eventDidMount: function(info) {
       // Appliquer des styles spécifiques après le rendu
       if (info.event.title === 'réservé') {
-        info.el.style.backgroundColor = 'red';
+        info.el.style.backgroundColor = '#EC3B53';
         info.el.style.color = 'white';
       } else if (info.event.title === 'indisponible') {
         info.el.style.backgroundColor = 'gray';

@@ -31,7 +31,7 @@ class CalController extends Controller
     public function ajouterEvenementDB(Request $request)
     {
         $events = json_decode($request->input('events'), true);
-
+dd($events);
         foreach ($events as $event) {
             $start_date = $event['start_date'];
             $end_date = $event['end_date'];

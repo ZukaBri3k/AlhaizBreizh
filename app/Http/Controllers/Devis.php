@@ -39,14 +39,11 @@ class Devis extends Controller
     public function demande_devis (Request $request) {
         $client = DB::select('select * from personnes where id = ?', [Auth::user()->id]);
 
-        $dateDebut = new DateTime($request->date_deb);
-        $dateFin = new DateTime($request->date_fin);
-
         if($client[0]->role == 1 && $dateDebut < $dateFin) {
 
             $id_logement = $request->id;
     
-            $interval = $dateDebut->diff($dateFin);
+            $interval = $request->dateDebut->diff($request->dateFin);
     
             $nombreDeJours = $interval->days;
     
@@ -54,8 +51,8 @@ class Devis extends Controller
     
             $tabDevis = [
                 NULL,
-                $dateDebut,
-                $dateFin,
+                $request->dateDebut,
+                $request->dateFin,
                 NULL,
                 NULL,
                 NULL,

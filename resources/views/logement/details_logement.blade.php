@@ -127,7 +127,7 @@
               @endphp
             <div class="rectangle" style="display : none;">
               <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
-              <p>{!! $amenagement !!}</p>
+              <p>a</p>
             </div>
             @php
             }
@@ -163,7 +163,7 @@
             @endphp
             <div class="rectangle" style="display : none;">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
-            <p>{!! $values !!}</p>
+            <p>a</p>
           </div>
           @php
           } 
@@ -202,7 +202,7 @@
             @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
-                <p>{!! $values !!}</p>
+                <p>a</p>
             </div>
             @php
           }
@@ -238,7 +238,7 @@
             @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
-                <p>{!! $values !!}</p>
+                <p>a</p>
             </div>
             @php
           }
@@ -277,7 +277,7 @@
             @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
-                <p>{!! $values !!}</p>
+                <p>a</p>
             </div>
             @php
             }

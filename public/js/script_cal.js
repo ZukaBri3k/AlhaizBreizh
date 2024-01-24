@@ -74,12 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Récupérer la date du mois actuel
         var currentDate = calendar.getDate();
 
-        // Liste des jours du mois actuel
-        var currentMonthDays = [];
-        var currentMonthStart = currentDate.startOf('month');
-        var currentMonthEnd = currentDate.endOf('month');
-        var currentDay = currentMonthStart;
-
         // Remplir la liste des jours du mois
         while (currentDay.isSameOrBefore(currentMonthEnd, 'day')) {
             currentMonthDays.push(currentDay.format('YYYY-MM-DD'));

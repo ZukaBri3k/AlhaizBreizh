@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var containerEl = document.getElementById('external-events');
   var calendarEl = document.getElementById('calendar');
   var validateButton = document.getElementById('validate-button');
-
+  var eventsArray = [];  
 
   // initialize the external events
   // -----------------------------------------------------------------
@@ -110,10 +110,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('eventForm');
     var eventsInput = document.createElement('input');
     eventsInput.type = 'hidden';
-    eventsInput.name = 'eventE1';
+    eventsInput.name = 'events';
     eventsInput.value = JSON.stringify(formattedEvents);
     form.appendChild(eventsInput);
-    console.log(eventE1);
+    console.log();
     // Soumettre le formulaire
     form.submit();
 });

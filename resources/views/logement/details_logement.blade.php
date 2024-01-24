@@ -341,9 +341,9 @@
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
           <form action="{{route('genereCle')}} " method="post">
-            <input type="radio" id="dateDebut" name="dateDebut" value="dateDebut">
+            <input type="date" id="dateDebut" name="dateDebut" value="dateDebut">
             <label for="dateDebut">Date de début</label>
-            <input type="radio" id="dateFin" name="dateFin" value="dateFin">
+            <input type="date" id="dateFin" name="dateFin" value="dateFin">
             <label for="dateFin">Date de fin</label>
             <button type="button" type="submit" >Demander un devis</button>
           </form>

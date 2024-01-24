@@ -539,6 +539,7 @@ CSS de la page mes logements début
     flex-wrap: wrap;
     width: 100%;
     height: fit-content;
+    justify-content: center;
 }
 
 .mesLogementsPage .lienCard {
@@ -562,4 +563,3 @@ CSS de la page mes logements début
     color: rgb(236, 59, 83);
     margin: 0px 50px 50px 50px;
 }
-//

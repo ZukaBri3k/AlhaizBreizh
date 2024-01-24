@@ -373,11 +373,6 @@ body {
     .rectangle {
         width: 45% !important; /* Ajustez selon vos besoins */
     }
-
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        display: none !important;
-    }
 }
 
 @media(min-width: 768) {

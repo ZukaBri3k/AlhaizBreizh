@@ -73,14 +73,34 @@ document.addEventListener('DOMContentLoaded', function() {
         // Récupérer tous les événements du calendrier
         var allEvents = calendar.getEvents();
     
-        // Convertir les dates en format ISO8601
-        var formattedEvents = allEvents.map(function(event) {
+        // Récupérer la date du mois actuel
+        var currentDate = calendar.getDate();
+    
+        // Liste des jours du mois actuel
+        var currentMonthDays = [];
+        var currentMonthStart = currentDate.startOf('month');
+        var currentMonthEnd = currentDate.endOf('month');
+        var currentDay = currentMonthStart;
+    
+        // Remplir la liste des jours du mois
+        while (currentDay.isSameOrBefore(currentMonthEnd, 'day')) {
+            currentMonthDays.push(currentDay.format('YYYY-MM-DD'));
+            currentDay.add(1, 'day');
+        }
+    
+        // Convertir les dates en format ISO8601 et vérifier la disponibilité
+        var formattedEvents = currentMonthDays.map(function(day) {
+            // Vérifier si l'événement existe pour ce jour
+            var eventForDay = allEvents.find(function(event) {
+                return event.start.format('YYYY-MM-DD') === day;
+            });
+    
             return {
-                start_date: event.start.toISOString(),
-                end_date: event.end ? event.end.toISOString() : null,
+                start_date: eventForDay ? eventForDay.start.toISOString() : null,
+                end_date: eventForDay ? (eventForDay.end ? eventForDay.end.toISOString() : null) : null,
                 // Ajouter le champ "date" avec la valeur du jour vérifié
-                date: event.start.toDateString(), // ou ajustez selon le format que vous souhaitez
-                statut: (event.title === 'réservé') ? 'reserve' : 'indisponible', // ajustez selon votre logique
+                date: day,
+                statut: eventForDay ? ((eventForDay.title === 'réservé') ? 'reserve' : 'indisponible') : null,
             };
         });
     

@@ -33,7 +33,7 @@ class CalController extends Controller
         $start_date = $request->input('start_date');
         $end_date = $request->input('end_date');
         $statut = $request->input('statut'); 
-
+        DD($start_date);
         DB::table('calendrier')->insert([
             'jour' => $start_date,
             'disponibilite' => true,

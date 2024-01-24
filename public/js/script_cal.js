@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (events.length > 0) {
       // Si un événement est présent, obtenir la date du calendrier
       var date = calendar.getDate();
-      alert("La date actuelle du calendrier est " + date.format());
+      alert("La date actuelle du calendrier est " + date.toISOString());
     } else {
       // Si aucun événement n'est présent, afficher un message
       alert("Aucun événement draggable n'est présent sur le calendrier.");

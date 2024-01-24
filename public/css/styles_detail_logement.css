@@ -345,6 +345,41 @@ body {
     margin-bottom: 0rem;
 }
 
+/* Styles pour les écrans de petite taille */
+@media (max-width: 767px) {
+    .second {
+        flex-direction: column;
+    }
+
+    .second div {
+        width: 90%;
+        height: auto;
+    }
+
+    .leStick {
+        margin-top: 5%;
+        width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5%;
+    }
+
+    .Caracteristiques {
+        width: 90%; /* Ajustez selon vos besoins */
+        margin-left: 5%;
+        margin-top: 50px;
+    }
+
+    .rectangle {
+        width: 45% !important; /* Ajustez selon vos besoins */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        display: none !important;
+    }
+}
+
 @media(min-width: 768) {
     .carou {
         width: 60%;

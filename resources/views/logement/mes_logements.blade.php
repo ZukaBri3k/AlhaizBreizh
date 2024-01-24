@@ -59,7 +59,7 @@
             <div class="btnTriFiltre">
                 <script>
                     let tri = 0;
-                    function triPrix() {
+                    function triDate() {
                         let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
                         let tabDevis = Array.from(ListeDevis);
                         let btnTriDate = document.querySelector("#btnTriDate");
@@ -90,7 +90,7 @@
                         });    
                     }
                 </script>
-                <button id="btnTriDate">Trier par date (du plus récent)</button>
+                <button id="btnTriDate" onclick="triDate()">Trier par date (du plus récent)</button>
             </div>
             @foreach($tabReserv as $reserv)
                 <x-Reservation libelle="{{$reserv->libelle_logement}}" pseudo="{{$reserv->pseudo_pers}}" dated="{{$reserv->date_deb}}" datef="{{$reserv->date_fin}}" id="{{$reserv->id_logement}}" iddevis="{{$reserv->ref_devis}}" idreservation="{{$reserv->id_reserv}}" prix="{{$reserv->prix_tot}}"></x-Reservation>

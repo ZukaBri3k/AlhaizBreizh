@@ -10,23 +10,18 @@ class CalController extends Controller
 {
     public function ajouterEvenementDB(Request $request)
     {
-        $start_date = $request->input('start_date');
-        $end_date = $request->input('end_date');
-        $statut = $request->input('statut'); // Ajoutez une variable pour le statut de l'événement
-
-        // Ajoutez votre logique pour insérer ces dates dans la table "votre_table".
-        // Notez que vous devez adapter cette logique à votre modèle de base de données.
+        $date = $request->input('date');
+        $statut = $request->input('statut'); 
 
         // Exemple hypothétique d'insertion dans la table "votre_table" :
-        DB::table('votre_table')->insert([
-            'start_date' => $start_date,
-            'end_date' => $end_date,
+        DB::table('calendrier')->insert([
+            'date' => $date,
             'statut' => $statut,
             // ... autres colonnes ...
         ]);
 
         // Mettez à jour la table "calendrier" pour marquer les jours comme non disponibles.
-        $joursIndisponibles = $this->getJoursIndisponibles($start_date, $end_date);
+        $joursIndisponibles = $this->getJoursIndisponibles($date);
 
         // Assurez-vous que votre logique de mise à jour de la disponibilité est correcte
         // Notez que vous devez adapter cette logique à votre modèle de base de données.

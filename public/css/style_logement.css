@@ -117,7 +117,7 @@ body{
     margin-top: 5vh;
 
 }
-/*button {
+.boutton_selection {
     background-color: #F6F5EE;
     border: 1px solid #4BCBFF;
     border-radius: 20px;
@@ -126,18 +126,18 @@ body{
     cursor: pointer;
   }
 
-  button:hover {
+  .boutton_selection:hover {
     background-color: #ddd;
   }
 
-  button.selected {
+  .boutton_selection.selected {
     background-color: #4BCBFF;
     color: #000;
   }
-  button.selected2 {
+  .boutton_selection.selected2 {
     background-color: #4BCBFF;
     color: #000;
-  }*/
+  }
 
   .image-button {
     display: flex;
@@ -148,7 +148,14 @@ body{
     cursor: pointer;
     
 }
-
+.bouttons_retour,.bouttons_suivant{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.bouttons_retour,.bouttons_suivant:hover{
+    background-color: #ddd;
+}
 .image-container {
     flex: 1;
     height: 0px;

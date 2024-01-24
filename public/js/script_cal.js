@@ -64,24 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     },
   });
-  validateButton.addEventListener('click', function() {
-    // Récupérer tous les événements du calendrier
-    var allEvents = calendar.getEvents();
-
-    // Convertir les dates en format ISO8601
-    var formattedEvents = allEvents.map(function(event) {
-        return {
-            start_date: event.start.toISOString(),
-            end_date: event.end ? event.end.toISOString() : null,
-        };
-    });
-
-    // Remplir le champ d'entrée du formulaire avec les événements formatés
-    document.getElementById('eventsInput').value = JSON.stringify(formattedEvents);
-
-    // Soumettre le formulaire
-    document.getElementById('eventsForm').submit();
-});
   
   calendar.render();  
     });   

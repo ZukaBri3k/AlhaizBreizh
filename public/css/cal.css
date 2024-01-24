@@ -41,7 +41,7 @@
 
   /* Style pour un événement spécifique (par exemple, réservé) */
   .fc-event-draggable.fc-event[data-title="réservé"] {
-    background-color: red !important;
+    background-color: #EC3B53 !important;
     color: white !important;
   }
 
@@ -57,9 +57,12 @@
   font-style: italic;
  }
  .fc-h-eventres{
-  background-color: red !important;
+  background-color: #EC3B53 !important;
   color: black; 
   font-size: large;
   font-style: italic;
+ }
+ body{
+  background-color: #F6F5EE;
  }
  

@@ -302,8 +302,11 @@ button:hover {
 
 .element_en_tete {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 6%;
+}
+
+.element_en_tete button{
+    width: 50%;
 }

@@ -345,7 +345,7 @@ body {
     margin-bottom: 0rem;
 }
 
-@media (min-width: 568px) {
+@media(min-width: 768) {
     .carou {
         width: 60%;
         height: 70%;
@@ -358,7 +358,9 @@ body {
         height: 55% !important;
         margin-left: 5%;
     }
+}
 
+@media (min-width: 568px) {
     .second {
         flex-direction: row;
     }

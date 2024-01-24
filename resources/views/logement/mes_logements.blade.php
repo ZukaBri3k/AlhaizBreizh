@@ -39,7 +39,7 @@
 
         <div class="listeMesDevis">
             @foreach($tabDevis as $devis)
-                <x-DemandeDevis libelle_logement="Salut" pseudo_client="{{$devis->pseudo_pers}}" date_deb="{{$devis->date_deb}}" date_fin="{{$devis->date_fin}}" id_logement="{{$devis->id_logement}}"></x-DemandeDevis>
+                <x-DemandeDevis libelle="Salut" pseudo_client="{{$devis->pseudo_pers}}" date_deb="{{$devis->date_deb}}" date_fin="{{$devis->date_fin}}" id_logement="{{$devis->id_logement}}"></x-DemandeDevis>
             @endforeach
         </div>
         <hr>

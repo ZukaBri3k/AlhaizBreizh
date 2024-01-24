@@ -14,8 +14,8 @@
     <a href="{{route('devis-client')}}">Demander le devis</a>
 
     <div class="Titre">
-        <h1>Information de votre compte client</h1>
-        <button>Modifier</button>
+        <h1>Information de votre compte propriétaire</h1>
+        <button style="display: none">Modifier</button>
     </div>
     <div class="Profile_Public">
         <h5>Profil public</h5>
@@ -120,6 +120,17 @@
                     @endphp
                     <p>{!! $iban !!}</p>
                 </div>
+                <hr>
+                <div class="elem">
+                    <p>Carte d'identité :</p>
+                    @php
+                        if ($proprietaire->piece_id_proprio == false) {
+                            echo "<p>Pas encore validé</p>";
+                        } else {
+                            echo "<p>Validé</p>";
+                        }
+                    @endphp
+                </div>
             </div>
         </div>
     </div>
@@ -133,7 +144,7 @@
                 @php
                     foreach ($cles as $cle) {
                         if ($cle->privilege == false) {
-                            $url = route('deleteCle', ['cle' => $cle->cle]);
+                            $url = route('deleteClePro', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cle->cle . "</p>
@@ -141,7 +152,7 @@
                                 </div>
                                 <hr>";
                         } else {
-                            $url = route('deleteCle', ['cle' => $cle->cle]);
+                            $url = route('deleteClePro', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
                                     <p>" . $cle->cle . "</p>
@@ -151,18 +162,6 @@
                         }
                     }
                 @endphp
-                <!-- <div class="elem">
-                    <p>Clé :</p>
-                    <p>123456789</p>
-                    <button class="button_api" href="{{route('deleteCle', '123456789')}}">Supprimer sa clé</button>
-                </div>
-                <hr>
-                <div class="elem">
-                    <p>Clé privilégiée :</p>
-                    <p>123456789</p>
-                    <button class="button_api">Supprimer sa clé</button>
-                </div>
-                <hr> -->
             </div>
             <form action="{{route('genereClePro')}} " method="post" class="api">
                 @csrf

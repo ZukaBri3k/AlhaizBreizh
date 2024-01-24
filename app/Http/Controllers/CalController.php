@@ -25,5 +25,5 @@ class CalController extends Controller
         ]);
 
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
-    }x
+    }
 }

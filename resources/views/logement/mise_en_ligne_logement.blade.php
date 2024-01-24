@@ -20,8 +20,8 @@
         </div>
        
             <div id="footer">
-                <button  type="button" id="retour_page_1" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
-                <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
+                <button  type="button" id="retour_page_1" class="bouttons_retour"><img src="{{asset('fleche_retour.png')}}" alt="">Retour</button>   
+                <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('/fleche_suivant.png')}}" alt=""></button>
             </div>
     </div>
     <form action="{{route('mise_en_ligne_logement')}}" method="post" id="selectedHousing" enctype="multipart/form-data" >

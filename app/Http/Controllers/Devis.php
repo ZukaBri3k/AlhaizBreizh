@@ -31,7 +31,7 @@ class Devis extends Controller
     }
 
     public function refusDevis (Request $request) {
-        DB::update('update devis set etat_devis = false where ref_devis = ?', [$request->id_devis]);
+        DB::delete('delete from devis where ref_devis = ?', [$request->id_devis]);
         return redirect()->back();
     }
 

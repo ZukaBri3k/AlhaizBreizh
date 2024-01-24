@@ -1,7 +1,13 @@
 <div class="devis">
-    <p>{{$libelle}}</p>
+    <div class="vignette">
+        <img src="{{asset('/img/logements/logement' . $id . '/couverture.jpg')}}" alt="photo du logement">
+        <p>{{$libelle}}</p>
+    </div>
     <p>{{$pseudo}}</p>
     <p>{{$dated}}</p>
     <p>{{$datef}}</p>
-    <img src="{{asset('/img/logements/logement' . $id . '/couverture.jpg')}}" alt="photo du logement">
+    <div class="btn">
+        <a href="#">Accepter le devis</a>
+        <a href="#">Refuser le devis</a>
+    </div>
 </div>

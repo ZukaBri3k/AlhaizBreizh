@@ -12,11 +12,11 @@ class demandeDevis extends Component
      * Create a new component instance.
      */
     public function __construct(
-        string $libelle_logement,
-        string $pseudo_client,
-        string $date_deb,
-        string $date_fin,
-        string $id_logement
+        public string $libelle_logement,
+        public string $pseudo_client,
+        public string $date_deb,
+        public string $date_fin,
+        public string $id_logement
     )
     {
         $this->libelle_logement = $libelle_logement;

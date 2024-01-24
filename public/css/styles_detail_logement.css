@@ -385,7 +385,7 @@ body {
 }
 
 /* Styles pour les écrans de petite taille */
-@media (max-width: 767px) {
+@media (max-width: 567px) {
     .carou {
         width: 90%;
         height: 50%;

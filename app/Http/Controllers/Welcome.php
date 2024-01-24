@@ -18,7 +18,7 @@ class Welcome extends Controller
         }
 
 
-        $logementsRecents = DB::select("SELECT * FROM where logement en_ligne = 'true' ORDER BY id_logement DESC");
+        $logementsRecents = DB::select("SELECT * FROM logement where en_ligne = 'true' ORDER BY id_logement DESC");
 
         foreach ($logementsRecents as $logement) {
             $logement->lien = "/logement/" . $logement->id_logement . "/details";

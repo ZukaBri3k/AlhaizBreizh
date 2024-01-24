@@ -33,7 +33,7 @@ class Logement extends Controller
             $request->service_complementaire_logement,
             $request->photo_couverture_logement,
             $request->photo_complementaire_logement,
-            NULL,
+            3.5,
             $request->prix_logement,
             true,
             auth()->user()->id,
@@ -61,14 +61,14 @@ class Logement extends Controller
         installation_offerte_logement,
         equipement_propose_logement,
         service_complementaire_logement,
-        charge_additionnel_prix,
-        charge_additionnel_libelle,
         photo_couverture_logement,
         photo_complementaire_logement,
         moyenne_avis_logement,
         prix_logement,
         en_ligne,
-        id_proprio_logement) values 
+        id_proprio_logement,
+        charge_additionnel_libelle,
+        charge_additionnel_prix) values 
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?)', $tab);

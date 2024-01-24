@@ -91,8 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         form.submit();
     });
     
-  
+});
   calendar.render();  
     });   
 
-});

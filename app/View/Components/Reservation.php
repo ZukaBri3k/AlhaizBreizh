@@ -19,7 +19,8 @@ class Reservation extends Component
         public string $id,
         public string $iddevis,
         public string $idreservation,
-        public string $prix
+        public string $prix,
+        public string $natLogement
     )
     {
         $this->libelle = $libelle;
@@ -30,6 +31,7 @@ class Reservation extends Component
         $this->iddevis = $iddevis;
         $this->idreservation = $idreservation;
         $this->prix = $prix;
+        $this->natLogement = $natLogement;
     }
 
     /**

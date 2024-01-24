@@ -574,15 +574,32 @@ CSS de la page mes logements début
 .mesLogements .btnHL {
     margin-top: 15px;
     padding: 2vw;
-    border: 1px solid #EC3B53;
-    color: #EC3B53;
     background-color: #F6F5EE;
     border-radius: 6px;
     font-family: 'Montserrat';
+    text-decoration: none;
 }
 
-.mesLogements .btnHL:hover {
+.mesLogements .HL {
+    color: #EC3B53;
+    background-color: #F6F5EE;
+    border: 1px solid #EC3B53;
+}
+
+.mesLogements .HL:hover {
     color: #F6F5EE;
     background-color: #EC3B53;
+    transition: 0.4s;
+}
+
+.mesLogements .EL {
+    color: #21610B;
+    background-color: #F6F5EE;
+    border: 1px solid #21610B;
+}
+
+.mesLogements .EL:hover {
+    color: #F6F5EE;
+    background-color: #21610B;
     transition: 0.4s;
 }

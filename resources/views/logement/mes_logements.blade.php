@@ -82,14 +82,13 @@
                         tri = 1;
                         btnTriDate.innerHTML = "Trier par date (du plus ancien)";
                         tabDevis.sort((a,b) => {
-                            console.log(a.classList[1]);
-                            compareDates(a.classList[1], b.classList[1]);
+                            return compareDates(a.classList[1], b.classList[1]);
                         });
                     } else {
                         tri = 0;
                         btnTriDate.innerHTML = "Trier par date (du plus récent)";
                         tabDevis.sort((a,b) => {
-                            compareDates(a.classList[1], b.classList[1]);
+                            return compareDates(a.classList[1], b.classList[1]);
                         });
                         tabDevis.reverse();
                     }

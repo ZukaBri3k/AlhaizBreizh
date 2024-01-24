@@ -51,6 +51,8 @@ class Devis extends Controller
             $nombreDeJours = $nombreDeSecondes / (60 * 60 * 24);
     
             $prixtot = $nombreDeJours * $request->prix_tot;
+
+            $id_proprio = DB::select('select id_proprio from logement where id_logement = ?', [$id_logement]);
     
             $tabDevis = [
                 NULL,
@@ -71,7 +73,7 @@ class Devis extends Controller
                 NULL,
                 NULL,
                 auth()->user()->id,
-                $request->id_proprio
+                $id_proprio[0]->id_proprio
             ];
 
             $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id, $request->dateDebut, $request->dateFin]);
@@ -112,7 +114,7 @@ class Devis extends Controller
                     NULL,
                     NULL,
                     NULL,
-                    NULL,
+                    NULL
                 ];
                 DB::insert('insert into devis (
                     id_logement_reserv,

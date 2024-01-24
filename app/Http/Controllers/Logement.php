@@ -106,7 +106,7 @@ class Logement extends Controller
             $logement->id = $logement->id_logement;
         }
         
-        //$tabDevis = DB::select("select * from devis where id_proprio = ?", [$id]);
+        $tabDevis = DB::select("select * from devis where id_proprio = ?", [$id]);
 
         foreach($tabDevis as $devis) {
             $devis->client = DB::select("select * from personnes where id = ?", [$devis->id_client_devis])[0];

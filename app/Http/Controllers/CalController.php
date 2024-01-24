@@ -30,7 +30,6 @@ class CalController extends Controller
     }
     public function ajouterEvenementDB(Request $request)
     {
-        var_dump($request);
         $events = json_decode($request->input('events'), true);
 dd($events);
         foreach ($events as $event) {

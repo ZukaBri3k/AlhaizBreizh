@@ -9,13 +9,12 @@ use App\Models\Personne;
 
 class Logement extends Controller
 {
-
-    public function ajouterLogementDB() {
+    public function ajouterLogementDB(Request $request) {
 
         $tab = [
-            "Villa stylée",
-            "Voici une villa stylée",
-            "Ma villa cool à louer",
+            $request->libelle_logement,
+            $request->accroche_logement,
+            $request->descriptif_logement,
             8,
             48.75838359918054,
             -3.4518601746445556,

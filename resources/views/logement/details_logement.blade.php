@@ -110,7 +110,7 @@
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
           @php
-            if(count($amenagement) == 1) {
+            if(count(explode(";", $logement->amenagement_propose_logement)) == 1) {
             $value = strtolower($amenagement);
           @endphp
             <div class="rectangle">

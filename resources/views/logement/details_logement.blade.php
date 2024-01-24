@@ -14,24 +14,24 @@
       <div id="carouselExampleIndicators" class="carousel slide">
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
-              <img src="{{asset('/img/auray.png')}}" class="d-block w-100">
+              <img src="{{asset('img/logements/logement' . $id . '/img1.jpg')}}" class="d-block w-100">
               <div>
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
-              <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
+              <img src="{{asset('img/logements/logement' . $id . '/img2.jpg')}}" class="d-block w-100">
+              <img src="{{asset('img/logements/logement' . $id . '/img3.jpg')}}" class="d-block w-100">
               </div>
             </div>
             <div class="carousel-item">
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
+              <img src="{{asset('img/logements/logement' . $id . '/img2.jpg')}}" class="d-block w-100">
               <div>
-              <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
+              <img src="{{asset('img/logements/logement' . $id . '/img3.jpg')}}" class="d-block w-100">
+              <img src="{{asset('img/logements/logement' . $id . '/img2.jpg')}}" class="d-block w-100">
               </div>
             </div>
             <div class="carousel-item">
-                <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
+                <img src="{{asset('img/logements/logement' . $id . '/img3.jpg')}}" class="d-block w-100">
               <div>
-              <img src="{{asset('/img/auray.png')}}" class="d-block w-100">
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
+              <img src="{{asset('img/logements/logement' . $id . '/img1.jpg')}}" class="d-block w-100">
+              <img src="{{asset('img/logements/logement' . $id . '/img2.jpg')}}" class="d-block w-100">
               </div>
             </div>
           </div>

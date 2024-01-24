@@ -73,7 +73,7 @@ class Devis extends Controller
                 NULL,
                 NULL,
                 auth()->user()->id,
-                $id_proprio[0]->id_proprio
+                $id_proprio[0]->id_proprio_logement
             ];
 
             $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id, $request->dateDebut, $request->dateFin]);

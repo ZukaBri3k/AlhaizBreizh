@@ -68,9 +68,9 @@
                         tri = 1;
                         btnTriDate.innerHTML = "Trier par date (du plus ancien)";
                         tabDevis.sort((a, b) => {
-                            let prixA = Date(a.classList[1]);
-                            let prixB = Date(b.classList[1]);
-                            return prixA - prixB;
+                            let prixA = new Date(a.classList[1]);
+                            let prixB = new Date(b.classList[1]);
+                            return prixA > prixB;
                         });
                     } else {
                         tri = 0;
@@ -78,7 +78,7 @@
                         tabDevis.sort((a, b) => {
                             let prixA = Date(a.classList[1]);
                             let prixB = Date(b.classList[1]);
-                            return prixB - prixA;
+                            return prixB > prixA;
                         });
                     }
 

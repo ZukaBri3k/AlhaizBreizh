@@ -23,9 +23,8 @@
   <input type="hidden" name="events" id="eventsInput">
     <button type="submit" id="validate-button">Valider les événements</button>
 </input>
-<button id="my-button">Obtenir la date du calendrier</button>
 </div>
-
+<button id="my-button">Obtenir la date du calendrier</button>
 <div id='calendar-container'>
   <div id='calendar'></div>
 </div>

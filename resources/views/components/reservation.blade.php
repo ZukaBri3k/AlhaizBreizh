@@ -1,4 +1,4 @@
-<div class="devis">
+<div class="devis {{$dated}}">
     <a class="vignette" href="{{route('details', ['id' => $id])}}">
         <img src="{{asset('/img/logements/logement' . $id . '/couverture.jpg')}}" alt="photo du logement">
         <p>{{$libelle}}</p>

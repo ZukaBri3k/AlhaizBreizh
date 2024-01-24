@@ -102,13 +102,9 @@ class Logement extends Controller
             $logement->id = $logement->id_logement;
         }
         
-        $tabDevis = DB::select("select * from devis where id_proprio = ?", [$id]);
+        $tabDevis = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis");
 
-        foreach($tabDevis as $devis) {
-            $devis->client = DB::select("select * from personnes where id = ?", [$devis->id_client_devis])[0];
-        }
-
-        //dd($tabDevis);
+        dd($tabDevis);
 
         return View("logement/mes_logements", ['logements' => $logements, 'tabDevis' => $tabDevis]);
     }

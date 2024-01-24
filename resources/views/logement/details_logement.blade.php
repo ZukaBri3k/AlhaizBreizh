@@ -110,7 +110,7 @@
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
           @php
-            if(sizeof($amenagement) == 1) {
+            if(count(explode(";", $logement->amenagement_propose_logement)) == 1) {
             $value = strtolower($amenagement);
           @endphp
             <div class="rectangle">
@@ -122,7 +122,7 @@
             elseif($amenagement == "null") {
             }
 
-          elseif(sizeof($amenagement) > 1) {
+          elseif(count(explode(";", $logement->amenagement_propose_logement)) > 1) {
           foreach ($amenagement as $values) {
             $value = strtolower($values);
             @endphp
@@ -136,7 +136,7 @@
 
           <!-- Installations -->
           @php
-          if(sizeof($installation) > 1) {
+          if(count(explode(";", $logement->installation_offerte_logement)) > 1) {
             foreach ($installation as $values) {
             $value = strtolower($values);
           @endphp
@@ -150,7 +150,7 @@
           elseif($installation == "null") {
           } 
           
-          elseif(sizeof($installation) == 1) {
+          elseif(count(explode(";", $logement->installation_offerte_logement)) == 1) {
             $value = strtolower($installation);
           @endphp
           <div class="rectangle">
@@ -273,7 +273,7 @@
         </div>
         <br>
         @endforeach
-        @if ($paypal[0]->paypal_proprio == null)
+        @if ($paypal[0]->paypal_proprio == null || $paypal[0]->paypal_proprio == "")
           <p class="not_paypal">Le propriétaire n'a pas paypal</p>
         @else
           <p class="have_paypal">Le propriétaire a paypal</p>

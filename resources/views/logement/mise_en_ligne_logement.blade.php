@@ -221,6 +221,8 @@
         <div>
             <h3>Décrivez vos chambres *</h3>
             <div id="chambres_container" class="chambres-container"></div>
+            <input type="hidden" id="total_lits" name="total_lits" value="">
+
         </div>
         <div id="footer">
             <button type="button" id="retour_page_4" class="bouttons_retour" onclick="page_4_to_page_3()"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
@@ -483,7 +485,7 @@
         <h3 class="section-title">Quel sera le prix par nuit de votre logement ? *</h3>
         <div id="alignement_input_euro">
             <input type="text" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
-            <img src="images/euro" alt="Symbole euro">
+            <img src="{{asset('img/symbole_euro.png')}}" alt="Symbole euro">
         </div>
         
     </div>

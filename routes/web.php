@@ -44,9 +44,11 @@ Route::prefix('/logement')->group(function() {
 
     Route::get('/{id}/details', [Logement::class, 'getInfoLogement'])->where('id', '[0-9]+')->name('details');
     Route::get('/{id}/details_previsu', [Logement::class, 'getInfoLogementPrevisu'])->where('id', '[0-9]+')->name('details_previsu')->middleware(['auth', 'isProprietaire']);
+
     Route::get('/mes-logements', [Logement::class, 'getLogementsProprietaire'])->name('mes_logements')->middleware(['auth', 'isProprietaire']);
     Route::get('/setHL/{id}', [Logement::class, 'setLogementHorsLigne'])->name('setHL')->middleware(['auth', 'isProprietaire']);
-    Route::get('/creation/{page}', [Logement::class, "creation"])->where('page', '[0-8]')->name('creer_logement')->middleware(['auth', 'isProprietaire']);
+    Route::post('/mise_en_ligne_logement', [Logement::class, 'ajouterLogementDB'])->name('mise_en_ligne_logement')->middleware(['auth', 'isProprietaire']);
+
 });
 
 Route::prefix('/account')->group(function () {
@@ -65,6 +67,7 @@ Route::prefix('/account')->group(function () {
     Route::get('proprietaire/profil/{id}', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
     Route::get('proprietaire/profil/{id}#api_chemin', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccountAPI')->middleware(['auth', 'isProprietaire']);
     Route::post('genereClePro', [AccountController::class, "generationClePro"])->name('genereClePro')->middleware(['auth', 'isProprietaire']);
+    Route::get('deleteCle/{cle}', [AccountController::class, 'deleteClePro'])->name('deleteClePro')->middleware(['auth', 'isProprietaire']);
 
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
@@ -79,4 +82,4 @@ Route::get('/testcal', function () {
     return view('/calendrier/calendrier');
 })->name('calendrier');
 
-Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementsDB'])->name('ajouterEvenementsDB');
+Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementDB'])->name('ajouter-evenements');

@@ -231,25 +231,25 @@
     <div id="gauche_page_5">
         <h3>Quels aménagements propose votre logement ?</h3>
         <div class="button-row">
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button" value="Terrasse">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Terrasse">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/terrasse.png')}}" alt="Terrasse">
                 </div>
                 <span>Terrasse</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button" value="Jardin">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Jardin">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/jardin.png')}}" alt="Jardin">
                 </div>
                 <span>Jardin</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')"  class="image-button page-5-button" value="Balcon">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')"  class="image-button page-5-button boutton_selection" value="Balcon">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/balcon.png')}}" alt="Balcon">
                 </div>
                 <span>Balcon</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button" value="Parking privé">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Parking privé">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/parking_prive.png')}}" alt="Parking privé">
                 </div>
@@ -257,25 +257,25 @@
             </button>
         </div>
         <div class="button-row">
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button" value="Parking public">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Parking public">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/parking_public.png')}}" alt="Parking public">
                 </div>
                 <span>Parking public</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button" value="Patio">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Patio">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/patio.png')}}" alt="Patio">
                 </div>
                 <span>Patio</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button" value="Salon d'hiver">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Salon d'hiver">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/salon_hiver.png')}}" alt="Salon d'hiver">
                 </div>
                 <span>Salon d'hiver</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button" value="Véranda">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Véranda">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/veranda.png')}}" alt="Véranda">
                 </div>
@@ -288,25 +288,25 @@
     <div id="droite_page_5">
         <h3>Quels équipements propose votre logement ?</h3>
         <div class="button-row">
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Wifi">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Wifi">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/wifi.png')}}" alt="Wifi">
                 </div>
                 <span>Wifi</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Télévision">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection"  value="Télévision">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/télévision.png')}}" alt="Télévision">
                 </div>
                 <span>Télévision</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Cuisine">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Cuisine">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/cuisine.png')}}" alt="Cuisine">
                 </div>
                 <span>Cuisine</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Lave-linge">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Lave-linge">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/lave-linge.png')}}" alt="Lave-linge">
                 </div>
@@ -314,25 +314,25 @@
             </button>
         </div>
         <div class="button-row">
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Lave-vaisselle">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Lave-vaisselle">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/Lave-vaisselle.png')}}" alt="Lave-vaisselle">
                 </div>
                 <span>Lave-vaisselle</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Instrument">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Instrument">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/instrument.png')}}" alt="Instrument">
                 </div>
                 <span>Instrument</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Appareils de sport">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Appareils de sport">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/appareils_de_sport.png')}}" alt="Appareils de sport">
                 </div>
                 <span>Appareils de sport</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Cheminée">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Cheminée">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/cheminee.png')}}" alt="Cheminée">
                 </div>
@@ -340,13 +340,13 @@
             </button>
         </div>
         <div class="button-row">
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Barbecue">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Barbecue">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/barbecue.png')}}" alt="Barbecue">
                 </div>
                 <span>Barbecue</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button" value="Équipement PMR">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Équipement PMR">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/equipements_pmr.png')}}" alt="Équipement PMR">
                 </div>
@@ -365,25 +365,25 @@
     <div id="gauche_page_6" class="page-6-section">
         <h3 class="section-title">Aménagements spéciaux</h3>
         <div class="button-row">
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Jaccuzi">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Jaccuzi">
                 <div class="image-container">
                     <img src="{{asset('img/installations/jacuzzi.png')}}" alt="Jaccuzi">
                 </div>
                 <span>Jaccuzi</span>
             </button>
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Sauna">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Sauna">
                 <div class="image-container">
                     <img src="{{asset('img/installations/sauna.png')}}" alt="Sauna">
                 </div>
                 <span>Sauna</span>
             </button>
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Piscine">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Piscine">
                 <div class="image-container">
                     <img src="{{asset('img/installations/piscine.png')}}" alt="Piscine">
                 </div>
                 <span>Piscine</span>
             </button>
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Climatisation">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Climatisation">
                 <div class="image-container">
                     <img src="{{asset('img/installations/climatisation.png')}}" alt="Climatisation">
                 </div>
@@ -391,13 +391,13 @@
             </button>
         
         
-            <button type="button" onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Hammam">
+            <button type="button" onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Hammam">
                 <div class="image-container">
                     <img src="{{asset('img/installations/hammam.png')}}" alt="Hammam">
                 </div>
                 <span>Hammam</span>
             </button>
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Espace de travail">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Espace de travail">
                 <div class="image-container">
                     <img src="{{asset('img/installations/espace_de_travail.png')}}" alt="Espace de travail">
                 </div>
@@ -409,32 +409,32 @@
     <div id="droite_page_6" class="page-6-section">
         <h3 class="section-title">Services</h3>
         <div class="button-row">
-            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Ménage">
+            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Ménage">
                 <div class="image-container">
                     <img src="{{asset('img/services/menage.png')}}" alt="Ménage">
                 </div>
                 <span>Ménage</span>
             </button>
-            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Taxi">
+            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Taxi">
                 <div class="image-container">
                     <img src="{{asset('img/services/taxi.png')}}" alt="Taxi">
                 </div>
                 <span>Taxi</span>
             </button>
-            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Linge">
+            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Linge">
                 <div class="image-container">
                     <img src="{{asset('img/services/linge.png')}}" alt="Linge">
                 </div>
                 <span>Linge</span>
             </button>
-            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button" value="Ustensile de cuisine">
+            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Ustensile de cuisine">
                 <div class="image-container">
                     <img src="{{asset('img/services/ustensiles_de_cuisine.png')}}" alt="Ustensile de cuisine">
                 </div>
                 <span>Ustensile de cuisine</span>
             </button>
         </div>
-        <button type="button" onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button" value="velo">
+        <button type="button" onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="velo">
         <div class="image-container">
             <img src="{{asset('img/services/velo.png')}}" alt="Vélo">
         </div>
@@ -451,25 +451,25 @@
     <div id="gauche_page_7" class="page-7-section">
         <h3 class="section-title">Quels sont les charges additionnelles que vous souhaitez proposer ?</h3>
         <div class="button-row">
-        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button" value="menage">
+        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="menage">
             <div class="image-container">
                 <img src="{{asset('img/charges/menage.png')}}" alt="Ménage_image">
             </div>
             <span>Ménage</span>
         </button>
-        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button" value="Animaux">
+        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="Animaux">
             <div class="image-container">
                 <img src="{{asset('img/services/animaux.png')}}" alt="Animal_image">
             </div>
             <span>Animaux</span>
         </button>
-        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button" value="Taxe">
+        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="Taxe">
             <div class="image-container">
                 <img src="{{asset('img/services/taxe.png')}}" alt="Taxe_image">
             </div>
             <span>Taxe(s)</span>
         </button>
-        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button" value="personne_supp">
+        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="personne_supp">
             <div class="image-container">
                 <img src="{{asset('img/services/personne_suplementaire.png')}}" alt="Personne">
             </div>

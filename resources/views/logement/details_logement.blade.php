@@ -297,8 +297,8 @@
 
       <h1>Description :</h1>
       <p>{{ $logement->descriptif_logement }}</p>
-      <p>Condiditon d'annulation :</p>
-      <div class="Condition_annul">
+      <p style="display:none;">Condiditon d'annulation :</p>
+      <div class="Condition_annul" style="display:none;">
         <h5>Flexibles :</h5>
         <p>Remboursement intégral jusqu’à 3 jours avant la date d’arrivée</p>
       </div>

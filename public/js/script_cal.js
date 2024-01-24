@@ -73,36 +73,42 @@ document.addEventListener('DOMContentLoaded', function() {
         // Récupérer tous les événements du calendrier
         var allEvents = calendar.getEvents();
     
-        // Récupérer la date du mois actuel
-        var currentDate = calendar.getDate();
+        // Vérifier si des événements existent
+        if (allEvents.length > 0) {
+            // Récupérer la date du mois actuel
+            var currentDate = calendar.getDate();
     
-        // Liste des jours du mois actuel
-        var currentMonthDays = [];
-        var currentMonthStart = currentDate.startOf('month');
-        var currentMonthEnd = currentDate.endOf('month');
-        var currentDay = currentMonthStart;
+            // Liste des jours du mois actuel
+            var currentMonthDays = [];
+            var currentMonthStart = currentDate.startOf('month');
+            var currentMonthEnd = currentDate.endOf('month');
+            var currentDay = currentMonthStart;
     
-        // Remplir la liste des jours du mois
-        while (currentDay.isSameOrBefore(currentMonthEnd, 'day')) {
-            currentMonthDays.push(currentDay.format('YYYY-MM-DD'));
-            currentDay.add(1, 'day');
-        }
+            // Remplir la liste des jours du mois
+            while (currentDay.isSameOrBefore(currentMonthEnd, 'day')) {
+                currentMonthDays.push(currentDay.format('YYYY-MM-DD'));
+                currentDay.add(1, 'day');
+            }
     
-        // Convertir les dates en format ISO8601 et vérifier la disponibilité
-        var formattedEvents = currentMonthDays.map(function(day) {
-            // Vérifier si l'événement existe pour ce jour
-            var eventForDay = allEvents.find(function(event) {
-                return event.start.format('YYYY-MM-DD') === day;
+            // Convertir les dates en format ISO8601 et vérifier la disponibilité
+            var formattedEvents = currentMonthDays.map(function(day) {
+                // Vérifier si l'événement existe pour ce jour
+                var eventForDay = allEvents.find(function(event) {
+                    return event.start.format('YYYY-MM-DD') === day;
+                });
+    
+                return {
+                    start_date: eventForDay ? eventForDay.start.toISOString() : null,
+                    end_date: eventForDay ? (eventForDay.end ? eventForDay.end.toISOString() : null) : null,
+                    // Ajouter le champ "date" avec la valeur du jour vérifié
+                    date: day,
+                    statut: eventForDay ? ((eventForDay.title === 'réservé') ? 'reserve' : 'indisponible') : null,
+                };
             });
-    
-            return {
-                start_date: eventForDay ? eventForDay.start.toISOString() : null,
-                end_date: eventForDay ? (eventForDay.end ? eventForDay.end.toISOString() : null) : null,
-                // Ajouter le champ "date" avec la valeur du jour vérifié
-                date: day,
-                statut: eventForDay ? ((eventForDay.title === 'réservé') ? 'reserve' : 'indisponible') : null,
-            };
-        });
+        } else {
+            // Aucun événement dans le calendrier
+            var formattedEvents = [];
+        }
     
         // Ajouter les champs au formulaire
         var form = document.getElementById('eventForm');
@@ -115,3 +121,4 @@ document.addEventListener('DOMContentLoaded', function() {
         // Soumettre le formulaire
         form.submit();
     });
+    

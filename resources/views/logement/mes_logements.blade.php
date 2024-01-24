@@ -78,7 +78,7 @@
                     let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
                     let tabDevis = Array.from(ListeDevis);
                     let btnTriDate = document.querySelector("#btnTriDate");
-                    
+                    console.log(tabDevis);
                     if(tri == 0) {
                         tri = 1;
                         btnTriDate.innerHTML = "Trier par date (du plus ancien)";

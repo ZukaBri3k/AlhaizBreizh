@@ -47,11 +47,11 @@
 
   /* Style pour un autre événement spécifique (par exemple, indisponible) */
   .fc-event-draggable.fc-event[data-title="indisponible"] {
-    background-color: gray !important;
+    background-color: #EC3B53 !important;
     color: white !important;
   }
   .fc-h-eventindis{
-  background-color: #EC3B53 !important;
+  background-color: gray !important;
   color: black; 
   font-size: large;
   font-style: italic;

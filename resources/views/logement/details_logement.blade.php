@@ -342,12 +342,12 @@
           </ul>
           <form action="" method="post" class="demande_devis">
             <div>
-              <input type="date" id="dateDebut" name="dateDebut" value="dateDebut", class="datepicker-input">
               <label for="dateDebut">Date de début</label>
+              <input type="date" id="dateDebut" name="dateDebut" value="dateDebut" class="datepicker-input">
             </div>
             <div>
-              <input type="date" id="dateFin" name="dateFin" value="dateFin">
               <label for="dateFin">Date de fin</label>
+              <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
             </div>
             <button type="button" type="submit" >Demander un devis</button>
           </form>

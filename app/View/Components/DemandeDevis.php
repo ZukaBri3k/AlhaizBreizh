@@ -13,17 +13,17 @@ class DemandeDevis extends Component
      */
     public function __construct(
         public string $libelle,
-        public string $pseudoClient,
-        public string $dateDeb,
-        public string $dateFin,
-        public string $idLogement
+        public string $pseudo,
+        public string $dated,
+        public string $datef,
+        public string $id
     )
     {
         $this->libelle = $libelle;
-        $this->pseudo = $pseudoClient;
-        $this->dated = $dateDeb;
-        $this->datef = $dateFin;
-        $this->idlogement = $idLogement;
+        $this->pseudo = $pseudo;
+        $this->dated = $dated;
+        $this->datef = $datef;
+        $this->idlogement = $id;
     }
 
     /**

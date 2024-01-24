@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("After removal:", eventsArray);
       }
     },
+    
    
     eventDidMount: function(info) {
       // Appliquer des styles spécifiques après le rendu
@@ -63,6 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
         info.el.style.color = 'white';
       }
     },
+  });
+  document.getElementById('my-button').addEventListener('click', function() {
+    var date = calendar.getDate();
+    alert("The current date of the calendar is " + date.toISOString());
   });
   calendar.render();  
     });   

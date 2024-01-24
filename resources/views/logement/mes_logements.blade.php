@@ -36,7 +36,11 @@
 
     <section class="mesDevis">
         <h2>Mes demande de devis :</h2>
-
+        @php 
+            if(count($tabDevis) == 0){
+                echo "<p class='aucunDevis'>Vous n'avez aucune demande de devis.</p>";
+            }
+        @endphp
         <div class="listeMesDevis">
             @foreach($tabDevis as $devis)
                 <x-DemandeDevis libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}"></x-DemandeDevis>
@@ -46,7 +50,49 @@
 
     <section class="mesReservations">
         <h2>Mes réservations :</h2>
+        @php 
+            if(count($tabReserv) == 0){
+                echo "<p class='aucuneReservation'>Vous n'avez aucune réservation.</p>";
+            }
+            @endphp
 
+        <div class="btnTriFiltre">
+            <script>
+                let tri = 0;
+                function triDate() {
+                    let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
+                    let tabDevis = Array.from(ListeDevis);
+                    let btnTriDate = document.querySelector("#btnTriDate");
+                    
+                    if(tri == 0) {
+                        tri = 1;
+                        btnTriDate.innerHTML = "Trier par date (du plus ancien)";
+                        tabDevis.sort((a, b) => {
+                            let prixA = parseInt(a.classList[1]);
+                            let prixB = parseInt(b.classList[1]);
+                            return prixA - prixB;
+                        });
+                    } else {
+                        tri = 0;
+                        btnTriDate.innerHTML = "Trier par date (du plus récent)";
+                        tabDevis.sort((a, b) => {
+                            let prixA = parseInt(a.classList[1]);
+                            let prixB = parseInt(b.classList[1]);
+                            return prixB - prixA;
+                        });
+                    }
+
+                    let conteneurDevis = document.querySelector(".listeMesReservations");
+                    conteneurDevis.innerHTML = "";
+
+                    tabDevis.forEach((carte) => {
+                        conteneurDevis.appendChild(carte);
+                    });    
+                }
+            </script>
+            <button id="btnTriDate" onclick="triDate()">Trier par date (du plus récent)</button>
+        </div>
+        
         <div class="listeMesReservations">
             @foreach($tabReserv as $reserv)
                 <x-Reservation libelle="{{$reserv->libelle_logement}}" pseudo="{{$reserv->pseudo_pers}}" dated="{{$reserv->date_deb}}" datef="{{$reserv->date_fin}}" id="{{$reserv->id_logement}}" iddevis="{{$reserv->ref_devis}}" idreservation="{{$reserv->id_reserv}}" prix="{{$reserv->prix_tot}}"></x-Reservation>

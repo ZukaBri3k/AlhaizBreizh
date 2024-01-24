@@ -332,12 +332,7 @@
             <li class="ville">Ville : {{ $logement->ville_logement }}</li>
           </ul>
           <ul>
-            @if ($calendrier[1]->jour != current_date() && $calendrier[1]->jour != null && $calendrier[1]->jour != "" && $calendrier[2]->disponibilite == false)
-              <li class="calendar">Disponibilité : ultérieurement</li>
-            @else
-              <li class="calendar">Disponibilité : dès maintenant</li>
-            @endif
-              
+            <li class="calendar">Disponibilité : dès maintenant</li>
           </ul>
           <ul>
             <li class="dimension">Dimension : {{ $logement->surface_habitable_logement }} m²</li>
@@ -345,9 +340,17 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <a href="{{route('devis-client')}}">
-            <button type="button">Contacter le propriétaire</button>
-          </a>
+          <form action="{{route('genereCle')}} " method="post">
+            <div>
+              <input type="date" id="dateDebut" name="dateDebut" value="dateDebut">
+              <label for="dateDebut">Date de début</label>
+            </div>
+            <div>
+              <input type="date" id="dateFin" name="dateFin" value="dateFin">
+              <label for="dateFin">Date de fin</label>
+            </div>
+            <button type="button" type="submit" >Demander un devis</button>
+          </form>
       </div>
     </div>
     <x-FooterClient></x-FooterClient>

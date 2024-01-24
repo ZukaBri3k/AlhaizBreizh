@@ -40,24 +40,21 @@
 }
 
   /* Style pour un événement spécifique (par exemple, réservé) */
-  .fc-event-draggable.fc-event[data-title="réservé"] {
-    background-color: #EC3B53 !important;
-    color: white !important;
-  }
+  
 
   /* Style pour un autre événement spécifique (par exemple, indisponible) */
   .fc-event-draggable.fc-event[data-title="indisponible"] {
-    background-color: gray !important;
+    background-color: grey !important;
     color: white !important;
   }
   .fc-h-eventindis{
-  background-color: blue !important;
+  background-color: gray !important;
   color: black; 
   font-size: large;
   font-style: italic;
  }
  .fc-h-eventres{
-  background-color: #EC3B53 !important;
+  background-color: red !important;
   color: black; 
   font-size: large;
   font-style: italic;
@@ -66,3 +63,6 @@
   background-color: #F6F5EE;
  }
  
+ .fc .fc-button-primary{
+  background-color: #EC3B53 !important;
+ }

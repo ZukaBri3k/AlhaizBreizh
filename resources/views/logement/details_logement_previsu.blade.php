@@ -344,7 +344,7 @@
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
           <a href="{{route('devis-client')}}">
-            <button type="button">Contacter le propriétaire</button>
+            <button type="button">Demander un devis</button>
           </a>
       </div>
     </div>

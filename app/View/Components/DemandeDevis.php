@@ -20,10 +20,10 @@ class DemandeDevis extends Component
     )
     {
         $this->libelle = $libelle;
-        $this->pseudo_client = $pseudoClient;
-        $this->date_deb = $dateDeb;
-        $this->date_fin = $dateFin;
-        $this->id_logement = $idLogement;
+        $this->pseudo = $pseudoClient;
+        $this->dated = $dateDeb;
+        $this->datef = $dateFin;
+        $this->idlogement = $idLogement;
     }
 
     /**

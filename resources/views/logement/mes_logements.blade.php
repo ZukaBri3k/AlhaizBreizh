@@ -101,7 +101,7 @@
                     });    
                 }
             </script>
-            <button id="btnTriDate" onclick="triDate()">Trier par date (du plus récent)</button>
+            <button id="btnTriDate" onclick="triDate()">Trier par date (du plus ancien)</button>
         </div>
 
         <div class="listeMesReservations">

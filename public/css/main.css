@@ -562,6 +562,7 @@ CSS de la page mes logements début
     text-align: center;
     color: rgb(236, 59, 83);
     margin: 0px 50px 50px 50px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .mesLogements .logementEnLigne {
@@ -613,7 +614,6 @@ CSS de la page mes logements début
     margin-bottom: 5vh;
     color: #EC3B53;
     font-family: 'Montserrat';
-    z-index: -1;
 }
 
 /***********************************************************************************************************

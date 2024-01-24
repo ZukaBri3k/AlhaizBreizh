@@ -332,7 +332,12 @@
             <li class="ville">Ville : {{ $logement->ville_logement }}</li>
           </ul>
           <ul>
-            <li class="calendar">Disponibilité : dès maintenant</li>
+            @if ($calendrier[1]->jour != current_date() && $calendrier[1]->jour != null && $calendrier[1]->jour != "" && $calendrier[2]->disponibilite == false)
+              <li class="calendar">Disponibilité : ultérieurement</li>
+            @else
+              <li class="calendar">Disponibilité : dès maintenant</li>
+            @endif
+              
           </ul>
           <ul>
             <li class="dimension">Dimension : {{ $logement->surface_habitable_logement }} m²</li>

@@ -35,14 +35,11 @@
     </section>
 
     <section class="mesLogements">
-        <h2>Mes logements :</h2>
+        <h2>Mes demande de devis :</h2>
 
         <div class="listeMesDevis">
             @foreach($tabDevis as $devis)
-                <div class="devis">
-                    <p>{{$devis->libelle_logement}}</p>
-                    <p>{{$devis->pseudo_pers}}</p>
-                </div>
+                <x-DemandeDevis libelle_logement="{{$devis->libelle_logement}}" pseudo_client="{{$devis->pseudo_pers}}" date_deb="{{$devis->date_deb}}" date_fin="{{$devis->date_fin}}" id_logement="{{$devis->id_logement}}"></x-DemandeDevis>
             @endforeach
         </div>
         <hr>

@@ -124,7 +124,7 @@
         </div>
     </div>
 
-    <div class="Profile_Privee">
+    <div class="Profile_Privee", id="api_chemin">
         <h5>Clé API</h5>
         <hr>
         <p class="line_info">Cette clé ne doit pas être partagée <strong>et être gardée privée.</strong></p>

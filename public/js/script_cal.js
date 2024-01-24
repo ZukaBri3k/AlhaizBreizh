@@ -84,7 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
         while (currentDay.isSameOrBefore(currentMonthEnd, 'day')) {
             currentMonthDays.push(currentDay.format('YYYY-MM-DD'));
             currentDay.add(1, 'day');
+            console.log("test");
         }
+    
 
         // Convertir les dates en format ISO8601 et vérifier la disponibilité
         var formattedEvents = currentMonthDays.map(function(day) {

@@ -20,7 +20,7 @@
         <h2>Logements les mieux notés :</h2>
         <div class="liste-card">
             @foreach ($logements as $logement)
-                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}"></x-Card>
+                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
             @endforeach
         </div>
     </section>
@@ -60,14 +60,38 @@
                         conteneurCard.appendChild(carte);
                     });    
                 }
+
+                function filtre() {
+                    let ListeCard = document.querySelectorAll(".autres .lienCard");
+                    let tabCard = Array.from(ListeCard);
+                    let selectionFiltre = document.querySelector("#selectionFiltre");
+                    let filtre = selectionFiltre.value;
+
+                    tabCard.forEach((carte) => {
+                        if(carte.classList[2] != filtre) {
+                            carte.style.display = "none";
+                        } else {
+                            carte.style.display = "block";
+                        }
+                    });
+                }
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
-            <select id=""></select>
-            <button id="btnFiltre" onclick="triPrix()">Filtrer les résultats</button>
+            <select id="selectionFiltre">
+                <option value="Appartement">Appartements</option>
+                <option value="Villa">Villa</option>
+                <option value="Maison">Maison</option>
+                <option value="Bateau">Bateau</option>
+                <option value="Mhote">Maison d'hôte</option>
+                <option value="Chote">Chambre d'hôte</option>
+                <option value="Cabane">Cabane</option>
+                <option value="Caravane">Caravane</option>
+            </select>
+            <button id="btnFiltre" onclick="filtre()">Filtrer les résultats</button>
         </div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)
-                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}"></x-Card>
+                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
             @endforeach
         </div>
     </section>

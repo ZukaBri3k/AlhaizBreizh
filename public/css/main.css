@@ -531,7 +531,6 @@ CSS de la page mes logements début
 
 .mesLogementsPage nav {
     background-color: rgba(0, 0, 0, 0);
-    position: absolute;
 }
 
 .mesLogementsPage .mesLogements {
@@ -545,4 +544,5 @@ CSS de la page mes logements début
 .mesLogementsPage .lienCard {
     width: fit-content;
     height: fit-content;
+    display: block;
 }

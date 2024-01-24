@@ -396,10 +396,6 @@ body {
 }
 
 @media (min-width: 568px) {
-    .second {
-        flex-direction: row;
-    }
-
     .second div {
         width: 60%;
         height: 100%;

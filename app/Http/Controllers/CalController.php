@@ -30,11 +30,14 @@ class CalController extends Controller
     }
     public function ajouterEvenementDB(Request $request)
     {
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+
         $date = $request->input('date');
         $statut = $request->input('statut'); 
 
         // Mettez à jour la table "calendrier" pour marquer les jours comme non disponibles.
-        $joursIndisponibles = $this->getJoursIndisponibles($date);
+        $joursIndisponibles = $this->getJoursIndisponibles($start_date, $end_date);
 
         // Assurez-vous que votre logique de mise à jour de la disponibilité est correcte
         // Notez que vous devez adapter cette logique à votre modèle de base de données.

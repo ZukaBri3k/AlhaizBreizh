@@ -17,7 +17,8 @@ class DemandeDevis extends Component
         public string $dated,
         public string $datef,
         public string $id,
-        public string $iddevis
+        public string $iddevis,
+        public string $idreservation
     )
     {
         $this->libelle = $libelle;
@@ -26,6 +27,7 @@ class DemandeDevis extends Component
         $this->datef = $datef;
         $this->idlogement = $id;
         $this->iddevis = $iddevis;
+        $this->idreservation = $idreservation;
     }
 
     /**

@@ -22,7 +22,7 @@ class CalController extends Controller
         ]);
 
         // Mettez à jour la table "calendrier" pour marquer les jours comme non disponibles.
-        $joursIndisponibles = $this->getJoursIndisponibles($date);
+        $joursIndisponibles = $this->JoursIndisponibles($date);
 
         // Assurez-vous que votre logique de mise à jour de la disponibilité est correcte
         // Notez que vous devez adapter cette logique à votre modèle de base de données.

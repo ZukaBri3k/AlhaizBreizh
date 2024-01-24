@@ -75,7 +75,9 @@ class AccountController extends Controller
     }
 
     public function compteProprietaire() {
-        return View("Compte/MonCompteProprietaire");
+        $id_personnes = DB::select('select * from personnes where id = ?', [intval($request->id)]);
+        return View("Compte/MonCompteProprietaire" , ['personnes' => DB::select('select * from personnes where id = ?', [intval($id_personnes[0]->id)]) [0],
+            'cles' => DB::select('select * from cle where id_personnes = ?', [intval($id_personnes[0]->id)])]);
     }
     //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {

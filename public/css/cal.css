@@ -40,10 +40,7 @@
 }
 
   /* Style pour un événement spécifique (par exemple, réservé) */
-  a.fc-event-draggable.fc-event[data-title="réservé"] {
-    background-color: #EC3B53 !important ;
-    color: white !important;
-  }
+  
 
   /* Style pour un autre événement spécifique (par exemple, indisponible) */
   .fc-event-draggable.fc-event[data-title="indisponible"] {

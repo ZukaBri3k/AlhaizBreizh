@@ -100,8 +100,37 @@
                         conteneurDevis.appendChild(carte);
                     });    
                 }
+
+                function filtre() {
+                    let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
+                    let tabDevis = Array.from(ListeDevis);
+                    let selectionFiltre = document.querySelector("#selectionFiltre");
+                    let filtre = selectionFiltre.value;
+
+                    tabDevis.forEach((devis) => {
+                        if (filtre == "Aucun") {
+                            devis.style.display = "block";
+                        }else if(carte.classList[2] != filtre) {
+                            devis.style.display = "none";
+                        } else {
+                            devis.style.display = "block";
+                        }
+                    });
+                }
             </script>
             <button id="btnTriDate" onclick="triDate()">Trier par date (du plus ancien)</button>
+            <select id="selectionFiltre">
+                <option value="Aucun">Aucun</option>
+                <option value="Appartement">Appartements</option>
+                <option value="Villa">Villa</option>
+                <option value="Maison">Maison</option>
+                <option value="Bateau">Bateau</option>
+                <option value="Mhote">Maison d'hôte</option>
+                <option value="Chote">Chambre d'hôte</option>
+                <option value="Cabane">Cabane</option>
+                <option value="Caravane">Caravane</option>
+            </select>
+            <button id="btnFiltre" onclick="filtre()">Filtrer les résultats</button>
         </div>
 
         <div class="listeMesReservations">

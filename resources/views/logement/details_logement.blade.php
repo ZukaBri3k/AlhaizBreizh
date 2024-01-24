@@ -123,7 +123,7 @@
             </div>
           @php
             }
-            elseif($amenagement == "null") {
+            elseif($amenagement == "null" || $service == "") {
               @endphp
             <div class="rectangle" style="display : none;">
               <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
@@ -159,7 +159,7 @@
           @php
             }
           }
-          elseif($installation == "null") {
+          elseif($installation == "null" || $service == "") {
             @endphp
             <div class="rectangle" style="display : none;">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
@@ -198,7 +198,7 @@
           @php 
             }
           } 
-          elseif($service == "null") {
+          elseif($service == "null" || $service == "") {
             @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
@@ -234,7 +234,7 @@
           @php 
             }
           }
-          elseif($equipement == "null") {
+          elseif($equipement == "null" || $service == "") {
             @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
@@ -273,7 +273,7 @@
           @php 
             }
           } 
-          elseif($charge == "null") {
+          elseif($charge == "null" || $service == "") {
             @endphp
             <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">

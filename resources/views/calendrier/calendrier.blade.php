@@ -8,7 +8,9 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{{asset('css/cal.css')}}"></head>
 <body>
-
+<form id="eventsForm" action="{{ route('ajouter-evenements') }}" method="post">
+   
+    
 <div id='external-events'>
   
 
@@ -18,7 +20,9 @@
   <div class='fc-event fc-h-eventindis  fc-daygrid-event fc-daygrid-block-event' data-title="indisponible  ">
     <div class='fc-event-main' data-title="indisponible">indisponible</div>
   </div>
-  <button id="validate-button">Valider</button>
+  <input type="hidden" name="events" id="eventsInput">
+    <button type="submit">Valider les événements</button>
+</form>
 
 
 </div>
@@ -30,7 +34,7 @@
 <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script><!-- Cloudflare Pages Analytics -->  
 
 
-<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <script src="{{asset('js/script_cal.js')}}"></script>
 </body>
 </html>

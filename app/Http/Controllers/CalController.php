@@ -8,40 +8,14 @@ use App\Models\calendrier; // Assurez-vous de remplacer 'VotreModel' par le mod�
 
 class CalController extends Controller
 {
-    public function mettreAJourDisponibilite()
-    {
-        // Initialisez le tableau de disponibilité par jour avec tous les jours à true
-        $disponibiliteParJour = [
-            'Lundi' => true,
-            'Mardi' => true,
-            'Mercredi' => true,
-            'Jeudi' => true,
-            'Vendredi' => true,
-            'Samedi' => true,
-            'Dimanche' => true,
-        ];
-
-        // Récupérez tous les événements de votre base de données (remplacez 'VotreModel' par le modèle approprié)
-        $evenements = Calcontroller::all();
-
-        // Parcourez tous les événements et mettez à jour la disponibilité par jour
-        foreach ($evenements as $evenement) {
-            $startDayOfWeek = Carbon::parse($evenement->start_date)->dayOfWeek;
-            $endDayOfWeek = $evenement->end_date ? Carbon::parse($evenement->end_date)->dayOfWeek : $startDayOfWeek;
-
-            // Mettez à jour la disponibilité pour les jours couverts par l'événement
-            for ($i = $startDayOfWeek; $i <= $endDayOfWeek; $i++) {
-                $dayName = Carbon::now()->startOfWeek()->addDays($i)->format('l');
-                $disponibiliteParJour[$dayName] = false;
-            }
+    public function ajouterEvenementsDB(Request $request) {
+        $formattedEvents = json_decode($request->input('events'), true);
+        
+        // Insérez les événements dans la base de données
+        foreach ($formattedEvents as $event) {
+            DB::insert('insert into evenements (start_date, end_date) values (?, ?)', [$event['start_date'], $event['end_date']]);
         }
-        CalController::where('evenement',$evenement)->update(['disponibilite'=>$disponibiliteParJour[$dayName]]);
-        // Mettez à jour la base de données avec la nouvelle disponibilité
-        // (remplacez cette partie par votre logique spécifique pour mettre à jour la base de données)
-        // Exemple hypothétique :
-        // VotreModel::where('date', $date)->update(['disponibilite' => $nouvelleDisponibilite]);
-
-        // Retournez une réponse
-        return response()->json(['message' => 'Disponibilité mise à jour avec succès.']);
+    
+        return redirect()->back()->with('success', 'Événements ajoutés avec succès.');
     }
 }

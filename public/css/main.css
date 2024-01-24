@@ -533,7 +533,7 @@ CSS de la page mes logements début
     background-color: rgba(0, 0, 0, 0);
 }
 
-.mesLogementsPage .mesLogements {
+.mesLogementsPage .listeMesLogement {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -568,4 +568,5 @@ CSS de la page mes logements début
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }

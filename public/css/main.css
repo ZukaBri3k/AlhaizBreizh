@@ -541,3 +541,8 @@ CSS de la page mes logements début
     width: 100%;
     height: fit-content;
 }
+
+.mesLogementsPage .lienCard {
+    width: fit-content;
+    height: fit-content;
+}

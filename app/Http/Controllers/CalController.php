@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Models\calendrier; // Assurez-vous de remplacer 'VotreModel' par le modèle que vous utilisez pour les événements
+use App\Models\calendrier; 
+use Illuminate\Support\Facades\DB;
 
 class CalController extends Controller
 {

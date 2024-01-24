@@ -63,6 +63,6 @@
   background-color: #F6F5EE;
  }
  
- .fc-button-primary{
-  color: #EC3B53;
+ .fc .fc-button-primary{
+  background-color: #EC3B53 !important;
  }

@@ -124,7 +124,7 @@
           @php
             }
             elseif($amenagement == "null") {
-              <div class="rectangle" style="display : none">
+            <div class="rectangle" style="display : none;">
               <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
               <p>{!! $amenagement !!}</p>
             </div>
@@ -158,7 +158,7 @@
             }
           }
           elseif($installation == "null") {
-            <div class="rectangle" style="display : none">
+            <div class="rectangle" style="display : none;">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
           </div>
@@ -195,7 +195,7 @@
             }
           } 
           elseif($service == "null") {
-            <div class="rectangle" style="display : none">
+            <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
                 <p>{!! $values !!}</p>
             </div>
@@ -229,7 +229,7 @@
             }
           }
           elseif($equipement == "null") {
-            <div class="rectangle" style="display : none">
+            <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
                 <p>{!! $values !!}</p>
             </div>
@@ -266,7 +266,7 @@
             }
           } 
           elseif($charge == "null") {
-            <div class="rectangle" style="display : none">
+            <div class="rectangle" style="display : none;">
                 <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
                 <p>{!! $values !!}</p>
             </div>

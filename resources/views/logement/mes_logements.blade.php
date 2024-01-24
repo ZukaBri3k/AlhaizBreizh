@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <title>Document</title>
 </head>
-<body>
+<body class="mesLogementsPage">
     <x-Navbar></x-Navbar>
     
     <section id="mesLogements">

@@ -11,15 +11,14 @@ class CalController extends Controller
 {
     public function ajouterEvenementDB(Request $request)
     {
-        $start_date = $request->input('start_date');
-        $end_date = $request->input('end_date');
+        $date = $request->input('date');
 
         // Ajoutez votre logique pour insérer ces dates dans la base de données.
         // Notez que vous devez adapter cette logique à votre modèle de base de données.
         // Exemple hypothétique d'insertion dans la base de données :
         DB::table('calendrier')->insert([
             'statut_propriete' =>true,
-            'jour' => $start_date,
+            'jour' => $date,
             'disponibilite' => true,
 
             // ... autres colonnes ...

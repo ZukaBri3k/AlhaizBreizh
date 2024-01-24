@@ -12,7 +12,7 @@ class demandeDevis extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $libelleLogment,
+        public string $libelleLogement,
         public string $pseudoClient,
         public string $dateDeb,
         public string $dateFin,

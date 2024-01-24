@@ -31,6 +31,7 @@ class Devis extends Controller
     }
 
     public function refusDevis (Request $request) {
+        DB::delete('delete from reservation where id_reserv = ?', [$request->id_reserv]);
         DB::delete('delete from devis where ref_devis = ?', [$request->id_devis]);
         return redirect()->back();
     }

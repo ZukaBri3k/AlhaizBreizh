@@ -36,6 +36,12 @@ class CalController extends Controller
         $date = $request->input('date');
         $statut = $request->input('statut'); 
 
+        DB::table('calendrier')->insert([
+            'date' => $date,
+            'disponibilite' => true,
+            // ... autres colonnes ...
+        ]);
+
         // Mettez à jour la table "calendrier" pour marquer les jours comme non disponibles.
         $joursIndisponibles = $this->getJoursIndisponibles($start_date, $end_date);
 

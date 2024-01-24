@@ -109,11 +109,11 @@
 
                     tabDevis.forEach((devis) => {
                         if (filtre == "Aucun") {
-                            devis.style.display = "inline";
+                            devis.style.display = "flex";
                         }else if(devis.classList[2] != filtre) {
                             devis.style.display = "none";
                         } else {
-                            devis.style.display = "inline";
+                            devis.style.display = "flex";
                         }
                     });
                 }

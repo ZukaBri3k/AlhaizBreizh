@@ -77,6 +77,10 @@ class Logement extends Controller
         return redirect()->route('getInfoLogementPrevisu', ['id' => $id_logement[0]->id_logement]);
     }
 
+    public function mise_ligne_logement() {
+        return View("logement/mise_ligne_logement");
+    }
+
     public function getInfoLogement(Request $request) {
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  

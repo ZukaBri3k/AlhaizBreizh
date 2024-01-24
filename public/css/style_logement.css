@@ -148,12 +148,14 @@ body{
     cursor: pointer;
     
 }
-.bouttons_retour,.bouttons_suivant{
+.bouttons_retour
+,.bouttons_suivant{
     border: none;
     background-color: #6D6D6D;
     cursor: pointer;
 }
-.bouttons_retour,.bouttons_suivant:hover{
+.bouttons_retour
+,.bouttons_suivant:hover{
     background-color: #ddd;
 }
 .image-container {

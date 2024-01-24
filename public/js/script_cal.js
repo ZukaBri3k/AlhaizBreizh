@@ -66,8 +66,16 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
   document.getElementById('my-button').addEventListener('click', function() {
-    var date = calendar.getDate(events);
-    alert("The current date of the calendar is " + date.toISOString());
+    // Vérifier s'il y a des événements actuellement présents sur le calendrier
+    var events = calendar.fullCalendar('clientEvents');
+    if (events.length > 0) {
+      // Si un événement est présent, obtenir la date du calendrier
+      var date = calendar.fullCalendar('getDate');
+      alert("La date actuelle du calendrier est " + date.format());
+    } else {
+      // Si aucun événement n'est présent, afficher un message
+      alert("Aucun événement draggable n'est présent sur le calendrier.");
+    }
   });
   calendar.render();  
     });   

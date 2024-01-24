@@ -308,5 +308,7 @@ button:hover {
 }
 
 .element_en_tete button{
-    width: 50%;
+    width: 121%;
+    padding-top: 4%;
+    padding-bottom: 4%;
 }

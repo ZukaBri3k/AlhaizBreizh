@@ -14,15 +14,8 @@ class CalController extends Controller
         $date = $request->input('date');
         $statut = $request->input('statut'); 
 
-        // Exemple hypothétique d'insertion dans la table "votre_table" :
-        DB::table('calendrier')->insert([
-            'date' => $date,
-            'statut' => $statut,
-            // ... autres colonnes ...
-        ]);
-
         // Mettez à jour la table "calendrier" pour marquer les jours comme non disponibles.
-        $joursIndisponibles = $this->JoursIndisponibles($date);
+        $joursIndisponibles = $this->getJoursIndisponibles($date);
 
         // Assurez-vous que votre logique de mise à jour de la disponibilité est correcte
         // Notez que vous devez adapter cette logique à votre modèle de base de données.

@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
   document.getElementById('my-button').addEventListener('click', function() {
-    var date = calendar.getDate();
+    var date = calendar.getDate(eventE1);
     alert("The current date of the calendar is " + date.toISOString());
   });
   calendar.render();  

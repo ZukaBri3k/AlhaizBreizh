@@ -130,7 +130,8 @@ body {
     line-height: normal !important;
     letter-spacing: -0.3px;
     width: 60%;
-    margin-left: 5% !important;
+    height: 50px;
+    margin-left: 18% !important;
 }
 
 .leStick button:hover {

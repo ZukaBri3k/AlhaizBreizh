@@ -74,7 +74,7 @@ class AccountController extends Controller
         return View('Compte/inscription_proprio');
     }
 
-    public function compteProprietaire() {
+    public function compteProprietaire(Request $request) {
         $id_personnes = DB::select('select * from personnes where id = ?', [intval($request->id)]);
         return View("Compte/MonCompteProprietaire" , ['personnes' => DB::select('select * from personnes where id = ?', [intval($id_personnes[0]->id)]) [0],
             'cles' => DB::select('select * from cle where id_personnes = ?', [intval($id_personnes[0]->id)])]);

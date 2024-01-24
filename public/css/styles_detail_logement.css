@@ -89,13 +89,10 @@ body {
 
 .second h1 + h1{
     margin-top: 8%;
-    height: 50px;
 }
 
 .Caracteristiques + h1{
     margin-top: 0;
-    height: 50px;
-    width: 55%;
 }
 
 .second {
@@ -165,7 +162,7 @@ body {
 }
 
 .adresse::before {
-    content: url('adresse.png');
+    content: url('../img/adresse.png');
     /*content: url('{{asset('/img/adresse.png)}}')*/
     vertical-align: middle;
     margin-right: 5%;
@@ -173,7 +170,7 @@ body {
 }
 
 .dimension::before {
-    content: url('dimension.png');
+    content: url('../img/dimension.png');
     /*content: url('{{asset('/img/dimension.png)}}')*/
     vertical-align: middle;
     margin-right: 2%;

@@ -527,9 +527,10 @@ CSS de la page mes logements début
 
 .mesLogementsPage .listeMesReservations {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    height: fit-content;
 }
 
 .mesLogementsPage {

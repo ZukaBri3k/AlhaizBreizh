@@ -312,3 +312,11 @@ button:hover {
     padding-top: 4%;
     padding-bottom: 4%;
 }
+
+.element_en_tete h1 {
+    font-size: 40px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    font-family: 'Montserrat-Light';
+} 

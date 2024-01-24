@@ -273,12 +273,7 @@
         </div>
         <br>
         @endforeach
-        <!-- @if ($paypal[0]->paypal_proprio == null)
-          <p class="not_paypal">Le propriétaire n'a pas paypal</p>
-        @else
-          <p class="have_paypal">Le propriétaire a paypal</p>
-        @endif
-        <br> -->
+        
     </div>
 
       <div class="leStick">

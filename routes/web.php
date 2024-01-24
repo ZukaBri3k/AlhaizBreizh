@@ -30,12 +30,14 @@ Route::prefix('/devis')->group(function () {
     Route::get('/client', [Devis::class, "devisClient"])->name('devis-client')->middleware(['auth', 'isClient']);
     Route::get('/creation/{id_client}', [Devis::class, "creationDevis"])->where('id_client', '[0-9]+')->name('devis-page')->middleware(['auth', 'isProprietaire']);
     Route::post('/enregDB/{id_client}', [Devis::class, "creerDevisDB"])->where('id_client', '[0-9]+')->name('devis-store')->middleware();
-    Route::get('user-refuser',[Devis::class,'refusDevis'])->name('devis.refuser')->middleware(['auth', 'isClient']);
-    Route::get('user-valider',[Devis::class,'validationDevis'])->name('devis.valider')->middleware(['auth', 'isClient']);
 
     Route::post('user-demander',[Devis::class,'demandeDevis'])->name('devis.demande')->middleware(['auth', 'isClient']);
 
     Route::get('/infosdevis',[Devis::class,'infosDevis'])->name('infosDevis')->middleware(['auth', 'isProprietaire']);
+
+    Route::get('user-refuser/{id_devis}/{id_reserv}',[Devis::class,'refusDevis'])->name('refuserDevis')->middleware(['auth', 'isProprietaire']);;
+    Route::get('user-valider/{id_devis}',[Devis::class,'validationDevis'])->name('validerDevis')->middleware(['auth', 'isProprietaire']);;
+
 });
 
 Route::get('/paiement', function () {

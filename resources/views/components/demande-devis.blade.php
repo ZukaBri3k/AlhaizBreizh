@@ -1,13 +1,13 @@
 <div class="devis">
-    <div class="vignette">
+    <a class="vignette" href="{{route('details', ['id' => $id])}}">
         <img src="{{asset('/img/logements/logement' . $id . '/couverture.jpg')}}" alt="photo du logement">
         <p>{{$libelle}}</p>
-    </div>
-    <p>{{$pseudo}}</p>
-    <p>{{$dated}}</p>
-    <p>{{$datef}}</p>
+    </a>
+    <p><strong>Client :</strong> {{$pseudo}}</p>
+    <p><strong>Du</strong> {{$dated}}</p>
+    <p><strong>au</strong> {{$datef}}</p>
     <div class="btn">
-        <a href="#">Accepter le devis</a>
-        <a href="#">Refuser le devis</a>
+        <a href="{{route('validerDevis', ['id_devis' => $iddevis])}}" class="validerDevis">Accepter le devis</a>
+        <a href="{{route('refuserDevis', ['id_devis' => $iddevis, 'id_reserv' => $idreservation])}}" class="refuserDevis">Refuser le devis</a>
     </div>
 </div>

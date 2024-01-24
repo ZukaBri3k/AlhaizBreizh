@@ -608,6 +608,7 @@ CSS de la page mes logements début
 
 .mesDevis {
     padding: 0 5vw;
+    margin-bottom: 4rem, 0;
 }
 
 .mesLogementsPage .mesDevis h2 {
@@ -692,6 +693,26 @@ CSS du composant devis début
     font-family: 'Montserrat';
     background-color: #EC3B53;
     transition: 0.4s;
+}
+
+.mesLogementsPage .devis strong {
+    font-family: 'Montserrat';
+    color: #EC3B53;
+}
+
+.mesLogementsPage .mesReservations {
+    padding: 0 5vw;
+}
+
+.mesLogementsPage .mesReservations .listeMesReservations {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    margin: 15px 0;
 }
 
 /***********************************************************************************************************

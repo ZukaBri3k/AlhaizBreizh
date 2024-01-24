@@ -24,7 +24,7 @@
                 <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
             </div>
     </div>
-    <form action="{{route('mise_en_ligne_logement')}}" method="post" id="selectedHousing" enctype="multipart/form-data" >
+    <form action="{{route('mise_en_ligne_logement')}}" method="get" id="selectedHousing" enctype="multipart/form-data" >
     @csrf
     <div id="page_2" class="page"> 
         <div id="gauche_page_2">
@@ -250,7 +250,7 @@
             </button>
             <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Parking privé">
                 <div class="image-container">
-                    <img src="{{asset('img/amenagements/parking_prive.png')}}" alt="Parking privé">
+                    <img src="{{asset('img/amenagements/parking_privé.png')}}" alt="Parking privé">
                 </div>
                 <span>Parking privé</span>
             </button>
@@ -276,7 +276,7 @@
             </button>
             <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Véranda">
                 <div class="image-container">
-                    <img src="{{asset('img/amenagements/veranda.png')}}" alt="Véranda">
+                    <img src="{{asset('img/amenagements/véranda.png')}}" alt="Véranda">
                 </div>
                 <span>Véranda</span>
             </button>
@@ -315,7 +315,7 @@
         <div class="button-row">
             <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Lave-vaisselle">
                 <div class="image-container">
-                    <img src="{{asset('img/equipements/Lave-vaisselle.png')}}" alt="Lave-vaisselle">
+                    <img src="{{asset('img/equipements/lave-vaisselle.png')}}" alt="Lave-vaisselle">
                 </div>
                 <span>Lave-vaisselle</span>
             </button>
@@ -333,7 +333,7 @@
             </button>
             <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Cheminée">
                 <div class="image-container">
-                    <img src="{{asset('img/equipements/cheminee.png')}}" alt="Cheminée">
+                    <img src="{{asset('img/equipements/cheminée.png')}}" alt="Cheminée">
                 </div>
                 <span>Cheminée</span>
             </button>
@@ -347,7 +347,7 @@
             </button>
             <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Équipement PMR">
                 <div class="image-container">
-                    <img src="{{asset('img/equipements/equipements_pmr.png')}}" alt="Équipement PMR">
+                    <img src="{{asset('img/equipements/equipement_pmr.png')}}" alt="Équipement PMR">
                 </div>
                 <span>Équipement PMR</span>
             </button>
@@ -410,7 +410,7 @@
         <div class="button-row">
             <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Ménage">
                 <div class="image-container">
-                    <img src="{{asset('img/services/menage.png')}}" alt="Ménage">
+                    <img src="{{asset('img/services/ménage.png')}}" alt="Ménage">
                 </div>
                 <span>Ménage</span>
             </button>
@@ -435,7 +435,7 @@
         </div>
         <button type="button" onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="velo">
         <div class="image-container">
-            <img src="{{asset('img/services/velo.png')}}" alt="Vélo">
+            <img src="{{asset('img/services/vélo.png')}}" alt="Vélo">
         </div>
         <span>Vélo</span>
     </button>
@@ -452,7 +452,7 @@
         <div class="button-row">
         <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="menage">
             <div class="image-container">
-                <img src="{{asset('img/charges/menage.png')}}" alt="Ménage_image">
+                <img src="{{asset('img/charges/ménage.png')}}" alt="Ménage_image">
             </div>
             <span>Ménage</span>
         </button>
@@ -470,7 +470,7 @@
         </button>
         <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="personne_supp">
             <div class="image-container">
-                <img src="{{asset('img/charges/personne_suplementaire.png')}}" alt="Personne">
+                <img src="{{asset('img/charges/personne_suplémentaire.png')}}" alt="Personne">
             </div>
             <span>Personne suplémentaire</span>
             <input type="hidden" id="selectedPage7ValuesGauche" name="charge_additionnel_libelle" value="">

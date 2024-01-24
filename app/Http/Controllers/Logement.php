@@ -40,7 +40,7 @@ class Logement extends Controller
             $request->charge_additionnel_libelle,
             $request->charge_additionnel_prix,
         ];
-        //dd($tab);
+        dd($tab);
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,
@@ -82,11 +82,13 @@ class Logement extends Controller
     }
 
     public function getInfoLogement(Request $request) {
+        dd(date('Y-m-d'));
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'calendrier' => DB::select('select * from calendrier where id_logement = ? AND jour = ?', [intval($request->id)], date('Y-m-d'))]);
     }
 
     public function getInfoLogementPrevisu(Request $request) {
@@ -106,11 +108,10 @@ class Logement extends Controller
             $logement->id = $logement->id_logement;
         }
         
-        $tabDevis = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv");
+        $tabDevis = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv where devis.id_proprio = ? and devis.etat_devis = false", [$id]);
+        $tabReserv = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv where devis.id_proprio = ? and devis.etat_devis = true", [$id]);
 
-        //dd($tabDevis);
-
-        return View("logement/mes_logements", ['logements' => $logements, 'tabDevis' => $tabDevis]);
+        return View("logement/mes_logements", ['logements' => $logements, 'tabDevis' => $tabDevis, 'tabReserv' => $tabReserv]);
     }
 
 

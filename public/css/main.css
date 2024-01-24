@@ -722,6 +722,10 @@ CSS du composant devis début
     justify-content: center;
 }
 
+.mesLogementsPage .btnTriFiltre select {
+    margin-right: 5vw;
+}
+
 .mesLogementsPage .btnTriFiltre button{
     border: 1px solid #EC3B53;
     color: #EC3B53;

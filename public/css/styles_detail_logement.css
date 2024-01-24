@@ -459,11 +459,10 @@ body {
 }
 
 .demande_devis .datepicker-input {
-    width: 100%;
-    height: 50px;
-    border-radius: 20px;
+    width: 85%;
+    height: 40px;
+    border-radius: 10px;
     border: solid 1px #EC3B53;
-    background-color: #FFF;
     margin-top: 5%;
     margin-bottom: 5%;
     padding-left: 5%;

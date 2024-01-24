@@ -55,10 +55,10 @@ Route::prefix('/account')->group(function () {
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::post('genereCle', [AccountController::class, 'generationCle'])->name('genereCle')->middleware(['auth', 'isClient']);
+    Route::get('genereCle', [AccountController::class, 'generationCle'])->name('genereCle')->middleware(['auth', 'isClient']);
     Route::get('deleteCle/{cle}', [AccountController::class, 'deleteCle'])->name('deleteCle')->middleware(['auth', 'isClient']);
-    Route::post('/client/profil', [AccountController::class, "compteClient"])->where('id', '[0-9]+')->name('myClientAccount')->middleware(['auth', 'isClient']);
-    Route::post('/client/profil#api_chemin', [AccountController::class, "compteClient"])->where('id', '[0-9]+')->name('myClientAccountAPI')->middleware(['auth', 'isClient']);
+    Route::get('/client/profil', [AccountController::class, "compteClient"])->name('myClientAccount')->middleware(['auth', 'isClient']);
+    Route::get('/client/profil#api_chemin', [AccountController::class, "compteClient"])->name('myClientAccountAPI')->middleware(['auth', 'isClient']);
     
     Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
 

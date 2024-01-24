@@ -345,7 +345,7 @@ body {
     margin-bottom: 0rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 568px) {
     .carou {
         width: 60%;
         height: 70%;

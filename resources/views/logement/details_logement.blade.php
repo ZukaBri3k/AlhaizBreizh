@@ -344,7 +344,7 @@
             <div>
               <input type="date" id="dateDebut" name="dateDebut" value="dateDebut">
               <label for="dateDebut">Date de début</label>
-            <div>
+            </div>
             <div>
               <input type="date" id="dateFin" name="dateFin" value="dateFin">
               <label for="dateFin">Date de fin</label>

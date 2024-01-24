@@ -656,6 +656,9 @@ CSS du composant devis début
     color: #21610B;
     font-family: 'Montserrat';
     background-color: #F6F5EE;
+    border-radius: 6px;
+    padding: 5px;
+    margin-right: 5px;
 }
 
 .mesLogementsPage .devis .validerDevis:hover{
@@ -670,6 +673,8 @@ CSS du composant devis début
     font-family: 'Montserrat';
     background-color: #F6F5EE;
     transition: 0.4s;
+    border-radius: 6px;
+    padding: 5px;
 }
 
 .mesLogementsPage .devis .refuserDevis:hover{

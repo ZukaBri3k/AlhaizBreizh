@@ -54,8 +54,8 @@ class Devis extends Controller
     
             $tabDevis = [
                 NULL,
-                $request->dateDebut,
-                $request->dateFin,
+                $dateDebut,
+                $dateFin,
                 NULL,
                 NULL,
                 NULL,

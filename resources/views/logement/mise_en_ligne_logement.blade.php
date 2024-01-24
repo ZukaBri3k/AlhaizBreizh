@@ -461,19 +461,19 @@
         </button>
         <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="Animaux">
             <div class="image-container">
-                <img src="{{asset('img/services/animaux.png')}}" alt="Animal_image">
+                <img src="{{asset('img/charges/animaux.png')}}" alt="Animal_image">
             </div>
             <span>Animaux</span>
         </button>
         <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="Taxe">
             <div class="image-container">
-                <img src="{{asset('img/services/taxe.png')}}" alt="Taxe_image">
+                <img src="{{asset('img/charges/taxe.png')}}" alt="Taxe_image">
             </div>
             <span>Taxe(s)</span>
         </button>
         <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="personne_supp">
             <div class="image-container">
-                <img src="{{asset('img/services/personne_suplementaire.png')}}" alt="Personne">
+                <img src="{{asset('img/charges/personne_suplementaire.png')}}" alt="Personne">
             </div>
             <span>Personne suplémentaire</span>
             <input type="hidden" id="selectedPage7ValuesGauche" name="charge_additionnel_libelle" value="">

@@ -150,7 +150,7 @@ body{
 }
 .bouttons_retour,.bouttons_suivant{
     border: none;
-    background: none;
+    background-color: #6D6D6D;
     cursor: pointer;
 }
 .bouttons_retour,.bouttons_suivant:hover{

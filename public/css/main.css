@@ -546,3 +546,9 @@ CSS de la page mes logements début
     height: fit-content;
     display: block;
 }
+
+.mesLogementsPage .mesLogements hr {
+    width: 90%;
+    margin: 5vh auto;
+    color: rgba(0,0,0,0.50);
+}

@@ -71,29 +71,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Convertir les dates en format ISO8601
     var formattedEvents = allEvents.map(function(event) {
-      return {
-        start_date: event.start.toISOString(),
-        end_date: event.end ? event.end.toISOString() : null,
-      };
+        return {
+            start_date: event.start.toISOString(),
+            end_date: event.end ? event.end.toISOString() : null,
+        };
     });
 
     // Envoyer les données au serveur Laravel via Ajax
     $.ajax({
-        url: '/mettre-a-jour-disponibilite',
+        url: '/ajouter-evenements',
         method: 'POST',
         contentType: 'application/json',
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
         data: JSON.stringify({ events: formattedEvents }),
         success: function(response) {
-          console.log('Données envoyées avec succès !', response);
+            console.log('Événements envoyés avec succès !', response);
         },
         error: function(error) {
-          console.error('Erreur lors de l\'envoi des données :', error);
+            console.error('Erreur lors de l\'envoi des événements :', error);
         }
-      });
-  });
+    });
+});
   
   calendar.render();  
     });   

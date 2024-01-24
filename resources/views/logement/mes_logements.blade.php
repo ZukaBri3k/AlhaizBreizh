@@ -40,7 +40,7 @@
         <div class="listeMesDevis">
             @foreach($tabDevis as $devis)
                 <div class="devis">
-                    <p>{{$devis->}}</p>
+                    <p></p>
                 </div>
             @endforeach
         </div>

@@ -35,7 +35,7 @@
             </ul>
         </div>
         <div class=""footer-column>
-        <a href="{{route ('myClientAccount')}}">
+        <a href="{{route ('myClientAccount', ['id' => $id])}}">
             <button type="button">Profile</button>
         </a>
         </div>

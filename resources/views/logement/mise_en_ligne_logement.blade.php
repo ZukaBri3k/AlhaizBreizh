@@ -22,8 +22,8 @@
         </div>
        
             <div id="footer">
-                <button  type="button" id="retour_page_1" class="bouttons_retour"><img src="{{asset('fleche_retour.png')}}" alt="">Retour</button>   
-                <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('/fleche_suivant.png')}}" alt=""></button>
+                <button  type="button" id="retour_page_1" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
+                <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
             </div>
     </div>
     <form action="{{route('creation_logement')}}" method="post" id="selectedHousing" enctype="multipart/form-data" >
@@ -483,7 +483,7 @@
         <h3 class="section-title">Quel sera le prix par nuit de votre logement ? *</h3>
         <div id="alignement_input_euro">
             <input type="text" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
-            <img src="images/euro" alt="Symbole euro">
+            <img src="{{asset('img/symbole_euro.png')}}" alt="Symbole euro">
         </div>
         
     </div>

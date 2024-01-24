@@ -340,7 +340,7 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <form action="{{route('')}} " method="post" class="demande_devis">
+          <form action="" method="post" class="demande_devis">
             <div>
               <input type="date" id="dateDebut" name="dateDebut" value="dateDebut", class="datepicker-input">
               <label for="dateDebut">Date de début</label>

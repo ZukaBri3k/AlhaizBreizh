@@ -351,7 +351,7 @@
               <label for="dateFin">Date de fin</label>
               <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
             </div>
-            <button type="button" onclick="showPopup()">Demander un devis</button>
+            <button type="submit" onclick="event.preventDefault(); showPopup();">Demander un devis</button>
           </form>
           <script>
             function showPopup() {

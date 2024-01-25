@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var xhr = new XMLHttpRequest();
 
       // Configurer la requête
-      xhr.open('POST', '/ajouter-evenement', true);
+      xhr.open('POST', '/ajouter-evenements', true);
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
       // Ajouter un gestionnaire d'événements pour la réponse

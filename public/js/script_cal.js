@@ -66,29 +66,22 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
   
-document.getElementById('validate-button').addEventListener('click', function() {
-    // Vérifier s'il y a des événements actuellement présents sur le calendrier
+  document.getElementById('validate-button').addEventListener('click', function() {
     var events = calendar.getEvents();
     if (events.length > 0) {
-        // Si un événement est présent, obtenir la date du calendrier
-        var date = events[0].start.toISOString();
-
-        // Créer un nouvel objet XMLHttpRequest
+        // Récupérer la date du premier événement
+        var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
         var xhr = new XMLHttpRequest();
 
-        // Configurer la requête avec le chemin de la route Laravel
         xhr.open('POST', '/ajouter-evenements', true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-        // Ajouter un gestionnaire d'événements pour la réponse
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                // Gérer la réponse du serveur si nécessaire
                 alert(xhr.responseText);
             }
         };
 
-        // Envoyer la requête avec la date en tant que paramètre
         xhr.send('date=' + encodeURIComponent(date));
     }
 });

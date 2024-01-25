@@ -72,6 +72,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (events.length > 0) {
       // Si un événement est présent, obtenir la date du calendrier
       var date = events[0].start.toISOString(); // Problème possible ici
+      var xhr = new XMLHttpRequest();
+
+      // Configurer la requête
+      xhr.open('POST', '/ajouter-evenement', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      // Ajouter un gestionnaire d'événements pour la réponse
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+              // Gérer la réponse du serveur si nécessaire
+              alert(xhr.responseText);
+          }
+      };
+
       alert(date);
       xhr.send('date=' + encodeURIComponent(date));
         }

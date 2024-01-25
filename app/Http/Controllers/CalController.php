@@ -13,6 +13,7 @@ class CalController extends Controller
     {
         $date = $request->input('date');
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
+        dd($request->all());
         dd($formattedDate);
         // Ajoutez votre logique pour insérer ces dates dans la base de données.
         // Notez que vous devez adapter cette logique à votre modèle de base de données.

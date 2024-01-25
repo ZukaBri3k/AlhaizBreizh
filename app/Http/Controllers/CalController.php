@@ -13,6 +13,7 @@ class CalController extends Controller
 {
         
         $date = $request->input('events'); 
+        \Log::info('Date reçue côté serveur: ' . $date);
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
         dd($date);
         DB::table('calendrier')->insert([
@@ -25,8 +26,6 @@ class CalController extends Controller
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
 
     }
-       
-        
        
        
     }

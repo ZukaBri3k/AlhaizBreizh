@@ -71,10 +71,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (events.length > 0) {
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/enregistrer-evenement', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.send('date=' + encodeURIComponent(date));
+        $.ajax({
+            url: "/enregistrer-evenement",
+            type: "POST",
+            data: { date: date },
+            success: function(response) {
+                alert(response.message);
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        });
     }
 });
 

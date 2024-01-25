@@ -36,4 +36,12 @@ class CalController extends Controller
        
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     }
+    public function enregistrerEvenement(Request $request)
+{
+    $date = $request->input('date');
+
+    // Enregistrer la date dans la base de données ou un autre stockage côté serveur
+
+    return response()->json(['message' => 'Événement enregistré avec succès.']);
+}
 }

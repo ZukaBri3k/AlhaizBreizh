@@ -66,13 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
   
-  $("#validate-button").on("click", function() {
+ $("#validate-button").on("click", function() {
     var events = calendar.getEvents();
     if (events.length > 0) {
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
         alert("Date de l'événement : " + date);
         $.ajax({
-            url: "/ajouter-evenements",
+            url: "/enregistrer-evenement",
             type: "POST",
             data: { events: date }, // Utilisez la clé 'events'
             success: function(response) {
@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
 
 calendar.render();  
     });   

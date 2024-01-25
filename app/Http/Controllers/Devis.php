@@ -74,8 +74,6 @@ class Devis extends Controller
                 auth()->user()->id,
                 $id_proprio[0]->id_proprio_logement
             ];
-            dd([Auth::user()->id, $request->dateDebut, $request->dateFin]);
-            $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id, $request->dateDebut, $request->dateFin]);
 
             DB::insert('insert into devis (
                 nb_pers,
@@ -102,6 +100,8 @@ class Devis extends Controller
                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
                 )', $tabDevis);
 
+                $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id, $request->dateDebut, $request->dateFin]);
+
                 $tabReservation = [
                     $id_logement,
                     false,
@@ -115,7 +115,7 @@ class Devis extends Controller
                     NULL,
                     NULL
                 ];
-                DB::insert('insert into devis (
+                DB::insert('insert into reservation (
                     id_logement_reserv,
                     confirm_reserv,
                     mail_reserv,

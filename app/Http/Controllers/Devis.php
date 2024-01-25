@@ -41,7 +41,7 @@ class Devis extends Controller
 
         if($client[0]->role == 1 && $request->dateDebut < $request->dateFin) {
 
-            $id_logement = $request->id;
+            $id_logement = $request->id_logement;
     
             $dateDebut = strtotime($request->dateDebut);
             $dateFin = strtotime($request->dateFin);

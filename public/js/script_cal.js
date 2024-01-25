@@ -71,11 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (events.length > 0) {
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
 
-        // Utilisation de jQuery pour la requête AJAX
         $.ajax({
             url: "/enregistrer-evenement",
             type: "POST",
-            data: { events: date }, // Utilisez la clé 'events' ici
+            data: { events: date }, // Utilisez la clé 'events'
             success: function(response) {
                 alert(response.message);
             },
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-}); 
+});
 
 
 calendar.render();  

@@ -69,28 +69,31 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('validate-button').addEventListener('click', function() {
     // Vérifier s'il y a des événements actuellement présents sur le calendrier
     var events = calendar.getEvents();
-        if (events.length > 0) {
-      // Si un événement est présent, obtenir la date du calendrier
-      var date = events[0].start.toISOString(); // Problème possible ici
-      var xhr = new XMLHttpRequest();
+    if (events.length > 0) {
+        // Si un événement est présent, obtenir la date du calendrier
+        var date = events[0].start.toISOString();
 
-      // Configurer la requête
-      xhr.open('POST', '/ajouter-evenements', true);
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        // Créer un nouvel objet XMLHttpRequest
+        var xhr = new XMLHttpRequest();
 
-      // Ajouter un gestionnaire d'événements pour la réponse
-      xhr.onreadystatechange = function() {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-              // Gérer la réponse du serveur si nécessaire
-              alert(xhr.responseText);
-          }
-      };
+        // Configurer la requête avec le chemin de la route Laravel
+        xhr.open('POST', '/ajouter-evenements', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-      alert(date);
-      xhr.send('date=' + encodeURIComponent(date));
-        }
-  });
-  calendar.render();  
+        // Ajouter un gestionnaire d'événements pour la réponse
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Gérer la réponse du serveur si nécessaire
+                alert(xhr.responseText);
+            }
+        };
+
+        // Envoyer la requête avec la date en tant que paramètre
+        xhr.send('date=' + encodeURIComponent(date));
+    }
+});
+
+calendar.render();  
     });   
 
        

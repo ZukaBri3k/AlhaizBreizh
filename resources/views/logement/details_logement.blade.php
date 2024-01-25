@@ -366,11 +366,6 @@
                 closeOnClickOutside: false,
                 dangerMode: true,
                 className: "custom-swal",
-              }).then(() => {
-                const swalIcon = document.querySelector('.swal-icon.success-icon .svg');
-                if (swalIcon) {
-                  swalIcon.style.fill = '#21610B';
-                }
               });
                 setTimeout(submitForm, 2500); // Attend 2.5 secondes avant de soumettre le formulaire
             }

@@ -12,7 +12,7 @@ class CalController extends Controller
     public function ajouterEvenementDB(Request $request)
     {
         $date = $request->input('date');
-        $formattedDate = Carbon::parse($date)->format('Y-m-d H:i:s');
+        $formattedDate = Carbon::parse($date)->format('Y-m-d');
         dd($formattedDate);
         // Ajoutez votre logique pour insérer ces dates dans la base de données.
         // Notez que vous devez adapter cette logique à votre modèle de base de données.

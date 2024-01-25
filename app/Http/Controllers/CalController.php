@@ -15,7 +15,7 @@ class CalController extends Controller
         $date = $request->input('events'); 
         \Log::info('Date reçue côté serveur: ' . $date);
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
-        dd($date);
+        dd($formattedDate);  
         DB::table('calendrier')->insert([
             'statut_propriete' =>true,
             'jour' => $formattedDate,

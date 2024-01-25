@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var events = calendar.getEvents();
     if (events.length > 0) {
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
-        alert("Date de l'événement : " + date);
         $.ajax({
             url: "/ajouter-evenements",
             type: "POST",

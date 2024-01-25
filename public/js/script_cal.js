@@ -69,11 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('validate-button').addEventListener('click', function() {
     // Vérifier s'il y a des événements actuellement présents sur le calendrier
     var events = calendar.getEvents();
-    alert(events);
         if (events.length > 0) {
       // Si un événement est présent, obtenir la date du calendrier
       var date = events[0].start.toISOString(); // Problème possible ici
-      var correctedDate = new Date(date);
+      alert(date);
       xhr.send('date=' + encodeURIComponent(date));
         }
   });

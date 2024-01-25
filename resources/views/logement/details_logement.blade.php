@@ -355,8 +355,24 @@
           </form>
           <script>
             function showPopup() {
-                swal("Succès", "Votre demande de devis a été créée avec succès.", "success");
-                setTimeout(submitForm, 2000); // Attend 2 secondes avant de soumettre le formulaire
+              swal({
+                title: "Succès",
+                text: "Votre demande de devis a été créée avec succès.",
+                icon: "success",
+                button: {
+                  text: "OK",
+                  closeModal: false,
+                },
+                closeOnClickOutside: false,
+                dangerMode: true,
+                className: "custom-swal",
+              }).then(() => {
+                const swalIcon = document.querySelector('.swal-icon.success-icon .svg');
+                if (swalIcon) {
+                  swalIcon.style.fill = '#21610B';
+                }
+              });
+                setTimeout(submitForm, 2500); // Attend 2.5 secondes avant de soumettre le formulaire
             }
 
             function submitForm() {

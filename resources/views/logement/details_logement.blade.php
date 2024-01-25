@@ -343,6 +343,7 @@
           <form action="{{route('demande_devis')}}" method="post" class="demande_devis">
             @csrf
             <div>
+              <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">
               <label for="dateDebut">Date de début</label>
               <input type="date" id="dateDebut" name="dateDebut" value="dateDebut" class="datepicker-input">
             </div>

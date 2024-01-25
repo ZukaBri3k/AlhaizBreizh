@@ -8,7 +8,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{{asset('css/cal.css')}}"></head>
 <body>
-<form id="eventsForm" action="{{ route('ajouter-evenements') }}" method="post">
+<form id="eventsForm" action="{{ route('enregistrerEvenement') }}" method="post">
    @csrf
     
 <div id='external-events'>

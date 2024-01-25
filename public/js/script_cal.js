@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.error("Erreur AJAX: " + textStatus, errorThrown);
+                console.log("Réponse du serveur : ", jqXHR.responseText);
             }
         });
     }

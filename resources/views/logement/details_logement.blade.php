@@ -353,6 +353,12 @@
             </div>
             <button type="submit" >Demander un devis</button>
           </form>
+          <script>
+            function showPopup() {
+                alert("Votre demande de devis a été créée avec succès.");
+                return true; // retourne true pour permettre la soumission du formulaire
+            }
+          </script>
       </div>
     </div>
     <x-FooterClient></x-FooterClient>

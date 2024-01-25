@@ -28,7 +28,7 @@
     @csrf
     <div id="page_2" class="page"> 
         <div id="gauche_page_2">
-                <h3 id="titre_colonne_gauche_page_2">De quel nature est votre logement ? *</h3>
+                <h3 id="titre_colonne_gauche_page_2">De quel nature est <br>votre logement ? *</h3>
                 <div class="button-row">
                     <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Maison">
                         <div class="image-container">

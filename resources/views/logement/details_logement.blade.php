@@ -340,7 +340,7 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <form action="{{route('demande_devis')}}" method="post" class="demande_devis" id="myForm>
+          <form id="myForm" action="{{route('demande_devis')}}" method="post" class="demande_devis">
             @csrf
             <div>
               <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">

@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
   
- $("#validate-button").on("click", function() {
+  $("#validate-button").on("click", function() {
     var events = calendar.getEvents();
     if (events.length > 0) {
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $.ajax({
             url: "/enregistrer-evenement",
             type: "POST",
-            data: JSON.stringify({ events: date }), // Utilisez la clé 'events'
+            data: JSON.stringify({ events: date }),
             success: function(response) {
                 alert(response.message);
             },

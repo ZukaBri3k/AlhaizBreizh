@@ -14,7 +14,6 @@ class CalController extends Controller
     
     $data = json_decode($request->getContent(), true);
     \Log::info($data);
-    if (isset($data['events'])) {
         $date = $request->input('events'); 
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
         dd($formattedDate);
@@ -25,23 +24,13 @@ class CalController extends Controller
 
             // ... autres colonnes ...
         ]);
+        return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
 
-        // Le reste de votre logique...
-    } else {
-        // Gérer le cas où 'events' n'est pas présent dans la requête
     }
        
         
        
        
-        return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     }
-    public function enregistrerEvenement(Request $request)
-{
-    $date = $request->input('date');
-    $formattedDate = Carbon::parse($date)->format('Y-m-d');
-    dd($formattedDate);
 
-    return response()->json(['message' => 'Événement enregistré avec succès.']);
-}
-}
+

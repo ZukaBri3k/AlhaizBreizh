@@ -68,27 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
   
   document.getElementById('validate-button').addEventListener('click', function() {
     var events = calendar.getEvents();
-
-    // Trier les événements par date de début croissante
-    events.sort(function(a, b) {
-        return a.start - b.start;
-    });
-
     if (events.length > 0) {
-        // Récupérer la date du premier événement après le tri
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
+
+        // Envoyer la date au serveur
         var xhr = new XMLHttpRequest();
-
-        xhr.open('POST', '/ajouter-evenements', true);
+        xhr.open('POST', '/enregistrer-evenement', true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                alert(xhr.responseText);
-            }
-        };
-
-        xhr.send('events=' + encodeURIComponent(date));
+        xhr.send('date=' + encodeURIComponent(date));
     }
 });
 

@@ -12,7 +12,6 @@ class CalController extends Controller
     public function ajouterEvenementDB(Request $request)
     {
         $date = $request->input('date');
-        echo(info($request->all()));
         dd($date);
         // Ajoutez votre logique pour insérer ces dates dans la base de données.
         // Notez que vous devez adapter cette logique à votre modèle de base de données.

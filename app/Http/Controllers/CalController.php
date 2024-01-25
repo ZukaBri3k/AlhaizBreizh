@@ -21,7 +21,6 @@ class CalController extends Controller
         // Gérer le cas où 'events' n'est pas présent dans la requête
     }
        
-        dd($request->all());
         dd($formattedDate);
         // Ajoutez votre logique pour insérer ces dates dans la base de données.
         // Notez que vous devez adapter cette logique à votre modèle de base de données.

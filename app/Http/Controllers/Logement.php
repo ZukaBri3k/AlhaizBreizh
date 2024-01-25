@@ -40,7 +40,7 @@ class Logement extends Controller
             $request->charge_additionnel_libelle,
             $request->charge_additionnel_prix,
         ];
-        dd($tab);
+        //dd($tab);
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,

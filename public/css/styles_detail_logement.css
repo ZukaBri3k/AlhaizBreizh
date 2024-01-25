@@ -118,24 +118,26 @@ body {
 }
 
 .leStick button {
-    width: 60%;
-    height: 70px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    border-radius: 20px;
-    background-color: #EC3B53;
-    margin-left: 20%;
-    margin-top: 5%;
-    color: #FFF;
+    border-radius: 6px !important;
+    border: 1px solid #EC3B53;
+    background: #FFF;
+    color: #EC3B53;
     text-align: center;
-    font-size: 20px;
-    letter-spacing: -0.225px;
-    color: #FFF;
-    text-align: center;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat' !important;
+    font-size: 20px !important;
     font-style: normal;
-    font-weight: 739;
-    line-height: normal;
+    font-weight: 500;
+    line-height: normal !important;
+    letter-spacing: -0.3px;
+    width: 60%;
+    height: 50px;
+    margin-left: 18% !important;
+}
+
+.leStick button:hover {
+    background-color: #EC3B53;
+    color: #FFF;
+    transition: 0.5s;
 }
 
 
@@ -458,3 +460,56 @@ body {
     }
 }
 
+.demande_devis .datepicker-input {
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    border: solid 1px #EC3B53;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-left: 5%;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.225px;
+    color: #000;
+    font-family: 'Montserrat';
+}
+
+.demande_devis .datepicker-input::placeholder {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.225px;
+}
+
+.demande_devis div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.demande_devis label {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+
+.custom-swal {
+    background-color: #F6F5EE;
+  }
+  
+  .custom-swal button {
+    background-color: #21610B;
+    color: #fff;
+  }

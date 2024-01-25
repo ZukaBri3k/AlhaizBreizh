@@ -340,20 +340,44 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <form action="{{route('genereCle')}} " method="post">
+          <form id="myForm" action="{{route('demande_devis')}}" method="post" class="demande_devis">
+            @csrf
             <div>
-              <input type="date" id="dateDebut" name="dateDebut" value="dateDebut">
+              <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">
               <label for="dateDebut">Date de début</label>
+              <input type="date" id="dateDebut" name="dateDebut" value="dateDebut" class="datepicker-input">
             </div>
             <div>
-              <input type="date" id="dateFin" name="dateFin" value="dateFin">
               <label for="dateFin">Date de fin</label>
+              <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
             </div>
-            <button type="button" type="submit" >Demander un devis</button>
+            <button type="submit" onclick="event.preventDefault(); showPopup();">Demander un devis</button>
           </form>
+          <script>
+            function showPopup() {
+              swal({
+                title: "Succès",
+                text: "Votre demande de devis a été créée avec succès.",
+                icon: "success",
+                button: {
+                  text: "OK",
+                  closeModal: false,
+                },
+                closeOnClickOutside: false,
+                dangerMode: true,
+                className: "custom-swal",
+              });
+                setTimeout(submitForm, 2500); // Attend 2.5 secondes avant de soumettre le formulaire
+            }
+
+            function submitForm() {
+                document.getElementById('myForm').submit(); // Soumet le formulaire
+            }
+            </script>
       </div>
     </div>
     <x-FooterClient></x-FooterClient>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

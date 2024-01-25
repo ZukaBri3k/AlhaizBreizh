@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $.ajax({
             url: "/enregistrer-evenement",
             type: "POST",
-            data: JSON.stringify({ events: date }),
+            data: JSON.stringify({ date }),
             success: function(response) {
                 alert(response.message);
             },

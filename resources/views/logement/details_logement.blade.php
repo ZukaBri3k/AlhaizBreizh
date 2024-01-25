@@ -340,7 +340,7 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <form action="{{route('demande_devis')}}" method="post" class="demande_devis" onsubmit="return showPopup()">
+          <form action="{{route('demande_devis')}}" method="post" class="demande_devis">
             @csrf
             <div>
               <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">
@@ -351,14 +351,18 @@
               <label for="dateFin">Date de fin</label>
               <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
             </div>
-            <button type="submit" >Demander un devis</button>
+            <button type="button" onclick="showPopup()">Demander un devis</button>
           </form>
           <script>
             function showPopup() {
-              swal("Succès", "Votre demande de devis a été créée avec succès.", "success");
-                return true;
+                swal("Succès", "Votre demande de devis a été créée avec succès.", "success");
+                setTimeout(submitForm, 2000); // Attend 2 secondes avant de soumettre le formulaire
             }
-          </script>
+
+            function submitForm() {
+                document.getElementById('myForm').submit(); // Soumet le formulaire
+            }
+            </script>
       </div>
     </div>
     <x-FooterClient></x-FooterClient>

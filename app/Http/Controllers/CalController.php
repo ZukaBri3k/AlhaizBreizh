@@ -14,7 +14,7 @@ class CalController extends Controller
         
         $date = $request->input('events'); 
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
-        dd($formattedDate);
+        dd($date);
         DB::table('calendrier')->insert([
             'statut_propriete' =>true,
             'jour' => $date,

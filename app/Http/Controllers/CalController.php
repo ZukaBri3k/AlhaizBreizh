@@ -13,7 +13,7 @@ class CalController extends Controller
 {
     
     $data = json_decode($request->getContent(), true);
-    \Log::info($data);
+        dd($data);
         $date = $request->input('events'); 
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
         dd($formattedDate);

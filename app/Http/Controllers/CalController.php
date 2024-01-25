@@ -17,7 +17,7 @@ class CalController extends Controller
         dd($date);
         DB::table('calendrier')->insert([
             'statut_propriete' =>true,
-            'jour' => $date,
+            'jour' => $formattedDate,
             'disponibilite' => true,
 
             // ... autres colonnes ...

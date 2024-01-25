@@ -24,11 +24,11 @@
                 <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
             </div>
     </div>
-    <form action="{{route('mise_en_ligne_logement')}}" method="get" id="selectedHousing" enctype="multipart/form-data" >
+    <form action="{{route('creation_logement')}}" method="post" id="selectedHousing_form" enctype="multipart/form-data" >
     @csrf
     <div id="page_2" class="page"> 
         <div id="gauche_page_2">
-                <h3 id="titre_colonne_gauche_page_2">De quel nature est votre logement ? *</h3>
+                <h3 id="titre_colonne_gauche_page_2">De quel nature est <br>votre logement ? *</h3>
                 <div class="button-row">
                     <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Maison">
                         <div class="image-container">

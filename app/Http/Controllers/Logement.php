@@ -40,7 +40,7 @@ class Logement extends Controller
             $request->charge_additionnel_libelle,
             $request->charge_additionnel_prix,
         ];
-        dd($tab);
+        //dd($tab);
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,
@@ -73,8 +73,8 @@ class Logement extends Controller
         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?)', $tab);
 
-        $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement], auth()->user()->id);
-        return redirect()->route('getInfoLogementPrevisu', ['id' => $id_logement[0]->id_logement]);
+        $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement, auth()->user()->id]);
+        return redirect()->route('details_previsu', ['id' => $id_logement[0]->id_logement]);
     }
 
     public function mise_en_ligne_logement() {

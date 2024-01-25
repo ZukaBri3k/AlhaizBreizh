@@ -66,21 +66,27 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
   
-  document.getElementById('my-button').addEventListener('click', function() {
-    // Vérifier s'il y a des événements actuellement présents sur le calendrier
+  $("#validate-button").on("click", function() {
     var events = calendar.getEvents();
-    alert(events);
-        if (events.length > 0) {
-      // Si un événement est présent, obtenir la date du calendrier
-      var firstEventDate = events[0].start.toISOString(); // Problème possible ici
-      var correctedDate = new Date(firstEventDate);
-      alert("La date du premier événement sur le calendrier est " + correctedDate.toISOString());
-    } else {
-      // Si aucun événement n'est présent, afficher un message
-      alert("Aucun événement draggable n'est présent sur le calendrier.");
+    if (events.length > 0) {
+        var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
+        $.ajax({
+            url: "/ajouter-evenements",
+            type: "POST",
+            data: JSON.stringify({ events: new Date(date) }), 
+            contentType: "application/json",
+            success: function(response) {
+                alert(response.message);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error("Erreur AJAX: " + textStatus, errorThrown);
+                console.log("Réponse du serveur : ", jqXHR.responseText);
+            }
+        });
     }
-  });
-  calendar.render();  
+});
+
+calendar.render();  
     });   
 
        

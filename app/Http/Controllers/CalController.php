@@ -10,9 +10,15 @@ use Illuminate\Support\Facades\DB;
 class CalController extends Controller
 {
     public function ajouterEvenementDB(Request $request)
-    {
-        $date = $request->input('date');
+{
+    if ($request->has('events')) {
+        $date = $request->input('events'); 
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
+        // Le reste de votre logique...
+    } else {
+        // Gérer le cas où 'events' n'est pas présent dans la requête
+    }
+       
         dd($request->all());
         dd($formattedDate);
         // Ajoutez votre logique pour insérer ces dates dans la base de données.

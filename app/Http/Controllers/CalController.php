@@ -17,15 +17,6 @@ class CalController extends Controller
         $date = $request->input('events'); 
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
         dd($formattedDate);
-        // Le reste de votre logique...
-    } else {
-        // Gérer le cas où 'events' n'est pas présent dans la requête
-    }
-       
-        
-        // Ajoutez votre logique pour insérer ces dates dans la base de données.
-        // Notez que vous devez adapter cette logique à votre modèle de base de données.
-        // Exemple hypothétique d'insertion dans la base de données :
         DB::table('calendrier')->insert([
             'statut_propriete' =>true,
             'jour' => $date,
@@ -34,6 +25,14 @@ class CalController extends Controller
             // ... autres colonnes ...
         ]);
 
+        // Le reste de votre logique...
+    } else {
+        // Gérer le cas où 'events' n'est pas présent dans la requête
+    }
+       
+        
+       
+       
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     }
 }

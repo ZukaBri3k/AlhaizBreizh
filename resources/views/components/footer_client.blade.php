@@ -89,7 +89,7 @@
     </div>
     <hr class="footer-line">
     <div class="footer-address">
-        <p class="basgauche">Alhaiz Breizh, tous droits réservés</p>
+        <p class="basgauche"><span class="underline-hover">Alhaiz Breizh</span>, tous droits réservés</p>
         <p class="basdroite">développé par <span class="underline-hover">Ubisoufte</span></p>
     </div>  
 </footer>
@@ -132,7 +132,7 @@
     </div>
     <hr class="footer-line">
     <div class="footer-address">
-        <p class="basgauche">Alhaiz Breizh, tous droits réservés</p>
+        <p class="basgauche"><span class="underline-hover">Alhaiz Breizh</span>, tous droits réservés</p>
         <p class="basdroite">développé par <span class="underline-hover">Ubisoufte</span></p>
     </div>     
 </footer>

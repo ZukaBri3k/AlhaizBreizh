@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
   
-  document.getElementById('validate-button').addEventListener('click', function() {
+document.getElementById('validate-button').addEventListener('click', function() {
     // Vérifier s'il y a des événements actuellement présents sur le calendrier
     var events = calendar.getEvents();
     if (events.length > 0) {

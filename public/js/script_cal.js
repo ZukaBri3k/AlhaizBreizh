@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
         alert("Date de l'événement : " + date);
         $.ajax({
-            url: "/enregistrer-evenement",
+            url: "/ajouter-evenements",
             type: "POST",
             data: JSON.stringify({ events: new Date(date) }), 
             contentType: "application/json",

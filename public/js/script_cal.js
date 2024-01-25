@@ -68,8 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
   
   document.getElementById('validate-button').addEventListener('click', function() {
     var events = calendar.getEvents();
+
+    // Trier les événements par date de début croissante
+    events.sort(function(a, b) {
+        return a.start - b.start;
+    });
+
     if (events.length > 0) {
-        // Récupérer la date du premier événement
+        // Récupérer la date du premier événement après le tri
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
         var xhr = new XMLHttpRequest();
 
@@ -85,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send('date=' + encodeURIComponent(date));
     }
 });
+
 
 calendar.render();  
     });   

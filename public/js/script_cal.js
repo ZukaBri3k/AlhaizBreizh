@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
 
-        xhr.send('date=' + encodeURIComponent(date));
+        xhr.send('date-event=' + encodeURIComponent(date));
     }
 });
 

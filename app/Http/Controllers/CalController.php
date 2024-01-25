@@ -16,12 +16,13 @@ class CalController extends Controller
     if (isset($data['events'])) {
         $date = $request->input('events'); 
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
+        dd($formattedDate);
         // Le reste de votre logique...
     } else {
         // Gérer le cas où 'events' n'est pas présent dans la requête
     }
        
-        dd($formattedDate);
+        
         // Ajoutez votre logique pour insérer ces dates dans la base de données.
         // Notez que vous devez adapter cette logique à votre modèle de base de données.
         // Exemple hypothétique d'insertion dans la base de données :

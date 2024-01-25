@@ -119,7 +119,7 @@ class Devis extends Controller
                 DB::insert('insert into reservation (
                     id_logement_reserv,
                     confirm_reserv,
-                    cgv_reserv
+                    cgv_reserv,
                     mail_reserv,
                     facture_reserv,
                     num_carte,

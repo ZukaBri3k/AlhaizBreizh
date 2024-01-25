@@ -11,7 +11,9 @@ class CalController extends Controller
 {
     public function ajouterEvenementDB(Request $request)
 {
-    if ($request->has('events')) {
+    $data = json_decode($request->getContent(), true);
+
+    if (isset($data['events'])) {
         $date = $request->input('events'); 
         $formattedDate = Carbon::parse($date)->format('Y-m-d');
         // Le reste de votre logique...

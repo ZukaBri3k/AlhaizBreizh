@@ -105,6 +105,7 @@ class Devis extends Controller
                 $tabReservation = [
                     $id_logement,
                     false,
+                    NULL,
                     $client[0]->mail_pers,
                     $devis[0]->ref_devis,
                     NULL,
@@ -118,6 +119,7 @@ class Devis extends Controller
                 DB::insert('insert into reservation (
                     id_logement_reserv,
                     confirm_reserv,
+                    cgv_reserv
                     mail_reserv,
                     facture_reserv,
                     num_carte,

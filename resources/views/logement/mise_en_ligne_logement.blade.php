@@ -207,7 +207,7 @@
             </div>
         </div>
         <div id="footer">
-            <button  type="button" id="retour_page_3" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}g" alt="">Retour</button>   
+            <button  type="button" id="retour_page_3" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
             <button type="button" id="suivant_page_3" class="bouttons_suivant" onclick="validatePage3()">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
 
         </div>

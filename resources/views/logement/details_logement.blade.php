@@ -340,7 +340,7 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <form action="{{route('demande_devis')}}" method="post" class="demande_devis" onsubmit="return showPopup()">
+          <form action="{{route('demande_devis')}}" method="post" class="demande_devis" onsubmit="event.preventDefault(); showPopup();">
             @csrf
             <div>
               <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">
@@ -355,8 +355,12 @@
           </form>
           <script>
             function showPopup() {
-              swal("Succès", "Votre demande de devis a été créée avec succès.", "success");
-                return true;
+                swal("Succès", "Votre demande de devis a été créée avec succès.", "success");
+                setTimeout(submitForm, 2000); // Attend 2 secondes avant de soumettre le formulaire
+            }
+
+            function submitForm() {
+                document.getElementById('myForm').submit(); // Soumet le formulaire
             }
           </script>
       </div>

@@ -25,20 +25,20 @@ class CalController extends Controller
         ]);
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     }
-        public function enregistrerEvenement(Request $request)
-        {
-            $date = $request->input('date');
-            
-            // Traitement de la date si nécessaire
-            $formattedDate = Carbon::parse($date)->format('Y-m-d H:i:s');
-            
-            // Log pour vérification
-            Log::info('Date reçue côté serveur : ' . $formattedDate);
+    public function enregistrerEvenement(Request $request)
+    {
+        $date = $request->input('events');
+        
+        // Traitement de la date si nécessaire
+        $formattedDate = Carbon::parse($date)->format('Y-m-d H:i:s');
+        
+        // Log pour vérification
+        Log::info('Date reçue côté serveur : ' . $formattedDate);
     
-            // Autres opérations avec la date...
+        // Autres opérations avec la date...
     
-            return response()->json(['message' => 'Événement enregistré avec succès.']);
-        }
+        return response()->json(['message' => 'Événement enregistré avec succès.']);
+    }
     }
        
     

@@ -24,7 +24,7 @@
                 <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
             </div>
     </div>
-    <form action="{{route('mise_en_ligne_logement')}}" method="get" id="selectedHousing" enctype="multipart/form-data" >
+    <form action="{{route('mise_en_ligne_logement')}}" method="get" id="selectedHousing_form" enctype="multipart/form-data" >
     @csrf
     <div id="page_2" class="page"> 
         <div id="gauche_page_2">

@@ -16,9 +16,9 @@ class CalController extends Controller
         $date = $request->input('events'); 
         $formattedDate = Carbon::parse($date)->format('Y-m-d'); 
         DB::table('calendrier')->insert([
-            'statut_propriete' =>true,
+            'statut_propriete' =>false,
             'jour' => $formattedDate,
-            'disponibilite' => true,
+            'disponibilite' => false,
 
             // ... autres colonnes ...
         ]);

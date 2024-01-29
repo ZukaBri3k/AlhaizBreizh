@@ -382,13 +382,23 @@ nav {
     height: fit-content;
 }
 
-#accueil .listeBtnTri button,select {
+#accueil .listeBtnTri button {
     border-radius: 6px;
     border: 1px solid #EC3B53;
     background-color: #F6F5EE;
     color: #EC3B53;
     padding: 5px 15px;
     font-family: 'Montserrat';
+}
+
+#accueil .listeBtnTri select {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background-color: #F6F5EE;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    padding: 15px;
+    margin: 0 0 0 25px;
 }
 
 #accueil .listeBtnTri button:hover {

@@ -79,6 +79,7 @@
                 }
 
                 let select = document.getElementById("selectionFiltre");
+                console.log(select);
                 select.addEventListener("change", filtre);
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>

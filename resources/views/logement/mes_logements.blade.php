@@ -163,7 +163,10 @@
                 <option value="Cabane">Cabane</option>
                 <option value="Caravane">Caravane</option>
             </select>
-            <button id="btnFiltre" onclick="filtre()">Filtrer les résultats</button>
+            <script>
+                let select = document.getElementById("selectionFiltre");
+                select.addEventListener("change", filtre);
+            </script>
         </div>
 
         <div class="listeMesReservations">

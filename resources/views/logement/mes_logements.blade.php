@@ -12,7 +12,7 @@
     <x-Navbar></x-Navbar>
     
     <section class="mesLogements">
-        <h2>Mes logements :</h2>
+        <h2>Mes logements en ligne :</h2>
 
         <div class="listeMesLogement">
             @foreach($logements as $logement)
@@ -22,9 +22,26 @@
                         $textbouton = "Mettre hors ligne";
                         $classBtnHL = "HL";
     
+                        if($logement->en_ligne == true){
+                            echo "<x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>";
+                        }
+                    @endphp
+                    <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                </div>
+            @endforeach
+        </div>
+        <section class="mesLogements">
+        <h2>Mes logements hors ligne :</h2>
+
+        <div class="listeMesLogement">
+            @foreach($logements as $logement)
+                <div class="logementEnLigne">
+                    @php
+                        $textbouton = "Mettre en ligne"";
+                        $classBtnHL = "HL";
+    
                         if($logement->en_ligne == false){
-                            $textbouton = "Mettre en ligne";
-                            $classBtnHL = "EL";
+                            echo "<x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>";
                         }
                     @endphp
                     <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>

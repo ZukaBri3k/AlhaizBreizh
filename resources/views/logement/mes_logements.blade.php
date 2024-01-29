@@ -37,7 +37,7 @@
             @foreach($logements as $logement)
                 <div class="logementEnLigne">
                     @php
-                        $textbouton = "Mettre en ligne"";
+                        $textbouton = "Mettre en ligne";
                         $classBtnHL = "HL";
     
                         if($logement->en_ligne == false){ @endphp

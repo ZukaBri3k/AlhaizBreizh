@@ -77,6 +77,9 @@
                         }
                     });
                 }
+
+                let select = document.querySelector("#selectionFiltre");
+                select.addEventListener("change", filtre);
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
             <select id="selectionFiltre">
@@ -90,7 +93,6 @@
                 <option value="Cabane">Cabane</option>
                 <option value="Caravane">Caravane</option>
             </select>
-            <button id="btnFiltre" onclick="filtre()">Filtrer les résultats</button>
         </div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)

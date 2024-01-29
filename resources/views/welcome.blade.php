@@ -80,7 +80,7 @@
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
             <select id="selectionFiltre">
-                <option value="Aucun">Aucun</option>
+                <option value="Aucun">Tous</option>
                 <option value="Appartement">Appartements</option>
                 <option value="Villa">Villa</option>
                 <option value="Maison">Maison</option>

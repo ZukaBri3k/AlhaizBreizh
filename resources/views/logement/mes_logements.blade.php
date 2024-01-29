@@ -23,7 +23,7 @@
                         $classBtnHL = "HL";
     
                         if($logement->en_ligne == true){
-                            echo "<x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>";
+                            echo "<x-Card titre="$logement->libelle_logement" desc="$logement->accroche_logement" note="$logement->moyenne_avis_logement" prix="$logement->prix_logement" lien="$logement->lien" id="$logement->id" natLogement="$logement->nature_logement"></x-Card>";
                         }
                     @endphp
                     <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
@@ -41,7 +41,7 @@
                         $classBtnHL = "HL";
     
                         if($logement->en_ligne == false){
-                            echo "<x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>";
+                            echo "<x-Card titre="$logement->libelle_logement" desc="$logement->accroche_logement" note="$logement->moyenne_avis_logement" prix="$logement->prix_logement" lien="$logement->lien" id="$logement->id" natLogement="$logement->nature_logement"></x-Card>";
                         }
                     @endphp
                     <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>

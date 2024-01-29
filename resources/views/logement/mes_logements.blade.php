@@ -136,7 +136,7 @@
             </script>
             <button id="btnTriDate" onclick="triDate()">Trier par date (du plus ancien)</button>
             <select id="selectionFiltre">
-                <option value="Aucun">Aucun</option>
+                <option value="Aucun">Tous</option>
                 <option value="Appartement">Appartements</option>
                 <option value="Villa">Villa</option>
                 <option value="Maison">Maison</option>

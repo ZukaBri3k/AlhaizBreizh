@@ -15,6 +15,7 @@
         <h2>Mes logements en ligne :</h2>
 
         <div class="listeMesLogement">
+            @php $counter = 0; @endphp
             @foreach($logements as $logement)
                 <div class="logementEnLigne">
                     @php
@@ -41,15 +42,15 @@
         <h2>Mes logements hors ligne :</h2>
 
         <div class="listeMesLogement">
+            @php $counterEL = 0; @endphp
             @foreach($logements as $logement)
                 <div class="logementEnLigne">
                     @php
                         $textbouton = "Mettre en ligne";
                         $classBtnHL = "EL";
-                        $counter = 0;
 
                         if($logement->en_ligne == false) { 
-                            $counter++;
+                            $counterEL++;
                         @endphp
                             <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
@@ -58,7 +59,7 @@
                 </div>
             @endforeach
             @php 
-                if($counter == 0) {
+                if($counterEL == 0) {
                     echo "<p class='aucunLogement'>Vous n'avez aucun logement hors ligne.</p>";
                 }
             @endphp

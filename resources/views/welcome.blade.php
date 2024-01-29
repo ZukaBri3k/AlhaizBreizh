@@ -102,8 +102,9 @@
             <p id="msgFiltreVide" style="display: none;">Aucun logement ne correspond à vos critères de recherche</p>
             <script>
                 let msgFiltreVide = document.getElementById("msgFiltreVide");
-                let listeCard = document.querySelectorAll(".autres .liste-card .lienCard")[0];
+                let listeCard = document.querySelectorAll(".autres .liste-card .lienCard");
                 let tabCard = Array.from(listeCard);
+                console.log(tabCard);
                 if(tabCard.length == 0) {
                     msgFiltreVide.style.display = "block";
                 }

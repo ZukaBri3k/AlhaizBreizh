@@ -17,7 +17,6 @@
         <div class="listeMesLogement">
             @foreach($logements as $logement)
                 <div class="logementEnLigne">
-                    <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                     @php
                         $textbouton = "Mettre hors ligne";
                         $classBtnHL = "HL";

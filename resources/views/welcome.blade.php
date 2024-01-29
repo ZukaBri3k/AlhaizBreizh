@@ -78,7 +78,7 @@
                     });
                 }
 
-                let select = document.querySelector("#selectionFiltre");
+                let select = document.getElementById("selectionFiltre");
                 select.addEventListener("change", filtre);
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>

@@ -133,23 +133,6 @@
                         conteneurDevis.appendChild(carte);
                     });    
                 }
-
-                function filtre() {
-                    let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
-                    let tabDevis = Array.from(ListeDevis);
-                    let selectionFiltre = document.querySelector("#selectionFiltre");
-                    let filtre = selectionFiltre.value;
-
-                    tabDevis.forEach((devis) => {
-                        if (filtre == "Aucun") {
-                            devis.style.display = "flex";
-                        }else if(devis.classList[2] != filtre) {
-                            devis.style.display = "none";
-                        } else {
-                            devis.style.display = "flex";
-                        }
-                    });
-                }
             </script>
             <button id="btnTriDate" onclick="triDate()">Trier par date (du plus ancien)</button>
             <select id="selectionFiltre">
@@ -163,16 +146,45 @@
                 <option value="Cabane">Cabane</option>
                 <option value="Caravane">Caravane</option>
             </select>
-            <script>
-                let select = document.getElementById("selectionFiltre");
-                select.addEventListener("change", filtre);
-            </script>
         </div>
 
         <div class="listeMesReservations">
             @foreach($tabReserv as $reserv)
                 <x-Reservation libelle="{{$reserv->libelle_logement}}" pseudo="{{$reserv->pseudo_pers}}" dated="{{$reserv->date_deb}}" datef="{{$reserv->date_fin}}" id="{{$reserv->id_logement}}" iddevis="{{$reserv->ref_devis}}" idreservation="{{$reserv->id_reserv}}" prix="{{$reserv->prix_tot}}" natlogement="{{$reserv->nature_logement}}"></x-Reservation>
             @endforeach
+            <p id="msgFiltreVide" style="display: none;">Aucune réservation ne correspond à vos critère de recherche</p>
+            <script>
+                function filtre() {
+                    let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
+                    let tabDevis = Array.from(ListeDevis);
+                    let selectionFiltre = document.querySelector("#selectionFiltre");
+                    let filtre = selectionFiltre.value;
+                    let counter = 0;
+
+                    tabDevis.forEach((devis) => {
+                        if (filtre == "Aucun") {
+                            devis.style.display = "flex";
+                            counter++;
+                        }else if(devis.classList[2] != filtre) {
+                            devis.style.display = "none";
+                        } else {
+                            devis.style.display = "flex";
+                            counter++;
+                        }
+                    });
+
+                    let msgFiltreVide = document.getElementById("msgFiltreVide");
+
+                    if(counter == 0) {
+                        msgFiltreVide.style.display = "block";
+                    } else {
+                        msgFiltreVide.style.display = "none";
+                    }
+                }
+
+                let select = document.getElementById("selectionFiltre");
+                select.addEventListener("change", filtre);
+            </script>
         </div>
     </section>
 

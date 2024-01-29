@@ -20,11 +20,16 @@
                     @php
                         $textbouton = "Mettre hors ligne";
                         $classBtnHL = "HL";
+                        $counter = 0;
     
-                        if($logement->en_ligne == true){ @endphp
+                        if($logement->en_ligne == true) { 
+                            $counter++; @endphp
                             <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
                     @php }
+                        if($counter == 0) {
+                            echo "<p class='aucunLogement'>Vous n'avez aucun logement en ligne.</p>";
+                        }
                     @endphp
                 </div>
             @endforeach
@@ -39,11 +44,17 @@
                     @php
                         $textbouton = "Mettre en ligne";
                         $classBtnHL = "EL";
+                        $counter = 0;
 
-                        if($logement->en_ligne == false){ @endphp
+                        if($logement->en_ligne == false) { 
+                            $counter++;
+                        @endphp
                             <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
                     @php }
+                        if($counter == 0) {
+                            echo "<p class='aucunLogement'>Vous n'avez aucun logement hors ligne.</p>";
+                        }
                     @endphp
                 </div>
             @endforeach

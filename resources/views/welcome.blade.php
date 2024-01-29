@@ -66,17 +66,14 @@
                     let tabCard = Array.from(ListeCard);
                     let selectionFiltre = document.querySelector("#selectionFiltre");
                     let filtre = selectionFiltre.value;
-                    let counter = 0;
 
                     tabCard.forEach((carte) => {
                         if (filtre == "Aucun") {
                             carte.style.display = "block";
-                            counter++;
                         }else if(carte.classList[2] != filtre) {
                             carte.style.display = "none";
                         } else {
                             carte.style.display = "block";
-                            counter++;
                         }
                     });
                 }
@@ -104,8 +101,20 @@
             @endforeach
             <p id="msgFiltreVide" style="display: none;">Aucun logement ne correspond à vos critères de recherche</p>
             <script>
+                let ListeCard = document.querySelectorAll(".autres .lienCard");
+                let tabCard = Array.from(ListeCard);
+                let counter = 0;
+
+                tabCard.forEach((carte) => {
+                    if(carte.style.display != "none") {
+                        counter++;
+                    }
+                });
+
                 if(counter == 0) {
                     msgFiltreVide.style.display = "block";
+                } else {
+                    msgFiltreVide.style.display = "none";
                 }
             </script>
         </div>

@@ -99,6 +99,15 @@
             @foreach ($logementsRecents as $logement)
                 <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
             @endforeach
+            <p id="msgFiltreVide" style="display: none;">Aucun logement ne correspond à vos critères de recherche</p>
+            <script>
+                let msgFiltreVide = document.getElementById("msgFiltreVide");
+                let listeCard = document.querySelectorAll(".autres .liste-card .lienCard")[0];
+                let tabCard = Array.from(listeCard);
+                if(tabCard.length == 0) {
+                    msgFiltreVide.style.display = "block";
+                }
+            </script>
         </div>
     </section>
 

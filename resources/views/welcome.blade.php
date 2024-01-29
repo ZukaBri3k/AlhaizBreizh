@@ -60,23 +60,6 @@
                         conteneurCard.appendChild(carte);
                     });    
                 }
-
-                function filtre() {
-                    let ListeCard = document.querySelectorAll(".autres .lienCard");
-                    let tabCard = Array.from(ListeCard);
-                    let selectionFiltre = document.querySelector("#selectionFiltre");
-                    let filtre = selectionFiltre.value;
-
-                    tabCard.forEach((carte) => {
-                        if (filtre == "Aucun") {
-                            carte.style.display = "block";
-                        }else if(carte.classList[2] != filtre) {
-                            carte.style.display = "none";
-                        } else {
-                            carte.style.display = "block";
-                        }
-                    });
-                }
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
             <select id="selectionFiltre">
@@ -90,10 +73,6 @@
                 <option value="Cabane">Cabane</option>
                 <option value="Caravane">Caravane</option>
             </select>
-            <script>
-                let select = document.getElementById("selectionFiltre");
-                select.addEventListener("change", filtre);
-            </script>
         </div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)
@@ -101,21 +80,36 @@
             @endforeach
             <p id="msgFiltreVide" style="display: none;">Aucun logement ne correspond à vos critères de recherche</p>
             <script>
-                let ListeCard = document.querySelectorAll(".autres .lienCard");
-                let tabCard = Array.from(ListeCard);
-                let counter = 0;
+                function filtre() {
+                    let ListeCard = document.querySelectorAll(".autres .lienCard");
+                    let tabCard = Array.from(ListeCard);
+                    let selectionFiltre = document.querySelector("#selectionFiltre");
+                    let filtre = selectionFiltre.value;
+                    let counter = 0;
 
-                tabCard.forEach((carte) => {
-                    if(carte.style.display != "none") {
-                        counter++;
+                    tabCard.forEach((carte) => {
+                        if (filtre == "Aucun") {
+                            carte.style.display = "block";
+                            counter++;
+                        }else if(carte.classList[2] != filtre) {
+                            carte.style.display = "none";
+                        } else {
+                            carte.style.display = "block";
+                            counter++;
+                        }
+                    });
+
+                    let msgFiltreVide = document.querySelector("#msgFiltreVide");
+
+                    if(counter == 0) {
+                        msgFiltreVide.style.display = "block";
+                    } else {
+                        msgFiltreVide.style.display = "none";
                     }
-                });
-
-                if(counter == 0) {
-                    msgFiltreVide.style.display = "block";
-                } else {
-                    msgFiltreVide.style.display = "none";
                 }
+
+                let select = document.getElementById("selectionFiltre");
+                select.addEventListener("change", filtre);
             </script>
         </div>
     </section>

@@ -30,7 +30,8 @@
                 </div>
             @endforeach
         </div>
-        <section class="mesLogements">
+    </section>
+    <section class="mesLogements">
         <h2>Mes logements hors ligne :</h2>
 
         <div class="listeMesLogement">
@@ -39,7 +40,7 @@
                     @php
                         $textbouton = "Mettre en ligne";
                         $classBtnHL = "EL";
-    
+
                         if($logement->en_ligne == false){ @endphp
                             <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
@@ -50,7 +51,6 @@
         </div>
         <hr>
     </section>
-
     <section class="mesDevis">
         <h2>Mes demande de devis :</h2>
         @php 

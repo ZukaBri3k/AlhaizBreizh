@@ -70,21 +70,21 @@ document.addEventListener('DOMContentLoaded', function() {
     var events = calendar.getEvents();
     if (events.length > 0) {
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
-        alert("Date de l'événement : " + date);
         $.ajax({
             url: "/ajouter-evenements",
             type: "POST",
-            data: { events: date }, // Utilisez la clé 'events'
+            data: JSON.stringify({ events: new Date(date) }), 
+            contentType: "application/json",
             success: function(response) {
                 alert(response.message);
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.error("Erreur AJAX: " + textStatus, errorThrown);
+                console.log("Réponse du serveur : ", jqXHR.responseText);
             }
         });
     }
 });
-
 
 calendar.render();  
     });   

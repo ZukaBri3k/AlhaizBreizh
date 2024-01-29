@@ -12,28 +12,60 @@
     <x-Navbar></x-Navbar>
     
     <section class="mesLogements">
-        <h2>Mes logements :</h2>
+        <h2>Mes logements en ligne :</h2>
 
         <div class="listeMesLogement">
+            @php $counter = 0; @endphp
             @foreach($logements as $logement)
                 <div class="logementEnLigne">
-                    <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                     @php
                         $textbouton = "Mettre hors ligne";
                         $classBtnHL = "HL";
+                        $counter = 0;
     
-                        if($logement->en_ligne == false){
-                            $textbouton = "Mettre en ligne";
-                            $classBtnHL = "EL";
-                        }
+                        if($logement->en_ligne == true) { 
+                            $counter++; @endphp
+                            <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
+                            <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                    @php }
                     @endphp
-                    <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
                 </div>
             @endforeach
+            @php 
+                if($counter == 0) {
+                    echo "<p class='aucunLogement'>Vous n'avez aucun logement en ligne.</p>";
+                }
+            @endphp
+        </div>
+    </section>
+    <section class="mesLogements">
+        <h2>Mes logements hors ligne :</h2>
+
+        <div class="listeMesLogement">
+            @php $counterEL = 0; @endphp
+            @foreach($logements as $logement)
+                <div class="logementEnLigne">
+                    @php
+                        $textbouton = "Mettre en ligne";
+                        $classBtnHL = "EL";
+
+                        if($logement->en_ligne == false) { 
+                            $counterEL++;
+                        @endphp
+                            <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
+                            <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                    @php }
+                    @endphp
+                </div>
+            @endforeach
+            @php 
+                if($counterEL == 0) {
+                    echo "<p class='aucunLogement'>Vous n'avez aucun logement hors ligne.</p>";
+                }
+            @endphp
         </div>
         <hr>
     </section>
-
     <section class="mesDevis">
         <h2>Mes demande de devis :</h2>
         @php 
@@ -101,27 +133,10 @@
                         conteneurDevis.appendChild(carte);
                     });    
                 }
-
-                function filtre() {
-                    let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
-                    let tabDevis = Array.from(ListeDevis);
-                    let selectionFiltre = document.querySelector("#selectionFiltre");
-                    let filtre = selectionFiltre.value;
-
-                    tabDevis.forEach((devis) => {
-                        if (filtre == "Aucun") {
-                            devis.style.display = "flex";
-                        }else if(devis.classList[2] != filtre) {
-                            devis.style.display = "none";
-                        } else {
-                            devis.style.display = "flex";
-                        }
-                    });
-                }
             </script>
             <button id="btnTriDate" onclick="triDate()">Trier par date (du plus ancien)</button>
             <select id="selectionFiltre">
-                <option value="Aucun">Aucun</option>
+                <option value="Aucun">Tous</option>
                 <option value="Appartement">Appartements</option>
                 <option value="Villa">Villa</option>
                 <option value="Maison">Maison</option>
@@ -131,13 +146,45 @@
                 <option value="Cabane">Cabane</option>
                 <option value="Caravane">Caravane</option>
             </select>
-            <button id="btnFiltre" onclick="filtre()">Filtrer les résultats</button>
         </div>
 
         <div class="listeMesReservations">
             @foreach($tabReserv as $reserv)
                 <x-Reservation libelle="{{$reserv->libelle_logement}}" pseudo="{{$reserv->pseudo_pers}}" dated="{{$reserv->date_deb}}" datef="{{$reserv->date_fin}}" id="{{$reserv->id_logement}}" iddevis="{{$reserv->ref_devis}}" idreservation="{{$reserv->id_reserv}}" prix="{{$reserv->prix_tot}}" natlogement="{{$reserv->nature_logement}}"></x-Reservation>
             @endforeach
+            <p id="msgFiltreVide" style="display: none;">Aucune réservation ne correspond à vos critère de recherche</p>
+            <script>
+                function filtre() {
+                    let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
+                    let tabDevis = Array.from(ListeDevis);
+                    let selectionFiltre = document.querySelector("#selectionFiltre");
+                    let filtre = selectionFiltre.value;
+                    let counter = 0;
+
+                    tabDevis.forEach((devis) => {
+                        if (filtre == "Aucun") {
+                            devis.style.display = "flex";
+                            counter++;
+                        }else if(devis.classList[2] != filtre) {
+                            devis.style.display = "none";
+                        } else {
+                            devis.style.display = "flex";
+                            counter++;
+                        }
+                    });
+
+                    let msgFiltreVide = document.getElementById("msgFiltreVide");
+
+                    if(counter == 0) {
+                        msgFiltreVide.style.display = "block";
+                    } else {
+                        msgFiltreVide.style.display = "none";
+                    }
+                }
+
+                let select = document.getElementById("selectionFiltre");
+                select.addEventListener("change", filtre);
+            </script>
         </div>
     </section>
 

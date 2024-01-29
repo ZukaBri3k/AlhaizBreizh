@@ -382,13 +382,23 @@ nav {
     height: fit-content;
 }
 
-#accueil .listeBtnTri button,select {
+#accueil .listeBtnTri button {
     border-radius: 6px;
     border: 1px solid #EC3B53;
     background-color: #F6F5EE;
     color: #EC3B53;
     padding: 5px 15px;
     font-family: 'Montserrat';
+}
+
+#accueil .listeBtnTri select {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background-color: #F6F5EE;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    padding: 15px;
+    margin: 0 0 0 25px;
 }
 
 #accueil .listeBtnTri button:hover {
@@ -399,17 +409,6 @@ nav {
     padding: 5px 15px;
     font-family: 'Montserrat';
     transition: 0.4s;
-}
-
-#accueil .listeBtnTri button + select + button{
-    margin-left: 15px;
-}
-
-#accueil .listeBtnTri select {
-    margin-left: 25px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 5px 15px;
 }
 
 /***********************************************************************************************************
@@ -726,7 +725,7 @@ CSS du composant devis début
     margin-right: 2vw;
 }
 
-.mesLogementsPage .btnTriFiltre button{
+.mesLogementsPage .btnTriFiltre button, select{
     border: 1px solid #EC3B53;
     color: #EC3B53;
     font-family: 'Montserrat';

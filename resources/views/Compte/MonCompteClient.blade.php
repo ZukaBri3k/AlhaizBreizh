@@ -121,22 +121,27 @@
         </div>
     </div>
 
+    <!-- Code html et php pour générer sa clé API -->
     <div class="Profile_Privee", id="api_chemin">
         <h5>Clé API</h5>
         <hr>
         <p class="line_info">Cette clé ne doit pas être partagée <strong>et être gardée privée.</strong></p>
         <div class="Donnees">
             <div class="donnees_precise">
+                <!-- Code php qui génère une clé API -->
                 @php
                     foreach ($cles as $cle) {
+                        <!-- Ici j'échappe certains caractère pour que ça passe dans le JS pour copier dans le clipboard -->
                         $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
+                        <!-- Ici je réduis la clé API pour qu'elle passe dans l'affchage -->
                         $cleShort = strlen($cle->cle) > 6 ? substr($cle->cle, 0, 6) . '...' : $cle->cle;
+                        <!-- Ici je prend la route et je passe la route avec l'argument de la clé a supprimer -->
                         $url = route('deleteCle', ['cle' => $cle->cle]);
                         if ($cle->privilege == false) {
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cleShort . "</p>
-                                    <button onclick='copierTexte(event, \"$cleEscaped\")' >Copier le texte</button>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class="copierBTN">Copier le texte</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
@@ -144,19 +149,31 @@
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
                                     <p>" . $cleShort . "</p>
-                                    <button onclick='copierTexte(event, \"$cleEscaped\")'>Copier le texte</button>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class="copierBTN">Copier le texte</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         }
                     }
                 @endphp
+                <!-- Ici mon JS sert a copier dans le clipboard ma clé API -->
                 <script type="text/javascript">
                     copierTexte = (e, cle) => {
                         e.preventDefault()
                             navigator.clipboard.writeText(cle).then(() => {
-                                alert("Texte copié !")
-                            })
+                                swal({
+                                    title: "Succès",
+                                    text: "Votre clé API à été créer avec succès.",
+                                    icon: "success",
+                                    button: {
+                                        text: "OK",
+                                        closeModal: false,
+                                    },
+                                    closeOnClickOutside: false,
+                                    dangerMode: true,
+                                    className: "custom-swal",
+                                    });
+                                })
                     }
                 </script>
             </div>

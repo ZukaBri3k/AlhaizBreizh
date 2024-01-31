@@ -82,7 +82,7 @@ class Logement extends Controller
         
         //dd($request->file());
         for($i = 1; $i < count($request->file()); $i++) {
-            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i+1), "img" . $i+1 . ".jpg");
+            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i+1), "img" . $i . ".jpg");
         }
         //dd($APP_URL));
 

@@ -19,11 +19,11 @@
             <div class="carousel-item active">
               <img src="{{ asset('storage/logement' . $logement->id_logement . '/couverture.jpg') }}" class="d-block w-100">
             </div>
-            @for($i = 1; $i < intval($nb_photo); $i++)
+            @for($i = 1; $i <= intval($nb_photo); $i++)
               <div class="carousel-item">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                 
-                @for($j = $i + 1; $j < intval($nb_photo); $j++)
+                @for($j = $i + 1; $j <= intval($nb_photo); $j++)
                   <div>
                     <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
                   </div>

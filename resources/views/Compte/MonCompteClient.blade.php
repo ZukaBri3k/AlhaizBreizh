@@ -175,7 +175,7 @@
                     var deleteLinks = document.getElementsByClassName('delete-link');
 
                     for (var i = 0; i < deleteLinks.length; i++) {
-                        deleteLinks[i].addEventListener('click', function(event) {
+                        deleteLinks[i].addEventListener('beforeunload', function(event) {
                             event.preventDefault();
                             var url = this.href;
 

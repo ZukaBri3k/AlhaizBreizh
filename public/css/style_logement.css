@@ -23,8 +23,10 @@ body{
 }
 
 h2{
-    font-size: 45px;
-    font-weight: bolder;
+    font-size: calc(1.325rem + .9vw);
+    font-weight: 500;
+    color: rgb(236, 59, 83);
+    font-family: 'Montserrat';
 }
 h3{
     font-size: 40px;
@@ -49,7 +51,7 @@ h4{
     justify-content: space-around;
     background-color: #6D6D6D;
     color: #ffff;
-    border-radius: 10px;
+    border-radius: 6px;
     margin: 10px;
 }
 
@@ -59,7 +61,7 @@ h4{
     justify-content: space-around;
     background-color: #6D6D6D;
     color: #ffff;
-    border-radius: 10px;
+    border-radius: 6px;
     margin: 10px;
 }
 
@@ -140,7 +142,7 @@ body{
 .boutton_selection {
     background-color: #F6F5EE;
     border: 1px solid #4BCBFF;
-    border-radius: 20px;
+    border-radius: 6px;
     padding: 8px 12px;
     margin: 4px;
     cursor: pointer;
@@ -272,7 +274,7 @@ body {
     flex-direction: column;
 }
 #location_logement > input{
-    border-radius: 13px;
+    border-radius: 6px;
     height: 30px;
     width: 75%;
     border: none;
@@ -284,14 +286,14 @@ body {
 }
 
 #titre_logement > input{
-    border-radius: 13px;
+    border-radius: 6px;
     height: 30px;
     width: 75%;
     border: none;
 }
 
 #description_logement_input{
-    border-radius: 13px;
+    border-radius: 6px;
     height: 150px;
     width: 105%;
     text-align: center;
@@ -310,7 +312,7 @@ body {
     opacity: 50%;
 }
 textarea {
-    border-radius: 13px;
+    border-radius: 6px;
     resize: none;
     border: none;
   }
@@ -338,7 +340,7 @@ textarea {
 .chambre input,
 .chambre textarea {
     border: none;
-    border-radius: 20px;
+    border-radius: 6px;
     padding: 8px 12px;
     margin: 4px;
     width: 100%;
@@ -456,62 +458,14 @@ textarea {
     padding-left: 10%;
 }
 #input_page_7{
-    border-radius: 13px;
+    border-radius: 6px;
     height: 30px;
     width: 45%;
     border: none;
 }
 
-.custom-radio {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    width: 55%;
-  }
 
-  .custom-radio input[type="checkbox"] {
-    display: none;
-  }
-  .custom-radio input[type="radio"] {
-    display: none;
-  }
 
-  .custom-radio label {
-    cursor: pointer;
-    position: relative;
-    padding-left: 30px; /* Ajustez la taille du bouton radio ici */
-    line-height: 20px;
-  }
-
-  .custom-radio label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px; /* Ajustez la taille du bouton radio ici */
-    height: 20px; /* Ajustez la taille du bouton radio ici */
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    background-color: #fff;
-  }
-  .custom-radio input[type="radio"]:checked + label:before {
-    background-color: #4BCBFF; /* Couleur de fond lorsque le bouton est sélectionné */
-  }
-  .custom-radio input[type="checkbox"]:checked + label:before {
-    background-color: #4BCBFF; /* Couleur de fond lorsque le bouton est sélectionné */
-  }
-
-  /* Style pour le texte et le span en dessous des boutons radio */
-  .radio-text {
-    display: block;
-    font-size: 12px;   
-}
-#paypal_link{
-    border-radius: 13px;
-    height: 30px;
-    width: 300px;
-    border: none;
-}
 #paypal_boutton{
     display: flex;
     width: 500px;
@@ -545,7 +499,7 @@ textarea {
     background-color: #4BCBFF;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     opacity: 0; /* Rendre le texte invisible */
   }
   
@@ -555,7 +509,7 @@ textarea {
     background-color: #4BCBFF;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     margin-left: 5%;
   }
 

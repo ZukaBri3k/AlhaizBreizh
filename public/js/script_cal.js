@@ -67,33 +67,24 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   $("#validate-button").on("click", function() {
-    
     var events = calendar.getEvents();
-    let teste = document.getElementById('eventsInput').value = events.join(';')
-    $("#hidden-button").val(teste).trigger('click');
-    console.log(teste);
-  });
-
-  $("#hidden-button").on("click", function() {
-    var hiddenButtonValue = $(this).val();
-
-    // Envoyez la valeur du bouton caché au serveur ici
-    $.ajax({
-        url: "/ajouter-evenements",
-        type: "POST",
-        data: hiddenButtonValue,
-        contentType: "application/json",
-        success: function(response) {
-            alert(response.message);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error("Erreur AJAX: " + textStatus, errorThrown);
-            console.log("Réponse du serveur : ", jqXHR.responseText);
-        }
-       
-    });
+    if (events.length > 0) {
+        var date = events[0].start.toISOString(); // Obtenir la date au format ISO8601
+        $.ajax({
+            url: "/ajouter-evenements",
+            type: "POST",
+            data: JSON.stringify({ events: date }),
+            contentType: "application/json",
+            success: function(response) {
+                alert(response.message);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error("Erreur AJAX: " + textStatus, errorThrown);
+                console.log("Réponse du serveur : ", jqXHR.responseText);
+            }
+        });
+    }
 });
-$("#hidden-button").off("click");
 calendar.render();  
     });   
 

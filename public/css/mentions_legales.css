@@ -22,7 +22,7 @@
 	src: url("fonts/RocaOne-Rg.woff2") format("woff2");
 }
 
-.mention body {
+body {
     background-color: #F6F5EE !important;
 }
 

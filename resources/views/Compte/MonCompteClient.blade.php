@@ -172,7 +172,7 @@
                             })
                     }
 
-                    document.getElementByClass('delete-link').addEventListener('click', function(event) {
+                document.getElementByClassName('delete-link').addEventListener('click', function(event) {
                     event.preventDefault();
                     var url = this.href;
 
@@ -190,6 +190,20 @@
                         }
                     });
                 });
+                /* var deleteClicked = false;
+
+                document.getElementByClass('delete-link').addEventListener('click', function(event) {
+                    deleteClicked = true;
+                });
+
+                window.addEventListener('beforeunload', function (e) {
+                    if (!deleteClicked) {
+                        return;
+                    }
+
+                    e.preventDefault();
+                    e.returnValue = '';
+                }); */
                 </script>
             </div>
             <form action="{{route('genereCle')}} " method="post" class="api">

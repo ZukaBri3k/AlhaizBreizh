@@ -180,18 +180,18 @@
                             var url = this.href;
 
                             Swal.fire({
-                                title: "Are you sure?",
-                                text: "You won't be able to revert this!",
+                                title: "Êtes vous sûr de vouloir supprimer votre clé API ?",
+                                text: "Cette action n'est pas réversible !",
                                 icon: "warning",
                                 showCancelButton: true,
                                 confirmButtonColor: "#3085d6",
                                 cancelButtonColor: "#d33",
-                                confirmButtonText: "Yes, delete it!"
+                                confirmButtonText: "Oui la supprimer !"
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     return Swal.fire({
-                                        title: "Deleted!",
-                                        text: "Your file has been deleted.",
+                                        title: "Supprimer !",
+                                        text: "Votre clé API à bien été supprimer.",
                                         icon: "success"
                                     });
                                 }

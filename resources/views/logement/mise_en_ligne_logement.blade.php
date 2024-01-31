@@ -480,7 +480,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     <div id="droite_page_7" class="page-7-section">
         <h2 class="section-title">Quel sera le prix par nuit de votre logement ? *</h2>
         <div id="alignement_input_euro">
-            <input type="text" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
+            <input type="number" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
             <img src="{{asset('img/symbole_euro.png')}}" alt="Symbole euro">
         </div>
         

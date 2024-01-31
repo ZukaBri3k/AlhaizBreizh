@@ -358,7 +358,9 @@ textarea {
 #droite_page_5 {
     width: 48%; /* Ajustez la largeur selon vos besoins */
 }
-
+#titre_gauche_page_5{
+	margin-left: 15%;
+}
 #gauche_page_5 {
     border-right: 1px solid #000; /* Trait de séparation */
     height: 1280px;

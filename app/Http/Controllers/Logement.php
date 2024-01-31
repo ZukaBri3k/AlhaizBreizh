@@ -12,7 +12,7 @@ class Logement extends Controller
 {
     public function ajouterLogementDB(Request $request) {
 
-        dd($_POST);
+        dd($_FILES);
         //Storage::disk('logement')->put();
 
         $tab = [

@@ -174,7 +174,8 @@
                                 });
                                 Toast.fire({
                                     icon: "success",
-                                    title: "Signed in successfully"
+                                    title: "Votre clé API à été copiée dans le presse papier",
+                                    className: "custom-swal"
                                 });
                             })
                     }

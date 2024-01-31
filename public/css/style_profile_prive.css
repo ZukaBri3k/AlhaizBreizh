@@ -51,7 +51,6 @@ button {
     line-height: normal !important;
     letter-spacing: -0.3px;
     width: 8%;
-    margin-left: 5% !important;
 }
 
 button:hover {
@@ -233,7 +232,7 @@ button:hover {
 /*Partie sur la clé API*/
 
 .button_api {
-    width: 90%;
+    width: 100%;
     height: 2.2em;
     padding-top: 1%;
     padding-bottom: 1%;

@@ -46,7 +46,7 @@ return [
 
         'logements' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/img/logements'),
+            'root' => storage_path('app/public/logements'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,

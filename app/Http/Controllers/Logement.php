@@ -79,6 +79,8 @@ class Logement extends Controller
         //dd($request->file("image-upload2"));
         Storage::disk('logements')->put("logement" . $id_logement[0]->id_logement, $request->file("couverture"));
 
+        dd(Storage::disk('logements'));
+
         return redirect()->route('details_previsu', ['id' => $id_logement[0]->id_logement]);
     }
 

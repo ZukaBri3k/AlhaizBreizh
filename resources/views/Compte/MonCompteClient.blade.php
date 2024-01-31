@@ -273,7 +273,7 @@
                     var url = this.href;
 
                     Swal.fire({
-                        title: "Êtes vous sûr de vouloir supprimer votre clé API ?",
+                        title: "Êtes vous sûr de vouloir vous déconnecter ?",
                         text: "Cette action n'est pas réversible !",
                         icon: "warning",
                         showCancelButton: true,
@@ -289,8 +289,8 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             Swal.fire({
-                                title: "Supprimer !",
-                                text: "Votre clé API à bien été supprimer.",
+                                title: "Deconnexion !",
+                                text: "Vous allez être déconnecter.",
                                 icon: "success",
                                 confirmButtonColor: "#21610B",
                                 background: '#F6F5EE',
@@ -305,7 +305,7 @@
                         } else {
                             Swal.fire({
                                 title: "Annuler !",
-                                text: "Votre clé API n'a pas été supprimer.",
+                                text: "Vous n'allez pas être déconnecter.",
                                 icon: "error",
                                 confirmButtonColor: "#21610B",
                                 background: '#F6F5EE',

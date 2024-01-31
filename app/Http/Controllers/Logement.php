@@ -78,7 +78,7 @@ class Logement extends Controller
         $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement, auth()->user()->id]);
 
         //dd($request->file("image-upload2"));
-        Storage::disk('logements')->putFileAs("logement" . $id_logement, $request->file("couverture"), "couverture.jpg");
+        Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
 
         //dd($APP_URL));
 

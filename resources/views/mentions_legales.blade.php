@@ -9,7 +9,7 @@
 </head>
 <body>
 <x-Navbar></x-Navbar>
-    <div>
+    <div class="mention">
         <h1>Mentions légales</h1>
 
         <h3>Éditeur du site web :</h3>

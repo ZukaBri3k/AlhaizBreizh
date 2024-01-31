@@ -22,11 +22,11 @@
 	src: url("fonts/RocaOne-Rg.woff2") format("woff2");
 }
 
-body {
+.mention body {
     background-color: #F6F5EE !important;
 }
 
-div {
+.mention div {
     max-width: 1080px;
     width: 80%;
     margin: auto;
@@ -34,7 +34,7 @@ div {
     padding-bottom: 1%;
 }
 
-h1 {
+.mention h1 {
     font-size: 3.5em;
     font-style: normal;
     line-height: normal;
@@ -43,7 +43,7 @@ h1 {
     color: #EC3B53;
 }
 
-h3 {
+.mention h3 {
     color: #000;
     font-family: 'Montserrat';
     font-size: 1.5em;
@@ -54,7 +54,7 @@ h3 {
     margin-top: 2%;
 }
 
-p {
+.mention p {
     color: #000;
     font-family: 'Montserrat-Light';
     font-size: 1.2em;
@@ -66,12 +66,12 @@ p {
     margin-top: -1%;
 }
 
-.email {
+.mention .email {
     text-decoration: underline;
     margin-left: 4%;
 }
 
-.emailH3 {
+.mention .emailH3 {
     margin-top: -1%;
     margin-left: 2%;
 }

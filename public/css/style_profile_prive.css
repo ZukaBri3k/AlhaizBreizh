@@ -252,40 +252,6 @@ button:hover {
     margin-top: 10%;
 }
 
-.radio_form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.radio_form label {
-    color: #000;
-    font-family: 'Montserrat-Light';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 120% */
-    letter-spacing: -0.3px;
-}
-
-.radio_form input {
-    width: 20px;
-    height: 20px;
-    margin-left: 2%;
-}
-
-.radio_form input:hover {
-    cursor: pointer;
-}
-
-.radio_form input:checked {
-    background-color: #EC3B53 !important;
-}
-
-.radio_form div {
-    width: 115%;
-}
-
 .api {
     display: flex;
     flex-direction: column;

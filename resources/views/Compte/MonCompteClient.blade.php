@@ -176,7 +176,6 @@
             <form action="{{route('genereCle')}} " method="post" class="api">
                 @csrf
                 <h3>Générer sa clé :</h3>
-                <div class="elem">
                 <button class="button_form" type="submit">+ Créer sa nouvelle clé secrète</button>
             </form>
         </div>

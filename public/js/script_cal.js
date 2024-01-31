@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (events.length > 0) {
         var date = events[0].start.toISOString(); // Obtenir la date au format ISO8601
         $.ajax({
-            url: "/ajouter-evenements",
+            url: "{{route('ajouter-evenements')}}",
             type: "POST",
             data: JSON.stringify({ events: date }),
             contentType: "application/json",

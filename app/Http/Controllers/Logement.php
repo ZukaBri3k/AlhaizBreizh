@@ -34,7 +34,7 @@ class Logement extends Controller
             $request->equipement_propose_logement,
             $request->service_complementaire_logement,
             "couverture.jpg",
-            $request->photo_complementaire_logement,
+            count($request->file()) - 1,
             3.5,
             $request->prix_logement,
             true,
@@ -111,6 +111,7 @@ class Logement extends Controller
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
         'photo_couverture' => "storage/logements/logement" . $request->id . "/couverture.jpg",
+        'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0],
     ]);
     }
 

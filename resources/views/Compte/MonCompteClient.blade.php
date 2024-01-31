@@ -167,7 +167,6 @@
                                     showConfirmButton: false,
                                     timer: 3000,
                                     timerProgressBar: true,
-                                    className: "custom-swal",
                                     didOpen: (toast) => {
                                         toast.onmouseenter = Swal.stopTimer;
                                         toast.onmouseleave = Swal.resumeTimer;

@@ -141,51 +141,60 @@
         </div>
     </div>
 
+    <!-- Code html et php pour générer sa clé API -->
     <div class="Profile_Privee", id="api_chemin">
         <h5>Clé API</h5>
         <hr>
         <p class="line_info">Cette clé ne doit pas être partagée <strong>et être gardée privée.</strong></p>
         <div class="Donnees">
             <div class="donnees_precise">
+                <!-- Code php qui génère une clé API -->
                 @php
                     foreach ($cles as $cle) {
+                        //Ici j'échappe certains caractère pour que ça passe dans le JS pour copier dans le clipboard
+                        $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
+                        //Ici je réduis la clé API pour qu'elle passe dans l'affchage
+                        $cleShort = strlen($cle->cle) > 6 ? substr($cle->cle, 0, 6) . '...' : $cle->cle;
+                        //Ici je prend la route et je passe la route avec l'argument de la clé a supprimer
+                        $url = route('deleteCle') . '?cle=' . urlencode($cle->cle);
                         if ($cle->privilege == false) {
-                            $url = route('deleteClePro', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                    <p>" . $cle->cle . "</p>
-                                    <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
-                                </div>
-                                <hr>";
-                        } else {
-                            $url = route('deleteClePro', ['cle' => $cle->cle]);
-                            echo "<div class='elem'>
-                                    <p>Clé privilégiée :</p>
-                                    <p>" . $cle->cle . "</p>
-                                    <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
+                                    <p>" . $cleShort . "</p>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copier</button>
+                                    <a href='$url' class='delete-link' class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         }
                     }
                 @endphp
             </div>
-            <form action="{{route('genereClePro')}} " method="post" class="api">
+            <form action="{{route('genereCle')}} " method="post" class="api">
                 @csrf
                 <h3>Générer sa clé :</h3>
-                <div class="elem">
-                    <div class="radio_form">
-                        <div>
-                            <input type="radio" id="prive" name="privilege" value="prive" checked>
-                            <label for="prive">Privilégiée</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="nonprive" name="privilege" value="nonprive">
-                            <label for="nonprive">Non privilégiée</label>
-                        </div>
-                    </div>
-                </div>
                 <button class="button_form" type="submit">+ Créer sa nouvelle clé secrète</button>
             </form>
+            <script>
+                document.querySelector('.api').addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    Swal.fire({
+                        title: "La clé a bien été créée",
+                        icon: "success",
+                        confirmButtonColor: "#21610B",
+                        confirmButtonText: "OK",
+                        background: '#F6F5EE',
+                        customClass: {
+                            title: 'generation_cle'
+                        },
+                        allowOutsideClick: false,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.submit();
+                        }
+                    });
+                });
+            </script>
         </div>
     </div>
 
@@ -193,13 +202,16 @@
         <h5>Déconnexion</h5>
         <hr>
         <div class="Donnees">
-            <a href="{{ route('logout') }}">
+            <a href="{{ route('logout') }}" id="logout">
                 <button class="button_deco">Déconnexion</button>
             </a>
         </div>
     </div>
 
     <x-FooterClient></x-FooterClient>
+    <script src="{{asset('js/script_compte_api.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

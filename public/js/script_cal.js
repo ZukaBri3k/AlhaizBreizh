@@ -68,10 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   $("#validate-button").on("click", function() {
     var events = calendar.getEvent();
-    
+    alert(events);
     if (events.length > 0) {
         var startDate = events[0].start;
-
+        alert(startDate);
         if (startDate) {
             var date = startDate.toISOString();
             alert("Date à envoyer:", date);

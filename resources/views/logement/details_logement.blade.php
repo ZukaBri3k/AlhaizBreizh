@@ -366,9 +366,9 @@
                 icon: "success",
                 background: "#F6F5EE",
                 button: {
-                  text: "OK",
+                  text: "Ok",
                   closeModal: false,
-                  background: "#21610B",
+                  className: "customButton"
                 },
                 closeOnClickOutside: false,
                 dangerMode: true,

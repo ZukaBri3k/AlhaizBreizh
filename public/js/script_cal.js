@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             $.ajax({
                 url: "{{ route('ajouter-evenements') }}",
                 type: "POST",
-                data: { date: date },
+                data: { events: date },
                 success: function(response) {
                     console.log("Réponse du serveur:", response);
                     alert(response.message);

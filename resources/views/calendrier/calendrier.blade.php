@@ -1,4 +1,9 @@
+
+<header>
+<Access-Control-Allow-Origin:https://cloudflareinsights.com/cdn-cgi/rum>
+</header>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">

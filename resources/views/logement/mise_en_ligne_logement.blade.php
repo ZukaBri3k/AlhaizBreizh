@@ -15,9 +15,8 @@
         <div id="texte_page_1" >
             <h2 class="texte_justifie">Dites nous tout sur votre logement !</h2>
             <br>   
-            <p class="texte_justifie">Au cours de cette phase, nous vous interrogerons sur le type d'hébergement <br>que vous proposez, ainsi que sur la possibilité pour les voyageurs de le <br> réserver dans son intégralité. 
-                Par la suite, nous vous demanderons de <br>spécifier l'emplacement 
-                géographique et la capacité d'accueil de <br>l'hébergement.</p>
+            <p class="texte_justifie">Remplisser ce formulaire afin d'ajouter <br>
+votre logement à ce site, les champs dont les titres sont marqués d'un * (Astérisque) sont obligatoires.</p>
         </div>
             <div id="footer">
                 <button  type="button" id="retour_page_1" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
@@ -28,7 +27,7 @@
     @csrf
     <div id="page_2" class="page"> 
         <div id="gauche_page_2">
-                <h2 id="titre_colonne_gauche_page_2">De quel nature est <br>votre logement ? *</h2>
+                <h2 id="titre_colonne_gauche_page_2">De quel nature est votre <br>logement ? *</h2>
                 <div class="button-row">
                     <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Maison">
                         <div class="image-container">
@@ -167,7 +166,7 @@
                 <br>
                 <input type="text" placeholder="Saisissez votre ville" name="ville_logement" required>
                 <br>
-                <input type="text" placeholder="Code postal" name="code_postal_logement" required>
+                <input type="number" placeholder="Code postal" name="code_postal_logement" min="0" max="99999" required>
                 <br>
             </div>
 
@@ -182,26 +181,26 @@
         <div id="colonne_droite_page_3">
             <h2>Décrivez-nous votre logement *</h2>
             <div id="description_logement">
-                <textarea id="description_logement_input"  name="descriptif_logement" rows="4" cols="50" required></textarea>
+                <textarea id="description_logement_input"  name="descriptif_logement" rows="4" cols="50" maxlength="950" required></textarea>
                 <div id="description_logement_precise">
                     <div id="nombre_de_personnes">
                     <label for="nombre_de_personne">Nombre de personne(s) : </label>
-                    <textarea name="nb_personne_max" id="" cols="5" rows="1" required></textarea>
+                    <textarea type="number" name="nb_personne_max" id="" cols="5" rows="1" required></textarea>
                     </div>
                     <br>
                     <div id="nombre_de_personnes">
                         <label for="surface" >Surface habitable (m2) : </label>
-                        <textarea name="surface_habitable_logement" id="" cols="5" rows="1" required></textarea>
+                        <textarea type="number"name="surface_habitable_logement" id="" cols="5" rows="1" required></textarea>
                      </div>
                      <br>
                      <div id="nombre_de_personnes">
                         <label for="nombre_de_chambre">Nombre de chambre(s) :</label>
-                        <textarea name="nb_chambre_logement" id="nombre_de_chambre_input" cols="5" rows="1" required></textarea>
+                        <textarea type="number"name="nb_chambre_logement" id="nombre_de_chambre_input" cols="5" rows="1" required></textarea>
                     </div>
                     <br>
                     <div id="nombre_de_personnes">
                         <label for="nombre_de_salle_de_bain">Nombre de salle(s) de bain : </label>
-                        <textarea name="nb_salle_de_bain_logement" id="" cols="5" rows="1" required></textarea>
+                        <textarea type="number"name="nb_salle_de_bain_logement" id="" cols="5" rows="1" required></textarea>
                      </div>
                 </div>
             </div>
@@ -217,7 +216,7 @@
 
     <div id="page_4" class="page">
         <div>
-            <h2>Décrivez vos chambres *</h2>
+            <h2 id="titre_page_4">Décrivez vos chambres *</h2>
             <div id="chambres_container" class="chambres-container"></div>
         </div>
         <input type="hidden" id="total_lits" name="nb_lit_total" value="">
@@ -228,7 +227,7 @@
     </div>
 <div id="page_5" class="page">
     <div id="gauche_page_5">
-        <h2>Quels aménagements propose votre logement ?</h2>
+        <h2 id="titre_gauche_page_5">Quels aménagements propose votre logement ?</h2>
         <div class="button-row">
             <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Terrasse">
                 <div class="image-container">
@@ -285,7 +284,7 @@
     </div>
 
     <div id="droite_page_5">
-        <h2>Quels équipements propose votre logement ?</h2>
+        <h2 id="titre_droite_page_5">Quels équipements propose votre logement ?</h2>
         <div class="button-row">
             <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Wifi">
                 <div class="image-container">
@@ -481,7 +480,7 @@
     <div id="droite_page_7" class="page-7-section">
         <h2 class="section-title">Quel sera le prix par nuit de votre logement ? *</h2>
         <div id="alignement_input_euro">
-            <input type="text" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
+            <input type="number" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
             <img src="{{asset('img/symbole_euro.png')}}" alt="Symbole euro">
         </div>
         
@@ -496,60 +495,75 @@
     <div id="gauche_page_8">
         <h2 class="section-title" id="titre_gauche_page_8">Quel sera la photo de couverture de votre logement ? *</h2>
         <div class="image-upload-container">
-            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="image-upload1" required="required">
+            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="img1" require>
             <label for="image-upload1" class="custom-button">Importer l'image</label>
             <div class="selected-image" id="selected-image1"></div>
           </div>
       
     </div>
-    <div id="droite_page_8">
-        <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
-        <div id="division_colonnes_droite">
-            <div id="images_colonne_gauche">
-                <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="image-upload2">
-                    <label for="image-upload2" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image2"></div>
-                  </div>
-                  <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload3" name="image-upload3">
-                    <label for="image-upload3" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image3"></div>
-                  </div>
-                  <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload4" name="image-upload4">
-                    <label for="image-upload4" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image4"></div>
-                  </div>
-                  <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload5" name="image-upload5">
-                    <label for="image-upload5" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image5"></div>
-                  </div>
-                </div>
-                <div id="images_colonne_droite">
-                    <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload6" name="image-upload6">
-                        <label for="image-upload6" class="custom-button">Importer l'image</label>
-                        <div class="selected-image" id="selected-image6"></div>
-                    </div>
-                    <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload7" name="image-upload7">
-                        <label for="image-upload7" class="custom-button">Importer l'image</label>
-                        <div class="selected-image" id="selected-image7"></div>
-                    </div>
-                    <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload8" name="image-upload8">
-                        <label for="image-upload8" class="custom-button">Importer l'image</label>
-                        <div class="selected-image" id="selected-image8"></div>
-                    </div>
-                    <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload9" name="image-upload9">
-                        <label for="image-upload9" class="custom-button">Importer l'image</label>
-                        <div class="selected-image" id="selected-image9"></div>
-                    </div>
-                </div>
+<div id="droite_page_8">
+    <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
+    <div id="division_colonnes_droite">
+        <div id="images_colonne_gauche">
+            <div class="image-upload-container">
+                <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2">
+                <label for="image-upload2" class="custom-button">Importer l'image</label>
+                <div class="selected-image" id="selected-image2"></div>
+            </div>
         </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Fonction pour ajouter un écouteur d'événement au bouton d'importation d'image
+        function addEventListenerToNewButton(newInput) {
+            newInput.addEventListener('change', function() {
+                var container = newInput.parentElement;
+
+                // Vérifier s'il y a moins de 10 boutons et si le champ de fichier n'est pas vide
+                if (container.nextElementSibling == null && document.querySelectorAll('.image-upload').length < 10 && newInput.files.length > 0) {
+                    // Créer un nouvel élément div pour le conteneur du prochain bouton
+                    var newContainer = document.createElement('div');
+                    newContainer.classList.add('image-upload-container');
+
+                    // Créer un nouvel élément input pour le bouton d'importation d'image
+                    var newInput = document.createElement('input');
+                    newInput.type = 'file';
+                    newInput.classList.add('image-upload');
+                    newInput.accept = 'image/*';
+                    newInput.name = 'img' + (document.querySelectorAll('.image-upload').length + 1); // Créer un nom unique
+                    newContainer.appendChild(newInput);
+
+                    // Créer un nouvel élément label pour le bouton personnalisé
+                    var newLabel = document.createElement('label');
+                    newLabel.htmlFor = newInput.id;
+                    newLabel.classList.add('custom-button');
+                    newLabel.textContent = 'Importer l\'image';
+                    newContainer.appendChild(newLabel);
+
+                    // Créer un nouvel élément div pour l'image sélectionnée
+                    var newSelectedImage = document.createElement('div');
+                    newSelectedImage.classList.add('selected-image');
+                    newSelectedImage.id = 'selected-image' + (document.querySelectorAll('.selected-image').length + 1); // Créer un id unique
+                    newContainer.appendChild(newSelectedImage);
+
+                    // Ajouter le nouveau conteneur d'importation d'image à la page
+                    container.after(newContainer);
+
+                    // Ajouter un écouteur d'événements au nouveau bouton
+                    addEventListenerToNewButton(newInput);
+                }
+            });
+        }
+
+        // Ajouter des écouteurs d'événements à tous les boutons d'importation d'image initiaux
+        document.querySelectorAll('#images_colonne_gauche .image-upload').forEach(function(input) {
+            addEventListenerToNewButton(input);
+        });
+    });
+</script>
+
 
          
     </div>

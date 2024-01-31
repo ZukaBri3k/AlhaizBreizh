@@ -67,33 +67,42 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   $("#validate-button").on("click", function() {
-    
     var events = calendar.getEvents();
-    let teste = document.getElementById('eventsInput').value = events.join(';')
-    $("#hidden-button").val(teste).trigger('click');
-    console.log(teste);
-  });
+    console.log("Événements récupérés:", events);
 
-  $("#hidden-button").on("click", function() {
-    var hiddenButtonValue = $(this).val();
+    if (events.length > 0) {
+        var startDate = events[0].start;
+        console.log("Date de début:", startDate);
 
-    // Envoyez la valeur du bouton caché au serveur ici
-    $.ajax({
-        url: "/ajouter-evenements",
-        type: "POST",
-        data: hiddenButtonValue,
-        contentType: "application/json",
-        success: function(response) {
-            alert(response.message);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error("Erreur AJAX: " + textStatus, errorThrown);
-            console.log("Réponse du serveur : ", jqXHR.responseText);
+        if (startDate) {
+            console.log("Test de startDate:", startDate);
+            var date = startDate.toString();
+            console.log("Date à envoyer:", date);
+            console.log("Événements à envoyer:", events);
+
+            $.ajax({
+              url: "ajouter-evenements",
+              type: "POST",
+              dataType: 'json',
+              contentType :'json',
+              data: { date: date },  // Utiliser 'date' plutôt que 'events'
+              success: function(response) {
+                  console.log("Réponse du serveur:", response);
+                  alert(response.message);
+              },
+              error: function(jqXHR, textStatus, errorThrown) {
+                  console.error("Erreur AJAX:", textStatus, errorThrown);
+                  console.log("Réponse du serveur :", jqXHR.responseText);
+              }
+          });
+          } else {
+            console.log("La date de début n'est pas définie dans le premier événement.");
         }
-       
-    });
+    } else {
+        console.log("Aucun événement à envoyer.");
+    }
 });
-$("#hidden-button").off("click");
+
 calendar.render();  
     });   
 

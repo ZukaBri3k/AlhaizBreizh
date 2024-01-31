@@ -158,6 +158,11 @@
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
 });
 
 function applyBlur() {
@@ -177,6 +182,8 @@ function removeBlur() {
         }
     });
 }
+
+
 
 </script>
     <script src="{{ asset('js/connexion.js') }}"></script>
@@ -338,6 +345,11 @@ function removeBlur() {
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
 });
 
 function applyBlur() {
@@ -357,6 +369,8 @@ function removeBlur() {
         }
     });
 }
+
+
 
 </script>
     <div id="blur-background" class="blur-background"></div>
@@ -521,6 +535,11 @@ function removeBlur() {
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
 });
 
 function applyBlur() {
@@ -540,6 +559,7 @@ function removeBlur() {
         }
     });
 }
+
 
 </script>
 

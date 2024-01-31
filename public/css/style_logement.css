@@ -109,7 +109,7 @@ body{
     width: 50%;
     border-right: 1px solid #000;
     margin-top: 5vh;
-    height: 835px;
+    height: 880px;
 }
 
 #droite_page_2{
@@ -117,7 +117,7 @@ body{
     margin-top: 5vh;
 
 }
-button {
+.boutton_selection {
     background-color: #F6F5EE;
     border: 1px solid #4BCBFF;
     border-radius: 20px;
@@ -126,15 +126,15 @@ button {
     cursor: pointer;
   }
 
-  button:hover {
+  .boutton_selection:hover {
     background-color: #ddd;
   }
 
-  button.selected {
+  .boutton_selection.selected {
     background-color: #4BCBFF;
     color: #000;
   }
-  button.selected2 {
+  .boutton_selection.selected2 {
     background-color: #4BCBFF;
     color: #000;
   }
@@ -148,7 +148,22 @@ button {
     cursor: pointer;
     
 }
-
+.bouttons_retour{
+    border: none;
+    background-color: #6D6D6D;
+    cursor: pointer;
+}
+.bouttons_suivant{
+    border: none;
+    background-color: #6D6D6D;
+    cursor: pointer;
+}
+.bouttons_retour:hover{
+    background-color: #ddd;
+}
+.bouttons_suivant:hover{
+    background-color: #ddd;
+}
 .image-container {
     flex: 1;
     height: 0px;
@@ -220,7 +235,7 @@ body {
 
 #colonne_gauche_page_3{
     width: 50%;
-    height: 635px;
+    height: 680px;
     border-right: 1px solid black;
 }
 #colonne_droite_page_3{
@@ -322,7 +337,7 @@ textarea {
 #gauche_page_5 {
     border-right: 1px solid #000; /* Trait de séparation */
     padding-right: 10px; /* Marge à droite pour l'espace entre les boutons et le trait de séparation */
-    height: 1200px;
+    height: 1280px;
 }
 
 #droite_page_5 {
@@ -371,7 +386,7 @@ textarea {
 #gauche_page_6 {
     border-right: 1px solid #000; /* Trait de séparation */
     padding-right: 10px; /* Marge à droite pour l'espace entre les boutons et le trait de séparation */
-    height: 750px;
+    height: 800px;
 }
 
 
@@ -405,7 +420,7 @@ textarea {
 #gauche_page_7{
     border-right: 1px solid #000;
     padding-right: 10px;
-    height: 800px;
+    height: 870px;
 }
 #alignement_input_euro{
     margin-right: 25%;
@@ -491,14 +506,12 @@ textarea {
 #gauche_page_8{
     border-right: 1px solid #000;
     padding-right: 10px;
-    height: 800px;
+    height: 870px;
 }
 .custom-button{
     padding-left: 5%;
 }
-#titre_gauche_page_8{
-    margin-top: 40%;
-}
+
 .image-upload {
     display: none;
   }

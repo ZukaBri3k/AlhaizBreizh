@@ -10,9 +10,6 @@
 <body>
     <x-Navbar></x-Navbar>
 
-    <h6>Demande de devis : </h6>
-    <a href="{{route('devis-client')}}">Demander le devis</a>
-
     <div class="Titre">
         <h1>Information de votre compte client</h1>
         <button style="display: none">Modifier</button>
@@ -151,18 +148,6 @@
                         }
                     }
                 @endphp
-                <!-- <div class="elem">
-                    <p>Clé :</p>
-                    <p>123456789</p>
-                    <button class="button_api" href="{{route('deleteCle', '123456789')}}">Supprimer sa clé</button>
-                </div>
-                <hr>
-                <div class="elem">
-                    <p>Clé privilégiée :</p>
-                    <p>123456789</p>
-                    <button class="button_api">Supprimer sa clé</button>
-                </div>
-                <hr> -->
             </div>
             <form action="{{route('genereCle')}} " method="post" class="api">
                 @csrf

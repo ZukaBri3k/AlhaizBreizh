@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="icon" href="/chemin/vers/favicon.ico" type="image/x-icon">
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{{asset('css/cal.css')}}"></head>
@@ -21,15 +22,14 @@
     <div class='fc-event-main' data-title="indisponible">indisponible</div>
   </div>
   <input type="hidden" name="events" id="eventsInput">
-    <button type="submit">Valider les événements</button>
-</form>
-
-
+    <button type="submit" id="validate-button">Valider les événements</button>
+</input>
 </div>
 
 <div id='calendar-container'>
   <div id='calendar'></div>
 </div>
+</form>
 
 <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script><!-- Cloudflare Pages Analytics -->  
 

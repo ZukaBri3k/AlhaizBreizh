@@ -15,32 +15,32 @@ class Logement extends Controller
             $request->libelle_logement,
             $request->accroche_logement,
             $request->descriptif_logement,
-            8,
-            48.75838359918054,
-            -3.4518601746445556,
-            "IUT Lannion",
-            22300,
-            "Lannion",
-            "Villa",
-            "Villa",
-            1300,
-            1,
-            1,
-            0,     
-            "rien",
-            "rien",
-            "rien",
-            "aucun",
-            "23",
-            "eau",
-            "photo.jpeg",
-            "photo_sup.png",
-            5,
-            5000,
+            $request->nb_personne_max,
+            NULL,
+            NULL,
+            $request->adresse_logement,
+            $request->code_postal_logement,
+            $request->ville_logement,
+            $request->nature_logement,
+            $request->type_logement,
+            $request->surface_habitable_logement,
+            $request->nb_chambre_logement, 
+            $request->nb_lit_total,
+            $request->nb_salle_de_bain_logement,
+            $request->amenagement_propose_logement,
+            $request->installation_offerte_logement,
+            $request->equipement_propose_logement,
+            $request->service_complementaire_logement,
+            $request->photo_couverture_logement,
+            $request->photo_complementaire_logement,
+            3.5,
+            $request->prix_logement,
             true,
-            2
+            auth()->user()->id,
+            $request->charge_additionnel_libelle,
+            $request->charge_additionnel_prix,
         ];
-
+        //dd($tab);
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,
@@ -61,20 +61,24 @@ class Logement extends Controller
         installation_offerte_logement,
         equipement_propose_logement,
         service_complementaire_logement,
-        charge_additionnel_prix,
-        charge_additionnel_libelle,
         photo_couverture_logement,
         photo_complementaire_logement,
         moyenne_avis_logement,
         prix_logement,
         en_ligne,
-        id_proprio_logement) values 
+        id_proprio_logement,
+        charge_additionnel_libelle,
+        charge_additionnel_prix) values 
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?)', $tab);
 
-        $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement], auth()->user()->id);
-        return redirect()->route('getInfoLogementPrevisu', ['id' => $id_logement[0]->id_logement]);
+        $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement, auth()->user()->id]);
+        return redirect()->route('details_previsu', ['id' => $id_logement[0]->id_logement]);
+    }
+
+    public function mise_en_ligne_logement() {
+        return View("logement/mise_en_ligne_logement");
     }
 
     public function getInfoLogement(Request $request) {
@@ -82,7 +86,8 @@ class Logement extends Controller
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)])]);
     }
 
     public function getInfoLogementPrevisu(Request $request) {
@@ -90,7 +95,8 @@ class Logement extends Controller
         return View("logement/details_logement_previsu" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)])]);
     }
 
     public function getLogementsProprietaire(Request $request) {

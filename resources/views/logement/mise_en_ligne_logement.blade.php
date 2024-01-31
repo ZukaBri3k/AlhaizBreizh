@@ -513,7 +513,6 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             </div>
         </div>
 <script>
-   <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Écouteur d'événements pour les changements dans les champs de fichier
         document.querySelectorAll('#images_colonne_gauche .image-upload').forEach(function(input) {

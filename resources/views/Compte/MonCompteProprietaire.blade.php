@@ -61,11 +61,6 @@
                     <p>Civilité :</p>
                     <p>{!! $personnes->civilite_pers !!}</p>
                 </div>
-                <hr>
-                <div class="elem">
-                    <p>Genre :</p>
-                    <p>{!! $personnes->genre_pers !!}</p>
-                </div>
             </div>
         </div>
     </div>

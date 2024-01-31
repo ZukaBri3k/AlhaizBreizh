@@ -175,7 +175,7 @@
                     var deleteLinks = document.getElementsByClassName('delete-link');
 
                     for (var i = 0; i < deleteLinks.length; i++) {
-                        deleteLinks[i].addEventListener('beforeunload', function(event) {
+                        deleteLinks[i].addEventListener('click', function(event) {
                             event.preventDefault();
                             var url = this.href;
 
@@ -189,25 +189,17 @@
                                 confirmButtonText: "Yes, delete it!"
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.href = url;
+                                    return Swal.fire({
+                                        title: "Deleted!",
+                                        text: "Your file has been deleted.",
+                                        icon: "success"
+                                    });
                                 }
+                            }).then(() => {
+                                window.location.href = url;
                             });
                         });
                     }
-                /* var deleteClicked = false;
-
-                document.getElementByClass('delete-link').addEventListener('click', function(event) {
-                    deleteClicked = true;
-                });
-
-                window.addEventListener('beforeunload', function (e) {
-                    if (!deleteClicked) {
-                        return;
-                    }
-
-                    e.preventDefault();
-                    e.returnValue = '';
-                }); */
                 </script>
             </div>
             <form action="{{route('genereCle')}} " method="post" class="api">

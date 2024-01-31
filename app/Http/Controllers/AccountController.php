@@ -207,17 +207,12 @@ class AccountController extends Controller
 
     public function generationClePro(Request $request) {
         $id = auth()->user()->id;
-        $cle = rand(10000000, 99999999);
-
-        if ($request->privilege == "prive") {
-            $privi = true;
-        } else {
-            $privi = false;
-        }
+        $random = random_bytes(20);
+        $cle = base64_encode($random);
 
         $tabcle = [
             $cle,
-            $privi,
+            false,
             $id
         ];
 
@@ -227,7 +222,8 @@ class AccountController extends Controller
 
     public function deleteClePro(Request $request, $cle) {
         $id = auth()->user()->id;
-        $cle = urldecode($cle);
+        $cle = urldecode($request->query('cle'));
+        $cle = str_replace(' ', '+', $cle);
         DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
         return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
     }

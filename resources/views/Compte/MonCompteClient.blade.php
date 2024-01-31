@@ -128,10 +128,13 @@
                     foreach ($cles as $cle) {
                         //Ici j'échappe certains caractère pour que ça passe dans le JS pour copier dans le clipboard
                         $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
+
                         //Ici je réduis la clé API pour qu'elle passe dans l'affchage
                         $cleShort = strlen($cle->cle) > 6 ? substr($cle->cle, 0, 6) . '...' : $cle->cle;
+
                         //Ici je prend la route et je passe la route avec l'argument de la clé a supprimer
                         $url = route('deleteCle') . '?cle=' . urlencode($cle->cle);
+                        
                         if ($cle->privilege == false) {
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -143,90 +146,6 @@
                         }
                     }
                 @endphp
-                <!-- JS -->
-                <script type="text/javascript">
-                    //Ici mon JS pour copier la clé API dans le clipboard
-                    copierTexte = (e, cle) => {
-                        e.preventDefault()
-                            navigator.clipboard.writeText(cle).then(() => {
-                                const Toast = Swal.mixin({
-                                    toast: true,
-                                    position: "top-end",
-                                    showConfirmButton: false,
-                                    timer: 3000,
-                                    timerProgressBar: true,
-                                    didOpen: (toast) => {
-                                        toast.onmouseenter = Swal.stopTimer;
-                                        toast.onmouseleave = Swal.resumeTimer;
-                                    }
-                                });
-                                Toast.fire({
-                                    icon: "success",
-                                    title: "Votre clé API à été copiée dans le presse papier",
-                                    background: '#F6F5EE',
-                                    allowOutsideClick: false,
-                                    customClass: {
-                                        title: 'generation_cle'
-                                    },
-                                });
-                            })
-                    }
-
-                    //Ici mon JS pour la suppression de la clé API
-                    var deleteLinks = document.getElementsByClassName('delete-link');
-
-                    for (var i = 0; i < deleteLinks.length; i++) {
-                        deleteLinks[i].addEventListener('click', function(event) {
-                            event.preventDefault();
-                            var url = this.href;
-
-                            Swal.fire({
-                                title: "Êtes vous sûr de vouloir supprimer votre clé API ?",
-                                text: "Cette action n'est pas réversible !",
-                                icon: "warning",
-                                showCancelButton: true,
-                                confirmButtonColor: "#21610B",
-                                cancelButtonColor: "#EC3B53",
-                                background: '#F6F5EE',
-                                cancelButtonText: "Annuler",
-                                confirmButtonText: "Confirmer",
-                                allowOutsideClick: false,
-                                customClass: {
-                                    title: 'generation_cle'
-                                },
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    Swal.fire({
-                                        title: "Supprimer !",
-                                        text: "Votre clé API à bien été supprimer.",
-                                        icon: "success",
-                                        confirmButtonColor: "#21610B",
-                                        background: '#F6F5EE',
-                                        allowOutsideClick: false,
-                                        customClass: {
-                                            title: 'generation_cle'
-                                        },
-                                        //En dessous je fait la redirection après la confirmation de la suppression de la clé API
-                                    }).then(() => {
-                                        window.location.href = url;
-                                    });
-                                } else {
-                                    Swal.fire({
-                                        title: "Annuler !",
-                                        text: "Votre clé API n'a pas été supprimer.",
-                                        icon: "error",
-                                        confirmButtonColor: "#21610B",
-                                        background: '#F6F5EE',
-                                        allowOutsideClick: false,
-                                        customClass: {
-                                            title: 'generation_cle'
-                                        },
-                                    });
-                                }
-                            });
-                        });
-                    }
-                </script>
             </div>
             <form action="{{route('genereCle')}} " method="post" class="api">
                 @csrf

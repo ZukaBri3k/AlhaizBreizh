@@ -364,13 +364,14 @@
                 title: "Succès",
                 text: "Votre demande de devis a été créée avec succès.",
                 icon: "success",
+                background: "#F6F5EE",
                 button: {
                   text: "OK",
                   closeModal: false,
+                  background: "#21610B",
                 },
                 closeOnClickOutside: false,
                 dangerMode: true,
-                className: "custom-swal",
               });
                 setTimeout(submitForm, 2500); // Attend 2.5 secondes avant de soumettre le formulaire
             }

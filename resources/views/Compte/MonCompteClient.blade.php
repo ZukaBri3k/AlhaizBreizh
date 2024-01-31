@@ -169,9 +169,6 @@
                                         text: "OK",
                                         closeModal: true,
                                     },
-                                    closeOnClickOutside: false,
-                                    dangerMode: true,
-                                    className: "custom-swal",
                                 });
                             })
                     }

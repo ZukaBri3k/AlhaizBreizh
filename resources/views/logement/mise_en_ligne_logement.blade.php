@@ -509,7 +509,6 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             <div class="selected-image" id="selected-image1"></div>
         </div>
     </div>
-</div>
 <script>
     // Écouteur d'événements pour les changements dans les champs de fichier
 document.querySelectorAll('.image-upload').forEach(function(input) {

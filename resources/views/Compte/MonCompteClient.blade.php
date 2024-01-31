@@ -52,11 +52,6 @@
                     <p>Civilité :</p>
                     <p>{!! $personnes->civilite_pers !!}</p>
                 </div>
-                <hr>
-                <div class="elem">
-                    <p>Genre :</p>
-                    <p>{!! $personnes->genre_pers !!}</p>
-                </div>
             </div>
         </div>
     </div>
@@ -141,7 +136,7 @@
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cleShort . "</p>
-                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copie</button>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copier</button>
                                     <a href='$url' class='delete-link' class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";

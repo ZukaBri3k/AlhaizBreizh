@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   $("#validate-button").on("click", function() {
+    let teste = document.getElementById('eventsInput').value = selectedValuesDroite.join(';');
+    console.log(teste);
     var events = calendar.getEvents();
     if (events.length > 0) {
         var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');

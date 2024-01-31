@@ -52,11 +52,6 @@
                     <p>Civilité :</p>
                     <p>{!! $personnes->civilite_pers !!}</p>
                 </div>
-                <hr>
-                <div class="elem">
-                    <p>Genre :</p>
-                    <p>{!! $personnes->genre_pers !!}</p>
-                </div>
             </div>
         </div>
     </div>
@@ -141,7 +136,7 @@
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cleShort . "</p>
-                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copie</button>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copier</button>
                                     <a href='$url' class='delete-link' class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
@@ -160,7 +155,6 @@
                                     showConfirmButton: false,
                                     timer: 3000,
                                     timerProgressBar: true,
-                                    background: '#F6F5EE',
                                     didOpen: (toast) => {
                                         toast.onmouseenter = Swal.stopTimer;
                                         toast.onmouseleave = Swal.resumeTimer;
@@ -168,7 +162,9 @@
                                 });
                                 Toast.fire({
                                     icon: "success",
-                                    title: "Votre clé API à été copiée dans le presse papier"
+                                    title: "Votre clé API à été copiée dans le presse papier",
+                                    background: '#F6F5EE',
+                                    allowOutsideClick: false,
                                 });
                             })
                     }
@@ -191,6 +187,7 @@
                                 background: '#F6F5EE',
                                 cancelButtonText: "Annuler",
                                 confirmButtonText: "Confirmer",
+                                allowOutsideClick: false,
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     Swal.fire({
@@ -199,6 +196,7 @@
                                         icon: "success",
                                         confirmButtonColor: "#21610B",
                                         background: '#F6F5EE',
+                                        allowOutsideClick: false,
                                         //En dessous je fait la redirection après la confirmation de la suppression de la clé API
                                     }).then(() => {
                                         window.location.href = url;
@@ -210,6 +208,7 @@
                                         icon: "error",
                                         confirmButtonColor: "#21610B",
                                         background: '#F6F5EE',
+                                        allowOutsideClick: false,
                                     });
                                 }
                             });
@@ -234,7 +233,8 @@
                         background: '#F6F5EE',
                         customClass: {
                             title: 'generation_cle'
-                        }
+                        },
+                        allowOutsideClick: false,
                     }).then((result) => {
                         if (result.isConfirmed) {
                             this.submit();

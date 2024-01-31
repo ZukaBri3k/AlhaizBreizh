@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#validate-button").on("click", function() {
     
     var events = calendar.getEvents();
-    let teste = document.getElementById('eventsInput').value = events.join(';');
-    console.log(teste);
+    let teste = document.getElementById('eventsInput').value = events.join(';')
     $("#hidden-button").val(JSON.stringify({ events: new Date(teste) })).trigger('click');
+    console.log(teste);
   });
 
   $("#hidden-button").on("click", function() {
@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Erreur AJAX: " + textStatus, errorThrown);
             console.log("Réponse du serveur : ", jqXHR.responseText);
         }
+       
     });
 });
 $("#hidden-button").off("click");

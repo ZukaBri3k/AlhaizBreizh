@@ -121,33 +121,65 @@
         </div>
     </div>
 
+    <!-- Code html et php pour générer sa clé API -->
     <div class="Profile_Privee", id="api_chemin">
         <h5>Clé API</h5>
         <hr>
         <p class="line_info">Cette clé ne doit pas être partagée <strong>et être gardée privée.</strong></p>
         <div class="Donnees">
             <div class="donnees_precise">
+                <!-- Code php qui génère une clé API -->
                 @php
                     foreach ($cles as $cle) {
+                        //Ici j'échappe certains caractère pour que ça passe dans le JS pour copier dans le clipboard
+                        $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
+                        //Ici je réduis la clé API pour qu'elle passe dans l'affchage
+                        $cleShort = strlen($cle->cle) > 6 ? substr($cle->cle, 0, 6) . '...' : $cle->cle;
+                        //Ici je prend la route et je passe la route avec l'argument de la clé a supprimer
+                        $url = route('deleteCle', ['cle' => $cle->cle]);
                         if ($cle->privilege == false) {
-                            $url = route('deleteCle', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                    <p>" . $cle->cle . "</p>
+                                    <p>" . $cleShort . "</p>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copie</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         } else {
-                            $url = route('deleteCle', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
-                                    <p>" . $cle->cle . "</p>
+                                    <p>" . $cleShort . "</p>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copie</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         }
                     }
                 @endphp
+                <!-- Ici mon JS sert a copier dans le clipboard ma clé API -->
+                <script type="text/javascript">
+                    copierTexte = (e, cle) => {
+                        e.preventDefault()
+                            navigator.clipboard.writeText(cle).then(() => {
+                                const Toast = Swal.mixin({
+                                    toast: true,
+                                    position: "top-end",
+                                    showConfirmButton: false,
+                                    timer: 5000,
+                                    timerProgressBar: true,
+                                    background: '#F6F5EE',
+                                    didOpen: (toast) => {
+                                        toast.onmouseenter = Swal.stopTimer;
+                                        toast.onmouseleave = Swal.resumeTimer;
+                                    }
+                                });
+                                Toast.fire({
+                                    icon: "success",
+                                    title: "Votre clé API à été copiée dans le presse papier"
+                                });
+                            })
+                    }
+                </script>
             </div>
             <form action="{{route('genereCle')}} " method="post" class="api">
                 @csrf
@@ -180,6 +212,8 @@
     </div>
 
     <x-FooterClient></x-FooterClient>
+    <script src="https://unpkg.com/sweetalert2@10"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

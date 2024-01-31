@@ -184,7 +184,8 @@ class AccountController extends Controller
 
     public function generationCle(Request $request) {
         $id = auth()->user()->id;
-        $cle = rand(10000000, 99999999);
+        $random = random_bytes(20);
+        $cle = base64_encode($random);
 
         if ($request->privilege == "prive") {
             $privi = true;

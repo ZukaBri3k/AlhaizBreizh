@@ -133,7 +133,7 @@
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var images = ['{{asset('/img/beau.png')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {
@@ -145,7 +145,7 @@
   changeBackground();
 
   // Change background every 3 seconds
-  setInterval(changeBackground, 3000);
+  setInterval(changeBackground, 5000);
 
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('connexionButton').addEventListener('click', function(event) {
@@ -155,6 +155,11 @@
     });
 
     document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });
@@ -177,6 +182,8 @@ function removeBlur() {
         }
     });
 }
+
+
 
 </script>
     <script src="{{ asset('js/connexion.js') }}"></script>
@@ -313,7 +320,7 @@ function removeBlur() {
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var images = ['{{asset('/img/beau.png')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {
@@ -325,7 +332,7 @@ function removeBlur() {
   changeBackground();
 
   // Change background every 3 seconds
-  setInterval(changeBackground, 3000);
+  setInterval(changeBackground, 5000);
 
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('connexionButton').addEventListener('click', function(event) {
@@ -335,6 +342,11 @@ function removeBlur() {
     });
 
     document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });
@@ -357,6 +369,8 @@ function removeBlur() {
         }
     });
 }
+
+
 
 </script>
     <div id="blur-background" class="blur-background"></div>
@@ -496,7 +510,7 @@ function removeBlur() {
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var images = ['{{asset('/img/beau.png')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {
@@ -508,7 +522,7 @@ function removeBlur() {
   changeBackground();
 
   // Change background every 3 seconds
-  setInterval(changeBackground, 3000);
+  setInterval(changeBackground, 5000);
 
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('connexionButton').addEventListener('click', function(event) {
@@ -518,6 +532,11 @@ function removeBlur() {
     });
 
     document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });
@@ -540,6 +559,7 @@ function removeBlur() {
         }
     });
 }
+
 
 </script>
 

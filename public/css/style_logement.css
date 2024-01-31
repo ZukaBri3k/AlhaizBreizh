@@ -1,10 +1,32 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
+    font-weight: 500;
+}
+
+@font-face {
+	font-family: "Montserrat-Light";
+	font-weight: 400;
+	src: url("fonts/Montserrat-Light.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
+}
+
+@font-face {
+	font-family: "RocaOne";
+	font-weight: 400;
+	src: url("fonts/RocaOne-Rg.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
+}
 body{
     background-color: #F6F5EE;
 }
 
 h2{
-    font-size: 45px;
-    font-weight: bolder;
+    font-size: calc(1.325rem + .9vw);
+    font-weight: 500;
+    color: rgb(236, 59, 83);
+    font-family: 'Montserrat';
 }
 h3{
     font-size: 40px;
@@ -29,7 +51,7 @@ h4{
     justify-content: space-around;
     background-color: #6D6D6D;
     color: #ffff;
-    border-radius: 10px;
+    border-radius: 6px;
     margin: 10px;
 }
 
@@ -39,7 +61,7 @@ h4{
     justify-content: space-around;
     background-color: #6D6D6D;
     color: #ffff;
-    border-radius: 10px;
+    border-radius: 6px;
     margin: 10px;
 }
 
@@ -120,7 +142,7 @@ body{
 .boutton_selection {
     background-color: #F6F5EE;
     border: 1px solid #4BCBFF;
-    border-radius: 20px;
+    border-radius: 6px;
     padding: 8px 12px;
     margin: 4px;
     cursor: pointer;
@@ -231,12 +253,14 @@ body {
 }
 #titre_colonne_gauche_page_2{
     padding-left: 15% ;
+    margin-bottom: 5%;
 }
 
 #colonne_gauche_page_3{
     width: 50%;
     height: 680px;
     border-right: 1px solid black;
+    padding-left: 1%;
 }
 #colonne_droite_page_3{
     margin-left: 5%;
@@ -252,7 +276,7 @@ body {
     flex-direction: column;
 }
 #location_logement > input{
-    border-radius: 13px;
+    border-radius: 6px;
     height: 30px;
     width: 75%;
     border: none;
@@ -264,17 +288,16 @@ body {
 }
 
 #titre_logement > input{
-    border-radius: 13px;
+    border-radius: 6px;
     height: 30px;
     width: 75%;
     border: none;
 }
 
 #description_logement_input{
-    border-radius: 13px;
+    border-radius: 6px;
     height: 150px;
     width: 105%;
-    text-align: center;
     border: none;
 }
 #description_logement_precise{
@@ -290,7 +313,7 @@ body {
     opacity: 50%;
 }
 textarea {
-    border-radius: 13px;
+    border-radius: 6px;
     resize: none;
     border: none;
   }
@@ -308,17 +331,19 @@ textarea {
     border-radius: 20px;
     padding: 10px;
     margin-bottom: 10px;
+    margin-left: 2%
 }
 
 .chambre h4 {
     font-size: 20px;
     margin-bottom: 5px;
+
 }
 
 .chambre input,
 .chambre textarea {
     border: none;
-    border-radius: 20px;
+    border-radius: 6px;
     padding: 8px 12px;
     margin: 4px;
     width: 100%;
@@ -333,10 +358,14 @@ textarea {
 #droite_page_5 {
     width: 48%; /* Ajustez la largeur selon vos besoins */
 }
-
+#titre_gauche_page_5{
+	margin-left: 15%;
+}
+#titre_droite_page_5{
+	margin-left:15%;
+}
 #gauche_page_5 {
     border-right: 1px solid #000; /* Trait de séparation */
-    padding-right: 10px; /* Marge à droite pour l'espace entre les boutons et le trait de séparation */
     height: 1280px;
 }
 
@@ -385,8 +414,8 @@ textarea {
 }
 #gauche_page_6 {
     border-right: 1px solid #000; /* Trait de séparation */
-    padding-right: 10px; /* Marge à droite pour l'espace entre les boutons et le trait de séparation */
     height: 800px;
+    padding-right:1%;
 }
 
 
@@ -419,7 +448,6 @@ textarea {
 }
 #gauche_page_7{
     border-right: 1px solid #000;
-    padding-right: 10px;
     height: 870px;
 }
 #alignement_input_euro{
@@ -436,62 +464,14 @@ textarea {
     padding-left: 10%;
 }
 #input_page_7{
-    border-radius: 13px;
+    border-radius: 6px;
     height: 30px;
     width: 45%;
     border: none;
 }
 
-.custom-radio {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    width: 55%;
-  }
 
-  .custom-radio input[type="checkbox"] {
-    display: none;
-  }
-  .custom-radio input[type="radio"] {
-    display: none;
-  }
 
-  .custom-radio label {
-    cursor: pointer;
-    position: relative;
-    padding-left: 30px; /* Ajustez la taille du bouton radio ici */
-    line-height: 20px;
-  }
-
-  .custom-radio label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px; /* Ajustez la taille du bouton radio ici */
-    height: 20px; /* Ajustez la taille du bouton radio ici */
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    background-color: #fff;
-  }
-  .custom-radio input[type="radio"]:checked + label:before {
-    background-color: #4BCBFF; /* Couleur de fond lorsque le bouton est sélectionné */
-  }
-  .custom-radio input[type="checkbox"]:checked + label:before {
-    background-color: #4BCBFF; /* Couleur de fond lorsque le bouton est sélectionné */
-  }
-
-  /* Style pour le texte et le span en dessous des boutons radio */
-  .radio-text {
-    display: block;
-    font-size: 12px;   
-}
-#paypal_link{
-    border-radius: 13px;
-    height: 30px;
-    width: 300px;
-    border: none;
-}
 #paypal_boutton{
     display: flex;
     width: 500px;
@@ -505,7 +485,6 @@ textarea {
 }
 #gauche_page_8{
     border-right: 1px solid #000;
-    padding-right: 10px;
     height: 870px;
 }
 .custom-button{
@@ -523,7 +502,7 @@ textarea {
     background-color: #4BCBFF;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     opacity: 0; /* Rendre le texte invisible */
   }
   
@@ -533,7 +512,7 @@ textarea {
     background-color: #4BCBFF;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     margin-left: 5%;
   }
 

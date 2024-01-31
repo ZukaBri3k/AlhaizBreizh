@@ -6,10 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Personne;
+use Illuminate\Support\Facades\Storage;
 
 class Logement extends Controller
 {
     public function ajouterLogementDB(Request $request) {
+
+        dd($_POST);
+        //Storage::disk('logement')->put();
 
         $tab = [
             $request->libelle_logement,
@@ -31,7 +35,7 @@ class Logement extends Controller
             $request->installation_offerte_logement,
             $request->equipement_propose_logement,
             $request->service_complementaire_logement,
-            $request->photo_couverture_logement,
+            "couverture.jpg",
             $request->photo_complementaire_logement,
             3.5,
             $request->prix_logement,

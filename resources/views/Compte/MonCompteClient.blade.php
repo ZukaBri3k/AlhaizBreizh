@@ -172,7 +172,7 @@
                             })
                     }
 
-                document.getElementByClassName('delete-link').addEventListener('click', function(event) {
+                document.getElementsByClassName('delete-link').addEventListener('click', function(event) {
                     event.preventDefault();
                     var url = this.href;
 

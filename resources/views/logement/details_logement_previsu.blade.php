@@ -17,19 +17,19 @@
       <div id="carouselExampleIndicators" class="carousel slide">
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
-              <img src="{{ asset('storage/logement' . $logement->id_logement . '/couverture.jpg') }}" class="d-block w-100">
+              <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
               <div>
-                @for($i = 0; $i <= intval($nb_photo) && $i < 3; $i++)
+                @for($i = 0; $i < intval($nb_photo) && $i < 3; $i++)
                     <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                 @endfor
               </div>
             </div>
-            @for($i = 0; $i <= intval($nb_photo); $i++)
+            @for($i = 0; $i < intval($nb_photo); $i++)
               <div class="carousel-item">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                 
                 <div>
-                  @for($j = $i + 1; $j <= intval($nb_photo) && $j < $i + 2; $j++)
+                  @for($j = $i + 1; $j < intval($nb_photo) && $j < $i + 2; $j++)
                     <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
                   @endfor
                 </div>

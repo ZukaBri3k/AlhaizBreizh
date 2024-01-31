@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   $("#validate-button").on("click", function() {
-    let teste = document.getElementById('eventsInput').value = selectedValuesDroite.join(';');
+    let teste = document.getElementById('eventsInput').value = events.join(';');
     console.log(teste);
     var events = calendar.getEvents();
     if (events.length > 0) {

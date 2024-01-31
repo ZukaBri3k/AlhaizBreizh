@@ -32,7 +32,7 @@
                     <script>
                         let logement = document.getElementsByClassName(".btnHL");
 
-                        logement.foreach((btn) => {
+                        logement.forEach((btn) => {
                             btn.addEventListener("beforeunload", () => {
                                 Swal.fire({
                                     title: 'Êtes-vous sûr ?',

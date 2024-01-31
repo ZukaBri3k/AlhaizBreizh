@@ -68,17 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
   
   $("#validate-button").on("click", function() {
     var events = calendar.getEvents();
-    
     if (events.length > 0) {
-      var date = events[0].start.toISOString(); 
-      console.log("Date à envoyer:", date)}
-
-    if (events.length > 0) {
-        var date = events[0].start.toISOString(); // Obtenir la date au format ISO8601
+        var date = events[0].start.toISOString();
+        console.log("Date à envoyer:", date);
         $.ajax({
             url: "{{route('ajouter-evenements')}}",
             type: "POST",
-            data:{ events: date },
+            data: { events: date },
             success: function(response) {
                 alert(response.message);
             },

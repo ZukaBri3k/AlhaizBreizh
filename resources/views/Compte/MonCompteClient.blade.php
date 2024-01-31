@@ -167,6 +167,7 @@
                                     showConfirmButton: false,
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    className: "custom-swal",
                                     didOpen: (toast) => {
                                         toast.onmouseenter = Swal.stopTimer;
                                         toast.onmouseleave = Swal.resumeTimer;
@@ -174,8 +175,7 @@
                                 });
                                 Toast.fire({
                                     icon: "success",
-                                    title: "Votre clé API à été copiée dans le presse papier",
-                                    className: "custom-swal"
+                                    title: "Votre clé API à été copiée dans le presse papier"
                                 });
                             })
                     }

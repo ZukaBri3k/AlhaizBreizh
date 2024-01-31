@@ -501,57 +501,55 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
           </div>
       
     </div>
-    <div id="droite_page_8">
-        <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
-        <div id="division_colonnes_droite">
-            <div id="images_colonne_gauche">
-                <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2">
-                    <label for="image-upload2" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image2"></div>
-                  </div>
-                  <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload3" name="img3">
-                    <label for="image-upload3" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image3"></div>
-                  </div>
-                  <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload4" name="img4">
-                    <label for="image-upload4" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image4"></div>
-                  </div>
-                  <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload5" name="img5">
-                    <label for="image-upload5" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image5"></div>
-                  </div>
-                </div>
-                <div id="images_colonne_droite">
-                    <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload6" name="img6">
-                        <label for="image-upload6" class="custom-button">Importer l'image</label>
-                        <div class="selected-image" id="selected-image6"></div>
-                    </div>
-                    <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload7" name="img7">
-                        <label for="image-upload7" class="custom-button">Importer l'image</label>
-                        <div class="selected-image" id="selected-image7"></div>
-                    </div>
-                    <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload8" name="img8">
-                        <label for="image-upload8" class="custom-button">Importer l'image</label>
-                        <div class="selected-image" id="selected-image8"></div>
-                    </div>
-                    <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload9" name="img9">
-                        <label for="image-upload9" class="custom-button">Importer l'image</label>
-                        <div class="selected-image" id="selected-image9"></div>
-                    </div>
-                </div>
+    <div id="division_colonnes_droite">
+    <div id="images_colonne_gauche">
+        <div class="image-upload-container">
+            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="img1">
+            <label for="image-upload1" class="custom-button">Importer l'image</label>
+            <div class="selected-image" id="selected-image1"></div>
         </div>
-
-         
     </div>
+</div>
+<script>
+    // Écouteur d'événements pour les changements dans les champs de fichier
+document.querySelectorAll('.image-upload').forEach(function(input) {
+    input.addEventListener('change', function() {
+        var container = input.parentElement;
+
+        // Vérifier s'il y a moins de 10 boutons et si le champ de fichier n'est pas vide
+        if (document.querySelectorAll('.image-upload').length < 10 && input.files.length > 0) {
+            // Créer un nouvel élément div pour le conteneur du prochain bouton
+            var newContainer = document.createElement('div');
+            newContainer.classList.add('image-upload-container');
+
+            // Créer un nouvel élément input pour le bouton d'importation d'image
+            var newInput = document.createElement('input');
+            newInput.type = 'file';
+            newInput.classList.add('image-upload');
+            newInput.accept = 'image/*';
+            newInput.name = 'img' + (document.querySelectorAll('.image-upload').length + 1); // Créer un nom unique
+            newContainer.appendChild(newInput);
+
+            // Créer un nouvel élément label pour le bouton personnalisé
+            var newLabel = document.createElement('label');
+            newLabel.htmlFor = newInput.id;
+            newLabel.classList.add('custom-button');
+            newLabel.textContent = 'Importer l\'image';
+            newContainer.appendChild(newLabel);
+
+            // Créer un nouvel élément div pour l'image sélectionnée
+            var newSelectedImage = document.createElement('div');
+            newSelectedImage.classList.add('selected-image');
+            newSelectedImage.id = 'selected-image' + (document.querySelectorAll('.selected-image').length + 1); // Créer un id unique
+            newContainer.appendChild(newSelectedImage);
+
+            // Ajouter le nouveau conteneur d'importation d'image à la page
+            container.after(newContainer);
+        }
+    });
+});
+
+</script>
     <div id="footer">
         <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
         <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>

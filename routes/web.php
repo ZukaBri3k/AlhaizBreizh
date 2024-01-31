@@ -91,6 +91,12 @@ Route::get('/testcal', function () {
 Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementDB'])->name('ajouter-evenements');
 Route::post('/enregistrerEvenement',[CalController::class,'enregistrerEvenement'])->name('enregistrerEvenement');
 
+
+Route::get('/mentions_legales', function () {
+    return view('/mentions_legales');
+})->name('mentions_legales');
+
 Route::get("/spawnLink", function () {
     Artisan::call('storage:link');
 });
+

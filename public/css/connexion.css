@@ -9,17 +9,14 @@ html{
 }
 
 .fondfou {
-    background-image: url("{{asset('/img/tresbeau.png')}}");
+    width: 100%;
+    height: 400px; /* Ajustez la hauteur selon vos besoins */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 1;
-    transition: opacity 1.25s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
-.fondfou:hover {
-    opacity: 0;
-}
 
 
 .center-popup {

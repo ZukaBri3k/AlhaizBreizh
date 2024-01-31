@@ -136,10 +136,18 @@
   var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
-  function changeBackground() {
-    document.querySelector('.fondfou').style.backgroundImage = 'url(' + images[index] + ')';
-    index = (index + 1) % images.length;
-  }
+
+    function changeBackground() {
+        var fondfou = document.querySelector('.fondfou');
+        fondfou.style.backgroundImage = 'url(' + images[index] + ')';
+        fondfou.style.opacity = '1';
+        
+        setTimeout(function() {
+            fondfou.style.opacity = '0';
+        }, 1000); // 1000ms pour laisser une seconde d'opacité totale
+
+        index = (index + 1) % images.length;
+    }
 
   // Set initial background
   changeBackground();

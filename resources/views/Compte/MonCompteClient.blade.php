@@ -196,6 +196,12 @@
                                         text: "Votre clé API à bien été supprimer.",
                                         icon: "success"
                                     });
+                                } else {
+                                    return Swal.fire({
+                                        title: "Annuler !",
+                                        text: "Votre clé API n'a pas été supprimer.",
+                                        icon: "error"
+                                    });
                                 }
                             }).then(() => {
                                 window.location.href = url;

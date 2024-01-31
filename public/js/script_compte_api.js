@@ -1,3 +1,4 @@
+//Ici mon JS pour la déconnexion
 var deconnexion = document.getElementById('logout');
 
 deconnexion.addEventListener('click', function(event) {
@@ -50,6 +51,10 @@ deconnexion.addEventListener('click', function(event) {
     });
 });
 
+
+
+
+
 //Ici mon JS pour copier la clé API dans le clipboard
 copierTexte = (e, cle) => {
     e.preventDefault()
@@ -76,6 +81,10 @@ copierTexte = (e, cle) => {
             });
         })
 }
+
+
+
+
 
 //Ici mon JS pour la suppression de la clé API
 var deleteLinks = document.getElementsByClassName('delete-link');
@@ -131,3 +140,28 @@ for (var i = 0; i < deleteLinks.length; i++) {
         });
     });
 }
+
+
+
+
+
+//Ici mon JS pour la génération de la clé API
+document.querySelector('.api').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    Swal.fire({
+        title: "La clé a bien été créée",
+        icon: "success",
+        confirmButtonColor: "#21610B",
+        confirmButtonText: "OK",
+        background: '#F6F5EE',
+        customClass: {
+            title: 'generation_cle'
+        },
+        allowOutsideClick: false,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            this.submit();
+        }
+    });
+});

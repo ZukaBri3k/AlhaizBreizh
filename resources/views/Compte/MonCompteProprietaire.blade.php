@@ -153,10 +153,13 @@
                     foreach ($cles as $cle) {
                         //Ici j'échappe certains caractère pour que ça passe dans le JS pour copier dans le clipboard
                         $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
+
                         //Ici je réduis la clé API pour qu'elle passe dans l'affchage
                         $cleShort = strlen($cle->cle) > 6 ? substr($cle->cle, 0, 6) . '...' : $cle->cle;
+
                         //Ici je prend la route et je passe la route avec l'argument de la clé a supprimer
-                        $url = route('deleteCle') . '?cle=' . urlencode($cle->cle);
+                        $url = route('deleteClePro') . '?cle=' . urlencode($cle->cle);
+
                         if ($cle->privilege == false) {
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -169,32 +172,11 @@
                     }
                 @endphp
             </div>
-            <form action="{{route('genereCle')}} " method="post" class="api">
+            <form action="{{route('genereClePro')}} " method="post" class="api">
                 @csrf
                 <h3>Générer sa clé :</h3>
                 <button class="button_form" type="submit">+ Créer sa nouvelle clé secrète</button>
             </form>
-            <script>
-                document.querySelector('.api').addEventListener('submit', function(event) {
-                    event.preventDefault();
-
-                    Swal.fire({
-                        title: "La clé a bien été créée",
-                        icon: "success",
-                        confirmButtonColor: "#21610B",
-                        confirmButtonText: "OK",
-                        background: '#F6F5EE',
-                        customClass: {
-                            title: 'generation_cle'
-                        },
-                        allowOutsideClick: false,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            this.submit();
-                        }
-                    });
-                });
-            </script>
         </div>
     </div>
 

@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var events = calendar.getEvents();
     if (events.length > 0) {
         var date = events[0].start.toISOString();
-        console.log("Date à envoyer:", date);
+        alert("Date à envoyer:", date);
         $.ajax({
             url: "{{route('ajouter-evenements')}}",
             type: "POST",

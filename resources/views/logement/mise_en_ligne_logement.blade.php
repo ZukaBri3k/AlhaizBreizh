@@ -15,9 +15,7 @@
         <div id="texte_page_1" >
             <h2 class="texte_justifie">Dites nous tout sur votre logement !</h2>
             <br>   
-            <p class="texte_justifie">Au cours de cette phase, nous vous interrogerons sur le type d'hébergement <br>que vous proposez, ainsi que sur la possibilité pour les voyageurs de le <br> réserver dans son intégralité. 
-                Par la suite, nous vous demanderons de <br>spécifier l'emplacement 
-                géographique et la capacité d'accueil de <br>l'hébergement.</p>
+            <p class="texte_justifie">Remplisser ce formulaire afin d'ajouter votre logement à ce site, les champs dont le titre sont marqués d'un * (Astérisque) sont obligatoires.</p>
         </div>
             <div id="footer">
                 <button  type="button" id="retour_page_1" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   

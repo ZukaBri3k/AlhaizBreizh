@@ -30,7 +30,7 @@
                     @php }
                     @endphp
                     <script>
-                        let logement = document.querySelector(".btnHL");
+                        let logement = document.getElementByClassName(".btnHL");
 
                         logement.foreach((btn) => {
                             btn.addEventListener("beforeunload", () => {

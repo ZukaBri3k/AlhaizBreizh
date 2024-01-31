@@ -166,7 +166,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 <br>
                 <input type="text" placeholder="Saisissez votre ville" name="ville_logement" required>
                 <br>
-                <input type="text" placeholder="Code postal" name="code_postal_logement" required>
+                <input type="number" placeholder="Code postal" name="code_postal_logement" maxlength="5" required>
                 <br>
             </div>
 
@@ -185,22 +185,22 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 <div id="description_logement_precise">
                     <div id="nombre_de_personnes">
                     <label for="nombre_de_personne">Nombre de personne(s) : </label>
-                    <textarea name="nb_personne_max" id="" cols="5" rows="1" required></textarea>
+                    <textarea type="number" name="nb_personne_max" id="" cols="5" rows="1" required></textarea>
                     </div>
                     <br>
                     <div id="nombre_de_personnes">
                         <label for="surface" >Surface habitable (m2) : </label>
-                        <textarea name="surface_habitable_logement" id="" cols="5" rows="1" required></textarea>
+                        <textarea type="number"name="surface_habitable_logement" id="" cols="5" rows="1" required></textarea>
                      </div>
                      <br>
                      <div id="nombre_de_personnes">
                         <label for="nombre_de_chambre">Nombre de chambre(s) :</label>
-                        <textarea name="nb_chambre_logement" id="nombre_de_chambre_input" cols="5" rows="1" required></textarea>
+                        <textarea type="number"name="nb_chambre_logement" id="nombre_de_chambre_input" cols="5" rows="1" required></textarea>
                     </div>
                     <br>
                     <div id="nombre_de_personnes">
                         <label for="nombre_de_salle_de_bain">Nombre de salle(s) de bain : </label>
-                        <textarea name="nb_salle_de_bain_logement" id="" cols="5" rows="1" required></textarea>
+                        <textarea type="number"name="nb_salle_de_bain_logement" id="" cols="5" rows="1" required></textarea>
                      </div>
                 </div>
             </div>

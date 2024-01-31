@@ -386,6 +386,14 @@ button:hover {
     font-weight: 400;
     line-height: 24px; /* 120% */
     letter-spacing: -0.3px;
-    margin-left: 2%;
-    margin-bottom: 3%;
+}
+
+.swal2-popup {
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+    letter-spacing: -0.3px;
 }

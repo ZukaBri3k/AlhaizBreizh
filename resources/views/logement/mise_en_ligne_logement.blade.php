@@ -227,7 +227,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     </div>
 <div id="page_5" class="page">
     <div id="gauche_page_5">
-        <h2>Quels aménagements propose votre logement ?</h2>
+        <h2 id="titre_gauche_page_5">Quels aménagements propose votre logement ?</h2>
         <div class="button-row">
             <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Terrasse">
                 <div class="image-container">

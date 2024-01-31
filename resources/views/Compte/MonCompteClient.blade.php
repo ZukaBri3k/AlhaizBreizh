@@ -145,14 +145,6 @@
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
-                        } else {
-                            echo "<div class='elem'>
-                                    <p>Clé privilégiée :</p>
-                                    <p>" . $cleShort . "</p>
-                                    <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copie</button>
-                                    <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
-                                </div>
-                                <hr>";
                         }
                     }
                 @endphp
@@ -185,17 +177,6 @@
                 @csrf
                 <h3>Générer sa clé :</h3>
                 <div class="elem">
-                    <div class="radio_form">
-                        <div>
-                            <input type="radio" id="prive" name="privilege" value="prive" checked>
-                            <label for="prive">Privilégiée</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="nonprive" name="privilege" value="nonprive">
-                            <label for="nonprive">Non privilégiée</label>
-                        </div>
-                    </div>
-                </div>
                 <button class="button_form" type="submit">+ Créer sa nouvelle clé secrète</button>
             </form>
         </div>

@@ -187,15 +187,9 @@ class AccountController extends Controller
         $random = random_bytes(20);
         $cle = base64_encode($random);
 
-        if ($request->privilege == "prive") {
-            $privi = true;
-        } else {
-            $privi = false;
-        }
-
         $tabcle = [
             $cle,
-            $privi,
+            false,
             $id
         ];
 

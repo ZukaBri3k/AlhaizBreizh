@@ -185,6 +185,7 @@ function removeBlur() {
     });
 }
 
+
 </script>
     <script src="{{ asset('js/connexion.js') }}"></script>
 @elseif ($role == 2)

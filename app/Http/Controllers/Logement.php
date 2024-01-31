@@ -43,7 +43,6 @@ class Logement extends Controller
             $request->charge_additionnel_prix,
         ];
 
-        //dd($request->file());
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,
@@ -81,6 +80,7 @@ class Logement extends Controller
         //dd($request->file("image-upload2"));
         Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
         
+        dd($request->file());
         for($i = 1; $i < count($request->file()); $i++) {
             Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i . ".jpg");
         }

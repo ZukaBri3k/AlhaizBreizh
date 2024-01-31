@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             $.ajax({
               url: "{{ route('ajouter-evenements') }}",
               type: "POST",
+              dataType: 'text',
               data: { date: date },  // Utiliser 'date' plutôt que 'events'
               success: function(response) {
                   console.log("Réponse du serveur:", response);
@@ -93,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   console.log("Réponse du serveur :", jqXHR.responseText);
               }
           });
-        } else {
+          } else {
             console.log("La date de début n'est pas définie dans le premier événement.");
         }
     } else {

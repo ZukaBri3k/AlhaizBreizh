@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Événements à envoyer:", events);
 
             $.ajax({
-              url: "{{ route('ajouter-evenements') }}",
+              url: "ajouter-evenements",
               type: "POST",
               dataType: 'text',
               data: { date: date },  // Utiliser 'date' plutôt que 'events'

@@ -33,8 +33,8 @@ class Logement extends Controller
             $request->installation_offerte_logement,
             $request->equipement_propose_logement,
             $request->service_complementaire_logement,
-            "couverture.jpg",
-            count($request->file()) - 1,
+            "img0.jpg",
+            count($request->file()),
             3.5,
             $request->prix_logement,
             true,
@@ -78,11 +78,11 @@ class Logement extends Controller
         $id_logement = DB::select('select id_logement from logement where id_proprio_logement =  ? ORDER BY id_logement DESC', [auth()->user()->id]);
 
         //dd($request->file("image-upload2"));
-        Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
+        //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
         
         //dd($request->file());
-        for($i = 1; $i < count($request->file()); $i++) {
-            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i+1), "img" . $i . ".jpg");
+        for($i = 0; $i < count($request->file()); $i++) {
+            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i . ".jpg");
         }
         //dd($APP_URL));
 

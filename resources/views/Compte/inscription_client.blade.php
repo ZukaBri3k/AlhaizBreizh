@@ -116,11 +116,11 @@
 
                     <label for="mail_pers">*Adresse E-mail:</label>
                     <input type="email" id="mail_pers" name="mail_pers" placeholder="Entrez votre adresse E-mail"
-                        class="form-control" required>
+                        class="form-control" required maxlength="90">
 
                     <label for="password">*Mot de Passe:</label>
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
-                        class="form-control" required >
+                        class="form-control" required maxlength="60">
 
                     <label for="confirmerMotDePasse">*Confirmation du Mot de Passe:</label>
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"

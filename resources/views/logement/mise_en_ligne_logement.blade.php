@@ -496,7 +496,7 @@
     <div id="gauche_page_8">
         <h2 class="section-title" id="titre_gauche_page_8">Quel sera la photo de couverture de votre logement ? *</h2>
         <div class="image-upload-container">
-            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="image-upload1" required="required">
+            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="couverture" required="required">
             <label for="image-upload1" class="custom-button">Importer l'image</label>
             <div class="selected-image" id="selected-image1"></div>
           </div>
@@ -507,44 +507,44 @@
         <div id="division_colonnes_droite">
             <div id="images_colonne_gauche">
                 <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="image-upload2">
+                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2">
                     <label for="image-upload2" class="custom-button">Importer l'image</label>
                     <div class="selected-image" id="selected-image2"></div>
                   </div>
                   <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload3" name="image-upload3">
+                    <input type="file" class="image-upload" accept="image/*" id="image-upload3" name="img3">
                     <label for="image-upload3" class="custom-button">Importer l'image</label>
                     <div class="selected-image" id="selected-image3"></div>
                   </div>
                   <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload4" name="image-upload4">
+                    <input type="file" class="image-upload" accept="image/*" id="image-upload4" name="img4">
                     <label for="image-upload4" class="custom-button">Importer l'image</label>
                     <div class="selected-image" id="selected-image4"></div>
                   </div>
                   <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload5" name="image-upload5">
+                    <input type="file" class="image-upload" accept="image/*" id="image-upload5" name="img5">
                     <label for="image-upload5" class="custom-button">Importer l'image</label>
                     <div class="selected-image" id="selected-image5"></div>
                   </div>
                 </div>
                 <div id="images_colonne_droite">
                     <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload6" name="image-upload6">
+                        <input type="file" class="image-upload" accept="image/*" id="image-upload6" name="img6">
                         <label for="image-upload6" class="custom-button">Importer l'image</label>
                         <div class="selected-image" id="selected-image6"></div>
                     </div>
                     <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload7" name="image-upload7">
+                        <input type="file" class="image-upload" accept="image/*" id="image-upload7" name="img7">
                         <label for="image-upload7" class="custom-button">Importer l'image</label>
                         <div class="selected-image" id="selected-image7"></div>
                     </div>
                     <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload8" name="image-upload8">
+                        <input type="file" class="image-upload" accept="image/*" id="image-upload8" name="img8">
                         <label for="image-upload8" class="custom-button">Importer l'image</label>
                         <div class="selected-image" id="selected-image8"></div>
                     </div>
                     <div class="image-upload-container">
-                        <input type="file" class="image-upload" accept="image/*" id="image-upload9" name="image-upload9">
+                        <input type="file" class="image-upload" accept="image/*" id="image-upload9" name="img9">
                         <label for="image-upload9" class="custom-button">Importer l'image</label>
                         <div class="selected-image" id="selected-image9"></div>
                     </div>

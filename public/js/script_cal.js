@@ -68,26 +68,29 @@ document.addEventListener('DOMContentLoaded', function() {
   
   $("#validate-button").on("click", function() {
     var events = calendar.getEvents();
-    alert(events);
+    console.log("Événements récupérés:", events);
+
     if (events.length > 0) {
         var startDate = events[0].start;
-        alert(startDate);
+        console.log("Date de début:", startDate);
+
         if (startDate) {
-          alert( "test",startDate)
+            console.log("Test de startDate:", startDate);
             var date = startDate.toISOString();
-            alert("Date à envoyer:", date);
-            alert("Evénements:", events);
+            console.log("Date à envoyer:", date);
+            console.log("Événements à envoyer:", events);
 
             $.ajax({
                 url: "{{ route('ajouter-evenements') }}",
                 type: "POST",
                 data: { events: date },
                 success: function(response) {
+                    console.log("Réponse du serveur:", response);
                     alert(response.message);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Erreur AJAX: " + textStatus, errorThrown);
-                    console.log("Réponse du serveur : ", jqXHR.responseText);
+                    console.error("Erreur AJAX:", textStatus, errorThrown);
+                    console.log("Réponse du serveur :", jqXHR.responseText);
                 }
             });
         } else {

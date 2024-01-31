@@ -29,12 +29,12 @@
                 <div>
                   @for($j = $i + 1; $j < intval($nb_photo) && $counter < 2; $j++)
                     @php $counter++; @endphp
-                    <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                    <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
                   @endfor
 
                   @for($j = 0; $j < $i && $counter < 2; $j++)
                     @php $counter++; @endphp
-                    <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                    <img class="2" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
                   @endfor
                 </div>
               </div>

@@ -720,3 +720,11 @@ button:hover {
         width: 100%;
     }
 }
+
+.button_copie {
+    width: 90%;
+    height: 2.6em;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-left: 0;
+}

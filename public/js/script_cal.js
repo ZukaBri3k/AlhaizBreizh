@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 type: "POST",
                 data: { date: date },
                 success: function(response) {
-                    console.log("Réponse du serveur:", response);
+                    console.log("Réponse du serveur:", response); 
                     alert(response.message);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {

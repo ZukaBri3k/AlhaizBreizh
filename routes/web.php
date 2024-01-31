@@ -30,10 +30,14 @@ Route::prefix('/devis')->group(function () {
     Route::get('/client', [Devis::class, "devisClient"])->name('devis-client')->middleware(['auth', 'isClient']);
     Route::get('/creation/{id_client}', [Devis::class, "creationDevis"])->where('id_client', '[0-9]+')->name('devis-page')->middleware(['auth', 'isProprietaire']);
     Route::post('/enregDB/{id_client}', [Devis::class, "creerDevisDB"])->where('id_client', '[0-9]+')->name('devis-store')->middleware();
-    Route::get('user-refuser',[Devis::class,'refusDevis'])->name('devis.refuser')->middleware(['auth', 'isClient']);;
-    Route::get('user-valider',[Devis::class,'validationDevis'])->name('devis.valider')->middleware(['auth', 'isClient']);;
-    Route::get('user-demander',[Devis::class,'demandeDevis'])->name('devis.demander')->middleware(['auth', 'isClient']);;
-    Route::get('/infosdevis',[Devis::class,'infosDevis'])->name('infosDevis')->middleware(['auth', 'isProprietaire']);;
+
+    Route::post('/demande_devis',[Devis::class,'demande_devis'])->name('demande_devis')->middleware(['auth', 'isClient']);
+
+    Route::get('/infosdevis',[Devis::class,'infosDevis'])->name('infosDevis')->middleware(['auth', 'isProprietaire']);
+
+    Route::get('user-refuser/{id_devis}/{id_reserv}',[Devis::class,'refusDevis'])->name('refuserDevis')->middleware(['auth', 'isProprietaire']);;
+    Route::get('user-valider/{id_devis}',[Devis::class,'validationDevis'])->name('validerDevis')->middleware(['auth', 'isProprietaire']);;
+
 });
 
 Route::get('/paiement', function () {
@@ -45,7 +49,12 @@ Route::prefix('/logement')->group(function() {
     Route::get('/{id}/details', [Logement::class, 'getInfoLogement'])->where('id', '[0-9]+')->name('details');
     Route::get('/{id}/details_previsu', [Logement::class, 'getInfoLogementPrevisu'])->where('id', '[0-9]+')->name('details_previsu')->middleware(['auth', 'isProprietaire']);
 
-    Route::get('/creation/{page}', [Logement::class, "creation"])->where('page', '[0-8]')->name('creer_logement')->middleware(['auth', 'isProprietaire']);
+    Route::get('/mes-logements', [Logement::class, 'getLogementsProprietaire'])->name('mes_logements')->middleware(['auth', 'isProprietaire']);
+
+    Route::get('/mise_en_ligne_logement', [Logement::class, 'mise_en_ligne_logement'])->name('mise_en_ligne_logement')->middleware(['auth', 'isProprietaire']);
+    Route::post('/creation_base_logement', [Logement::class, 'ajouterLogementDB'])->name('creation_logement')->middleware(['auth', 'isProprietaire']);
+    Route::get('/setHL/{id}', [Logement::class, 'setLogementHorsLigne'])->name('setHL')->middleware(['auth', 'isProprietaire']);
+
 });
 
 Route::prefix('/account')->group(function () {
@@ -55,8 +64,17 @@ Route::prefix('/account')->group(function () {
     Route::get('client/register', [AccountController::class, "inscriptionClient"])->name('inscription_client');
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/client/profil/{id}', [AccountController::class, "compteClient"])->where('id', '[0-9]+')->name('myClientAccount')->middleware(['auth', 'isClient']);
-    Route::get('proprietaire/profil', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
+
+    Route::post('genereCle', [AccountController::class, 'generationCle'])->name('genereCle')->middleware(['auth', 'isClient']);
+    Route::get('deleteCle/{cle}', [AccountController::class, 'deleteCle'])->name('deleteCle')->middleware(['auth', 'isClient']);
+    Route::get('/client/profil/{id}', [AccountController::class, "compteClient"])->name('myClientAccount')->middleware(['auth', 'isClient']);
+    Route::get('/client/profil/{id}#api_chemin', [AccountController::class, "compteClient"])->name('myClientAccountAPI')->middleware(['auth', 'isClient']);
+    
+    Route::get('proprietaire/profil/{id}', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
+    Route::get('proprietaire/profil/{id}#api_chemin', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccountAPI')->middleware(['auth', 'isProprietaire']);
+    Route::post('genereClePro', [AccountController::class, "generationClePro"])->name('genereClePro')->middleware(['auth', 'isProprietaire']);
+    Route::get('deleteClePro/{cle}', [AccountController::class, 'deleteClePro'])->name('deleteClePro')->middleware(['auth', 'isProprietaire']);
+
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
     Route::get('client_register', [AccountController::class,'client_register'])->name('client_register');

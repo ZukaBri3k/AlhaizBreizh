@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class AccountController extends Controller
 {
@@ -57,8 +59,13 @@ class AccountController extends Controller
     }
 
     public function compteClient(Request $request) {
-        $id_personnes = DB::select('select * from personnes where id = ?', [intval($request->id)]);
-        return View("Compte/MonCompteClient" , ['personnes' => DB::select('select * from personnes where id = ?', [intval($id_personnes[0]->id)]) [0]]);
+        if($request->id != auth()->user()->id) {
+            return redirect()->route('accueil');
+        } else {
+            $id_personnes = DB::select('select * from personnes where id = ?', [intval($request->id)]);
+            return View("Compte/MonCompteClient" , ['personnes' => DB::select('select * from personnes where id = ?', [intval($id_personnes[0]->id)]) [0],
+                'cles' => DB::select('select * from cle where id_personnes = ?', [intval($id_personnes[0]->id)])]);
+        }
     }
 
     //--------------------------------------------------------------
@@ -73,13 +80,20 @@ class AccountController extends Controller
         return View('Compte/inscription_proprio');
     }
 
-    public function compteProprietaire() {
-        return View("Compte/MonCompteProprietaire");
+    public function compteProprietaire(Request $request) {
+        if($request->id != auth()->user()->id) {
+            return redirect()->route('accueil');
+        } else { 
+            $id_personnes = DB::select('select * from personnes where id = ?', [intval($request->id)]);
+            return View("Compte/MonCompteProprietaire" , ['personnes' => DB::select('select * from personnes where id = ?', [intval($id_personnes[0]->id)]) [0],
+                'cles' => DB::select('select * from cle where id_personnes = ?', [intval($id_personnes[0]->id)]),
+                'proprietaire' => DB::select('select * from proprietaire where id_proprio = ?', [intval($id_personnes[0]->id)]) [0]]);
+        }
     }
-      //--------------------------------------------------------------
+    //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
 
-        
+        $password = Hash::make($request->password);
         $personne=[
             $request->civilite_pers,
             $request->prenom_pers,
@@ -92,7 +106,7 @@ class AccountController extends Controller
             $request->code_postal_pers,
             $request->date_de_naissance,
             $request->telephone_pers,
-            $request->password,
+            $password,
             $request->iban,
             $role,
             $request->mail_pers,
@@ -100,36 +114,28 @@ class AccountController extends Controller
         ];
 
 
-    DB::insert('insert into personnes(
-        
-        civilite_pers,
-        prenom_pers,
-        nom_pers,
-        pseudo_pers,
-        ville_pers,
-        pays_pers,
-        photo_pers,
-        adresse_pers,
-        code_postal_pers,
-        date_de_naissance,
-        telephone_pers,
-        password,
-        iban,
-        role,
-        mail_pers
-        )values(
+        DB::insert('insert into personnes(
+            
+            civilite_pers,
+            prenom_pers,
+            nom_pers,
+            pseudo_pers,
+            ville_pers,
+            pays_pers,
+            photo_pers,
+            adresse_pers,
+            code_postal_pers,
+            date_de_naissance,
+            telephone_pers,
+            password,
+            iban,
+            role,
+            mail_pers
+            )values(
             ?, ?, ?, ?, ?, ?, ?, 
             ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
-        }
-
-   
-
-
-
-
-
-
+    }
 
     public function proprio_register(Request $request) {
         $this->ajoute_personne($request,2);
@@ -140,6 +146,7 @@ class AccountController extends Controller
             $request->piece_id_proprio_verso,            
             "'".$request->votre_nom_proposition_devis. " " .$request->nom_logement_proposition_devis. " " . $request->nom_client_proposition_devis."'",
         ];
+
         DB::insert('insert into proprietaire(
             id_proprio,
             proposition_auto_devis,
@@ -147,42 +154,83 @@ class AccountController extends Controller
             piece_id_proprio_verso)
             values(
                 ?, ?, ?, ? )',$proprietaire);
-                return redirect()->route('accueil');
-            }
+
+        return redirect()->route('accueil');
+    }
 
 
+    public function client_register(Request $request) {
+        $this->ajoute_personne($request,1);
+        $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
+        $client=[
+            $id_client[0]->id,
+            "'".$request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis."'",
+            "'".$request->nom_prop_acceptation . " " . $request->nom_logement_acceptation . " " . $request->votre_nom_acceptation."'"  ,
+            "'".$request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus."'",
+        ];
+
+        DB::insert('insert into client( 
+            id_client,
+            demande_devis_auto,
+            msg_confirm_devis,
+            msg_refus_devis
+            )values(?, ?, ?, ?)
+            ',$client);
+        return redirect()->route('accueil');
+    }
 
 
+    //--------------------------------------------------------------
 
+    public function generationCle(Request $request) {
+        $id = auth()->user()->id;
+        $cle = rand(10000000, 99999999);
 
+        if ($request->privilege == "prive") {
+            $privi = true;
+        } else {
+            $privi = false;
+        }
 
+        $tabcle = [
+            $cle,
+            $privi,
+            $id
+        ];
 
-            public function client_register(Request $request) {
-                $this->ajoute_personne($request,1);
-                $id_client = DB::select('select id from personnes where mail_pers = ? ',[$request->mail_pers]);
-                $client=[
-                    $id_client[0]->id,
-                    "'".$request->nom_prop_demande_devis. " " . $request->nom_logement_demande_devis . " " . $request->votre_nom_demande_devis."'",
-                    "'".$request->nom_prop_acceptation . " " . $request->nom_logement_acceptation . " " . $request->votre_nom_acceptation."'"  ,
-                    "'".$request->nom_prop_refus . " " .$request->nom_logement_refus." " . $request->votre_nom_refus."'",
-                ];
+        DB::insert('insert into cle(cle, privilege, id_personnes) values(?, ?, ? )', $tabcle);
+        return redirect()->route('myClientAccountAPI', ['id' => $id]);
+    }
 
-                DB::insert('insert into client( 
-                    id_client,
-                    demande_devis_auto,
-                    msg_confirm_devis,
-                    msg_refus_devis
-                    )values(?, ?, ?, ?)
-                    ',$client);
-                    return redirect()->route('accueil');
-                }
+    public function deleteCle(Request $request, $cle) {
+        $id = auth()->user()->id;
+        DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
+        return redirect()->route('myClientAccountAPI', ['id' => $id]);
+    }
 
+    public function generationClePro(Request $request) {
+        $id = auth()->user()->id;
+        $cle = rand(10000000, 99999999);
 
-            }
+        if ($request->privilege == "prive") {
+            $privi = true;
+        } else {
+            $privi = false;
+        }
 
-           
+        $tabcle = [
+            $cle,
+            $privi,
+            $id
+        ];
 
+        DB::insert('insert into cle(cle, privilege, id_personnes) values(?, ?, ? )', $tabcle);
+        return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
+    }
 
-
-
-
+    public function deleteClePro(Request $request, $cle) {
+        $id = auth()->user()->id;
+        DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
+        return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
+    }
+}

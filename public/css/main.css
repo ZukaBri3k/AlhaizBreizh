@@ -8,8 +8,22 @@ CSS de la navbar début
 
 @font-face {
 	font-family: 'Montserrat';
+	src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+	font-family: "Montserrat-Light";
 	font-weight: 400;
-	src: url("{{asset('fonts/Montserrat-Regular.woff2')}}") format(‘woff2’),
+	src: url("/fonts/Montserrat-Light.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
+}
+
+@font-face {
+	font-family: "RocaOne";
+	font-weight: 400;
+	src: url("/fonts/RocaOne-Rg.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
 }
 
 li.separer {
@@ -285,11 +299,13 @@ nav {
 }
 
 #accueil h1{
+    font-family: 'RocaOne';
     text-align: center;
     position: absolute;
     top: 30vh;
     width: 100%;
-    color: #EC3B53;
+    color: #F6F5EE;
+    text-shadow: 0px 0px 10px rgba(236,59,83,0.75);
     font-size: 10vh;
 }
 
@@ -301,30 +317,28 @@ nav {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 100%; 
+    width: 100%;
+    padding-bottom: 50px;
 }
 
-#accueil .liste-card .cardLogement {
+#accueil .liste-card .lienCard {
     margin-left: 5vw;
     margin-top: 5vh;
 }
 
 #accueil .mieuxNote h2 {
+    font-family: 'Montserrat';
     text-align: center;
     color: #EC3B53;
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 #accueil .liste-card {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 50px;
     flex-wrap: wrap;
-}
-
-#accueil .liste-card .card {
-    margin-right: 37.5px;
-    margin-left: 37.5px;
+    padding-right: -5vw;
 }
 
 #accueil .autres .liste-logement{
@@ -335,19 +349,15 @@ nav {
     flex-wrap: wrap;
 }
 
-#accueil .autres .liste-logement .card {
-    margin-bottom: 50px;
-    margin-right: 37.5px;
-    margin-left: 37.5px;
-}
-
 #accueil .autres {
     padding-top: 50px;
 }
 
 #accueil .autres h2 {
+    margin: 50px 0;
+    font-family: 'Montserrat';
     text-align: center;
-    color: #EC3B53;
+    color: rgb(236, 59, 83);
     margin: 0px 50px 50px 50px;
 }
 
@@ -362,6 +372,43 @@ nav {
 
 #accueil footer {
     position: relative;
+}
+
+#accueil .listeBtnTri {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+#accueil .listeBtnTri button {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background-color: #F6F5EE;
+    color: #EC3B53;
+    padding: 5px 15px;
+    font-family: 'Montserrat';
+}
+
+#accueil .listeBtnTri select {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background-color: #F6F5EE;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    padding: 15px;
+    margin: 0 0 0 25px;
+}
+
+#accueil .listeBtnTri button:hover {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background-color: #EC3B53;
+    color: #F6F5EE;
+    padding: 5px 15px;
+    font-family: 'Montserrat';
+    transition: 0.4s;
 }
 
 /***********************************************************************************************************
@@ -381,7 +428,7 @@ CSS du composant Card début
 ***********************************************************************************************************/
 
 .cardLogement {
-    margin: 0 0 5vh 0;
+    margin: 0 0 0 0;
     padding: 0;
     width: 284px;
     height: 389px;
@@ -465,6 +512,247 @@ CSS du composant Card début
 ************************************************************************************************************
 ************************************************************************************************************
 CSS du composant Card fin 
+************************************************************************************************************
+************************************************************************************************************
+***********************************************************************************************************/
+
+/***********************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+CSS de la page mes logements début 
+************************************************************************************************************
+************************************************************************************************************
+***********************************************************************************************************/
+
+.mesLogementsPage {
+    background-color: #F6F5EE;
+}
+
+.mesLogementsPage nav {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.mesLogementsPage .listeMesLogement {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+}
+
+.mesLogementsPage .lienCard {
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    margin-left: 5vw;
+    margin-top: 5vh;
+}
+
+.mesLogementsPage .mesLogements hr {
+    width: 90%;
+    margin: 5vh auto;
+    color: rgba(0,0,0,0.50);
+}
+
+.mesLogementsPage .mesLogements h2 {
+    margin: 50px 0;
+    font-family: 'Montserrat';
+    text-align: left;
+    color: rgb(236, 59, 83);
+    margin: 50px 50px 5px 50px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.mesLogements .logementEnLigne {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mesLogements .btnHL {
+    margin-top: 15px;
+    padding: 5px;
+    background-color: #F6F5EE;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    text-decoration: none;
+    margin-left: 5vw;
+}
+
+.mesLogements .HL {
+    color: #EC3B53;
+    background-color: #F6F5EE;
+    border: 1px solid #EC3B53;
+}
+
+.mesLogements .HL:hover {
+    color: #F6F5EE;
+    background-color: #EC3B53;
+    transition: 0.4s;
+}
+
+.mesLogements .EL {
+    color: #21610B;
+    background-color: #F6F5EE;
+    border: 1px solid #21610B;
+}
+
+.mesLogements .EL:hover {
+    color: #F6F5EE;
+    background-color: #21610B;
+    transition: 0.4s;
+}
+
+.mesDevis {
+    padding: 0 5vw;
+    margin-bottom: 4rem, 0;
+}
+
+.mesLogementsPage .mesDevis h2 {
+    margin-bottom: 5vh;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+}
+
+/***********************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+CSS de la page mes logements fin 
+************************************************************************************************************
+************************************************************************************************************
+***********************************************************************************************************/
+
+
+/***********************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+CSS du composant devis début 
+************************************************************************************************************
+************************************************************************************************************
+***********************************************************************************************************/
+
+.mesLogementsPage .devis {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    margin: 15px 0;
+}
+
+.mesLogementsPage .devis .vignette {
+    width: 10vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mesLogementsPage .devis .vignette img {
+    width: 100%;
+    height: 85%;
+    border-radius: 6px;
+}
+
+.mesLogementsPage .devis .validerDevis{
+    border: 1px solid #21610B;
+    color: #21610B;
+    font-family: 'Montserrat';
+    background-color: #F6F5EE;
+    border-radius: 6px;
+    padding: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.mesLogementsPage .devis .validerDevis:hover{
+    color: #F6F5EE;
+    font-family: 'Montserrat';
+    background-color: #21610B;
+    transition: 0.4s;
+}
+
+.mesLogementsPage .devis .refuserDevis{
+    border: 1px solid #EC3B53;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    background-color: #F6F5EE;
+    border-radius: 6px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.mesLogementsPage .devis .refuserDevis:hover{
+    color: #F6F5EE;
+    font-family: 'Montserrat';
+    background-color: #EC3B53;
+    transition: 0.4s;
+}
+
+.mesLogementsPage .devis strong {
+    font-family: 'Montserrat';
+    color: #EC3B53;
+}
+
+.mesLogementsPage .mesReservations {
+    padding: 0 5vw;
+}
+
+.mesLogementsPage .mesReservations .listeMesReservations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    margin: 15px 0;
+}
+
+.mesLogementsPage .btnTriFiltre {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mesLogementsPage .btnTriFiltre select {
+    margin-right: 2vw;
+}
+
+.mesLogementsPage .btnTriFiltre button, select{
+    border: 1px solid #EC3B53;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    background-color: #F6F5EE;
+    border-radius: 6px;
+    padding: 5px;
+    margin-right: 5vw;
+    text-decoration: none;
+}
+
+.mesLogementsPage .btnTriFiltre button:hover{
+    border: 1px solid #EC3B53;
+    color: #F6F5EE;
+    background-color: #EC3B53;
+    transition: 0.4s;
+}
+
+.mesLogementsPage .mesReservations h2 {
+    margin: 10vh 0;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+}
+
+/***********************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+CSS du composant devis fin 
 ************************************************************************************************************
 ************************************************************************************************************
 ***********************************************************************************************************/

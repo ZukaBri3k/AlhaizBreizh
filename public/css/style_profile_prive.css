@@ -41,6 +41,329 @@ body {
 button {
     border-radius: 6px !important;
     border: 1px solid #EC3B53;
+    background: #F6F5EE;
+    color: #EC3B53;
+    text-align: center;
+    font-family: 'Montserrat' !important;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal !important;
+    letter-spacing: -0.3px;
+    width: 8%;
+    margin-left: 5% !important;
+}
+
+button:hover {
+    background-color: #EC3B53;
+    color: #F6F5EE;
+    transition: 0.5s;
+}
+
+.Titre h1 {
+    font-size: 40px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    font-family: 'Montserrat-Light';
+}
+
+.Profile_Public {
+    border-radius: 20px;
+    background: #EDECE2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    width: 90%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+
+.Profile_Public hr {
+    background: #4BCBFF;
+    border: 1px solid #4BCBFF;
+    width: 5%;
+    opacity: 1;
+    margin-left: 2%;
+}
+
+.Profile_Public h5 {
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 30px;
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: -0.45px;
+    margin-left: 2%;
+    padding-top: 2%;
+}
+
+.pp p {
+    color: #000;
+    font-family: 'Montserrat-Thin';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+}
+
+.pp img {
+    border-radius: 5px;
+    border: 1px solid #909090;
+    background: #FFF;
+    width: 80%;
+}
+
+.pp {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-right: 4%;
+}
+
+.Donnees {
+    display: flex;
+    padding-bottom: 2%;
+    margin-left: 10%;
+}
+
+/**************Partie sur les données de l'utilisateur***************/
+
+.donnees_precise {
+    display: flex;
+    width: 55%;
+    justify-content: center;
+    gap: 8%;
+    flex-direction: column;
+}
+
+.elem p + p {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 80% */
+    letter-spacing: -0.45px;
+}
+
+
+.elem p {
+    color: #000;
+    font-family: 'Montserrat-ExtraLight';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+}
+
+.elem {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: baseline;
+}
+/**************Fin de la partie sur les données de l'utilisateur***************/
+
+.donnees_precise hr {
+    border: 1px solid #000;
+    width: 100%;
+    opacity: 0.3;
+    margin-top: 1%;
+    margin-left: 0%;
+}
+
+.Profile_Privee {
+    border-radius: 20px;
+    background: #EDECE2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    width: 90%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.Profile_Privee hr {
+    background: #4BCBFF;
+    border: 1px solid #4BCBFF;
+    width: 5%;
+    opacity: 1;
+    margin-left: 2%;
+}
+
+.Profile_Privee h5 {
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 30px;
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: -0.45px;
+    margin-left: 2%;
+    padding-top: 2%;
+}
+
+.Profile_Privee .Donnees {
+    display: flex;
+    margin-left: 0%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Profile_Privee .donnees_precise hr {
+    border: 1px solid #000;
+    width: 100%;
+    opacity: 0.3;
+    margin-top: 1%;
+    margin-left: 0%;
+}
+
+.line_info {
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+    letter-spacing: -0.3px;
+    margin-left: 2%;
+    margin-bottom: 3%;
+}
+
+/*Partie sur la clé API*/
+
+.button_api {
+    width: 90%;
+    height: 2.2em;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-left: 0;
+}
+
+.a_api {
+    width: 22% !important;
+}
+
+.button_form {
+    width: 110%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-left: 0;
+    margin-top: 10%;
+}
+
+.radio_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio_form label {
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+    letter-spacing: -0.3px;
+}
+
+.radio_form input {
+    width: 20px;
+    height: 20px;
+    margin-left: 2%;
+}
+
+.radio_form input:hover {
+    cursor: pointer;
+}
+
+.radio_form input:checked {
+    background-color: #EC3B53 !important;
+}
+
+.radio_form div {
+    width: 115%;
+}
+
+.api {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*Fin partie sur la clé API*/
+
+.button_deco {
+    width: 150%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-left: 0 !important;
+}
+
+.element_en_tete {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 6%;
+}
+
+.element_en_tete button{
+    width: 121%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.element_en_tete h1 {
+    font-size: 40px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    font-family: 'Montserrat-Light';
+} 
+
+@font-face {
+	font-family: 'Montserrat';
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+	font-family: "Montserrat-Light";
+	font-weight: 400;
+    src: url("/fonts/Montserrat-Light.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Montserrat-ExtraLight";
+	font-weight: 400;
+    src: url("/fonts/Montserrat-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Montserrat-Thin";
+	font-weight: 400;
+    src: url("/fonts/Montserrat-Thin.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "RocaOne";
+	font-weight: 400;
+    src: url("/fonts/RocaOne-Rg.woff2") format("woff2");
+}
+
+body {
+    background-color: #F6F5EE !important;
+}
+
+.Titre {
+    display: flex;
+    margin-left: 14%;
+    margin-top: 2%;
+}
+
+button {
+    border-radius: 6px !important;
+    border: 1px solid #EC3B53;
     background: #FFF;
     color: #EC3B53;
     text-align: center;
@@ -233,10 +556,16 @@ button:hover {
 /*Partie sur la clé API*/
 
 .button_api {
-    width: 21%;
+    width: 90%;
+    height: 2.6em;
     padding-top: 1%;
     padding-bottom: 1%;
     margin-left: 0;
+}
+
+.a_api {
+    width: 22% !important;
+    margin-right: 3%;
 }
 
 .button_form {
@@ -295,3 +624,98 @@ button:hover {
     margin-left: 0 !important;
 }
 
+.element_en_tete {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 6%;
+}
+
+.element_en_tete button{
+    width: 121%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.element_en_tete h1 {
+    font-size: 40px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    font-family: 'Montserrat-Light';
+} 
+
+/* Styles pour les écrans de taille moyenne (tablette) */
+@media screen and (max-width: 992px) {
+    .Titre {
+        margin-left: 5%;
+    }
+
+    .donnees_precise {
+        width: 100%;
+    }
+
+    .pp img {
+        width: 100%;
+    }
+
+    .donnees_precise hr {
+        margin-left: 0;
+    }
+}
+
+/* Styles pour les écrans de petite taille (smartphones) */
+@media screen and (max-width: 768px) {
+    .Titre {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .Titre button {
+        margin-top: 5%;
+    }
+
+    .Profile_Public,
+    .Profile_Privee,
+    #api_chemin {
+        width: 100%;
+    }
+
+    .donnees_precise {
+        width: 100%;
+        gap: 5%;
+    }
+
+    .donnees_precise hr {
+        margin-left: 0;
+    }
+
+    .donnees_precise p {
+        font-size: 20px;
+    }
+
+    .pp img {
+        width: 100%;
+    }
+
+    .line_info {
+        margin-left: 0;
+    }
+
+    .button_api,
+    .button_form,
+    .button_deco {
+        width: 100%;
+        height: 110%;
+        font-size: 90% !important;
+    }
+
+    .radio_form label {
+        font-size: 18px;
+    }
+
+    .radio_form div {
+        width: 100%;
+    }
+}

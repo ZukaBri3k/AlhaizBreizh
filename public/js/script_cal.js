@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   $("#validate-button").on("click", function() {
-    var events = calendar.getEvent();
+    var events = calendar.getEvents();
     alert(events);
     if (events.length > 0) {
         var startDate = events[0].start;

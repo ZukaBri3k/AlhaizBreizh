@@ -77,7 +77,7 @@ class Logement extends Controller
         $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement, auth()->user()->id]);
 
         //dd($request->file("image-upload2"));
-        Storage::disk('logements')->put("logement" . $id_logement[0]->id_logement . "/couverture.jpg", $request->file("image-upload1"));
+        Storage::disk('logements')->put("logement" . $id_logement[0]->id_logement, $request->file("couverture"));
 
         return redirect()->route('details_previsu', ['id' => $id_logement[0]->id_logement]);
     }
@@ -97,11 +97,14 @@ class Logement extends Controller
 
     public function getInfoLogementPrevisu(Request $request) {
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
-        return View("logement/details_logement_previsu" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
+        return View("logement/details_logement_previsu" , 
+        ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)])]);
+        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
+        'photo_couverture' => Storage::disk('logements')->get("logement" . $request->id . "/couverture.jpg")
+    ]);
     }
 
     public function getLogementsProprietaire(Request $request) {

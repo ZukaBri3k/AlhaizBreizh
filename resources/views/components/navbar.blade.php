@@ -347,9 +347,11 @@ function removeBlur() {
         removeBlur();
     });
 
-    document.getElementById('blur-background').addEventListener('click', function() {
-        document.getElementById('popup').style.display = 'none';
-        removeBlur();
+    document.getElementById('blur-background').addEventListener('click', function(event) {
+        if (event.target.id === 'blur-background') {
+            document.getElementById('popup').style.display = 'none';
+            removeBlur();
+        }
     });
 });
 
@@ -370,6 +372,7 @@ function removeBlur() {
         }
     });
 }
+
 
 </script>
     <div id="blur-background" class="blur-background"></div>
@@ -535,9 +538,11 @@ function removeBlur() {
         removeBlur();
     });
 
-    document.getElementById('blur-background').addEventListener('click', function() {
-        document.getElementById('popup').style.display = 'none';
-        removeBlur();
+    document.getElementById('blur-background').addEventListener('click', function(event) {
+        if (event.target.id === 'blur-background') {
+            document.getElementById('popup').style.display = 'none';
+            removeBlur();
+        }
     });
 });
 

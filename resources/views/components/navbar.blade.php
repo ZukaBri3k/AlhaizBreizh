@@ -158,6 +158,11 @@
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
 });
 
 function applyBlur() {
@@ -335,6 +340,11 @@ function removeBlur() {
     });
 
     document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });
@@ -518,6 +528,11 @@ function removeBlur() {
     });
 
     document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        removeBlur();
+    });
+
+    document.getElementById('blur-background').addEventListener('click', function() {
         document.getElementById('popup').style.display = 'none';
         removeBlur();
     });

@@ -134,7 +134,7 @@
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cle->cle . "</p>
-                                    <input type="button" value="Copier" class="js-copy" data-target="#tocopy">
+                                    <input type='button' value='Copier' class='js-copy' data-target='#tocopy'>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";

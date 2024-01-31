@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
             $.ajax({
               url: "ajouter-evenements",
               type: "POST",
-              dataType: 'text',
+              dataType: 'json',
+              contentType :'json',
               data: { date: date },  // Utiliser 'date' plutôt que 'events'
               success: function(response) {
                   console.log("Réponse du serveur:", response);

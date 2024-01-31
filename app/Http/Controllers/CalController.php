@@ -14,6 +14,7 @@ class CalController extends Controller
 {
     $date = $request->input('events');
      $formattedDate = Carbon::parse($date)->format('Y-m-d H:i:s');
+     dd($formattedDate);
    
 
         

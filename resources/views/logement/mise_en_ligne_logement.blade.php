@@ -496,7 +496,7 @@
     <div id="gauche_page_8">
         <h2 class="section-title" id="titre_gauche_page_8">Quel sera la photo de couverture de votre logement ? *</h2>
         <div class="image-upload-container">
-            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="image-upload1">
+            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="image-upload1" required="required">
             <label for="image-upload1" class="custom-button">Importer l'image</label>
             <div class="selected-image" id="selected-image1"></div>
           </div>

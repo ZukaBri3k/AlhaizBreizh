@@ -99,4 +99,3 @@ Route::get('/mentions_legales', function () {
 Route::get("/spawnLink", function () {
     Artisan::call('storage:link');
 });
-

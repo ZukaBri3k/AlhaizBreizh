@@ -164,6 +164,7 @@
                                 swal({
                                     title: "Succès",
                                     text: "Votre clé API à été créer avec succès.",
+                                    icon: "success",
                                     button: {
                                         text: "OK",
                                         closeModal: true,

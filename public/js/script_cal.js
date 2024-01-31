@@ -76,14 +76,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (startDate) {
             console.log("Test de startDate:", startDate);
-            var date = startDate;
+            var date = startDate.toISOString();
             console.log("Date à envoyer:", date);
             console.log("Événements à envoyer:", events);
 
             $.ajax({
                 url: "{{ route('ajouter-evenements') }}",
                 type: "POST",
-                data: { events: date },
+                data: { date: date },
                 success: function(response) {
                     console.log("Réponse du serveur:", response);
                     alert(response.message);

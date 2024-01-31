@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+<x-Navbar></x-Navbar>
     <div>
         <h1>Mentions légales</h1>
 
@@ -57,5 +58,6 @@
             destinataires actifs de notre service dans l'Union européenne, conformément à l'article 24, paragraphe 2, du DSA.
         </p>
     </div>
+    <x-FooterClient></x-FooterClient>
 </body>
 </html>

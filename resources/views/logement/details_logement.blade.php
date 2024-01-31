@@ -27,7 +27,7 @@
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                 
                 <div>
-                  @for($j = $i + 1; $j < intval($nb_photo) && $counter < 1; $j++)
+                  @for($j = $i + 1; $j < intval($nb_photo)-1 && $counter < 2; $j++)
                     @php $counter++; @endphp
                     <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
                   @endfor

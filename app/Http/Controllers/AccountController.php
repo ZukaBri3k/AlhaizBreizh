@@ -197,7 +197,7 @@ class AccountController extends Controller
         return redirect()->route('myClientAccountAPI', ['id' => $id]);
     }
 
-    public function deleteCle(Request $request, $cle) {
+    public function deleteCle(Request $request) {
         $id = auth()->user()->id;
         $cle = urldecode($request->query('cle'));
         dd($cle);

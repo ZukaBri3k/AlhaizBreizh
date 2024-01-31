@@ -284,7 +284,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     </div>
 
     <div id="droite_page_5">
-        <h2>Quels équipements propose votre logement ?</h2>
+        <h2 id="titre_droite_page_5">Quels équipements propose votre logement ?</h2>
         <div class="button-row">
             <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Wifi">
                 <div class="image-container">

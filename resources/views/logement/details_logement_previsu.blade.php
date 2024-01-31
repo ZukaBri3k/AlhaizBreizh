@@ -22,6 +22,7 @@
                 <div>
                   <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                 </div>
+              @endfor
             </div>
             @for($i = 1; $i <= intval($nb_photo); $i++)
               <div class="carousel-item">

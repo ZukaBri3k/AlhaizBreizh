@@ -15,7 +15,7 @@
         <div id="texte_page_1" >
             <h2 class="texte_justifie">Dites nous tout sur votre logement !</h2>
             <br>   
-            <p class="texte_justifie">Remplisser ce formulaire afin d'ajouter votre logement à ce site, les champs dont le titre sont marqués d'un * (Astérisque) sont obligatoires.</p>
+            <p class="texte_justifie">Remplisser ce formulaire afin d'ajouter <br>votre logement à ce site, les champs dont le titre sont marqués d'un * (Astérisque) sont obligatoires.</p>
         </div>
             <div id="footer">
                 <button  type="button" id="retour_page_1" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   

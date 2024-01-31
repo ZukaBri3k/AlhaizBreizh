@@ -259,6 +259,7 @@ body {
     width: 50%;
     height: 680px;
     border-right: 1px solid black;
+    padding-left: 2%;
 }
 #colonne_droite_page_3{
     margin-left: 5%;
@@ -329,11 +330,13 @@ textarea {
     border-radius: 20px;
     padding: 10px;
     margin-bottom: 10px;
+    margin-left: 2%
 }
 
 .chambre h4 {
     font-size: 20px;
     margin-bottom: 5px;
+
 }
 
 .chambre input,

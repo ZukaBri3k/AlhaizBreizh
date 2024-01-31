@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var startDate = events[0].start;
         alert(startDate);
         if (startDate) {
+          alert( "test",startDate)
             var date = startDate.toISOString();
             alert("Date à envoyer:", date);
             alert("Evénements:", events);

@@ -133,7 +133,7 @@
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var images = ['{{asset('/img/beau.png')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {
@@ -313,7 +313,7 @@ function removeBlur() {
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var images = ['{{asset('/img/beau.png')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {
@@ -496,7 +496,7 @@ function removeBlur() {
   // Call checkInput to set the initial state of the button
   checkInput();
 
-  var images = ['{{asset('/img/beau.jpg')}}', '{{asset('/img/tresbeau.png')}}'];
+  var images = ['{{asset('/img/beau.png')}}', '{{asset('/img/tresbeau.png')}}'];
   var index = 0;
 
   function changeBackground() {

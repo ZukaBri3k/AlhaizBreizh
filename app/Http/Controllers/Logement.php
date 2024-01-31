@@ -106,7 +106,7 @@ class Logement extends Controller
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
-        'photo_couverture' => Storage::disk('logements')->url("logement" . $request->id . "/couverture.jpg")
+        'photo_couverture' => "storage/logements/logement" . $request->id . "/couverture.jpg",
     ]);
     }
 

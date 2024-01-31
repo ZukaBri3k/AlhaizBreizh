@@ -12,9 +12,6 @@ class Logement extends Controller
 {
     public function ajouterLogementDB(Request $request) {
 
-        dd($request->file("image-upload2"));
-        //Storage::disk('logement')->put();
-
         $tab = [
             $request->libelle_logement,
             $request->accroche_logement,
@@ -78,6 +75,10 @@ class Logement extends Controller
         ?, ?, ?, ?, ?, ?, ?)', $tab);
 
         $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement, auth()->user()->id]);
+
+        //dd($request->file("image-upload2"));
+        Storage::disk('logements')->put("logement" . $id_logement[0]->id_logement . "/couverture.jpg", $request->file("image-upload1"));
+
         return redirect()->route('details_previsu', ['id' => $id_logement[0]->id_logement]);
     }
 

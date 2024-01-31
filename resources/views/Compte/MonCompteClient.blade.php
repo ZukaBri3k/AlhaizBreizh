@@ -136,7 +136,7 @@
                         //Ici je réduis la clé API pour qu'elle passe dans l'affchage
                         $cleShort = strlen($cle->cle) > 6 ? substr($cle->cle, 0, 6) . '...' : $cle->cle;
                         //Ici je prend la route et je passe la route avec l'argument de la clé a supprimer
-                        $url = route('deleteCle', ['cle' => $cle->cle]);
+                        $url = route('deleteCle', ['cle' => urlencode($cle->cle)]);
                         if ($cle->privilege == false) {
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>

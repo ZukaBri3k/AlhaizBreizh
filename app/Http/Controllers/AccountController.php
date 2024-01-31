@@ -220,7 +220,7 @@ class AccountController extends Controller
         return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
     }
 
-    public function deleteClePro(Request $request, $cle) {
+    public function deleteClePro(Request $request) {
         $id = auth()->user()->id;
         $cle = urldecode($request->query('cle'));
         $cle = str_replace(' ', '+', $cle);

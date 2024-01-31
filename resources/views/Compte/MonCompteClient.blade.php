@@ -135,7 +135,7 @@
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cle->cle . "</p>
-                                    <button onclick='copierTexte(event, $cleEscaped)' >Copier le texte</button>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")' >Copier le texte</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
@@ -145,7 +145,7 @@
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
                                     <p>" . $cle->cle . "</p>
-                                    <button onclick='copierTexte(event, $cleEscaped)'>Copier le texte</button>
+                                    <button onclick='copierTexte(event, \"$cleEscaped\")'>Copier le texte</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";

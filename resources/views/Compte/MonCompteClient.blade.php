@@ -273,7 +273,7 @@
                     var url = this.href;
 
                     Swal.fire({
-                        title: "Êtes vous sûr de vouloir vous déconnecter ?",
+                        title: "Êtes vous sûr de vouloir vous déconnectez ?",
                         text: "Cette action n'est pas réversible !",
                         icon: "warning",
                         showCancelButton: true,

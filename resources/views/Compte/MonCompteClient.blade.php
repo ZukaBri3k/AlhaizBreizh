@@ -232,6 +232,9 @@
                         confirmButtonColor: "#21610B",
                         confirmButtonText: "OK",
                         background: '#F6F5EE',
+                        customClass: {
+                            title: 'generation_cle'
+                        }
                     }).then((result) => {
                         if (result.isConfirmed) {
                             this.submit();

@@ -12,10 +12,9 @@ class CalController extends Controller
 {
     public function ajouterEvenementDB(Request $request)
 {
-        
-        $date = $request->input('events'); 
-        dd ($date);
-        $formattedDate = Carbon::parse($date)->format('Y-m-d'); 
+    $date = $request->input('events');
+    $formattedDate = Carbon::parse($date)->format('Y-m-d');
+    dd($formattedDate);
 
         
         DB::table('calendrier')->insert([

@@ -184,9 +184,11 @@
                                 text: "Cette action n'est pas réversible !",
                                 icon: "warning",
                                 showCancelButton: true,
-                                confirmButtonColor: "#3085d6",
-                                cancelButtonColor: "#d33",
-                                confirmButtonText: "Oui la supprimer !"
+                                confirmButtonColor: "#21610B",
+                                cancelButtonColor: "#EC3B53",
+                                background: '#F6F5EE',
+                                cancelButtonText: "Annuler",
+                                confirmButtonText: "Confirmer"
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     return Swal.fire({

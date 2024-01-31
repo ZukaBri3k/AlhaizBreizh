@@ -368,7 +368,7 @@ button:hover {
 }
 
 .button_copie {
-    width: 10%;
+    width: 12%;
     height: 2.1em;
     padding-top: 1%;
     padding-bottom: 1%;
@@ -390,7 +390,7 @@ button:hover {
 
 .swal2-popup {
     color: #000;
-    font-family: 'Montserrat-Light';
+    font-family: 'Montserrat-ExtraLight';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;

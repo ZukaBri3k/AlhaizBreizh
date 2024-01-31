@@ -29,7 +29,7 @@
         <div class="footer-column">
             <h3>Qui sommes-nous ?</h3>
             <ul>
-                <li><a href="#">Équipe</a></li>
+                <li><a href="{{route ('mentions_legales')}}">Mentions légales</a></li>
                 <li><a href="#">Partenaires</a></li>
                 <li><a href="#">Carrières</a></li>
             </ul>
@@ -76,7 +76,7 @@
         <div class="footer-column">
             <h3>Qui sommes-nous ?</h3>
             <ul>
-                <li><a href="#">Équipe</a></li>
+                <li><a href="{{route ('mentions_legales')}}">Mentions légales</a></li>
                 <li><a href="#">Partenaires</a></li>
                 <li><a href="#">Carrières</a></li>
             </ul>
@@ -124,7 +124,7 @@
         <div class="footer-column">
             <h3>Qui sommes-nous ?</h3>
             <ul>
-                <li><a href="#">Équipe</a></li>
+                <li><a href="{{route ('mentions_legales')}}">Mentions légales</a></li>
                 <li><a href="#">Partenaires</a></li>
                 <li><a href="#">Carrières</a></li>
             </ul>

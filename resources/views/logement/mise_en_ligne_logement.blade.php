@@ -514,13 +514,13 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Écouteur d'événements pour les changements dans les champs de fichier
-        document.querySelectorAll('#images_colonne_gauche .image-upload').forEach(function(input) {
-            input.addEventListener('change', function() {
-                var container = input.parentElement;
+        // Fonction pour ajouter un écouteur d'événement au bouton d'importation d'image
+        function addEventListenerToNewButton(newInput) {
+            newInput.addEventListener('change', function() {
+                var container = newInput.parentElement;
 
                 // Vérifier s'il y a moins de 10 boutons et si le champ de fichier n'est pas vide
-                if (container.nextElementSibling == null && document.querySelectorAll('.image-upload').length < 10 && input.files.length > 0) {
+                if (container.nextElementSibling == null && document.querySelectorAll('.image-upload').length < 10 && newInput.files.length > 0) {
                     // Créer un nouvel élément div pour le conteneur du prochain bouton
                     var newContainer = document.createElement('div');
                     newContainer.classList.add('image-upload-container');
@@ -548,11 +548,20 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 
                     // Ajouter le nouveau conteneur d'importation d'image à la page
                     container.after(newContainer);
+
+                    // Ajouter un écouteur d'événements au nouveau bouton
+                    addEventListenerToNewButton(newInput);
                 }
             });
+        }
+
+        // Ajouter des écouteurs d'événements à tous les boutons d'importation d'image initiaux
+        document.querySelectorAll('#images_colonne_gauche .image-upload').forEach(function(input) {
+            addEventListenerToNewButton(input);
         });
     });
 </script>
+
 
          
     </div>

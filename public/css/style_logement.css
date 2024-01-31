@@ -190,7 +190,10 @@ body{
     flex: 1;
     height: 0px;
 }
+#titre_page_4{
+	margin-left:1%;
 
+}
 .image-container img {
     width: 100%;
     height: auto;

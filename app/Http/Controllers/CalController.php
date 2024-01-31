@@ -13,19 +13,27 @@ class CalController extends Controller
     public function ajouterEvenementDB(Request $request)
 {
     $date = $request->input('events');
+if ($date) {
     dd($date);
-     $formattedDate = Carbon::parse($date)->format('Y-m-d H:i:s');
-     
-   
-
-        
-        DB::table('calendrier')->insert([
+    $formattedDate = Carbon::parse($date)->format('Y-m-d H:i:s');
+    DB::table('calendrier')->insert([
             'statut_propriete' =>false,
             'jour' => $formattedDate,
             'disponibilite' => false,
 
             // ... autres colonnes ...
         ]);
+} else {
+    dd($date);
+}
+    
+    
+    
+     
+   
+
+        
+        
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     }
     public function enregistrerEvenement(Request $request)

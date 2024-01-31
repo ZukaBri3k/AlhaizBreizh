@@ -29,6 +29,33 @@
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
                     @php }
                     @endphp
+                    <script>
+                        let logement = document.querySelector(".btnHL");
+
+                        logement.foreach((btn) => {
+                            btn.addEventListener("beforeunload", () => {
+                                Swal.fire({
+                                    title: 'Êtes-vous sûr ?',
+                                    text: "Vous ne pourrez pas revenir en arrière !",
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Oui, je suis sûr !'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        Swal.fire(
+                                        'Supprimé !',
+                                        'Votre logement a bien été supprimé.',
+                                        'success'
+                                        )
+                                    } else {
+                                        event.preventDefault();
+                                    }
+                                })
+                            });
+                        });
+                    </script>
                 </div>
             @endforeach
             @php 

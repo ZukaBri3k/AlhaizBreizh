@@ -19,23 +19,24 @@
             <div class="carousel-item active">
               <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
               <div>
-                @for($i = 0; $i < intval($nb_photo) && $i < 3; $i++)
+                @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
                     <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                 @endfor
               </div>
             </div>
-            @for($i = 0; $i < intval($nb_photo); $i++)
+            @for($i = 1; $i < intval($nb_photo); $i++)
+              @php $counter = 0; @endphp
               <div class="carousel-item">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                 
                 <div>
-                  @for($j = $i + 1; $j < intval($nb_photo) && $j < $i + 2; $j++)
+                  @for($j = $i + 1; $j < intval($nb_photo) && $counter <= 2; $j++)
+                    @php $counter++; @endphp
                     <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
                   @endfor
-                </div>
 
-                <div>
-                  @for($j = 0; $j < $i; $j++)
+                  @for($j = 0; $j < $i && $counter <= 2; $j++)
+                    @php $counter++; @endphp
                     <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
                   @endfor
                 </div>

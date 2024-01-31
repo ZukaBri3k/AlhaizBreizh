@@ -141,6 +141,7 @@
                                 <hr>";
                         } else {
                             $url = route('deleteCle', ['cle' => $cle->cle]);
+                            $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
                                     <p>" . $cle->cle . "</p>

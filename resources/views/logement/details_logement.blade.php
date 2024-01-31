@@ -16,12 +16,12 @@
             <div class="carousel-item active">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
                 <div>
-                  @for($i = 1; $i < intval($nb_photo) && $i < 2; $i++)
+                  @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
                       <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                   @endfor
                 </div>
             </div>
-            @for($i = 1; $i < intval($nb_photo); $i++)
+            @for($i = 1; $i < intval($nb_photo)-1; $i++)
               @php $counter = 0; @endphp
               <div class="carousel-item">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">

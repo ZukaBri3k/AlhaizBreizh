@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $.ajax({
             url: "/ajouter-evenements",
             type: "POST",
-            data: JSON.stringify({ events: new Date(date) }), 
+            data: JSON.stringify({ events: new Date(teste) }), 
             contentType: "application/json",
             success: function(response) {
                 alert(response.message);

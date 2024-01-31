@@ -151,14 +151,8 @@
                     }
                 @endphp
                 <script>
-                    console.log('test');
-                    var btncopy = document.querySelector('.js-copy');
-                    if(btncopy) {
-                        btncopy.addEventListener('click', docopy);
-                    }
-
                     function docopy() {
-
+                        console.log('test');
                         // Cible de l'élément qui doit être copié
                         var target = this.dataset.target;
                         var fromElement = document.querySelector(target);
@@ -191,6 +185,10 @@
                         } else if (typeof selection.removeAllRanges === 'function') {
                             selection.removeAllRanges();
                         }
+                    }
+                    var btncopy = document.querySelector('.js-copy');
+                    if(btncopy) {
+                        btncopy.foreach((btn) => {btn.addEventListener('click', docopy)});
                     }
                 </script>
             </div>

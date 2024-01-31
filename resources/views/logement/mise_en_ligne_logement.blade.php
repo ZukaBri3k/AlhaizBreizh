@@ -501,17 +501,19 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
           </div>
       
     </div>
-    <div id="droite_page_8">
-        <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
-        <div id="division_colonnes_droite">
-            <div id="images_colonne_gauche">
-                <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2">
-                    <label for="image-upload2" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image2"></div>
-                  </div>
+<div id="droite_page_8">
+    <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
+    <div id="division_colonnes_droite">
+        <div id="images_colonne_gauche">
+            <div class="image-upload-container">
+                <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2">
+                <label for="image-upload2" class="custom-button">Importer l'image</label>
+                <div class="selected-image" id="selected-image2"></div>
             </div>
         </div>
+    </div>
+</div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Fonction pour ajouter un écouteur d'événement au bouton d'importation d'image

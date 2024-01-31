@@ -161,11 +161,20 @@
                     copierTexte = (e, cle) => {
                         e.preventDefault()
                             navigator.clipboard.writeText(cle).then(() => {
-                                swal({
-                                    title: "Succès",
-                                    text: "Votre clé API à été créer avec succès.",
-                                    icon: "success",
-                                    button: "Ok",
+                                const Toast = Swal.mixin({
+                                toast: true,
+                                position: "top-end",
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.onmouseenter = Swal.stopTimer;
+                                    toast.onmouseleave = Swal.resumeTimer;
+                                }
+                                });
+                                Toast.fire({
+                                icon: "success",
+                                title: "Signed in successfully"
                                 });
                             })
                     }

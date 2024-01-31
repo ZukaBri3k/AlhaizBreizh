@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (startDate) {
             console.log("Test de startDate:", startDate);
-            var date = startDate.toISOString();
+            var date = startDate;
             console.log("Date à envoyer:", date);
             console.log("Événements à envoyer:", events);
 

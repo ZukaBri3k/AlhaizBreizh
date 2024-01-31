@@ -128,23 +128,22 @@
         <div class="Donnees">
             <div class="donnees_precise">
                 @php
+                $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
+                $cleShort = strlen($cle->cle) > 6 ? substr($cle->cle, 0, 6) . '...' : $cle->cle;
+                $url = route('deleteCle', ['cle' => $cle->cle]);
                     foreach ($cles as $cle) {
                         if ($cle->privilege == false) {
-                            $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
-                            $url = route('deleteCle', ['cle' => $cle->cle]);
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                    <p>" . $cle->cle . "</p>
+                                    <p>" . $cleShort . "</p>
                                     <button onclick='copierTexte(event, \"$cleEscaped\")' >Copier le texte</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         } else {
-                            $url = route('deleteCle', ['cle' => $cle->cle]);
-                            $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
-                                    <p>" . $cle->cle . "</p>
+                                    <p>" . $cleShort . "</p>
                                     <button onclick='copierTexte(event, \"$cleEscaped\")'>Copier le texte</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>

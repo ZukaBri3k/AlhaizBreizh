@@ -134,7 +134,7 @@
 
                         //Ici je prend la route et je passe la route avec l'argument de la clé a supprimer
                         $url = route('deleteCle') . '?cle=' . urlencode($cle->cle);
-                        
+
                         if ($cle->privilege == false) {
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -241,6 +241,7 @@
     </div>
 
     <x-FooterClient></x-FooterClient>
+    <script src="{{asset('js/script_compte_api.js')}}"></script>
     <script src="https://unpkg.com/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

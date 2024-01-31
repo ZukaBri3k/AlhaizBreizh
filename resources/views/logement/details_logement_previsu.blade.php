@@ -18,29 +18,12 @@
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
               <img src="{{ asset('storage/logement' . $logement->id_logement . '/couverture.jpg') }}" class="d-block w-100">
-              @for($i = 1; $i < intval($nb_photo); $i++)
-                <div>
-                  <img src="{{asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
-                </div>
-              @endfor
-              <div>
-              <img src="{{asset('storage/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              </div>
             </div>
-            <div class="carousel-item">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img1.jpg')}}" class="d-block w-100">
+            @for($i = 1; $i < intval($nb_photo); $i++)
+              <div class="carousel-item">
+                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
               </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img1.jpg')}}" class="d-block w-100">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              </div>
-            </div>
+            @endfor
           </div>
       </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

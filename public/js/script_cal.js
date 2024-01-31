@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     var events = calendar.getEvents();
     let teste = document.getElementById('eventsInput').value = events.join(';')
-    $("#hidden-button").val(JSON.stringify({ events: new Date(teste) })).trigger('click');
+    $("#hidden-button").val(teste).trigger('click');
     console.log(teste);
   });
 

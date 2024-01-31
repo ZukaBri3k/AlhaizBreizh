@@ -513,15 +513,15 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             </div>
         </div>
 <script>
-    <script>
+   <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Écouteur d'événements pour les changements dans les champs de fichier
-        document.querySelectorAll('.image-upload').forEach(function(input) {
+        document.querySelectorAll('#images_colonne_gauche .image-upload').forEach(function(input) {
             input.addEventListener('change', function() {
                 var container = input.parentElement;
 
                 // Vérifier s'il y a moins de 10 boutons et si le champ de fichier n'est pas vide
-                if (document.querySelectorAll('.image-upload').length < 10 && input.files.length > 0) {
+                if (container.nextElementSibling == null && document.querySelectorAll('.image-upload').length < 10 && input.files.length > 0) {
                     // Créer un nouvel élément div pour le conteneur du prochain bouton
                     var newContainer = document.createElement('div');
                     newContainer.classList.add('image-upload-container');
@@ -555,7 +555,6 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     });
 </script>
 
-</script>
          
     </div>
     <div id="footer">

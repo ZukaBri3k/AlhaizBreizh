@@ -17,7 +17,7 @@
       <div id="carouselExampleIndicators" class="carousel slide">
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
-              <img src="{{ asset('$photo_couverture') }}" class="d-block w-100">
+              <img src="{{ asset('storage/logements/logement' . $logement->id_logement . '/couverture.jpg') }}" class="d-block w-100">
               <div>
               <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
               <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">

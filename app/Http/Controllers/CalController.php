@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 use App\Models\calendrier; 
 use Illuminate\Support\Facades\DB;
@@ -10,22 +11,38 @@ use Illuminate\Support\Facades\DB;
 class CalController extends Controller
 {
     public function ajouterEvenementDB(Request $request)
-    {
-        $date = $request->input('date');
-        $statut = $request->input('statut'); 
+{
+        
+        $date = $request->input('events'); 
+        dd ($date);
+        $formattedDate = Carbon::parse($date)->format('Y-m-d'); 
 
-        // Mettez à jour la table "calendrier" pour marquer les jours comme non disponibles.
-        $joursIndisponibles = $this->getJoursIndisponibles($date);
+        
+        DB::table('calendrier')->insert([
+            'statut_propriete' =>false,
+            'jour' => $formattedDate,
+            'disponibilite' => false,
 
-        // Assurez-vous que votre logique de mise à jour de la disponibilité est correcte
-        // Notez que vous devez adapter cette logique à votre modèle de base de données.
-        if ($statut === 'indisponible') {
-            DB::table('calendrier')->whereIn('jour', $joursIndisponibles)->update(['disponibilite' => false]);
-        } elseif ($statut === 'reserve') {
-            // Si c'est réservé, mettez également à jour la disponibilité à false
-            DB::table('calendrier')->whereIn('jour', $joursIndisponibles)->update(['disponibilite' => false]);
-        }
-
+            // ... autres colonnes ...
+        ]);
         return response()->json(['message' => 'Événement ajouté avec succès à la base de données.']);
     }
-}
+    public function enregistrerEvenement(Request $request)
+    {
+        $date = $request->input('events');
+        
+        // Traitement de la date si nécessaire
+        $formattedDate = Carbon::parse($date)->format('Y-m-d H:i:s');
+        
+        // Log pour vérification
+        Log::info('Date reçue côté serveur : ' . $formattedDate);
+    
+        // Autres opérations avec la date...
+    
+        return response()->json(['message' => 'Événement enregistré avec succès.']);
+    }
+    }
+       
+    
+
+

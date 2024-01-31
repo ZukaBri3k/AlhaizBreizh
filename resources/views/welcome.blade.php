@@ -60,27 +60,10 @@
                         conteneurCard.appendChild(carte);
                     });    
                 }
-
-                function filtre() {
-                    let ListeCard = document.querySelectorAll(".autres .lienCard");
-                    let tabCard = Array.from(ListeCard);
-                    let selectionFiltre = document.querySelector("#selectionFiltre");
-                    let filtre = selectionFiltre.value;
-
-                    tabCard.forEach((carte) => {
-                        if (filtre == "Aucun") {
-                            carte.style.display = "block";
-                        }else if(carte.classList[2] != filtre) {
-                            carte.style.display = "none";
-                        } else {
-                            carte.style.display = "block";
-                        }
-                    });
-                }
             </script>
             <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
             <select id="selectionFiltre">
-                <option value="Aucun">Aucun</option>
+                <option value="Aucun">Tous</option>
                 <option value="Appartement">Appartements</option>
                 <option value="Villa">Villa</option>
                 <option value="Maison">Maison</option>
@@ -90,12 +73,44 @@
                 <option value="Cabane">Cabane</option>
                 <option value="Caravane">Caravane</option>
             </select>
-            <button id="btnFiltre" onclick="filtre()">Filtrer les résultats</button>
         </div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)
                 <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
             @endforeach
+            <p id="msgFiltreVide" style="display: none;">Aucun logement ne correspond à vos critères de recherche</p>
+            <script>
+                function filtre() {
+                    let ListeCard = document.querySelectorAll(".autres .lienCard");
+                    let tabCard = Array.from(ListeCard);
+                    let selectionFiltre = document.querySelector("#selectionFiltre");
+                    let filtre = selectionFiltre.value;
+                    let counter = 0;
+
+                    tabCard.forEach((carte) => {
+                        if (filtre == "Aucun") {
+                            carte.style.display = "block";
+                            counter++;
+                        }else if(carte.classList[2] != filtre) {
+                            carte.style.display = "none";
+                        } else {
+                            carte.style.display = "block";
+                            counter++;
+                        }
+                    });
+
+                    let msgFiltreVide = document.querySelector("#msgFiltreVide");
+
+                    if(counter == 0) {
+                        msgFiltreVide.style.display = "block";
+                    } else {
+                        msgFiltreVide.style.display = "none";
+                    }
+                }
+
+                let select = document.getElementById("selectionFiltre");
+                select.addEventListener("change", filtre);
+            </script>
         </div>
     </section>
 

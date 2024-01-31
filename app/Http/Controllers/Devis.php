@@ -26,18 +26,115 @@ class Devis extends Controller
     }
 
     public function validationDevis (Request $request) {
-        DB::update('update devis set etat_devis = true where ref_devis = 6');
-        return redirect()->route('paiement');
+        DB::update('update devis set etat_devis = true where ref_devis = ?', [$request->id_devis]);
+        return redirect()->back();
     }
 
     public function refusDevis (Request $request) {
-        DB::update('update devis set etat_devis = false where ref_devis = 6');
-        return redirect()->route('devis-client');
+        DB::delete('delete from reservation where id_reserv = ?', [$request->id_reserv]);
+        DB::delete('delete from devis where ref_devis = ?', [$request->id_devis]);
+        return redirect()->back();
     }
 
-    public function demandeDevis (Request $request) {
-        DB::update('update devis set etat_devis = false where ref_devis = 6');
-        return redirect()->route('devis-client');
+    public function demande_devis (Request $request) {
+        $client = DB::select('select * from personnes where id = ?', [Auth::user()->id]);
+
+        if($client[0]->role == 1 && $request->dateDebut < $request->dateFin) {
+
+            $id_logement = $request->id_logement;
+    
+            $dateDebut = strtotime($request->dateDebut);
+            $dateFin = strtotime($request->dateFin);
+
+            $nombreDeSecondes = $dateFin - $dateDebut;
+
+            $nombreDeJours = $nombreDeSecondes / (60 * 60 * 24);
+    
+            $prixtot = $nombreDeJours * $request->prix_tot;
+            $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [$id_logement]);
+    
+            $tabDevis = [
+                NULL,
+                $request->dateDebut,
+                $request->dateFin,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                $prixtot,
+                NULL,
+                false,
+                NULL,
+                NULL,
+                auth()->user()->id,
+                $id_proprio[0]->id_proprio_logement
+            ];
+
+            DB::insert('insert into devis (
+                nb_pers,
+                date_deb,
+                date_fin,
+                date_em,
+                date_val,
+                annul,
+                charges_ht,
+                sous_tot_ht,
+                sous_tot_ttc,
+                frais_serv_ht,
+                frais_serv_ttc,
+                taxe_de_sejour,
+                prix_tot,
+                delai,
+                etat_devis,
+                heure_arriv,
+                heure_depart,
+                id_client_devis,
+                id_proprio
+                ) values (
+                ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+                )', $tabDevis);
+
+                $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id, $request->dateDebut, $request->dateFin]);
+
+                $tabReservation = [
+                    $id_logement,
+                    false,
+                    NULL,
+                    $client[0]->mail_pers,
+                    $devis[0]->ref_devis,
+                    NULL,
+                    NULL,
+                    NULL,
+                    NULL,
+                    NULL,
+                    NULL,
+                    NULL
+                ];
+                DB::insert('insert into reservation (
+                    id_logement_reserv,
+                    confirm_reserv,
+                    cgv_reserv,
+                    mail_reserv,
+                    facture_reserv,
+                    num_carte,
+                    date_carte,
+                    crypt_carte,
+                    annul_strict_reserv,
+                    annul_flex_reserv,
+                    annul_nrembours_reserv,
+                    facture_davoir_reserv
+                    ) values (
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                    ?, ?, ?
+                    )', $tabReservation);
+        }
+        return redirect()->back();
     }
 
     public function infosDevis(Request $request) {

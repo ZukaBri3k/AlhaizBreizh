@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class AccountController extends Controller
 {
@@ -91,7 +93,7 @@ class AccountController extends Controller
     //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
 
-        
+        $password = Hash::make($request->password);
         $personne=[
             $request->civilite_pers,
             $request->prenom_pers,
@@ -104,7 +106,7 @@ class AccountController extends Controller
             $request->code_postal_pers,
             $request->date_de_naissance,
             $request->telephone_pers,
-            $request->password,
+            $password,
             $request->iban,
             $role,
             $request->mail_pers,

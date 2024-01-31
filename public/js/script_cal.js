@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var containerEl = document.getElementById('external-events');
   var calendarEl = document.getElementById('calendar');
   var validateButton = document.getElementById('validate-button');
-
+  var eventsArray = []  ;  
 
   // initialize the external events
   // -----------------------------------------------------------------
@@ -52,11 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("After removal:", eventsArray);
       }
     },
+    
    
     eventDidMount: function(info) {
       // Appliquer des styles spécifiques après le rendu
       if (info.event.title === 'réservé') {
-        info.el.style.backgroundColor = 'red';
+        info.el.style.backgroundColor = '#EC3B53';
         info.el.style.color = 'white';
       } else if (info.event.title === 'indisponible') {
         info.el.style.backgroundColor = 'gray';
@@ -65,5 +66,35 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
   
-  calendar.render();  
+  $("#validate-button").on("click", function() {
+    
+    var events = calendar.getEvents();
+    let teste = document.getElementById('eventsInput').value = events.join(';')
+    $("#hidden-button").val(JSON.stringify({ events: new Date(teste) })).trigger('click');
+    console.log(teste);
+  });
+
+  $("#hidden-button").on("click", function() {
+    var hiddenButtonValue = $(this).val();
+
+    // Envoyez la valeur du bouton caché au serveur ici
+    $.ajax({
+        url: "/ajouter-evenements",
+        type: "POST",
+        data: hiddenButtonValue,
+        contentType: "application/json",
+        success: function(response) {
+            alert(response.message);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Erreur AJAX: " + textStatus, errorThrown);
+            console.log("Réponse du serveur : ", jqXHR.responseText);
+        }
+       
+    });
+});
+$("#hidden-button").off("click");
+calendar.render();  
     });   
+
+       

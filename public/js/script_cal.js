@@ -68,23 +68,34 @@ document.addEventListener('DOMContentLoaded', function() {
   
   $("#validate-button").on("click", function() {
     var events = calendar.getEvents();
+    
     if (events.length > 0) {
-        var date = events[0].start.toISOString();
-        alert("Date à envoyer:", date);
-        $.ajax({
-            url: "{{route('ajouter-evenements')}}",
-            type: "POST",
-            data: { events: date },
-            success: function(response) {
-                alert(response.message);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.error("Erreur AJAX: " + textStatus, errorThrown);
-                console.log("Réponse du serveur : ", jqXHR.responseText);
-            }
-        });
+        var startDate = events[0].start;
+
+        if (startDate) {
+            var date = startDate.toISOString();
+            console.log("Date à envoyer:", date);
+
+            $.ajax({
+                url: "{{ route('ajouter-evenements') }}",
+                type: "POST",
+                data: { events: date },
+                success: function(response) {
+                    alert(response.message);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("Erreur AJAX: " + textStatus, errorThrown);
+                    console.log("Réponse du serveur : ", jqXHR.responseText);
+                }
+            });
+        } else {
+            console.log("La date de début n'est pas définie dans le premier événement.");
+        }
+    } else {
+        console.log("Aucun événement à envoyer.");
     }
 });
+
 calendar.render();  
     });   
 

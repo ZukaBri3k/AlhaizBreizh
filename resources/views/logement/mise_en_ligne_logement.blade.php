@@ -182,7 +182,7 @@
         <div id="colonne_droite_page_3">
             <h2>Décrivez-nous votre logement *</h2>
             <div id="description_logement">
-                <textarea id="description_logement_input"  name="descriptif_logement" rows="4" cols="50" required></textarea>
+                <textarea id="description_logement_input"  name="descriptif_logement" rows="4" cols="50" maxlenght="250" required></textarea>
                 <div id="description_logement_precise">
                     <div id="nombre_de_personnes">
                     <label for="nombre_de_personne">Nombre de personne(s) : </label>

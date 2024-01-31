@@ -134,6 +134,7 @@
                             echo "<div class='elem'>
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cle->cle . "</p>
+                                    <button onclick="copierTexte(event)" >Copier le texte</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
@@ -142,12 +143,28 @@
                             echo "<div class='elem'>
                                     <p>Clé privilégiée :</p>
                                     <p>" . $cle->cle . "</p>
+                                    <button onclick='copierTexte(event, $cle->cle)' >Copier le texte</button>
                                     <a href='$url', class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         }
                     }
                 @endphp
+                <script type="text/javascript">
+                    console.log("test");
+                    // Copier le texte
+                    copierTexte = (e, cle) => {
+                        console.log("test");
+                        // On désactive l'action du formulaire
+                        e.preventDefault()
+                            // 2. On copie le texte dans le presse-papier
+                            navigator.clipboard.writeText(cle).then(() => {
+                                // 4. On affiche l'alert
+                                alert("Texte copié !")
+                            })
+                    }
+                    // Coller le texte sera inséré ici
+                </script>
             </div>
             <form action="{{route('genereCle')}} " method="post" class="api">
                 @csrf

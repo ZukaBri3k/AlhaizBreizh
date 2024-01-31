@@ -148,7 +148,7 @@
                         }
                     }
                 @endphp
-                <!-- Ici mon JS sert a copier dans le clipboard ma clé API -->
+                <!-- Ici mon JS -->
                 <script type="text/javascript">
                     copierTexte = (e, cle) => {
                         e.preventDefault()
@@ -212,7 +212,6 @@
 
     <x-FooterClient></x-FooterClient>
     <script src="https://unpkg.com/sweetalert2@10"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,10 +1,11 @@
 
-
+<header>
+<Access-Control-Allow-Origin:https://cloudflareinsights.com/cdn-cgi/rum>
+</header>
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
-  <Access-Control-Allow-Origin: *>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>

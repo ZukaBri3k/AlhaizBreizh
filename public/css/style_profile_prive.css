@@ -162,7 +162,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
-    align-items: baseline;
+    align-items: center;
 }
 /**************Fin de la partie sur les données de l'utilisateur***************/
 
@@ -555,7 +555,7 @@ button:hover {
 
 /*Partie sur la clé API*/
 
-.button_api, .button_copie {
+.button_api {
     width: 90%;
     height: 2.6em;
     padding-top: 1%;

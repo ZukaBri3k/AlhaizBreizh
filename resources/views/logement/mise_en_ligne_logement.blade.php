@@ -216,7 +216,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 
     <div id="page_4" class="page">
         <div>
-            <h2>Décrivez vos chambres *</h2>
+            <h2 id="titre_page_4">Décrivez vos chambres *</h2>
             <div id="chambres_container" class="chambres-container"></div>
         </div>
         <input type="hidden" id="total_lits" name="nb_lit_total" value="">

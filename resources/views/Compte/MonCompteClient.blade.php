@@ -165,7 +165,7 @@
                                     toast: true,
                                     position: "top-end",
                                     showConfirmButton: false,
-                                    timer: 5000,
+                                    timer: 3000,
                                     timerProgressBar: true,
                                     background: '#F6F5EE',
                                     didOpen: (toast) => {

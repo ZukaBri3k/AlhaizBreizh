@@ -66,7 +66,7 @@ Route::prefix('/account')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::post('genereCle', [AccountController::class, 'generationCle'])->name('genereCle')->middleware(['auth', 'isClient']);
-    Route::get('deleteCle/{cle}', [AccountController::class, 'deleteCle'])->name('deleteCle')->middleware(['auth', 'isClient']);
+    Route::get('deleteCle', [AccountController::class, 'deleteCle'])->name('deleteCle')->middleware(['auth', 'isClient']);
     Route::get('/client/profil/{id}', [AccountController::class, "compteClient"])->name('myClientAccount')->middleware(['auth', 'isClient']);
     Route::get('/client/profil/{id}#api_chemin', [AccountController::class, "compteClient"])->name('myClientAccountAPI')->middleware(['auth', 'isClient']);
     

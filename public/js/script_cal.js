@@ -74,7 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (startDate) {
             var date = startDate.toISOString();
-            alert("Date à envoyer:", date);
+            console.log("Date à envoyer:", date);
+            console.log("Evénements:", events);
 
             $.ajax({
                 url: "{{ route('ajouter-evenements') }}",

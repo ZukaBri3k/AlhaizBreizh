@@ -501,7 +501,9 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
           </div>
       
     </div>
-    <div id="division_colonnes_droite">
+    <div id="droite_page_8">
+        <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
+        <div id="division_colonnes_droite">
     <div id="images_colonne_gauche">
         <div class="image-upload-container">
             <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="img1">
@@ -509,46 +511,48 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             <div class="selected-image" id="selected-image1"></div>
         </div>
     </div>
+</div>
+<button id="add-image-button">Ajouter une autre image</button>
+
 <script>
-    // Écouteur d'événements pour les changements dans les champs de fichier
-document.querySelectorAll('.image-upload').forEach(function(input) {
-    input.addEventListener('change', function() {
-        var container = input.parentElement;
+    // Fonction pour créer un nouvel élément de bouton d'importation d'image
+function createImageUpload() {
+    // Créer un nouvel élément div pour l'ensemble du conteneur
+    var container = document.createElement('div');
+    container.classList.add('image-upload-container');
 
-        // Vérifier s'il y a moins de 10 boutons et si le champ de fichier n'est pas vide
-        if (document.querySelectorAll('.image-upload').length < 10 && input.files.length > 0) {
-            // Créer un nouvel élément div pour le conteneur du prochain bouton
-            var newContainer = document.createElement('div');
-            newContainer.classList.add('image-upload-container');
+    // Créer un nouvel élément input pour le bouton d'importation d'image
+    var input = document.createElement('input');
+    input.type = 'file';
+    input.classList.add('image-upload');
+    input.accept = 'image/*';
+    input.name = 'img' + (document.getElementsByClassName('image-upload').length + 1); // Créer un nom unique
+    container.appendChild(input);
 
-            // Créer un nouvel élément input pour le bouton d'importation d'image
-            var newInput = document.createElement('input');
-            newInput.type = 'file';
-            newInput.classList.add('image-upload');
-            newInput.accept = 'image/*';
-            newInput.name = 'img' + (document.querySelectorAll('.image-upload').length + 1); // Créer un nom unique
-            newContainer.appendChild(newInput);
+    // Créer un nouvel élément label pour le bouton personnalisé
+    var label = document.createElement('label');
+    label.htmlFor = input.id;
+    label.classList.add('custom-button');
+    label.textContent = 'Importer l\'image';
+    container.appendChild(label);
 
-            // Créer un nouvel élément label pour le bouton personnalisé
-            var newLabel = document.createElement('label');
-            newLabel.htmlFor = newInput.id;
-            newLabel.classList.add('custom-button');
-            newLabel.textContent = 'Importer l\'image';
-            newContainer.appendChild(newLabel);
+    // Créer un nouvel élément div pour l'image sélectionnée
+    var selectedImage = document.createElement('div');
+    selectedImage.classList.add('selected-image');
+    selectedImage.id = 'selected-image' + (document.getElementsByClassName('selected-image').length + 1); // Créer un id unique
+    container.appendChild(selectedImage);
 
-            // Créer un nouvel élément div pour l'image sélectionnée
-            var newSelectedImage = document.createElement('div');
-            newSelectedImage.classList.add('selected-image');
-            newSelectedImage.id = 'selected-image' + (document.querySelectorAll('.selected-image').length + 1); // Créer un id unique
-            newContainer.appendChild(newSelectedImage);
+    // Ajouter le nouveau conteneur d'importation d'image à la page
+    document.getElementById('images_colonne_gauche').appendChild(container);
+}
 
-            // Ajouter le nouveau conteneur d'importation d'image à la page
-            container.after(newContainer);
-        }
-    });
+// Écouteur d'événements pour le clic sur le bouton "Ajouter une autre image"
+document.getElementById('add-image-button').addEventListener('click', function() {
+    createImageUpload();
 });
 
 </script>
+    </div>
     <div id="footer">
         <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
         <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>

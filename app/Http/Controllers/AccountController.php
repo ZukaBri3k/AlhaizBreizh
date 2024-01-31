@@ -199,7 +199,7 @@ class AccountController extends Controller
 
     public function deleteCle(Request $request, $cle) {
         $id = auth()->user()->id;
-        $cle = urldecode($cle);
+        $cle = urldecode($request->query('cle'));
         dd($cle);
         DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
         return redirect()->route('myClientAccountAPI', ['id' => $id]);

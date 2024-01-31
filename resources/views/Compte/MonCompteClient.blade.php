@@ -148,8 +148,9 @@
                         }
                     }
                 @endphp
-                <!-- Ici mon JS -->
+                <!-- JS -->
                 <script type="text/javascript">
+                    //Ici mon JS pour copier la clé API dans le clipboard
                     copierTexte = (e, cle) => {
                         e.preventDefault()
                             navigator.clipboard.writeText(cle).then(() => {
@@ -172,6 +173,7 @@
                             })
                     }
 
+                    //Ici mon JS pour la suppression de la clé API
                     var deleteLinks = document.getElementsByClassName('delete-link');
 
                     for (var i = 0; i < deleteLinks.length; i++) {
@@ -191,20 +193,21 @@
                                 confirmButtonText: "Confirmer",
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    return Swal.fire({
+                                    Swal.fire({
                                         title: "Supprimer !",
                                         text: "Votre clé API à bien été supprimer.",
                                         icon: "success"
+                                        //En dessous je fait la redirection après la confirmation de la suppression de la clé API
+                                    }).then(() => {
+                                        window.location.href = url;
                                     });
                                 } else {
-                                    return Swal.fire({
+                                    Swal.fire({
                                         title: "Annuler !",
                                         text: "Votre clé API n'a pas été supprimer.",
                                         icon: "error"
                                     });
                                 }
-                            }).then(() => {
-                                window.location.href = url;
                             });
                         });
                     }

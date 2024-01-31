@@ -166,7 +166,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 <br>
                 <input type="text" placeholder="Saisissez votre ville" name="ville_logement" required>
                 <br>
-                <input type="number" placeholder="Code postal" name="code_postal_logement" max="99999" required>
+                <input type="number" placeholder="Code postal" name="code_postal_logement" min="0" max="99999" required>
                 <br>
             </div>
 

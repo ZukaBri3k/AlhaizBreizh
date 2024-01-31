@@ -187,6 +187,7 @@
                         }
                     }
                     var btncopy = document.querySelector('.js-copy');
+                    console.log(btncopy);
                     if(btncopy) {
                         btncopy.foreach((btn) => {btn.addEventListener('click', docopy)});
                     }

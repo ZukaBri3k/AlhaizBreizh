@@ -142,7 +142,7 @@
                                     <p>Clé :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                     <p>" . $cleShort . "</p>
                                     <button onclick='copierTexte(event, \"$cleEscaped\")' class='button_copie'>Copie</button>
-                                    <a href='$url' id='delete-link' class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
+                                    <a href='$url' class='delete-link' class='a_api'><button class='button_api'>Supprimer sa clé</button></a>
                                 </div>
                                 <hr>";
                         }
@@ -172,7 +172,7 @@
                             })
                     }
 
-                    document.getElementById('delete-link').addEventListener('click', function(event) {
+                    document.getElementByClass('delete-link').addEventListener('click', function(event) {
                     event.preventDefault();
                     var url = this.href;
 

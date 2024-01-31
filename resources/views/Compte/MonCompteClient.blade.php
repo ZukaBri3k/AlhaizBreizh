@@ -196,7 +196,9 @@
                                     Swal.fire({
                                         title: "Supprimer !",
                                         text: "Votre clé API à bien été supprimer.",
-                                        icon: "success"
+                                        icon: "success",
+                                        confirmButtonColor: "#21610B",
+                                        background: '#F6F5EE',
                                         //En dessous je fait la redirection après la confirmation de la suppression de la clé API
                                     }).then(() => {
                                         window.location.href = url;
@@ -205,7 +207,9 @@
                                     Swal.fire({
                                         title: "Annuler !",
                                         text: "Votre clé API n'a pas été supprimer.",
-                                        icon: "error"
+                                        icon: "error",
+                                        confirmButtonColor: "#21610B",
+                                        background: '#F6F5EE',
                                     });
                                 }
                             });
@@ -218,6 +222,23 @@
                 <h3>Générer sa clé :</h3>
                 <button class="button_form" type="submit">+ Créer sa nouvelle clé secrète</button>
             </form>
+            <script>
+                document.querySelector('.api').addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    Swal.fire({
+                        title: "La clé a bien été créée",
+                        icon: "success",
+                        confirmButtonColor: "#21610B",
+                        confirmButtonText: "OK",
+                        background: '#F6F5EE',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.submit();
+                        }
+                    });
+                });
+            </script>
         </div>
     </div>
 
@@ -233,6 +254,7 @@
 
     <x-FooterClient></x-FooterClient>
     <script src="https://unpkg.com/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

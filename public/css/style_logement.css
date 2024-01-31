@@ -361,6 +361,9 @@ textarea {
 #titre_gauche_page_5{
 	margin-left: 15%;
 }
+#titre_droite_page_5{
+	margin-left:15%;
+}
 #gauche_page_5 {
     border-right: 1px solid #000; /* Trait de séparation */
     height: 1280px;

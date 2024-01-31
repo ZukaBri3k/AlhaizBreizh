@@ -172,24 +172,28 @@
                             })
                     }
 
-                document.getElementsByClassName('delete-link').addEventListener('click', function(event) {
-                    event.preventDefault();
-                    var url = this.href;
+                    var deleteLinks = document.getElementsByClassName('delete-link');
 
-                    Swal.fire({
-                        title: "Are you sure?",
-                        text: "You won't be able to revert this!",
-                        icon: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "Yes, delete it!"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = url;
-                        }
-                    });
-                });
+                    for (var i = 0; i < deleteLinks.length; i++) {
+                        deleteLinks[i].addEventListener('click', function(event) {
+                            event.preventDefault();
+                            var url = this.href;
+
+                            Swal.fire({
+                                title: "Are you sure?",
+                                text: "You won't be able to revert this!",
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#3085d6",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "Yes, delete it!"
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = url;
+                                }
+                            });
+                        });
+                    }
                 /* var deleteClicked = false;
 
                 document.getElementByClass('delete-link').addEventListener('click', function(event) {

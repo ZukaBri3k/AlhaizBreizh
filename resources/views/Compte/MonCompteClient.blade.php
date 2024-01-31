@@ -131,11 +131,11 @@
                 <!-- Code php qui génère une clé API -->
                 @php
                     foreach ($cles as $cle) {
-                        <!-- Ici j'échappe certains caractère pour que ça passe dans le JS pour copier dans le clipboard -->
+                        //Ici j'échappe certains caractère pour que ça passe dans le JS pour copier dans le clipboard
                         $cleEscaped = htmlspecialchars($cle->cle, ENT_QUOTES);
-                        <!-- Ici je réduis la clé API pour qu'elle passe dans l'affchage -->
+                        //Ici je réduis la clé API pour qu'elle passe dans l'affchage
                         $cleShort = strlen($cle->cle) > 6 ? substr($cle->cle, 0, 6) . '...' : $cle->cle;
-                        <!-- Ici je prend la route et je passe la route avec l'argument de la clé a supprimer -->
+                        //Ici je prend la route et je passe la route avec l'argument de la clé a supprimer
                         $url = route('deleteCle', ['cle' => $cle->cle]);
                         if ($cle->privilege == false) {
                             echo "<div class='elem'>

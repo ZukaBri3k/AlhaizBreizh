@@ -3,7 +3,8 @@
 
 <html lang="en">
 <head>
-  <meta Access-Control-Allow-Origin: https://cloudflareinsights.com/cdn-cgi/rum>
+  Access-Control-Allow-Origin: https://cloudflareinsights.com/cdn-cgi/rum
+  Vary: Origin
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{{asset('css/cal.css')}}"></head>
 <body>
+  <x-Navbar></x-Navbar>
 <form id="eventsForm" action="{{ route('ajouter-evenements') }}" method="post">
    @csrf
     

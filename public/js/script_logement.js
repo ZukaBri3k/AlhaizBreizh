@@ -378,8 +378,9 @@ const imageUploads = document.querySelectorAll('.image-upload');
       upload.addEventListener('change', () => handleImageUpload(index + 1));
     });
 
-    function handleImageUpload(uploadIndex) {
+  /*  function handleImageUpload(uploadIndex) {
       const selectedImage = document.getElementById(`selected-image${uploadIndex}`);
       const fileName = imageUploads[uploadIndex - 1].files[0].name;
       selectedImage.textContent = `Image sélectionnée : ${fileName}`;
     }
+*/

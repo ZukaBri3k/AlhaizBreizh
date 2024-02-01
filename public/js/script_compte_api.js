@@ -233,7 +233,7 @@ cloturer.addEventListener('click', function(event) {
             }).then((result) => {
                 Swal.fire({
                     title: "Annuler !",
-                    text: "Votre compte n'a pas été supprimer.",
+                    text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
                     icon: "error",
                     confirmButtonColor: "#21610B",
                     background: '#F6F5EE',

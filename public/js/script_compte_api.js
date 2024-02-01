@@ -34,18 +34,6 @@ deconnexion.addEventListener('click', function(event) {
             }).then(() => {
                 window.location.href = url;
             });
-        } else {
-            Swal.fire({
-                title: "Annuler !",
-                text: "Vous n'allez pas être déconnecter.",
-                icon: "error",
-                confirmButtonColor: "#21610B",
-                background: '#F6F5EE',
-                allowOutsideClick: false,
-                customClass: {
-                    title: 'generation_cle'
-                },
-            });
         }
     });
 });

@@ -172,7 +172,7 @@ cloturer.addEventListener('click', function(event) {
         confirmButtonText: "Oui",
         allowOutsideClick: false,
         customClass: {
-            title: 'generation_cle'
+            title: '.popupFeedBack'
         },
     }).then((result) => {
         if (result.isConfirmed) {
@@ -185,15 +185,37 @@ cloturer.addEventListener('click', function(event) {
                 },
                 showCancelButton: true,
                 confirmButtonText: "Confirmer",
+                confirmButtonColor: "#21610B",
                 showLoaderOnConfirm: true,
+                customClass: {
+                    title: '.popupFeedBack'
+                },
+                preConfirm: async (confirm) => {
+                    try {
+                        if (confirm === "CONFIRMER") {
+                            return Swal.fire({
+                                title: "Votre compte va être supprimer !",
+                                icon: "success",
+                                confirmButtonColor: "#21610B",
+                                confirmButtonText: "Ok",
+                                background: '#F6F5EE',
+                                customClass: {
+                                    title: '.popupFeedBack'
+                                },
+                                allowOutsideClick: false,
+                            });
+                        }
+                        return response.json();
+                    } catch (error) {
+                        Swal.showValidationMessage(`Request failed: ${error}`);
+                    }
+                },
                 allowOutsideClick: () => !Swal.isLoading()
-              }).then((result) => {
+            });/* .then((result) => {
                 if (result.isConfirmed) {
-                  Swal.fire({
-                    title: `${result.value.login}'s avatar`
-                  });
+                    
                 }
-              });
+              }) */
                 //En dessous je fait la redirection après la confirmation de la suppression de la clé API
                 /* .then(() => {
                 window.location.href = url;

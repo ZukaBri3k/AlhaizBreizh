@@ -262,7 +262,7 @@ button:hover {
     width: 150%;
     padding-top: 10%;
     padding-bottom: 10%;
-    margin-left: 0 !important;
+    margin-left: auto;
 }
 
 .element_en_tete {

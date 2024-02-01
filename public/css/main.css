@@ -800,6 +800,10 @@ CSS du composant devis début
     font-family: 'Montserrat';
 }
 
+.mesLogementsPage .mesReservations p {
+    text-align: center;
+}
+
 .mesLogementsPage h2 + p {
     text-align: center;
 }

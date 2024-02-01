@@ -176,7 +176,7 @@ cloturer.addEventListener('click', function(event) {
         confirmButtonText: "Oui",
         allowOutsideClick: false,
         customClass: {
-            title: '.popupFeedBack'
+            title: 'popupFeedBack'
         },
     }).then((result) => {
         if (result.isConfirmed) {
@@ -194,7 +194,7 @@ cloturer.addEventListener('click', function(event) {
                 confirmButtonColor: "#21610B",
                 showLoaderOnConfirm: true,
                 customClass: {
-                    title: '.popupFeedBack'
+                    title: 'popupFeedBack'
                 },
                 allowOutsideClick: false,
                 preConfirm: async (confirm) => {
@@ -207,7 +207,7 @@ cloturer.addEventListener('click', function(event) {
                                 confirmButtonText: "Ok",
                                 background: '#F6F5EE',
                                 customClass: {
-                                    title: '.popupFeedBack'
+                                    title: 'popupFeedBack'
                                 },
                                 allowOutsideClick: false,
                             }).then(() => {
@@ -224,7 +224,7 @@ cloturer.addEventListener('click', function(event) {
                             background: '#F6F5EE',
                             allowOutsideClick: false,
                             customClass: {
-                                title: 'generation_cle'
+                                title: 'popupFeedBack'
                             },
                         });
                     }
@@ -243,7 +243,7 @@ cloturer.addEventListener('click', function(event) {
                 background: '#F6F5EE',
                 allowOutsideClick: false,
                 customClass: {
-                    title: 'generation_cle'
+                    title: 'popupFeedBack'
                 },
             });
         }

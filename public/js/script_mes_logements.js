@@ -95,8 +95,8 @@ btnHL.forEach((btn) => {
             confirmButtonColor: "#21610B",
             cancelButtonColor: "#EC3B53",
             background: '#F6F5EE',
-            cancelButtonText: "Annuler",
-            confirmButtonText: "Confirmer",
+            cancelButtonText: "Non",
+            confirmButtonText: "Oui",
             allowOutsideClick: false,
             customClass: {
                 title: 'popupFeedBack'
@@ -104,7 +104,7 @@ btnHL.forEach((btn) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
-                    title: "Deconnexion !",
+                    title: "Logement hors ligne !",
                     text: "Votre logement à bien été mis hors ligne.",
                     icon: "success",
                     confirmButtonColor: "#21610B",
@@ -140,8 +140,8 @@ btnEL.forEach((btn) => {
             confirmButtonColor: "#21610B",
             cancelButtonColor: "#EC3B53",
             background: '#F6F5EE',
-            cancelButtonText: "Annuler",
-            confirmButtonText: "Confirmer",
+            cancelButtonText: "Non",
+            confirmButtonText: "Oui",
             allowOutsideClick: false,
             customClass: {
                 title: 'popupFeedBack'
@@ -149,7 +149,7 @@ btnEL.forEach((btn) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
-                    title: "Deconnexion !",
+                    title: "Logement en ligne !",
                     text: "Votre logement à bien été mis en ligne.",
                     icon: "success",
                     confirmButtonColor: "#21610B",

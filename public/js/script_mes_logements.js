@@ -243,106 +243,108 @@ btnRefuserDevis.forEach((btn) => {
 let supprimerLogement = document.getElementsByClassName('SUPPR');
 supprimerLogement = Array.from(supprimerLogement);
 
-supprimerLogement.addEventListener('click', function(event) {
-    event.preventDefault();
-    var url = this.href;
-    let trigger = false;
-
-    Swal.fire({
-        title: "Êtes vous sûr de vouloir supprimer votre logement ?",
-        text: "Cette action est irréversible ! Si vous supprimez votre logement il sera impossible de revenir en arrière.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#21610B",
-        cancelButtonColor: "#EC3B53",
-        background: '#F6F5EE',
-        cancelButtonText: "Non",
-        confirmButtonText: "Oui",
-        allowOutsideClick: false,
-        customClass: {
-            title: 'popupFeedBack'
-        },
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Veuillez entrer 'CONFIRMER' pour supprimer votre logement !",
-                input: "text",
-                background: '#F6F5EE',
-                inputAttributes: {
-                  autocapitalize: "off"
-                },
-                showCancelButton: true,
-                allowOutsideClick: false,
-                confirmButtonText: "Confirmer",
-                cancelButtonText: "Annuler",
-                cancelButtonColor: "#EC3B53",
-                confirmButtonColor: "#21610B",
-                showLoaderOnConfirm: true,
-                customClass: {
-                    title: 'popupFeedBack'
-                },
-                preConfirm: async (confirm) => {
-                    try {
-                        if (confirm === "CONFIRMER") {
-                            return Swal.fire({
-                                title: "Votre logement a bien été suprimé !",
-                                icon: "success",
-                                confirmButtonColor: "#21610B",
-                                confirmButtonText: "Ok",
-                                background: '#F6F5EE',
-                                customClass: {
-                                    title: 'popupFeedBack'
-                                },
-                                allowOutsideClick: false,
-                            }).then(() => {
-                                window.location.href = url;
-                            });
-                        } else {
-                            trigger = true;
-                            return Swal.fire({
-                                title: "Annulé !",
-                                text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
-                                icon: "error",
-                                confirmButtonColor: "#21610B",
-                                background: '#F6F5EE',
-                                allowOutsideClick: false,
-                                customClass: {
-                                    title: 'popupFeedBack'
-                                },
-                            });
+supprimerLogement.forEach((btn) => {
+    btn.addEventListener('click', function(event) {
+        event.preventDefault();
+        var url = this.href;
+        let trigger = false;
+    
+        Swal.fire({
+            title: "Êtes vous sûr de vouloir supprimer votre logement ?",
+            text: "Cette action est irréversible ! Si vous supprimez votre logement il sera impossible de revenir en arrière.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#21610B",
+            cancelButtonColor: "#EC3B53",
+            background: '#F6F5EE',
+            cancelButtonText: "Non",
+            confirmButtonText: "Oui",
+            allowOutsideClick: false,
+            customClass: {
+                title: 'popupFeedBack'
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Veuillez entrer 'CONFIRMER' pour supprimer votre logement !",
+                    input: "text",
+                    background: '#F6F5EE',
+                    inputAttributes: {
+                      autocapitalize: "off"
+                    },
+                    showCancelButton: true,
+                    allowOutsideClick: false,
+                    confirmButtonText: "Confirmer",
+                    cancelButtonText: "Annuler",
+                    cancelButtonColor: "#EC3B53",
+                    confirmButtonColor: "#21610B",
+                    showLoaderOnConfirm: true,
+                    customClass: {
+                        title: 'popupFeedBack'
+                    },
+                    preConfirm: async (confirm) => {
+                        try {
+                            if (confirm === "CONFIRMER") {
+                                return Swal.fire({
+                                    title: "Votre logement a bien été suprimé !",
+                                    icon: "success",
+                                    confirmButtonColor: "#21610B",
+                                    confirmButtonText: "Ok",
+                                    background: '#F6F5EE',
+                                    customClass: {
+                                        title: 'popupFeedBack'
+                                    },
+                                    allowOutsideClick: false,
+                                }).then(() => {
+                                    window.location.href = url;
+                                });
+                            } else {
+                                trigger = true;
+                                return Swal.fire({
+                                    title: "Annulé !",
+                                    text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
+                                    icon: "error",
+                                    confirmButtonColor: "#21610B",
+                                    background: '#F6F5EE',
+                                    allowOutsideClick: false,
+                                    customClass: {
+                                        title: 'popupFeedBack'
+                                    },
+                                });
+                            }
+                        } catch (error) {
+                            console.log(error);
                         }
-                    } catch (error) {
-                        console.log(error);
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()
+                }).then(() => {
+                    if(trigger === false) {
+                        Swal.fire({
+                            title: "Annulé !",
+                            text: "Votre logement n'a pas été supprimé.",
+                            icon: "error",
+                            confirmButtonColor: "#21610B",
+                            background: '#F6F5EE',
+                            allowOutsideClick: false,
+                            customClass: {
+                                title: 'popupFeedBack'
+                            },
+                        });
                     }
-                },
-                allowOutsideClick: () => !Swal.isLoading()
-            }).then(() => {
-                if(trigger === false) {
-                    Swal.fire({
-                        title: "Annulé !",
-                        text: "Votre logement n'a pas été supprimé.",
-                        icon: "error",
-                        confirmButtonColor: "#21610B",
-                        background: '#F6F5EE',
-                        allowOutsideClick: false,
-                        customClass: {
-                            title: 'popupFeedBack'
-                        },
-                    });
-                }
-            });
-        } else {
-            Swal.fire({
-                title: "Annulé !",
-                text: "Votre logement n'a pas été supprimé.",
-                icon: "error",
-                confirmButtonColor: "#21610B",
-                background: '#F6F5EE',
-                allowOutsideClick: false,
-                customClass: {
-                    title: 'popupFeedBack'
-                },
-            });
-        }
+                });
+            } else {
+                Swal.fire({
+                    title: "Annulé !",
+                    text: "Votre logement n'a pas été supprimé.",
+                    icon: "error",
+                    confirmButtonColor: "#21610B",
+                    background: '#F6F5EE',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'popupFeedBack'
+                    },
+                });
+            }
+        });
     });
 });

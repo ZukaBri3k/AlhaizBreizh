@@ -165,6 +165,17 @@
         </div>
     </div>
 
+    <div class="Profile_Privee">
+        <h5>Clôturer votre compte</h5>
+        <hr>
+        <div class="Donnees">
+            <p>Clôturer votre compte supprimera l'accès à toutes vos réservation passer, et annulera vos réservation en cours.</p>
+            <a href="{{ route('logout') }}" id="cloturer">
+                <button class="button_deco">Clôturer</button>
+            </a>
+        </div>
+    </div>
+
     <x-FooterClient></x-FooterClient>
     <script src="{{asset('js/script_compte_api.js')}}"></script>
     <script src="https://unpkg.com/sweetalert2@10"></script>

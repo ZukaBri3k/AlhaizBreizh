@@ -591,11 +591,10 @@ CSS de la page mes logements début
 }
 
 .mesLogementsPage .mesLogements h2 {
-    margin: 50px 0;
     font-family: 'Montserrat';
     text-align: left;
     color: rgb(236, 59, 83);
-    margin: 50px 50px 5px 50px;
+    margin: 50px 0px;
     background-color: rgba(0, 0, 0, 0);
 }
 

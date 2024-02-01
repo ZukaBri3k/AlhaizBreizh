@@ -29,7 +29,7 @@
         </div>
     </section>
 
-    <div id="mapid" style="width: 800px; height: 500px;"></div>
+    <div id="mapid" style="height: 500px;"></div>
     
     <script type="text/javascript">
         var Dinan     = L.marker([48.4500000, -2.0333300], {name: 'Dinan'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Dinan.').on('click', function () { this.openPopup(); });

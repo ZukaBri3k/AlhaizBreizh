@@ -45,7 +45,7 @@ class AccountController extends Controller
         DB::delete('delete from client where id_client = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 
-        return redirect()->route('welcome');
+        return redirect()->route('accueil');
     }
 
     public function deleteProprietaire() {
@@ -54,7 +54,7 @@ class AccountController extends Controller
         DB::delete('delete from proprietaire where id_proprio = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 
-        return redirect()->route('welcome');
+        return redirect()->route('accueil');
     }
 
     //-----------------------------------------------------

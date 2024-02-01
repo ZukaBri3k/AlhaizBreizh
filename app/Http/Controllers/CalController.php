@@ -12,7 +12,7 @@ class CalController extends Controller
 {
     public function ajouterEvenementDB(Request $request)
 {
-    $date = $request->input('date');
+    $date = $request->input('data');
     dd($date);
 if ($date) {
     

@@ -152,27 +152,6 @@
                 <h3>Générer sa clé :</h3>
                 <button class="button_form" type="submit">+ Créer sa nouvelle clé secrète</button>
             </form>
-            <script>
-                document.querySelector('.api').addEventListener('submit', function(event) {
-                    event.preventDefault();
-
-                    Swal.fire({
-                        title: "La clé a bien été créée",
-                        icon: "success",
-                        confirmButtonColor: "#21610B",
-                        confirmButtonText: "OK",
-                        background: '#F6F5EE',
-                        customClass: {
-                            title: 'generation_cle'
-                        },
-                        allowOutsideClick: false,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            this.submit();
-                        }
-                    });
-                });
-            </script>
         </div>
     </div>
 

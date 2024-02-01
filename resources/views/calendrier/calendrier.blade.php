@@ -1,7 +1,4 @@
-
-<header>
-<Access-Control-Allow-Origin:https://cloudflareinsights.com/cdn-cgi/rum>
-</header>
+  
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,6 +11,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{{asset('css/cal.css')}}"></head>
 <body>
+<x-Navbar></x-Navbar>
 <form id="eventsForm" action="{{ route('ajouter-evenements') }}" method="post">
    @csrf
     
@@ -35,7 +33,7 @@
   <div id='calendar'></div>
 </div>
 </form>
-
+<x-FooterClient></x-FooterClient>
 <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script><!-- Cloudflare Pages Analytics -->  
 
 

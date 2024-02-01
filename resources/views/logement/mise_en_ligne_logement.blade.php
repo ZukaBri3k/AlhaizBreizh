@@ -519,6 +519,37 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     </div>
 </div>
 </div>
+<script>
+    function addNewPhoto() {
+        var photoCount = document.querySelectorAll('.image-upload').length;
+        if (photoCount < 10) {
+            var newPhotoContainer = document.createElement('div');
+            newPhotoContainer.className = 'image-upload-container';
+
+            var newPhotoInput = document.createElement('input');
+            newPhotoInput.type = 'file';
+            newPhotoInput.className = 'image-upload';
+            newPhotoInput.accept = 'image/*';
+            newPhotoInput.name = 'img' + (photoCount + 1);
+
+            var newPhotoLabel = document.createElement('label');
+            newPhotoLabel.htmlFor = 'image-upload' + (photoCount + 1);
+            newPhotoLabel.className = 'custom-button';
+            newPhotoLabel.innerText = 'Importer l\'image';
+
+            var newPhotoSelectedImage = document.createElement('div');
+            newPhotoSelectedImage.className = 'selected-image';
+            newPhotoSelectedImage.id = 'selected-image' + (photoCount + 1);
+
+            newPhotoContainer.appendChild(newPhotoInput);
+            newPhotoContainer.appendChild(newPhotoLabel);
+            newPhotoContainer.appendChild(newPhotoSelectedImage);
+
+            document.getElementById('division_colonnes_droite').appendChild(newPhotoContainer);
+        }
+    }
+</script>
+
 </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

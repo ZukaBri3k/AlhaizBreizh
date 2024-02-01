@@ -78,4 +78,51 @@ function triDate() {
 }
 
 
-//-----------------------------
+//-----------------------------Pop up Confirmation mise hors ligne logement-----------------------------
+
+let btnHL = document.getElementsByClassName('btnHL');
+btnHL = Array.from(btnHL);
+
+btnHL.forEach((btn) => {
+    btn.addEventListener('click', function(event) {
+        event.preventDefault();
+        var url = this.href;
+    
+        Swal.fire({
+            title: "Êtes vous sûr de vouloir mettre ce logement hors ligne ?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#21610B",
+            cancelButtonColor: "#EC3B53",
+            background: '#F6F5EE',
+            cancelButtonText: "Annuler",
+            confirmButtonText: "Confirmer",
+            allowOutsideClick: false,
+            customClass: {
+                title: 'popup'
+            },
+        }).then((result) => {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+
+            Toast.fire({
+                icon: "success",
+                title: "Votre est désormait hors ligne",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
+        });
+    });
+});

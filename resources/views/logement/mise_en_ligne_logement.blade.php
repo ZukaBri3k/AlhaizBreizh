@@ -517,57 +517,38 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
         <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
     </div>
-    
-    <script>
-        // Compteur pour suivre le nombre de photos ajoutées
-        var photoCount = 1;
-    
-        // Fonction appelée lorsqu'une image est ajoutée
-        function handleImageUpload() {
-            // Vérifie si le nombre de photos est inférieur à 10
-            if (photoCount < 10) {
-                // Incrémente le compteur de photo
-                photoCount++;
-    
-                // Crée un nouveau bouton pour ajouter une nouvelle photo
-                var newButton = document.createElement('button');
-                newButton.setAttribute('type', 'button');
-                newButton.setAttribute('class', 'bouttons_suivant');
-                newButton.innerHTML = 'Ajouter une autre photo';
-                
-                // Crée un nouvel élément pour l'input de fichier
-                var newInput = document.createElement('input');
-                newInput.setAttribute('type', 'file');
-                newInput.setAttribute('class', 'image-upload');
-                newInput.setAttribute('accept', 'image/*');
-                newInput.setAttribute('id', 'image-upload' + photoCount);
-                newInput.setAttribute('name', 'img' + photoCount);
-                newInput.setAttribute('onchange', 'handleImageUpload()');
-    
-                // Crée un nouvel élément pour afficher l'image sélectionnée
-                var newImageContainer = document.createElement('div');
-                newImageContainer.setAttribute('class', 'selected-image');
-                newImageContainer.setAttribute('id', 'selected-image' + photoCount);
-    
-                // Crée un nouvel élément pour le label du bouton
-                var newLabel = document.createElement('label');
-                newLabel.setAttribute('for', 'image-upload' + photoCount);
-                newLabel.setAttribute('class', 'custom-button');
-                newLabel.innerHTML = 'Importer une autre image';
-    
-                // Ajoute les éléments au conteneur
-                var imageContainer = document.querySelector('#images_colonne_gauche');
-                imageContainer.appendChild(newInput);
-                imageContainer.appendChild(newLabel);
-                imageContainer.appendChild(newImageContainer);
-            } else {
-                alert('Vous avez atteint la limite maximale de 10 photos.');
-            }
-        }
-    </script>
+
 </div>
    
 </form>
+<script>
+    var photoCount = 1;
+
+    function handleImageUpload() {
+        if (photoCount < 10) {
+            photoCount++;
+
+            var newInput = document.createElement('input');
+            newInput.setAttribute('type', 'file');
+            newInput.setAttribute('class', 'image-upload');
+            newInput.setAttribute('accept', 'image/*');
+            newInput.setAttribute('id', 'image-upload' + photoCount);
+            newInput.setAttribute('name', 'img' + photoCount);
+            newInput.setAttribute('onchange', 'handleImageUpload()');
+
+            var newLabel = document.createElement('label');
+            newLabel.setAttribute('for', 'image-upload' + photoCount);
+            newLabel.setAttribute('class', 'custom-button');
+            newLabel.innerHTML = 'Importer une autre image';
+
+            var imageContainer = document.querySelector('#images_colonne_gauche');
+            imageContainer.appendChild(newInput);
+            imageContainer.appendChild(newLabel);
+        } else {
+            alert('Vous avez atteint la limite maximale de 10 photos.');
+        }
+    }
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="{{asset('js/script_logement.js')}}"></script>

@@ -80,10 +80,6 @@ function triDate() {
 
 //-----------------------------Pop up Confirmation mise hors ligne logement-----------------------------
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 let btnHL = document.getElementsByClassName('btnHL');
 btnHL = Array.from(btnHL);
 
@@ -105,34 +101,23 @@ btnHL.forEach((btn) => {
             customClass: {
                 title: 'popupFeedBack'
             },
-        }).then(() => {
-            window.location.href = url;
-        }).then(async () => {
-            console.log("avant");
-            await sleep(1000).then(() => {
-                console.log("après");
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                });
-    
-                Toast.fire({
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deconnexion !",
+                    text: "Vous allez être déconnecter.",
                     icon: "success",
-                    title: "Votre est désormait hors ligne",
+                    confirmButtonColor: "#21610B",
                     background: '#F6F5EE',
                     allowOutsideClick: false,
                     customClass: {
-                        title: 'popupFeedBack'
+                        title: 'generation_cle'
                     },
+                    //En dessous je fait la redirection après la confirmation de la suppression de la clé API
+                }).then(() => {
+                    window.location.href = url;
                 });
-            });         
+            }
         });
     });
 });

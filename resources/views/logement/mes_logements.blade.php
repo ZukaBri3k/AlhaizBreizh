@@ -66,7 +66,7 @@
         </div>
         <hr>
     </section>
-    <section class="mesDevis" id="sectionLogement">
+    <section class="mesDevis" id="sectionDevis">
         <h2>Mes demande de devis :</h2>
         @php 
             if(count($tabDevis) == 0){

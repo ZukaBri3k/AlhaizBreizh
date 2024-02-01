@@ -1,4 +1,4 @@
-  
+<Access-Control-Allow-Origin (https://cloudflareinsights.com/cdn-cgi/rum)>
 <!DOCTYPE html>
 
 <html lang="en">

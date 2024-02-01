@@ -42,6 +42,7 @@ class AccountController extends Controller
     public function deleteClient() {
 
         $id = auth()->user()->id;
+        dd($id);
         DB::delete('delete from client where id_client = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 

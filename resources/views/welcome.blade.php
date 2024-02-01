@@ -109,6 +109,20 @@
         });
 
         map.addControl(searchControl);
+
+        map.scrollWheelZoom.disable();
+
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                map.scrollWheelZoom.enable();
+            }
+        });
+
+        document.addEventListener('keyup', function(event) {
+            if (!event.ctrlKey) {
+                map.scrollWheelZoom.disable();
+            }
+        });
     </script>
 
     <section class="autres">

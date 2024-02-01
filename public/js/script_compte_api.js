@@ -202,7 +202,7 @@ cloturer.addEventListener('click', function(event) {
                     try {
                         if (confirm === "CONFIRMER") {
                             return Swal.fire({
-                                title: "Votre compte va être supprimer !",
+                                title: "Votre compte a bien été supprimé !",
                                 icon: "success",
                                 confirmButtonColor: "#21610B",
                                 confirmButtonText: "Ok",
@@ -237,7 +237,7 @@ cloturer.addEventListener('click', function(event) {
                 if(trigger === false) {
                     Swal.fire({
                         title: "Annuler !",
-                        text: "Votre compte n'a pas été supprimer.",
+                        text: "Votre compte n'a pas été supprimé.",
                         icon: "error",
                         confirmButtonColor: "#21610B",
                         background: '#F6F5EE',
@@ -251,7 +251,7 @@ cloturer.addEventListener('click', function(event) {
         } else {
             Swal.fire({
                 title: "Annuler !",
-                text: "Votre compte n'a pas été supprimer.",
+                text: "Votre compte n'a pas été supprimé.",
                 icon: "error",
                 confirmButtonColor: "#21610B",
                 background: '#F6F5EE',

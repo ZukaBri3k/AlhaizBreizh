@@ -518,24 +518,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
     </div>
 </div>
-</div>
-<div id="droite_page_8">
-    <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
-    <div id="division_colonnes_droite">
-        <div id="images_colonne_gauche">
-            <div class="image-upload-container">
-                <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2" onchange="handleImageUpload()">
-                <label for="image-upload2" class="custom-button">Importer l'image</label>
-                <div class="selected-image" id="selected-image2"></div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<div id="footer">
-    <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
-    <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
-</div>
+
 
 <script>
     // Compteur pour suivre le nombre de photos ajoutées

@@ -11,7 +11,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{{asset('css/cal.css')}}"></head>
 <body>
-<x-Navbar></x-Navbar>
 <form id="eventsForm" action="{{ route('ajouter-evenements') }}" method="post">
    @csrf
     

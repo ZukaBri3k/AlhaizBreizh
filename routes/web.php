@@ -66,14 +66,14 @@ Route::prefix('/account')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::post('genereCle', [AccountController::class, 'generationCle'])->name('genereCle')->middleware(['auth', 'isClient']);
-    Route::get('deleteCle/{cle}', [AccountController::class, 'deleteCle'])->name('deleteCle')->middleware(['auth', 'isClient']);
+    Route::get('deleteCle', [AccountController::class, 'deleteCle'])->name('deleteCle')->middleware(['auth', 'isClient']);
     Route::get('/client/profil/{id}', [AccountController::class, "compteClient"])->name('myClientAccount')->middleware(['auth', 'isClient']);
     Route::get('/client/profil/{id}#api_chemin', [AccountController::class, "compteClient"])->name('myClientAccountAPI')->middleware(['auth', 'isClient']);
     
     Route::get('proprietaire/profil/{id}', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccount')->middleware(['auth', 'isProprietaire']);
     Route::get('proprietaire/profil/{id}#api_chemin', [AccountController::class, "compteProprietaire"])->name('myProprietaireAccountAPI')->middleware(['auth', 'isProprietaire']);
     Route::post('genereClePro', [AccountController::class, "generationClePro"])->name('genereClePro')->middleware(['auth', 'isProprietaire']);
-    Route::get('deleteClePro/{cle}', [AccountController::class, 'deleteClePro'])->name('deleteClePro')->middleware(['auth', 'isProprietaire']);
+    Route::get('deleteClePro', [AccountController::class, 'deleteClePro'])->name('deleteClePro')->middleware(['auth', 'isProprietaire']);
 
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
@@ -90,6 +90,11 @@ Route::get('/testcal', function () {
 
 Route::post('/ajouter-evenements',[CalController::class,'ajouterEvenementDB'])->name('ajouter-evenements');
 Route::post('/enregistrerEvenement',[CalController::class,'enregistrerEvenement'])->name('enregistrerEvenement');
+
+
+Route::get('/mentions_legales', function () {
+    return view('/mentions_legales');
+})->name('mentions_legales');
 
 Route::get("/spawnLink", function () {
     Artisan::call('storage:link');

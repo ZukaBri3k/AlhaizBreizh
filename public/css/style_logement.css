@@ -27,6 +27,7 @@ h2{
     font-weight: 500;
     color: rgb(236, 59, 83);
     font-family: 'Montserrat';
+    z-index:0;
 }
 h3{
     font-size: 40px;
@@ -190,7 +191,10 @@ body{
     flex: 1;
     height: 0px;
 }
+#titre_page_4{
+	margin-left:1%;
 
+}
 .image-container img {
     width: 100%;
     height: auto;

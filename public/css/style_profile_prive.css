@@ -262,7 +262,7 @@ button:hover {
     width: 150%;
     padding-top: 10%;
     padding-bottom: 10%;
-    margin-left: auto;
+    margin-left: -26%;
 }
 
 .element_en_tete {
@@ -410,11 +410,11 @@ button:hover {
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.3px;
-    width: 150%;
-    padding-top: 10%;
-    padding-bottom: 10%;
-    margin-left: 0 !important;
-}
+    width: 230%;
+    padding-top: 14%;
+    padding-bottom: 14%;
+    margin-left: -35%;
+} 
 
 .button_clotu:hover {
     background-color: #FFF;

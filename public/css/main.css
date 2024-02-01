@@ -550,7 +550,7 @@ CSS de la page mes logements début
 }
 
 .mesLogementsPage .mesLogements hr {
-    width: 90%;
+    width: 100%;
     margin: 5vh auto;
     color: rgba(0,0,0,0.50);
 }

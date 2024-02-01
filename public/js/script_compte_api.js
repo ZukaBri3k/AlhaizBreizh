@@ -152,3 +152,64 @@ document.querySelector('.api').addEventListener('submit', function(event) {
         }
     });
 });
+
+
+//Ici mon JS pour la suppression d'un compte
+var cloturer = document.getElementById('cloturer');
+
+cloturer.addEventListener('click', function(event) {
+    event.preventDefault();
+    var url = this.href;
+
+    Swal.fire({
+        title: "Êtes vous sûr de vouloir supprimer votre compte ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#21610B",
+        cancelButtonColor: "#EC3B53",
+        background: '#F6F5EE',
+        cancelButtonText: "Non",
+        confirmButtonText: "Oui",
+        allowOutsideClick: false,
+        customClass: {
+            title: 'generation_cle'
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Submit your Github username",
+                input: "text",
+                background: '#F6F5EE',
+                inputAttributes: {
+                  autocapitalize: "off"
+                },
+                showCancelButton: true,
+                confirmButtonText: "Confirmer",
+                showLoaderOnConfirm: true,
+                allowOutsideClick: () => !Swal.isLoading()
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire({
+                    title: `${result.value.login}'s avatar`
+                  });
+                }
+              });
+                //En dessous je fait la redirection après la confirmation de la suppression de la clé API
+                /* .then(() => {
+                window.location.href = url;
+            }); */
+        } else {
+            Swal.fire({
+                title: "Annuler !",
+                text: "Votre compte n'a pas été supprimer.",
+                icon: "error",
+                confirmButtonColor: "#21610B",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
+        }
+    });
+});

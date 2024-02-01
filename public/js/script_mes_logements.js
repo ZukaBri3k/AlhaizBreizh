@@ -158,7 +158,78 @@ btnEL.forEach((btn) => {
                     customClass: {
                         title: '.popupFeedBack'
                     },
-                    //En dessous je fait la redirection après la confirmation de la suppression de la clé API
+                }).then(() => {
+                    window.location.href = url;
+                });
+            }
+        });
+    });
+});
+
+
+//-----------------------------Pop up Validation devis-----------------------------
+
+let btnValiderDevis = document.getElementsByClassName('validerDevis');
+btnValiderDevis = Array.from(btnValiderDevis);
+
+btnValiderDevis.forEach((btn) => {
+    btn.addEventListener('click', function(event) {
+        event.preventDefault();
+        var url = this.href;
+
+        Swal.fire({
+            title: "Devis validé !",
+            text: "La demande de devis a bien été validée.",
+            icon: "success",
+            confirmButtonColor: "#21610B",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+            customClass: {
+                title: '.popupFeedBack'
+            },
+        }).then(() => {
+            window.location.href = url;
+        });
+    });
+});
+
+
+//-----------------------------Pop up Validation devis-----------------------------
+
+let btnRefuserDevis = document.getElementsByClassName('refuserDevis');
+btnRefuserDevis = Array.from(btnRefuserDevis);
+
+btnRefuserDevis.forEach((btn) => {
+    btn.addEventListener('click', function(event) {
+        event.preventDefault();
+        var url = this.href;
+    
+        Swal.fire({
+            title: "Êtes vous sûr de vouloir refuser ?",
+            text: "Cette action est irréversible ! Si vous refusez la demande de devis il sera impossible de revenir en arrière.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#21610B",
+            cancelButtonColor: "#EC3B53",
+            background: '#F6F5EE',
+            cancelButtonText: "Non",
+            confirmButtonText: "Oui",
+            allowOutsideClick: false,
+            customClass: {
+                title: 'popupFeedBack'
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Devis refusé !",
+                    text: "La demande de devis a bien été refusée.",
+                    icon: "success",
+                    confirmButtonColor: "#21610B",
+                    background: '#F6F5EE',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: '.popupFeedBack'
+                    },
                 }).then(() => {
                     window.location.href = url;
                 });

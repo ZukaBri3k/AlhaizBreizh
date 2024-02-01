@@ -506,7 +506,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <div id="division_colonnes_droite">
             <div id="images_colonne_gauche">
                 <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2" onchange="handleImageUpload()">
+                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2" onchange="handleImageUpload(this)">
                     <label for="image-upload2" class="custom-button">Importer l'image</label>
                     <div class="selected-image" id="selected-image2"></div>
                 </div>

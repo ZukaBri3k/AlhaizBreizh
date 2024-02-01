@@ -27,13 +27,13 @@ class Devis extends Controller
 
     public function validationDevis (Request $request) {
         DB::update('update devis set etat_devis = true where ref_devis = ?', [$request->id_devis]);
-        return redirect()->back();
+        return redirect()->route('mes_logementsDevis');
     }
 
     public function refusDevis (Request $request) {
         DB::delete('delete from reservation where id_reserv = ?', [$request->id_reserv]);
         DB::delete('delete from devis where ref_devis = ?', [$request->id_devis]);
-        return redirect()->back();
+        return redirect()->route('mes_logementsDevis');
     }
 
     public function demande_devis (Request $request) {

@@ -36,17 +36,27 @@
     </div>
     
     <script type="text/javascript">
+
+    
+        tabCard.forEach((carte) => {
+            var carte.classList[2] = L.marker([48.4500000, -2.5555], {name: 'carte.classList[2]'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is carte.classList[2].').on('click', function () { this.openPopup(); });
+        });
+
         var Dinan     = L.marker([48.4500000, -2.0333300], {name: 'Dinan'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Dinan.').on('click', function () { this.openPopup(); });
         var Lorient   = L.marker([47.7500000, -3.3666700], {name: 'Lorient'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Lorient.').on('click', function () { this.openPopup(); });
         var Rennes    = L.marker([48.1119800, -1.6742900], {name: 'Rennes'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Rennes.').on('click', function () { this.openPopup(); });
         var Brest     = L.marker([48.4000000, -4.4833300], {name: 'Brest'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Brest.').on('click', function () { this.openPopup(); });
-
-        var villes = L.layerGroup([Dinan, Lorient, Rennes, Brest]);
-
         var Hennebont = L.marker([47.8051200, -3.2733700], {name: 'Hennebont'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> Parc de Ewan, Hennebont.').on('click', function () { this.openPopup(); });
-            
-        var parcs = L.layerGroup([Hennebont]);
 
+        var Appartements = L.layerGroup([Lorient]);
+        var Villa = L.layerGroup([Brest]);
+        var Maison = L.layerGroup([Rennes]);
+        var Bateau = L.layerGroup([Dinan]);
+        var Mhote = L.layerGroup([Dinan]);
+        var Chote = L.layerGroup([Dinan]);
+        var Cabane = L.layerGroup([Hennebont]);
+        var Caravane = L.layerGroup([Dinan]);
+        
         var markers = [Dinan, Lorient, Rennes, Brest, Hennebont];
 
         for (var i = 0; i < markers.length; i++) {
@@ -81,7 +91,7 @@
         var map = L.map('mapid', {
             center: [47.8051200, -3.2733700],
             zoom: 7 ,
-            layers: [osm, villes]
+            layers: [osm, Appartements, Villa, Maison, Bateau, Mhote, Chote, Cabane, Caravane]
         });
 
         var baseMaps = {
@@ -91,16 +101,24 @@
         };
 
         var overlayMaps = {
-            "Villes": villes,
-            "<span style='color: green'>Parc</span>": parcs
+            "Appartements": Appartements,
+            "Villa": Villa,
+            "Maison": Maison,
+            "Bateau": Bateau,
+            "Mhote": Mhote,
+            "Chote": Chote,
+            "Cabane": Cabane,
+            "Caravane": Caravane,
         };
 
         var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
         layerControl.addBaseLayer(openTopoMap, "OpenTopoMap");
 
+        var allLogements = L.layerGroup([Appartements, Villa, Maison, Bateau, Mhote, Chote, Cabane, Caravane]);
+
         var searchControl = new L.Control.Search({
-            layer: villes,
+            layer: allLogements,
             propertyName: 'name',
             marker: false,
             moveToLocation: function(latlng, title, map) {

@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   var Calendar = FullCalendar.Calendar;
   var Draggable = FullCalendar.Draggable;
-  response.setheader(' Access-Control-Allow-Origin','https://cloudflareinsights.com/cdn-cgi/rum');
   var containerEl = document.getElementById('external-events');
   var calendarEl = document.getElementById('calendar');
   var validateButton = document.getElementById('validate-button');
@@ -102,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Aucun événement à envoyer.");
     }
 });
+res.setheader(' Access-Control-Allow-Origin','https://cloudflareinsights.com/cdn-cgi/rum');
 
 calendar.render();  
     });   

@@ -513,60 +513,44 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         </div>
     </div>
 </div>
+</div>
+    <div id="footer">
+        <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
+        <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
+    </div>
+</div>
+</form>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Fonction pour ajouter un écouteur d'événement au bouton d'importation d'image
-        function addEventListenerToNewButton(newInput) {
-            newInput.addEventListener('change', function() {
-                var container = newInput.parentElement;
+    var maxPhotos = 10; // Limite de 10 boutons pour ajouter des photos
+    var photoCount = 1; // Compteur de photos
 
-                // Vérifier s'il y a moins de 10 boutons et si le champ de fichier n'est pas vide
-                if (container.nextElementSibling == null && document.querySelectorAll('.image-upload').length < 10 && newInput.files.length > 0) {
-                    // Créer un nouvel élément div pour le conteneur du prochain bouton
-                    var newContainer = document.createElement('div');
-                    newContainer.classList.add('image-upload-container');
+    function addPhotoButton() {
+        if (photoCount < maxPhotos) {
+            var newButton = document.createElement("button");
+            newButton.type = "button";
+            newButton.className = "add-photo-button";
+            newButton.innerHTML = "Ajouter une photo";
+            newButton.onclick = function() {
+                addPhotoButton();
+            };
 
-                    // Créer un nouvel élément input pour le bouton d'importation d'image
-                    var newInput = document.createElement('input');
-                    newInput.type = 'file';
-                    newInput.classList.add('image-upload');
-                    newInput.accept = 'image/*';
-                    newInput.name = 'img' + (document.querySelectorAll('.image-upload').length + 1); // Créer un nom unique
-                    newContainer.appendChild(newInput);
+            var imageContainer = document.getElementById("division_colonnes_droite");
+            imageContainer.appendChild(newButton);
 
-                    // Créer un nouvel élément label pour le bouton personnalisé
-                    var newLabel = document.createElement('label');
-                    newLabel.htmlFor = newInput.id;
-                    newLabel.classList.add('custom-button');
-                    newLabel.textContent = 'Importer l\'image';
-                    newContainer.appendChild(newLabel);
-
-                    // Créer un nouvel élément div pour l'image sélectionnée
-                    var newSelectedImage = document.createElement('div');
-                    newSelectedImage.classList.add('selected-image');
-                    newSelectedImage.id = 'selected-image' + (document.querySelectorAll('.selected-image').length + 1); // Créer un id unique
-                    newContainer.appendChild(newSelectedImage);
-
-                    // Ajouter le nouveau conteneur d'importation d'image à la page
-                    container.after(newContainer);
-
-                    // Ajouter un écouteur d'événements au nouveau bouton
-                    addEventListenerToNewButton(newInput);
-                }
-            });
+            photoCount++;
         }
+    }
 
-        // Ajouter des écouteurs d'événements à tous les boutons d'importation d'image initiaux
-        document.querySelectorAll('#images_colonne_gauche .image-upload').forEach(function(input) {
-            addEventListenerToNewButton(input);
-        });
-    });
+    // Appel initial pour créer le premier bouton
+    addPhotoButton();
 </script>
 
-
-         
-    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="{{asset('js/script_logement.js')}}"></script>
+</body>
+</html>
+</div>
     <div id="footer">
         <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
         <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>

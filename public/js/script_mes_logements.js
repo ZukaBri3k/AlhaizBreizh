@@ -80,7 +80,7 @@ function triDate() {
 
 //-----------------------------Pop up Confirmation mise hors ligne logement-----------------------------
 
-let btnHL = document.getElementsByClassName('btnHL');
+let btnHL = document.getElementsByClassName('HL');
 btnHL = Array.from(btnHL);
 
 btnHL.forEach((btn) => {
@@ -105,13 +105,58 @@ btnHL.forEach((btn) => {
             if (result.isConfirmed) {
                 Swal.fire({
                     title: "Deconnexion !",
-                    text: "Vous allez être déconnecter.",
+                    text: "Votre logement à bien été mis hors ligne.",
                     icon: "success",
                     confirmButtonColor: "#21610B",
                     background: '#F6F5EE',
                     allowOutsideClick: false,
                     customClass: {
-                        title: 'generation_cle'
+                        title: '.popupFeedBack'
+                    },
+                    //En dessous je fait la redirection après la confirmation de la suppression de la clé API
+                }).then(() => {
+                    window.location.href = url;
+                });
+            }
+        });
+    });
+});
+
+
+//-----------------------------Pop up Confirmation mise en ligne logement-----------------------------
+
+let btnEL = document.getElementsByClassName('EL');
+btnEL = Array.from(btnEL);
+
+btnEL.forEach((btn) => {
+    btn.addEventListener('click', function(event) {
+        event.preventDefault();
+        var url = this.href;
+    
+        Swal.fire({
+            title: "Êtes vous sûr de vouloir mettre ce logement en ligne ?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#21610B",
+            cancelButtonColor: "#EC3B53",
+            background: '#F6F5EE',
+            cancelButtonText: "Annuler",
+            confirmButtonText: "Confirmer",
+            allowOutsideClick: false,
+            customClass: {
+                title: 'popupFeedBack'
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deconnexion !",
+                    text: "Votre logement à bien été mis en ligne.",
+                    icon: "success",
+                    confirmButtonColor: "#21610B",
+                    background: '#F6F5EE',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: '.popupFeedBack'
                     },
                     //En dessous je fait la redirection après la confirmation de la suppression de la clé API
                 }).then(() => {

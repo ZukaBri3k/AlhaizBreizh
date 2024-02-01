@@ -188,6 +188,7 @@ cloturer.addEventListener('click', function(event) {
                   autocapitalize: "off"
                 },
                 showCancelButton: true,
+                allowOutsideClick: false,
                 confirmButtonText: "Confirmer",
                 cancelButtonText: "Annuler",
                 cancelButtonColor: "#EC3B53",
@@ -196,7 +197,6 @@ cloturer.addEventListener('click', function(event) {
                 customClass: {
                     title: 'popupFeedBack'
                 },
-                allowOutsideClick: false,
                 preConfirm: async (confirm) => {
                     try {
                         if (confirm === "CONFIRMER") {
@@ -231,9 +231,6 @@ cloturer.addEventListener('click', function(event) {
                 },
                 allowOutsideClick: () => !Swal.isLoading()
             });
-                //En dessous je fait la redirection après la confirmation de la suppression de la clé API
-                /*
-            }); */
         } else {
             Swal.fire({
                 title: "Annuler !",

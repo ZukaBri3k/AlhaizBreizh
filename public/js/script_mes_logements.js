@@ -102,6 +102,8 @@ btnHL.forEach((btn) => {
                 title: 'popupFeedBack'
             },
         }).then(() => {
+            window.location.href = url;
+        }).then(() => {
             const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",
@@ -123,8 +125,6 @@ btnHL.forEach((btn) => {
                     title: 'popupFeedBack'
                 },
             });
-        }).then(() => {
-            window.location.href = url;
         });
     });
 });

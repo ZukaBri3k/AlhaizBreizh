@@ -524,7 +524,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 <script>
     var photoCount = 1;
 
-    function handleImageUpload() {
+    function handleImageUpload(input) {
         if (photoCount < 10) {
             photoCount++;
 
@@ -534,16 +534,23 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             newInput.setAttribute('accept', 'image/*');
             newInput.setAttribute('id', 'image-upload' + photoCount);
             newInput.setAttribute('name', 'img' + photoCount);
-            newInput.setAttribute('onchange', 'handleImageUpload()');
+            newInput.setAttribute('onchange', 'handleImageUpload(this)');
 
             var newLabel = document.createElement('label');
             newLabel.setAttribute('for', 'image-upload' + photoCount);
             newLabel.setAttribute('class', 'custom-button');
             newLabel.innerHTML = 'Importer une autre image';
 
+            var newImageContainer = document.createElement('div');
+            newImageContainer.setAttribute('class', 'selected-image');
+
+            var fileName = input.files[0].name;
+            newImageContainer.innerHTML = fileName;
+
             var imageContainer = document.querySelector('#images_colonne_gauche');
             imageContainer.appendChild(newInput);
             imageContainer.appendChild(newLabel);
+            imageContainer.appendChild(newImageContainer);
         } else {
             alert('Vous avez atteint la limite maximale de 10 photos.');
         }

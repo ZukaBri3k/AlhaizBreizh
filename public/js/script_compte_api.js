@@ -181,7 +181,7 @@ cloturer.addEventListener('click', function(event) {
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
-                title: "Submit your Github username",
+                title: "Veuillez entrer 'CONFIRMER' pour supprimer votre compte !",
                 input: "text",
                 background: '#F6F5EE',
                 inputAttributes: {
@@ -189,6 +189,8 @@ cloturer.addEventListener('click', function(event) {
                 },
                 showCancelButton: true,
                 confirmButtonText: "Confirmer",
+                cancelButtonText: "Annuler",
+                cancelButtonColor: "#EC3B53",
                 confirmButtonColor: "#21610B",
                 showLoaderOnConfirm: true,
                 customClass: {
@@ -216,7 +218,7 @@ cloturer.addEventListener('click', function(event) {
                     } catch (error) {
                         Swal.fire({
                             title: "Annuler !",
-                            text: "Votre compte n'a pas été supprimer.",
+                            text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
                             icon: "error",
                             confirmButtonColor: "#21610B",
                             background: '#F6F5EE',

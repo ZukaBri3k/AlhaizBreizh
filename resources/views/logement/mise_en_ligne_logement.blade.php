@@ -531,6 +531,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         </div>
     </div>
 </div>
+</div>
 <div id="footer">
     <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
     <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
@@ -583,8 +584,6 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         }
     }
 </script>
-
-
 </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

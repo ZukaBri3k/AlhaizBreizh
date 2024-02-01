@@ -411,6 +411,42 @@ nav {
     transition: 0.4s;
 }
 
+#map-container {
+    width: 500px;
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#mapid {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.popup-image {
+    max-width: 110%;
+    height: auto;
+}
+
+.leaflet-control-layers {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+}
+
+.leaflet-control-layers-expanded {
+    width: 200px;
+}
+
+.leaflet-control-layers-list {
+    padding: 10px;
+}
+
+.leaflet-control-layers-separator {
+    border-top: 1px solid #ddd;
+    margin: 10px -10px;
+}
+
 /***********************************************************************************************************
 ************************************************************************************************************
 ************************************************************************************************************

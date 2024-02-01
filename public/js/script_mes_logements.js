@@ -104,6 +104,7 @@ btnHL.forEach((btn) => {
         }).then(() => {
             window.location.href = url;
         }).then(() => {
+            sleep(1000);
             const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",

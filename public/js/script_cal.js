@@ -101,9 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Aucun événement à envoyer.");
     }
 });
-header:{
-res.setheader(' Access-Control-Allow-Origin','https://cloudflareinsights.com/cdn-cgi/rum');
-}
 calendar.render();  
     });   
 

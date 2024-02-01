@@ -6,6 +6,10 @@
     <title>Accueil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.css" />
+    <script src="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.js"></script>
 </head>
 <body id="accueil">
     <x-Navbar></x-Navbar>
@@ -24,6 +28,140 @@
             @endforeach
         </div>
     </section>
+
+    <div id="mapid" style="height: 500px;">
+        <div id="map-overlay" style="display: none; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.5); color: white; display: flex; align-items: center; justify-content: center; z-index: 1000;text-align: center; font-size: 30px;">
+            <p class="appctrl">Appuyez sur Ctrl pour pouvoir zoomer sur la carte<p>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+
+    
+        /*tabCard.forEach((carte) => {
+            var carte.classList[2] = L.marker([48.4500000, -2.5555], {name: 'carte.classList[2]'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is carte.classList[2].').on('click', function () { this.openPopup(); });
+        });*/
+
+        var Dinan     = L.marker([48.4500000, -2.0333300], {name: 'Dinan'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Dinan.').on('click', function () { this.openPopup(); });
+        var Lorient   = L.marker([47.7500000, -3.3666700], {name: 'Lorient'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Lorient.').on('click', function () { this.openPopup(); });
+        var Rennes    = L.marker([48.1119800, -1.6742900], {name: 'Rennes'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Rennes.').on('click', function () { this.openPopup(); });
+        var Brest     = L.marker([48.4000000, -4.4833300], {name: 'Brest'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Brest.').on('click', function () { this.openPopup(); });
+        var Hennebont = L.marker([47.8051200, -3.2733700], {name: 'Hennebont'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> Parc de Ewan, Hennebont.').on('click', function () { this.openPopup(); });
+
+        var Appartements = L.layerGroup([Lorient]);
+        var Villa = L.layerGroup([Brest]);
+        var Maison = L.layerGroup([Rennes]);
+        var Bateau = L.layerGroup([Dinan]);
+        var Mhote = L.layerGroup([Dinan]);
+        var Chote = L.layerGroup([Dinan]);
+        var Cabane = L.layerGroup([Hennebont]);
+        var Caravane = L.layerGroup([Dinan]);
+        
+        var markers = [Dinan, Lorient, Rennes, Brest, Hennebont];
+
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].on('mouseover', function (e) {
+                e.target.setIcon(new L.Icon.Default({ iconSize: [32, 52], iconAnchor: [15, 45] }));
+            });
+
+            markers[i].on('mouseout', function (e) {
+                e.target.setIcon(new L.Icon.Default({ iconSize: [25, 41], iconAnchor: [12, 41] }));
+            });
+        }
+
+        var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        });
+
+        var osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'
+        });
+
+        var openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+        });
+
+        var bzh = L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        });
+
+        var map = L.map('mapid', {
+            center: [47.8051200, -3.2733700],
+            zoom: 7 ,
+            layers: [osm, Appartements, Villa, Maison, Bateau, Mhote, Chote, Cabane, Caravane]
+        });
+
+        var baseMaps = {
+            "OpenStreetMap": osm,
+            "<span style='color: red'>OpenStreetMap.HOT</span>": osmHOT,
+            "BZH": bzh
+        };
+
+        var overlayMaps = {
+            "Appartements": Appartements,
+            "Villa": Villa,
+            "Maison": Maison,
+            "Bateau": Bateau,
+            "Mhote": Mhote,
+            "Chote": Chote,
+            "Cabane": Cabane,
+            "Caravane": Caravane,
+        };
+
+        var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+        layerControl.addBaseLayer(openTopoMap, "OpenTopoMap");
+
+        var allLogements = L.layerGroup([Appartements, Villa, Maison, Bateau, Mhote, Chote, Cabane, Caravane]);
+
+        var searchControl = new L.Control.Search({
+            layer: allLogements,
+            propertyName: 'name',
+            marker: false,
+            moveToLocation: function(latlng, title, map) {
+                map.setView(latlng, 13);
+            }
+        });
+
+        searchControl.on('search:locationfound', function(e) {
+            e.layer.openPopup();
+        });
+
+        map.addControl(searchControl);
+
+        map.scrollWheelZoom.disable();
+
+        var mapOverlay = document.getElementById('map-overlay');
+        var userScrolled = false;
+        mapOverlay.style.display = 'block';
+
+        // Add the wheel event listener
+        map.getContainer().addEventListener('wheel', function(event) {
+            if (!userScrolled && !event.ctrlKey) {
+                userScrolled = true;
+                mapOverlay.style.display = 'block'; // Show the filter
+            }
+        });
+
+        // Hide the overlay and enable zoom when the Control key is pressed
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && userScrolled) {
+                mapOverlay.style.display = 'none'; // Hide the filter
+                map.scrollWheelZoom.enable();
+            }
+        });
+
+        // Disable zoom when the Control key is released
+        document.addEventListener('keyup', function(event) {
+            if (!event.ctrlKey) {
+                userScrolled = false;
+                map.scrollWheelZoom.disable();
+            }
+        });
+    </script>
 
     <section class="autres">
         <h2>Nos logements les plus récents</h2>

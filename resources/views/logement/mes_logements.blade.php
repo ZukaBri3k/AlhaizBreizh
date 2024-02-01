@@ -84,12 +84,6 @@
 
     <section class="mesReservations">
         <h2>Mes réservations :</h2>
-        @php 
-            if(count($tabReserv) == 0){
-                echo "<p class='aucuneReservation'>Vous n'avez aucune réservation.</p>";
-            }
-            @endphp
-
         <div class="btnTriFiltre">
             <button id="btnTriDate" onclick="triDate()">Trier par date (du plus ancien)</button>
             <select id="selectionFiltre">
@@ -111,6 +105,11 @@
             @endforeach
             <p id="msgFiltreVide" style="display: none;">Aucune réservation ne correspond à vos critère de recherche</p>
         </div>
+        @php 
+            if(count($tabReserv) == 0){
+                echo "<p class='aucuneReservation'>Vous n'avez aucune réservation.</p>";
+            }
+        @endphp
     </section>
 
     <x-FooterClient></x-FooterClient>

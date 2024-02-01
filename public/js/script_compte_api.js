@@ -154,6 +154,10 @@ document.querySelector('.api').addEventListener('submit', function(event) {
 });
 
 
+
+
+
+
 //Ici mon JS pour la suppression d'un compte
 var cloturer = document.getElementById('cloturer');
 
@@ -190,6 +194,7 @@ cloturer.addEventListener('click', function(event) {
                 customClass: {
                     title: '.popupFeedBack'
                 },
+                allowOutsideClick: false,
                 preConfirm: async (confirm) => {
                     try {
                         if (confirm === "CONFIRMER") {
@@ -203,22 +208,29 @@ cloturer.addEventListener('click', function(event) {
                                     title: '.popupFeedBack'
                                 },
                                 allowOutsideClick: false,
+                            }).then(() => {
+                                window.location.href = url;
                             });
                         }
                         return response.json();
                     } catch (error) {
-                        Swal.showValidationMessage(`Request failed: ${error}`);
+                        Swal.fire({
+                            title: "Annuler !",
+                            text: "Votre compte n'a pas été supprimer.",
+                            icon: "error",
+                            confirmButtonColor: "#21610B",
+                            background: '#F6F5EE',
+                            allowOutsideClick: false,
+                            customClass: {
+                                title: 'generation_cle'
+                            },
+                        });
                     }
                 },
                 allowOutsideClick: () => !Swal.isLoading()
-            });/* .then((result) => {
-                if (result.isConfirmed) {
-                    
-                }
-              }) */
+            });
                 //En dessous je fait la redirection après la confirmation de la suppression de la clé API
-                /* .then(() => {
-                window.location.href = url;
+                /*
             }); */
         } else {
             Swal.fire({

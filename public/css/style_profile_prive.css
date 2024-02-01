@@ -400,9 +400,9 @@ button:hover {
 
 .button_clotu {
     border-radius: 6px;
-    border: 1px solid #FFF;
+    border: 1px solid #F6F5EE;
     background: #EC3B53;
-    color: #FFF;
+    color: #F6F5EE;
     text-align: center;
     font-family: 'Montserrat';
     font-size: 20px;
@@ -417,7 +417,7 @@ button:hover {
 } 
 
 .button_clotu:hover {
-    background-color: #FFF;
+    background-color: #F6F5EE;
     color: #EC3B53;
     border: 1px solid #EC3B53;
     transition: 0.5s;

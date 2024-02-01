@@ -525,37 +525,40 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     var photoCount = 1;
 
     function handleImageUpload(input) {
-        if (photoCount < 10) {
-            photoCount++;
+        if (input.files && input.files[0]) {
+            if (photoCount < 10) {
+                photoCount++;
 
-            var newInput = document.createElement('input');
-            newInput.setAttribute('type', 'file');
-            newInput.setAttribute('class', 'image-upload');
-            newInput.setAttribute('accept', 'image/*');
-            newInput.setAttribute('id', 'image-upload' + photoCount);
-            newInput.setAttribute('name', 'img' + photoCount);
-            newInput.setAttribute('onchange', 'handleImageUpload(this)');
+                var newInput = document.createElement('input');
+                newInput.setAttribute('type', 'file');
+                newInput.setAttribute('class', 'image-upload');
+                newInput.setAttribute('accept', 'image/*');
+                newInput.setAttribute('id', 'image-upload' + photoCount);
+                newInput.setAttribute('name', 'img' + photoCount);
+                newInput.setAttribute('onchange', 'handleImageUpload(this)');
 
-            var newLabel = document.createElement('label');
-            newLabel.setAttribute('for', 'image-upload' + photoCount);
-            newLabel.setAttribute('class', 'custom-button');
-            newLabel.innerHTML = 'Importer une autre image';
+                var newLabel = document.createElement('label');
+                newLabel.setAttribute('for', 'image-upload' + photoCount);
+                newLabel.setAttribute('class', 'custom-button');
+                newLabel.innerHTML = 'Importer une autre image';
 
-            var newImageContainer = document.createElement('div');
-            newImageContainer.setAttribute('class', 'selected-image');
+                var newImageContainer = document.createElement('div');
+                newImageContainer.setAttribute('class', 'selected-image');
 
-            var fileName = input.files[0].name;
-            newImageContainer.innerHTML = fileName;
+                var fileName = input.files[0].name;
+                newImageContainer.innerHTML = fileName;
 
-            var imageContainer = document.querySelector('#images_colonne_gauche');
-            imageContainer.appendChild(newInput);
-            imageContainer.appendChild(newLabel);
-            imageContainer.appendChild(newImageContainer);
-        } else {
-            alert('Vous avez atteint la limite maximale de 10 photos.');
+                var imageContainer = document.querySelector('#images_colonne_gauche');
+                imageContainer.appendChild(newInput);
+                imageContainer.appendChild(newLabel);
+                imageContainer.appendChild(newImageContainer);
+            } else {
+                alert('Vous avez atteint la limite maximale de 10 photos.');
+            }
         }
     }
 </script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

@@ -184,17 +184,12 @@ class AccountController extends Controller
 
     public function generationCle(Request $request) {
         $id = auth()->user()->id;
-        $cle = rand(10000000, 99999999);
-
-        if ($request->privilege == "prive") {
-            $privi = true;
-        } else {
-            $privi = false;
-        }
+        $random = random_bytes(20);
+        $cle = base64_encode($random);
 
         $tabcle = [
             $cle,
-            $privi,
+            false,
             $id
         ];
 
@@ -202,25 +197,22 @@ class AccountController extends Controller
         return redirect()->route('myClientAccountAPI', ['id' => $id]);
     }
 
-    public function deleteCle(Request $request, $cle) {
+    public function deleteCle(Request $request) {
         $id = auth()->user()->id;
+        $cle = urldecode($request->query('cle'));
+        $cle = str_replace(' ', '+', $cle);
         DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
         return redirect()->route('myClientAccountAPI', ['id' => $id]);
     }
 
     public function generationClePro(Request $request) {
         $id = auth()->user()->id;
-        $cle = rand(10000000, 99999999);
-
-        if ($request->privilege == "prive") {
-            $privi = true;
-        } else {
-            $privi = false;
-        }
+        $random = random_bytes(20);
+        $cle = base64_encode($random);
 
         $tabcle = [
             $cle,
-            $privi,
+            false,
             $id
         ];
 
@@ -228,8 +220,10 @@ class AccountController extends Controller
         return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
     }
 
-    public function deleteClePro(Request $request, $cle) {
+    public function deleteClePro(Request $request) {
         $id = auth()->user()->id;
+        $cle = urldecode($request->query('cle'));
+        $cle = str_replace(' ', '+', $cle);
         DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
         return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
     }

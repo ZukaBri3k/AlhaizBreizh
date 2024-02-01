@@ -67,24 +67,39 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   $("#validate-button").on("click", function() {
-    let teste = document.getElementById('eventsInput').value = selectedValuesDroite.join(';');
-    console.log(teste);
     var events = calendar.getEvents();
+    console.log("Événements récupérés:", events);
+
     if (events.length > 0) {
-        var date = events[0].start.toISOString().slice(0, 19).replace('T', ' ');
-        $.ajax({
-            url: "/ajouter-evenements",
-            type: "POST",
-            data: JSON.stringify({ events: new Date(date) }), 
-            contentType: "application/json",
-            success: function(response) {
-                alert(response.message);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.error("Erreur AJAX: " + textStatus, errorThrown);
-                console.log("Réponse du serveur : ", jqXHR.responseText);
-            }
-        });
+        var startDate = events[0].start;
+        console.log("Date de début:", startDate);
+
+        if (startDate) {
+            console.log("Test de startDate:", startDate);
+            var date = startDate.toString();
+            console.log("Date à envoyer:", date);
+            console.log("Événements à envoyer:", events);
+
+            $.ajax({
+              url: "ajouter-evenements",
+              type: "POST",
+              dataType: 'json',
+              contentType :'json',
+              data: { date: date },  // Utiliser 'date' plutôt que 'events'
+              success: function(response) {
+                  console.log("Réponse du serveur:", response);
+                  alert(response.message);
+              },
+              error: function(jqXHR, textStatus, errorThrown) {
+                  console.error("Erreur AJAX:", textStatus, errorThrown);
+                  console.log("Réponse du serveur :", jqXHR.responseText);
+              }
+          });
+          } else {
+            console.log("La date de début n'est pas définie dans le premier événement.");
+        }
+    } else {
+        console.log("Aucun événement à envoyer.");
     }
 });
 

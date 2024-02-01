@@ -17,26 +17,31 @@
       <div id="carouselExampleIndicators" class="carousel slide">
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img1.jpg')}}" class="d-block w-100">
+              <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
               <div>
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">
+                @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
+                    <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                @endfor
               </div>
             </div>
-            <div class="carousel-item">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img1.jpg')}}" class="d-block w-100">
+            @for($i = 1; $i < intval($nb_photo); $i++)
+              @php $counter = 0; @endphp
+              <div class="carousel-item">
+                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                
+                <div>
+                  @for($j = $i + 1; $j < intval($nb_photo) && $counter < 2; $j++)
+                    @php $counter++; @endphp
+                    <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                  @endfor
+
+                  @for($j = 0; $j < $i && $counter < 2; $j++)
+                    @php $counter++; @endphp
+                    <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                  @endfor
+                </div>
               </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img1.jpg')}}" class="d-block w-100">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              </div>
-            </div>
+            @endfor
           </div>
       </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

@@ -46,22 +46,22 @@
                         }
                     </script>
 
-                    <label for="nom_pers">Nom:</label>
-                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control">
+                    <label for="nom_pers">*Nom:</label>
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" required>
 
-                    <label for="prenom_pers">Prénom:</label>
-                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control">
+                    <label for="prenom_pers">*Prénom:</label>
+                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control" required>
 
-                    <label for="pseudo_pers">Pseudo:</label>
+                    <label for="pseudo_pers">*Pseudo:</label>
                     <input type="text" id="pseudo_pers" name="pseudo_pers" placeholder="Choisissez un pseudo"
-                        class="form-control">
+                        class="form-control" required>
 
-                    <label for="ville_pers">Ville:</label>
-                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control">
+                    <label for="ville_pers">*Ville:</label>
+                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control" required>
 
-                    <label for="pays_pers">Pays:</label>
+                    <label for="pays_pers">*Pays:</label>
                     <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays"
-                        class="form-control">
+                        class="form-control" required>
 
                         <label for="profile-pic">
                         Insérer une photo de profil :
@@ -98,33 +98,33 @@
             <div class="col-md-6 divider">
                 <h2 class="h2">Informations Personnelles privées</h2>
                 <div class="form-container">
-                    <label for="adresse_pers">Adresse:</label>
+                    <label for="adresse_pers">*Adresse:</label>
                     <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Entrez votre adresse"
-                        class="form-control">
+                        class="form-control" required>
 
-                    <label for="code_postal_pers">Code Postal:</label>
+                    <label for="code_postal_pers">*Code Postal:</label>
                     <input type="text" id="code_postal_pers" name="code_postal_pers" placeholder="Entrez votre code postal"
-                        class="form-control">
+                        class="form-control" required>
 
-                    <label for="date_de_naissance">Date de Naissance:</label>
+                    <label for="date_de_naissance">*Date de Naissance:</label>
                     <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Entrez votre date de naissance"
-                        class="form-control">
+                        class="form-control" required>
 
-                    <label for="telephone_pers">Numéro de Téléphone:</label>
+                    <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control">
+                        class="form-control" required>
 
-                    <label for="mail_pers">Adresse E-mail:</label>
+                    <label for="mail_pers">*Adresse E-mail:</label>
                     <input type="email" id="mail_pers" name="mail_pers" placeholder="Entrez votre adresse E-mail"
-                        class="form-control">
+                        class="form-control" required maxlength="90">
 
-                    <label for="password">Mot de Passe:</label>
+                    <label for="password">*Mot de Passe:</label>
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
-                        class="form-control">
+                        class="form-control" required maxlength="60">
 
-                    <label for="confirmerMotDePasse">Confirmation du Mot de Passe:</label>
+                    <label for="confirmerMotDePasse">*Confirmation du Mot de Passe:</label>
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"
-                        placeholder="Confirmez votre mot de passe" class="form-control">
+                        placeholder="Confirmez votre mot de passe" class="form-control" required>
 
                     <label for="iban">IBAN:</label>
                     <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">

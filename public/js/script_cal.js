@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 url: "ajouter-evenements",
                 type: "POST",
                 dataType: 'json',
-                contentType :'json',
+                contentType: 'application/json',
                 data: JSON.stringify({ date: date }),  // Utiliser 'date' plutôt que 'events'
                 success: function(response) {
                     console.log("Réponse du serveur:", response);

@@ -38,9 +38,9 @@
     <script type="text/javascript">
 
     
-        tabCard.forEach((carte) => {
+        /*tabCard.forEach((carte) => {
             var carte.classList[2] = L.marker([48.4500000, -2.5555], {name: 'carte.classList[2]'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is carte.classList[2].').on('click', function () { this.openPopup(); });
-        });
+        });*/
 
         var Dinan     = L.marker([48.4500000, -2.0333300], {name: 'Dinan'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Dinan.').on('click', function () { this.openPopup(); });
         var Lorient   = L.marker([47.7500000, -3.3666700], {name: 'Lorient'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Lorient.').on('click', function () { this.openPopup(); });

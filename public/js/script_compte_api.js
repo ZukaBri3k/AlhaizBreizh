@@ -216,6 +216,7 @@ cloturer.addEventListener('click', function(event) {
                         } 
                         return response.json();
                     } catch (error) {
+                        console.log(error);
                         Swal.fire({
                             title: "Annuler !",
                             text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",

@@ -805,9 +805,9 @@ CSS des popup début
 ************************************************************************************************************
 ***********************************************************************************************************/
 
-.popup {
+.popupFeedBack {
     color: #000;
-    font-family: 'Montserrat-ExtraLight';
+    font-family: 'Montserrat-Light';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;

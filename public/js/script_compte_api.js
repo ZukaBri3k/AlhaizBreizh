@@ -164,6 +164,7 @@ var cloturer = document.getElementById('cloturer');
 cloturer.addEventListener('click', function(event) {
     event.preventDefault();
     var url = this.href;
+    let trigger = false;
 
     Swal.fire({
         title: "Êtes vous sûr de vouloir supprimer votre compte ?",
@@ -214,6 +215,7 @@ cloturer.addEventListener('click', function(event) {
                                 window.location.href = url;
                             });
                         } else {
+                            trigger = true;
                             return Swal.fire({
                                 title: "Annuler !",
                                 text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
@@ -232,17 +234,19 @@ cloturer.addEventListener('click', function(event) {
                 },
                 allowOutsideClick: () => !Swal.isLoading()
             }).then((result) => {
-                Swal.fire({
-                    title: "Annuler !",
-                    text: "Votre compte n'a pas été supprimer.123456789",
-                    icon: "error",
-                    confirmButtonColor: "#21610B",
-                    background: '#F6F5EE',
-                    allowOutsideClick: false,
-                    customClass: {
-                        title: 'popupFeedBack'
-                    },
-                });
+                if(trigger === false) {
+                    Swal.fire({
+                        title: "Annuler !",
+                        text: "Votre compte n'a pas été supprimer.",
+                        icon: "error",
+                        confirmButtonColor: "#21610B",
+                        background: '#F6F5EE',
+                        allowOutsideClick: false,
+                        customClass: {
+                            title: 'popupFeedBack'
+                        },
+                    });
+                }
             });
         } else {
             Swal.fire({

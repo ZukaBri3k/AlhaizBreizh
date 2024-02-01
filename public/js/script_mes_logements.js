@@ -80,6 +80,10 @@ function triDate() {
 
 //-----------------------------Pop up Confirmation mise hors ligne logement-----------------------------
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 let btnHL = document.getElementsByClassName('btnHL');
 btnHL = Array.from(btnHL);
 
@@ -104,28 +108,29 @@ btnHL.forEach((btn) => {
         }).then(() => {
             window.location.href = url;
         }).then(() => {
-            sleep(1000);
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-            });
-
-            Toast.fire({
-                icon: "success",
-                title: "Votre est désormait hors ligne",
-                background: '#F6F5EE',
-                allowOutsideClick: false,
-                customClass: {
-                    title: 'popupFeedBack'
-                },
-            });
+            sleep(1000).then(() => {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+    
+                Toast.fire({
+                    icon: "success",
+                    title: "Votre est désormait hors ligne",
+                    background: '#F6F5EE',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'popupFeedBack'
+                    },
+                });
+            });         
         });
     });
 });

@@ -83,7 +83,7 @@ for (var i = 0; i < deleteLinks.length; i++) {
 
         Swal.fire({
             title: "Êtes vous sûr de vouloir supprimer votre clé API ?",
-            text: "Cette action n'est pas réversible !",
+            text: "Cette action est irréversible ! Si vous supprimez votre clé tous les services utilisant cette clé ne fonctionneront plus.",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#21610B",
@@ -98,8 +98,8 @@ for (var i = 0; i < deleteLinks.length; i++) {
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
-                    title: "Supprimer !",
-                    text: "Votre clé API à bien été supprimer.",
+                    title: "Supprimée !",
+                    text: "Votre clé API à bien été supprimée.",
                     icon: "success",
                     confirmButtonColor: "#21610B",
                     background: '#F6F5EE',
@@ -113,8 +113,8 @@ for (var i = 0; i < deleteLinks.length; i++) {
                 });
             } else {
                 Swal.fire({
-                    title: "Annuler !",
-                    text: "Votre clé API n'a pas été supprimer.",
+                    title: "Annulé !",
+                    text: "Votre clé API n'a pas été supprimée.",
                     icon: "error",
                     confirmButtonColor: "#21610B",
                     background: '#F6F5EE',
@@ -168,6 +168,7 @@ cloturer.addEventListener('click', function(event) {
 
     Swal.fire({
         title: "Êtes vous sûr de vouloir supprimer votre compte ?",
+        text: "Cette action est irréversible ! Si vous supprimez votre compte toute les réservations associées à celui-ci seront supprimées.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#21610B",
@@ -217,7 +218,7 @@ cloturer.addEventListener('click', function(event) {
                         } else {
                             trigger = true;
                             return Swal.fire({
-                                title: "Annuler !",
+                                title: "Annulé !",
                                 text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
                                 icon: "error",
                                 confirmButtonColor: "#21610B",
@@ -236,7 +237,7 @@ cloturer.addEventListener('click', function(event) {
             }).then((result) => {
                 if(trigger === false) {
                     Swal.fire({
-                        title: "Annuler !",
+                        title: "Annulé !",
                         text: "Votre compte n'a pas été supprimé.",
                         icon: "error",
                         confirmButtonColor: "#21610B",
@@ -250,7 +251,7 @@ cloturer.addEventListener('click', function(event) {
             });
         } else {
             Swal.fire({
-                title: "Annuler !",
+                title: "Annulé !",
                 text: "Votre compte n'a pas été supprimé.",
                 icon: "error",
                 confirmButtonColor: "#21610B",

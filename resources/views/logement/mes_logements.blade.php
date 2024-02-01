@@ -29,33 +29,6 @@
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
                     @php }
                     @endphp
-                    <script>
-                        let logement = document.getElementsByClassName(".btnHL");
-
-                        logement.forEach((btn) => {
-                            btn.addEventListener("beforeunload", () => {
-                                Swal.fire({
-                                    title: 'Êtes-vous sûr ?',
-                                    text: "Vous ne pourrez pas revenir en arrière !",
-                                    icon: 'warning',
-                                    showCancelButton: true,
-                                    confirmButtonColor: '#3085d6',
-                                    cancelButtonColor: '#d33',
-                                    confirmButtonText: 'Oui, je suis sûr !'
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        Swal.fire(
-                                        'Supprimé !',
-                                        'Votre logement a bien été supprimé.',
-                                        'success'
-                                        )
-                                    } else {
-                                        event.preventDefault();
-                                    }
-                                })
-                            });
-                        });
-                    </script>
                 </div>
             @endforeach
             @php 
@@ -117,50 +90,6 @@
             @endphp
 
         <div class="btnTriFiltre">
-            <script>
-                function compareDates(dateString1, dateString2) {
-                    var date1 = new Date(dateString1);
-                    var date2 = new Date(dateString2);
-
-                    // Comparaison des dates
-                    if (date1 < date2) {
-                        return -1;
-                    } else if (date1 > date2) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
-                }
-
-
-                let tri = 0;
-                function triDate() {
-                    let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
-                    let tabDevis = Array.from(ListeDevis);
-                    let btnTriDate = document.querySelector("#btnTriDate");
-                    if(tri == 0) {
-                        tri = 1;
-                        btnTriDate.innerHTML = "Trier par date (du plus récent)";
-                        tabDevis.sort((a,b) => {
-                            return compareDates(a.classList[1], b.classList[1]);
-                        });
-                    } else {
-                        tri = 0;
-                        btnTriDate.innerHTML = "Trier par date (du plus ancien)";
-                        tabDevis.sort((a,b) => {
-                            return compareDates(a.classList[1], b.classList[1]);
-                        });
-                        tabDevis.reverse();
-                    }
-
-                    let conteneurDevis = document.querySelector(".listeMesReservations");
-                    conteneurDevis.innerHTML = "";
-
-                    tabDevis.forEach((carte) => {
-                        conteneurDevis.appendChild(carte);
-                    });    
-                }
-            </script>
             <button id="btnTriDate" onclick="triDate()">Trier par date (du plus ancien)</button>
             <select id="selectionFiltre">
                 <option value="Aucun">Tous</option>
@@ -180,42 +109,11 @@
                 <x-Reservation libelle="{{$reserv->libelle_logement}}" pseudo="{{$reserv->pseudo_pers}}" dated="{{$reserv->date_deb}}" datef="{{$reserv->date_fin}}" id="{{$reserv->id_logement}}" iddevis="{{$reserv->ref_devis}}" idreservation="{{$reserv->id_reserv}}" prix="{{$reserv->prix_tot}}" natlogement="{{$reserv->nature_logement}}"></x-Reservation>
             @endforeach
             <p id="msgFiltreVide" style="display: none;">Aucune réservation ne correspond à vos critère de recherche</p>
-            <script>
-                function filtre() {
-                    let ListeDevis = document.querySelectorAll(".listeMesReservations .devis");
-                    let tabDevis = Array.from(ListeDevis);
-                    let selectionFiltre = document.querySelector("#selectionFiltre");
-                    let filtre = selectionFiltre.value;
-                    let counter = 0;
-
-                    tabDevis.forEach((devis) => {
-                        if (filtre == "Aucun") {
-                            devis.style.display = "flex";
-                            counter++;
-                        }else if(devis.classList[2] != filtre) {
-                            devis.style.display = "none";
-                        } else {
-                            devis.style.display = "flex";
-                            counter++;
-                        }
-                    });
-
-                    let msgFiltreVide = document.getElementById("msgFiltreVide");
-
-                    if(counter == 0) {
-                        msgFiltreVide.style.display = "block";
-                    } else {
-                        msgFiltreVide.style.display = "none";
-                    }
-                }
-
-                let select = document.getElementById("selectionFiltre");
-                select.addEventListener("change", filtre);
-            </script>
         </div>
     </section>
 
     <x-FooterClient></x-FooterClient>
+    <script src="{{asset('js/script_mes_logements.js')}}"></script>
     <script src="https://unpkg.com/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

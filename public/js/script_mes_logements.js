@@ -99,9 +99,9 @@ btnHL.forEach((btn) => {
             confirmButtonText: "Confirmer",
             allowOutsideClick: false,
             customClass: {
-                title: 'popup'
+                title: 'popupFeedBack'
             },
-        }).then((result) => {
+        }).then(() => {
             const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",
@@ -120,9 +120,11 @@ btnHL.forEach((btn) => {
                 background: '#F6F5EE',
                 allowOutsideClick: false,
                 customClass: {
-                    title: 'generation_cle'
+                    title: 'popupFeedBack'
                 },
             });
+        }).then(() => {
+            window.location.href = url;
         });
     });
 });

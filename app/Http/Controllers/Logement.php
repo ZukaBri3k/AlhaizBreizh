@@ -141,6 +141,6 @@ class Logement extends Controller
             DB::update('update logement set en_ligne = false where id_logement = ?', [intval($request->id)]);
         }
 
-        return redirect()->back();
+        return redirect()->route('mes_logementsLogement');
     }
 }

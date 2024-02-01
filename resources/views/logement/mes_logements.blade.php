@@ -11,7 +11,7 @@
 <body class="mesLogementsPage">
     <x-Navbar></x-Navbar>
     
-    <section class="mesLogements">
+    <section class="mesLogements" id="sectionLogement">
         <h2>Mes logements en ligne :</h2>
 
         <div class="listeMesLogement">

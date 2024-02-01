@@ -528,7 +528,8 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         if (input.files && input.files[0]) {
             if (photoCount < 10) {
                 photoCount++;
-
+                var fileName = input.files[0].name;
+                newImageContainer.innerHTML = fileName;
                 var newInput = document.createElement('input');
                 newInput.setAttribute('type', 'file');
                 newInput.setAttribute('class', 'image-upload');
@@ -545,8 +546,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 var newImageContainer = document.createElement('div');
                 newImageContainer.setAttribute('class', 'selected-image');
 
-                var fileName = input.files[0].name;
-                newImageContainer.innerHTML = fileName;
+
 
                 var imageContainer = document.querySelector('#images_colonne_gauche');
                 imageContainer.appendChild(newInput);

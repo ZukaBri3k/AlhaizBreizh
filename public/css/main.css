@@ -654,6 +654,19 @@ CSS de la page mes logements début
     padding: 0 5vw;
 }
 
+.mesLogementsPage .SUPPR {
+    color: #F6F5EE;
+    background-color: #EC3B53;
+    border: 1px solid #EC3B53;
+}
+
+.mesLogementsPage .SUPPR:hover {
+    color: #EC3B53;
+    background-color: #F6F5EE;
+    border: 1px solid #EC3B53;
+    transition: 0.4s;
+}
+
 /***********************************************************************************************************
 ************************************************************************************************************
 ************************************************************************************************************

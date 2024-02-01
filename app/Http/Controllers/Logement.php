@@ -143,4 +143,17 @@ class Logement extends Controller
 
         return redirect()->route('mes_logementsLogement');
     }
+
+    public function delLogement(Request $request) {
+        $id = auth()->user()->id;
+        $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
+        
+        if($id != $idProprietaireLogment[0]->id_proprio_logement) {
+            return redirect()->back();
+        } else {
+            DB::delete('delete from logement where id_logement = ?', [intval($request->id)]);
+        }
+        
+        return redirect()->route('mes_logementsLogement');
+    }
 }

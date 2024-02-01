@@ -39,13 +39,22 @@ class AccountController extends Controller
         return redirect()->back();
     }
 
-    public function deleteAccount() {
+    public function deleteClient() {
 
-        $user = auth()->user()->getRememberToken();
-        DB::table('personnes')->where('remember_token', '=', $user)->delete();
+        $id = auth()->user()->id;
+        DB::delete('delete from client where id_client = ?', [$id]);
+        DB::delete('delete from personnes where id = ?', [$id]);
 
+        return redirect()->route('welcome');
+    }
 
-        return redirect()->route('login');
+    public function deleteProprietaire() {
+
+        $id = auth()->user()->id;
+        DB::delete('delete from proprietaire where id_proprio = ?', [$id]);
+        DB::delete('delete from personnes where id = ?', [$id]);
+
+        return redirect()->route('welcome');
     }
 
     //-----------------------------------------------------

@@ -7,7 +7,6 @@ deconnexion.addEventListener('click', function(event) {
 
     Swal.fire({
         title: "Êtes vous sûr de vouloir vous déconnectez ?",
-        text: "Cette action n'est pas réversible !",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#21610B",

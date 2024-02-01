@@ -183,60 +183,6 @@
             <a href="{{ route('logout') }}" id="logout">
                 <button class="button_deco">Déconnexion</button>
             </a>
-            <!-- Ici mon JS pour la déconnexion -->
-            <script>
-                var deconnexion = document.getElementById('logout');
-
-                deconnexion.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    var url = this.href;
-
-                    Swal.fire({
-                        title: "Êtes vous sûr de vouloir vous déconnectez ?",
-                        text: "Cette action n'est pas réversible !",
-                        icon: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#21610B",
-                        cancelButtonColor: "#EC3B53",
-                        background: '#F6F5EE',
-                        cancelButtonText: "Annuler",
-                        confirmButtonText: "Confirmer",
-                        allowOutsideClick: false,
-                        customClass: {
-                            title: 'generation_cle'
-                        },
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: "Deconnexion !",
-                                text: "Vous allez être déconnecter.",
-                                icon: "success",
-                                confirmButtonColor: "#21610B",
-                                background: '#F6F5EE',
-                                allowOutsideClick: false,
-                                customClass: {
-                                    title: 'generation_cle'
-                                },
-                                //En dessous je fait la redirection après la confirmation de la suppression de la clé API
-                            }).then(() => {
-                                window.location.href = url;
-                            });
-                        } else {
-                            Swal.fire({
-                                title: "Annuler !",
-                                text: "Vous n'allez pas être déconnecter.",
-                                icon: "error",
-                                confirmButtonColor: "#21610B",
-                                background: '#F6F5EE',
-                                allowOutsideClick: false,
-                                customClass: {
-                                    title: 'generation_cle'
-                                },
-                            });
-                        }
-                    });
-                });
-            </script>
         </div>
     </div>
 

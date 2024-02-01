@@ -230,7 +230,7 @@ cloturer.addEventListener('click', function(event) {
                         console.log(error);
                         Swal.fire({
                             title: "Annuler !",
-                            text: "Votre compte n'a pas été supprimer.",
+                            text: "Votre compte n'a pas été supprimer.123456789",
                             icon: "error",
                             confirmButtonColor: "#21610B",
                             background: '#F6F5EE',

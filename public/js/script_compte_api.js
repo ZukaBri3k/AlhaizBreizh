@@ -213,13 +213,24 @@ cloturer.addEventListener('click', function(event) {
                             }).then(() => {
                                 window.location.href = url;
                             });
-                        } 
-                        return response.json();
+                        } else {
+                            return Swal.fire({
+                                title: "Annuler !",
+                                text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
+                                icon: "error",
+                                confirmButtonColor: "#21610B",
+                                background: '#F6F5EE',
+                                allowOutsideClick: false,
+                                customClass: {
+                                    title: 'popupFeedBack'
+                                },
+                            });
+                        }
                     } catch (error) {
                         console.log(error);
                         Swal.fire({
                             title: "Annuler !",
-                            text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
+                            text: "Votre compte n'a pas été supprimer.",
                             icon: "error",
                             confirmButtonColor: "#21610B",
                             background: '#F6F5EE',
@@ -234,7 +245,7 @@ cloturer.addEventListener('click', function(event) {
             }).then((result) => {
                 Swal.fire({
                     title: "Annuler !",
-                    text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
+                    text: "Votre compte n'a pas été supprimer.",
                     icon: "error",
                     confirmButtonColor: "#21610B",
                     background: '#F6F5EE',

@@ -33,6 +33,7 @@ h3{
     font-size: 40px;
     font-weight: bolder;
     text-align: left;
+    z-index:0;
 }
 
 p{

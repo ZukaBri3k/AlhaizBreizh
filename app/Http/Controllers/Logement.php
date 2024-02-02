@@ -151,7 +151,7 @@ class Logement extends Controller
         if($id != $idProprietaireLogment[0]->id_proprio_logement) {
             return redirect()->back();
         } else {
-            DB::delete('delete from reservation where id_logement_reserv = ?', [$id]);
+            DB::delete('delete from reservation where id_logement_reserv = ?', [intval($request->id)]);
             DB::delete('delete from logement where id_logement = ?', [intval($request->id)]);
         }
         

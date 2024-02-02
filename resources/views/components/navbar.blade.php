@@ -422,18 +422,18 @@ function removeBlur() {
                         </svg>
                     </button>
                 </form>
-                <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
-                    <li class="navbar-item active">
-                        <a href="#" class="nav-link" id="connexionButton" style="color: #EC3B53">
-                            Connexion
-                        </a>
-                    </li>
-                    <li class="navbar-item active">
-                        <a href="{{route('inscription_client')}}" class="nav-link" style="color: #EC3B53">
-                            Inscription
-                        </a>
-                    </li>
-                </ul>
+            </ul>
+            <ul class="navbar-nav ms-auto d-none d-lg-inline-flex" style="display: flex!important;">
+                <li class="navbar-item active">
+                    <a href="#" class="nav-link" id="connexionButton" style="color: #EC3B53">
+                        Connexion
+                    </a>
+                </li>
+                <li class="navbar-item active">
+                    <a href="{{route('inscription_client')}}" class="nav-link" style="color: #EC3B53">
+                        Inscription
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

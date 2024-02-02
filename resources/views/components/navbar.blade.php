@@ -188,6 +188,7 @@ deconnexion = asArray(deconnexion);
 
 deconnexion.forEach((btn) => {
   btn.addEventListener('click', function(event) {
+    console.log('click');
     event.preventDefault();
     var url = this.href;
 

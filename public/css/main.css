@@ -321,11 +321,6 @@ nav {
     padding-bottom: 50px;
 }
 
-#accueil .liste-card .lienCard {
-    margin-left: 5vw;
-    margin-top: 5vh;
-}
-
 #accueil .mieuxNote h2 {
     font-family: 'Montserrat';
     text-align: center;
@@ -336,6 +331,7 @@ nav {
 #accueil .liste-card {
     display: flex;
     justify-content: center;
+    gap: 5vw 5vh;
     margin-top: 50px;
     flex-wrap: wrap;
     padding-right: -5vw;

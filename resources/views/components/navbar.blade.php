@@ -184,11 +184,10 @@ function removeBlur() {
 }
 
 let deconnexion = document.getElementsByClassName('deconnexion');
-deconnexion = asArray(deconnexion);
+deconnexion = Array.from(deconnexion);
 
 deconnexion.forEach((btn) => {
   btn.addEventListener('click', function(event) {
-    console.log('click');
     event.preventDefault();
     var url = this.href;
 
@@ -413,7 +412,7 @@ function removeBlur() {
 
 
 let deconnexion = document.getElementsByClassName('deconnexion');
-deconnexion = asArray(deconnexion);
+deconnexion = Array.from(deconnexion);
 
 deconnexion.forEach((btn) => {
   btn.addEventListener('click', function(event) {

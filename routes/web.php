@@ -103,7 +103,7 @@ Route::get('/mentions_legales', function () {
 })->name('mentions_legales');
 
 Route::get('/cgu_cgv', function () {
-    return view('/cgu-cgv');
+    return view('/cgu_cgv');
 })->name('cgu_cgv');
 
 Route::get("/spawnLink", function () {

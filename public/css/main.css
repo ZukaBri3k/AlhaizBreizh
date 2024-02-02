@@ -571,6 +571,7 @@ CSS de la page mes logements début
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 5vw 5vh;
     width: 100%;
     height: fit-content;
     justify-content: center;
@@ -580,8 +581,6 @@ CSS de la page mes logements début
     width: fit-content;
     height: fit-content;
     display: block;
-    margin-left: 5vw;
-    margin-top: 5vh;
 }
 
 .mesLogementsPage .mesLogements hr {

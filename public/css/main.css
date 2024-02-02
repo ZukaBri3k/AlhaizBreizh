@@ -78,6 +78,22 @@ nav a{
     }
 }
 
+@media screen and (max-width: 991px) {
+    .listeBtnConnexion {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .listeBtnConnexion a {
+        padding: 5vw;
+        background-color: #F6F5EE;
+        border-radius: 6px;
+        border: 1px solid #EC3B53;
+    }
+    
+}
+
 
 /***********************************************************************************************************
 ************************************************************************************************************

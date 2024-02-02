@@ -423,7 +423,7 @@ button:hover {
     transition: 0.5s;
 }
 
-.Donnees p {
+.Donnees .phrase {
     margin-left: 2%;
     margin-right: 2%;
     color: #000;

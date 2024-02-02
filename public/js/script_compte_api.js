@@ -33,7 +33,8 @@ deconnexion.addEventListener('click', function(event) {
                 //En dessous je fait la redirection après la confirmation de la suppression de la clé API
             }).then(() => {
                 window.location.href = url;
-        });
+        }
+    });
 });
 
 

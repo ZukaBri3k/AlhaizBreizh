@@ -170,7 +170,7 @@
         <h5>Clôturer votre compte</h5>
         <hr>
         <div class="Donnees">
-            <p>Clôturer votre compte supprimera l'accès à toutes vos réservation passer, et annulera vos réservation en cours.</p>
+            <p class="phrase">Clôturer votre compte supprimera l'accès à toutes vos réservation passer, et annulera vos réservation en cours.</p>
             <a href="{{ route('deleteClient') }}" id="cloturer">
                 <button class="button_clotu">Clôturer</button>
             </a>

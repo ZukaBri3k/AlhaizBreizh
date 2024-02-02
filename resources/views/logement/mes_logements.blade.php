@@ -45,19 +45,19 @@
         <div class="listeMesLogement">
             @php $counterEL = 0; @endphp
             @foreach($logements as $logement)
-                <div class="logementEnLigne">
-                    @php
-                        $textbouton = "Mettre en ligne";
-                        $classBtnHL = "EL";
-
-                        if($logement->en_ligne == false) { 
-                            $counterEL++;
-                        @endphp
+            @php
+            $textbouton = "Mettre en ligne";
+            $classBtnHL = "EL";
+            
+            if($logement->en_ligne == false) { 
+                $counterEL++;
+                @endphp
+                    <div class="logementEnLigne">
                             <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                    </div>
                     @php }
                     @endphp
-                </div>
             @endforeach
             @php 
                 if($counterEL == 0) {

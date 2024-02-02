@@ -116,6 +116,8 @@
     </div>
 
     <div id="blur-background" class="blur-background"></div>
+    <script src="https://unpkg.com/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
   document.getElementById('form2Example11').addEventListener('input', checkInput);
   document.getElementById('form2Example22').addEventListener('input', checkInput);
@@ -343,6 +345,8 @@ deconnexion.forEach((btn) => {
     </div>
 
     <div id="blur-background" class="blur-background"></div>
+    <script src="https://unpkg.com/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
   document.getElementById('form2Example11').addEventListener('input', checkInput);
   document.getElementById('form2Example22').addEventListener('input', checkInput);

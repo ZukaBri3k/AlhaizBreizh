@@ -186,7 +186,7 @@ function removeBlur() {
 }
 
 let deconnexionNavBar = document.getElementsByClassName('deconnexion');
-deconnexionNavBar = Array.from(deconnexion);
+deconnexionNavBar = Array.from(deconnexionNavBar);
 
 deconnexionNavBar.forEach((btn) => {
   btn.addEventListener('click', function(event) {
@@ -416,7 +416,7 @@ function removeBlur() {
 
 
 let deconnexionNavBar = document.getElementsByClassName('deconnexion');
-deconnexionNavBar = Array.from(deconnexion);
+deconnexionNavBar = Array.from(deconnexionNavBar);
 
 deconnexionNavBar.forEach((btn) => {
   btn.addEventListener('click', function(event) {

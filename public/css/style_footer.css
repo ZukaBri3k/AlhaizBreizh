@@ -2,7 +2,12 @@
     font-family: "Montserrat-Light";
     src: url("fonts/Montserrat-Light.woff2") format("woff2");
     font-weight: 500;
-  }
+}
+  @font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
+}
 
 /* Ajout de styles pour le logo */
 .logo {
@@ -40,6 +45,7 @@ body {
     margin-bottom: 15px;
     font-size: 1.2em;
     color: #000000;
+    font-family: 'Montserrat';
 }
 
 .footer-column ul {

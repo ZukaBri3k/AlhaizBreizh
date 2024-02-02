@@ -22,7 +22,7 @@ deconnexion.addEventListener('click', function(event) {
         if (result.isConfirmed) {
             Swal.fire({
                 title: "Deconnexion !",
-                text: "Vous allez être déconnecter.",
+                text: "Vous allez être déconnecté.",
                 icon: "success",
                 confirmButtonColor: "#21610B",
                 background: '#F6F5EE',

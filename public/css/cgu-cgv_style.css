@@ -45,7 +45,8 @@ body {
   color: #EC3B53;
 }
 .cgu_cgv h3 {
-  font-family: 'Montserrat-Light';
+  font-family: 'Montserrat';
+  font-weight: 400;
   font-size: 1.5em;
   font-style: normal;
   line-height: normal;
@@ -55,7 +56,8 @@ body {
   margin-top: 4%;
 }
 .cgu_cgv p {
-  font-family: 'Montserrat-ExtraLight';
+  font-family: 'Montserrat';
+  font-weight: 300;
   font-size: 1em;
   font-style: normal;
   line-height: normal;
@@ -89,7 +91,8 @@ body {
   margin-bottom: 2%;
 }
 .cgu_cgv ul li a {
-  font-family: 'Montserrat-Light';
+  font-family: 'Montserrat';
+  font-weight: 400;
   text-decoration: none;
   font-size: 1.5em;
   font-style: normal;
@@ -104,7 +107,8 @@ body {
   margin-top: 4%;
 }
 .cgu_cgv strong {
-  font-family: 'Montserrat-Light';
+  font-family: 'Montserrat';
+  font-weight: 400;
   font-size: 1em;
   font-style: normal;
   line-height: normal;

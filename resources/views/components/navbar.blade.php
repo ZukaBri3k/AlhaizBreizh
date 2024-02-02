@@ -210,7 +210,7 @@ deconnexion.forEach((btn) => {
         if (result.isConfirmed) {
             Swal.fire({
                 title: "Deconnexion !",
-                text: "Vous allez être déconnecter.",
+                text: "Vous allez être déconnecté.",
                 icon: "success",
                 confirmButtonColor: "#21610B",
                 background: '#F6F5EE',
@@ -440,7 +440,7 @@ deconnexion.forEach((btn) => {
         if (result.isConfirmed) {
             Swal.fire({
                 title: "Deconnexion !",
-                text: "Vous allez être déconnecter.",
+                text: "Vous allez être déconnecté.",
                 icon: "success",
                 confirmButtonColor: "#21610B",
                 background: '#F6F5EE',

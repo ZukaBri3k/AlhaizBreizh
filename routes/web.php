@@ -101,6 +101,10 @@ Route::get('/mentions_legales', function () {
     return view('/mentions_legales');
 })->name('mentions_legales');
 
+Route::get('/cgu_cgv', function () {
+    return view('/cgu-cgv');
+})->name('cgu_cgv');
+
 Route::get("/spawnLink", function () {
     Artisan::call('storage:link');
 });

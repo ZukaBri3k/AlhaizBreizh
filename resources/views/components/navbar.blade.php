@@ -54,7 +54,7 @@
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{ route('myClientAccount', ['id' => $id])}}" class="dropdown-item">Profil</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon compte propriétaire</a></li>
-                        <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
+                        <li><a href="{{ route('logout') }}" class="dropdown-item deconnexion">Déconnexion</a></li>
                     </ul>
                 </li>
             </ul>
@@ -183,7 +183,47 @@ function removeBlur() {
     });
 }
 
+let deconnexion = document.getElementsByClassName('deconnexion');
+deconnexion = asArray(deconnexion);
 
+deconnexion.forEach((btn) => {
+  btn.addEventListener('click', function(event) {
+    event.preventDefault();
+    var url = this.href;
+
+    Swal.fire({
+        title: "Êtes vous sûr de vouloir vous déconnectez ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#21610B",
+        cancelButtonColor: "#EC3B53",
+        background: '#F6F5EE',
+        cancelButtonText: "Annuler",
+        confirmButtonText: "Confirmer",
+        allowOutsideClick: false,
+        customClass: {
+            title: 'generation_cle'
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Deconnexion !",
+                text: "Vous allez être déconnecter.",
+                icon: "success",
+                confirmButtonColor: "#21610B",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+                //En dessous je fait la redirection après la confirmation de la suppression de la clé API
+            }).then(() => {
+                window.location.href = url;
+            });
+          }
+      });
+  });
+});
 
 </script>
     <script src="{{ asset('js/connexion.js') }}"></script>
@@ -241,7 +281,7 @@ function removeBlur() {
                         <li><a href="{{ route('myProprietaireAccount', ['id' => $id])}}" class="dropdown-item">Profil</a></li>
                         <li><a href="{{route('mes_logements')}}" class="dropdown-item">Mes logements</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon Compte Client</a></li>
-                        <li><a href="{{ route('logout') }}" class="dropdown-item">Déconnexion</a></li>
+                        <li><a href="{{ route('logout') }}" class="dropdown-item deconnexion">Déconnexion</a></li>
                     </ul>
                 </li>
             </ul>
@@ -370,6 +410,48 @@ function removeBlur() {
     });
 }
 
+
+let deconnexion = document.getElementsByClassName('deconnexion');
+deconnexion = asArray(deconnexion);
+
+deconnexion.forEach((btn) => {
+  btn.addEventListener('click', function(event) {
+    event.preventDefault();
+    var url = this.href;
+
+    Swal.fire({
+        title: "Êtes vous sûr de vouloir vous déconnectez ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#21610B",
+        cancelButtonColor: "#EC3B53",
+        background: '#F6F5EE',
+        cancelButtonText: "Annuler",
+        confirmButtonText: "Confirmer",
+        allowOutsideClick: false,
+        customClass: {
+            title: 'generation_cle'
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Deconnexion !",
+                text: "Vous allez être déconnecter.",
+                icon: "success",
+                confirmButtonColor: "#21610B",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+                //En dessous je fait la redirection après la confirmation de la suppression de la clé API
+            }).then(() => {
+                window.location.href = url;
+            });
+          }
+      });
+  });
+});
 
 
 </script>

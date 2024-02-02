@@ -133,6 +133,7 @@
     <hr class="footer-line">
     <div class="footer-address">
         <p class="basgauche"><span class="underline-hover">Alhaiz Breizh</span>, tous droits réservés</p>
+        <a href="{{route('cgu_cgv')}}" class="cgu_cgv">Conditions générale d'utilisation</a>
         <p class="basdroite">développé par <span class="underline-hover">Ubisoufte</span></p>
     </div>     
 </footer>

@@ -185,10 +185,10 @@ function removeBlur() {
     });
 }
 
-let deconnexion = document.getElementsByClassName('deconnexion');
-deconnexion = Array.from(deconnexion);
+let deconnexionNavBar = document.getElementsByClassName('deconnexion');
+deconnexionNavBar = Array.from(deconnexion);
 
-deconnexion.forEach((btn) => {
+deconnexionNavBar.forEach((btn) => {
   btn.addEventListener('click', function(event) {
     event.preventDefault();
     var url = this.href;
@@ -415,10 +415,10 @@ function removeBlur() {
 }
 
 
-let deconnexion = document.getElementsByClassName('deconnexion');
-deconnexion = Array.from(deconnexion);
+let deconnexionNavBar = document.getElementsByClassName('deconnexion');
+deconnexionNavBar = Array.from(deconnexion);
 
-deconnexion.forEach((btn) => {
+deconnexionNavBar.forEach((btn) => {
   btn.addEventListener('click', function(event) {
     event.preventDefault();
     var url = this.href;

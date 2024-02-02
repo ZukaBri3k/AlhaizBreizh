@@ -423,7 +423,7 @@ function removeBlur() {
                     </button>
                 </form>
             </ul>
-            <ul class="navbar-nav ms-auto d-none d-lg-inline-flex" style="display: flex!important;">
+            <ul class="navbar-nav ms-auto d-none d-lg-inline-flex" style="display: flex!important;" id="listeBtnConnexion">
                 <li class="navbar-item active">
                     <a href="#" class="nav-link" id="connexionButton" style="color: #EC3B53">
                         Connexion

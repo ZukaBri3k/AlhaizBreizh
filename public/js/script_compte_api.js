@@ -20,7 +20,7 @@ deconnexion.addEventListener('click', function(event) {
         },
     }).then((result) => {
                 window.location.href = url;
-        });
+        }); 
 });
 
 

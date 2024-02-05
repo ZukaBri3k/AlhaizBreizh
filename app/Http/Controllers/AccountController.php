@@ -42,8 +42,8 @@ class AccountController extends Controller
     public function deleteClient() {
 
         $id = auth()->user()->id;
+        DB::delete('delete from cle where id_personnes = ?', [$id]);
         $ref_devis = DB::select('select ref_devis from devis where id_client_devis = ?', [$id]);
-        dd($ref_devis);
         foreach ($ref_devis as $ref) {
             DB::delete('delete from reservation where ref_devis = ?', [$ref->ref_devis]);
         }

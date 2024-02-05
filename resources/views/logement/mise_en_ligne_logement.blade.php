@@ -549,7 +549,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 
 
 
-                var imageContainer = document.querySelector('#images_colonne_gauche');
+                var imageContainer = document.querySelector('.image-upload-container');
                 imageContainer.appendChild(newInput);
                 imageContainer.appendChild(newLabel);
                 imageContainer.appendChild(newImageContainer);

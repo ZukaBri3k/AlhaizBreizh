@@ -14,27 +14,32 @@
       <div id="carouselExampleIndicators" class="carousel slide">
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
-              <img src="{{asset('/img/auray.png')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
-              <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
-              </div>
+                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
+                <div>
+                  @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
+                      <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                  @endfor
+                </div>
             </div>
-            <div class="carousel-item">
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
+            @for($i = 1; $i < intval($nb_photo)-1; $i++)
+              @php $counter = 0; @endphp
+              <div class="carousel-item">
+                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                
+                <div>
+                  @for($j = $i + 1; $j < intval($nb_photo)-1 && $counter < 2; $j++)
+                    @php $counter++; @endphp
+                    <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                  @endfor
+
+                  @for($j = 0; $j < $i && $counter < 2; $j++)
+                    @php $counter++; @endphp
+                    <img class="2" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                  @endfor
+                </div>
               </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('/img/orlova.png')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('/img/auray.png')}}" class="d-block w-100">
-              <img src="{{asset('/img/rola.png')}}" class="d-block w-100">
-              </div>
-            </div>
-          </div>
+            @endfor
+          </div>  
       </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -91,6 +96,7 @@
           <!-- Nature et type de logement -->
             @php
               $nature = strtolower($logement->nature_logement);
+              $nature = str_replace(' ', '_', $nature);
             @endphp
             <div class="rectangle">
               <img src="{{asset('/img/nature/'.$nature.'.png')}}" class="d-block w-80">
@@ -98,6 +104,7 @@
             </div>
             @php
                 $type = strtolower($logement->type_logement);
+
             @endphp
             <div class="rectangle">
               <img src="{{asset('/img/type/'.$type.'.png')}}" class="d-block w-80">
@@ -110,8 +117,9 @@
         <h1>Aménagements, installations :</h1>
         <div class="Caracteristiques">
           @php
-            if(sizeof($amenagement) == 1) {
+            if(count(explode(";", $logement->amenagement_propose_logement)) == 1) {
             $value = strtolower($amenagement);
+            $value = str_replace(' ', '_', $value);
           @endphp
             <div class="rectangle">
               <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
@@ -119,12 +127,19 @@
             </div>
           @php
             }
-            elseif($amenagement == "null") {
+            elseif($amenagement == "null" || $amenagement == "") {
+              @endphp
+            <div class="rectangle" style="display : none;">
+              <img src="{{asset('/img/amenagements/a.png')}}" class="d-block w-80">
+              <p>a</p>
+            </div>
+            @php
             }
 
-          elseif(sizeof($amenagement) > 1) {
+          elseif(count(explode(";", $logement->amenagement_propose_logement)) > 1) {
           foreach ($amenagement as $values) {
             $value = strtolower($values);
+            $value = str_replace(' ', '_', $value);
             @endphp
             <div class="rectangle">
               <img src="{{asset('/img/amenagements/' . $value . '.png')}}" class="d-block w-80">
@@ -136,9 +151,10 @@
 
           <!-- Installations -->
           @php
-          if(sizeof($installation) > 1) {
+          if(count(explode(";", $logement->installation_offerte_logement)) > 1) {
             foreach ($installation as $values) {
             $value = strtolower($values);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
@@ -147,11 +163,18 @@
           @php
             }
           }
-          elseif($installation == "null") {
+          elseif($installation == "null" || $amenagement == "") {
+            @endphp
+            <div class="rectangle" style="display : none;">
+            <img src="{{asset('/img/installations/a.png')}}" class="d-block w-80">
+            <p>a</p>
+          </div>
+          @php
           } 
           
-          elseif(sizeof($installation) == 1) {
+          elseif(count(explode(";", $logement->installation_offerte_logement)) == 1) {
             $value = strtolower($installation);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/installations/' . $value . '.png')}}" class="d-block w-80">
@@ -170,19 +193,28 @@
             if(count(explode(";", $logement->service_complementaire_logement)) > 1) {
             foreach ($service as $values) {
               $value = strtolower($values);
+              $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
             <p>{!! $values !!}</p>
+          </div>
           @php 
             }
           } 
-          elseif($service == "null") {
+          elseif($service == "null" || $service == "") {
+            @endphp
+            <div class="rectangle" style="display : none;">
+                <img src="{{asset('/img/services/a.png')}}" class="d-block w-80">
+                <p>a</p>
+            </div>
+            @php
           }
 
 
           elseif(count(explode(";", $logement->service_complementaire_logement)) == 1) {
             $value = strtolower($service);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/services/'. $value .'.png')}}" class="d-block w-80">
@@ -197,6 +229,7 @@
             if(count(explode(";", $logement->equipement_propose_logement)) > 1) {
             foreach ($equipement as $values) {
               $value = strtolower($values);
+              $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
@@ -205,11 +238,18 @@
           @php 
             }
           }
-          elseif($equipement == "null") {
+          elseif($equipement == "null" || $equipement == "") {
+            @endphp
+            <div class="rectangle" style="display : none;">
+                <img src="{{asset('/img/equipements/a.png')}}" class="d-block w-80">
+                <p>a</p>
+            </div>
+            @php
           }
           
           elseif(count(explode(";", $logement->equipement_propose_logement)) == 1) {
             $value = strtolower($equipement);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/equipements/'. $value .'.png')}}" class="d-block w-80">
@@ -228,6 +268,7 @@
             if(count(explode(";", $logement->charge_additionnel_libelle)) > 1) {
             foreach ($charge as $values) {
               $value = strtolower($values);
+              $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
@@ -236,10 +277,17 @@
           @php 
             }
           } 
-          elseif($charge == "null") {
-            }          
+          elseif($charge == "null" || $charge == "") {
+            @endphp
+            <div class="rectangle" style="display : none;">
+                <img src="{{asset('/img/charges/a.png')}}" class="d-block w-80">
+                <p>a</p>
+            </div>
+            @php
+            }
           elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
             $value = strtolower($charge);
+            $value = str_replace(' ', '_', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
@@ -253,8 +301,8 @@
 
       <h1>Description :</h1>
       <p>{{ $logement->descriptif_logement }}</p>
-      <p>Condiditon d'annulation :</p>
-      <div class="Condition_annul">
+      <p style="display:none;">Condiditon d'annulation :</p>
+      <div class="Condition_annul" style="display:none;">
         <h5>Flexibles :</h5>
         <p>Remboursement intégral jusqu’à 3 jours avant la date d’arrivée</p>
       </div>
@@ -273,15 +321,16 @@
         </div>
         <br>
         @endforeach
-        @if ($paypal[0]->paypal_proprio == null)
+        @if ($paypal[0]->paypal_proprio == null || $paypal[0]->paypal_proprio == "")
           <p class="not_paypal">Le propriétaire n'a pas paypal</p>
         @else
           <p class="have_paypal">Le propriétaire a paypal</p>
         @endif
         <br>
     </div>
+
       <div class="leStick">
-          <p>à partir de : {{ $logement->prix_logement }} / mois</p>
+          <p>à partir de : {{ $logement->prix_logement }} €/ mois</p>
           <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>
           <p>Nombre de personne max : {{ $logement->nb_personne_max }}</p>
           <ul>
@@ -296,12 +345,45 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <a href="{{route('devis-client')}}">
-            <button type="button">Contacter le propriétaire</button>
-          </a>
+          <form id="myForm" action="{{route('demande_devis')}}" method="post" class="demande_devis">
+            @csrf
+            <div>
+              <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">
+              <label for="dateDebut">Date de début</label>
+              <input type="date" id="dateDebut" name="dateDebut" value="dateDebut" class="datepicker-input">
+            </div>
+            <div>
+              <label for="dateFin">Date de fin</label>
+              <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
+            </div>
+            <button type="submit" onclick="event.preventDefault(); showPopup();">Demander un devis</button>
+          </form>
+          <script>
+            function showPopup() {
+              swal({
+                title: "Succès",
+                text: "Votre demande de devis a été créée avec succès.",
+                icon: "success",
+                background: "#F6F5EE",
+                button: {
+                  text: "Ok",
+                  closeModal: false,
+                  className: "customButton"
+                },
+                closeOnClickOutside: false,
+                dangerMode: true,
+              });
+                setTimeout(submitForm, 2500); // Attend 2.5 secondes avant de soumettre le formulaire
+            }
+
+            function submitForm() {
+                document.getElementById('myForm').submit(); // Soumet le formulaire
+            }
+            </script>
       </div>
     </div>
     <x-FooterClient></x-FooterClient>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

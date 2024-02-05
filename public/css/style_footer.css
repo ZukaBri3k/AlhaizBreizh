@@ -1,41 +1,107 @@
-footer {
-    background-color: #F6F5EE;
-}
-
 @font-face {
-	font-family: "Montserrat";
-	font-weight: 400;
-	src: url("{{asset('/fonts/Montserrat-Regular.woff2')}}") format("woff2");
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
 }
 
-footer hr {
-    width: 90%;
-    margin: auto;
+/* Ajout de styles pour le logo */
+.logo {
+    width: 80px; /* Ajustez la taille selon vos besoins */
+    height: auto;
+    margin-bottom: 15px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
 }
 
-.haut img {
-    margin-left: 25%;
-    margin-top: 1%;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-#logo_petit {
-    display: none;
+.footer {
+    background-color: #F6F5EE;
+    color: #000000;
+    padding: 40px 0;    
 }
 
-@media screen and (max-width: 600px) {
-    #logo_grand {
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #000000;
+    font-family: 'Montserrat';
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column li {
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    width: 20%;
+}
+
+.footer a:hover {
+    color: #EC3B53;
+}
+
+/* Ajout de styles pour la ligne en bas du footer */
+.footer-line {
+    border: none;
+    height: 1px;
+    background-color: #000000;
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+/* Ajout de styles pour la section de l'adresse */
+.footer-address {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    color: #000000;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 5%;
+}
+
+@media (max-width: 500px) {
+    .footer-container {
+        justify-content: center;
+    }
+
+    .footer-column {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+}
+
+.footer-logo {
+    width: 300px; /* Ajustez la taille selon vos besoins */
+    height: 90px;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 900px) {
+    .footer-logo {
         display: none;
-    }
-
-    #logo_petit {
-        display: block;
-        width: 50%;
-    }
-
-    footer img {
-        width: 20%;
-        margin-left: 10%;
-        margin-top: 5%;
     }
 }
 
@@ -51,84 +117,24 @@ footer button {
     text-align: center;
     font-size: 15px;
     letter-spacing: -0.225px;
+    margin-top: 50px;
 }
 
-footer table {
-    margin: auto;
-    margin-top: 2%;
-    border-spacing: 6em 5px;
-    border-collapse: separate;
-}
-
-footer td {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: -0.225px;
-}
-
-footer a {
-    outline: none;
-    text-decoration: none;
-}
-
-footer a:link {
-    color: rgba(0, 0, 0, 0.75);
-}
-
-.haut {
+.footer-address {
     display: flex;
-    align-items: baseline;
-}
-
-footer th {
-    color: #000;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px; /* 160% */
-    letter-spacing: -0.225px;
-}
-
-footer div p {
-    color: rgba(0, 0, 0, 0.80);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px; /* 160% */
-    letter-spacing: -0.225px;
-    margin-left: 5%;
-}
-
-.bas img {
-    width: 67.714px;
-    height: 78.509px;
-    margin-left: 2%;
-}
-
-.bas {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 1%;
-    padding-bottom: 3%;
+    padding: 10px;
 }
 
-.bas a {
-    margin-left: 2%;
-    color: rgba(0, 0, 0, 0.80);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 160% */
-    letter-spacing: -0.225px;
+.basgauche {
+    margin: 0;
 }
 
-.bas p {
-    margin-top: 0%;
-    margin-bottom: 0%;
+.basdroite {
+    margin-right: 5%;
+}
+
+.underline-hover {
+    text-decoration: underline; /* Soulignement */
 }

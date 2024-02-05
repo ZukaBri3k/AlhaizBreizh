@@ -5,102 +5,42 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Personne;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class Logement extends Controller
 {
-    public function Creation(Request $request) {
-
-        switch ($request->page) {
-            case 1:
-                return View("logement/creer-logement");
-                break;
-            case 2:
-                return View("logement/creer-logement-p1");
-                break;
-            case 3:
-                session([
-                    'adresse' => $request->adresse,
-                    'ville' => $request->ville,
-                    'code_postal' => $request->cp,
-                    'longitude' => $request->longitude,
-                    'latitude' => $request->latitude,
-                    'libelle' => $request->libelle,
-                    'accroche' => $request->accroche
-            ]);
-                return View("logement/creer-logement-p2");
-                break;
-            case 4:
-                session([
-                    'description' => $request->description,
-                    'surface' => $request->surface,
-                    'nb_p_max' => $request->nb_p_max,
-                    'nb_chambre' => $request->nb_chambre,
-                    'sdb' => $request->sdb,
-            ]);
-                return View("logement/creer-logement-p3");
-                break;
-            case 5:
-                $tab_lit_s = [];
-                $tab_lit_d = [];
-                $tab_details = [];
-
-                for ($i=1; $i <= intval($request->session()->get('nb_chambre')); $i++) {
-                    array_push($tab_lit_s, $request->input("nb_lit_s_" . $i));
-                    array_push($tab_lit_d, $request->input("nb_lit_d_" . $i));
-                    array_push($tab_details, $request->input("detail_lits_" . $i));
-                }
-
-                session([
-                    'nb_lit_s' => $tab_lit_s,
-                    'nb_lit_d' => $tab_lit_d,
-                    'detail_lits' => $tab_details,
-                ]);
-                return View("logement/creer-logement-p4");
-                break;
-            case 6:
-
-                //dd($request->session()->all());
-                return View("logement/creer-logement-p5");
-                break;
-            case 7:
-                return View("logement/creer-logement-p6");
-                break;
-            case 8:
-                return View("logement/creer-logement-fin");
-                break;
-        }
-    }
-
-    public function ajouterLogementDB() {
+    public function ajouterLogementDB(Request $request) {
 
         $tab = [
-            "Villa stylée",
-            "Voici une villa stylée",
-            "Ma villa cool à louer",
-            8,
-            48.75838359918054,
-            -3.4518601746445556,
-            "IUT Lannion",
-            22300,
-            "Lannion",
-            "Villa",
-            "Villa",
-            1300,
-            1,
-            1,
-            0,     
-            "rien",
-            "rien",
-            "rien",
-            "aucun",
-            "23",
-            "eau",
-            "photo.jpeg",
-            "photo_sup.png",
-            5,
-            5000,
+            $request->libelle_logement,
+            $request->accroche_logement,
+            $request->descriptif_logement,
+            $request->nb_personne_max,
+            NULL,
+            NULL,
+            $request->adresse_logement,
+            $request->code_postal_logement,
+            $request->ville_logement,
+            $request->nature_logement,
+            $request->type_logement,
+            $request->surface_habitable_logement,
+            $request->nb_chambre_logement, 
+            $request->nb_lit_total,
+            $request->nb_salle_de_bain_logement,
+            $request->amenagement_propose_logement,
+            $request->installation_offerte_logement,
+            $request->equipement_propose_logement,
+            $request->service_complementaire_logement,
+            "img0.jpg",
+            count($request->file()),
+            3.5,
+            $request->prix_logement,
             true,
-            2
+            auth()->user()->id,
+            $request->charge_additionnel_libelle,
+            $request->charge_additionnel_prix,
         ];
 
         DB::insert('insert into logement (
@@ -123,17 +63,34 @@ class Logement extends Controller
         installation_offerte_logement,
         equipement_propose_logement,
         service_complementaire_logement,
-        charge_additionnel_prix,
-        charge_additionnel_libelle,
         photo_couverture_logement,
         photo_complementaire_logement,
         moyenne_avis_logement,
         prix_logement,
         en_ligne,
-        id_proprio_logement) values 
+        id_proprio_logement,
+        charge_additionnel_libelle,
+        charge_additionnel_prix) values 
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?)', $tab);
+
+        $id_logement = DB::select('select id_logement from logement where id_proprio_logement =  ? ORDER BY id_logement DESC', [auth()->user()->id]);
+
+        //dd($request->file("image-upload2"));
+        //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
+        
+        //dd($request->file());
+        for($i = 1; $i <= count($request->file()); $i++) {
+            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i - 1 . ".jpg");
+        }
+        //dd($APP_URL));
+
+        return redirect()->route('details_previsu', ['id' => $id_logement[0]->id_logement]);
+    }
+
+    public function mise_en_ligne_logement() {
+        return View("logement/mise_en_ligne_logement");
     }
 
     public function getInfoLogement(Request $request) {
@@ -141,14 +98,63 @@ class Logement extends Controller
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
+        'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
+    ]);
     }
 
     public function getInfoLogementPrevisu(Request $request) {
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
-        return View("logement/details_logement_previsu" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
+        return View("logement/details_logement_previsu" , 
+        ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)])]);
+        'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
+        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
+        'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
+    ]);
+    }
+
+    public function getLogementsProprietaire(Request $request) {
+        $id = auth()->user()->id;
+        $logements = DB::select("select * from logement where id_proprio_logement = ?", [$id]);
+        
+        foreach ($logements as $logement) {
+            $logement->lien = "/logement/" . $logement->id_logement . "/details";
+            $logement->id = $logement->id_logement;
+        }
+        
+        $tabDevis = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv where devis.id_proprio = ? and devis.etat_devis = false", [$id]);
+        $tabReserv = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv where devis.id_proprio = ? and devis.etat_devis = true", [$id]);
+
+        return View("logement/mes_logements", ['logements' => $logements, 'tabDevis' => $tabDevis, 'tabReserv' => $tabReserv]);
+    }
+
+
+    public function setLogementHorsLigne(Request $request) {
+        $enLigne = DB::select('select en_ligne from logement where id_logement = ?', [intval($request->id)]);
+        //dd($enLigne[0]->en_ligne);
+        if($enLigne[0]->en_ligne == false) {
+            DB::update('update logement set en_ligne = true where id_logement = ?', [intval($request->id)]);
+        } else {
+            DB::update('update logement set en_ligne = false where id_logement = ?', [intval($request->id)]);
+        }
+
+        return redirect()->route('mes_logementsLogement');
+    }
+
+    public function delLogement(Request $request) {
+        $id = auth()->user()->id;
+        $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
+        
+        if($id != $idProprietaireLogment[0]->id_proprio_logement) {
+            return redirect()->back();
+        } else {
+            DB::delete('delete from reservation where id_logement_reserv = ?', [intval($request->id)]);
+            DB::delete('delete from logement where id_logement = ?', [intval($request->id)]);
+        }
+        
+        return redirect()->route('mes_logementsLogement');
     }
 }

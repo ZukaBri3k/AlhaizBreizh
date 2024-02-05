@@ -64,6 +64,7 @@ button:hover {
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.6px;
+    font-family: 'Montserrat-Light';
 }
 
 .Profile_Public {
@@ -282,6 +283,7 @@ button:hover {
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.6px;
+    font-family: 'Montserrat-Light';
 }
 
 /* Styles pour les écrans de taille moyenne (tablette) */

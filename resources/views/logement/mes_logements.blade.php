@@ -27,6 +27,7 @@
                             $counter++; @endphp
                             <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                            <a class="btnHL SUPPR" href="{{route('delLogement', ['id' => $logement->id])}}">Supprimer</a>
                     @php }
                     @endphp
                 </div>
@@ -44,19 +45,19 @@
         <div class="listeMesLogement">
             @php $counterEL = 0; @endphp
             @foreach($logements as $logement)
-                <div class="logementEnLigne">
-                    @php
-                        $textbouton = "Mettre en ligne";
-                        $classBtnHL = "EL";
-
-                        if($logement->en_ligne == false) { 
-                            $counterEL++;
-                        @endphp
+            @php
+            $textbouton = "Mettre en ligne";
+            $classBtnHL = "EL";
+            
+            if($logement->en_ligne == false) { 
+                $counterEL++;
+                @endphp
+                    <div class="logementEnLigne">
                             <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
                             <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                    </div>
                     @php }
                     @endphp
-                </div>
             @endforeach
             @php 
                 if($counterEL == 0) {
@@ -83,12 +84,6 @@
 
     <section class="mesReservations">
         <h2>Mes réservations :</h2>
-        @php 
-            if(count($tabReserv) == 0){
-                echo "<p class='aucuneReservation'>Vous n'avez aucune réservation.</p>";
-            }
-            @endphp
-
         <div class="btnTriFiltre">
             <button id="btnTriDate" onclick="triDate()">Trier par date (du plus ancien)</button>
             <select id="selectionFiltre">
@@ -108,8 +103,13 @@
             @foreach($tabReserv as $reserv)
                 <x-Reservation libelle="{{$reserv->libelle_logement}}" pseudo="{{$reserv->pseudo_pers}}" dated="{{$reserv->date_deb}}" datef="{{$reserv->date_fin}}" id="{{$reserv->id_logement}}" iddevis="{{$reserv->ref_devis}}" idreservation="{{$reserv->id_reserv}}" prix="{{$reserv->prix_tot}}" natlogement="{{$reserv->nature_logement}}"></x-Reservation>
             @endforeach
-            <p id="msgFiltreVide" style="display: none;">Aucune réservation ne correspond à vos critère de recherche</p>
         </div>
+        <p id="msgFiltreVide" style="display: none;">Aucune réservation ne correspond à vos critère de recherche</p>
+        @php 
+            if(count($tabReserv) == 0){
+                echo "<p class='aucuneReservation'>Vous n'avez aucune réservation.</p>";
+            }
+        @endphp
     </section>
 
     <x-FooterClient></x-FooterClient>

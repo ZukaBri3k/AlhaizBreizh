@@ -50,11 +50,14 @@ Route::prefix('/logement')->group(function() {
     Route::get('/{id}/details_previsu', [Logement::class, 'getInfoLogementPrevisu'])->where('id', '[0-9]+')->name('details_previsu')->middleware(['auth', 'isProprietaire']);
 
     Route::get('/mes-logements', [Logement::class, 'getLogementsProprietaire'])->name('mes_logements')->middleware(['auth', 'isProprietaire']);
+    Route::get('/mes-logements#sectionLogement', [Logement::class, 'getLogementsProprietaire'])->name('mes_logementsLogement')->middleware(['auth', 'isProprietaire']);
+    Route::get('/mes-logements#sectionDevis', [Logement::class, 'getLogementsProprietaire'])->name('mes_logementsDevis')->middleware(['auth', 'isProprietaire']);
 
     Route::get('/mise_en_ligne_logement', [Logement::class, 'mise_en_ligne_logement'])->name('mise_en_ligne_logement')->middleware(['auth', 'isProprietaire']);
     Route::post('/creation_base_logement', [Logement::class, 'ajouterLogementDB'])->name('creation_logement')->middleware(['auth', 'isProprietaire']);
     Route::get('/setHL/{id}', [Logement::class, 'setLogementHorsLigne'])->name('setHL')->middleware(['auth', 'isProprietaire']);
 
+    Route::get('/delLogement/{id}', [Logement::class, 'delLogement'])->name('delLogement')->middleware(['auth', 'isProprietaire']);
 });
 
 Route::prefix('/account')->group(function () {
@@ -79,6 +82,9 @@ Route::prefix('/account')->group(function () {
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
     Route::get('client_register', [AccountController::class,'client_register'])->name('client_register');
     route::get('proprio_register',[AccountController::class,'proprio_register'])->name('proprio_register');
+
+    Route::get('deleteClient', [AccountController::class, 'deleteClient'])->name('deleteClient')->middleware(['auth', 'isClient']);
+    Route::get('deleteProprietaire', [AccountController::class, 'deleteProprietaire'])->name('deleteProprietaire')->middleware(['auth', 'isProprietaire']);
 });
 
 Route::post('test', [Logement::class, 'ajouterLogementDB']);
@@ -95,6 +101,10 @@ Route::post('/enregistrerEvenement',[CalController::class,'enregistrerEvenement'
 Route::get('/mentions_legales', function () {
     return view('/mentions_legales');
 })->name('mentions_legales');
+
+Route::get('/cgu_cgv', function () {
+    return view('/cgu_cgv');
+})->name('cgu_cgv');
 
 Route::get("/spawnLink", function () {
     Artisan::call('storage:link');

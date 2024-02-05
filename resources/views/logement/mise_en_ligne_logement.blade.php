@@ -501,25 +501,66 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
           </div>
       
     </div>
-<div id="droite_page_8">
-    <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
-    <div id="division_colonnes_droite">
-        <div id="images_colonne_gauche">
-            <div class="image-upload-container">
-                <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2">
-                <label for="image-upload2" class="custom-button">Importer l'image</label>
-                <div class="selected-image" id="selected-image2"></div>
+    <div id="droite_page_8">
+        <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
+        <div id="division_colonnes_droite">
+            <div id="images_colonne_gauche">
+                <div class="image-upload-container">
+                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2" onchange="handleImageUpload(this)">
+                    <label for="image-upload2" class="custom-button">Importer l'image</label>
+                    <div class="selected-image" id="selected-image2"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>         
     <div id="footer">
         <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
         <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
     </div>
+
 </div>
-</div>
+   
 </form>
+<script>
+    var photoCount = 1;
+
+    function handleImageUpload(input) {
+        if (input.files && input.files[0]) {
+            if (photoCount < 10) {
+                photoCount++;
+                var fileName = input.files[0].name;
+                var newImageContainer = document.createElement('div');
+                newImageContainer.innerHTML = fileName;
+                var newInput = document.createElement('input');
+                newInput.setAttribute('type', 'file');
+                newInput.setAttribute('class', 'image-upload');
+                newInput.setAttribute('accept', 'image/*');
+                newInput.setAttribute('id', 'image-upload' + photoCount);
+                newInput.setAttribute('name', 'img' + photoCount);
+                newInput.setAttribute('onchange', 'handleImageUpload(this)');
+
+                var newLabel = document.createElement('label');
+                newLabel.setAttribute('for', 'image-upload' + photoCount);
+                newLabel.setAttribute('class', 'custom-button');
+                newLabel.innerHTML = 'Importer une autre image';
+
+                
+                newImageContainer.setAttribute('class', 'selected-image');
+
+
+
+                var imageContainer = document.querySelector('#images_colonne_gauche');
+                imageContainer.appendChild(newInput);
+                imageContainer.appendChild(newLabel);
+                imageContainer.appendChild(newImageContainer);
+            } else {
+                alert('Vous avez atteint la limite maximale de 10 photos.');
+            }
+        }
+    }
+</script>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="{{asset('js/script_logement.js')}}"></script>

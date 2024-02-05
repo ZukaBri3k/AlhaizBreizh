@@ -22,7 +22,7 @@ deconnexion.addEventListener('click', function(event) {
         if (result.isConfirmed) {
             Swal.fire({
                 title: "Deconnexion !",
-                text: "Vous allez être déconnecter.",
+                text: "Vous allez être déconnecté.",
                 icon: "success",
                 confirmButtonColor: "#21610B",
                 background: '#F6F5EE',
@@ -34,21 +34,10 @@ deconnexion.addEventListener('click', function(event) {
             }).then(() => {
                 window.location.href = url;
             });
-        } else {
-            Swal.fire({
-                title: "Annuler !",
-                text: "Vous n'allez pas être déconnecter.",
-                icon: "error",
-                confirmButtonColor: "#21610B",
-                background: '#F6F5EE',
-                allowOutsideClick: false,
-                customClass: {
-                    title: 'generation_cle'
-                },
-            });
         }
     });
 });
+
 
 
 
@@ -95,7 +84,7 @@ for (var i = 0; i < deleteLinks.length; i++) {
 
         Swal.fire({
             title: "Êtes vous sûr de vouloir supprimer votre clé API ?",
-            text: "Cette action n'est pas réversible !",
+            text: "Cette action est irréversible ! Si vous supprimez votre clé tous les services utilisant cette clé ne fonctionneront plus.",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#21610B",
@@ -110,8 +99,8 @@ for (var i = 0; i < deleteLinks.length; i++) {
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
-                    title: "Supprimer !",
-                    text: "Votre clé API à bien été supprimer.",
+                    title: "Supprimée !",
+                    text: "Votre clé API à bien été supprimée.",
                     icon: "success",
                     confirmButtonColor: "#21610B",
                     background: '#F6F5EE',
@@ -125,8 +114,8 @@ for (var i = 0; i < deleteLinks.length; i++) {
                 });
             } else {
                 Swal.fire({
-                    title: "Annuler !",
-                    text: "Votre clé API n'a pas été supprimer.",
+                    title: "Annulé !",
+                    text: "Votre clé API n'a pas été supprimée.",
                     icon: "error",
                     confirmButtonColor: "#21610B",
                     background: '#F6F5EE',
@@ -161,6 +150,118 @@ document.querySelector('.api').addEventListener('submit', function(event) {
     }).then((result) => {
         if (result.isConfirmed) {
             this.submit();
+        }
+    });
+});
+
+
+
+
+
+
+//Ici mon JS pour la suppression d'un compte
+var cloturer = document.getElementById('cloturer');
+
+cloturer.addEventListener('click', function(event) {
+    event.preventDefault();
+    var url = this.href;
+    let trigger = false;
+
+    Swal.fire({
+        title: "Êtes vous sûr de vouloir supprimer votre compte ?",
+        text: "Cette action est irréversible ! Si vous supprimez votre compte toute les réservations associées à celui-ci seront supprimées.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#21610B",
+        cancelButtonColor: "#EC3B53",
+        background: '#F6F5EE',
+        cancelButtonText: "Non",
+        confirmButtonText: "Oui",
+        allowOutsideClick: false,
+        customClass: {
+            title: 'popupFeedBack'
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Veuillez entrer 'CONFIRMER' pour supprimer votre compte !",
+                input: "text",
+                background: '#F6F5EE',
+                inputAttributes: {
+                  autocapitalize: "off"
+                },
+                showCancelButton: true,
+                allowOutsideClick: false,
+                confirmButtonText: "Confirmer",
+                cancelButtonText: "Annuler",
+                cancelButtonColor: "#EC3B53",
+                confirmButtonColor: "#21610B",
+                showLoaderOnConfirm: true,
+                customClass: {
+                    title: 'popupFeedBack'
+                },
+                preConfirm: async (confirm) => {
+                    try {
+                        if (confirm === "CONFIRMER") {
+                            return Swal.fire({
+                                title: "Votre compte a bien été supprimé !",
+                                icon: "success",
+                                confirmButtonColor: "#21610B",
+                                confirmButtonText: "Ok",
+                                background: '#F6F5EE',
+                                customClass: {
+                                    title: 'popupFeedBack'
+                                },
+                                allowOutsideClick: false,
+                            }).then(() => {
+                                window.location.href = url;
+                            });
+                        } else {
+                            trigger = true;
+                            return Swal.fire({
+                                title: "Annulé !",
+                                text: "Annulation, vous n'avez pas entré 'CONFIRMER'.",
+                                icon: "error",
+                                confirmButtonColor: "#21610B",
+                                background: '#F6F5EE',
+                                allowOutsideClick: false,
+                                customClass: {
+                                    title: 'popupFeedBack'
+                                },
+                            });
+                        }
+                    } catch (error) {
+                        console.log(error);
+                    }
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                if(trigger === false) {
+                    Swal.fire({
+                        title: "Annulé !",
+                        text: "Votre compte n'a pas été supprimé.",
+                        icon: "error",
+                        confirmButtonColor: "#21610B",
+                        background: '#F6F5EE',
+                        allowOutsideClick: false,
+                        customClass: {
+                            title: 'popupFeedBack'
+                        },
+                    });
+                }
+            });
+        } else {
+            Swal.fire({
+                title: "Annulé !",
+                text: "Votre compte n'a pas été supprimé.",
+                icon: "error",
+                confirmButtonColor: "#21610B",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'popupFeedBack'
+                },
+            });
         }
     });
 });

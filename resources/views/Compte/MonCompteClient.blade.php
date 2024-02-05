@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/style_profile_prive.css')}}" />
     <title>Son profile privée</title>
 </head>
@@ -161,6 +162,17 @@
         <div class="Donnees">
             <a href="{{ route('logout') }}" id="logout">
                 <button class="button_deco">Déconnexion</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="Profile_Privee">
+        <h5>Clôturer votre compte</h5>
+        <hr>
+        <div class="Donnees">
+            <p class="phrase">Clôturer votre compte supprimera l'accès à toutes vos réservation passer, et annulera vos réservation en cours.</p>
+            <a href="{{ route('deleteClient') }}" id="cloturer">
+                <button class="button_clotu">Clôturer</button>
             </a>
         </div>
     </div>

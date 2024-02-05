@@ -57,6 +57,7 @@ Route::prefix('/logement')->group(function() {
     Route::post('/creation_base_logement', [Logement::class, 'ajouterLogementDB'])->name('creation_logement')->middleware(['auth', 'isProprietaire']);
     Route::get('/setHL/{id}', [Logement::class, 'setLogementHorsLigne'])->name('setHL')->middleware(['auth', 'isProprietaire']);
 
+    Route::get('/delLogement/{id}', [Logement::class, 'delLogement'])->name('delLogement')->middleware(['auth', 'isProprietaire']);
 });
 
 Route::prefix('/account')->group(function () {

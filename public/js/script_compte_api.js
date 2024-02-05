@@ -203,6 +203,7 @@ cloturer.addEventListener('click', function(event) {
                 preConfirm: async (confirm) => {
                     try {
                         if (confirm === "CONFIRMER") {
+                            trigger = true;
                             return Swal.fire({
                                 title: "Votre compte a bien été supprimé !",
                                 icon: "success",

@@ -83,8 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
               data=date;
               console.log("Date à envoyer:", data);
               
-              $.ajax({
-                url: "ajouter-evenements",
+              $.ajax(
+                'ajouter-evenements',
+                {
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/json',

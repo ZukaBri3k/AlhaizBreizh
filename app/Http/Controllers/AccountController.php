@@ -45,7 +45,7 @@ class AccountController extends Controller
         DB::delete('delete from cle where id_personnes = ?', [$id]);
         $ref_devis = DB::select('select ref_devis from devis where id_client_devis = ?', [$id]);
         foreach ($ref_devis as $ref) {
-            DB::delete('delete from reservation where ref_devis = ?', [$ref->ref_devis]);
+            DB::delete('delete from reservation where facture_reserv = ?', [$ref->ref_devis]);
         }
         DB::delete('delete from devis where id_client_devis = ?', [$id]);
         DB::delete('delete from client where id_client = ?', [$id]);

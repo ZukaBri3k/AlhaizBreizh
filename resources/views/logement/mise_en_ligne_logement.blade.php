@@ -529,6 +529,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             if (photoCount < 10) {
                 photoCount++;
                 var fileName = input.files[0].name;
+                var newImageContainer = document.createElement('div');
                 newImageContainer.innerHTML = fileName;
                 var newInput = document.createElement('input');
                 newInput.setAttribute('type', 'file');
@@ -543,7 +544,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 newLabel.setAttribute('class', 'custom-button');
                 newLabel.innerHTML = 'Importer une autre image';
 
-                var newImageContainer = document.createElement('div');
+                
                 newImageContainer.setAttribute('class', 'selected-image');
 
 

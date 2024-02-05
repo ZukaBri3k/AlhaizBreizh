@@ -495,7 +495,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     <div id="gauche_page_8">
         <h2 class="section-title" id="titre_gauche_page_8">Quel sera la photo de couverture de votre logement ? *</h2>
         <div class="image-upload-container">
-            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="img1" require>
+            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="img1" required>
             <label for="image-upload1" class="custom-button">Importer l'image</label>
             <div class="selected-image" id="selected-image1"></div>
           </div>
@@ -529,6 +529,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             if (photoCount < 10) {
                 photoCount++;
                 var fileName = input.files[0].name;
+                var newImageContainer = document.createElement('div');
                 newImageContainer.innerHTML = fileName;
                 var newInput = document.createElement('input');
                 newInput.setAttribute('type', 'file');
@@ -543,12 +544,12 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 newLabel.setAttribute('class', 'custom-button');
                 newLabel.innerHTML = 'Importer une autre image';
 
-                var newImageContainer = document.createElement('div');
+                
                 newImageContainer.setAttribute('class', 'selected-image');
 
 
 
-                var imageContainer = document.querySelector('#images_colonne_gauche');
+                var imageContainer = document.querySelector('.image-upload-container');
                 imageContainer.appendChild(newInput);
                 imageContainer.appendChild(newLabel);
                 imageContainer.appendChild(newImageContainer);

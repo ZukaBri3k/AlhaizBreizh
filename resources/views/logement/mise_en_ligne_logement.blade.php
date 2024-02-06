@@ -536,8 +536,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     margin-top: 20px;
 }
 #deleteButton{
-    width: auto;
-    height: auto;
+    font-size: auto;
 }
 </style>
 <script>

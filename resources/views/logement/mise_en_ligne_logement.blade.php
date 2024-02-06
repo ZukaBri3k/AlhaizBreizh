@@ -535,6 +535,10 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     display: block;
     margin-top: 20px;
 }
+#deleteButton{
+    width: auto;
+    height: auto;
+}
 </style>
 <script>
  // Récupérer les éléments du DOM
@@ -576,6 +580,7 @@ function handleFiles(files) {
 
             var deleteButton = document.createElement('button');
             deleteButton.textContent = "Supprimer";
+            deleteButton.id = "deleteButton"; // Attribuer la même ID à tous les boutons
             deleteButton.onclick = function() {
                 listItem.parentNode.removeChild(listItem);
             };
@@ -587,14 +592,6 @@ function handleFiles(files) {
         }
     }
 }
-
-// Valider le formulaire avant soumission
-form.addEventListener('submit', function(e) {
-    if (output.children.length < 2) {
-        e.preventDefault(); // Empêcher l'envoi du formulaire
-        alert("Veuillez ajouter au moins 2 images.");
-    }
-});
 
 
 </script>

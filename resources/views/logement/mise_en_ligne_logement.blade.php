@@ -527,7 +527,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     }
          #drop_zone {
     width: 430px;
-    height: 200px;
+    height: auto;
     border: 2px dashed #ccc;
     text-align: center;
     padding: 20px;

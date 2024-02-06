@@ -622,7 +622,7 @@ class BelongsToMany extends Relation
     {
         if (is_null($instance = (clone $this)->where($attributes)->first())) {
             if (is_null($instance = $this->related->where($attributes)->first())) {
-                $instance = $this->create(array_merge($attributes, $values), $joining, $touch);
+                $instance = $this->createOrFirst($attributes, $values, $joining, $touch);
             } else {
                 try {
                     $this->getQuery()->withSavepointIfNeeded(fn () => $this->attach($instance, $joining, $touch));
@@ -672,19 +672,13 @@ class BelongsToMany extends Relation
      */
     public function updateOrCreate(array $attributes, array $values = [], array $joining = [], $touch = true)
     {
-        if (is_null($instance = (clone $this)->where($attributes)->first())) {
-            if (is_null($instance = $this->related->where($attributes)->first())) {
-                return $this->create(array_merge($attributes, $values), $joining, $touch);
-            } else {
-                $this->attach($instance, $joining, $touch);
+        return tap($this->firstOrCreate($attributes, $values, $joining, $touch), function ($instance) use ($values) {
+            if (! $instance->wasRecentlyCreated) {
+                $instance->fill($values);
+
+                $instance->save(['touch' => false]);
             }
-        }
-
-        $instance->fill($values);
-
-        $instance->save(['touch' => false]);
-
-        return $instance;
+        });
     }
 
     /**
@@ -1185,6 +1179,10 @@ class BelongsToMany extends Relation
      */
     public function touch()
     {
+        if ($this->related->isIgnoringTouch()) {
+            return;
+        }
+
         $columns = [
             $this->related->getUpdatedAtColumn() => $this->related->freshTimestampString(),
         ];

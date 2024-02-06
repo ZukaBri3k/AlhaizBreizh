@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // initialize the external events
   // -----------------------------------------------------------------
 
+
+  
   new Draggable(containerEl, {
     itemSelector: '.fc-event',
     eventData: function(eventEl) {

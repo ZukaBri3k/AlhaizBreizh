@@ -60,12 +60,12 @@ class AccountController extends Controller
         DB::delete('delete from cle where id_personnes = ?', [$id]);
 
         $id_logement = DB::select('select id_logement from logement where id_proprio_logement = ?', [$id]);
-        foreach ($id_logement as $id) {
-            $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($id->id_logement)]);
-            DB::delete('delete from reservation where id_logement_reserv = ?', [intval($id->id_logement)]);
-            DB::delete('delete from logement where id_logement = ?', [intval($id->id_logement)]);
+        foreach ($id_logement as $id_) {
+            $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($id_->id_logement)]);
+            DB::delete('delete from reservation where id_logement_reserv = ?', [intval($id_->id_logement)]);
+            DB::delete('delete from logement where id_logement = ?', [intval($id_->id_logement)]);
         }
-
+        DB::delete('delete from devis where id_client_devis = ?', [$id]);
         DB::delete('delete from proprietaire where id_proprio = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 

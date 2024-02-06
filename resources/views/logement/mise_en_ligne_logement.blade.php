@@ -523,7 +523,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 </form>
 <style>
     #depot_image{
-        font-size: auto;
+        font-size: 15px;
     }
          #drop_zone {
     width: 430px;
@@ -539,7 +539,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     margin-top: 20px;
 }
 #deleteButton{
-    font-size: auto;
+    font-size: 15px;
 }
 </style>
 <script>

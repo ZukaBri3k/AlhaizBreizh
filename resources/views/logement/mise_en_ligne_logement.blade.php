@@ -506,7 +506,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <div id="division_colonnes_droite">
             <div id="images_colonne_gauche">
                 <div id="drop_zone">
-                    <p>Glissez-déposez jusqu'à 10 images ici.</p>
+                    <p id="depot_image">Glissez-déposez jusqu'à 10 images ici.</p>
                     <input type="file" id="file_input" multiple>
                     <output id="result"></output>
                 </div>
@@ -522,6 +522,9 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
    
 </form>
 <style>
+    #depot_image{
+        font-size: auto;
+    }
          #drop_zone {
     width: 430px;
     height: 200px;

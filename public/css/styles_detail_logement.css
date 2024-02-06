@@ -42,7 +42,7 @@ body {
     transition: transform .0s ease !important;
 }
 
-.carousel-item.active div img {
+.carousel-item.active div a img {
     width: 120% !important;
     padding-bottom: 10% !important;
     margin-left: 2% !important;
@@ -68,7 +68,7 @@ body {
     margin-top: 2%;
 }
 
-.carou img {
+.carou a img {
     width: 70% !important;
     height: 55% !important;
     margin-left: 5%;

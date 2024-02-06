@@ -505,10 +505,10 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <h2 class="section-title" id="titre_droite_page_8">Quelles seront les photos de votre logement ? *</h2>
         <div id="division_colonnes_droite">
             <div id="images_colonne_gauche">
-                <div class="image-upload-container">
-                    <input type="file" class="image-upload" accept="image/*" id="image-upload2" name="img2" onchange="handleImageUpload(this)">
-                    <label for="image-upload2" class="custom-button">Importer l'image</label>
-                    <div class="selected-image" id="selected-image2"></div>
+                <div id="drop_zone">
+                    <p>Glissez-déposez jusqu'à 10 images ici.</p>
+                    <input type="file" id="file_input" multiple>
+                    <output id="result"></output>
                 </div>
             </div>
         </div>
@@ -521,43 +521,82 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 </div>
    
 </form>
+<style>
+         #drop_zone {
+    width: 300px;
+    height: 200px;
+    border: 2px dashed #ccc;
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+#result {
+    display: block;
+    margin-top: 20px;
+}
+</style>
 <script>
-    var photoCount = 1;
+ // Récupérer les éléments du DOM
+ var dropZone = document.getElementById('drop_zone');
+var fileInput = document.getElementById('file_input');
+var output = document.getElementById('result');
+var form = document.getElementById('myForm');
 
-    function handleImageUpload(input) {
-        if (input.files && input.files[0]) {
-            if (photoCount < 10) {
-                photoCount++;
-                var fileName = input.files[0].name;
-                var newImageContainer = document.createElement('div');
-                newImageContainer.innerHTML = fileName;
-                var newInput = document.createElement('input');
-                newInput.setAttribute('type', 'file');
-                newInput.setAttribute('class', 'image-upload');
-                newInput.setAttribute('accept', 'image/*');
-                newInput.setAttribute('id', 'image-upload' + photoCount);
-                newInput.setAttribute('name', 'img' + photoCount);
-                newInput.setAttribute('onchange', 'handleImageUpload(this)');
+// Empêcher le comportement par défaut du navigateur lors du glisser-déposer
+dropZone.addEventListener('dragover', function(e) {
+    e.preventDefault();
+});
 
-                var newLabel = document.createElement('label');
-                newLabel.setAttribute('for', 'image-upload' + photoCount);
-                newLabel.setAttribute('class', 'custom-button');
-                newLabel.innerHTML = 'Importer une autre image';
+// Gérer l'événement de glisser-déposer
+dropZone.addEventListener('drop', function(e) {
+    e.preventDefault();
+    var files = e.dataTransfer.files;
+    handleFiles(files);
+});
 
-                
-                newImageContainer.setAttribute('class', 'selected-image');
+// Gérer l'événement de sélection de fichiers
+fileInput.addEventListener('change', function() {
+    var files = this.files;
+    handleFiles(files);
+});
 
+// Fonction pour traiter les fichiers d'images
+function handleFiles(files) {
+    if (output.children.length + files.length > 10) {
+        alert("Vous ne pouvez pas ajouter plus de 10 images.");
+        return;
+    }
 
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        if (file.type.match('image.*')) {
+            var listItem = document.createElement('li');
+            listItem.textContent = file.name;
 
-                var imageContainer = document.querySelector('.image-upload-container');
-                imageContainer.appendChild(newInput);
-                imageContainer.appendChild(newLabel);
-                imageContainer.appendChild(newImageContainer);
-            } else {
-                alert('Vous avez atteint la limite maximale de 10 photos.');
-            }
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = "Supprimer";
+            deleteButton.onclick = function() {
+                listItem.parentNode.removeChild(listItem);
+            };
+
+            listItem.appendChild(deleteButton);
+            output.appendChild(listItem);
+        } else {
+            output.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
         }
     }
+}
+
+// Valider le formulaire avant soumission
+form.addEventListener('submit', function(e) {
+    if (output.children.length < 2) {
+        e.preventDefault(); // Empêcher l'envoi du formulaire
+        alert("Veuillez ajouter au moins 2 images.");
+    }
+});
+
+
 </script>
 
 

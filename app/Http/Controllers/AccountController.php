@@ -57,6 +57,17 @@ class AccountController extends Controller
     public function deleteProprietaire() {
 
         $id = auth()->user()->id;
+        DB::delete('delete from cle where id_personnes = ?', [$id]);
+
+        $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
+        
+        if($id != $idProprietaireLogment[0]->id_proprio_logement) {
+            return redirect()->back();
+        } else {
+            DB::delete('delete from reservation where id_logement_reserv = ?', [intval($request->id)]);
+            DB::delete('delete from logement where id_logement = ?', [intval($request->id)]);
+        }
+
         DB::delete('delete from proprietaire where id_proprio = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 

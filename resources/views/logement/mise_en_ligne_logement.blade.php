@@ -523,7 +523,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 </form>
 <style>
          #drop_zone {
-    width: 300px;
+    width: 430px;
     height: 200px;
     border: 2px dashed #ccc;
     text-align: center;

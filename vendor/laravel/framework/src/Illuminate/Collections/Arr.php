@@ -195,6 +195,8 @@ class Arr
             foreach ($array as $item) {
                 return $item;
             }
+
+            return value($default);
         }
 
         foreach ($array as $key => $value) {
@@ -474,9 +476,7 @@ class Arr
      */
     public static function prependKeysWith($array, $prependWith)
     {
-        return Collection::make($array)->mapWithKeys(function ($item, $key) use ($prependWith) {
-            return [$prependWith.$key => $item];
-        })->all();
+        return static::mapWithKeys($array, fn ($item, $key) => [$prependWith.$key => $item]);
     }
 
     /**

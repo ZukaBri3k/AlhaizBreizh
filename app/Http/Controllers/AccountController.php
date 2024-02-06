@@ -42,10 +42,10 @@ class AccountController extends Controller
     public function deleteClient() {
 
         $id = auth()->user()->id;
-        $ref_devis = DB::select('select facture_reserv from reservation where id_client_devis = ?', [$id]);
-        dd($ref_devis);
+        DB::delete('delete from cle where id_personnes = ?', [$id]);
+        $ref_devis = DB::select('select ref_devis from devis where id_client_devis = ?', [$id]);
         foreach ($ref_devis as $ref) {
-            DB::delete('delete from reservation where ref_devis = ?', [$ref->ref_devis]);
+            DB::delete('delete from reservation where facture_reserv = ?', [$ref->ref_devis]);
         }
         DB::delete('delete from devis where id_client_devis = ?', [$id]);
         DB::delete('delete from client where id_client = ?', [$id]);
@@ -57,6 +57,15 @@ class AccountController extends Controller
     public function deleteProprietaire() {
 
         $id = auth()->user()->id;
+        DB::delete('delete from cle where id_personnes = ?', [$id]);
+
+        $id_logement = DB::select('select id_logement from logement where id_proprio_logement = ?', [$id]);
+        foreach ($id_logement as $id_) {
+            $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($id_->id_logement)]);
+            DB::delete('delete from reservation where id_logement_reserv = ?', [intval($id_->id_logement)]);
+            DB::delete('delete from logement where id_logement = ?', [intval($id_->id_logement)]);
+        }
+        DB::delete('delete from devis where id_proprietaire_devis = ?', [$id]);
         DB::delete('delete from proprietaire where id_proprio = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 

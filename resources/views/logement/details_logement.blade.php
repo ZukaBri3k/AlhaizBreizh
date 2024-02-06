@@ -12,54 +12,45 @@
     <x-Navbar></x-Navbar>
     <!--Code pour le carrousel-->
     <div class="carou">
-    <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-inner" id="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
-                <a href="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" data-lightbox="carousel">
-                    <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
-                </a>
+                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
                 <div>
-                    @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
-                        <a href="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" data-lightbox="carousel">
-                            <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
-                        </a>
-                    @endfor
+                  @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
+                      <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                  @endfor
                 </div>
             </div>
             @for($i = 1; $i < intval($nb_photo)-1; $i++)
-                @php $counter = 0; @endphp
-                <div class="carousel-item">
-                    <a href="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" data-lightbox="carousel">
-                        <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
-                    </a>
-                    <div>
-                        @for($j = $i + 1; $j < intval($nb_photo)-1 && $counter < 2; $j++)
-                            @php $counter++; @endphp
-                            <a href="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" data-lightbox="carousel">
-                                <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
-                            </a>
-                        @endfor
+              @php $counter = 0; @endphp
+              <div class="carousel-item">
+                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                
+                <div>
+                  @for($j = $i + 1; $j < intval($nb_photo)-1 && $counter < 2; $j++)
+                    @php $counter++; @endphp
+                    <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                  @endfor
 
-                        @for($j = 0; $j < $i && $counter < 2; $j++)
-                            @php $counter++; @endphp
-                            <a href="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" data-lightbox="carousel">
-                                <img class="2" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
-                            </a>
-                        @endfor
-                    </div>
+                  @for($j = 0; $j < $i && $counter < 2; $j++)
+                    @php $counter++; @endphp
+                    <img class="2" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                  @endfor
                 </div>
+              </div>
             @endfor
-        </div>  
+          </div>  
+      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
     <div class="second">
       <div>
         <h1>{!! $logement->libelle_logement !!} n°{!! $logement->id_logement !!} / {!! $logement->accroche_logement !!}</h1>

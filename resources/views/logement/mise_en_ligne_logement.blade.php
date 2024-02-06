@@ -532,6 +532,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     text-align: center;
     padding: 20px;
     margin: 20px auto;
+    margin-left: -70%;
 }
 
 #result {

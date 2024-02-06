@@ -11,7 +11,7 @@
 <body>
     <x-Navbar></x-Navbar>
     <!--Code pour le carrousel-->
-    div class="carou">
+    <div class="carou">
     <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">

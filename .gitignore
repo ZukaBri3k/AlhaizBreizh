@@ -1,4 +1,0 @@
-/vendor/
-.env
-/public/storage
-/app/Providers/AppServiceProvider.php

@@ -83,9 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
               data=date;
               console.log("Date à envoyer:", data);
               
-              $.ajax(
-                'ajouter-evenements',
-                {
+              $.ajax({
+                url: "{{ route('ajouter-evenements') }}",  // Utilisation de la fonction route() de Laravel pour générer l'URL
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/json',
@@ -98,15 +97,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.error("Erreur AJAX:", textStatus, errorThrown);
                     console.log("Réponse du serveur :", jqXHR.responseText);
                 }
-            });
-            } else {
-              console.log("La date de début n'est pas définie dans le premier événement.");
-          }
-      } else {
-          console.log("Aucun événement à envoyer.");
-      }
-  });
+              }
+    )};
 calendar.render();  
-    });   
-
-       
+    }},
+)}); 
+    

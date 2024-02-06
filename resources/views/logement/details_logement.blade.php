@@ -5,51 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{asset('/css/styles_detail_logement.css')}}" rel="stylesheet"></link>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <x-Navbar></x-Navbar>
     <!--Code pour le carrousel-->
-    <div class="carou">
-      <div id="carouselExampleIndicators" class="carousel slide">
-          <div class="carousel-inner" id="carousel">
+    div class="carou">
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
-                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
+                <a href="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" data-lightbox="carousel">
+                    <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
+                </a>
                 <div>
-                  @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
-                      <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
-                  @endfor
+                    @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
+                        <a href="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" data-lightbox="carousel">
+                            <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                        </a>
+                    @endfor
                 </div>
             </div>
             @for($i = 1; $i < intval($nb_photo)-1; $i++)
-              @php $counter = 0; @endphp
-              <div class="carousel-item">
-                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
-                
-                <div>
-                  @for($j = $i + 1; $j < intval($nb_photo)-1 && $counter < 2; $j++)
-                    @php $counter++; @endphp
-                    <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
-                  @endfor
+                @php $counter = 0; @endphp
+                <div class="carousel-item">
+                    <a href="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" data-lightbox="carousel">
+                        <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                    </a>
+                    <div>
+                        @for($j = $i + 1; $j < intval($nb_photo)-1 && $counter < 2; $j++)
+                            @php $counter++; @endphp
+                            <a href="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" data-lightbox="carousel">
+                                <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                            </a>
+                        @endfor
 
-                  @for($j = 0; $j < $i && $counter < 2; $j++)
-                    @php $counter++; @endphp
-                    <img class="2" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
-                  @endfor
+                        @for($j = 0; $j < $i && $counter < 2; $j++)
+                            @php $counter++; @endphp
+                            <a href="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" data-lightbox="carousel">
+                                <img class="2" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                            </a>
+                        @endfor
+                    </div>
                 </div>
-              </div>
             @endfor
-          </div>  
-      </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        </div>  
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
     <div class="second">
       <div>
         <h1>{!! $logement->libelle_logement !!} n°{!! $logement->id_logement !!} / {!! $logement->accroche_logement !!}</h1>
@@ -384,6 +394,7 @@
     </div>
     <x-FooterClient></x-FooterClient>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

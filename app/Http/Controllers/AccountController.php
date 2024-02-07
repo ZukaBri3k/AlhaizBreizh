@@ -287,25 +287,25 @@ class AccountController extends Controller
 
         DB::update('update personnes set 
         civilite_pers = "?", 
-        prenom_pers = "?", 
-        nom_pers = "?",
-        telephone_pers = "?",
-        mail_pers = "?",
-        ville_pers = "?",
-        code_postal_pers = "?", 
-        adresse_pers = "?", 
-        pays_pers = "?", 
+        prenom_pers = ?, 
+        nom_pers = ?,
+        telephone_pers = ?",
+        mail_pers = ?,
+        ville_pers = ?,
+        code_postal_pers = ?, 
+        adresse_pers = ?, 
+        pays_pers = ?, 
         password = "?", 
-        pseudo_pers = "?", 
-        photo_pers = "?", 
+        pseudo_pers = ?, 
+        photo_pers = ?, 
         age_pers = null,
         est_banni = false,
-        iban = "?",
+        iban = ?,
         role = 1,
         remember_token = null,
-        date_de_naissance = "?", 
-        genre_pers = null, 
-        where id = "?"', $data);
+        date_de_naissance = ?, 
+        genre_pers = null
+        where id = ?', $data);
 
         return redirect()->route('myClientAccount', ['id' => $id]);
     }

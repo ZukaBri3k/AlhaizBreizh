@@ -620,9 +620,9 @@ function handleFiles(files) {
 
 <script>
     // Récupérer les éléments du DOM
-var dropZone = document.getElementById('drop_zone');
-var fileInput = document.getElementById('file_input');
-var output = document.getElementById('result');
+var dropZone = document.getElementById('drop_zone1');
+var fileInput = document.getElementById('file_input1');
+var output = document.getElementById('result1');
 
 // Empêcher le comportement par défaut du navigateur lors du glisser-déposer
 dropZone.addEventListener('dragover', function(e) {

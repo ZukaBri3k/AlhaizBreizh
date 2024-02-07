@@ -28,15 +28,16 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     <div id="page_2" class="page"> 
         <div id="gauche_page_2">
                 <h2 id="titre_colonne_gauche_page_2">De quel nature est votre <br>logement ? *</h2>
+                <input id="idNatLogement" type="hidden" value="{!! $logement->nature_logement !!}">
                 <div class="button-row">
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Maison">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selectio btnNatLogement" value="Maison">
                         <div class="image-container">
                             <img src="{{asset('img/nature/maison.png')}}" alt="Maison">
                         </div>
                         <span>Maison</span>
                     </button>
             
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Appartement">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement" value="Appartement">
                         <div class="image-container">
                             <img src="{{asset('img/nature/appartement.png')}}" alt="Appartement">
                         </div>
@@ -45,14 +46,14 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 </div>
             
                 <div class="button-row">
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection"  value="Villa d'exception">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement"  value="Villa">
                         <div class="image-container">
                             <img src="{{asset('img/nature/villa.png')}}" alt="Villa d'exception">
                         </div>
                         <span>Villa d'exception</span>
                     </button>
             
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Bateau">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement" value="Bateau">
                         <div class="image-container">
                             <img src="{{asset('img/nature/bateau.png')}}" alt="Bateau">
                         </div>
@@ -61,14 +62,14 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 </div>
             
                 <div class="button-row">
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Chambre d'hôte">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement" value="Chambre d'hôte">
                         <div class="image-container">
                             <img src="{{asset('img/nature/chambre_hote.png')}}" alt="Chambre d'hôte">
                         </div>
                         <span>Chambre d'hôte</span>
                     </button>
             
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Maison d'hôte">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement" value="Maison d'hôte">
                         <div class="image-container">
                             <img src="{{asset('img/nature/maison_hote.png')}}" alt="Maison d'hôte">
                         </div>
@@ -77,14 +78,14 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 </div>
             
                 <div class="button-row">
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Cabane">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement" value="Cabane">
                         <div class="image-container">
                             <img src="{{asset('img/nature/cabane.png')}}" alt="Cabane">
                         </div>
                         <span>Cabane</span>
                     </button>
             
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Caravane">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement" value="Caravane">
                         <div class="image-container">
                             <img src="{{asset('img/nature/caravane.png')}}" alt="Caravane">
                         </div>
@@ -96,16 +97,17 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <div id="droite_page_2">
             
             <h2>De quel type est votre logement ?*</h2>
+            <input type="hidden" id="idTypeLogement" value="{!! $logement->type_logement !!}">
             <br>
             <div id="t1-t2">
 
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="t1">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="T1">
                     <div class="image-container">
                         <img src="{{asset('img/type/t1.png')}}" alt="T1">
                     </div>
                     <span>T1</span>
                 </button>
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="t2">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="T2">
                     <div class="image-container">
                         <img src="{{asset('img/type/t2.png')}}" alt="T2">
                     </div>
@@ -113,13 +115,13 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 </button>
             </div>
             <div id="t3-t4">
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="t3">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="T3">
                     <div class="image-container">
                         <img src="{{asset('img/type/t3.png')}}" alt="T3">
                     </div>
                     <span>T3</span>
                 </button>
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="t4">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="T4">
                     <div class="image-container">
                         <img src="{{asset('img/type/t4.png')}}" alt="T4">
                     </div>
@@ -127,13 +129,13 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 </button>
             </div>
             <div id="studio-duplex">
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="studio">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="Studio">
                     <div class="image-container">
                         <img src="{{asset('img/type/studio.png')}}" alt="Studio">
                     </div>
                     <span>Studio</span>
                 </button>
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="duplex">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="Duplex">
                     <div class="image-container">
                         <img src="{{asset('img/type/duplex.png')}}" alt="Duplex">
                     </div>
@@ -141,7 +143,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 </button>
 
             </div>
-            <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection" value="triplex" id="triplex">
+            <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="Triplex" id="triplex">
                 <div class="image-container">
                     <img src="{{asset('img/type/triplex.png')}}" alt="Triplex">
                 </div>
@@ -162,45 +164,45 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
           
             <div id="location_logement">
                 <h2>Où se situe votre logement ?*</h2>
-                <input type="text" placeholder="votre adresse" name="adresse_logement" required>
+                <input type="text" placeholder="votre adresse" name="adresse_logement" value="{!! $logement->adresse_logement !!}" required>
                 <br>
-                <input type="text" placeholder="Saisissez votre ville" name="ville_logement" required>
+                <input type="text" placeholder="Saisissez votre ville" name="ville_logement" value="{!! $logement->ville_logement !!}" required>
                 <br>
-                <input type="number" placeholder="Code postal" name="code_postal_logement" min="0" max="99999" required>
+                <input type="number" placeholder="Code postal" name="code_postal_logement" min="0" max="99999" value="{!! $logement->code_postal_logement !!}" required>
                 <br>
             </div>
 
             <div id="titre_logement">
                 <h2>Quel sera le titre du logement ?*</h2>
-                <input type="text" name="libelle_logement" placeholder="Saisissez le libellé du logement" required>
+                <input type="text" name="libelle_logement" placeholder="Saisissez le libellé du logement" value="{!! $logement->libelle_logement !!}" required>
                 <br>
-                <input type="text" name="accroche_logement" placeholder="Saisissez l'accroche du logement" required>
+                <input type="text" name="accroche_logement" placeholder="Saisissez l'accroche du logement" value="{!! $logement->accroche_logement !!}" required>
             </div>
 
         </div>
         <div id="colonne_droite_page_3">
             <h2>Décrivez-nous votre logement *</h2>
             <div id="description_logement">
-                <textarea id="description_logement_input"  name="descriptif_logement" rows="4" cols="50" maxlength="950" required></textarea>
+                <textarea id="description_logement_input"  name="descriptif_logement" rows="4" cols="50" maxlength="950" required>{!! $logement->descriptif_logement !!}</textarea>
                 <div id="description_logement_precise">
                     <div id="nombre_de_personnes">
                     <label for="nombre_de_personne">Nombre de personne(s) : </label>
-                    <textarea type="number" name="nb_personne_max" id="" cols="5" rows="1" required></textarea>
+                    <input type="number" name="nb_personne_max" id="" cols="5" rows="1" value="{!! $logement->nb_personne_max !!}" required>
                     </div>
                     <br>
                     <div id="nombre_de_personnes">
                         <label for="surface" >Surface habitable (m2) : </label>
-                        <textarea type="number"name="surface_habitable_logement" id="" cols="5" rows="1" required></textarea>
+                        <input type="number"name="surface_habitable_logement" id="" cols="5" rows="1" value="{!! $logement->surface_habitable_logement !!}" required>
                      </div>
                      <br>
                      <div id="nombre_de_personnes">
                         <label for="nombre_de_chambre">Nombre de chambre(s) :</label>
-                        <textarea type="number"name="nb_chambre_logement" id="nombre_de_chambre_input" cols="5" rows="1" required></textarea>
+                        <input type="number"name="nb_chambre_logement" id="nombre_de_chambre_input" cols="5" rows="1" value="{!! $logement->nb_chambre_logement !!}" required>
                     </div>
                     <br>
                     <div id="nombre_de_personnes">
                         <label for="nombre_de_salle_de_bain">Nombre de salle(s) de bain : </label>
-                        <textarea type="number"name="nb_salle_de_bain_logement" id="" cols="5" rows="1" required></textarea>
+                        <input type="number"name="nb_salle_de_bain_logement" id="" cols="5" rows="1" value="{!! $logement->nb_salle_de_bain_logement !!}" required>
                      </div>
                 </div>
             </div>
@@ -602,6 +604,6 @@ form.addEventListener('submit', function(e) {
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="{{asset('js/script_logement.js')}}"></script>
+    <script src="{{asset('js/script_modif_logement.js')}}"></script>
 </body>
 </html>

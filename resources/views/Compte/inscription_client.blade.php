@@ -120,11 +120,11 @@
 
                     <label for="password">*Mot de Passe:</label>
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
-                        class="form-control" required maxlength="60">
+                        class="form-control" maxlength="60" required>
 
                     <label for="confirmerMotDePasse">*Confirmation du Mot de Passe:</label>
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"
-                        placeholder="Confirmez votre mot de passe" class="form-control" required>
+                        placeholder="Confirmez votre mot de passe" class="form-control" maxlength="60" required>
 
                     <label for="iban">IBAN:</label>
                     <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">

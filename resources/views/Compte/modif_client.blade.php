@@ -51,10 +51,10 @@
                     </script>
 
                     <label for="nom_pers">*Nom:</label>
-                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" value="{!! $personnes->nom_pers !!}" required>
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" value="{!! $personnes->nom_pers !!}" pattern="[A-Za-z\-'\s]+" required>
 
                     <label for="prenom_pers">*Prénom:</label>
-                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control" value="{!! $personnes->prenom_pers !!}" required>
+                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control" value="{!! $personnes->prenom_pers !!}" pattern="[A-Za-z\-'\s]+" required>
 
                     <label for="pseudo_pers">*Pseudo:</label>
                     <input type="text" id="pseudo_pers" name="pseudo_pers" placeholder="Choisissez un pseudo"

@@ -85,6 +85,8 @@ Route::prefix('/account')->group(function () {
 
     Route::get('deleteClient', [AccountController::class, 'deleteClient'])->name('deleteClient')->middleware(['auth', 'isClient']);
     Route::get('deleteProprietaire', [AccountController::class, 'deleteProprietaire'])->name('deleteProprietaire')->middleware(['auth', 'isProprietaire']);
+
+    Route::get('modifierClient', [AccountController::class, 'modifierClient'])->name('modifierClient')->middleware(['auth', 'isClient']);
 });
 
 Route::post('test', [Logement::class, 'ajouterLogementDB']);

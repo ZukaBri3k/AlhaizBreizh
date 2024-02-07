@@ -495,9 +495,11 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     <div id="gauche_page_8">
         <h2 class="section-title" id="titre_gauche_page_8">Quel sera la photo de couverture de votre logement ? *</h2>
         <div class="image-upload-container">
-            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="img1" required>
-            <label for="image-upload1" class="custom-button">Importer l'image</label>
-            <div class="selected-image" id="selected-image1"></div>
+            <div id="drop_zone1">
+                <p id="depot_image">Glissez-déposez votre image ici.</p>
+                <input type="file" id="file_input1" multiple>
+                <output id="result1"></output>
+            </div>
           </div>
       
     </div>
@@ -521,6 +523,22 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 </div>
    
 </form>
+<style>
+    #drop_zone1 {
+    width: 430px;
+    height: auto;
+    border: 2px dashed #ccc;
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+#result1 {
+    display: block;
+    margin-top: 20px;
+}
+
+</style>
 <style>
     #depot_image{
         font-size: 15px;
@@ -598,7 +616,49 @@ function handleFiles(files) {
 
 
 </script>
+<script>
+    // Récupérer les éléments du DOM
+var dropZone = document.getElementById('drop_zone1');
+var fileInput = document.getElementById('file_input1');
+var output = document.getElementById('result1');
 
+// Empêcher le comportement par défaut du navigateur lors du glisser-déposer
+dropZone.addEventListener('dragover', function(e) {
+    e.preventDefault();
+});
+
+// Gérer l'événement de glisser-déposer
+dropZone.addEventListener('drop', function(e) {
+    e.preventDefault();
+    var files = e.dataTransfer.files;
+    handleFiles(files);
+});
+
+// Gérer l'événement de sélection de fichiers
+fileInput.addEventListener('change', function() {
+    var files = this.files;
+    handleFiles(files);
+});
+
+// Fonction pour traiter les fichiers d'images
+function handleFiles(files) {
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        if (file.type.match('image.*')) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var img = new Image();
+                img.src = e.target.result;
+                output.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            output.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
+        }
+    }
+}
+
+</script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

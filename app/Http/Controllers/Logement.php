@@ -157,4 +157,22 @@ class Logement extends Controller
         
         return redirect()->route('mes_logementsLogement');
     }
+
+
+    public function updateLogement(Request $req) {
+        $id = auth()->user()->id;
+
+        $logements = DB::select('select id_logement from logement where id_proprio_logement = ?', [$id]);
+        $logementsID = [];
+
+        foreach ($logements as $key => $logement) {
+            $logementsID[$key] = $logement->id_logement;
+        }
+
+        if(in_array($req->id, $logementsID)) {
+            return View("logement/update_logement", ['logement' => DB::select('select * from logement where id_logement = ?', [$req->id])[0]]);
+        } else {
+            return redirect()->back();
+        }
+    }
 }

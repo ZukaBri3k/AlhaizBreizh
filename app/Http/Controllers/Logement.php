@@ -85,6 +85,7 @@ class Logement extends Controller
             $request->details_lit,
             $id_logement[0]->id_logement,
         ];
+        dd($chambre);
 
         for($i = 1; $i <= $request->nombreDeChambres; $i++) {
             DB::insert('insert into chambre (nb_lit_simple, nb_lit_double, nb_salle_de_bain_chambre, details_lit, id_logement) values (?, ?, ?, ?, ?)', $chambre);

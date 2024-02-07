@@ -22,7 +22,7 @@
     <div class="Titre">
         <h1>Information de votre compte propriétaire</h1>
         <a>
-            <button>Modifier</button>
+            <button class="button_api">Modifier</button>
         </a>
     </div>
     <div class="Profile_Public">

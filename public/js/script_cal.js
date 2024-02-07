@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/json',
-                data: JSON.stringify({ data: date }),  // Utiliser 'date' plutôt que 'events'
+                data: JSON.stringify({ events: date }),  // Utiliser 'date' plutôt que 'events'
                 success: function(response) {
                     console.log("Réponse du serveur:", response);
                     alert(response.message);

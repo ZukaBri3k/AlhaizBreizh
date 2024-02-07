@@ -20,8 +20,11 @@ deconnexion.addEventListener('click', function(event) {
         },
     }).then((result) => {
         window.location.href = url;
-    });
+    }); 
 });
+
+
+
 
 //Ici mon JS pour copier la clé API dans le clipboard
 copierTexte = (e, cle) => {

@@ -434,3 +434,11 @@ button:hover {
     line-height: 24px; /* 120% */
     letter-spacing: -0.3px;
 }
+
+.button_modif {
+    width: 110%;
+    height: 2.5em;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-left: 25%;
+}

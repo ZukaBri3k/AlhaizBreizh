@@ -497,7 +497,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <div class="image-upload-container">
             <div id="drop_zone1">
                 <p id="depot_image">Glissez-déposez votre image ici.</p>
-                <input type="file" id="file_input1" multiple>
+                <input type="file" id="file_input1">
                 <output id="result1"></output>
             </div>
           </div>
@@ -620,24 +620,24 @@ function handleFiles(files) {
 
 <script>
     // Récupérer les éléments du DOM
-var dropZone = document.getElementById('drop_zone1');
-var fileInput = document.getElementById('file_input1');
-var output = document.getElementById('result1');
+var dropZone1 = document.getElementById('drop_zone1');
+var fileInput1 = document.getElementById('file_input1');
+var output1 = document.getElementById('result1');
 
 // Empêcher le comportement par défaut du navigateur lors du glisser-déposer
-dropZone.addEventListener('dragover', function(e) {
+dropZone1.addEventListener('dragover', function(e) {
     e.preventDefault();
 });
 
 // Gérer l'événement de glisser-déposer
-dropZone.addEventListener('drop', function(e) {
+dropZone1.addEventListener('drop', function(e) {
     e.preventDefault();
     var files = e.dataTransfer.files;
     handleFiles(files);
 });
 
 // Gérer l'événement de sélection de fichiers
-fileInput.addEventListener('change', function() {
+fileInput1.addEventListener('change', function() {
     var files = this.files;
     handleFiles(files);
 });

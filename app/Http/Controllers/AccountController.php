@@ -65,7 +65,7 @@ class AccountController extends Controller
             DB::delete('delete from reservation where id_logement_reserv = ?', [intval($id_->id_logement)]);
             DB::delete('delete from logement where id_logement = ?', [intval($id_->id_logement)]);
         }
-        DB::delete('delete from devis where id_proprietaire_devis = ?', [$id]);
+        DB::delete('delete from devis where id_proprio = ?', [$id]);
         DB::delete('delete from proprietaire where id_proprio = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 

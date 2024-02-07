@@ -625,6 +625,18 @@ CSS de la page mes logements début
     text-decoration: none;
 }
 
+.mesLogements .MODIF {
+    color: #21610B;
+    background-color: #F6F5EE;
+    border: 1px solid #21610B;
+}
+
+.mesLogements .MODIF:hover {
+    color: #F6F5EE;
+    background-color: #21610B;
+    transition: 0.4s;
+}
+
 .mesLogements .HL {
     color: #EC3B53;
     background-color: #F6F5EE;

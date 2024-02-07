@@ -258,6 +258,6 @@ class AccountController extends Controller
     public function modifierClient() {
         $id = auth()->user()->id;
         $personne = DB::select('select * from personnes where id = ?', [$id]);
-        return view('modif_client', ['personne' => $personne[0]]);
+        return view('Compte/modif_client', ['personne' => $personne[0]]);
     }
 }

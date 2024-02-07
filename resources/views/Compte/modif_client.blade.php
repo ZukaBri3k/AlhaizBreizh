@@ -51,7 +51,7 @@
                     </script>
 
                     <label for="nom_pers">*Nom:</label>
-                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" value="{!! $personne->nom_pers !!}" required>
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" value="{!! $personnes->nom_pers !!}" required>
 
                     <label for="prenom_pers">*Prénom:</label>
                     <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control" required>

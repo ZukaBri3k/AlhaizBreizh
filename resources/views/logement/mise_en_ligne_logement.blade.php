@@ -647,14 +647,22 @@ fileInput1.addEventListener('change', function() {
 
 // Fonction pour traiter les fichiers d'images
 function handleFiles1(files) {
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
+    // Vérifier si des fichiers ont été sélectionnés
+    if (files.length > 0) {
+        // Limiter à une seule image
+        if (files.length > 1) {
+            alert("Vous ne pouvez sélectionner qu'une seule image.");
+            return;
+        }
+
+        var file = files[0]; // Récupérer le premier fichier
         if (file.type.match('image.*')) {
             var listItem = document.createElement('li');
             listItem.textContent = file.name;
+            output1.innerHTML = ''; // Supprimer les éléments existants
             output1.appendChild(listItem);
         } else {
-            output1.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
+            output1.innerHTML = "Le fichier " + file.name + " n'est pas une image.<br>";
         }
     }
 }

@@ -646,12 +646,7 @@ fileInput1.addEventListener('change', function() {
 });
 
 // Fonction pour traiter les fichiers d'images
-function handleFiles(files) {
-    if (output.children.length + files.length > 10) {
-        alert("Vous ne pouvez pas ajouter plus de 10 images.");
-        return;
-    }
-
+function handleFiles1(files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         if (file.type.match('image.*')) {

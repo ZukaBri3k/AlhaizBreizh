@@ -21,7 +21,7 @@
 
     <div class="Titre">
         <h1>Information de votre compte propriétaire</h1>
-        <button style="display: none">Modifier</button>
+        <button>Modifier</button>
     </div>
     <div class="Profile_Public">
         <h5>Profil public</h5>

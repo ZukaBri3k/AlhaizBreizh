@@ -19,8 +19,8 @@ deconnexion.addEventListener('click', function(event) {
             title: 'generation_cle'
         },
     }).then((result) => {
-                window.location.href = url;
-        }); 
+        window.location.href = url;
+    }); 
 });
 
 

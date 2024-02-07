@@ -616,11 +616,13 @@ function handleFiles(files) {
 
 
 </script>
+
+
 <script>
     // Récupérer les éléments du DOM
-var dropZone = document.getElementById('drop_zone1');
-var fileInput = document.getElementById('file_input1');
-var output = document.getElementById('result1');
+var dropZone = document.getElementById('drop_zone');
+var fileInput = document.getElementById('file_input');
+var output = document.getElementById('result');
 
 // Empêcher le comportement par défaut du navigateur lors du glisser-déposer
 dropZone.addEventListener('dragover', function(e) {
@@ -642,16 +644,17 @@ fileInput.addEventListener('change', function() {
 
 // Fonction pour traiter les fichiers d'images
 function handleFiles(files) {
+    if (output.children.length + files.length > 10) {
+        alert("Vous ne pouvez pas ajouter plus de 10 images.");
+        return;
+    }
+
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         if (file.type.match('image.*')) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                var img = new Image();
-                img.src = e.target.result;
-                output.appendChild(img);
-            };
-            reader.readAsDataURL(file);
+            var listItem = document.createElement('li');
+            listItem.textContent = file.name;
+            output.appendChild(listItem);
         } else {
             output.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
         }

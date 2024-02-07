@@ -70,7 +70,9 @@
 
                     <input type="text" id="country" name="country">
                     <script>
-                        $("#country").countrySelect();
+                        $(document).ready(function() {
+                            $("#country").countrySelect();
+                        });
                     </script>
 
                         <label for="profile-pic">

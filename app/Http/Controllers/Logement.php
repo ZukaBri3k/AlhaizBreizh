@@ -79,10 +79,9 @@ class Logement extends Controller
 
         $chambre = 
         [
-            $request->nb_lit_simple,
-            $request->nb_lit_double,
-            $request->nb_salle_de_bain_logement,
-            $request->details_lit,
+            $request->nombreLitsSimples,
+            $request->nombreLitsDoubles,
+            $request->detailsLits,
             $id_logement[0]->id_logement,
         ];
         dd($chambre);

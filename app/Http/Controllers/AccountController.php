@@ -260,4 +260,47 @@ class AccountController extends Controller
         $personne = DB::select('select * from personnes where id = ?', [$id]);
         return view('Compte/modif_client', ['personnes' => $personne[0]]);
     }
+
+    public function modificationsClient(Request $request) {
+        $id = auth()->user()->id;
+        $password = Hash::make($request->password);
+        $data = request()->validate([
+            $request->civilite_pers,
+            $request->prenom_pers,
+            $request->nom_pers,
+            $request->pseudo_pers,
+            $request->ville_pers,
+            $request->pays_pers,
+            $request->photo_pers,
+            $request->adresse_pers,
+            $request->code_postal_pers,
+            $request->date_de_naissance,
+            $request->telephone_pers,
+            $password,
+            $request->iban,
+            $request->mail_pers,
+        ]);
+
+        DB::table('personnes')->where('id', '=', $id)->update(["
+            civilite_pers,
+            prenom_pers,
+            nom_pers,
+            pseudo_pers,
+            ville_pers,
+            pays_pers,
+            photo_pers,
+            adresse_pers,
+            code_postal_pers,
+            date_de_naissance,
+            telephone_pers,
+            password,
+            iban,
+            mail_pers
+            )values(
+            ?, ?, ?, ?, ?, ?, ?, 
+            ?, ?, ?, ?, ?, ?, ?)", $data
+        ]);
+
+        return redirect()->route('myClientAccount', ['id' => $id]);
+    }
 }

@@ -54,8 +54,10 @@
                 $counterEL++;
                 @endphp
                     <div class="logementEnLigne">
-                            <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
-                            <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                        <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
+                        <a class="btnHL {{$classBtnHL}}" href="{{route('setHL', ['id' => $logement->id])}}">{{$textbouton}}</a>
+                        <a class="btnHL MODIF" href="{{route('updateLogement', ['id' => $logement->id])}}">Modifier</a>
+                        <a class="btnHL SUPPR" href="{{route('delLogement', ['id' => $logement->id])}}">Supprimer</a>
                     </div>
                     @php }
                     @endphp

@@ -625,15 +625,16 @@ CSS de la page mes logements début
     text-decoration: none;
 }
 
-.mesLogements .MODIF {
+.mesLogements .MODIF:hover {
     color: #21610B;
     background-color: #F6F5EE;
     border: 1px solid #21610B;
 }
 
-.mesLogements .MODIF:hover {
+.mesLogements .MODIF {
     color: #F6F5EE;
     background-color: #21610B;
+    border: 1px solid #21610B;
     transition: 0.4s;
 }
 

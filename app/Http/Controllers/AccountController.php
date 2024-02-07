@@ -281,7 +281,7 @@ class AccountController extends Controller
             $request->mail_pers,
         ];
 
-        DB::table('users')  // Remplacez 'users' par le nom de votre table
+        DB::table('personnes')  // Remplacez 'users' par le nom de votre table
         ->where('id', $id)  // Remplacez $id par l'ID de l'élément que vous voulez mettre à jour
         ->update($data);
 

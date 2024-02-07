@@ -84,6 +84,20 @@ class Logement extends Controller
         for($i = 1; $i <= count($request->file()); $i++) {
             Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i - 1 . ".jpg");
         }
+
+        $chambre = 
+        [
+            $request->nb_lit_simple,
+            $request->nb_lit_double,
+            $request->nb_salle_de_bain_logement,
+            $request->details_lit,
+            $id_logement[0]->id_logement,
+        ];
+
+        for($i = 1; $i <= $request->nombreDeChambres; $i++) {
+            DB::insert('insert into chambre (nb_lit_simple, nb_lit_double, nb_salle_de_bain_chambre, details_lit, id_logement) values (?, ?, ?, ?, ?)', $chambre);
+        }
+
         //dd($APP_URL));
 
         return redirect()->route('details_previsu', ['id' => $id_logement[0]->id_logement]);

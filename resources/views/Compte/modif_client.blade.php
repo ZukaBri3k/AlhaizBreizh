@@ -18,7 +18,7 @@
     <x-Navbar></x-Navbar>
     <main class="container">
         <h1 class="text-center">Modification de votre compte client</h1>
-        <form action="{{route('client_register')}}" method="post">
+        <form action="{{route('modificationsClient')}}" method="post">
         @csrf
         <div class="row lapage">
             <div class="col-md-6">

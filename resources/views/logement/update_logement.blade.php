@@ -69,7 +69,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                         <span>Chambre d'hôte</span>
                     </button>
             
-                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement" value="Maison d'hôte">
+                    <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection btnNatLogement" value="Maison">
                         <div class="image-container">
                             <img src="{{asset('img/nature/maison_hote.png')}}" alt="Maison d'hôte">
                         </div>
@@ -101,13 +101,13 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             <br>
             <div id="t1-t2">
 
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="T1">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="t1">
                     <div class="image-container">
                         <img src="{{asset('img/type/t1.png')}}" alt="T1">
                     </div>
                     <span>T1</span>
                 </button>
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="T2">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="t2">
                     <div class="image-container">
                         <img src="{{asset('img/type/t2.png')}}" alt="T2">
                     </div>
@@ -115,13 +115,13 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 </button>
             </div>
             <div id="t3-t4">
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="T3">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="t3">
                     <div class="image-container">
                         <img src="{{asset('img/type/t3.png')}}" alt="T3">
                     </div>
                     <span>T3</span>
                 </button>
-                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="T4">
+                <button type="button" onclick="selectItem_droite(this, 'selectedSize1')" class="image-button boutton_selection btnTypeLogement" value="t4">
                     <div class="image-container">
                         <img src="{{asset('img/type/t4.png')}}" alt="T4">
                     </div>

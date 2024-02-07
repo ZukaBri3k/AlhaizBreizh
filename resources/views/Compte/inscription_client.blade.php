@@ -72,7 +72,7 @@
                         });
                     </script>
 
-                        <label for="profile-pic">
+                    <label for="profile-pic">
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>

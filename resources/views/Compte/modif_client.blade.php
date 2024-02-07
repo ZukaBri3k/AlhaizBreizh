@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -70,10 +70,10 @@
                     <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays"
                         class="form-control" value="{!! $personnes->pays_pers !!}" maxlength="25" required>
 
-                    <input type="text" id="country" name="country">
+                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" class="form-control" required>
                     <script>
                         jQuery(document).ready(function() {
-                            jQuery("#country").countrySelect();
+                            jQuery("#pays_pers").countrySelect();
                         });
                     </script>
 

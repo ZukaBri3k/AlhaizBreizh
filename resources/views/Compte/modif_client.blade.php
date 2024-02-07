@@ -119,7 +119,7 @@
 
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control" value="{!! $personnes->telephone_pers !!}" required>
+                        class="form-control" value="{!! $personnes->telephone_pers !!}" maxlength="12" required>
 
                     <label for="mail_pers">*Adresse E-mail:</label>
                     <input type="email" id="mail_pers" name="mail_pers" placeholder="Entrez votre adresse E-mail"

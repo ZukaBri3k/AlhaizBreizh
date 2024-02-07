@@ -263,38 +263,48 @@ class AccountController extends Controller
 
     public function modificationsClient(Request $request) {
         $id = auth()->user()->id;
+        if($request->photo_pers == null || $request->photo_pers == "") {
+            $photo_pers = "pp.png";
+        }
         $password = Hash::make($request->password);
         $data = [
             $request->civilite_pers,
             $request->prenom_pers,
             $request->nom_pers,
-            $request->pseudo_pers,
-            $request->ville_pers,
-            $request->pays_pers,
-            $request->photo_pers,
-            $request->adresse_pers,
-            $request->code_postal_pers,
-            $request->date_de_naissance,
             $request->telephone_pers,
-            $password,
-            $request->iban,
             $request->mail_pers,
+            $request->ville_pers,
+            $request->code_postal_pers,
+            $request->adresse_pers,
+            $request->pays_pers,
+            $password,
+            $request->pseudo_pers,
+            $photo_pers,
+            $request->iban,
+            $request->date_de_naissance,
+            $id,
         ];
 
         DB::update('update personnes set civilite_pers = ?, 
         prenom_pers = ?, 
-        nom_pers = ?, 
-        pseudo_pers = ?, 
-        ville_pers = ?, 
-        pays_pers = ?, 
-        photo_pers = ?, 
-        adresse_pers = ?, 
+        nom_pers = ?,
+        telephone_pers = ?,
+        mail_pers = ?,
+        ville_pers = ?,
         code_postal_pers = ?, 
-        date_de_naissance = ?, 
-        telephone_pers = ?, 
+        adresse_pers = ?, 
+        pays_pers = ?, 
         password = ?, 
-        iban = ?, 
-        mail_pers = ? where id = ?', $data);
+        pseudo_pers = ?, 
+        photo_pers = ?, 
+        age_pers = null,
+        est_banni = false,
+        iban = ?,
+        role = 1,
+        remember_token = null,
+        date_de_naissance = ?, 
+        genre_pers = null, 
+        where id = ?', $data);
 
         return redirect()->route('myClientAccount', ['id' => $id]);
     }

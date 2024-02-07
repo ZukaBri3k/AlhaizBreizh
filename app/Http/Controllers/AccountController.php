@@ -281,9 +281,20 @@ class AccountController extends Controller
             $request->mail_pers,
         ];
 
-        DB::table('personnes')  // Remplacez 'users' par le nom de votre table
-        ->where('id', $id)  // Remplacez $id par l'ID de l'élément que vous voulez mettre à jour
-        ->update($data);
+        DB::update('update personnes set civilite_pers = ?, 
+        prenom_pers = ?, 
+        nom_pers = ?, 
+        pseudo_pers = ?, 
+        ville_pers = ?, 
+        pays_pers = ?, 
+        photo_pers = ?, 
+        adresse_pers = ?, 
+        code_postal_pers = ?, 
+        date_de_naissance = ?, 
+        telephone_pers = ?, 
+        password = ?, 
+        iban = ?, 
+        mail_pers = ? where id = ?', $data);
 
         return redirect()->route('myClientAccount', ['id' => $id]);
     }

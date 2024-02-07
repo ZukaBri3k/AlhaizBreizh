@@ -128,10 +128,10 @@
 
                     <label for="confirmerMotDePasse">*Confirmation du Mot de Passe:</label>
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"
-                        placeholder="Confirmez votre mot de passe" class="form-control" required>
+                        placeholder="Confirmez votre mot de passe" class="form-control" required maxlength="60">
 
                     <label for="iban">IBAN:</label>
-                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
+                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" value="{!! $personnes->iban !!}">
                 </div>
             </div>
         </div>

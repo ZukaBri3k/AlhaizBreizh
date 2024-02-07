@@ -280,7 +280,11 @@ class AccountController extends Controller
             $password,
             $request->pseudo_pers,
             $photo_pers,
+            null, // age_pers
+            false, // est_banni
             $request->iban,
+            1, // role
+            null, // remember_token
             $request->date_de_naissance,
             $id,
         ];
@@ -298,13 +302,13 @@ class AccountController extends Controller
         password = "?", 
         pseudo_pers = ?, 
         photo_pers = ?, 
-        age_pers = null,
+        age_pers = ?,
         est_banni = false,
         iban = ?,
-        role = 1,
-        remember_token = null,
+        role = ?,
+        remember_token = ?,
         date_de_naissance = ?, 
-        genre_pers = null
+        genre_pers = ?
         where id = ?', $data);
 
         return redirect()->route('myClientAccount', ['id' => $id]);

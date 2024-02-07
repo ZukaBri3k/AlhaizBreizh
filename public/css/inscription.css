@@ -56,6 +56,10 @@ body {
   .col-md-6 .form-container {
     margin: 0; /* Ajustez la marge à l'intérieur de la colonne */
   }
+
+  .country-select.inside input, .country-select.inside input[type=text] {
+    margin-right: 0em !important;
+  }
 }
 
 

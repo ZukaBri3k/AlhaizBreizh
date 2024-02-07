@@ -497,7 +497,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <div class="image-upload-container">
             <div id="drop_zone1">
                 <p id="depot_image1">Glissez-déposez votre image ici.</p>
-                <input type="file" id="file_input1">
+                <input type="file" id="file_input1" name="photo_complementaire_logement">
                 <output id="result1"></output>
             </div>
           </div>
@@ -636,13 +636,13 @@ dropZone1.addEventListener('dragover', function(e) {
 dropZone1.addEventListener('drop', function(e) {
     e.preventDefault();
     var files = e.dataTransfer.files;
-    handleFiles(files);
+    handleFiles1(files);
 });
 
 // Gérer l'événement de sélection de fichiers
 fileInput1.addEventListener('change', function() {
     var files = this.files;
-    handleFiles(files);
+    handleFiles1(files);
 });
 
 // Fonction pour traiter les fichiers d'images

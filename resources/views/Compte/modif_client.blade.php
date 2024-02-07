@@ -70,8 +70,8 @@
 
                     <input type="text" id="country" name="country">
                     <script>
-                        $(document).ready(function() {
-                            $("#country").countrySelect();
+                        jQuery(document).ready(function() {
+                            jQuery("#country").countrySelect();
                         });
                     </script>
 

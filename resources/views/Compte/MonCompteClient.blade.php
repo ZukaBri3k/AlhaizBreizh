@@ -13,7 +13,7 @@
 
     <div class="Titre">
         <h1>Information de votre compte client</h1>
-        <a>
+        <a href="{{ route('modifierClient') }}">
             <button class="button_modif">Modifier</button>
         </a>
     </div>

@@ -496,7 +496,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <h2 class="section-title" id="titre_gauche_page_8">Quel sera la photo de couverture de votre logement ? *</h2>
         <div class="image-upload-container">
             <div id="drop_zone1">
-                <p id="depot_image">Glissez-déposez votre image ici.</p>
+                <p id="depot_image1">Glissez-déposez votre image ici.</p>
                 <input type="file" id="file_input1">
                 <output id="result1"></output>
             </div>
@@ -524,6 +524,9 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
    
 </form>
 <style>
+    #depot_image1{
+        font-size: 15px;
+    }
     #drop_zone1 {
     width: 430px;
     height: auto;

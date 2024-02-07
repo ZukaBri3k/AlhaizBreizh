@@ -67,10 +67,7 @@
                         maxlength="60" required>
 
                     <label for="pays_pers">*Pays:</label>
-                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays"
-                        class="form-control" value="{!! $personnes->pays_pers !!}" maxlength="25" required>
-
-                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" class="form-control" required>
+                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="{!! $personnes->pays_pers !!}" class="form-control" required>
                     <script>
                         jQuery(document).ready(function() {
                             jQuery("#pays_pers").countrySelect();

@@ -117,9 +117,13 @@
                     <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Entrez votre date de naissance"
                         class="form-control" value="{!! $personnes->date_de_naissance !!}" required>
 
+                    @php
+                        $telephone = $personnes->telephone_pers;
+                        $telephone = preg_replace('/^\+\d{2}/', '0', $telephone);
+                    @endphp
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control" value="{!! $personnes->telephone_pers !!}" maxlength="12" required>
+                        class="form-control" value="{!! $telephone !!}" maxlength="12" pattern="^\d{10}$" required>
 
                     <label for="mail_pers">*Adresse E-mail:</label>
                     <input type="email" id="mail_pers" name="mail_pers" placeholder="Entrez votre adresse E-mail"

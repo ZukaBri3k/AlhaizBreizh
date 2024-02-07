@@ -264,7 +264,7 @@ class AccountController extends Controller
     public function modificationsClient(Request $request) {
         $id = auth()->user()->id;
         $password = Hash::make($request->password);
-        $data = request()->validate([
+        $data = [
             $request->civilite_pers,
             $request->prenom_pers,
             $request->nom_pers,
@@ -279,7 +279,7 @@ class AccountController extends Controller
             $password,
             $request->iban,
             $request->mail_pers,
-        ]);
+        ];
 
         DB::table('personnes')->where('id', '=', $id)->update(["
             civilite_pers,

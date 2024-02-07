@@ -47,21 +47,23 @@
                     </script>
 
                     <label for="nom_pers">*Nom:</label>
-                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" required>
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" pattern="[A-Za-z\-'\s]+" 
+                        maxlength="20" required>
 
                     <label for="prenom_pers">*Prénom:</label>
-                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control" required>
+                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control" 
+                        pattern="[A-Za-z\-'\s]+" maxlength="30" required>
 
                     <label for="pseudo_pers">*Pseudo:</label>
                     <input type="text" id="pseudo_pers" name="pseudo_pers" placeholder="Choisissez un pseudo"
-                        class="form-control" required>
+                        class="form-control" maxlength="15" required>
 
                     <label for="ville_pers">*Ville:</label>
-                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control" required>
+                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control" maxlength="60" required>
 
                     <label for="pays_pers">*Pays:</label>
                     <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays"
-                        class="form-control" required>
+                        class="form-control" maxlength="25" required>
 
                         <label for="profile-pic">
                         Insérer une photo de profil :
@@ -100,11 +102,11 @@
                 <div class="form-container">
                     <label for="adresse_pers">*Adresse:</label>
                     <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Entrez votre adresse"
-                        class="form-control" required>
+                        class="form-control" maxlength="60" required>
 
                     <label for="code_postal_pers">*Code Postal:</label>
                     <input type="text" id="code_postal_pers" name="code_postal_pers" placeholder="Entrez votre code postal"
-                        class="form-control" required>
+                        class="form-control" maxlength="5" required>
 
                     <label for="date_de_naissance">*Date de Naissance:</label>
                     <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Entrez votre date de naissance"
@@ -116,15 +118,15 @@
 
                     <label for="mail_pers">*Adresse E-mail:</label>
                     <input type="email" id="mail_pers" name="mail_pers" placeholder="Entrez votre adresse E-mail"
-                        class="form-control" required maxlength="90">
+                        class="form-control" maxlength="80" required>
 
                     <label for="password">*Mot de Passe:</label>
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
-                        class="form-control" required maxlength="60">
+                        class="form-control" maxlength="60" required>
 
                     <label for="confirmerMotDePasse">*Confirmation du Mot de Passe:</label>
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"
-                        placeholder="Confirmez votre mot de passe" class="form-control" required>
+                        placeholder="Confirmez votre mot de passe" class="form-control" maxlength="60" required>
 
                     <label for="iban">IBAN:</label>
                     <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">

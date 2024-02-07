@@ -39,13 +39,37 @@ class AccountController extends Controller
         return redirect()->back();
     }
 
-    public function deleteAccount() {
+    public function deleteClient() {
 
-        $user = auth()->user()->getRememberToken();
-        DB::table('personnes')->where('remember_token', '=', $user)->delete();
+        $id = auth()->user()->id;
+        DB::delete('delete from cle where id_personnes = ?', [$id]);
+        $ref_devis = DB::select('select ref_devis from devis where id_client_devis = ?', [$id]);
+        foreach ($ref_devis as $ref) {
+            DB::delete('delete from reservation where facture_reserv = ?', [$ref->ref_devis]);
+        }
+        DB::delete('delete from devis where id_client_devis = ?', [$id]);
+        DB::delete('delete from client where id_client = ?', [$id]);
+        DB::delete('delete from personnes where id = ?', [$id]);
 
+        return redirect()->route('accueil');
+    }
 
-        return redirect()->route('login');
+    public function deleteProprietaire() {
+
+        $id = auth()->user()->id;
+        DB::delete('delete from cle where id_personnes = ?', [$id]);
+
+        $id_logement = DB::select('select id_logement from logement where id_proprio_logement = ?', [$id]);
+        foreach ($id_logement as $id_) {
+            $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($id_->id_logement)]);
+            DB::delete('delete from reservation where id_logement_reserv = ?', [intval($id_->id_logement)]);
+            DB::delete('delete from logement where id_logement = ?', [intval($id_->id_logement)]);
+        }
+        DB::delete('delete from devis where id_proprio = ?', [$id]);
+        DB::delete('delete from proprietaire where id_proprio = ?', [$id]);
+        DB::delete('delete from personnes where id = ?', [$id]);
+
+        return redirect()->route('accueil');
     }
 
     //-----------------------------------------------------
@@ -184,17 +208,12 @@ class AccountController extends Controller
 
     public function generationCle(Request $request) {
         $id = auth()->user()->id;
-        $cle = rand(10000000, 99999999);
-
-        if ($request->privilege == "prive") {
-            $privi = true;
-        } else {
-            $privi = false;
-        }
+        $random = random_bytes(20);
+        $cle = base64_encode($random);
 
         $tabcle = [
             $cle,
-            $privi,
+            false,
             $id
         ];
 
@@ -202,25 +221,22 @@ class AccountController extends Controller
         return redirect()->route('myClientAccountAPI', ['id' => $id]);
     }
 
-    public function deleteCle(Request $request, $cle) {
+    public function deleteCle(Request $request) {
         $id = auth()->user()->id;
+        $cle = urldecode($request->query('cle'));
+        $cle = str_replace(' ', '+', $cle);
         DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
         return redirect()->route('myClientAccountAPI', ['id' => $id]);
     }
 
     public function generationClePro(Request $request) {
         $id = auth()->user()->id;
-        $cle = rand(10000000, 99999999);
-
-        if ($request->privilege == "prive") {
-            $privi = true;
-        } else {
-            $privi = false;
-        }
+        $random = random_bytes(20);
+        $cle = base64_encode($random);
 
         $tabcle = [
             $cle,
-            $privi,
+            false,
             $id
         ];
 
@@ -228,9 +244,73 @@ class AccountController extends Controller
         return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
     }
 
-    public function deleteClePro(Request $request, $cle) {
+    public function deleteClePro(Request $request) {
         $id = auth()->user()->id;
+        $cle = urldecode($request->query('cle'));
+        $cle = str_replace(' ', '+', $cle);
         DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
         return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
+    }
+
+
+    //---------------------------------------------------------
+
+    public function modifierClient() {
+        $id = auth()->user()->id;
+        $personne = DB::select('select * from personnes where id = ?', [$id]);
+        return view('Compte/modif_client', ['personnes' => $personne[0]]);
+    }
+
+    public function modificationsClient(Request $request) {
+        $id = auth()->user()->id;
+        if($request->photo_pers == null || $request->photo_pers == "") {
+            $photo_pers = "pp.png";
+        }
+        $password = Hash::make($request->password);
+        $data = [
+            $request->civilite_pers,
+            $request->prenom_pers,
+            $request->nom_pers,
+            $request->telephone_pers,
+            $request->mail_pers,
+            $request->ville_pers,
+            $request->code_postal_pers,
+            $request->adresse_pers,
+            $request->pays_pers,
+            $password,
+            $request->pseudo_pers,
+            $photo_pers,
+            null, // age_pers
+            false, // est_banni
+            $request->iban,
+            1, // role
+            null, // remember_token
+            $request->date_de_naissance,
+            $id,
+        ];
+
+        DB::update('update personnes set 
+        civilite_pers = "?", 
+        prenom_pers = ?, 
+        nom_pers = ?,
+        telephone_pers = ?",
+        mail_pers = ?,
+        ville_pers = ?,
+        code_postal_pers = ?, 
+        adresse_pers = ?, 
+        pays_pers = ?, 
+        password = "?", 
+        pseudo_pers = ?, 
+        photo_pers = ?, 
+        age_pers = ?,
+        est_banni = false,
+        iban = ?,
+        role = ?,
+        remember_token = ?,
+        date_de_naissance = ?, 
+        genre_pers = ?
+        where id = ?', $data);
+
+        return redirect()->route('myClientAccount', ['id' => $id]);
     }
 }

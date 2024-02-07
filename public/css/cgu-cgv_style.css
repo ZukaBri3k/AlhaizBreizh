@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Montserrat-Light";
+  font-weight: 400;
+  src: url("fonts/Montserrat-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat-ExtraLight";
+  font-weight: 400;
+  src: url("fonts/Montserrat-ExtraLight.woff2") format("woff2");
+}
+@font-face {
+  font-family: "RocaOne";
+  font-weight: 400;
+  src: url("fonts/RocaOne-Rg.woff2") format("woff2");
+}
+body {
+  background-color: #F6F5EE;
+}
+
+.cgu_cgv {
+  width: 90%;
+  margin: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.cgu_cgv h1 {
+  font-family: 'RocaOne';
+  font-size: 3em;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  color: #EC3B53;
+}
+.cgu_cgv h2 {
+  font-family: 'Montserrat';
+  font-size: 2em;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  color: #EC3B53;
+}
+.cgu_cgv h3 {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 1.5em;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #EC3B53;
+  margin-left: 2%;
+  margin-top: 4%;
+}
+.cgu_cgv p {
+  font-family: 'Montserrat-Light';
+  font-weight: 300;
+  font-size: 1em;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  margin-left: 4%;
+}
+.cgu_cgv #definition {
+  margin-top: 4%;
+}
+.cgu_cgv #definition + p {
+  margin-left: 2%;
+}
+.cgu_cgv #definition + p + p {
+  margin-left: 2%;
+}
+.cgu_cgv #definition + p + p + p {
+  margin-left: 2%;
+}
+.cgu_cgv #definition + p + p + p + p {
+  margin-left: 2%;
+}
+.cgu_cgv #definition + p + p + p + p + p {
+  margin-left: 2%;
+}
+.cgu_cgv ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 2%;
+}
+.cgu_cgv ul li {
+  margin-bottom: 2%;
+}
+.cgu_cgv ul li a {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #000;
+}
+.cgu_cgv ul li a:hover {
+  color: #EC3B53;
+}
+.cgu_cgv .conditions {
+  margin-top: 4%;
+}
+.cgu_cgv strong {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 1em;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #000;
+}/*# sourceMappingURL=cgu-cgv_style.css.map */

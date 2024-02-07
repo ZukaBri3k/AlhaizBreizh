@@ -373,13 +373,14 @@ function selectItemGauche_page_7(button, inputId) {
     document.getElementById(inputId).value = isSelected ? button.value : '';
 }
 
-const imageUploads = document.querySelectorAll('.image-upload');
+/*const imageUploads = document.querySelectorAll('.image-upload');
     imageUploads.forEach((upload, index) => {
       upload.addEventListener('change', () => handleImageUpload(index + 1));
-    });
+    });*/
 
-    function handleImageUpload(uploadIndex) {
+  /*  function handleImageUpload(uploadIndex) {
       const selectedImage = document.getElementById(`selected-image${uploadIndex}`);
       const fileName = imageUploads[uploadIndex - 1].files[0].name;
       selectedImage.textContent = `Image sélectionnée : ${fileName}`;
     }
+*/

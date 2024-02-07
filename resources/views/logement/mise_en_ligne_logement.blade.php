@@ -495,9 +495,11 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     <div id="gauche_page_8">
         <h2 class="section-title" id="titre_gauche_page_8">Quel sera la photo de couverture de votre logement ? *</h2>
         <div class="image-upload-container">
-            <input type="file" class="image-upload" accept="image/*" id="image-upload1" name="img1" required>
-            <label for="image-upload1" class="custom-button">Importer l'image</label>
-            <div class="selected-image" id="selected-image1"></div>
+            <div id="drop_zone1">
+                <p id="depot_image1">Glissez-déposez votre image ici.</p>
+                <input type="file" id="file_input1">
+                <output id="result1"></output>
+            </div>
           </div>
       
     </div>
@@ -506,7 +508,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <div id="division_colonnes_droite">
             <div id="images_colonne_gauche">
                 <div id="drop_zone">
-                    <p>Glissez-déposez jusqu'à 10 images ici.</p>
+                    <p id="depot_image">Glissez-déposez jusqu'à 10 images ici.</p>
                     <input type="file" id="file_input" multiple>
                     <output id="result"></output>
                 </div>
@@ -522,18 +524,44 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
    
 </form>
 <style>
-         #drop_zone {
-    width: 300px;
-    height: 200px;
+    #depot_image1{
+        font-size: 15px;
+    }
+    #drop_zone1 {
+    width: 430px;
+    height: auto;
     border: 2px dashed #ccc;
     text-align: center;
     padding: 20px;
     margin: 20px auto;
 }
 
+#result1 {
+    display: block;
+    margin-top: 20px;
+}
+
+</style>
+<style>
+    #depot_image{
+        font-size: 15px;
+    }
+         #drop_zone {
+    width: 430px;
+    height: auto;
+    border: 2px dashed #ccc;
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    margin-left: -70%;
+}
+
 #result {
     display: block;
     margin-top: 20px;
+}
+#deleteButton{
+    font-size: 15px;
 }
 </style>
 <script>
@@ -576,6 +604,7 @@ function handleFiles(files) {
 
             var deleteButton = document.createElement('button');
             deleteButton.textContent = "Supprimer";
+            deleteButton.id = "deleteButton"; // Attribuer la même ID à tous les boutons
             deleteButton.onclick = function() {
                 listItem.parentNode.removeChild(listItem);
             };
@@ -588,17 +617,49 @@ function handleFiles(files) {
     }
 }
 
-// Valider le formulaire avant soumission
-form.addEventListener('submit', function(e) {
-    if (output.children.length < 2) {
-        e.preventDefault(); // Empêcher l'envoi du formulaire
-        alert("Veuillez ajouter au moins 2 images.");
-    }
-});
-
 
 </script>
 
+
+<script>
+    // Récupérer les éléments du DOM
+var dropZone1 = document.getElementById('drop_zone1');
+var fileInput1 = document.getElementById('file_input1');
+var output1 = document.getElementById('result1');
+
+// Empêcher le comportement par défaut du navigateur lors du glisser-déposer
+dropZone1.addEventListener('dragover', function(e) {
+    e.preventDefault();
+});
+
+// Gérer l'événement de glisser-déposer
+dropZone1.addEventListener('drop', function(e) {
+    e.preventDefault();
+    var files = e.dataTransfer.files;
+    handleFiles(files);
+});
+
+// Gérer l'événement de sélection de fichiers
+fileInput1.addEventListener('change', function() {
+    var files = this.files;
+    handleFiles(files);
+});
+
+// Fonction pour traiter les fichiers d'images
+function handleFiles1(files) {
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        if (file.type.match('image.*')) {
+            var listItem = document.createElement('li');
+            listItem.textContent = file.name;
+            output1.appendChild(listItem);
+        } else {
+            output1.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
+        }
+    }
+}
+
+</script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

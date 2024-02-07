@@ -652,9 +652,9 @@ function handleFiles1(files) {
         if (file.type.match('image.*')) {
             var listItem = document.createElement('li');
             listItem.textContent = file.name;
-            output.appendChild(listItem);
+            output1.appendChild(listItem);
         } else {
-            output.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
+            output1.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
         }
     }
 }

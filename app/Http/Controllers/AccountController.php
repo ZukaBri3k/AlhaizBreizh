@@ -251,4 +251,13 @@ class AccountController extends Controller
         DB::delete('delete from cle where cle = ? AND id_personnes = ?', [$cle, $id]);
         return redirect()->route('myProprietaireAccountAPI', ['id' => $id]);
     }
+
+
+    //---------------------------------------------------------
+
+    public function modifierClient() {
+        $id = auth()->user()->id;
+        $personne = DB::select('select * from personnes where id = ?', [$id]);
+        return view('modif_client', ['personne' => $personne[0]]);
+    }
 }

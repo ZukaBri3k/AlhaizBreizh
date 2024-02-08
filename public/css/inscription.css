@@ -170,6 +170,12 @@ select{
 
 @media (max-width: 993px) {
   .country-select.inside input, .country-select.inside input[type=text] {
+    margin-right: 11em !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .country-select.inside input, .country-select.inside input[type=text] {
     margin-right: 15em !important;
   }
 }

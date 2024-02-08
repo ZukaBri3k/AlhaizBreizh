@@ -80,7 +80,7 @@
                     </label>
                     <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
 
-                    @php echo"<img id='image_pp_previsu' src='{{asset("img/{{ $personnes->photo_pers }}")}}' class="pp">" @endphp"
+                    <img id="image_pp_previsu" src="{{ asset('img' . $personnes->photo_pers )}}" class="pp">
                     <script>
                         document.getElementById('profile-pic').addEventListener('change', function(e) {
                             var reader = new FileReader();

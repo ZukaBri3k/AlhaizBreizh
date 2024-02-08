@@ -18,7 +18,7 @@
     <x-Navbar></x-Navbar>
     <main class="container">
         <h1 class="text-center">Modification de votre compte proprietaire</h1>
-        <form action="{{route('modificationsProprietaire')}}" method="post">
+        <form action="{{route('modificationsProprietaire')}}" method="post" enctype='multipart/form-data'>
         @csrf
         <div class="row lapage">
             <div class="col-md-6">

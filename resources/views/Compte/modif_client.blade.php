@@ -80,7 +80,7 @@
                     </label>
                     <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
 
-                    <img id="imagePreview" src="{{asset('img/pp_profile.png')}}" class="pp">
+                    <img id="imagePreview" src="#" class="pp">
                     <script>
                         document.getElementById('imageUpload').addEventListener('change', function(e) {
                             var reader = new FileReader();

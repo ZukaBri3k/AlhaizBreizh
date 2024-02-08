@@ -54,13 +54,13 @@ class AccountController extends Controller
         DB::delete('delete from personnes where id = ?', [$id]);
 
         $file = 'storage/pp/pp' . $id . '/img1.png';
-        if (file_exists($file)) {
-            unlink($file);
+        if (Storage::exists($file)) {
+            Storage::delete($file);
         }
 
         $dir = 'storage/pp/pp' . $id;
-        if (is_dir($dir)) {
-            rmdir($dir);
+        if (Storage::exists($dir)) {
+            Storage::deleteDirectory($dir);
         }
 
         return redirect()->route('accueil');
@@ -180,7 +180,7 @@ class AccountController extends Controller
         $id = DB::select('select id from personnes where mail_pers = ? AND password = ?',[$request->mail_pers, $password]);
 
         if($photo_pers != "pp_profile.png") {
-            Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile_pic"), "img1.png");
+            Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile_pic"), "img1" . ".png");
         }
     }
 

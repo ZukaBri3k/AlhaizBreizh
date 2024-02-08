@@ -79,6 +79,9 @@
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
                     <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
+
+                    <img src="asset('img/{{$personnes->photo_pers}}')" class="pp">
+
                     <div id="profile-pic-message"></div>
                     <div id="profile-pic-preview"></div>
                     <script>

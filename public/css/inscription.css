@@ -177,3 +177,10 @@ select{
 .champ_img {
   margin-top: 3%;
 }
+
+.pp {
+  border-radius: 5px;
+  border: 1px solid #909090;
+  background: #FFF;
+  width: 80%;
+}

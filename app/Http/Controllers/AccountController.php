@@ -310,4 +310,78 @@ class AccountController extends Controller
 
         return redirect()->route('myClientAccount', ['id' => $id]);
     }
+
+    public function modifierProprietaire() {
+        $id = auth()->user()->id;
+        $personne = DB::select('select * from personnes where id = ?', [$id]);
+        return view('Compte/modif_proprio', ['personnes' => $personne[0]]);
+    }
+
+    public function modificationsProprietaire(Request $request) {
+        $id = auth()->user()->id;
+        if($request->photo_pers == null || $request->photo_pers == "") {
+            $photo_pers = "pp.png";
+        }
+        $password = Hash::make($request->password);
+        $data = [
+            $request->civilite_pers,
+            $request->prenom_pers,
+            $request->nom_pers,
+            $request->telephone_pers,
+            $request->mail_pers,
+            $request->ville_pers,
+            $request->code_postal_pers,
+            $request->adresse_pers,
+            $request->pays_pers,
+            $password,
+            $request->pseudo_pers,
+            $photo_pers,
+            null, // age_pers
+            $request->iban,
+            $request->date_de_naissance,
+            $id,
+        ];
+
+        $piece_id = DB::select('select piece_id_proprio from proprietaire where id_proprio = ?', [$id]);
+
+        $proprio = [
+            $piece_id[0]->piece_id_proprio,
+            $request->piece_id_proprio_recto,
+            $request->piece_id_proprio_verso,
+        ];
+
+        DB::update('update personnes set 
+        civilite_pers = ?,
+        prenom_pers = ?,
+        nom_pers = ?,
+        telephone_pers = ?,
+        mail_pers = ?,
+        ville_pers = ?,
+        code_postal_pers = ?,
+        adresse_pers = ?,
+        pays_pers = ?,
+        password = ?,
+        pseudo_pers = ?,
+        photo_pers = ?,
+        age_pers = ?,
+        est_banni = false,
+        iban = ?,
+        role = 2,
+        remember_token = null,
+        date_de_naissance = ?,
+        genre_pers = null
+        where id = ?', $data);
+
+        DB::update('update proprietaire set
+        ref_devis_proprio = null,
+        piece_id_proprio = ?,
+        langue_proprio = null,
+        proposition_auto_devis = null,
+        piece_id_proprio_recto = ?,
+        piece_id_proprio_verso = ?,
+        paypal_proprio = null
+        where id_proprio = ?', $proprio);
+
+        return redirect()->route('myProprietaireAccount', ['id' => $id]);
+    }
 }

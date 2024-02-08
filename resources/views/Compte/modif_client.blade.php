@@ -78,9 +78,15 @@
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
+                    
                     <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
+                    
+                    @if ($personnes->photo_pers == "pp_profile.png")
+                        <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp">
+                    @else
+                        <img id="image_pp_previsu" src="{{ asset('storage/pp' . $personnes->id . '/img1.png')}}" class="pp">
+                    @endif
 
-                    <img id="image_pp_previsu" src="{{ asset('img/' . $personnes->photo_pers )}}" class="pp">
                     <script>
                         document.getElementById('profile-pic').addEventListener('change', function(e) {
                             var reader = new FileReader();

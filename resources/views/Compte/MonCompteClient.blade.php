@@ -23,7 +23,11 @@
         <div class="Donnees">
             <div class="pp">
                 <p>Photo de profil</p>
-                <img src="{{asset('img/pp_profile.png')}}">
+                @if($personnes->photo_pers == "pp_profile.png")
+                    <img src="{{ asset('img/pp_profile.png' )}}">
+                @else
+                    <img src="{{ asset('img/' . $personnes->photo_pers )}}">
+                @endif
             </div>
             <div class="donnees_precise">
                 <div class="elem">

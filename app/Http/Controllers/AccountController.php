@@ -7,6 +7,7 @@ use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\File;
 
 
 class AccountController extends Controller
@@ -265,6 +266,8 @@ class AccountController extends Controller
         $id = auth()->user()->id;
         if($request->photo_pers == null || $request->photo_pers == "") {
             $photo_pers = "pp_profile.png";
+        } else {
+            $photo_pers = $request->file();
         }
         $password = Hash::make($request->password);
         $data = [
@@ -307,6 +310,8 @@ class AccountController extends Controller
         date_de_naissance = ?,
         genre_pers = null
         where id = ?', $data);
+
+        Storage::disk('pp')->putFileAs("pp" . $id, $request->file("img1.png"));
 
         return redirect()->route('myClientAccount', ['id' => $id]);
     }

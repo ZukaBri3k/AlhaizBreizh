@@ -216,11 +216,13 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 
     <div id="page_4" class="page">
         <div>
-            <h2 id="titre_page_4">Décrivez vos chambres *</h2>
-            <div id="chambres_container" class="chambres-container"></div>
+            <h2 id="titre_page_4" style="text-align: center;">Décrivez vos chambres *</h2>
+            <div id="chambres_container" class="chambres-container">
+
+            </div>
         </div>
-        <input type="hidden" id="total_lits" name="nb_lit_total" value="">
-        <input type="hidden" id="valeurs_chambres_hidden" name="valeurs_chambres_hidden" value="">
+        <!--<input type="hidden" id="total_lits" name="nb_lit_total" value="">
+        <input type="hidden" id="valeurs_chambres_hidden" name="valeurs_chambres_hidden" value="">!-->
         <div id="footer">
             <button type="button" id="retour_page_4" class="bouttons_retour" onclick="page_4_to_page_3()"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
             <button type="button" onclick="validatePage4()" id="suivant_page_4" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>

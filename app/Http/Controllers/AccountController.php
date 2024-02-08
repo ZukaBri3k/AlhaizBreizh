@@ -167,7 +167,9 @@ class AccountController extends Controller
             ?, ?, ?, ?, ?, ?, ?, 
             ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
-            Storage::disk('pp')->putFileAs("pp" . $id, $request->file("img1.png"));
+        $id = DB::select('select id from personnes where mail_pers = ? AND password = ?',[$request->mail_pers, $password]);
+
+        Storage::disk('pp')->putFileAs("pp" . $id, $request->file("img1.png"));
 
     }
 

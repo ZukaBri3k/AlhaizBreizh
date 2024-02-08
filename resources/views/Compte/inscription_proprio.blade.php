@@ -71,7 +71,7 @@
                         });
                     </script>
 
-                    <label for="profile-pic">
+                    <label for="profile-pic" class="champ_img">
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
@@ -137,7 +137,7 @@
                     <label for="iban">IBAN:</label>
                     <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
 
-                    <label for="id-card">Carte d'Identité (Recto Verso) :
+                    <label for="id-card" class="champ_img">Carte d'Identité (Recto Verso) :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
                     <input type="file" id="id-card" name="id-card" style="display: none;">

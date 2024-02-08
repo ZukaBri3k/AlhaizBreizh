@@ -53,14 +53,14 @@ class AccountController extends Controller
         DB::delete('delete from client where id_client = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 
-        $file = 'pp/pp/pp' . $id . '/img1.png';
-        if (Storage::exists($file)) {
-            Storage::delete($file);
+        $fichier = storage_path() . 'app/public/pp' . $id . '/img1.png';
+        if (Storage::exists($fichier)) {
+            File::delete($fichier);
         }
 
-        $dir = 'pp/pp/pp' . $id;
-        if (Storage::exists($dir)) {
-            Storage::deleteDirectory($dir);
+        $dossier = storage_path() . 'app/public/pp' . $id;
+        if (Storage::exists($dossier)) {
+            File::deleteDirectory($dossier);
         }
 
         return redirect()->route('accueil');

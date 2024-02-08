@@ -77,7 +77,7 @@ class Logement extends Controller
 
         $id_logement = DB::select('select id_logement from logement where id_proprio_logement =  ? ORDER BY id_logement DESC', [auth()->user()->id]);
 
-        $chambre = 
+        /* $chambre = 
         [
             $request->nombreLitsSimples,
             $request->nombreLitsDoubles,
@@ -88,7 +88,7 @@ class Logement extends Controller
 
         for($i = 1; $i <= $request->nombreDeChambres; $i++) {
             DB::insert('insert into chambre (nb_lit_simple, nb_lit_double, nb_salle_de_bain_chambre, details_lit, id_logement) values (?, ?, ?, ?, ?)', $chambre);
-        }
+        } */
 
         //dd($request->file("image-upload2"));
         //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");

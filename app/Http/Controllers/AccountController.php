@@ -264,7 +264,7 @@ class AccountController extends Controller
     public function modificationsClient(Request $request) {
         $id = auth()->user()->id;
         if($request->photo_pers == null || $request->photo_pers == "") {
-            $photo_pers = "pp.png";
+            $photo_pers = "pp_profile.png";
         }
         $password = Hash::make($request->password);
         $data = [
@@ -320,7 +320,7 @@ class AccountController extends Controller
     public function modificationsProprietaire(Request $request) {
         $id = auth()->user()->id;
         if($request->photo_pers == null || $request->photo_pers == "") {
-            $photo_pers = "pp.png";
+            $photo_pers = "pp_profile.png";
         }
         $password = Hash::make($request->password);
         $data = [

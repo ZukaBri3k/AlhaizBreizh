@@ -145,7 +145,7 @@
                     <label for="iban">IBAN:</label>
                     <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" value="{!! $personnes->iban !!}">
 
-                    <label for="id-card">Carte d'Identité (Recto Verso) :
+                    <label for="id-card" class="champ_img">Carte d'Identité (Recto Verso) :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
                     <input type="file" id="id-card" name="id-card" style="display: none;">

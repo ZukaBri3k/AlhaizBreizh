@@ -173,3 +173,7 @@ select{
     margin-right: 0em !important;
   }
 }
+
+.champ_img {
+  margin-top: 2%;
+}

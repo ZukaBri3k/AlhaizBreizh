@@ -34,7 +34,7 @@
                 @if($personnes->photo_pers == "pp_profile.png")
                     <img src="{{ asset('img/pp_profile.png' )}}">
                 @else
-                    <img src="{{ asset('pp/pp' . $personnes->id . '/' . $personnes->photo_pers )}}">
+                    <img src="{{ asset('pp/pp/pp' . $personnes->id . '/' . $personnes->photo_pers )}}">
                 @endif
             </div>
             <div class="donnees_precise">

@@ -128,7 +128,7 @@ class AccountController extends Controller
     }
     //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
-
+        dd($request->file("profile_pic"));
         if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {

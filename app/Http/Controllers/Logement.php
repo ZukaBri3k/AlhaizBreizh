@@ -189,4 +189,70 @@ class Logement extends Controller
             return redirect()->back();
         }
     }
+
+
+    public function updateLogementBDD(Request $req) {
+        $id = auth()->user()->id;
+
+        $logements = DB::select('select id_logement from logement where id_proprio_logement = ?', [$id]);
+        $logementsID = [];
+
+        foreach ($logements as $key => $logement) {
+            $logementsID[$key] = $logement->id_logement;
+        }
+
+        if(in_array($req->id, $logementsID)) {
+
+            $tab = [
+                $req->libelle_logement,
+                $req->accroche_logement,
+                $req->descriptif_logement,
+                $req->nb_personne_max,
+                $req->adresse_logement,
+                $req->code_postal_logement,
+                $req->ville_logement,
+                $req->nature_logement,
+                $req->type_logement,
+                $req->surface_habitable_logement,
+                $req->nb_chambre_logement, 
+                $req->nb_lit_total,
+                $req->nb_salle_de_bain_logement,
+                $req->amenagement_propose_logement,
+                $req->installation_offerte_logement,
+                $req->equipement_propose_logement,
+                $req->service_complementaire_logement,
+                $req->prix_logement,
+                $req->charge_additionnel_libelle,
+                $req->charge_additionnel_prix,
+                $req->id,
+            ];
+
+            DB::update('update logement set 
+            libelle_logement = ?,
+            accroche_logement = ?,
+            descriptif_logement = ?,
+            nb_personne_max = ?,
+            adresse_logement = ?,
+            code_postal_logement = ?,
+            ville_logement = ?,
+            nature_logement = ?,
+            type_logement = ?,
+            surface_habitable_logement = ?,
+            nb_chambre_logement = ?,
+            nb_lit_total = ?,
+            nb_salle_de_bain_logement = ?,
+            amenagement_propose_logement = ?,
+            installation_offerte_logement = ?,
+            equipement_propose_logement = ?,
+            service_complementaire_logement = ?,
+            prix_logement = ?,
+            charge_additionnel_libelle = ?,
+            charge_additionnel_prix = ?
+            where id_logement = ?', $tab);
+
+            return redirect()->route('mes_logements');
+        } else {
+            return redirect()->back();
+        }
+    }
 }

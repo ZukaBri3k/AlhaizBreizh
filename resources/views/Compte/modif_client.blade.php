@@ -80,7 +80,7 @@
                     </label>
                     <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
 
-                    <img src="{{asset('img/{{$personnes->photo_pers}}')}}" class="pp">
+                    <img src="{{asset('img/pp.png')}}" class="pp">
 
                     <div id="profile-pic-message"></div>
                     <div id="profile-pic-preview"></div>

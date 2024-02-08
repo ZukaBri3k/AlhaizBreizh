@@ -23,7 +23,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 <button  type="button" id="suivant_page_1" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
             </div>
     </div>
-    <form action="{{route('creation_logement')}}" method="post" id="selectedHousing_form" enctype="multipart/form-data" >
+    <form action="{{route('updateLogementBDD')}}" method="post" id="selectedHousing_form" enctype="multipart/form-data" >
     @csrf
     <div id="page_2" class="page"> 
         <div id="gauche_page_2">
@@ -230,26 +230,27 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 <div id="page_5" class="page">
     <div id="gauche_page_5">
         <h2 id="titre_gauche_page_5">Quels aménagements propose votre logement ?</h2>
+        <input type="hidden" id="idAmenagementLogement" value="{!! $logement->amenagement_propose_logement !!}">
         <div class="button-row">
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Terrasse">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection btnAmenagementLogement" value="Terrasse">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/terrasse.png')}}" alt="Terrasse">
                 </div>
                 <span>Terrasse</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Jardin">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection btnAmenagementLogement" value="Jardin">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/jardin.png')}}" alt="Jardin">
                 </div>
                 <span>Jardin</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')"  class="image-button page-5-button boutton_selection" value="Balcon">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')"  class="image-button page-5-button boutton_selection btnAmenagementLogement" value="Balcon">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/balcon.png')}}" alt="Balcon">
                 </div>
                 <span>Balcon</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Parking privé">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection btnAmenagementLogement" value="Parking privé">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/parking_privé.png')}}" alt="Parking privé">
                 </div>
@@ -257,25 +258,25 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             </button>
         </div>
         <div class="button-row">
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Parking public">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection btnAmenagementLogement" value="Parking public">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/parking_public.png')}}" alt="Parking public">
                 </div>
                 <span>Parking public</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Patio">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection btnAmenagementLogement" value="Patio">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/patio.png')}}" alt="Patio">
                 </div>
                 <span>Patio</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Salon d'hiver">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection btnAmenagementLogement" value="Salon d'hiver">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/salon_hiver.png')}}" alt="Salon d'hiver">
                 </div>
                 <span>Salon d'hiver</span>
             </button>
-            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection" value="Véranda">
+            <button type="button" onclick="selectItemGauche(this, 'selectedSize')" class="image-button page-5-button boutton_selection btnAmenagementLogement" value="Véranda">
                 <div class="image-container">
                     <img src="{{asset('img/amenagements/véranda.png')}}" alt="Véranda">
                 </div>
@@ -287,26 +288,27 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 
     <div id="droite_page_5">
         <h2 id="titre_droite_page_5">Quels équipements propose votre logement ?</h2>
+        <input type="hidden" id="idEquipementLogement" value="{!! $logement->equipement_propose_logement !!}">
         <div class="button-row">
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Wifi">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Wifi">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/wifi.png')}}" alt="Wifi">
                 </div>
                 <span>Wifi</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection"  value="Télévision">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement"  value="Télévision">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/télévision.png')}}" alt="Télévision">
                 </div>
                 <span>Télévision</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Cuisine">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Cuisine">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/cuisine.png')}}" alt="Cuisine">
                 </div>
                 <span>Cuisine</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Lave-linge">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Lave-linge">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/lave-linge.png')}}" alt="Lave-linge">
                 </div>
@@ -314,25 +316,25 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             </button>
         </div>
         <div class="button-row">
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Lave-vaisselle">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Lave-vaisselle">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/lave-vaisselle.png')}}" alt="Lave-vaisselle">
                 </div>
                 <span>Lave-vaisselle</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Instrument">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Instrument">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/instrument.png')}}" alt="Instrument">
                 </div>
                 <span>Instrument</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Appareils de sport">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Appareils de sport">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/appareils_de_sport.png')}}" alt="Appareils de sport">
                 </div>
                 <span>Appareils de sport</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Cheminée">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Cheminée">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/cheminée.png')}}" alt="Cheminée">
                 </div>
@@ -340,13 +342,13 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             </button>
         </div>
         <div class="button-row">
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Barbecue">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Barbecue">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/barbecue.png')}}" alt="Barbecue">
                 </div>
                 <span>Barbecue</span>
             </button>
-            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection" value="Équipement PMR">
+            <button type="button" onclick="selectItemDroite(this, 'selectedSize')"class="image-button page-5-button boutton_selection btnEquipementLogement" value="Équipement PMR">
                 <div class="image-container">
                     <img src="{{asset('img/equipements/equipement_pmr.png')}}" alt="Équipement PMR">
                 </div>
@@ -363,27 +365,28 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 </div>
 <div id="page_6" class="page">
     <div id="gauche_page_6" class="page-6-section">
-        <h2 class="section-title">Aménagements spéciaux</h2>
+        <h2 class="section-title">Installation(s) offerte(s)</h2>
+        <input type="hidden" id="idInstallationLogement" value="{!! $logement->installation_offerte_logement !!}">
         <div class="button-row">
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Jaccuzi">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnInstallationLogement" value="Jaccuzi">
                 <div class="image-container">
                     <img src="{{asset('img/installations/jacuzzi.png')}}" alt="Jaccuzi">
                 </div>
                 <span>Jaccuzi</span>
             </button>
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Sauna">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnInstallationLogement" value="Sauna">
                 <div class="image-container">
                     <img src="{{asset('img/installations/sauna.png')}}" alt="Sauna">
                 </div>
                 <span>Sauna</span>
             </button>
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Piscine">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnInstallationLogement" value="Piscine">
                 <div class="image-container">
                     <img src="{{asset('img/installations/piscine.png')}}" alt="Piscine">
                 </div>
                 <span>Piscine</span>
             </button>
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Climatisation">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnInstallationLogement" value="Climatisation">
                 <div class="image-container">
                     <img src="{{asset('img/installations/climatisation.png')}}" alt="Climatisation">
                 </div>
@@ -391,13 +394,13 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             </button>
         
         
-            <button type="button" onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Hammam">
+            <button type="button" onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnInstallationLogement" value="Hammam">
                 <div class="image-container">
                     <img src="{{asset('img/installations/hammam.png')}}" alt="Hammam">
                 </div>
                 <span>Hammam</span>
             </button>
-            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Espace de travail">
+            <button type="button"onclick="selectItemGauche_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnInstallationLogement" value="Espace de travail">
                 <div class="image-container">
                     <img src="{{asset('img/installations/espace_de_travail.png')}}" alt="Espace de travail">
                 </div>
@@ -408,33 +411,34 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     </div>
     <div id="droite_page_6" class="page-6-section">
         <h2 class="section-title">Services</h2>
+        <input type="hidden" id="idServiceLogement" value="{!! $logement->service_complementaire_logement !!}">
         <div class="button-row">
-            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Ménage">
+            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnServiceLogement" value="Ménage">
                 <div class="image-container">
                     <img src="{{asset('img/services/ménage.png')}}" alt="Ménage">
                 </div>
                 <span>Ménage</span>
             </button>
-            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Taxi">
+            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnServiceLogement" value="Taxi">
                 <div class="image-container">
                     <img src="{{asset('img/services/taxi.png')}}" alt="Taxi">
                 </div>
                 <span>Taxi</span>
             </button>
-            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Linge">
+            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnServiceLogement" value="Linge">
                 <div class="image-container">
                     <img src="{{asset('img/services/linge.png')}}" alt="Linge">
                 </div>
                 <span>Linge</span>
             </button>
-            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="Ustensile de cuisine">
+            <button type="button"onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnServiceLogement" value="Ustensile de cuisine">
                 <div class="image-container">
                     <img src="{{asset('img/services/ustensiles_de_cuisine.png')}}" alt="Ustensile de cuisine">
                 </div>
                 <span>Ustensile de cuisine</span>
             </button>
         </div>
-        <button type="button" onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="velo">
+        <button type="button" onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection btnServiceLogement" value="velo">
         <div class="image-container">
             <img src="{{asset('img/services/vélo.png')}}" alt="Vélo">
         </div>
@@ -450,26 +454,27 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 <div id="page_7" class="page">
     <div id="gauche_page_7" class="page-7-section">
         <h2 class="section-title">Quels sont les charges additionnelles que vous souhaitez proposer ?</h2>
+        <input type="hidden" id="idChargeLogement" value="{!! $logement->charge_additionnel_libelle !!}">
         <div class="button-row">
-        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="menage">
+        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection btnChargeLogement" value="menage">
             <div class="image-container">
                 <img src="{{asset('img/charges/ménage.png')}}" alt="Ménage_image">
             </div>
             <span>Ménage</span>
         </button>
-        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="Animaux">
+        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection btnChargeLogement" value="Animaux">
             <div class="image-container">
                 <img src="{{asset('img/charges/animaux.png')}}" alt="Animal_image">
             </div>
             <span>Animaux</span>
         </button>
-        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="Taxe">
+        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection btnChargeLogement" value="Taxe">
             <div class="image-container">
                 <img src="{{asset('img/charges/taxe.png')}}" alt="Taxe_image">
             </div>
             <span>Taxe(s)</span>
         </button>
-        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection" value="personne_supp">
+        <button type="button" onclick="selectItemGauche_page_7(this,'selectedSize')" class="image-button page-7-button boutton_selection btnChargeLogement" value="personne_supp">
             <div class="image-container">
                 <img src="{{asset('img/charges/personne_suplémentaire.png')}}" alt="Personne">
             </div>
@@ -482,7 +487,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     <div id="droite_page_7" class="page-7-section">
         <h2 class="section-title">Quel sera le prix par nuit de votre logement ? *</h2>
         <div id="alignement_input_euro">
-            <input type="number" id="input_page_7" placeholder="Prix par nuit" name="prix_logement">
+            <input type="number" id="input_page_7" placeholder="Prix par nuit" name="prix_logement" value="{!! $logement->prix_logement !!}">
             <img src="{{asset('img/symbole_euro.png')}}" alt="Symbole euro">
         </div>
         

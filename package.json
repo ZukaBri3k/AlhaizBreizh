@@ -11,6 +11,10 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+<<<<<<< Updated upstream
         "@vitejs/plugin-basic-ssl": "^1.1.0"
+=======
+        "i": "^0.3.7"
+>>>>>>> Stashed changes
     }
 }

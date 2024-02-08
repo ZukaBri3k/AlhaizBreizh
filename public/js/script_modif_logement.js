@@ -415,4 +415,39 @@ window.addEventListener('load', function() {
         }
     });
 
+
+    let listeAmenagementLogement = document.getElementById('idAmenagementLogement').value;
+    listeAmenagementLogement = listeAmenagementLogement.split(';');
+    let listeBtnAmenagementLogement = document.getElementsByClassName('btnAmenagementLogement');
+    listeBtnAmenagementLogement = Array.from(listeBtnAmenagementLogement);
+    let validationChampAmenagementLogement = document.getElementById('selectedPage5ValuesGauche');
+    let listeAmenagementPresent = [];
+
+    listeBtnAmenagementLogement.forEach((btn) => {
+        listeAmenagementLogement.forEach((amenagement) => {
+            if (btn.value == amenagement && btn.classList.contains('selected') == false) {
+                btn.classList.add('selected');
+                listeAmenagementPresent.push(btn.value);
+            }
+        });
+        validationChampAmenagementLogement.value = listeAmenagementPresent.join(';');
+    });
+
+
+    let listeEquipementLogement = document.getElementById('idEquipementLogement').value;
+    listeEquipementLogement = listeEquipementLogement.split(';');
+    let listeBtnEquipementLogement = document.getElementsByClassName('btnEquipementLogement');
+    listeBtnEquipementLogement = Array.from(listeBtnEquipementLogement);
+    let validationChampEquipementLogement = document.getElementById('selectedPage5ValuesDroite');
+    let listeEquipementPresent = [];
+
+    listeBtnEquipementLogement.forEach((btn) => {
+        listeEquipementLogement.forEach((amenagement) => {
+            if (btn.value == amenagement && btn.classList.contains('selected') == false) {
+                btn.classList.add('selected');
+                listeEquipementPresent.push(btn.value);
+            }
+        });
+        validationChampEquipementLogement.value = listeEquipementPresent.join(';');
+    });
 });

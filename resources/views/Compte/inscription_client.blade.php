@@ -128,6 +128,8 @@
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"
                         placeholder="Confirmez votre mot de passe" class="form-control" maxlength="60" required>
 
+                    <div id="message"></div>
+
                     <label for="iban">IBAN:</label>
                     <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
                 </div>

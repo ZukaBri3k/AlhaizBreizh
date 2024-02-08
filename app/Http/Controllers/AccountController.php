@@ -169,9 +169,7 @@ class AccountController extends Controller
 
         $id = DB::select('select id from personnes where mail_pers = ? AND password = ?',[$request->mail_pers, $password]);
 
-        if($photo_pers != "pp_profile.png") {
-            Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile-pic"), "img1.png");
-        }
+        Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile-pic"), "img1.png");
 
     }
 

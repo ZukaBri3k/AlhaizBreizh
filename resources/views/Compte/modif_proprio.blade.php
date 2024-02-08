@@ -79,28 +79,17 @@
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
                     <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
-                    <div id="profile-pic-message"></div>
-                    <div id="profile-pic-preview"></div>
+
+                    <img id="image_pp_previsu" src="{{asset('img/pp_profile.png')}}" class="pp">
                     <script>
-                        document.getElementById('profile-pic').addEventListener('change', function () {
-                            var fileInput = this;
-                            var file = fileInput.files[0];
+                        document.getElementById('profile-pic').addEventListener('change', function(e) {
+                            var reader = new FileReader();
 
-                            if (file) {
-                                var reader = new FileReader();
-
-                                reader.onload = function (e) {
-                                    var previewElement = document.getElementById('profile-pic-preview');
-                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="Profile Preview" style="max-width: 100%;">';
-
-                                    var fileName = fileInput.value.split('\\').pop();
-                                    var message = "Photo de profil enregistrée : " + fileName;
-
-                                    document.getElementById('profile-pic-message').innerText = message;
-                                };
-
-                                reader.readAsDataURL(file);
+                            reader.onload = function(event) {
+                                document.getElementById('image_pp_previsu').src = event.target.result;
                             }
+
+                            reader.readAsDataURL(e.target.files[0]);
                         });
                     </script>
                 </div>

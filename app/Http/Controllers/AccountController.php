@@ -322,7 +322,7 @@ class AccountController extends Controller
         genre_pers = null
         where id = ?', $data);
 
-        if($request->photo_pers != null || $request->photo_pers != "") {
+        if($photo_pers != "pp_profile.png") {
             Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile-pic"), "img1.png");
         }
 

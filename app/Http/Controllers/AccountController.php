@@ -322,7 +322,9 @@ class AccountController extends Controller
         genre_pers = null
         where id = ?', $data);
 
-        Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile-pic"), "img1.png");
+        if($request->photo_pers != null || $request->photo_pers != "") {
+            Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile-pic"), "img1.png");
+        }
 
         return redirect()->route('myClientAccount', ['id' => $id]);
     }

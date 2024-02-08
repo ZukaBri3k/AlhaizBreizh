@@ -53,6 +53,16 @@ class AccountController extends Controller
         DB::delete('delete from client where id_client = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 
+        $file = 'storage/pp/pp' . $id . '/img1.png';
+        if (file_exists($file)) {
+            unlink($file);
+        }
+
+        $dir = 'storage/pp/pp' . $id;
+        if (is_dir($dir)) {
+            rmdir($dir);
+        }
+
         return redirect()->route('accueil');
     }
 

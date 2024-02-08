@@ -95,7 +95,7 @@
 
                     <div id="profile-pic-message"></div>
                     <div id="profile-pic-preview"></div>
-                    <script>
+                    <!-- <script>
                         document.getElementById('profile-pic').addEventListener('change', function () {
                             var fileInput = this;
                             var file = fileInput.files[0];
@@ -116,7 +116,7 @@
                                 reader.readAsDataURL(file);
                             }
                         });
-                    </script>
+                    </script> -->
                 </div>
             </div>
 

@@ -170,7 +170,7 @@ select{
 
 @media (max-width: 993px) {
   .country-select.inside input, .country-select.inside input[type=text] {
-    margin-right: 0em !important;
+    margin-right: 15em !important;
   }
 }
 
@@ -183,4 +183,5 @@ select{
   border: 1px solid #909090;
   background: #FFF;
   width: 36%;
+  margin-right: 64%;
 }

@@ -160,6 +160,8 @@ class AccountController extends Controller
             ?, ?, ?, ?, ?, ?, ?, 
             ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
+            Storage::disk('pp')->putFileAs("pp" . $id, $request->file("img1.png"));
+
     }
 
     public function proprio_register(Request $request) {
@@ -387,6 +389,8 @@ class AccountController extends Controller
         piece_id_proprio_verso = ?,
         paypal_proprio = null
         where id_proprio = ?', $proprio);
+
+        Storage::disk('pp')->putFileAs("pp" . $id, $request->file("img1.png"));
 
         return redirect()->route('myProprietaireAccount', ['id' => $id]);
     }

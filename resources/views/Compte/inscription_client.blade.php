@@ -21,7 +21,8 @@
     <x-Navbar></x-Navbar>
     <main class="container">
         <h1 class="text-center">Création de votre compte client</h1>
-        <form action="{{route('client_register')}}" method="get">
+        <form action="{{route('client_register')}}" method="post" enctype='multipart/form-data'>
+        @csrf
         <div class="row lapage">
             <div class="col-md-6">
                 <h2>Informations Personnelles publiques</h2>

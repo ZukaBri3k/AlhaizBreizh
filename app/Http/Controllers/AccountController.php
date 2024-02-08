@@ -119,6 +119,12 @@ class AccountController extends Controller
     //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
 
+        if($request->photo_pers == null || $request->photo_pers == "") {
+            $photo_pers = "pp_profile.png";
+        } else {
+            $photo_pers = $request->file();
+        }
+
         $password = Hash::make($request->password);
         $personne=[
             $request->civilite_pers,
@@ -127,7 +133,7 @@ class AccountController extends Controller
             $request->pseudo_pers,
             $request->ville_pers,
             $request->pays_pers,
-            $request->photo_pers,
+            $photo_pers,
             $request->adresse_pers,
             $request->code_postal_pers,
             $request->date_de_naissance,
@@ -329,6 +335,8 @@ class AccountController extends Controller
         $id = auth()->user()->id;
         if($request->photo_pers == null || $request->photo_pers == "") {
             $photo_pers = "pp_profile.png";
+        } else {
+            $photo_pers = $request->file();
         }
         $password = Hash::make($request->password);
         $data = [

@@ -92,31 +92,6 @@
                             reader.readAsDataURL(e.target.files[0]);
                         });
                     </script>
-
-                    <div id="profile-pic-message"></div>
-                    <div id="profile-pic-preview"></div>
-                    <!-- <script>
-                        document.getElementById('profile-pic').addEventListener('change', function () {
-                            var fileInput = this;
-                            var file = fileInput.files[0];
-
-                            if (file) {
-                                var reader = new FileReader();
-
-                                reader.onload = function (e) {
-                                    var previewElement = document.getElementById('profile-pic-preview');
-                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="Profile Preview" style="max-width: 100%;">';
-
-                                    var fileName = fileInput.value.split('\\').pop();
-                                    var message = "Photo de profil enregistrée : " + fileName;
-
-                                    document.getElementById('profile-pic-message').innerText = message;
-                                };
-
-                                reader.readAsDataURL(file);
-                            }
-                        });
-                    </script> -->
                 </div>
             </div>
 

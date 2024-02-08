@@ -108,7 +108,7 @@
                 <div class="form-container">
                     <label for="adresse_pers">*Adresse:</label>
                     <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Entrez votre adresse"
-                        class="form-control" maxlength="60" pattern="^[a-zA-Z0-9\s,'-]*$" required>
+                        class="form-control" maxlength="60" pattern="^[a-zA-Z0-9\\s,',\\-]*$" required>
 
                     <label for="code_postal_pers">*Code Postal:</label>
                     <input type="text" id="code_postal_pers" name="code_postal_pers" placeholder="Entrez votre code postal"

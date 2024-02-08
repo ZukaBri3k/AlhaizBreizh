@@ -132,7 +132,7 @@ class AccountController extends Controller
         if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = "img1";
+            $photo_pers = "img1.png";
         }
 
         $password = Hash::make($request->password);
@@ -180,7 +180,7 @@ class AccountController extends Controller
         $id = DB::select('select id from personnes where mail_pers = ? AND password = ?',[$request->mail_pers, $password]);
 
         if($photo_pers != "pp_profile.png") {
-            Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile_pic"), "img1" . ".png");
+            Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile_pic"), "img1.png");
         }
     }
 
@@ -289,7 +289,7 @@ class AccountController extends Controller
         if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = "img1";
+            $photo_pers = "img1.png";
         }
 
         $password = Hash::make($request->password);
@@ -352,7 +352,7 @@ class AccountController extends Controller
         if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = "img1";
+            $photo_pers = "img1.png";
         }
 
         $password = Hash::make($request->password);

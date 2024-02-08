@@ -7,13 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Personne;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class Logement extends Controller
 {
     public function ajouterLogementDB(Request $request) {
-
-        dd($_FILES);
-        //Storage::disk('logement')->put();
 
         $tab = [
             $request->libelle_logement,
@@ -35,8 +33,8 @@ class Logement extends Controller
             $request->installation_offerte_logement,
             $request->equipement_propose_logement,
             $request->service_complementaire_logement,
-            "couverture.jpg",
-            $request->photo_complementaire_logement,
+            "img0.jpg",
+            count($request->file()),
             3.5,
             $request->prix_logement,
             true,
@@ -44,6 +42,7 @@ class Logement extends Controller
             $request->charge_additionnel_libelle,
             $request->charge_additionnel_prix,
         ];
+        dd($tab);
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,
@@ -76,7 +75,31 @@ class Logement extends Controller
         ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
         ?, ?, ?, ?, ?, ?, ?)', $tab);
 
-        $id_logement = DB::select('select id_logement from logement where libelle_logement = ? AND id_proprio_logement =  ?', [$request->libelle_logement, auth()->user()->id]);
+        $id_logement = DB::select('select id_logement from logement where id_proprio_logement =  ? ORDER BY id_logement DESC', [auth()->user()->id]);
+
+        /* $chambre = 
+        [
+            $request->nombreLitsSimples,
+            $request->nombreLitsDoubles,
+            $request->detailsLits,
+            $id_logement[0]->id_logement,
+        ];
+        dd($chambre);
+
+        for($i = 1; $i <= $request->nombreDeChambres; $i++) {
+            DB::insert('insert into chambre (nb_lit_simple, nb_lit_double, nb_salle_de_bain_chambre, details_lit, id_logement) values (?, ?, ?, ?, ?)', $chambre);
+        } */
+
+        //dd($request->file("image-upload2"));
+        //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
+        
+        //dd($request->file());
+        for($i = 1; $i <= count($request->file()); $i++) {
+            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i - 1 . ".jpg");
+        }
+
+        //dd($APP_URL));
+
         return redirect()->route('details_previsu', ['id' => $id_logement[0]->id_logement]);
     }
 
@@ -90,16 +113,21 @@ class Logement extends Controller
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)])]);
+        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
+        'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
+    ]);
     }
 
     public function getInfoLogementPrevisu(Request $request) {
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
-        return View("logement/details_logement_previsu" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
+        return View("logement/details_logement_previsu" , 
+        ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
         'nom_proprio' => DB::select('select nom_pers from personnes where id = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
-        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)])]);
+        'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
+        'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
+    ]);
     }
 
     public function getLogementsProprietaire(Request $request) {
@@ -127,6 +155,38 @@ class Logement extends Controller
             DB::update('update logement set en_ligne = false where id_logement = ?', [intval($request->id)]);
         }
 
-        return redirect()->back();
+        return redirect()->route('mes_logementsLogement');
+    }
+
+    public function delLogement(Request $request) {
+        $id = auth()->user()->id;
+        $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
+        
+        if($id != $idProprietaireLogment[0]->id_proprio_logement) {
+            return redirect()->back();
+        } else {
+            DB::delete('delete from reservation where id_logement_reserv = ?', [intval($request->id)]);
+            DB::delete('delete from logement where id_logement = ?', [intval($request->id)]);
+        }
+        
+        return redirect()->route('mes_logementsLogement');
+    }
+
+
+    public function updateLogement(Request $req) {
+        $id = auth()->user()->id;
+
+        $logements = DB::select('select id_logement from logement where id_proprio_logement = ?', [$id]);
+        $logementsID = [];
+
+        foreach ($logements as $key => $logement) {
+            $logementsID[$key] = $logement->id_logement;
+        }
+
+        if(in_array($req->id, $logementsID)) {
+            return View("logement/update_logement", ['logement' => DB::select('select * from logement where id_logement = ?', [$req->id])[0]]);
+        } else {
+            return redirect()->back();
+        }
     }
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{asset('/css/styles_detail_logement.css')}}" rel="stylesheet"></link>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -14,27 +15,32 @@
       <div id="carouselExampleIndicators" class="carousel slide">
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img1.jpg')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">
-              </div>
+                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
+                <div>
+                  @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
+                      <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                  @endfor
+                </div>
             </div>
-            <div class="carousel-item">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img1.jpg')}}" class="d-block w-100">
+            @for($i = 1; $i < intval($nb_photo)-1; $i++)
+              @php $counter = 0; @endphp
+              <div class="carousel-item">
+                <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
+                
+                <div>
+                  @for($j = $i + 1; $j < intval($nb_photo)-1 && $counter < 2; $j++)
+                    @php $counter++; @endphp
+                    <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                  @endfor
+
+                  @for($j = 0; $j < $i && $counter < 2; $j++)
+                    @php $counter++; @endphp
+                    <img class="2" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">
+                  @endfor
+                </div>
               </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img3.jpg')}}" class="d-block w-100">
-              <div>
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img1.jpg')}}" class="d-block w-100">
-              <img src="{{asset('img/logements/logement' . $logement->id_logement . '/img2.jpg')}}" class="d-block w-100">
-              </div>
-            </div>
-          </div>
+            @endfor
+          </div>  
       </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -359,13 +365,14 @@
                 title: "Succès",
                 text: "Votre demande de devis a été créée avec succès.",
                 icon: "success",
+                background: "#F6F5EE",
                 button: {
-                  text: "OK",
+                  text: "Ok",
                   closeModal: false,
+                  className: "customButton"
                 },
                 closeOnClickOutside: false,
                 dangerMode: true,
-                className: "custom-swal",
               });
                 setTimeout(submitForm, 2500); // Attend 2.5 secondes avant de soumettre le formulaire
             }
@@ -378,6 +385,7 @@
     </div>
     <x-FooterClient></x-FooterClient>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

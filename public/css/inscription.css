@@ -1,5 +1,5 @@
 body {
-  background-color: #f6f5ee;
+  background-color: #f6f5ee !important;
 }
 
 .lapage {
@@ -161,4 +161,15 @@ select{
 .create-account-btn {
   width: 100%;
   margin-top: 10px;
+}
+
+
+.country-select.inside input, .country-select.inside input[type=text] {
+  margin-right: 17em !important;
+}
+
+@media (max-width: 993px) {
+  .country-select.inside input, .country-select.inside input[type=text] {
+    margin-right: 0em !important;
+  }
 }

@@ -1,0 +1,77 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+	font-family: "Montserrat-Light";
+	font-weight: 400;
+	src: url("fonts/Montserrat-Light.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Montserrat-ExtraLight";
+	font-weight: 400;
+	src: url("fonts/Montserrat-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "RocaOne";
+	font-weight: 400;
+	src: url("fonts/RocaOne-Rg.woff2") format("woff2");
+}
+
+body {
+    background-color: #F6F5EE !important;
+}
+
+.mention {
+    max-width: 1080px;
+    width: 80%;
+    margin: auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.mention h1 {
+    font-size: 3.5em;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    font-family: 'RocaOne';
+    color: #EC3B53;
+}
+
+.mention h3 {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.45px;
+    margin-top: 2%;
+}
+
+.mention p {
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 1.2em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.36px;
+    margin-left: 2%;
+    margin-top: -1%;
+}
+
+.mention .email {
+    text-decoration: underline;
+    margin-left: 4%;
+}
+
+.mention .emailH3 {
+    margin-top: -1%;
+    margin-left: 2%;
+}

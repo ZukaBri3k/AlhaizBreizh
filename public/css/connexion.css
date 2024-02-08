@@ -13,12 +13,7 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 1;
-    transition: opacity 1.25s ease-in-out;
-}
-
-.fondfou:hover {
-    opacity: 0;
+    transition: background-image 2.25s ease-in-out;
 }
 
 

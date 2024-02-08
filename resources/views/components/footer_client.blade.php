@@ -21,7 +21,7 @@
         <div class="footer-column">
             <h3>Compte</h3>
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="{{route('accueil')}}">Accueil</a></li>
                 <li><a href="{{route ('inscription_proprio')}}">Inscription</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -29,7 +29,7 @@
         <div class="footer-column">
             <h3>Qui sommes-nous ?</h3>
             <ul>
-                <li><a href="#">Équipe</a></li>
+                <li><a href="{{route ('mentions_legales')}}">Mentions légales</a></li>
                 <li><a href="#">Partenaires</a></li>
                 <li><a href="#">Carrières</a></li>
             </ul>
@@ -43,6 +43,7 @@
     <hr class="footer-line">
     <div class="footer-address">
         <p class="basgauche"><span class="underline-hover">Alhaiz Breizh</span>, tous droits réservés</p>
+        <a href="{{route('cgu_cgv')}}" class="cgu_cgv">Conditions générales d'utilisations</a>
         <p class="basdroite">développé par <span class="underline-hover">Ubisoufte</span></p>
     </div>  
 </footer>
@@ -68,7 +69,7 @@
         <div class="footer-column">
             <h3>Compte</h3>
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="{{route('accueil')}}">Accueil</a></li>
                 <li><a href="{{route ('inscription_client')}}">Inscription</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -76,7 +77,7 @@
         <div class="footer-column">
             <h3>Qui sommes-nous ?</h3>
             <ul>
-                <li><a href="#">Équipe</a></li>
+                <li><a href="{{route ('mentions_legales')}}">Mentions légales</a></li>
                 <li><a href="#">Partenaires</a></li>
                 <li><a href="#">Carrières</a></li>
             </ul>
@@ -90,6 +91,7 @@
     <hr class="footer-line">
     <div class="footer-address">
         <p class="basgauche"><span class="underline-hover">Alhaiz Breizh</span>, tous droits réservés</p>
+        <a href="{{route('cgu_cgv')}}" class="cgu_cgv">Conditions générales d'utilisations</a>
         <p class="basdroite">développé par <span class="underline-hover">Ubisoufte</span></p>
     </div>  
 </footer>
@@ -116,7 +118,7 @@
         <div class="footer-column">
             <h3>Compte</h3>
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="{{route('accueil')}}">Accueil</a></li>
                 <li><a href="{{route ('inscription_client')}}">Inscription</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -124,7 +126,7 @@
         <div class="footer-column">
             <h3>Qui sommes-nous ?</h3>
             <ul>
-                <li><a href="#">Équipe</a></li>
+                <li><a href="{{route ('mentions_legales')}}">Mentions légales</a></li>
                 <li><a href="#">Partenaires</a></li>
                 <li><a href="#">Carrières</a></li>
             </ul>
@@ -133,6 +135,7 @@
     <hr class="footer-line">
     <div class="footer-address">
         <p class="basgauche"><span class="underline-hover">Alhaiz Breizh</span>, tous droits réservés</p>
+        <a href="{{route('cgu_cgv')}}" class="cgu_cgv">Conditions générales d'utilisations</a>
         <p class="basdroite">développé par <span class="underline-hover">Ubisoufte</span></p>
     </div>     
 </footer>

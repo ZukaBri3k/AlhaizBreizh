@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
+}
+
 /* Ajout de styles pour le logo */
 .logo {
     width: 80px; /* Ajustez la taille selon vos besoins */
@@ -10,7 +16,6 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .footer {
@@ -34,6 +39,7 @@ body {
     margin-bottom: 15px;
     font-size: 1.2em;
     color: #000000;
+    font-family: 'Montserrat';
 }
 
 .footer-column ul {
@@ -49,6 +55,7 @@ body {
     color: #000000;
     text-decoration: none;
     transition: color 0.3s ease;
+    width: 20%;
 }
 
 .footer a:hover {

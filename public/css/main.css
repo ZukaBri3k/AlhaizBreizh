@@ -78,6 +78,22 @@ nav a{
     }
 }
 
+@media screen and (max-width: 991px) {
+    .listeBtnConnexion {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .listeBtnConnexion a {
+        padding: 5vw;
+        background-color: #F6F5EE;
+        border-radius: 6px;
+        border: 1px solid #EC3B53;
+    }
+    
+}
+
 
 /***********************************************************************************************************
 ************************************************************************************************************
@@ -321,11 +337,6 @@ nav {
     padding-bottom: 50px;
 }
 
-#accueil .liste-card .lienCard {
-    margin-left: 5vw;
-    margin-top: 5vh;
-}
-
 #accueil .mieuxNote h2 {
     font-family: 'Montserrat';
     text-align: center;
@@ -336,6 +347,7 @@ nav {
 #accueil .liste-card {
     display: flex;
     justify-content: center;
+    gap: 5vw 5vh;
     margin-top: 50px;
     flex-wrap: wrap;
     padding-right: -5vw;
@@ -409,6 +421,41 @@ nav {
     padding: 5px 15px;
     font-family: 'Montserrat';
     transition: 0.4s;
+}
+
+#map-container {
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#mapid {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.popup-image {
+    max-width: 110%;
+    height: auto;
+}
+
+.leaflet-control-layers {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+}
+
+.leaflet-control-layers-expanded {
+    width: 200px;
+}
+
+.leaflet-control-layers-list {
+    padding: 10px;
+}
+
+.leaflet-control-layers-separator {
+    border-top: 1px solid #ddd;
+    margin: 10px -10px;
 }
 
 /***********************************************************************************************************
@@ -536,6 +583,7 @@ CSS de la page mes logements début
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 5vw 5vh;
     width: 100%;
     height: fit-content;
     justify-content: center;
@@ -545,22 +593,19 @@ CSS de la page mes logements début
     width: fit-content;
     height: fit-content;
     display: block;
-    margin-left: 5vw;
-    margin-top: 5vh;
 }
 
 .mesLogementsPage .mesLogements hr {
-    width: 90%;
+    width: 100%;
     margin: 5vh auto;
     color: rgba(0,0,0,0.50);
 }
 
 .mesLogementsPage .mesLogements h2 {
-    margin: 50px 0;
     font-family: 'Montserrat';
     text-align: left;
     color: rgb(236, 59, 83);
-    margin: 50px 50px 5px 50px;
+    margin: 50px 0px;
     background-color: rgba(0, 0, 0, 0);
 }
 
@@ -578,7 +623,19 @@ CSS de la page mes logements début
     border-radius: 6px;
     font-family: 'Montserrat';
     text-decoration: none;
-    margin-left: 5vw;
+}
+
+.mesLogements .MODIF:hover {
+    color: #21610B;
+    background-color: #F6F5EE;
+    border: 1px solid #21610B;
+}
+
+.mesLogements .MODIF {
+    color: #F6F5EE;
+    background-color: #21610B;
+    border: 1px solid #21610B;
+    transition: 0.4s;
 }
 
 .mesLogements .HL {
@@ -614,6 +671,23 @@ CSS de la page mes logements début
     margin-bottom: 5vh;
     color: #EC3B53;
     font-family: 'Montserrat';
+}
+
+.mesLogementsPage .mesLogements {
+    padding: 0 5vw;
+}
+
+.mesLogementsPage .SUPPR {
+    color: #F6F5EE;
+    background-color: #EC3B53;
+    border: 1px solid #EC3B53;
+}
+
+.mesLogementsPage .SUPPR:hover {
+    color: #EC3B53;
+    background-color: #F6F5EE;
+    border: 1px solid #EC3B53;
+    transition: 0.4s;
 }
 
 /***********************************************************************************************************
@@ -749,10 +823,45 @@ CSS du composant devis début
     font-family: 'Montserrat';
 }
 
+.mesLogementsPage .mesReservations p {
+    text-align: center;
+}
+
+.mesLogementsPage h2 + p {
+    text-align: center;
+}
+
+
 /***********************************************************************************************************
 ************************************************************************************************************
 ************************************************************************************************************
 CSS du composant devis fin 
+************************************************************************************************************
+************************************************************************************************************
+***********************************************************************************************************/
+
+/***********************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+CSS des popup début
+************************************************************************************************************
+************************************************************************************************************
+***********************************************************************************************************/
+
+.popupFeedBack {
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+    letter-spacing: -0.3px;
+}
+
+/***********************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+CSS des popup fin
 ************************************************************************************************************
 ************************************************************************************************************
 ***********************************************************************************************************/

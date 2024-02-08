@@ -144,6 +144,35 @@
 
                     <label for="iban">IBAN:</label>
                     <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" value="{!! $personnes->iban !!}">
+
+                    <label for="id-card">Carte d'Identité (Recto Verso) :
+                        <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
+                    </label>
+                    <input type="file" id="id-card" name="id-card" style="display: none;">
+                    <div id="id-card-message"></div>
+                    <div id="id-card-preview"></div>
+                    <script>
+                        document.getElementById('id-card').addEventListener('change', function () {
+                            var fileInput = this;
+                            var file = fileInput.files[0];
+
+                            if (file) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    var previewElement = document.getElementById('id-card-preview');
+                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="ID Card Preview" style="max-width: 100%;">';
+
+                                    var fileName = fileInput.value.split('\\').pop();
+                                    var message = "Carte d'Identité enregistrée : " + fileName;
+
+                                    document.getElementById('id-card-message').innerText = message;
+                                };
+
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>

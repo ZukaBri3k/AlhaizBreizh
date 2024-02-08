@@ -119,10 +119,10 @@ class AccountController extends Controller
     //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
 
-        if($request->photo_pers == null || $request->photo_pers == "") {
+        if($request->file("profile-pic") == null || $request->file("profile-pic") == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = $request->file();
+            $photo_pers = $request->file("profile-pic");
         }
 
         $password = Hash::make($request->password);

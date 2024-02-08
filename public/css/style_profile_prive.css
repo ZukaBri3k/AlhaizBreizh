@@ -110,9 +110,8 @@ button:hover {
     border-radius: 5px;
     border: 1px solid #909090;
     background: #FFF;
-    width: 80%;
-    max-width: 161.59;
-    max-height: 161.59;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .pp {

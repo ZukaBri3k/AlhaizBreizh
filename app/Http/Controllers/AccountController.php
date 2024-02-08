@@ -119,10 +119,10 @@ class AccountController extends Controller
     //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
 
-        if($request->file("profile-pic") == null || $request->file("profile-pic") == "") {
+        if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = $request->file("profile-pic");
+            $photo_pers = "img1";
         }
 
         $password = Hash::make($request->password);
@@ -169,8 +169,9 @@ class AccountController extends Controller
 
         $id = DB::select('select id from personnes where mail_pers = ? AND password = ?',[$request->mail_pers, $password]);
 
-        Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile-pic"), "img1.png");
-
+        if($photo_pers != "pp_profile.png") {
+            Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile_pic"), "img1.png");
+        }
     }
 
     public function proprio_register(Request $request) {
@@ -275,11 +276,12 @@ class AccountController extends Controller
 
     public function modificationsClient(Request $request) {
         $id = auth()->user()->id;
-        if($request->photo_pers == null || $request->photo_pers == "") {
+        if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = $request->file();
+            $photo_pers = "img1";
         }
+
         $password = Hash::make($request->password);
         $data = [
             $request->civilite_pers,
@@ -323,7 +325,7 @@ class AccountController extends Controller
         where id = ?', $data);
 
         if($photo_pers != "pp_profile.png") {
-            Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile-pic"), "img1.png");
+            Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile_pic"), "img1.png");
         }
 
         return redirect()->route('myClientAccount', ['id' => $id]);
@@ -337,11 +339,12 @@ class AccountController extends Controller
 
     public function modificationsProprietaire(Request $request) {
         $id = auth()->user()->id;
-        if($request->photo_pers == null || $request->photo_pers == "") {
+        if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = $request->file();
+            $photo_pers = "img1";
         }
+
         $password = Hash::make($request->password);
         $data = [
             $request->civilite_pers,
@@ -403,7 +406,7 @@ class AccountController extends Controller
         paypal_proprio = null
         where id_proprio = ?', $proprio);
 
-        Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile-pic"), "img1.png");
+        Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile_pic"), "img1.png");
 
         return redirect()->route('myProprietaireAccount', ['id' => $id]);
     }

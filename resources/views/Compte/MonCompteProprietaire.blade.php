@@ -21,7 +21,7 @@
 
     <div class="Titre">
         <h1>Information de votre compte propriétaire</h1>
-        <a>
+        <a href="{{ route('modifierProprietaire') }}">
             <button class="button_modif">Modifier</button>
         </a>
     </div>

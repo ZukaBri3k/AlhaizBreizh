@@ -216,14 +216,19 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 
     <div id="page_4" class="page">
         <div>
-            <h2 id="titre_page_4">Décrivez vos chambres *</h2>
-            <div id="chambres_container" class="chambres-container"></div>
+            <h2 id="titre_page_4" style="text-align: center;">Décrivez vos chambres *</h2>
+            <div id="chambres_container" class="chambres-container">
+
+            </div>
         </div>
-        <input type="hidden" id="total_lits" name="nb_lit_total" value="">
+        <!--<input type="hidden" id="total_lits" name="nb_lit_total" value="">
+        <input type="hidden" id="valeurs_chambres_hidden" name="valeurs_chambres_hidden" value="">!-->
         <div id="footer">
             <button type="button" id="retour_page_4" class="bouttons_retour" onclick="page_4_to_page_3()"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
             <button type="button" onclick="validatePage4()" id="suivant_page_4" class="bouttons_suivant">Suivant<img src="{{asset('img/fleche_suivant.png')}}" alt=""></button>
         </div>
+        
+
     </div>
 <div id="page_5" class="page">
     <div id="gauche_page_5">
@@ -497,7 +502,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <div class="image-upload-container">
             <div id="drop_zone1">
                 <p id="depot_image1">Glissez-déposez votre image ici.</p>
-                <input type="file" id="file_input1">
+                <input type="file" id="file_input1" name="photo_couverture_logement">
                 <output id="result1"></output>
             </div>
           </div>
@@ -509,7 +514,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             <div id="images_colonne_gauche">
                 <div id="drop_zone">
                     <p id="depot_image">Glissez-déposez jusqu'à 10 images ici.</p>
-                    <input type="file" id="file_input" multiple>
+                    <input type="file" id="file_input" name="photo_complementaire_logement" multiple>
                     <output id="result"></output>
                 </div>
             </div>
@@ -519,7 +524,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
         <button type="button" id="retour_page_8" class="bouttons_retour"><img src="{{asset('img/fleche_retour.png')}}" alt="">Retour</button>   
         <button type="submit" id="enregistrer_page_8" class="bouttons_suivant" onclick="saveAndSubmitForm()">Enregistrer<img src="{{asset('img/enregistrer.png')}}" alt=""></button>
     </div>
-
+    <input type="hidden" id="total_photos" name="total_photos" value="0">
 </div>
    
 </form>
@@ -565,101 +570,124 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
 }
 </style>
 <script>
- // Récupérer les éléments du DOM
- var dropZone = document.getElementById('drop_zone');
-var fileInput = document.getElementById('file_input');
-var output = document.getElementById('result');
-var form = document.getElementById('myForm');
-
-// Empêcher le comportement par défaut du navigateur lors du glisser-déposer
-dropZone.addEventListener('dragover', function(e) {
-    e.preventDefault();
-});
-
-// Gérer l'événement de glisser-déposer
-dropZone.addEventListener('drop', function(e) {
-    e.preventDefault();
-    var files = e.dataTransfer.files;
-    handleFiles(files);
-});
-
-// Gérer l'événement de sélection de fichiers
-fileInput.addEventListener('change', function() {
-    var files = this.files;
-    handleFiles(files);
-});
-
-// Fonction pour traiter les fichiers d'images
-function handleFiles(files) {
-    if (output.children.length + files.length > 10) {
-        alert("Vous ne pouvez pas ajouter plus de 10 images.");
-        return;
-    }
-
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        if (file.type.match('image.*')) {
-            var listItem = document.createElement('li');
-            listItem.textContent = file.name;
-
-            var deleteButton = document.createElement('button');
-            deleteButton.textContent = "Supprimer";
-            deleteButton.id = "deleteButton"; // Attribuer la même ID à tous les boutons
-            deleteButton.onclick = function() {
-                listItem.parentNode.removeChild(listItem);
-            };
-
-            listItem.appendChild(deleteButton);
-            output.appendChild(listItem);
-        } else {
-            output.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
-        }
-    }
-}
-
-
-</script>
-
-
-<script>
     // Récupérer les éléments du DOM
-var dropZone1 = document.getElementById('drop_zone1');
-var fileInput1 = document.getElementById('file_input1');
-var output1 = document.getElementById('result1');
-
-// Empêcher le comportement par défaut du navigateur lors du glisser-déposer
-dropZone1.addEventListener('dragover', function(e) {
-    e.preventDefault();
-});
-
-// Gérer l'événement de glisser-déposer
-dropZone1.addEventListener('drop', function(e) {
-    e.preventDefault();
-    var files = e.dataTransfer.files;
-    handleFiles(files);
-});
-
-// Gérer l'événement de sélection de fichiers
-fileInput1.addEventListener('change', function() {
-    var files = this.files;
-    handleFiles(files);
-});
-
-// Fonction pour traiter les fichiers d'images
-function handleFiles1(files) {
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        if (file.type.match('image.*')) {
-            var listItem = document.createElement('li');
-            listItem.textContent = file.name;
-            output1.appendChild(listItem);
-        } else {
-            output1.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
-        }
-    }
-}
-
-</script>
+    var dropZone = document.getElementById('drop_zone');
+   var fileInput = document.getElementById('file_input');
+   var output = document.getElementById('result');
+   var form = document.getElementById('myForm');
+   var totalPhotosField = document.getElementById('total_photos'); // Champ caché pour le nombre total de photos
+   
+   // Empêcher le comportement par défaut du navigateur lors du glisser-déposer
+   dropZone.addEventListener('dragover', function(e) {
+       e.preventDefault();
+   });
+   
+   // Gérer l'événement de glisser-déposer
+   dropZone.addEventListener('drop', function(e) {
+       e.preventDefault();
+       var files = e.dataTransfer.files;
+       handleFiles(files);
+   });
+   
+   // Gérer l'événement de sélection de fichiers
+   fileInput.addEventListener('change', function() {
+       var files = this.files;
+       handleFiles(files);
+   });
+   
+   // Fonction pour traiter les fichiers d'images
+   function handleFiles(files) {
+       // Vérifier si le nombre total de photos plus les nouvelles photos dépasse 11 (incluant la photo de couverture)
+       if (parseInt(totalPhotosField.value) + files.length > 11) {
+           alert("Vous ne pouvez pas ajouter plus de 11 images (y compris la photo de couverture).");
+           return;
+       }
+   
+       if (output.children.length + files.length > 10) {
+           alert("Vous ne pouvez pas ajouter plus de 10 images.");
+           return;
+       }
+   
+       for (var i = 0; i < files.length; i++) {
+           var file = files[i];
+           if (file.type.match('image.*')) {
+               var listItem = document.createElement('li');
+               listItem.textContent = file.name;
+   
+               var deleteButton = document.createElement('button');
+               deleteButton.textContent = "Supprimer";
+               deleteButton.id = "deleteButton"; // Attribuer la même ID à tous les boutons
+               deleteButton.onclick = function() {
+                   listItem.parentNode.removeChild(listItem);
+               };
+   
+               listItem.appendChild(deleteButton);
+               output.appendChild(listItem);
+           } else {
+               output.innerHTML += "Le fichier " + file.name + " n'est pas une image.<br>";
+           }
+       }
+   
+       // Mettre à jour le nombre total de photos
+       totalPhotosField.value = parseInt(totalPhotosField.value) + files.length;
+   }
+   
+   
+   </script>
+   
+   
+   <script>
+       // Récupérer les éléments du DOM
+   var dropZone1 = document.getElementById('drop_zone1');
+   var fileInput1 = document.getElementById('file_input1');
+   var output1 = document.getElementById('result1');
+   var totalPhotosField = document.getElementById('total_photos'); // Champ caché pour le nombre total de photos
+   
+   // Empêcher le comportement par défaut du navigateur lors du glisser-déposer
+   dropZone1.addEventListener('dragover', function(e) {
+       e.preventDefault();
+   });
+   
+   // Gérer l'événement de glisser-déposer
+   dropZone1.addEventListener('drop', function(e) {
+       e.preventDefault();
+       var files = e.dataTransfer.files;
+       handleFiles1(files);
+   });
+   
+   // Gérer l'événement de sélection de fichiers
+   fileInput1.addEventListener('change', function() {
+       var files = this.files;
+       handleFiles1(files);
+   });
+   
+   // Fonction pour traiter les fichiers d'images
+   function handleFiles1(files) {
+       // Vérifier si des fichiers ont été sélectionnés
+       if (files.length > 0) {
+           // Limiter à une seule image
+           if (files.length > 1) {
+               alert("Vous ne pouvez sélectionner qu'une seule image.");
+               return;
+           }
+   
+           var file = files[0]; // Récupérer le premier fichier
+           if (file.type.match('image.*')) {
+               var listItem = document.createElement('li');
+               listItem.textContent = file.name;
+               output1.innerHTML = ''; // Supprimer les éléments existants
+               output1.appendChild(listItem);
+   
+               // Mettre à jour le nombre total de photos
+               totalPhotosField.value = parseInt(totalPhotosField.value) + files.length;
+           } else {
+               output1.innerHTML = "Le fichier " + file.name + " n'est pas une image.<br>";
+           }
+       }
+   }
+   
+   </script>
+   
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

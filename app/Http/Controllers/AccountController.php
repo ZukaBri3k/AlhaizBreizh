@@ -7,6 +7,8 @@ use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 
 class AccountController extends Controller
@@ -117,6 +119,12 @@ class AccountController extends Controller
     //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
 
+        if($request->profile_pic == null || $request->profile_pic == "") {
+            $photo_pers = "pp_profile.png";
+        } else {
+            $photo_pers = "img1";
+        }
+
         $password = Hash::make($request->password);
         $personne=[
             $request->civilite_pers,
@@ -125,7 +133,7 @@ class AccountController extends Controller
             $request->pseudo_pers,
             $request->ville_pers,
             $request->pays_pers,
-            $request->photo_pers,
+            $photo_pers,
             $request->adresse_pers,
             $request->code_postal_pers,
             $request->date_de_naissance,
@@ -159,6 +167,11 @@ class AccountController extends Controller
             ?, ?, ?, ?, ?, ?, ?, 
             ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
+        $id = DB::select('select id from personnes where mail_pers = ? AND password = ?',[$request->mail_pers, $password]);
+
+        if($photo_pers != "pp_profile.png") {
+            Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile_pic"), "img1.png");
+        }
     }
 
     public function proprio_register(Request $request) {
@@ -259,5 +272,142 @@ class AccountController extends Controller
         $id = auth()->user()->id;
         $personne = DB::select('select * from personnes where id = ?', [$id]);
         return view('Compte/modif_client', ['personnes' => $personne[0]]);
+    }
+
+    public function modificationsClient(Request $request) {
+        $id = auth()->user()->id;
+        if($request->profile_pic == null || $request->profile_pic == "") {
+            $photo_pers = "pp_profile.png";
+        } else {
+            $photo_pers = "img1";
+        }
+
+        $password = Hash::make($request->password);
+        $data = [
+            $request->civilite_pers,
+            $request->prenom_pers,
+            $request->nom_pers,
+            $request->telephone_pers,
+            $request->mail_pers,
+            $request->ville_pers,
+            $request->code_postal_pers,
+            $request->adresse_pers,
+            $request->pays_pers,
+            $password,
+            $request->pseudo_pers,
+            $photo_pers,
+            null, // age_pers
+            $request->iban,
+            $request->date_de_naissance,
+            $id,
+        ];
+
+        DB::update('update personnes set 
+        civilite_pers = ?,
+        prenom_pers = ?,
+        nom_pers = ?,
+        telephone_pers = ?,
+        mail_pers = ?,
+        ville_pers = ?,
+        code_postal_pers = ?,
+        adresse_pers = ?,
+        pays_pers = ?,
+        password = ?,
+        pseudo_pers = ?,
+        photo_pers = ?,
+        age_pers = ?,
+        est_banni = false,
+        iban = ?,
+        role = 1,
+        remember_token = null,
+        date_de_naissance = ?,
+        genre_pers = null
+        where id = ?', $data);
+
+        if($photo_pers != "pp_profile.png") {
+            Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile_pic"), "img1.png");
+        }
+
+        return redirect()->route('myClientAccount', ['id' => $id]);
+    }
+
+    public function modifierProprietaire() {
+        $id = auth()->user()->id;
+        $personne = DB::select('select * from personnes where id = ?', [$id]);
+        return view('Compte/modif_proprio', ['personnes' => $personne[0]]);
+    }
+
+    public function modificationsProprietaire(Request $request) {
+        $id = auth()->user()->id;
+        if($request->profile_pic == null || $request->profile_pic == "") {
+            $photo_pers = "pp_profile.png";
+        } else {
+            $photo_pers = "img1";
+        }
+
+        $password = Hash::make($request->password);
+        $data = [
+            $request->civilite_pers,
+            $request->prenom_pers,
+            $request->nom_pers,
+            $request->telephone_pers,
+            $request->mail_pers,
+            $request->ville_pers,
+            $request->code_postal_pers,
+            $request->adresse_pers,
+            $request->pays_pers,
+            $password,
+            $request->pseudo_pers,
+            $photo_pers,
+            null, // age_pers
+            $request->iban,
+            $request->date_de_naissance,
+            $id,
+        ];
+
+        $piece_id = DB::select('select piece_id_proprio from proprietaire where id_proprio = ?', [$id]);
+
+        $proprio = [
+            $piece_id[0]->piece_id_proprio,
+            $request->piece_id_proprio_recto,
+            $request->piece_id_proprio_verso,
+            $id
+        ];
+
+        DB::update('update personnes set 
+        civilite_pers = ?,
+        prenom_pers = ?,
+        nom_pers = ?,
+        telephone_pers = ?,
+        mail_pers = ?,
+        ville_pers = ?,
+        code_postal_pers = ?,
+        adresse_pers = ?,
+        pays_pers = ?,
+        password = ?,
+        pseudo_pers = ?,
+        photo_pers = ?,
+        age_pers = ?,
+        est_banni = false,
+        iban = ?,
+        role = 2,
+        remember_token = null,
+        date_de_naissance = ?,
+        genre_pers = null
+        where id = ?', $data);
+
+        DB::update('update proprietaire set
+        ref_devis_proprio = null,
+        piece_id_proprio = ?,
+        langue_proprio = null,
+        proposition_auto_devis = null,
+        piece_id_proprio_recto = ?,
+        piece_id_proprio_verso = ?,
+        paypal_proprio = null
+        where id_proprio = ?', $proprio);
+
+        Storage::disk('pp')->putFileAs("pp" . $id, $request->file("profile_pic"), "img1.png");
+
+        return redirect()->route('myProprietaireAccount', ['id' => $id]);
     }
 }

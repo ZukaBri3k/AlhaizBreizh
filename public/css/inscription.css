@@ -162,3 +162,32 @@ select{
   width: 100%;
   margin-top: 10px;
 }
+
+
+.country-select.inside input, .country-select.inside input[type=text] {
+  margin-right: 17em !important;
+}
+
+@media (max-width: 993px) {
+  .country-select.inside input, .country-select.inside input[type=text] {
+    margin-right: 11em !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .country-select.inside input, .country-select.inside input[type=text] {
+    margin-right: 15em !important;
+  }
+}
+
+.champ_img {
+  margin-top: 3%;
+}
+
+.pp {
+  border-radius: 5px;
+  border: 1px solid #909090;
+  background: #FFF;
+  width: 36%;
+  margin-right: 64%;
+}

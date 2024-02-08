@@ -74,12 +74,12 @@
                         });
                     </script>
 
-                    <label for="profile-pic" class="champ_img">
+                    <label for="profile_pic" class="champ_img">
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
                     
-                    <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
+                    <input type="file" id="profile_pic" name="profile_pic" style="display: none;">
                     
                     @if ($personnes->photo_pers == "pp_profile.png")
                         <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp">
@@ -88,7 +88,7 @@
                     @endif
 
                     <script>
-                        document.getElementById('profile-pic').addEventListener('change', function(e) {
+                        document.getElementById('profile_pic').addEventListener('change', function(e) {
                             var reader = new FileReader();
 
                             reader.onload = function(event) {

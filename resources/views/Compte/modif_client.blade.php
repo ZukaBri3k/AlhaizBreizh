@@ -80,7 +80,18 @@
                     </label>
                     <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
 
-                    <img src="{{asset('img/pp_profile.png')}}" class="pp">
+                    <img id="imagePreview" src="{{asset('img/pp_profile.png')}}" class="pp">
+                    <script>
+                        document.getElementById('imageUpload').addEventListener('change', function(e) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(event) {
+                                document.getElementById('imagePreview').src = event.target.result;
+                            }
+
+                            reader.readAsDataURL(e.target.files[0]);
+                        });
+                    </script>
 
                     <div id="profile-pic-message"></div>
                     <div id="profile-pic-preview"></div>

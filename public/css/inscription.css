@@ -193,6 +193,23 @@ select{
 }
 
 .button_retour {
-  background-color: #EC3B53;
-  color: #F6F5EE;
+  border-radius: 6px !important;
+  border: 1px solid #EC3B53;
+  background: #FFF;
+  color: #EC3B53;
+  text-align: center;
+  font-family: 'Montserrat' !important;
+  font-size: 20px !important;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal !important;
+  letter-spacing: -0.3px;
+  padding: 10px 20px;
+}
+
+.button_retour:hover {
+  background-color: #F6F5EE;
+  color: #EC3B53;
+  border-color: #EC3B53;
+  transition: 0.5s;
 }

@@ -101,7 +101,7 @@ select{
 /* Bouton civilité */
 #civilite_pers {
   border: 2px solid red; /* Bords rouges */
-  background-color: #F6F5EE; /* Fond blanc */
+  background-color: #fff; /* Fond blanc */
   color: red; /* Texte rouge */
   border-radius: 8px;
   padding-right: 30px; /* Ajoute de l'espace à droite pour l'icône */

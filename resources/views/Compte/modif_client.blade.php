@@ -18,6 +18,7 @@
     <x-Navbar></x-Navbar>
     <main class="container">
         <h1 class="text-center">Modification de votre compte client</h1>
+        <a href="{{ route('myClientAccount', ['id' => $id])}}" class="button_retour">Retour</a>
         <form action="{{route('modificationsClient')}}" method="post" enctype='multipart/form-data'>
         @csrf
         <div class="row lapage">

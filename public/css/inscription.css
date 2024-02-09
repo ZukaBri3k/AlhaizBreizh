@@ -213,3 +213,7 @@ select{
   border-color: #EC3B53;
   transition: 0.5s;
 }
+
+h2 {
+  background-color: 0 !important; 
+}

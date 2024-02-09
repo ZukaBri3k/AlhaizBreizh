@@ -194,9 +194,9 @@ select{
 
 .button_retour {
   border-radius: 6px !important;
-  border: 1px solid #EC3B53;
-  background: #FFF;
-  color: #EC3B53;
+  border: 1px solid #F6F5EE;
+  background: #EC3B53;
+  color: #F6F5EE;
   text-align: center;
   font-family: 'Montserrat' !important;
   font-size: 20px !important;

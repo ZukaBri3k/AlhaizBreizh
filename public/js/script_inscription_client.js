@@ -1,5 +1,5 @@
-document.getElementById("password").addEventListener("blur", verifierMotsDePasse);
-document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotsDePasse);
+document.getElementById("password").addEventListener("blur", verifierMotDePasse);
+document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
 
 	function verifierMotDePasse() {
 		var motDePasse = document.getElementById("password").value;

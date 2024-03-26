@@ -430,8 +430,7 @@ nav {
 
 #mapid {
     width: 100%;
-    height: 100%;
-    margin: auto;
+    height: 100vh; /* vh signifie "viewport height", donc cela rendra la carte aussi haute que la fenêtre du navigateur */
 }
 
 .popup-image {

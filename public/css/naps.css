@@ -22,3 +22,14 @@ h1 {
     letter-spacing: -0.6px;
     font-family: 'RocaOne';
 }
+
+.okay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.okay img {
+    width: 30vh;
+    height: 30vh;
+}

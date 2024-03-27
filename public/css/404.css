@@ -27,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 800px;
+    min-height: 460px;
   }
   .erreur_404 h1 {
     font-family: RocaOne;

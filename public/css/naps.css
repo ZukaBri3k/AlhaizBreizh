@@ -11,7 +11,6 @@ body {
 
 h1 {
     color: #EC3B53;
-    margin-left: 15%;
     margin-top: 5%;
     width: 70%;
     height: 10%;
@@ -21,6 +20,7 @@ h1 {
     line-height: normal;
     letter-spacing: -0.6px;
     font-family: 'RocaOne';
+    margin: auto;
 }
 
 .okay {
@@ -30,6 +30,10 @@ h1 {
 }
 
 .okay img {
-    width: 30vh;
-    height: 30vh;
+    width: 50vh;
+    margin: auto;
+}
+
+audio {
+    margin: auto;
 }

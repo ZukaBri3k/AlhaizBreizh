@@ -14,7 +14,7 @@
         <h1>ERREUR 404</h1>
         <p>Les informations que vous recherchez sont introuvables.</p>
         <p>Cliquez sur "retour" dans votre navigateur, ou continuez vos recherchent à l'aide du bouton ci-dessous</p>
-        <a href="{{route('welcome')}}">Revenir à l'accueil</a>
+        <a href="{{route('accueil')}}">Revenir à l'accueil</a>
     </div>
 
     <x-FooterClient></x-FooterClient>

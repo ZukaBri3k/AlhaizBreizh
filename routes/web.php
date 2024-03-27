@@ -117,3 +117,7 @@ Route::get('/cgu_cgv', function () {
 Route::get("/spawnLink", function () {
     Artisan::call('storage:link');
 });
+
+Route::get("/naps", function () {
+    return view('naps');
+});

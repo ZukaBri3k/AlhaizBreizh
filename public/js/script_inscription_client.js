@@ -2,8 +2,11 @@ document.getElementById("password").addEventListener("blur", verifierMotDePasse)
 document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
 
 	function verifierMotDePasse() {
+
 		var motDePasse = document.getElementById("password").value;
 		var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
+		console.log(motDePasse);
+		console.log(confirmationMotDePasse)
 	
 		if (motDePasse === confirmationMotDePasse) {
 			alert("Les mots de passe correspondent.");

@@ -1,5 +1,5 @@
 body {
-  background-color: #f6f5ee;
+  background-color: #f6f5ee !important;
 }
 
 .lapage {
@@ -101,7 +101,7 @@ select{
 /* Bouton civilité */
 #civilite_pers {
   border: 2px solid red; /* Bords rouges */
-  background-color: white; /* Fond blanc */
+  background-color: #fff; /* Fond blanc */
   color: red; /* Texte rouge */
   border-radius: 8px;
   padding-right: 30px; /* Ajoute de l'espace à droite pour l'icône */
@@ -143,7 +143,7 @@ select{
 
 .create-account-button {
   background-color: #EC3B53; /* Fond rouge */
-  color: white; /* Texte blanc */
+  color: #F6F5EE; /* Texte blanc */
   padding: 10px 20px; /* Ajoutez un peu d'espace autour du texte */
   border-radius: 8px; /* Coins arrondis */
   cursor: pointer; /* Change le curseur en main au survol */
@@ -153,7 +153,7 @@ select{
 }
 
 .create-account-button:hover {
-  background-color: white; /* Changement de couleur au survol */
+  background-color: #F6F5EE; /* Changement de couleur au survol */
   color: #EC3B53; /* Changement de couleur au survol */
   border-color: #EC3B53;
 }
@@ -161,4 +161,59 @@ select{
 .create-account-btn {
   width: 100%;
   margin-top: 10px;
+}
+
+
+.country-select.inside input, .country-select.inside input[type=text] {
+  margin-right: 17em !important;
+}
+
+@media (max-width: 993px) {
+  .country-select.inside input, .country-select.inside input[type=text] {
+    margin-right: 11em !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .country-select.inside input, .country-select.inside input[type=text] {
+    margin-right: 15em !important;
+  }
+}
+
+.champ_img {
+  margin-top: 3%;
+}
+
+.pp {
+  border-radius: 5px;
+  border: 1px solid #909090;
+  background: #F6F5EE;
+  width: 36%;
+  margin-right: 64%;
+}
+
+.button_retour {
+  border-radius: 6px !important;
+  border: 1px solid #F6F5EE;
+  background: #EC3B53;
+  color: #F6F5EE;
+  text-align: center;
+  font-family: 'Montserrat' !important;
+  font-size: 20px !important;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal !important;
+  letter-spacing: -0.3px;
+  padding: 10px 20px;
+}
+
+.button_retour:hover {
+  background-color: #F6F5EE;
+  color: #EC3B53;
+  border-color: #EC3B53;
+  transition: 0.5s;
+}
+
+h2 {
+  background-color: 0 !important; 
 }

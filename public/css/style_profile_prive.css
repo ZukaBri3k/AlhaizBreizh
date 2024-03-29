@@ -110,7 +110,8 @@ button:hover {
     border-radius: 5px;
     border: 1px solid #909090;
     background: #FFF;
-    width: 80%;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .pp {
@@ -433,4 +434,12 @@ button:hover {
     font-weight: 400;
     line-height: 24px; /* 120% */
     letter-spacing: -0.3px;
+}
+
+.button_modif {
+    width: 110%;
+    height: 2.5em;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-left: 25%;
 }

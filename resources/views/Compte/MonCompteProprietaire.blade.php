@@ -21,7 +21,9 @@
 
     <div class="Titre">
         <h1>Information de votre compte propriétaire</h1>
-        <button style="display: none">Modifier</button>
+        <a href="{{ route('modifierProprietaire') }}">
+            <button class="button_modif">Modifier</button>
+        </a>
     </div>
     <div class="Profile_Public">
         <h5>Profil public</h5>
@@ -29,7 +31,11 @@
         <div class="Donnees">
             <div class="pp">
                 <p>Photo de profil</p>
-                <img src="{{asset('img/pp_profile.png')}}">
+                @if($personnes->photo_pers == "pp_profile.png")
+                    <img src="{{ asset('img/pp_profile.png' )}}">
+                @else
+                    <img src="{{ asset('pp/pp' . $personnes->id . '/' . $personnes->photo_pers )}}">
+                @endif
             </div>
             <div class="donnees_precise">
                 <div class="elem">

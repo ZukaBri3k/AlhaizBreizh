@@ -45,6 +45,19 @@ if ($date) {
         return response()->json(['message' => 'Événement enregistré avec succès.']);
     }
 
+    public function genererToken() {
+        $longueur = 40;
+        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Caractères possibles
+        $token = '';
+    
+        // Générer le token
+        for ($i = 0; $i < $longueur; $i++) {
+            $token .= $caracteres[rand(0, strlen($caracteres) - 1)];
+        }
+    
+        return $token;
+    }
+
     public function createIcal(Request $request)
     {
         $id_pers = Auth::user()->id;
@@ -52,11 +65,10 @@ if ($date) {
         $devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);
 
         foreach ($reservation as $reserv) {
-            $p = new OAuthProvider();
-            $p->generateToken(40);
+            $token = genererToken();
 
             DB::table('ical')->insert([
-                'token' => bin2hex($p),
+                'token' => $token,
                 'id_reserv' => $reserv->id_reserv,
                 'id_logement' => $reserv->id_logement,
                 'etat_devis' => $reserv->etat_devis,

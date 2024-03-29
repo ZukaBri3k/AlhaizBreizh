@@ -163,6 +163,24 @@
     </div>
 
     <div class="Profile_Privee">
+        <h5>Suivre vos réservations en direct</h5>
+        <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
+        <p class="line_info">Choisissez vo événements à suivre :</p>
+        
+        <form action="{{}}">
+            <label for="reservation">Réservations </label>
+            <input type="checkbox" name="reservation" id="reservation">
+            <label for="demande_reservation">Demande de réservation </label>
+            <input type="checkbox" name="demande_reservation" id="demande_reservation">
+            <label for="date_deb">Du </label>
+            <input type="date" name="date_deb" id="date_deb">
+            <label for="date_fin">Au </label>
+            <input type="date" name="date_fin" id="date_fin">
+            <button type="submit">Exporter</button>
+        </form>
+    </div>
+
+    <div class="Profile_Privee">
         <h5>Déconnexion</h5>
         <hr>
         <div class="Donnees">

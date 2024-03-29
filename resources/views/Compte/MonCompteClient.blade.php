@@ -167,7 +167,7 @@
         <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
         <p class="line_info">Choisissez vo événements à suivre :</p>
         
-        <form action="{{}}">
+        <form action="">
             <label for="reservation">Réservations </label>
             <input type="checkbox" name="reservation" id="reservation">
             <label for="demande_reservation">Demande de réservation </label>

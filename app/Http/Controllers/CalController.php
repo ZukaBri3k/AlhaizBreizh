@@ -63,9 +63,9 @@ if ($date) {
         $id_pers = Auth::user()->id;
         $reservation = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = true", [$id_pers]);
         $devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);
+        $token = $this->genererToken();
 
         foreach ($reservation as $reserv) {
-            $token = $this->genererToken();
 
             DB::table('ical')->insert([
                 'token' => $token,
@@ -76,9 +76,21 @@ if ($date) {
                 'date_fin' => $reserv->date_fin,
             ]);
         }
+
+        foreach ($devisEnCours as $devis) {
+
+            DB::table('ical')->insert([
+                'token' => $token,
+                'id_reserv' => $devis->id_reserv,
+                'id_logement' => $devis->id_logement_reserv,
+                'etat_devis' => $devis->etat_devis,
+                'date_deb' => $devis->date_deb,
+                'date_fin' => $devis->date_fin,
+            ]);
+        }
         
 
-        $events = DB::table('calendrier')->get();
+        /* $events = DB::table('calendrier')->get();
         $ical = "BEGIN:VCALENDAR\n";
         $ical .= "VERSION:2.0\n";
         $ical .= "PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n";
@@ -96,7 +108,7 @@ if ($date) {
         }
         $ical .= "END:VCALENDAR";
 
-        dd($events);
+        dd($events); */
         //return response($ical)->header('Content-Type', 'text/calendar');
     }
 }

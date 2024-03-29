@@ -48,7 +48,9 @@ if ($date) {
     public function createIcal(Request $request)
     {
         $id_pers = Auth::user()->id;
-        dd(DB::select("select * from reservation natural join devis where id_client_devis = ? and confirm_reserv = true", [$id_pers]));
+        $reservation = DB::select("select * from reservation natural join devis where id_client_devis = ? and confirm_reserv = true", [$id_pers]);
+
+        dd($request);
 
         $events = DB::table('calendrier')->get();
         $ical = "BEGIN:VCALENDAR\n";

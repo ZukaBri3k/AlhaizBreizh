@@ -64,7 +64,7 @@ if ($date) {
         $reservation = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = true", [$id_pers]);
         $devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);
         $token = DB::select("select token from ical where id_personne = ?", [$id_pers]);
-
+        dd($token);
         if($token == null) {
             $token = $this->genererToken();
         }

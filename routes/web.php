@@ -126,4 +126,4 @@ Route::fallback(function() {
     return view('404');
  });
 
- Route::get('/ical/{id}', [CalController::class, 'getIcal'])->name('ical');
+ Route::get('/createIcal', [CalController::class, 'createIcal'])->name('createIcal');

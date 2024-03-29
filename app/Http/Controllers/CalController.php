@@ -72,7 +72,7 @@ if ($date) {
                 'id_reserv' => $reserv->id_reserv,
                 'id_logement' => $reserv->id_logement_reserv,
                 'etat_devis' => $reserv->etat_devis,
-                'date_deb' => $reserv->date_debut,
+                'date_deb' => $reserv->date_deb,
                 'date_fin' => $reserv->date_fin,
             ]);
         }

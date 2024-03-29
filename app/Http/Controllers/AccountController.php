@@ -53,6 +53,16 @@ class AccountController extends Controller
         DB::delete('delete from client where id_client = ?', [$id]);
         DB::delete('delete from personnes where id = ?', [$id]);
 
+        $fichier = storage_path() . '/pp' . $id . '/img1.png';
+        if (Storage::exists($fichier)) {
+            File::delete($fichier);
+        }
+
+        $dossier = storage_path() . '/pp' . $id;
+        if (Storage::exists($dossier)) {
+            File::deleteDirectory($dossier);
+        }
+
         return redirect()->route('accueil');
     }
 
@@ -118,11 +128,11 @@ class AccountController extends Controller
     }
     //--------------------------------------------------------------
     public function ajoute_personne(Request $request, $role) {
-        dd($request->file("profile_pic"));
+
         if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = "img1";
+            $photo_pers = "img1.png";
         }
 
         $password = Hash::make($request->password);
@@ -168,7 +178,7 @@ class AccountController extends Controller
             ?, ?, ?, ?, ?, ?, ?, ?)',$personne);
 
         $id = DB::select('select id from personnes where mail_pers = ? AND password = ?',[$request->mail_pers, $password]);
-
+        
         if($photo_pers != "pp_profile.png") {
             Storage::disk('pp')->putFileAs("pp" . $id[0]->id, $request->file("profile_pic"), "img1.png");
         }
@@ -279,7 +289,7 @@ class AccountController extends Controller
         if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = "img1";
+            $photo_pers = "img1.png";
         }
 
         $password = Hash::make($request->password);
@@ -342,7 +352,7 @@ class AccountController extends Controller
         if($request->profile_pic == null || $request->profile_pic == "") {
             $photo_pers = "pp_profile.png";
         } else {
-            $photo_pers = "img1";
+            $photo_pers = "img1.png";
         }
 
         $password = Hash::make($request->password);

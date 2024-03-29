@@ -82,8 +82,8 @@ Route::prefix('/account')->group(function () {
 
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
-    Route::get('client_register', [AccountController::class,'client_register'])->name('client_register');
-    route::get('proprio_register',[AccountController::class,'proprio_register'])->name('proprio_register');
+    Route::post('client_register', [AccountController::class,'client_register'])->name('client_register');
+    route::post('proprio_register',[AccountController::class,'proprio_register'])->name('proprio_register');
 
     Route::get('deleteClient', [AccountController::class, 'deleteClient'])->name('deleteClient')->middleware(['auth', 'isClient']);
     Route::get('deleteProprietaire', [AccountController::class, 'deleteProprietaire'])->name('deleteProprietaire')->middleware(['auth', 'isProprietaire']);
@@ -117,3 +117,11 @@ Route::get('/cgu_cgv', function () {
 Route::get("/spawnLink", function () {
     Artisan::call('storage:link');
 });
+
+Route::get("/naps", function () {
+    return view('naps');
+});
+
+Route::fallback(function() {
+    return view('404');
+ });

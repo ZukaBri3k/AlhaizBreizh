@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
               $.ajax({
                 url: "{{ route('ajouter-evenements') }}",  // Utilisation de la fonction route() de Laravel pour générer l'URL
                 type: "POST",
-                dataType: 'json',
+                dataType: 'string',
                 contentType: 'application/json',
                 data: date,  
                 success: function(response) {

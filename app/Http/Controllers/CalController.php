@@ -46,6 +46,9 @@ if ($date) {
 
     public function createIcal(Request $request)
     {
+        $id_pers = Auth::user()->id;
+        dd(DB::select("select * from reservation natural join devis where id_client_devis = 1 and confirm_reserv = true"));
+
         $events = DB::table('calendrier')->get();
         $ical = "BEGIN:VCALENDAR\n";
         $ical .= "VERSION:2.0\n";
@@ -64,7 +67,7 @@ if ($date) {
         }
         $ical .= "END:VCALENDAR";
 
-        dd($ical);
+        dd();
         //return response($ical)->header('Content-Type', 'text/calendar');
     }
 }

@@ -44,7 +44,7 @@ if ($date) {
         return response()->json(['message' => 'Événement enregistré avec succès.']);
     }
 
-    public function getIcal(Request $request)
+    public function createIcal(Request $request)
     {
         $events = DB::table('calendrier')->get();
         $ical = "BEGIN:VCALENDAR\n";

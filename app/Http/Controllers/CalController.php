@@ -65,7 +65,7 @@ if ($date) {
         $devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);
 
         foreach ($reservation as $reserv) {
-            $token = genererToken();
+            $token = this::genererToken();
 
             DB::table('ical')->insert([
                 'token' => $token,

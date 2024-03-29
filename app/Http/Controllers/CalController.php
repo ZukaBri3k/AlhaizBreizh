@@ -70,7 +70,7 @@ if ($date) {
         }
 
         foreach ($reservation as $reserv) {
-            $check = DB::select("select * from ical where token = '?' and id_reserv = ? and date_deb = '?' and date_fin = '?'", [$token, $reserv->id_reserv, $reserv->date_deb, $reserv->date_fin]);
+            $check = DB::select("select * from ical where token = ? and id_reserv = ? and date_deb = ? and date_fin = ?", [$token, $reserv->id_reserv, $reserv->date_deb, $reserv->date_fin]);
             dd($check);
             if ($check != null) {
                 DB::table('ical')->insert([

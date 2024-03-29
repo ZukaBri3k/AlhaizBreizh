@@ -48,9 +48,23 @@ if ($date) {
     public function createIcal(Request $request)
     {
         $id_pers = Auth::user()->id;
-        $reservation = DB::select("select * from reservation natural join devis where id_client_devis = ? and confirm_reserv = true", [$id_pers]);
+        $reservation = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = true", [$id_pers]);
+        $devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);
 
-        dd($request);
+        foreach ($reservation as $reserv) {
+            $p = new OAuthProvider();
+            $p->generateToken(40);
+
+            DB::table('ical')->insert([
+                'token' => bin2hex($p),
+                'id_reserv' => $reserv->id_reserv,
+                'id_logement' => $reserv->id_logement,
+                'etat_devis' => $reserv->etat_devis,
+                'date_deb' => $reserv->date_debut,
+                'date_fin' => $reserv->date_fin,
+            ]);
+        }
+        
 
         $events = DB::table('calendrier')->get();
         $ical = "BEGIN:VCALENDAR\n";
@@ -70,7 +84,7 @@ if ($date) {
         }
         $ical .= "END:VCALENDAR";
 
-        dd();
+        dd($events);
         //return response($ical)->header('Content-Type', 'text/calendar');
     }
 }

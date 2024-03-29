@@ -65,8 +65,12 @@ if ($date) {
         $devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);
         $token = DB::select("select token from ical where id_personne = ?", [$id_pers]);
 
+        if($token == null) {
+            $token = $this->genererToken();
+        }
+
         foreach ($reservation as $reserv) {
-            $check = DB::select("select * from ical where token = ? and id_reserv = ? and date_deb = ? and date_fin = ?", [$token, $reserv->id_reserv, $reserv->date_deb, $reserv->date_fin]);
+            $check = DB::select("select * from ical where token = '?' and id_reserv = ? and date_deb = '?' and date_fin = '?'", [$token, $reserv->id_reserv, $reserv->date_deb, $reserv->date_fin]);
             dd($check);
             if ($check != null) {
                 DB::table('ical')->insert([

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.0/css/countrySelect.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/inscription.css')}}">
+    <script src="{{asset('js/script_inscription_client.js')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -107,7 +108,7 @@
         <button type="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
         <br>
         <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
-        <script src="{{asset('js/script_inscription_client.js')}}">
+        
     </main>
     <x-FooterClient></x-FooterClient>
 </body>

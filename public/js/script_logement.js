@@ -152,7 +152,7 @@ function createLabelAndInput(labelText, inputId) {
 function createLabelAndTextarea(labelText, textareaId) {
     const label = document.createElement('label');
     label.textContent = labelText;
-
+    label.style.verticalAlign = 'top';
     const textarea = document.createElement('textarea');
     textarea.id = textareaId;
 

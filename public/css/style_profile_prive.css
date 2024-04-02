@@ -478,3 +478,9 @@ button:hover {
     font-size: 20px;
     font-style: normal;
 }
+
+.ical button[type="submit"]:hover {
+    background-color: #EC3B53;
+    color: #F6F5EE;
+    transition: 0.5s;
+}

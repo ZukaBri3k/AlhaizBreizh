@@ -500,3 +500,8 @@ button:hover {
     color: #F6F5EE;
     transition: 0.5s;
 }
+
+.ical hr {
+    width: 100%;
+    color: #EC3B53;
+}

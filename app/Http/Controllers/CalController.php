@@ -60,7 +60,6 @@ if ($date) {
 
     public function createIcal(Request $request)
     {
-        dd($request);
         $id_pers = Auth::user()->id;
         $reservation = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = true", [$id_pers]);
         $devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);
@@ -83,8 +82,8 @@ if ($date) {
                         'id_reserv' => $reserv->id_reserv,
                         'id_logement' => $reserv->id_logement_reserv,
                         'etat_devis' => $reserv->etat_devis,
-                        'date_deb' => $reserv->date_deb,
-                        'date_fin' => $reserv->date_fin,
+                        'date_deb' => $request->date_deb,
+                        'date_fin' => $request->date_fin,
                         'id_personne' => $id_pers
                     ]);              
                 }
@@ -100,8 +99,8 @@ if ($date) {
                     'id_reserv' => $devis->id_reserv,
                     'id_logement' => $devis->id_logement_reserv,
                     'etat_devis' => $devis->etat_devis,
-                    'date_deb' => $devis->date_deb,
-                    'date_fin' => $devis->date_fin,
+                    'date_deb' => $request->date_deb,
+                    'date_fin' => $request->date_fin,
                     'id_personne' => $id_pers
                 ]);
             }

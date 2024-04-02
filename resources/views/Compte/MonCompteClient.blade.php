@@ -174,10 +174,12 @@
                 <label for="reservation">Réservations </label>
                 <input type="checkbox" name="reservation" id="reservation">
             </div>
+            <hr>
             <div class="line">
                 <label for="demande_reservation">Demande de réservation </label>
                 <input type="checkbox" name="demande_reservation" id="demande_reservation">
             </div>
+            <hr>
             <div class="line">
                 <label for="date_deb">Du </label>
                 <input type="date" name="date_deb" id="date_deb">

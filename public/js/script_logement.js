@@ -10,6 +10,14 @@ document.getElementById("retour_page_7").addEventListener("click", page_7_to_pag
 document.getElementById("retour_page_8").addEventListener("click", page_8_to_page_7);
 
 function page_1_to_page_2() {
+    Swal.fire({
+         icon: "success",
+            title: "Informations enregistrées",
+            text: "Passage à la page suivante",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+    });
+        
     document.getElementById("page_1").style.display = 'none';
     document.getElementById("page_2").style.display = 'flex';
 }
@@ -20,6 +28,13 @@ function page_2_to_page_1() {
 }
 
 function page_2_to_page_3() {
+        Swal.fire({
+         icon: "success",
+            title: "Informations enregistrées",
+            text: "Passage à la page suivante",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+    });
     document.getElementById("page_2").style.display = 'none';
     document.getElementById("page_3").style.display = 'flex';
 }
@@ -35,6 +50,13 @@ function page_4_to_page_3(){
     document.getElementById("page_3").style.display = 'flex';
 }
 function page_4_to_page_5(){
+        Swal.fire({
+         icon: "success",
+            title: "Informations enregistrées",
+            text: "Passage à la page suivante",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+    });
     document.getElementById("page_4").style.display = 'none';
     document.getElementById("page_5").style.display = 'flex';
 }
@@ -43,6 +65,13 @@ function page_5_to_page_4(){
     document.getElementById("page_4").style.display = 'block';
 }
 function page_5_to_page_6(){
+        Swal.fire({
+         icon: "success",
+            title: "Informations enregistrées",
+            text: "Passage à la page suivante",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+    });
     document.getElementById("page_5").style.display = 'none';
     document.getElementById("page_6").style.display = 'flex';
 }
@@ -51,10 +80,24 @@ function page_6_to_page_5(){
     document.getElementById("page_5").style.display = 'flex';
 }
 function page_6_to_page_7(){
+        Swal.fire({
+         icon: "success",
+            title: "Informations enregistrées",
+            text: "Passage à la page suivante",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+    });
     document.getElementById("page_6").style.display = 'none';
     document.getElementById("page_7").style.display = 'flex';
 }
 function page_7_to_page_8(){
+        Swal.fire({
+         icon: "success",
+            title: "Informations enregistrées",
+            text: "Passage à la page suivante",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+    });
     document.getElementById("page_7").style.display = 'none';
     document.getElementById("page_8").style.display = 'flex';
 }
@@ -173,13 +216,25 @@ function selectItem(button, inputId) {
 function validateForm() {
     var selectedHousingInput = document.getElementById('selectedHousing');
     if (!selectedHousingInput.value) {
-        alert("Veuillez sélectionner une nature de logement.");
+                Swal.fire({
+            icon: "error",
+            title:"Erreur",
+            text:"Veuillez sélectionner une nature de logement",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+        });
         return;
     }
 
     var selectedSizeInput = document.getElementById('selectedSize1');
     if (!selectedSizeInput.value) {
-        alert("Veuillez sélectionner un type de logement.");
+                Swal.fire({
+            icon: "error",
+            title:"Erreur",
+            text:"Veuillez séléctionner un type de logement",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+        });
         return;
     }
     page_2_to_page_3(); 
@@ -209,9 +264,23 @@ function validatePage3() {
         nombreChambre.trim() === '' ||
         nombreSalleDeBain.trim() === ''
     ) {
-        alert("Veuillez remplir tous les champs obligatoires sur la page 3.");
+        Swal.fire({
+            icon: "error",
+            title:"Erreur",
+            text:"Veuillez remplir tous les champs obligatoires",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+        });
+            
         return false;
     }
+        Swal.fire({
+         icon: "success",
+            title: "Informations enregistrées",
+            text: "Passage à la page suivante",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+    });
     page_3_to_page_4();
 }
 
@@ -230,7 +299,13 @@ function validatePage4() {
             nombreLitsDoubles.trim() === '' ||
             detailsLits.trim() === ''
         ) {
-            alert(`Veuillez remplir tous les champs pour la Chambre ${i} sur la page 4.`);
+                    Swal.fire({
+            icon: "error",
+            title:"Erreur",
+            text:"Veuillez remplir tous les champs de(s) chambre(s)",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+        });
             return false;
         }
 
@@ -323,7 +398,13 @@ function savePage6Data() {
 function validatePage7() {
     const prixParNuit = document.getElementById('input_page_7').value;
     if (prixParNuit.trim() === '') {
-        alert('Veuillez saisir le prix par nuit.');
+                Swal.fire({
+            icon: "error",
+            title:"Erreur",
+            text:"Veuillez saisir le prix par nuit",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+        });
         return false;
     }
     page_7_to_page_8();
@@ -355,6 +436,13 @@ function displaySelectedImage(imageNumber) {
 }
 
 function saveAndSubmitForm() {
+            Swal.fire({
+            icon: "success",
+            title:"Données enregistrer",
+            text:"Merci d'avoir compléter ce formulaire, votre logement à été ajouter à notre base de donnée",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+        });
     const imageForm = document.getElementById("selectedHousing");
     imageForm.submit();
 }

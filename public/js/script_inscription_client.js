@@ -8,9 +8,9 @@ document.getElementById("confirmerMotDePasse").addEventListener("blur", verifier
 		console.log(motDePasse);
 		console.log(confirmationMotDePasse)
 	
-		if (motDePasse === confirmationMotDePasse) {
-			alert("Les mots de passe correspondent.");
-		} else {
+		if (motDePasse != confirmationMotDePasse) {
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
+		} else {
+			alert("Les mots de passe correspondent.");
 		}
 	}

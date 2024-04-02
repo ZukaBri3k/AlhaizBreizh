@@ -98,6 +98,10 @@ if ($date) {
         dd($events); */
         //return response($ical)->header('Content-Type', 'text/calendar');
     }
+
+    public function getIcal(Request $request) {
+        dd($request);
+    }
 }
        
     

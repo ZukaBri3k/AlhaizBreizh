@@ -468,6 +468,10 @@ button:hover {
     border-radius: 6px;
 }
 
+.ical input[type="date"], input[type="checkbox"] {
+    border: 1px solid #EC3B53;
+}
+
 .ical button[type="submit"] {
     border-radius: 6px;
     border: 1px solid #EC3B53;
@@ -476,7 +480,7 @@ button:hover {
     text-align: center;
     font-family: 'Montserrat';
     font-size: 20px;
-    font-style: normal;
+    width: fit-content;
 }
 
 .ical button[type="submit"]:hover {

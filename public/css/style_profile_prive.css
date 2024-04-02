@@ -455,6 +455,7 @@ button:hover {
     width: 25%;
     margin-right: auto;
     margin-left: auto;
+    gap: 15px;
 }
 
 .ical .line {
@@ -503,5 +504,5 @@ button:hover {
 
 .ical hr {
     width: 100%;
-    color: #EC3B53;
+    background-color: #EC3B53;
 }

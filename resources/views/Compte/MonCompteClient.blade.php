@@ -168,16 +168,20 @@
         <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
         <p class="line_info">Choisissez vos événements à suivre :</p>
         
-        <form action="{{route('createIcal')}}" method="get" class="api">
+        <form action="{{route('createIcal')}}" method="get" class="ical">
+            @csrf
             <label for="reservation">Réservations </label>
             <input type="checkbox" name="reservation" id="reservation">
             <label for="demande_reservation">Demande de réservation </label>
             <input type="checkbox" name="demande_reservation" id="demande_reservation">
-            <label for="date_deb">Du </label>
-            <input type="date" name="date_deb" id="date_deb">
-            <label for="date_fin">Au </label>
-            <input type="date" name="date_fin" id="date_fin">
-            <button class="button_form" type="submit">Exporter</button>
+            <div class="line">
+                <label for="date_deb">Du </label>
+                <input type="date" name="date_deb" id="date_deb">
+                <label for="date_fin">Au </label>
+                <input type="date" name="date_fin" id="date_fin">
+            </div>
+            
+            <button type="submit">Exporter</button>
         </form>
     </div>
 

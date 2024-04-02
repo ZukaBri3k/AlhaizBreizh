@@ -20,13 +20,27 @@ function page_2_to_page_1() {
 }
 
 function page_2_to_page_3() {
-        Swal.fire({
-         icon: "success",
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
             title: "Informations enregistrées",
-            text: "Passage à la page suivante",
             background: '#F6F5EE',
             allowOutsideClick: false,
-    });
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
+   // });
     document.getElementById("page_2").style.display = 'none';
     document.getElementById("page_3").style.display = 'flex';
 }
@@ -42,13 +56,15 @@ function page_4_to_page_3(){
     document.getElementById("page_3").style.display = 'flex';
 }
 function page_4_to_page_5(){
-        Swal.fire({
-         icon: "success",
+         Toast.fire({
+            icon: "success",
             title: "Informations enregistrées",
-            text: "Passage à la page suivante",
             background: '#F6F5EE',
             allowOutsideClick: false,
-    });
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
     document.getElementById("page_4").style.display = 'none';
     document.getElementById("page_5").style.display = 'flex';
 }
@@ -57,13 +73,15 @@ function page_5_to_page_4(){
     document.getElementById("page_4").style.display = 'block';
 }
 function page_5_to_page_6(){
-        Swal.fire({
-         icon: "success",
+        Toast.fire({
+            icon: "success",
             title: "Informations enregistrées",
-            text: "Passage à la page suivante",
             background: '#F6F5EE',
             allowOutsideClick: false,
-    });
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
     document.getElementById("page_5").style.display = 'none';
     document.getElementById("page_6").style.display = 'flex';
 }
@@ -72,24 +90,28 @@ function page_6_to_page_5(){
     document.getElementById("page_5").style.display = 'flex';
 }
 function page_6_to_page_7(){
-        Swal.fire({
-         icon: "success",
+         Toast.fire({
+            icon: "success",
             title: "Informations enregistrées",
-            text: "Passage à la page suivante",
             background: '#F6F5EE',
             allowOutsideClick: false,
-    });
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
     document.getElementById("page_6").style.display = 'none';
     document.getElementById("page_7").style.display = 'flex';
 }
 function page_7_to_page_8(){
-        Swal.fire({
-         icon: "success",
+        Toast.fire({
+            icon: "success",
             title: "Informations enregistrées",
-            text: "Passage à la page suivante",
             background: '#F6F5EE',
             allowOutsideClick: false,
-    });
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
     document.getElementById("page_7").style.display = 'none';
     document.getElementById("page_8").style.display = 'flex';
 }
@@ -266,13 +288,15 @@ function validatePage3() {
             
         return false;
     }
-        Swal.fire({
-         icon: "success",
+        Toast.fire({
+            icon: "success",
             title: "Informations enregistrées",
-            text: "Passage à la page suivante",
             background: '#F6F5EE',
             allowOutsideClick: false,
-    });
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
     page_3_to_page_4();
 }
 
@@ -428,12 +452,14 @@ function displaySelectedImage(imageNumber) {
 }
 
 function saveAndSubmitForm() {
-            Swal.fire({
+             Toast.fire({
             icon: "success",
-            title:"Données enregistrer",
-            text:"Merci d'avoir compléter ce formulaire, votre logement à été ajouter à notre base de donnée",
+            title: "Informations enregistrées",
             background: '#F6F5EE',
             allowOutsideClick: false,
+            customClass: {
+                title: 'generation_cle'
+            },
         });
     const imageForm = document.getElementById("selectedHousing");
     imageForm.submit();

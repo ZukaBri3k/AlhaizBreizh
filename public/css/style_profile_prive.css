@@ -467,3 +467,14 @@ button:hover {
     border: 1px solide #EC3B53;
     border-radius: 6px;
 }
+
+.ical button[type="submit"] {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background: #F6F5EE;
+    color: #EC3B53;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-style: normal;
+}

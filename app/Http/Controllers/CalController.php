@@ -61,8 +61,6 @@ if ($date) {
     public function createIcal(Request $request)
     {
         $id_pers = Auth::user()->id;
-        //$reservation = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = true", [$id_pers]);
-        //$devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);
         $token = DB::select("select token from ical where id_personne = ? and date_deb = ? and date_fin = ? and reserv_suivi = ? and devis_suivi = ?", [$id_pers, $request->date_deb, $request->date_fin, $request->reservation == 'on', $request->demande_reservation == 'on']);
 
         if($token == null) {

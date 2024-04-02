@@ -4,6 +4,7 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.0/css/countrySelect.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/inscription.css')}}">
     <meta charset="UTF-8">
@@ -15,10 +16,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.0/js/countrySelect.min.js"></script>
     <x-Navbar></x-Navbar>
     <main class="container">
         <h1 class="text-center">Création de votre compte client</h1>
-        <form name="inscription" action="{{route('client_register')}}" method="get">
+        <form name="inscription" action="{{route('client_register')}}" method="post" enctype='multipart/form-data'>
+        @csrf
+
         <div class="row lapage">
             <div class="col-md-6">
                 <h2>Informations Personnelles publiques</h2>
@@ -62,36 +67,29 @@
                     <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control" maxlength="60" required>
 
                     <label for="pays_pers">*Pays:</label>
-                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays"
-                        class="form-control" maxlength="25" required>
+                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="France" class="form-control" required>
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery("#pays_pers").countrySelect();
+                        });
+                    </script>
 
-                        <label for="profile-pic">
+                    <label for="profile_pic" class="champ_img">
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
                     </label>
-                    <input type="file" id="profile-pic" name="profile-pic" style="display: none;">
-                    <div id="profile-pic-message"></div>
-                    <div id="profile-pic-preview"></div>
+                    <input type="file" id="profile_pic" name="profile_pic" style="display: none;">
+
+                    <img id="image_pp_previsu" src="{{asset('img/pp_profile.png')}}" class="pp">
                     <script>
-                        document.getElementById('profile-pic').addEventListener('change', function () {
-                            var fileInput = this;
-                            var file = fileInput.files[0];
+                        document.getElementById('profile_pic').addEventListener('change', function(e) {
+                            var reader = new FileReader();
 
-                            if (file) {
-                                var reader = new FileReader();
-
-                                reader.onload = function (e) {
-                                    var previewElement = document.getElementById('profile-pic-preview');
-                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="Profile Preview" style="max-width: 100%;">';
-
-                                    var fileName = fileInput.value.split('\\').pop();
-                                    var message = "Photo de profil enregistrée : " + fileName;
-
-                                    document.getElementById('profile-pic-message').innerText = message;
-                                };
-
-                                reader.readAsDataURL(file);
+                            reader.onload = function(event) {
+                                document.getElementById('image_pp_previsu').src = event.target.result;
                             }
+
+                            reader.readAsDataURL(e.target.files[0]);
                         });
                     </script>
                 </div>
@@ -102,7 +100,7 @@
                 <div class="form-container">
                     <label for="adresse_pers">*Adresse:</label>
                     <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Entrez votre adresse"
-                        class="form-control" maxlength="60" required>
+                        class="form-control" maxlength="60" pattern="^[a-zA-Z0-9\\s,',\\-]*$" required>
 
                     <label for="code_postal_pers">*Code Postal:</label>
                     <input type="text" id="code_postal_pers" name="code_postal_pers" placeholder="Entrez votre code postal"

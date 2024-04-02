@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search/dist/leaflet-search.min.css" />
     <script src="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.js"></script>
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
@@ -26,7 +26,7 @@
         <h2>Logements les mieux notés :</h2>
         <div class="liste-card">
             @foreach ($logements as $logement)
-                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
+                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}" ville="{{$logement->ville_logement}}"></x-Card>
             @endforeach
         </div>
     </section>
@@ -34,113 +34,329 @@
     <div id="mapid" style="height: 500px;">
     </div>
     
-    <script type="text/javascript">
-        /*tabCard.forEach((carte) => {
-            var carte.classList[2] = L.marker([48.4500000, -2.5555], {name: 'carte.classList[2]'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is carte.classList[2].').on('click', function () { this.openPopup(); });
-        });*/
-        var Dinan     = L.marker([48.4500000, -2.0333300], {name: 'Dinan'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Dinan.').on('click', function () { this.openPopup(); });
-        var Lorient   = L.marker([47.7500000, -3.3666700], {name: 'Lorient'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Lorient.').on('click', function () { this.openPopup(); });
-        var Rennes    = L.marker([48.1119800, -1.6742900], {name: 'Rennes'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Rennes.').on('click', function () { this.openPopup(); });
-        var Brest     = L.marker([48.4000000, -4.4833300], {name: 'Brest'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> This is Brest.').on('click', function () { this.openPopup(); });
-        var Hennebont = L.marker([47.8051200, -3.2733700], {name: 'Hennebont'}).bindPopup('<img src="tresbeau.png" alt="Image Description" class="popup-image"/> Parc de Ewan, Hennebont.').on('click', function () { this.openPopup(); });
-
-        var Appartements = L.layerGroup([Lorient]);
-        var Villa = L.layerGroup([Brest]);
-        var Maison = L.layerGroup([Rennes]);
-        var Bateau = L.layerGroup([Dinan]);
-        var Mhote = L.layerGroup([Dinan]);
-        var Chote = L.layerGroup([Dinan]);
-        var Cabane = L.layerGroup([Hennebont]);
-        var Caravane = L.layerGroup([Dinan]);
-        
-        var markers = [Dinan, Lorient, Rennes, Brest, Hennebont];
-
-        for (var i = 0; i < markers.length; i++) {
-            markers[i].on('mouseover', function (e) {
-                e.target.setIcon(new L.Icon.Default({ iconSize: [32, 52], iconAnchor: [15, 45] }));
-            });
-
-            markers[i].on('mouseout', function (e) {
-                e.target.setIcon(new L.Icon.Default({ iconSize: [25, 41], iconAnchor: [12, 41] }));
-            });
-        }
-
-        var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        });
-
-        var osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'
-        });
-
-        var openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
-        });
-
-        var bzh = L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        });
-
-        var map = L.map('mapid', {
-            center: [47.8051200, -3.2733700],
-            zoom: 7 ,
-            layers: [osm, Appartements, Villa, Maison, Bateau, Mhote, Chote, Cabane, Caravane],
+<script type="text/javascript">
+    var mymap = L.map('mapid', {
+            center: [47.9991200, -3.2733700],
+            zoom: 8,
             gestureHandling: true,
             gestureHandlingOptions: {
-                duration: 1000, //5 secs
+                duration: 1000,
                 text: {
                     touch: "Utilisez deux doigts pour déplacer la carte",
-                    scroll: "Utiliser CTRL + scroll pour zoomer la carte",  
+                    scroll: "Utiliser CTRL + scroll pour zoomer la carte",
                     scrollMac: "Utiliser \u2318 + scroll pour zoomer la carte"
                 }
             }
         });
 
-        var baseMaps = {
-            "OpenStreetMap": osm,
-            "<span style='color: red'>OpenStreetMap.HOT</span>": osmHOT,
-            "BZH": bzh
+    //ajout de la carte
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(mymap);
+
+    //empecher le scroll
+    mymap.scrollWheelZoom.disable();
+
+    //ajout des marqueurs
+    var markerGroup = L.layerGroup();
+
+    //récupération des coordonnées des villes
+    async function getCoordinates(cityName) {
+        try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?city=${cityName}&format=json`);
+            const data = await response.json();
+
+            if (data.length > 0) {
+                const latitude = parseFloat(data[0].lat);
+                const longitude = parseFloat(data[0].lon);
+                return [latitude, longitude];
+            } else {
+                throw new Error("No results found");
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+            throw error; // Rejette l'erreur pour être gérée plus tard
+        }
+    }
+
+    // Obtention de toutes les villes des logements
+    var cities = [
+        @foreach ($logementsRecents as $logement)
+            "{{ $logement->ville_logement }}",
+        @endforeach
+    ];
+
+    console.log("villes : " + cities);
+
+    //obtention des autres infos que la ville :
+    var logements = [
+        @foreach ($logementsRecents as $logement)
+            {
+                id: "{{ $logement->id }}",
+                libelle: "{{ $logement->libelle_logement }}",
+                prix: "{{ $logement->prix_logement }}",
+                nature: "{{ $logement->nature_logement }}",
+            },
+        @endforeach
+    ];
+
+    console.log('logements :', logements.map(logement => JSON.stringify(logement)));
+
+    logements.forEach(logement => {
+        console.log('id :', logement.id);
+        console.log('libelle :', logement.libelle);
+        console.log('prix :', logement.prix);
+        console.log('nature :', logement.nature);
+    });
+
+    async function addMarkersForAllCities(cities, logements) {
+        for (let i = 0; i < cities.length; i++) {
+            const coords = await getCoordinates(cities[i]);
+            if (coords) {
+                const marker = L.marker(coords);
+                const logement = logements[i];
+                const imageUrl = 'https://site-sae-ubisoufte.bigpapoo.com/storage/logement' + logement.id + '/img0.jpg';
+                marker.bindPopup(`
+                    <img src="${imageUrl}" alt="Image du logement" style="width: 150px;"><br/>
+                    <strong>${logement.libelle}</strong><br/>
+                    Nature: ${logement.nature}<br/>
+                    Prix: ${logement.prix}<br/>
+                    <a href="/logement/${logement.id}/details">Voir les détails</a>
+                `).on('click', function () { this.openPopup(); });
+
+                // Ajout de la propriété 'name' au marqueur
+                marker.options.name = cities[i];
+
+                markerGroup.addLayer(marker);
+            }
+        }
+    }
+
+    // Ajout des marqueurs pour toutes les villes
+    addMarkersForAllCities(cities, logements);
+
+
+    var baseMaps = {
+        "carte classique": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(mymap),
+        "carte en relief": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+        }),
+        "carte en breton": L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }),
+        "carte humanitaire": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'
+        })
+    };
+
+    var overlayMaps = {
+        @foreach ($logementsRecents as $logement)
+            "{{ $logement->nature_logement }}": markerGroup,
+        @endforeach
+    };
+
+    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+
+
+
+    // Ajout du controle de recherche
+    var searchControl = new L.Control.Search({
+        layer: markerGroup,
+        propertyName: 'name',
+        marker: false,
+        moveToLocation: function (latlng, title, map) {
+            map.setView(latlng, 13);
+        }
+    });
+
+    searchControl.on('search:locationfound', function (e) {
+        e.layer.openPopup();
+    });
+
+    mymap.addControl(searchControl);
+
+</script>
+
+
+
+
+
+
+
+
+
+
+    <script>
+    /*async function getCoordinates(cityName) {
+        try {
+            console.log('Recherche de coordonnées pour', cityName);
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?city=${cityName}&format=json`);
+            const data = await response.json();
+
+            if (data.length > 0) {
+                const latitude = parseFloat(data[0].lat);
+                const longitude = parseFloat(data[0].lon);
+                return [latitude, longitude];
+            } else {
+                throw new Error("No results found");
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+            throw error; // Rejette l'erreur pour être gérée plus tard
+        }
+    }
+
+    var logementId = "{{ $logement->id }}";
+    console.log("logementId : " + logementId); // Affichez l'ID du logement pour le débogage
+
+        async function createMarker(cityName, logementId, imageUrl, housingType, customIcon) {
+            console.log('Création du marqueur pour', cityName); // Affichez le nom de la ville pour le débogage
+        const coordinates = await getCoordinates(cityName);
+
+        // Utilisez L.marker avec l'icône personnalisée
+        const marker = L.marker(coordinates, {
+            icon: customIcon,
+            name: cityName,
+            housingType: housingType
+        });
+
+        const popupContent = document.createElement('div');
+        popupContent.innerHTML = '<img src="' + imageUrl + '" alt="Image de couverture de la maison" style="width: 150px;"><br>Logement situé à ' + cityName + '.';
+        popupContent.addEventListener('click', function () {
+            window.location.href = '/logement/' + logementId + '/details';
+        });
+        marker.bindPopup(popupContent).on('click', function () { this.openPopup(); });
+
+        return marker;
+    }
+
+    console.log("chargement des cartes..."); // Affichez un message pour le débogage
+    document.addEventListener('DOMContentLoaded', async (event) => {
+        let ListeCard = document.querySelectorAll(".autres .lienCard");
+        let tabCard = Array.from(ListeCard);
+        console.log("tabCard : " + tabCard); // Affichez les cartes pour le débogage
+
+        // Récupérez les villes uniques des cartes
+        const cities = [];
+        const logementTypes = [];
+        const markerGroups = {};
+        const markers = [];
+
+        const myIcon = L.icon({
+            iconUrl: "{{ asset('img/loger.png') }}",
+            iconSize: [45, 45],
+            iconAnchor: [-1, 40],
+            popupAnchor: [24, -40]
+        });
+
+        for (const carte of tabCard) {
+            const logementId = carte.classList[4];
+            const imageUrl = 'https://site-sae-ubisoufte.bigpapoo.com/storage/logement' + logementId + '/img0.jpg';
+            const city = carte.classList[3];
+            const housingType = carte.classList[2];
+            console.log("city : " + city); // Affichez la ville pour le débogage
+
+            if (city && !cities.includes(city)) {
+                cities.push(city);
+            }
+
+            if (housingType && !logementTypes.includes(housingType)) {
+                logementTypes.push(housingType);
+            }
+
+            const marker = await createMarker(city, logementId, imageUrl, housingType, myIcon);
+
+            if (!markerGroups[housingType]) {
+                markerGroups[housingType] = L.layerGroup();
+            }
+
+            markerGroups[housingType].addLayer(marker);
+        }
+
+        console.log("villes : " + cities); // Affichez les villes pour le débogage
+        console.log("types de logement : " + logementTypes); // Affichez les types de logement pour le débogage
+
+        const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        });
+
+        const osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'
+        });
+
+        const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+        });
+
+        const bzh = L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        });
+
+        console.log("initialisation de la carte..."); // Affichez un message pour le débogage
+        const map = L.map('mapid', {
+            center: [47.9991200, -3.2733700],
+            zoom: 8,
+            layers: [osm].concat(Object.values(markerGroups)),
+            gestureHandling: true,
+            gestureHandlingOptions: {
+                duration: 1000,
+                text: {
+                    touch: "Utilisez deux doigts pour déplacer la carte",
+                    scroll: "Utiliser CTRL + scroll pour zoomer la carte",
+                    scrollMac: "Utiliser \u2318 + scroll pour zoomer la carte"
+                }
+            }
+        });
+
+        const baseMaps = {
+            "carte classique": osm,
+            "carte en relief": openTopoMap,
+            "carte en breton": bzh,
+            "carte humanitaire": osmHOT
         };
 
-        var overlayMaps = {
-            "Appartements": Appartements,
-            "Villa": Villa,
-            "Maison": Maison,
-            "Bateau": Bateau,
-            "Mhote": Mhote,
-            "Chote": Chote,
-            "Cabane": Cabane,
-            "Caravane": Caravane,
-        };
+        const overlayMaps = {};
+        for (const housingType in markerGroups) {
+            overlayMaps[housingType] = markerGroups[housingType];
+        }
 
-        var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+        const layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-        layerControl.addBaseLayer(openTopoMap, "OpenTopoMap");
-
-        var allLogements = L.layerGroup([Appartements, Villa, Maison, Bateau, Mhote, Chote, Cabane, Caravane]);
-
-        var searchControl = new L.Control.Search({
-            layer: allLogements,
+        // Créez le contrôle de recherche initial
+        const searchControl = new L.Control.Search({
+            layer: L.layerGroup(Object.values(markerGroups).flatMap(group => group.getLayers())),
             propertyName: 'name',
             marker: false,
-            moveToLocation: function(latlng, title, map) {
+            moveToLocation: function (latlng, title, map) {
                 map.setView(latlng, 13);
             }
         });
 
-        searchControl.on('search:locationfound', function(e) {
+        searchControl.on('search:locationfound', function (e) {
             e.layer.openPopup();
         });
 
         map.addControl(searchControl);
 
-        map.scrollWheelZoom.disable();
+        map.on('overlayadd', function (e) {
+            L.layerGroup(Object.values(markerGroups)).addLayer(markerGroups[e.name]);
+        });
 
-        var mapOverlay = document.getElementById('map-overlay');
-    </script>
+        map.on('overlayremove', function (e) {
+            L.layerGroup(Object.values(markerGroups)).removeLayer(markerGroups[e.name]);
+        });
+    });*/
+</script>
+
 
     <section class="autres">
         <h2>Nos logements les plus récents</h2>
@@ -193,7 +409,7 @@
         </div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)
-                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}"></x-Card>
+                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}" ville="{{$logement->ville_logement}}"></x-Card>
             @endforeach
             <p id="msgFiltreVide" style="display: none;">Aucun logement ne correspond à vos critères de recherche</p>
             <script>

@@ -35,21 +35,7 @@
                     <option value="M.">M.</option>
                     <option value="MME.">MME.</option>
                 </select>
-                    <script>
-                        function showOptions() {
-                            var select = document.getElementById('civilite_pers');
-                            select.innerHTML = ''; // Efface l'option civilité
-
-                            // Ajoute les options
-                            var options = ['none', 'M.', 'MME.'];
-                            options.forEach(function (option) {
-                                var optionElement = document.createElement('option');
-                                optionElement.value = option;
-                                optionElement.text = option;
-                                select.add(optionElement);
-                            });
-                        }
-                    </script>
+                    
 
                     <label for="nom_pers">*Nom:</label>
                     <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" pattern="[A-Za-z\-'\s]+" 
@@ -68,11 +54,6 @@
 
                     <label for="pays_pers">*Pays:</label>
                     <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="France" class="form-control" required>
-                    <script>
-                        jQuery(document).ready(function() {
-                            jQuery("#pays_pers").countrySelect();
-                        });
-                    </script>
 
                     <label for="profile_pic" class="champ_img">
                         Insérer une photo de profil :
@@ -81,17 +62,7 @@
                     <input type="file" id="profile_pic" name="profile_pic" style="display: none;">
 
                     <img id="image_pp_previsu" src="{{asset('img/pp_profile.png')}}" class="pp">
-                    <script>
-                        document.getElementById('profile_pic').addEventListener('change', function(e) {
-                            var reader = new FileReader();
-
-                            reader.onload = function(event) {
-                                document.getElementById('image_pp_previsu').src = event.target.result;
-                            }
-
-                            reader.readAsDataURL(e.target.files[0]);
-                        });
-                    </script>
+                    
                 </div>
             </div>
 
@@ -136,19 +107,7 @@
         <button type="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
         <br>
         <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
-        <script>
-        document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
-
-	function verifierMotDePasse() {
-
-		var motDePasse = document.getElementById("password").value;
-        var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
-		
-	
-		if (motDePasse != confirmationMotDePasse) {
-			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
-		}
-	}</script>
+        <script src="{{asset('js/scripy_inscription_clients.js')}}">
     </main>
     <x-FooterClient></x-FooterClient>
 </body>

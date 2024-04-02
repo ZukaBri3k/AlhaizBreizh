@@ -1,16 +1,41 @@
-document.getElementById("password").addEventListener("blur", verifierMotDePasse);
-document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
+
+                        function showOptions() {
+                            var select = document.getElementById('civilite_pers');
+                            select.innerHTML = ''; // Efface l'option civilité
+
+                            // Ajoute les options
+                            var options = ['none', 'M.', 'MME.'];
+                            options.forEach(function (option) {
+                                var optionElement = document.createElement('option');
+                                optionElement.value = option;
+                                optionElement.text = option;
+                                select.add(optionElement);
+                            });
+                        }
+
+						jQuery(document).ready(function() {
+                            jQuery("#pays_pers").countrySelect();
+                        });
+
+						document.getElementById('profile_pic').addEventListener('change', function(e) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(event) {
+                                document.getElementById('image_pp_previsu').src = event.target.result;
+                            }
+
+                            reader.readAsDataURL(e.target.files[0]);
+                        });
+                    
+						document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
 
 	function verifierMotDePasse() {
 
-		var motDePasse = document.getElementById("password").val();
-		var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").val();
-		console.log(motDePasse);
-		console.log(confirmationMotDePasse)
+		var motDePasse = document.getElementById("password").value;
+        var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
+		
 	
 		if (motDePasse != confirmationMotDePasse) {
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
-		} else {
-			alert("Les mots de passe correspondent.");
 		}
 	}

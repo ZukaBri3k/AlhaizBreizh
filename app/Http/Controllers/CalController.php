@@ -100,7 +100,32 @@ if ($date) {
     }
 
     public function getIcal(Request $request) {
-        dd($request->token);
+        $token = $request->token;
+
+        $res_ical = DB::select('select * from ical where token = ?', [$token]);
+
+        $reservations = DB::select('select * from devis where id_client_devis = ?', [Auth::user()->id]);
+
+        $ical = "BEGIN:VCALENDAR\n";
+        $ical .= "VERSION:2.0\n";
+        $ical .= "PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n";
+        $ical .= "CALSCALE:GREGORIAN\n";
+        $ical .= "METHOD:PUBLISH\n";
+        $ical .= "X-WR-CALNAME:Calendrier\n";
+        $ical .= "X-WR-TIMEZONE:Europe/Paris\n";
+        $ical .= "X-WR-CALDESC:Calendrier\n";
+
+        foreach ($reservations as $reservation) {
+            $ical .= "BEGIN:VEVENT\n";
+            $ical .= "DTSTART:" . Carbon::parse($reservation->date_deb)->format('Ymd\THis\Z') . "\n";
+            $ical .= "DTEND:" . Carbon::parse($reservation->date_fin)->format('Ymd\THis\Z') . "\n";
+            $ical .= "SUMMARY:Réservation\n";
+            $ical .= "END:VEVENT\n";
+        }
+
+        $ical .= "END:VCALENDAR";
+
+        dd($ical);
     }
 }
        

@@ -468,9 +468,13 @@ button:hover {
     border-radius: 6px;
 }
 
-.ical input[type="date"], .ical input[type="checkbox"] {
-    border-color: #EC3B53;
+.ical input[type="date"]  {
+    border: 1px solid #EC3B53;
     background-color: #F6F5EE;
+}
+
+.ical input[type="checkbox"] {
+    width: 15px;
 }
 
 .ical button[type="submit"] {

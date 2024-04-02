@@ -139,6 +139,7 @@ if ($date) {
                     $ical .= "SUMMARY:Demande de devis\n";
                     $ical .= "END:VEVENT\n";
                 }
+            }
 
             $ical .= "END:VCALENDAR";
 

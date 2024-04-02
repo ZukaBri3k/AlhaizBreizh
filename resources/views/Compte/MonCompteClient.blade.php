@@ -177,7 +177,7 @@
             <input type="date" name="date_deb" id="date_deb">
             <label for="date_fin">Au </label>
             <input type="date" name="date_fin" id="date_fin">
-            <button type="submit">Exporter</button>
+            <button class="button_form" type="submit">Exporter</button>
         </form>
     </div>
 

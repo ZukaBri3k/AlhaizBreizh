@@ -100,7 +100,7 @@ if ($date) {
     }
 
     public function getIcal(Request $request) {
-        dd($request);
+        dd($request->token);
     }
 }
        

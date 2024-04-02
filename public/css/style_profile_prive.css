@@ -490,13 +490,12 @@ button:hover {
     font-family: 'Montserrat';
     font-size: 20px;
     width: fit-content;
-
+    padding: 15px;
+    margin-bottom: 20px;
 }
 
 .ical button[type="submit"]:hover {
     background-color: #EC3B53;
     color: #F6F5EE;
     transition: 0.5s;
-    padding: 10%;
-    margin-bottom: 20px;
 }

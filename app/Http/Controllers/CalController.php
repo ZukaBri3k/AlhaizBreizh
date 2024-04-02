@@ -107,7 +107,7 @@ if ($date) {
         if($res_ical != null) {
 
             $res_ical = $res_ical[0];
-            $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ?', [Auth::user()->id, $res_ical->date_deb, $res_ical->date_fin]);
+            $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ?', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
 
             $ical = "BEGIN:VCALENDAR\n";
             $ical .= "VERSION:2.0\n";

@@ -107,8 +107,7 @@ if ($date) {
         if($res_ical != null) {
 
             $res_ical = $res_ical[0];
-            $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ?', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
-
+            
             $ical = "BEGIN:VCALENDAR\n";
             $ical .= "VERSION:2.0\n";
             $ical .= "PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n";
@@ -117,14 +116,29 @@ if ($date) {
             $ical .= "X-WR-CALNAME:Calendrier\n";
             $ical .= "X-WR-TIMEZONE:Europe/Paris\n";
             $ical .= "X-WR-CALDESC:Calendrier\n";
-
-            foreach ($reservations as $reservation) {
-                $ical .= "BEGIN:VEVENT\n";
-                $ical .= "DTSTART:" . Carbon::parse($reservation->date_deb)->format('Ymd\THis\Z') . "\n";
-                $ical .= "DTEND:" . Carbon::parse($reservation->date_fin)->format('Ymd\THis\Z') . "\n";
-                $ical .= "SUMMARY:Réservation\n";
-                $ical .= "END:VEVENT\n";
+            
+            if($res_ical->reserv_suivi == 'true') {
+                $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = true', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
+                
+                foreach ($reservations as $reservation) {
+                    $ical .= "BEGIN:VEVENT\n";
+                    $ical .= "DTSTART:" . Carbon::parse($reservation->date_deb)->format('Ymd\THis\Z') . "\n";
+                    $ical .= "DTEND:" . Carbon::parse($reservation->date_fin)->format('Ymd\THis\Z') . "\n";
+                    $ical .= "SUMMARY:Réservation\n";
+                    $ical .= "END:VEVENT\n";
+                }
             }
+
+            if($res_ical->devis_suivi == 'true') {
+                $devis = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = false', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
+
+                foreach ($devis as $devi) {
+                    $ical .= "BEGIN:VEVENT\n";
+                    $ical .= "DTSTART:" . Carbon::parse($devi->date_deb)->format('Ymd\THis\Z') . "\n";
+                    $ical .= "DTEND:" . Carbon::parse($devi->date_fin)->format('Ymd\THis\Z') . "\n";
+                    $ical .= "SUMMARY:Demande de devis\n";
+                    $ical .= "END:VEVENT\n";
+                }
 
             $ical .= "END:VCALENDAR";
 

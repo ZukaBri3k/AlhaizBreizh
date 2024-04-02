@@ -104,28 +104,32 @@ if ($date) {
 
         $res_ical = DB::select('select * from ical where token = ?', [$token]);
 
-        $reservations = DB::select('select * from devis where id_client_devis = ?', [Auth::user()->id]);
+        if($res_ical != null) {
 
-        $ical = "BEGIN:VCALENDAR\n";
-        $ical .= "VERSION:2.0\n";
-        $ical .= "PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n";
-        $ical .= "CALSCALE:GREGORIAN\n";
-        $ical .= "METHOD:PUBLISH\n";
-        $ical .= "X-WR-CALNAME:Calendrier\n";
-        $ical .= "X-WR-TIMEZONE:Europe/Paris\n";
-        $ical .= "X-WR-CALDESC:Calendrier\n";
+            $res_ical = $res_ical[0];
+            $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ?', [Auth::user()->id, $res_ical->date_deb, $res_ical->date_fin]);
 
-        foreach ($reservations as $reservation) {
-            $ical .= "BEGIN:VEVENT\n";
-            $ical .= "DTSTART:" . Carbon::parse($reservation->date_deb)->format('Ymd\THis\Z') . "\n";
-            $ical .= "DTEND:" . Carbon::parse($reservation->date_fin)->format('Ymd\THis\Z') . "\n";
-            $ical .= "SUMMARY:Réservation\n";
-            $ical .= "END:VEVENT\n";
+            $ical = "BEGIN:VCALENDAR\n";
+            $ical .= "VERSION:2.0\n";
+            $ical .= "PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n";
+            $ical .= "CALSCALE:GREGORIAN\n";
+            $ical .= "METHOD:PUBLISH\n";
+            $ical .= "X-WR-CALNAME:Calendrier\n";
+            $ical .= "X-WR-TIMEZONE:Europe/Paris\n";
+            $ical .= "X-WR-CALDESC:Calendrier\n";
+
+            foreach ($reservations as $reservation) {
+                $ical .= "BEGIN:VEVENT\n";
+                $ical .= "DTSTART:" . Carbon::parse($reservation->date_deb)->format('Ymd\THis\Z') . "\n";
+                $ical .= "DTEND:" . Carbon::parse($reservation->date_fin)->format('Ymd\THis\Z') . "\n";
+                $ical .= "SUMMARY:Réservation\n";
+                $ical .= "END:VEVENT\n";
+            }
+
+            $ical .= "END:VCALENDAR";
+
+            dd($ical);
         }
-
-        $ical .= "END:VCALENDAR";
-
-        dd($ical);
     }
 }
        

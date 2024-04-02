@@ -447,7 +447,7 @@ button:hover {
 
 /******************Partie sur l'abonnement ical*******************/
 
-.ical form {
+.ical {
     display: flex;
     flex-direction: column;
     align-items: center;

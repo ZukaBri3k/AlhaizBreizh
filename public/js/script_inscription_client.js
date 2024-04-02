@@ -36,7 +36,7 @@
         var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
 		console.log(confirmationMotDePasse);
 	
-		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != null) {
+		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "") {
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
 		}
 	}

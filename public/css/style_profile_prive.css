@@ -502,7 +502,6 @@ button:hover {
     transition: 0.5s;
 }
 
-.ical hr {
-    width: 100%;
-    background-color: #EC3B53;
+.underline {
+    border-bottom: 1px solid #EC3B53;
 }

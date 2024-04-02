@@ -170,15 +170,13 @@
         
         <form action="{{route('createIcal')}}" method="get" class="ical">
             @csrf
-            <div class="line">
+            <div class="line underline">
                 <label for="reservation">Réservations </label>
                 <input type="checkbox" name="reservation" id="reservation">
-                <hr>
             </div>
-            <div class="line">
+            <div class="line underline">
                 <label for="demande_reservation">Demande de réservation </label>
                 <input type="checkbox" name="demande_reservation" id="demande_reservation">
-                <hr>
             </div>
             <div class="line">
                 <label for="date_deb">Du </label>

@@ -9,15 +9,7 @@ document.getElementById("retour_page_6").addEventListener("click", page_6_to_pag
 document.getElementById("retour_page_7").addEventListener("click", page_7_to_page_6);
 document.getElementById("retour_page_8").addEventListener("click", page_8_to_page_7);
 
-function page_1_to_page_2() {
-    Swal.fire({
-         icon: "success",
-            title: "Informations enregistrées",
-            text: "Passage à la page suivante",
-            background: '#F6F5EE',
-            allowOutsideClick: false,
-    });
-        
+function page_1_to_page_2() {        
     document.getElementById("page_1").style.display = 'none';
     document.getElementById("page_2").style.display = 'flex';
 }

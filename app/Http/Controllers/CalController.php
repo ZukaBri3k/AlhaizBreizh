@@ -60,6 +60,7 @@ if ($date) {
 
     public function createIcal(Request $request)
     {
+        dd($request);
         $id_pers = Auth::user()->id;
         $reservation = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = true", [$id_pers]);
         $devisEnCours = DB::select("select * from reservation natural join devis where id_client_devis = ? and etat_devis = false", [$id_pers]);

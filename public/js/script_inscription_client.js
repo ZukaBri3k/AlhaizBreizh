@@ -28,8 +28,9 @@
                         });
                     
 						document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
-
+console.log(document.getElementById("confirmerMotDePasse"));
 	function verifierMotDePasse() {
+		console.log("ici");
 
 		var motDePasse = document.getElementById("password").value;
         var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;

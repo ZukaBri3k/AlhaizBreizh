@@ -121,7 +121,7 @@ if ($date) {
                     $ical .= "DTSTART:" . Carbon::parse($devi->date_deb)->format('Ymd\THis\Z') . "\n";
                     $ical .= "DTEND:" . Carbon::parse($devi->date_fin)->format('Ymd\THis\Z') . "\n";
                     $ical .= "SUMMARY:Demande de devis : " . $logement[0]->libelle_logement . "\n";
-                    $ical .= "LOCATION:" . $logement[0]->latitude_logement . "," . $logement[0]->longitude_logement . "\n";
+                    $ical .= "LOCATION:" . $logement[0]->longitude_logement . "," . $logement[0]->latitude_logement . "\n";
                     $ical .= "END:VEVENT\n";
                 }
             }

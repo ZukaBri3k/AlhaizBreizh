@@ -128,7 +128,7 @@ if ($date) {
 
             $ical .= "END:VCALENDAR";
 
-            dd($ical);
+            return $ical;
         }
     }
 }

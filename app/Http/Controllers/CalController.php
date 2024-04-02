@@ -100,10 +100,12 @@ if ($date) {
                 $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = true', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
                 
                 foreach ($reservations as $reservation) {
+                    $logement = DB::select('select libelle_logement, longitude_logement, latitude_logement from devis inner join reservation on devis.ref_devis = reservation.facture_reserv inner join logement on reservation.id_logement_reserv = logement.id_logement where ref_devis = ?', [$reservation->ref_devis]);
                     $ical .= "BEGIN:VEVENT\n";
                     $ical .= "DTSTART:" . Carbon::parse($reservation->date_deb)->format('Ymd\THis\Z') . "\n";
                     $ical .= "DTEND:" . Carbon::parse($reservation->date_fin)->format('Ymd\THis\Z') . "\n";
-                    $ical .= "SUMMARY:Réservation\n";
+                    $ical .= "SUMMARY:Réservation : " . $logement[0]->libelle_logement . "\n";
+                    $ical .= "LOCATION:" . $logement[0]->latitude_logement . "," . $logement[0]->longitude_logement . "\n";
                     $ical .= "END:VEVENT\n";
                 }
             }
@@ -112,10 +114,13 @@ if ($date) {
                 $devis = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = false', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
 
                 foreach ($devis as $devi) {
+                    $logement = DB::select('select libelle_logement, longitude_logement, latitude_logement from devis inner join reservation on devis.ref_devis = reservation.facture_reserv inner join logement on reservation.id_logement_reserv = logement.id_logement where ref_devis = ?', [$devi->ref_devis]);
+
                     $ical .= "BEGIN:VEVENT\n";
                     $ical .= "DTSTART:" . Carbon::parse($devi->date_deb)->format('Ymd\THis\Z') . "\n";
                     $ical .= "DTEND:" . Carbon::parse($devi->date_fin)->format('Ymd\THis\Z') . "\n";
-                    $ical .= "SUMMARY:Demande de devis\n";
+                    $ical .= "SUMMARY:Demande de devis : " . $logement[0]->libelle_logement . "\n";
+                    $ical .= "LOCATION:" . $logement[0]->latitude_logement . "," . $logement[0]->longitude_logement . "\n";
                     $ical .= "END:VEVENT\n";
                 }
             }

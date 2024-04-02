@@ -8,7 +8,17 @@ document.getElementById("retour_page_5").addEventListener("click", page_5_to_pag
 document.getElementById("retour_page_6").addEventListener("click", page_6_to_page_5);
 document.getElementById("retour_page_7").addEventListener("click", page_7_to_page_6);
 document.getElementById("retour_page_8").addEventListener("click", page_8_to_page_7);
-
+const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
 function page_1_to_page_2() {        
     document.getElementById("page_1").style.display = 'none';
     document.getElementById("page_2").style.display = 'flex';
@@ -20,17 +30,7 @@ function page_2_to_page_1() {
 }
 
 function page_2_to_page_3() {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
+        
         Toast.fire({
             icon: "success",
             title: "Informations enregistrées",

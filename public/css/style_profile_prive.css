@@ -453,13 +453,14 @@ button:hover {
     align-items: center;
     justify-content: flex-start;
     width: 50%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .ical .line {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    align-items: space-between;
     margin-top: 2%;
 }
 

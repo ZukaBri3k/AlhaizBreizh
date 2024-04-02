@@ -452,7 +452,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 50%;
+    width: 25%;
     margin-right: auto;
     margin-left: auto;
 }
@@ -490,10 +490,13 @@ button:hover {
     font-family: 'Montserrat';
     font-size: 20px;
     width: fit-content;
+
 }
 
 .ical button[type="submit"]:hover {
     background-color: #EC3B53;
     color: #F6F5EE;
     transition: 0.5s;
+    padding: 10%;
+    margin-bottom: 20px;
 }

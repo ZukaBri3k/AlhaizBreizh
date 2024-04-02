@@ -166,7 +166,7 @@
         <h5>Suivre vos réservations en direct</h5>
         <hr>
         <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
-        <p class="line_info">Choisissez vo événements à suivre :</p>
+        <p class="line_info">Choisissez vos événements à suivre :</p>
         
         <form action="{{route('createIcal')}}" method="get">
             <label for="reservation">Réservations </label>

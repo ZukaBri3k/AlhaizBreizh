@@ -142,8 +142,8 @@
 
 	function verifierMotDePasse() {
 
-		var motDePasse = document.getElementById("password").val();
-		var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").val();
+		var motDePasse = document.getElementById("password").value;
+        var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
 		console.log(motDePasse);
 		console.log(confirmationMotDePasse)
 	

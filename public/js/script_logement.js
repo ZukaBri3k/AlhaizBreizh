@@ -88,7 +88,7 @@ function page_3_to_page_4() {
         const nombreLitsSimples = document.createElement('input');
         nombreLitsSimples.type = 'text';
         nombreLitsSimples.id = `chambres_container_${i}_lits_simples`;
-        nombreLitsSimples.style.borderRadius = '13px';
+        nombreLitsSimples.style.borderRadius = '6px';
         nombreLitsSimples.style.height = '30px';
         nombreLitsSimples.style.width = '50px';
         nombreLitsSimples.style.border = 'none';
@@ -104,7 +104,7 @@ function page_3_to_page_4() {
         const nombreLitsDoubles = document.createElement('input');
         nombreLitsDoubles.type = 'text';
         nombreLitsDoubles.id = `chambres_container_${i}_lits_doubles`;
-        nombreLitsDoubles.style.borderRadius = '13px';
+        nombreLitsDoubles.style.borderRadius = '6px';
         nombreLitsDoubles.style.height = '30px';
         nombreLitsDoubles.style.width = '50px';
         nombreLitsDoubles.style.border = 'none';
@@ -120,9 +120,9 @@ function page_3_to_page_4() {
         const detailsLits = document.createElement('textarea');
         detailsLits.id = `chambres_container_${i}_details_lits`;
         detailsLits.placeholder = 'Saisissez ici (255 caractères max)';
-        detailsLits.style.resize = 'both';
-        detailsLits.style.minWidth = '200px';
-        detailsLits.style.minHeight = '25px';
+        detailsLits.style.resize = 'none';
+        detailsLits.style.Width = '400px';
+        detailsLits.style.Height = '50px';
         chambreDiv.appendChild(detailsLits);
 
         chambresContainer.appendChild(chambreDiv);

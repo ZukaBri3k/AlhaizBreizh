@@ -136,6 +136,23 @@
         <button type="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
         <br>
         <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
+        <script>
+        document.getElementById("password").addEventListener("blur", verifierMotDePasse);
+        document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
+
+	function verifierMotDePasse() {
+
+		var motDePasse = document.getElementById("password").val();
+		var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").val();
+		console.log(motDePasse);
+		console.log(confirmationMotDePasse)
+	
+		if (motDePasse != confirmationMotDePasse) {
+			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
+		} else {
+			alert("Les mots de passe correspondent.");
+		}
+	}</script>
     </main>
     <x-FooterClient></x-FooterClient>
 </body>

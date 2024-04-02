@@ -75,28 +75,7 @@ if ($date) {
                 'devis_suivi' => $request->demande_reservation == 'on'
             ]);
         }
-        
 
-        /* $events = DB::table('calendrier')->get();
-        $ical = "BEGIN:VCALENDAR\n";
-        $ical .= "VERSION:2.0\n";
-        $ical .= "PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n";
-        $ical .= "CALSCALE:GREGORIAN\n";
-        $ical .= "METHOD:PUBLISH\n";
-        $ical .= "X-WR-CALNAME:Calendrier\n";
-        $ical .= "X-WR-TIMEZONE:Europe/Paris\n";
-        $ical .= "X-WR-CALDESC:Calendrier\n";
-        foreach ($events as $event) {
-            $ical .= "BEGIN:VEVENT\n";
-            $ical .= "DTSTART:" . Carbon::parse($event->jour)->format('Ymd\THis\Z') . "\n";
-            $ical .= "DTEND:" . Carbon::parse($event->jour)->addHours(1)->format('Ymd\THis\Z') . "\n";
-            $ical .= "SUMMARY:Réservation\n";
-            $ical .= "END:VEVENT\n";
-        }
-        $ical .= "END:VCALENDAR";
-
-        dd($events); */
-        //return response($ical)->header('Content-Type', 'text/calendar');
     }
 
     public function getIcal(Request $request) {
@@ -117,7 +96,7 @@ if ($date) {
             $ical .= "X-WR-TIMEZONE:Europe/Paris\n";
             $ical .= "X-WR-CALDESC:Calendrier\n";
             
-            if($res_ical->reserv_suivi == 'true') {
+            if($res_ical->reserv_suivi == true) {
                 $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = true', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
                 
                 foreach ($reservations as $reservation) {
@@ -129,7 +108,7 @@ if ($date) {
                 }
             }
 
-            if($res_ical->devis_suivi == 'true') {
+            if($res_ical->devis_suivi == true) {
                 $devis = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = false', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
 
                 foreach ($devis as $devi) {

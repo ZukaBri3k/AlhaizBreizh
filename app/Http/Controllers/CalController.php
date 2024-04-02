@@ -128,7 +128,7 @@ if ($date) {
 
             $ical .= "END:VCALENDAR";
 
-            return $ical;
+            return response($ical)->header('Content-Type', 'text/calendar');
         }
     }
 }

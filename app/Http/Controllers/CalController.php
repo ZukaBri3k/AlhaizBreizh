@@ -106,7 +106,7 @@ if ($date) {
                     $ical .= "DTSTART:" . Carbon::parse($reservation->date_deb)->format('Ymd\THis\Z') . "\n";
                     $ical .= "DTEND:" . Carbon::parse($reservation->date_fin)->format('Ymd\THis\Z') . "\n";
                     $ical .= "SUMMARY:Réservation : " . $logement[0]->libelle_logement . "\n";
-                    $ical .= "LOCATION:" . $logement[0]->latitude_logement . "," . $logement[0]->longitude_logement . "\n";
+                    $ical .= "LOCATION:" . $logement[0]->longitude_logement . "," . $logement[0]->latitude_logement . "\n";
                     $ical .= "END:VEVENT\n";
                 }
             }

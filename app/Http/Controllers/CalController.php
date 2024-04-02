@@ -69,35 +69,41 @@ if ($date) {
             $token = $this->genererToken();
         }
 
-        foreach ($reservation as $reserv) {
-            $check = DB::select("select * from ical where token = ? and id_reserv = ? and date_deb = ? and date_fin = ?", [$token, $reserv->id_reserv, $reserv->date_deb, $reserv->date_fin]);
-
-            if (count($check) == 0) {
-
-                DB::table('ical')->insert([
-                    'token' => $token,
-                    'id_reserv' => $reserv->id_reserv,
-                    'id_logement' => $reserv->id_logement_reserv,
-                    'etat_devis' => $reserv->etat_devis,
-                    'date_deb' => $reserv->date_deb,
-                    'date_fin' => $reserv->date_fin,
-                    'id_personne' => $id_pers
-                ]);              
+        if($request->reservation == "on") {
+            foreach ($reservation as $reserv) {
+                $check = DB::select("select * from ical where token = ? and id_reserv = ? and date_deb = ? and date_fin = ?", [$token, $reserv->id_reserv, $reserv->date_deb, $reserv->date_fin]);
+    
+                if (count($check) == 0) {
+    
+                    DB::table('ical')->insert([
+                        'token' => $token,
+                        'id_reserv' => $reserv->id_reserv,
+                        'id_logement' => $reserv->id_logement_reserv,
+                        'etat_devis' => $reserv->etat_devis,
+                        'date_deb' => $reserv->date_deb,
+                        'date_fin' => $reserv->date_fin,
+                        'id_personne' => $id_pers
+                    ]);              
+                }
             }
         }
 
-        /* foreach ($devisEnCours as $devis) {
+        foreach ($devisEnCours as $devis) {
+            $check = DB::select("select * from ical where token = ? and id_reserv = ? and date_deb = ? and date_fin = ?", [$token, $reserv->id_reserv, $reserv->date_deb, $reserv->date_fin]);
 
-            DB::table('ical')->insert([
-                'token' => $token,
-                'id_reserv' => $devis->id_reserv,
-                'id_logement' => $devis->id_logement_reserv,
-                'etat_devis' => $devis->etat_devis,
-                'date_deb' => $devis->date_deb,
-                'date_fin' => $devis->date_fin,
-                'id_personne' => $id_pers
-            ]);
-        } */
+            if (count($check) == 0) {
+                DB::table('ical')->insert([
+                    'token' => $token,
+                    'id_reserv' => $devis->id_reserv,
+                    'id_logement' => $devis->id_logement_reserv,
+                    'etat_devis' => $devis->etat_devis,
+                    'date_deb' => $devis->date_deb,
+                    'date_fin' => $devis->date_fin,
+                    'id_personne' => $id_pers
+                ]);
+            }
+
+        }
         
 
         /* $events = DB::table('calendrier')->get();

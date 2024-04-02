@@ -101,7 +101,7 @@ if ($date) {
                 
                 foreach ($reservations as $reservation) {
                     $logement = DB::select('select libelle_logement, longitude_logement, latitude_logement from devis inner join reservation on devis.ref_devis = reservation.facture_reserv inner join logement on reservation.id_logement_reserv = logement.id_logement where ref_devis = ?', [$reservation->ref_devis]);
-                    dd($logement);
+
                     $ical .= "BEGIN:VEVENT\n";
                     $ical .= "DTSTART:" . Carbon::parse($reservation->date_deb)->format('Ymd\THis\Z') . "\n";
                     $ical .= "DTEND:" . Carbon::parse($reservation->date_fin)->format('Ymd\THis\Z') . "\n";

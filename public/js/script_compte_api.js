@@ -81,32 +81,7 @@ for (var i = 0; i < deleteLinks.length; i++) {
             },
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Supprimer !",
-                    text: "Votre clé API à bien été supprimer.",
-                    icon: "success",
-                    confirmButtonColor: "#21610B",
-                    background: '#F6F5EE',
-                    allowOutsideClick: false,
-                    customClass: {
-                        title: 'generation_cle'
-                    },
-                    //En dessous je fait la redirection après la confirmation de la suppression de la clé API
-                }).then(() => {
-                    window.location.href = url;
-                });
-            } else {
-                Swal.fire({
-                    title: "Annuler !",
-                    text: "Votre clé API n'a pas été supprimer.",
-                    icon: "error",
-                    confirmButtonColor: "#21610B",
-                    background: '#F6F5EE',
-                    allowOutsideClick: false,
-                    customClass: {
-                        title: 'generation_cle'
-                    },
-                });
+                window.location.href = url;
             }
         });
     });
@@ -120,16 +95,14 @@ for (var i = 0; i < deleteLinks.length; i++) {
 document.querySelector('.api').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    Swal.fire({
+    Toast.fire({
         title: "La clé a bien été créée",
         icon: "success",
-        confirmButtonColor: "#21610B",
-        confirmButtonText: "OK",
         background: '#F6F5EE',
         customClass: {
             title: 'generation_cle'
         },
-        allowOutsideClick: false,
+        allowOutsideClick: true,
     }).then((result) => {
         if (result.isConfirmed) {
             this.submit();
@@ -218,35 +191,8 @@ cloturer.addEventListener('click', function(event) {
                     }
                 },
                 allowOutsideClick: () => !Swal.isLoading()
-            }).then((result) => {
-                if(trigger === false) {
-                    Swal.fire({
-                        title: "Annuler !",
-                        text: "Votre compte n'a pas été supprimer.",
-                        icon: "error",
-                        confirmButtonColor: "#21610B",
-                        background: '#F6F5EE',
-                        allowOutsideClick: false,
-                        customClass: {
-                            title: 'popupFeedBack'
-                        },
-                    });
-                }
-            });
-        } else {
-            Swal.fire({
-                title: "Annuler !",
-                text: "Votre compte n'a pas été supprimer.",
-                icon: "error",
-                confirmButtonColor: "#21610B",
-                background: '#F6F5EE',
-                allowOutsideClick: false,
-                customClass: {
-                    title: 'popupFeedBack'
-                },
             });
         }
-    });
 });
 
 function checkIcalInputs(e) {
@@ -276,3 +222,32 @@ function checkIcalInputs(e) {
         messageErreur.style.visibility = "visible";
     }
 }
+
+let btnDelIcal = document.getElementsByClassName('delIcal')
+
+for (var i = 0; i < btnDelIcal.length; i++) {
+    btnDelIcal[i].addEventListener('click', function(event) {
+        event.preventDefault();
+        var url = this.href;
+
+        Swal.fire({
+            title: "Êtes vous sûr de vouloir supprimer ce lien d'abonnement",
+            text: "Tous les agendas synchronisés avec ce lien ne seront plus mis à jour !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#21610B",
+            cancelButtonColor: "#EC3B53",
+            background: '#F6F5EE',
+            cancelButtonText: "Annuler",
+            confirmButtonText: "Confirmer",
+            allowOutsideClick: false,
+            customClass: {
+                title: 'generation_cle'
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {               
+                window.location.href = url;
+            }
+        });
+    });
+}});

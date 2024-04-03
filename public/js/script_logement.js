@@ -245,7 +245,7 @@ function validateForm() {
                 Swal.fire({
             icon: "error",
             title:"Erreur",
-            text:"Veuillez séléctionner un type de logement",
+            text:"Veuillez sélectionner un type de logement",
             background: '#F6F5EE',
             allowOutsideClick: false,
         });
@@ -417,7 +417,7 @@ function validatePage7() {
                 Swal.fire({
             icon: "error",
             title:"Erreur",
-            text:"Veuillez saisir le prix par nuit",
+            text:"Veuillez saisir le prix par nuits",
             background: '#F6F5EE',
             allowOutsideClick: false,
         });

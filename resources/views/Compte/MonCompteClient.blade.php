@@ -205,8 +205,9 @@
                     <tr>
                         <td>{{ $i->reserv_suivi ? '✅' : '❌' }}</td>
                         <td>{{ $i->devis_suivi ? '✅' : '❌' }}</td>
-                        <td><button id={{$i->token}}>Copier</button></td>
+                        <td><button id="{{$i->token}}">Copier</button></td>
                     </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

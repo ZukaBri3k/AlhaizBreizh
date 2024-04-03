@@ -132,6 +132,15 @@ if ($date) {
             return response($ical)->header('Content-Type', 'text/calendar');
         }
     }
+
+    public function delIcal(Request $request) {
+        $token = $request->token;
+        $id_personne = Auth::user()->id;
+
+        DB::delete('delete from ical where token = ? and id_personne = ?', [$token, $id_personne]);
+
+        return redirect()->route('myClientAccountIcal', ['id' => Auth::user()->id]);
+    }
 }
        
     

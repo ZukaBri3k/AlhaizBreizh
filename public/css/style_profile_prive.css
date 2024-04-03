@@ -544,8 +544,10 @@ button:hover {
 #listeLien .line a {
     color: #EC3B53;
     text-decoration: none;
-    padding: 15px;
+    padding: 1px 6px;
+    border-radius: 6px;
     border: 1px solid #EC3B53;
+    font-family: 'Montserrat-Light', Arial;
 }
 
 #listeLien .line a:hover {

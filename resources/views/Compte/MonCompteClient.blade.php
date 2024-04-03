@@ -202,6 +202,7 @@
                         <td>Date début</td>
                         <td>Date fin</td>
                         <td>Lien</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -219,7 +220,7 @@
                 </tbody>
             </table>
         @else
-            <p>Aucun lien généré</p>
+            <p class="icalErreur">Aucun lien généré</p>
         @endif
     </div>
 

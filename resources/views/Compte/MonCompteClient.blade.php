@@ -193,17 +193,19 @@
                     $ical = DB::table('ical')->where('id_personne', Auth::user()->id)->get();
         @endphp
         
-        @if(count($ical) > 0)              
-            @foreach ($ical as $i)
-                <div class="line" id="listeLien">
-                    <p>Réservation: {{ $i->reserv_suivi ? '✅' : '❌' }}</p>
-                    <p>Devis: {{ $i->devis_suivi ? '✅' : '❌' }}</p>
-                    <p>{{ $i->date_deb }}</p>
-                    <p>{{ $i->date_fin }}</p>
-                    <button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button>
-                    <a href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a>
-                </div>
-            @endforeach
+        @if(count($ical) > 0) 
+            <div id="listeLien">
+                @foreach ($ical as $i)
+                    <div class="line">
+                        <p>Réservation: {{ $i->reserv_suivi ? '✅' : '❌' }}</p>
+                        <p>Devis: {{ $i->devis_suivi ? '✅' : '❌' }}</p>
+                        <p>{{ $i->date_deb }}</p>
+                        <p>{{ $i->date_fin }}</p>
+                        <button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button>
+                        <a href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a>
+                    </div>
+                @endforeach
+            </div>            
         @else
             <p class="icalErreur">Aucun lien généré</p>
         @endif

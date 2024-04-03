@@ -175,8 +175,6 @@ function checkIcalInputs(e) {
     let date_fin = document.getElementById('date_fin');
     let messageErreur = document.getElementById('icalErreur');
 
-    console.log(date_deb.value)
-
     if(!checkboxReservations.checked && !checkboxDevis.checked) {
         e.preventDefault();
         messageErreur.innerHTML = "Veuillez sélectionner au moins une option";

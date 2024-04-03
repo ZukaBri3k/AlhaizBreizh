@@ -48,7 +48,9 @@
     
         if (!regex.test(input.value)) {
             input.setCustomValidity("Seuls les chiffres sont autorisés.");
+            console.log("ici 2");
         } else {
             input.setCustomValidity("");
+            console.log("ici 3");
         }
     });

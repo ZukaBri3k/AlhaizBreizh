@@ -203,7 +203,7 @@
                         <p>{{ $i->date_deb }}</p>
                         <p>{{ $i->date_fin }}</p>
                         <button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button>
-                        <a href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a>
+                        <a href="{{route('delIcal', ['token' => $i->token])}}" onclick="confirmDeleteIcal(event)">Supprimer</a>
                     </div>
                 @endforeach
             </div>            

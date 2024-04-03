@@ -162,7 +162,7 @@
         </div>
     </div>
 
-    <div class="Profile_Privee">
+    <div class="Profile_Privee" id="encreIcal">
         <h5>Suivre vos réservations en direct</h5>
         <hr>
         <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
@@ -189,31 +189,37 @@
         </form>
         <h5>Liste de vos liens générés</h5>
         <hr>
-        <table>
-            <thead>
-                <tr>
-                    <td>Réservation</td>
-                    <td>Devis</td>
-                    <td>Date début</td>
-                    <td>Date fin</td>
-                    <td>Lien</td>
-                </tr>
-            </thead>
-            <tbody>
-                @php
+        @php
                     $ical = DB::table('ical')->where('id_personne', Auth::user()->id)->get();
-                @endphp
-                @foreach ($ical as $i)
+        @endphp
+        
+        @if(count($ical) > 0)
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $i->reserv_suivi ? '✅' : '❌' }}</td>
-                        <td>{{ $i->devis_suivi ? '✅' : '❌' }}</td>
-                        <td>{{ $i->date_deb }}</td>
-                        <td>{{ $i->date_fin }}</td>
-                        <td><button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button></td>
+                        <td>Réservation</td>
+                        <td>Devis</td>
+                        <td>Date début</td>
+                        <td>Date fin</td>
+                        <td>Lien</td>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    
+                    @foreach ($ical as $i)
+                        <tr>
+                            <td>{{ $i->reserv_suivi ? '✅' : '❌' }}</td>
+                            <td>{{ $i->devis_suivi ? '✅' : '❌' }}</td>
+                            <td>{{ $i->date_deb }}</td>
+                            <td>{{ $i->date_fin }}</td>
+                            <td><button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>Aucun lien généré</p>
+        @endif
     </div>
 
     <div class="Profile_Privee">

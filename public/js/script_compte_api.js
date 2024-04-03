@@ -6,7 +6,7 @@ deconnexion.addEventListener('click', function(event) {
     var url = this.href;
 
     Swal.fire({
-        title: "Êtes vous sûr de vouloir vous déconnectez ?",
+        title: "Êtes vous sûr de vouloir vous déconnecter ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#21610B",
@@ -43,7 +43,7 @@ copierTexte = (e, cle) => {
         });
         Toast.fire({
             icon: "success",
-            title: "Votre clé API à été copiée dans le presse papier",
+            title: "Texte copié dans le presse papier",
             background: '#F6F5EE',
             allowOutsideClick: false,
             customClass: {

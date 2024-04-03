@@ -506,3 +506,28 @@ button:hover {
 .underline {
     border-right: 1px solid #EC3B53;
 }
+
+.ical .icalErreur {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ical tbody tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.ical thead tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}

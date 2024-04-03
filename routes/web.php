@@ -129,3 +129,4 @@ Route::fallback(function() {
 
  Route::get('/createIcal', [CalController::class, 'createIcal'])->name('createIcal')->middleware(['auth']);
  Route::get('/getIcal/{token}', [CalController::class, 'getIcal'])->name('getIcal');
+ Route::get('/delIcal/{token}', [CalController::class, 'delIcal'])->name('getIcal');

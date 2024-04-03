@@ -449,9 +449,9 @@ button:hover {
 
 .ical {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 25%;
     margin-right: auto;
     margin-left: auto;
@@ -476,7 +476,7 @@ button:hover {
 .ical input[type="date"]  {
     border: 1px solid #EC3B53;
     background-color: #F6F5EE;
-    margin: 10px;
+    padding: 10px;
 }
 
 .ical input[type="checkbox"] {
@@ -493,7 +493,6 @@ button:hover {
     font-size: 20px;
     width: fit-content;
     padding: 15px;
-    margin-bottom: 20px;
 }
 
 .ical button[type="submit"]:hover {
@@ -503,5 +502,5 @@ button:hover {
 }
 
 .underline {
-    border-bottom: 1px solid #EC3B53;
+    border-right: 1px solid #EC3B53;
 }

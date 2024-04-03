@@ -88,33 +88,6 @@ for (var i = 0; i < deleteLinks.length; i++) {
 }
 
 
-
-
-
-//Ici mon JS pour la génération de la clé API
-document.querySelector('.api').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    Toast.fire({
-        title: "La clé a bien été créée",
-        icon: "success",
-        background: '#F6F5EE',
-        customClass: {
-            title: 'generation_cle'
-        },
-        allowOutsideClick: true,
-    }).then((result) => {
-        if (result.isConfirmed) {
-            this.submit();
-        }
-    });
-});
-
-
-
-
-
-
 //Ici mon JS pour la suppression d'un compte
 var cloturer = document.getElementById('cloturer');
 
@@ -224,6 +197,7 @@ function checkIcalInputs(e) {
 }
 
 let btnDelIcal = document.getElementsByClassName('delIcal')
+console.log(btnDelIcal)
 
 for (var i = 0; i < btnDelIcal.length; i++) {
     btnDelIcal[i].addEventListener('click', function(event) {

@@ -561,3 +561,9 @@ button:hover {
 .icalErreur {
     text-align: center;
 }
+
+.icalVraiErreur {
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    visibility: hidden;
+}

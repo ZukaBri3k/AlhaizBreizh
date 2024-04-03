@@ -194,6 +194,8 @@
                 <tr>
                     <td>Réservation</td>
                     <td>Devis</td>
+                    <td>Date début</td>
+                    <td>Date fin</td>
                     <td>Lien</td>
                 </tr>
             </thead>
@@ -205,7 +207,9 @@
                     <tr>
                         <td>{{ $i->reserv_suivi ? '✅' : '❌' }}</td>
                         <td>{{ $i->devis_suivi ? '✅' : '❌' }}</td>
-                        <td><button id="{{$i->token}}">Copier</button></td>
+                        <td>{{ $i->date_deb }}</td>
+                        <td>{{ $i->date_fin }}</td>
+                        <td><button onclick='copierTexte(event, {{ "https://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}})' >Copier</button></td>
                     </tr>
                 @endforeach
             </tbody>

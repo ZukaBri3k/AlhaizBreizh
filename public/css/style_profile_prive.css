@@ -443,3 +443,127 @@ button:hover {
     padding-bottom: 10%;
     margin-left: 25%;
 }
+
+
+/******************Partie sur l'abonnement ical*******************/
+
+.ical {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.ical .line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 45px;
+}
+
+.ical input {
+    margin: 2vw;
+    border: 1px solide #EC3B53;
+    border-radius: 6px;
+}
+
+.ical input[type="date"]  {
+    border: 1px solid #EC3B53;
+    background-color: #F6F5EE;
+    padding: 10px;
+}
+
+.ical input[type="checkbox"] {
+    width: 15px;
+}
+
+.ical button[type="submit"] {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background: #F6F5EE;
+    color: #EC3B53;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    width: fit-content;
+    padding: 15px;
+}
+
+.ical button[type="submit"]:hover {
+    background-color: #EC3B53;
+    color: #F6F5EE;
+    transition: 0.5s;
+}
+
+.underline {
+    border-right: 1px solid #EC3B53;
+}
+
+.ical .icalErreur {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#listeLien {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+#listeLien .line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#listeLien .line button {
+    width: fit-content;
+}
+
+#listeLien .line p {
+    margin-bottom: 0;
+}
+
+#listeLien .line a {
+    color: #EC3B53;
+    text-decoration: none;
+    padding: 1px 6px;
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    font-family: 'Montserrat', Arial;
+    background-color: #F6F5EE;
+}
+
+#listeLien .line a:hover {
+    background-color: #EC3B53;
+    color: #F6F5EE;
+    transition: 0.5s;
+}
+
+.icalErreur {
+    text-align: center;
+}
+
+.icalVraiErreur {
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    visibility: hidden;
+}

@@ -6,7 +6,7 @@ deconnexion.addEventListener('click', function(event) {
     var url = this.href;
 
     Swal.fire({
-        title: "Êtes vous sûr de vouloir vous déconnectez ?",
+        title: "Êtes vous sûr de vouloir vous déconnecter ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#21610B",
@@ -43,7 +43,7 @@ copierTexte = (e, cle) => {
         });
         Toast.fire({
             icon: "success",
-            title: "Votre clé API à été copiée dans le presse papier",
+            title: "Texte copié dans le presse papier",
             background: '#F6F5EE',
             allowOutsideClick: false,
             customClass: {
@@ -248,3 +248,21 @@ cloturer.addEventListener('click', function(event) {
         }
     });
 });
+
+function checkIcalInputs(e) {
+    let checkboxReservations = document.getElementById('reservation');
+    let checkboxDevis = document.getElementById('demande_reservation');
+    let date_deb = document.getElementById('date_deb');
+    let date_fin = document.getElementById('date_fin');
+    let messageErreur = document.getElementById('icalErreur');
+
+    if(!checkboxReservations.checked && !checkboxDevis.checked) {
+        e.preventDefault();
+        messageErreur.innerHTML = "Veuillez sélectionner au moins une option";
+        messageErreur.style.visibility = "visible";
+    } else if(date_deb > date_fin) {
+        e.preventDefault();
+        messageErreur.innerHTML = "La date de début doit être inférieure à la date de fin";
+        messageErreur.style.visibility = "visible";
+    }
+}

@@ -181,6 +181,56 @@
         </div>
     </div>
 
+    <div class="Profile_Privee" id="encreIcal">
+        <h5>Suivre vos réservations en direct</h5>
+        <hr>
+        <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
+        <p class="line_info">Choisissez vos événements à suivre :</p>
+        
+        <form action="{{route('createIcal')}}" method="get" class="ical">
+            @csrf
+            <div class="line underline">
+                <label for="reservation">Réservations </label>
+                <input type="checkbox" name="reservation" id="reservation">
+            </div>
+            <div class="line underline">
+                <label for="demande_reservation">Demande de réservation </label>
+                <input type="checkbox" name="demande_reservation" id="demande_reservation">
+            </div>
+            <div class="line">
+                <label for="date_deb">Du </label>
+                <input type="date" name="date_deb" id="date_deb">
+                <label for="date_fin">Au </label>
+                <input type="date" name="date_fin" id="date_fin">
+            </div>
+            
+            <button type="submit" onclick="checkIcalInputs(event)">Exporter</button>
+        </form>
+        <p class="icalErreur icalVraiErreur" id="icalErreur">Erreur</p>
+        <h5>Liste de vos liens générés</h5>
+        <hr>
+        @php
+                    $ical = DB::table('ical')->where('id_personne', Auth::user()->id)->get();
+        @endphp
+        
+        @if(count($ical) > 0) 
+            <div id="listeLien">
+                @foreach ($ical as $i)
+                    <div class="line">
+                        <p>Réservation: {{ $i->reserv_suivi ? '✅' : '❌' }}</p>
+                        <p>Devis: {{ $i->devis_suivi ? '✅' : '❌' }}</p>
+                        <p>{{ $i->date_deb }}</p>
+                        <p>{{ $i->date_fin }}</p>
+                        <button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button>
+                        <a href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a>
+                    </div>
+                @endforeach
+            </div>            
+        @else
+            <p class="icalErreur">Aucun lien généré</p>
+        @endif
+    </div>
+
     <div class="Profile_Privee">
         <h5>Déconnexion</h5>
         <hr>

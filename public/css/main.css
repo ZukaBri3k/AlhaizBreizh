@@ -460,6 +460,62 @@ nav {
     margin: 10px -10px;
 }
 
+#prixMin, #prixMax {
+    border: 1px solid #EC3B53;
+}
+
+#btnfiltre {
+    border: 1px solid #EC3B53;
+    color: #EC3B53;
+    background-color: #F6F5EE;
+}
+
+#btnfiltre:hover {
+    border: 1px solid #EC3B53;
+    color: #F6F5EE;
+    background-color: #EC3B53;
+    transition: 0.4s;
+}
+
+#prixSlider {
+    width: 60%;
+    height: 20px; /* réduisez la hauteur ici */
+    background: #FAFAFA;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.noUi-handle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #EC3B53;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+
+#prixSlider .noUi-base {
+    background: #CCC;
+}
+
+#prixSlider .noUi-connect {
+    background: #EC3B53;
+}
+
+#prixSlider .noUi-tooltip {
+    display: none;
+}
+
+#prixSlider.noUi-active .noUi-tooltip {
+    display: block;
+}
 /***********************************************************************************************************
 ************************************************************************************************************
 ************************************************************************************************************

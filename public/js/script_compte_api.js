@@ -248,3 +248,19 @@ cloturer.addEventListener('click', function(event) {
         }
     });
 });
+
+function checkIcalInputs(e) {
+    let checkboxReservations = document.getElementById('reservation');
+    let checkboxDevis = document.getElementById('demande_reservation');
+    let date_deb = document.getElementById('date_deb');
+    let date_fin = document.getElementById('date_fin');
+    let messageErreur = document.getElementById('icalErreur');
+
+    if(!checkboxReservations.checked && !checkboxDevis.checked) {
+        e.preventDefault();
+        messageErreur.innerHTML = "Veuillez sélectionner au moins une option";
+    } else if(date_deb > date_fin) {
+        e.preventDefault();
+        messageErreur.innerHTML = "La date de début doit être inférieure à la date de fin";
+    }
+}

@@ -197,8 +197,8 @@ function checkIcalInputs(e) {
 
 let btnDelIcal = document.getElementsByClassName("delIcal")
 
-btnDelIcal.forEach(element => {
-    element.addEventListener('click', function(event) {
+for(let i = 0; i < btnDelIcal.length; i++) {
+    btnDelIcal[i].addEventListener('click', function(event) {
         e.preventDefault();
         var url = this.href;
 

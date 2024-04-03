@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: "Montserrat-Light";
+    font-weight: 400;
+    src: url("fonts/Montserrat-Light.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Montserrat-ExtraLight";
+    font-weight: 400;
+    src: url("fonts/Montserrat-ExtraLight.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "RocaOne";
+    font-weight: 400;
+    src: url("fonts/RocaOne-Rg.woff2") format("woff2");
+  }
+  body {
+    background-color: #F6F5EE;
+  }
+  
+  .erreur_404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 460px;
+  }
+  .erreur_404 h1 {
+    font-family: RocaOne;
+    font-size: 3em;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    color: #EC3B53;
+  }
+  .erreur_404 p {
+    font-family: Montserrat;
+    font-size: 1.5em;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+  }
+  .erreur_404 a {
+    font-family: Montserrat;
+    font-size: 1.5em;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: #EC3B53;
+    text-decoration: none;
+    border: solid 2px #EC3B53;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin-top: 3vh;
+  }
+  .erreur_404 a:hover {
+    background-color: #EC3B53;
+    color: #EDECE2;
+    transition: 0.5s;
+  }/*# sourceMappingURL=404.css.map */

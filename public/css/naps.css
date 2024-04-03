@@ -1,0 +1,37 @@
+@font-face {
+	font-family: "RocaOne";
+	font-weight: 400;
+	src: url("fonts/RocaOne-Rg.woff2") format("woff2");
+    /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
+}
+
+body {
+    background-color: #F6F5EE !important;
+}
+
+h1 {
+    color: #EC3B53;
+    height: 10%;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    font-family: 'RocaOne';
+    margin: auto;
+}
+
+.okay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.okay img {
+    width: 50vh;
+    margin: auto;
+}
+
+audio {
+    margin: auto;
+}

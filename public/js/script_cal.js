@@ -79,18 +79,17 @@ document.addEventListener('DOMContentLoaded', function() {
               console.log("Test de startDate:", startDate);
               var date = startDate.toString();
               console.log("Date à envoyer:", date);
-              events=date.toString();
               
-              console.log("Événements à envoyer:", events);
+              console.log("Événements à envoyer:", date);
               data=date;
               console.log("Date à envoyer:", data);
               
               $.ajax({
-                url: "{{ route('ajouter-evenements') }}",  // Utilisation de la fonction route() de Laravel pour générer l'URL
+                url: "  {{ route('ajouter-evenements') }}",  // Utilisation de la fonction route() de Laravel pour générer l'URL
                 type: "POST",
-                dataType: 'json',
+                dataType: 'string',
                 contentType: 'application/json',
-                data: JSON.stringify({ events: date }),  // Utiliser 'date' plutôt que 'events'
+                data: date,  
                 success: function(response) {
                     console.log("Réponse du serveur:", response);
                     alert(response.message);

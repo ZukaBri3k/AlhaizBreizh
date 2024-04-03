@@ -1,12 +1,6 @@
-@font-face {
-    font-family: "Montserrat";
-    src: url("fonts/Montserrat-Regular.woff2") format("woff2");
-    font-weight: 500;
-}
-
 /* Ajout de styles pour le logo */
 .logo {
-    width: 80px; /* Ajustez la taille selon vos besoins */
+    width: 80px; 
     height: auto;
     margin-bottom: 15px;
     margin-left: 1.5%;

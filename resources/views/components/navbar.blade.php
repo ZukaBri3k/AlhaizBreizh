@@ -423,22 +423,7 @@ deconnexionNavBar.forEach((btn) => {
             title: 'generation_cle'
         },
     }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Deconnexion !",
-                text: "Vous allez être déconnecté.",
-                icon: "success",
-                confirmButtonColor: "#21610B",
-                background: '#F6F5EE',
-                allowOutsideClick: false,
-                customClass: {
-                    title: 'generation_cle'
-                },
-                //En dessous je fait la redirection après la confirmation de la suppression de la clé API
-            }).then(() => {
-                window.location.href = url;
-            });
-          }
+        window.location.href = url;
       });
   });
 });

@@ -13,7 +13,9 @@
 
     <div class="Titre">
         <h1>Information de votre compte client</h1>
-        <button style="display: none">Modifier</button>
+        <a href="{{ route('modifierClient') }}">
+            <button class="button_modif">Modifier</button>
+        </a>
     </div>
     <div class="Profile_Public">
         <h5>Profil public</h5>
@@ -21,7 +23,11 @@
         <div class="Donnees">
             <div class="pp">
                 <p>Photo de profil</p>
-                <img src="{{asset('img/pp_profile.png')}}">
+                @if($personnes->photo_pers == "pp_profile.png")
+                    <img src="{{ asset('img/pp_profile.png' )}}">
+                @else
+                    <img src="{{ asset('pp/pp' . $personnes->id . '/' . $personnes->photo_pers )}}">
+                @endif
             </div>
             <div class="donnees_precise">
                 <div class="elem">
@@ -154,6 +160,25 @@
                 <button class="button_form" type="submit">+ Créer sa nouvelle clé secrète</button>
             </form>
         </div>
+    </div>
+
+    <div class="Profile_Privee">
+        <h5>Suivre vos réservations en direct</h5>
+        <hr>
+        <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
+        <p class="line_info">Choisissez vo événements à suivre :</p>
+        
+        <form action="{{route('createIcal')}}" method="get">
+            <label for="reservation">Réservations </label>
+            <input type="checkbox" name="reservation" id="reservation">
+            <label for="demande_reservation">Demande de réservation </label>
+            <input type="checkbox" name="demande_reservation" id="demande_reservation">
+            <label for="date_deb">Du </label>
+            <input type="date" name="date_deb" id="date_deb">
+            <label for="date_fin">Au </label>
+            <input type="date" name="date_fin" id="date_fin">
+            <button type="submit">Exporter</button>
+        </form>
     </div>
 
     <div class="Profile_Privee">

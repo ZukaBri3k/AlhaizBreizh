@@ -217,14 +217,11 @@ function validatePage3() {
 
 function validatePage4() {
     const nombreDeChambres = parseInt(document.getElementById("nombre_de_chambre_input").value);
-    let valeursChambres = '';
 
     for (let i = 1; i <= nombreDeChambres; i++) {
         const nombreLitsSimples = document.getElementById(`chambres_container_${i}_lits_simples`).value;
         const nombreLitsDoubles = document.getElementById(`chambres_container_${i}_lits_doubles`).value;
         const detailsLits = document.getElementById(`chambres_container_${i}_details_lits`).value;
-        
-        // Vérifier si tous les champs sont remplis
         if (
             nombreLitsSimples.trim() === '' ||
             nombreLitsDoubles.trim() === '' ||
@@ -233,18 +230,10 @@ function validatePage4() {
             alert(`Veuillez remplir tous les champs pour la Chambre ${i} sur la page 4.`);
             return false;
         }
-
-        // Ajouter les valeurs de la chambre à la chaîne valeursChambres
-        valeursChambres += `${nombreLitsSimples},${nombreLitsDoubles},${detailsLits};`;
     }
-
-    // Mettre à jour la valeur du champ input hidden avec les valeurs des chambres
-    document.getElementById("valeurs_chambres_hidden").value = valeursChambres;
     
-    // Passer à la page suivante
     page_4_to_page_5();
 }
-
 
 function selectItem_droite(button, inputId) {
     const allButtons = document.querySelectorAll('#droite_page_2 .image-button');
@@ -395,3 +384,124 @@ function selectItemGauche_page_7(button, inputId) {
       selectedImage.textContent = `Image sélectionnée : ${fileName}`;
     }
 */
+
+
+//Fonction pour présélectionner les boutons
+
+window.addEventListener('load', function() {
+    let natureLogement = document.getElementById('idNatLogement').value;
+    let listeBtnNatLogement = document.getElementsByClassName('btnNatLogement');
+    let validationChampNatLogement = document.getElementById('selectedHousing');
+    listeBtnNatLogement = Array.from(listeBtnNatLogement);
+
+    listeBtnNatLogement.forEach((btn) => {
+        if (btn.value == natureLogement) {
+            btn.classList.add('selected');
+            validationChampNatLogement.value = natureLogement;
+        }
+    });
+
+
+    let typeLogement = document.getElementById('idTypeLogement').value;
+    let listeBtnTypeLogement = document.getElementsByClassName('btnTypeLogement');
+    let validationChampTypeLogement = document.getElementById('selectedSize1');
+    listeBtnTypeLogement = Array.from(listeBtnTypeLogement);
+
+    listeBtnTypeLogement.forEach((btn) => {
+        console.log(btn.value);
+        if (btn.value == typeLogement) {
+            btn.classList.add('selected');
+            validationChampTypeLogement.value = typeLogement;
+        }
+    });
+
+
+    let listeAmenagementLogement = document.getElementById('idAmenagementLogement').value;
+    listeAmenagementLogement = listeAmenagementLogement.split(';');
+    let listeBtnAmenagementLogement = document.getElementsByClassName('btnAmenagementLogement');
+    listeBtnAmenagementLogement = Array.from(listeBtnAmenagementLogement);
+    let validationChampAmenagementLogement = document.getElementById('selectedPage5ValuesGauche');
+    let listeAmenagementPresent = [];
+
+    listeBtnAmenagementLogement.forEach((btn) => {
+        listeAmenagementLogement.forEach((amenagement) => {
+            if (btn.value == amenagement && btn.classList.contains('selected') == false) {
+                btn.classList.add('selected');
+                listeAmenagementPresent.push(btn.value);
+            }
+        });
+        validationChampAmenagementLogement.value = listeAmenagementPresent.join(';');
+    });
+
+
+    let listeEquipementLogement = document.getElementById('idEquipementLogement').value;
+    listeEquipementLogement = listeEquipementLogement.split(';');
+    let listeBtnEquipementLogement = document.getElementsByClassName('btnEquipementLogement');
+    listeBtnEquipementLogement = Array.from(listeBtnEquipementLogement);
+    let validationChampEquipementLogement = document.getElementById('selectedPage5ValuesDroite');
+    let listeEquipementPresent = [];
+
+    listeBtnEquipementLogement.forEach((btn) => {
+        listeEquipementLogement.forEach((amenagement) => {
+            if (btn.value == amenagement && btn.classList.contains('selected') == false) {
+                btn.classList.add('selected');
+                listeEquipementPresent.push(btn.value);
+            }
+        });
+        validationChampEquipementLogement.value = listeEquipementPresent.join(';');
+    });
+
+
+    let listeInstallationLogement = document.getElementById('idInstallationLogement').value;
+    listeInstallationLogement = listeInstallationLogement.split(';');
+    let listeBtnInstallationLogement = document.getElementsByClassName('btnInstallationLogement');
+    listeBtnInstallationLogement = Array.from(listeBtnInstallationLogement);
+    let validationChampInstallationLogement = document.getElementById('selectedPage6ValuesGauche');
+    let listeInstallationPresent = [];
+
+    listeBtnInstallationLogement.forEach((btn) => {
+        listeInstallationLogement.forEach((amenagement) => {
+            if (btn.value == amenagement && btn.classList.contains('selected') == false) {
+                btn.classList.add('selected');
+                listeInstallationPresent.push(btn.value);
+            }
+        });
+        validationChampInstallationLogement.value = listeInstallationPresent.join(';');
+    });
+
+
+    let listeServiceLogement = document.getElementById('idServiceLogement').value;
+    listeServiceLogement = listeServiceLogement.split(';');
+    let listeBtnServiceLogement = document.getElementsByClassName('btnServiceLogement');
+    listeBtnServiceLogement = Array.from(listeBtnServiceLogement);
+    let validationChampServiceLogement = document.getElementById('selectedPage6ValuesDroite');
+    let listeServicePresent = [];
+
+    listeBtnServiceLogement.forEach((btn) => {
+        listeServiceLogement.forEach((amenagement) => {
+            if (btn.value == amenagement && btn.classList.contains('selected') == false) {
+                btn.classList.add('selected');
+                listeInstallationPresent.push(btn.value);
+            }
+        });
+        validationChampInstallationLogement.value = listeInstallationPresent.join(';');
+    });
+
+
+    let listeChargeLogement = document.getElementById('idChargeLogement').value;
+    listeChargeLogement = listeChargeLogement.split(';');
+    let listeBtnChargeLogement = document.getElementsByClassName('btnChargeLogement');
+    listeBtnChargeLogement = Array.from(listeBtnChargeLogement);
+    let validationChampChargeLogement = document.getElementById('selectedPage7ValuesGauche');
+    let listeChargePresent = [];
+
+    listeBtnChargeLogement.forEach((btn) => {
+        listeChargeLogement.forEach((amenagement) => {
+            if (btn.value == amenagement && btn.classList.contains('selected') == false) {
+                btn.classList.add('selected');
+                listeChargePresent.push(btn.value);
+            }
+        });
+        validationChampChargeLogement.value = listeChargePresent.join(';');
+    });
+});

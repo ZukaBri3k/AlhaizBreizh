@@ -59,6 +59,8 @@ Route::prefix('/logement')->group(function() {
     Route::get('/setHL/{id}', [Logement::class, 'setLogementHorsLigne'])->name('setHL')->middleware(['auth', 'isProprietaire']);
 
     Route::get('/delLogement/{id}', [Logement::class, 'delLogement'])->name('delLogement')->middleware(['auth', 'isProprietaire']);
+    Route::get('/updateLogement/{id}', [Logement::class, 'updateLogement'])->name('updateLogement')->middleware(['auth', 'isProprietaire']);
+    Route::post('/updateLogementBDD/{id}', [Logement::class, 'updateLogementBDD'])->name('updateLogementBDD')->middleware(['auth', 'isProprietaire']);
 });
 
 Route::prefix('/account')->group(function () {
@@ -81,11 +83,17 @@ Route::prefix('/account')->group(function () {
 
     Route::get('admin/profil', AccountController::class)->name('myAdminAccount')->middleware(['auth', 'isAdmin']);
     Route::get('updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount')->middleware('auth');
-    Route::get('client_register', [AccountController::class,'client_register'])->name('client_register');
-    route::get('proprio_register',[AccountController::class,'proprio_register'])->name('proprio_register');
+    Route::post('client_register', [AccountController::class,'client_register'])->name('client_register');
+    route::post('proprio_register',[AccountController::class,'proprio_register'])->name('proprio_register');
 
     Route::get('deleteClient', [AccountController::class, 'deleteClient'])->name('deleteClient')->middleware(['auth', 'isClient']);
     Route::get('deleteProprietaire', [AccountController::class, 'deleteProprietaire'])->name('deleteProprietaire')->middleware(['auth', 'isProprietaire']);
+
+    Route::get('modifierClient', [AccountController::class, 'modifierClient'])->name('modifierClient')->middleware(['auth', 'isClient']);
+    Route::post('modificationsClient', [AccountController::class, 'modificationsClient'])->name('modificationsClient')->middleware(['auth', 'isClient']);
+
+    Route::get('modifierProprietaire', [AccountController::class, 'modifierProprietaire'])->name('modifierProprietaire')->middleware(['auth', 'isProprietaire']);
+    Route::post('modificationsProprietaire', [AccountController::class, 'modificationsProprietaire'])->name('modificationsProprietaire')->middleware(['auth', 'isProprietaire']);
 });
 
 Route::post('test', [Logement::class, 'ajouterLogementDB']);
@@ -110,3 +118,13 @@ Route::get('/cgu_cgv', function () {
 Route::get("/spawnLink", function () {
     Artisan::call('storage:link');
 });
+
+Route::get("/naps", function () {
+    return view('naps');
+});
+
+Route::fallback(function() {
+    return view('404');
+ });
+
+ Route::get('/createIcal', [CalController::class, 'createIcal'])->name('createIcal');

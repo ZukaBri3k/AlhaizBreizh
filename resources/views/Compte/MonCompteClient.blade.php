@@ -209,7 +209,7 @@
                         <td>{{ $i->devis_suivi ? '✅' : '❌' }}</td>
                         <td>{{ $i->date_deb }}</td>
                         <td>{{ $i->date_fin }}</td>
-                        <td><button onclick='copierTexte(event, '{{ "https://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')' >Copier</button></td>
+                        <td><button onclick='copierTexte(event, \"{{'https://site-sae-ubisoufte.bigpapoo.com/getIcal/' . $i->token}}\")' >Copier</button></td>
                     </tr>
                 @endforeach
             </tbody>

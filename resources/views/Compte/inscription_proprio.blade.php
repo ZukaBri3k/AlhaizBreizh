@@ -33,21 +33,6 @@
                     <option value="M.">M.</option>
                     <option value="MME.">MME.</option>
                 </select>
-                    <script>
-                        function showOptions() {
-                            var select = document.getElementById('civilite_pers');
-                            select.innerHTML = ''; // Efface l'option civilité
-
-                            // Ajoute les options
-                            var options = ['none', 'M.', 'MME.'];
-                            options.forEach(function (option) {
-                                var optionElement = document.createElement('option');
-                                optionElement.value = option;
-                                optionElement.text = option;
-                                select.add(optionElement);
-                            });
-                        }
-                    </script>
 
             
                     <label for="nom_pers">*Nom:</label>

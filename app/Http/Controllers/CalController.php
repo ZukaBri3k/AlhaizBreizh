@@ -76,7 +76,7 @@ if ($date) {
             ]);
         }
 
-        return redirect()->route('myClientAccountIcal');
+        return redirect()->route('myClientAccountIcal', ['id' => Auth::user()->id]);
     }
 
     public function getIcal(Request $request) {

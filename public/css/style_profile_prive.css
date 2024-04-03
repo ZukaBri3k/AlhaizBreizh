@@ -460,7 +460,7 @@ button:hover {
     flex-wrap: wrap;
 }
 
-.ical .line {
+.line {
     display: flex;
     flex-direction: row;
     align-items: center;

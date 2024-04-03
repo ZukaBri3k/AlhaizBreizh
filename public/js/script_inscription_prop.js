@@ -57,4 +57,4 @@ function showOptions() {
 		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "") {
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
 		}
-    }
+    } 

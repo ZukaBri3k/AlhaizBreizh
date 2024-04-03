@@ -81,7 +81,7 @@
                         class="form-control" required>
 
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
-                    <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
+                    <input type="number" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
                         class="form-control" required>
 
                     <label for="mail_pers">*Adresse E-mail:</label>

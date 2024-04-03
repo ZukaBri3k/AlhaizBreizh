@@ -53,12 +53,7 @@
 
                     <label for="pays_pers">*Pays:</label>
                     <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="France" class="form-control" required>
-                    <script>
-                        jQuery(document).ready(function() {
-                            jQuery("#pays_pers").countrySelect();
-                        });
-                    </script>
-
+                   
                     <label for="profile_pic" class="champ_img">
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
@@ -66,17 +61,7 @@
                     <input type="file" id="profile_pic" name="profile_pic" style="display: none;">
 
                     <img id="image_pp_previsu" src="{{asset('img/pp_profile.png')}}" class="pp">
-                    <script>
-                        document.getElementById('profile_pic').addEventListener('change', function(e) {
-                            var reader = new FileReader();
-
-                            reader.onload = function(event) {
-                                document.getElementById('image_pp_previsu').src = event.target.result;
-                            }
-
-                            reader.readAsDataURL(e.target.files[0]);
-                        });
-                    </script>
+                
                 </div>
             </div>
 
@@ -120,41 +105,6 @@
                     <input type="file" id="id-card" name="id-card" style="display: none;">
                     <div id="id-card-message"></div>
                     <div id="id-card-preview"></div>
-                    <script>
-                        document.getElementById('id-card').addEventListener('change', function () {
-                            var fileInput = this;
-                            var file = fileInput.files[0];
-
-                            if (file) {
-                                var reader = new FileReader();
-
-                                reader.onload = function (e) {
-                                    var previewElement = document.getElementById('id-card-preview');
-                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="ID Card Preview" style="max-width: 100%;">';
-
-                                    var fileName = fileInput.value.split('\\').pop();
-                                    var message = "Carte d'Identité enregistrée : " + fileName;
-
-                                    document.getElementById('id-card-message').innerText = message;
-                                };
-
-                                reader.readAsDataURL(file);
-                            }
-                        });
-                    </script>
-                     <script>
-        document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
-
-	function verifierMotDePasse() {
-
-		var motDePasse = document.getElementById("password").value;
-        var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
-		
-	
-		if (motDePasse != confirmationMotDePasse) {
-			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
-		}
-	}</script>
                 </div>
             </div>
         </div>

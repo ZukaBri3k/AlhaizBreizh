@@ -531,3 +531,8 @@ button:hover {
     align-items: center;
     gap: 50px;
 }
+
+.tableIcal {
+    margin-left: auto;
+    margin-right: auto;
+}

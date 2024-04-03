@@ -262,7 +262,7 @@ function checkIcalInputs(e) {
         e.preventDefault();
         messageErreur.innerHTML = "Veuillez sélectionner au moins une option";
         messageErreur.style.visibility = "visible";
-    } else if(date_deb.value < date_fin.value) {
+    } else if(date_deb.value > date_fin.value) {
         e.preventDefault();
         messageErreur.innerHTML = "La date de début doit être inférieure à la date de fin";
         messageErreur.style.visibility = "visible";

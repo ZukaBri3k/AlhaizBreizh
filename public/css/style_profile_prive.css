@@ -503,4 +503,5 @@ button:hover {
 
 .underline {
     border-right: 1px solid #EC3B53;
+    width: fit-content;
 }

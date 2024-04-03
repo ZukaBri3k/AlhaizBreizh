@@ -530,8 +530,13 @@ button:hover {
     width: fit-content;
     height: 45px;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 #listeLien .line button {
     width: fit-content;
+}
+
+#listeLien .line p {
+    margin-bottom: 0;
 }

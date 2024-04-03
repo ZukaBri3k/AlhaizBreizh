@@ -47,6 +47,7 @@
         console.log("ici");
     
         if (!regex.test(input.value)) {
+            input.value = input.value.slice(0, -1);
             input.setCustomValidity("Seuls les chiffres sont autorisés.");
             console.log("ici 2");
         } else {

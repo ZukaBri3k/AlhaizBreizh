@@ -162,7 +162,7 @@
         </div>
     </div>
 
-    <div class="Profile_Privee sectionIcal" id="encreIcal">
+    <div class="Profile_Privee" id="encreIcal">
         <h5>Suivre vos réservations en direct</h5>
         <hr>
         <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
@@ -194,7 +194,7 @@
         @endphp
         
         @if(count($ical) > 0)
-            <table>
+            <table class="tableIcal">
                 <thead>
                     <tr>
                         <td>Réservation</td>

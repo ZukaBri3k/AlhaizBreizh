@@ -457,6 +457,7 @@ button:hover {
     margin-left: auto;
     gap: 15px;
     margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
 .ical .line {

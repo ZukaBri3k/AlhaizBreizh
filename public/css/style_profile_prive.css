@@ -452,7 +452,7 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 35%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     gap: 15px;
@@ -464,7 +464,6 @@ button:hover {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-top: 2%;
 }
 
 .ical input {

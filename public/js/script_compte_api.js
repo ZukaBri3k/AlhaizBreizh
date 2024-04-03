@@ -263,6 +263,6 @@ function checkIcalInputs(e) {
     } else if(date_deb > date_fin) {
         e.preventDefault();
         messageErreur.innerHTML = "La date de début doit être inférieure à la date de fin";
-        messageErreur.style.display = "block";
+        messageErreur.style.visibility = "visible";
     }
 }

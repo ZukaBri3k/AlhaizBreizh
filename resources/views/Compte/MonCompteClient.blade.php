@@ -187,6 +187,28 @@
             
             <button type="submit">Exporter</button>
         </form>
+        <h5>Liste de vos liens générés</h5>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <td>Réservation</td>
+                    <td>Devis</td>
+                    <td>Lien</td>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                    $ical = DB::table('ical')->where('id_personne', Auth::user()->id)->get();
+                @endphp
+                @foreach ($ical as $i)
+                    <tr>
+                        <td>{{ $i->reserv_suivi ? '✅' : '❌' }}</td>
+                        <td>{{ $i->devis_suivi ? '✅' : '❌' }}</td>
+                        <td><button id="{{$i->token}}">Copier</button></td>
+                    </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="Profile_Privee">

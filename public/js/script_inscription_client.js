@@ -41,18 +41,4 @@
 		}
 	}
 
-    document.getElementById("telephone_pers").addEventListener(onkeydownn,validerNumero);
-
-    function validerNumero() {
-        var numero = document.getElementById("telephone_pers").value;
-        var regex = /^\d+$/;
-
-        if (regex.test(numero)) {
-            // Le numéro est valide
-            return true;
-        } else {
-            // Le numéro n'est pas valide
-            alert("Veuillez entrer uniquement des chiffres dans le champ du numéro de téléphone.");
-            return false;
-        }
-    }
+    

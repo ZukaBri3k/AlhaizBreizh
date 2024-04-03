@@ -512,7 +512,7 @@ button:hover {
     margin-right: auto;
 }
 
-.ical tbody tr {
+.sectionIcal tbody tr {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -522,7 +522,7 @@ button:hover {
     gap: 50px;
 }
 
-.ical thead tr {
+.sectionIcal thead tr {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

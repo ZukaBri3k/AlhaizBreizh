@@ -162,13 +162,13 @@
         </div>
     </div>
 
-    <div class="Profile_Privee ical" id="encreIcal">
+    <div class="Profile_Privee sectionIcal" id="encreIcal">
         <h5>Suivre vos réservations en direct</h5>
         <hr>
         <p class="line_info">Vous souhaitez exporter vos réservations / demande de réservation sur un agenda ?</p>
         <p class="line_info">Choisissez vos événements à suivre :</p>
         
-        <form action="{{route('createIcal')}}" method="get">
+        <form action="{{route('createIcal')}}" method="get" class="ical">
             @csrf
             <div class="line underline">
                 <label for="reservation">Réservations </label>

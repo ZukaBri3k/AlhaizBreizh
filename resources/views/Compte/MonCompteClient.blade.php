@@ -193,32 +193,17 @@
                     $ical = DB::table('ical')->where('id_personne', Auth::user()->id)->get();
         @endphp
         
-        @if(count($ical) > 0)
-            <table class="tableIcal">
-                <thead>
-                    <tr>
-                        <td>Réservation</td>
-                        <td>Devis</td>
-                        <td>Date début</td>
-                        <td>Date fin</td>
-                        <td>Lien</td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    @foreach ($ical as $i)
-                        <tr>
-                            <td>{{ $i->reserv_suivi ? '✅' : '❌' }}</td>
-                            <td>{{ $i->devis_suivi ? '✅' : '❌' }}</td>
-                            <td>{{ $i->date_deb }}</td>
-                            <td>{{ $i->date_fin }}</td>
-                            <td><button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button></td>
-                            <td><a href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a></td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        @if(count($ical) > 0)              
+            @foreach ($ical as $i)
+                <div class="line" id="listeLien">
+                    <p>Réservation: {{ $i->reserv_suivi ? '✅' : '❌' }}</p>
+                    <p>Devis: {{ $i->devis_suivi ? '✅' : '❌' }}</p>
+                    <p>{{ $i->date_deb }}</p>
+                    <p>{{ $i->date_fin }}</p>
+                    <button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button>
+                    <a href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a>
+                </div>
+            @endforeach
         @else
             <p class="icalErreur">Aucun lien généré</p>
         @endif

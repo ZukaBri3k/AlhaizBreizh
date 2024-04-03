@@ -87,6 +87,8 @@ if ($date) {
         if($res_ical != null) {
 
             $res_ical = $res_ical[0];
+            $isProprietaire = DB::select('select * from proprietaire inner join personnes on personnes.id = proprietaire.id_proprio where id = ?', [$res_ical->id_personne]);
+            $isProprietaire = $isProprietaire != null;
             
             $ical = "BEGIN:VCALENDAR\n";
             $ical .= "VERSION:2.0\n";
@@ -98,7 +100,12 @@ if ($date) {
             $ical .= "X-WR-CALDESC:Calendrier\n";
             
             if($res_ical->reserv_suivi == true) {
-                $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = true', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
+
+                if($isProprietaire == true) {
+                    $reservations = DB::select('select * from devis where id_proprio = ? and date_deb >= ? and date_fin <= ? and etat_devis = true', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
+                } else {
+                    $reservations = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = true', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
+                }
                 
                 foreach ($reservations as $reservation) {
                     $logement = DB::select('select libelle_logement, longitude_logement, latitude_logement from devis inner join reservation on devis.ref_devis = reservation.facture_reserv inner join logement on reservation.id_logement_reserv = logement.id_logement where ref_devis = ?', [$reservation->ref_devis]);
@@ -113,7 +120,12 @@ if ($date) {
             }
 
             if($res_ical->devis_suivi == true) {
-                $devis = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = false', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
+
+                if($isProprietaire == true) {
+                    $devis = DB::select('select * from devis where id_proprio = ? and date_deb >= ? and date_fin <= ? and etat_devis = false', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
+                } else {
+                    $devis = DB::select('select * from devis where id_client_devis = ? and date_deb >= ? and date_fin <= ? and etat_devis = false', [$res_ical->id_personne, $res_ical->date_deb, $res_ical->date_fin]);
+                }
 
                 foreach ($devis as $devi) {
                     $logement = DB::select('select libelle_logement, longitude_logement, latitude_logement from devis inner join reservation on devis.ref_devis = reservation.facture_reserv inner join logement on reservation.id_logement_reserv = logement.id_logement where ref_devis = ?', [$devi->ref_devis]);

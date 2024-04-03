@@ -15,7 +15,7 @@
         <div id="texte_page_1" >
             <h2 class="texte_justifie">Dites nous tout sur votre logement !</h2>
             <br>   
-            <p class="texte_justifie">Remplisser ce formulaire afin d'ajouter <br>
+            <p class="texte_justifie">Remplissez ce formulaire afin d'ajouter <br>
 votre logement à ce site, les champs dont les titres sont marqués d'un * (Astérisque) sont obligatoires.</p>
         </div>
             <div id="footer">
@@ -27,7 +27,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
     @csrf
     <div id="page_2" class="page"> 
         <div id="gauche_page_2">
-                <h2 id="titre_colonne_gauche_page_2">De quel nature est votre <br>logement ? *</h2>
+                <h2 id="titre_colonne_gauche_page_2">De quelle nature est votre <br>logement ? *</h2>
                 <div class="button-row">
                     <button type="button" onclick="selectItem(this, 'selectedHousing')" class="image-button boutton_selection" value="Maison">
                         <div class="image-container">

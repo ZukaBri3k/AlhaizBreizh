@@ -260,9 +260,13 @@ function checkIcalInputs(e) {
         e.preventDefault();
         messageErreur.innerHTML = "Veuillez sélectionner au moins une option";
         messageErreur.style.visibility = "visible";
-    } else if(date_deb > date_fin) {
+    } else if(date_deb < date_fin) {
         e.preventDefault();
         messageErreur.innerHTML = "La date de début doit être inférieure à la date de fin";
+        messageErreur.style.visibility = "visible";
+    } else if (date_deb === "" || date_fin === "") {
+        e.preventDefault();
+        messageErreur.innerHTML = "Veuillez remplir les dates";
         messageErreur.style.visibility = "visible";
     }
 }

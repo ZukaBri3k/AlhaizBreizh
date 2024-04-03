@@ -55,3 +55,20 @@
             console.log("ici 3");
         }
     });
+
+
+
+    document.getElementById('code_postal_pers').addEventListener('input', function(event) {
+        const input = event.target;
+        const regex = /^[0-9]+$/;
+        
+    
+        if (!regex.test(input.value)) {
+            input.value = input.value.slice(0, -1);
+            input.setCustomValidity("Seuls les chiffres sont autorisés.");
+            
+        } else {
+            input.setCustomValidity("");
+            
+        }
+    });

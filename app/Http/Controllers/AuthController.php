@@ -21,6 +21,8 @@ class AuthController extends Controller
             'typeCompte' => 'required'
         ]);
 
+        auth()->logout();
+
         if (auth()->attempt(['mail_pers' => $request->mail_pers, "password" => $request->mdp_pers])) {
             $request->session()->regenerate();
             if (in_array('1', explode(' ', auth()->user()->role)) && $request->typeCompte == 'client') {

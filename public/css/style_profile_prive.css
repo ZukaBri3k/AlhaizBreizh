@@ -452,10 +452,11 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 95%;
     margin-right: auto;
     margin-left: auto;
     gap: 15px;
+    margin-bottom: 15px;
 }
 
 .ical .line {
@@ -464,6 +465,7 @@ button:hover {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: 45px;
 }
 
 .ical input {

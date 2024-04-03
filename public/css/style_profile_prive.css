@@ -520,7 +520,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 #listeLien .line {
@@ -556,4 +556,9 @@ button:hover {
     background-color: #EC3B53;
     color: #F6F5EE;
     transition: 0.5s;
+}
+
+.icalErreur {
+    margin-left: auto;
+    margin-right: auto;
 }

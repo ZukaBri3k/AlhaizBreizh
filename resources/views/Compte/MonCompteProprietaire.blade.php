@@ -219,8 +219,8 @@
                     <div class="line">
                         <p>Réservation: {{ $i->reserv_suivi ? '✅' : '❌' }}</p>
                         <p>Devis: {{ $i->devis_suivi ? '✅' : '❌' }}</p>
-                        <p>{{ $i->date_deb }}</p>
-                        <p>{{ $i->date_fin }}</p>
+                        <p>Du {{ $i->date_deb }}</p>
+                        <p> Au{{ $i->date_fin }}</p>
                         <button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button>
                         <a class="delIcal" href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a>
                     </div>

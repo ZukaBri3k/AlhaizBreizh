@@ -195,27 +195,31 @@ function checkIcalInputs(e) {
     }
 }
 
-function confirmDeleteIcal(e) {
-    e.preventDefault();
-    var url = this.href;
+let btnDelIcal = document.getElementsByClassName("delIcal")
 
-    Swal.fire({
-        title: "Êtes vous sûr de vouloir supprimer ce lien d'abonnement",
-        text: "Tous les agendas synchronisés avec ce lien ne seront plus mis à jour !",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#21610B",
-        cancelButtonColor: "#EC3B53",
-        background: '#F6F5EE',
-        cancelButtonText: "Annuler",
-        confirmButtonText: "Confirmer",
-        allowOutsideClick: false,
-        customClass: {
-            title: 'generation_cle'
-        },
-    }).then((result) => {
-        if (result.isConfirmed) {               
-            window.location.href = url;
-        }
-    });
-}
+btnDelIcal.foreach(element => {
+    element.addEventListener('click', function(event) {
+        e.preventDefault();
+        var url = this.href;
+
+        Swal.fire({
+            title: "Êtes vous sûr de vouloir supprimer ce lien d'abonnement",
+            text: "Tous les agendas synchronisés avec ce lien ne seront plus mis à jour !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#21610B",
+            cancelButtonColor: "#EC3B53",
+            background: '#F6F5EE',
+            cancelButtonText: "Annuler",
+            confirmButtonText: "Confirmer",
+            allowOutsideClick: false,
+            customClass: {
+                title: 'generation_cle'
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {               
+                window.location.href = url;
+            }
+        });
+    })
+});

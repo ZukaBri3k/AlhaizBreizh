@@ -41,4 +41,13 @@
 		}
 	}
 
+    document.getElementById('telephone_pers').addEventListener('input', function(event) {
+        const input = event.target;
+        const regex = /^[0-9]+$/;
     
+        if (!regex.test(input.value)) {
+            input.setCustomValidity("Seuls les chiffres sont autorisés.");
+        } else {
+            input.setCustomValidity("");
+        }
+    });

@@ -270,5 +270,9 @@ function checkIcalInputs(e) {
         e.preventDefault();
         messageErreur.innerHTML = "Veuillez remplir les dates";
         messageErreur.style.visibility = "visible";
+    } else if (date_deb.value === date_fin.value) {
+        e.preventDefault();
+        messageErreur.innerHTML = "Les dates ne peuvent pas être identiques";
+        messageErreur.style.visibility = "visible";
     }
 }

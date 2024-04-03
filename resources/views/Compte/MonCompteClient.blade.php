@@ -185,8 +185,9 @@
                 <input type="date" name="date_fin" id="date_fin">
             </div>
             
-            <button type="submit">Exporter</button>
+            <button type="submit" onclick="checkIcalInputs(event)">Exporter</button>
         </form>
+        <p class="icalErreur icalVraiErreur" id="icalErreur">Erreur</p>
         <h5>Liste de vos liens générés</h5>
         <hr>
         @php

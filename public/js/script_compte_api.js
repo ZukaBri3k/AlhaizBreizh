@@ -259,7 +259,7 @@ function checkIcalInputs(e) {
     if(!checkboxReservations.checked && !checkboxDevis.checked) {
         e.preventDefault();
         messageErreur.innerHTML = "Veuillez sélectionner au moins une option";
-        messageErreur.style.display = "block";
+        messageErreur.style.visibility = "visible";
     } else if(date_deb > date_fin) {
         e.preventDefault();
         messageErreur.innerHTML = "La date de début doit être inférieure à la date de fin";

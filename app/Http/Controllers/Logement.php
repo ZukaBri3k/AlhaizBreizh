@@ -111,6 +111,7 @@ class Logement extends Controller
     public function getInfoLogement(Request $request) {
         if(!auth()->check()) {
             $id_role = 0;
+            $bool_resa = false;
         } else {
             if(auth()->user()->role == 1) {
                 $id_role = 1;
@@ -128,6 +129,7 @@ class Logement extends Controller
                 }
             } else {
                 $id_role = 2;
+                $bool_resa = false;
             }
         }
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);

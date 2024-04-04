@@ -1,3 +1,20 @@
+document.addEventListener('DOMContentLoaded', function() {
+    let telephone = document.getElementsByClassName('Telephone');
+
+    for (let i = 0; i < telephone.length; i++) {
+        res = ""
+        for(let j = 0; j < telephone[i].value.length; j++) {
+            if((j + 1) % 2 == 0 && j != 0) {
+                res += telephone[i].value[j] + " ";
+            } else {
+                res += telephone[i].value[j];
+            }
+        }
+        console.log(res);
+        this.value = res;
+    }
+})
+
 let pasChiffre = document.getElementsByClassName('pasChiffre');
 
 for (let i = 0; i < pasChiffre.length; i++) {
@@ -23,6 +40,6 @@ let telephone = document.getElementsByClassName('Telephone');
 for (let i = 0; i < telephone.length; i++) {
     telephone[i].addEventListener('input', function () {
         this.value = this.value.replace(/\s/g, '');
-        this.value = this.value.replace(/(\d{2})(?=\d)/g, ' ');
+        this.value = this.value.replace(/(\d{2})(?=\d)/g, '$1 ');
     })
 }

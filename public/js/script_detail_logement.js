@@ -3,7 +3,7 @@ var toggleElements = document.querySelectorAll('.toggle');
 
 textElements.forEach((textElement, index) => {
     let fullText = textElement.textContent;
-    let shortText = fullText.slice(0, 200) + '...';
+    let shortText = fullText.slice(0, 100) + '...';
 
     textElement.textContent = shortText;
 

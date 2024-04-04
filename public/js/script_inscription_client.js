@@ -1,4 +1,15 @@
 
+const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+    }
+});
                         function showOptions() {
                             var select = document.getElementById('civilite_pers');
                             select.innerHTML = ''; // Efface l'option civilité
@@ -38,7 +49,15 @@
 	
 		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
 
-			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
+            Toast.fire({
+                icon: "error",
+                title: "Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
 		}
 	}
 
@@ -81,22 +100,54 @@ document.getElementById('submit').addEventListener('click', function(event) {
     if (MDP.match(regex_maj))
         if(MDP.match(regex_min)){
             if(MDP.match(regex_chiffre)){
-                //window.location.href=url;
+                Toast.fire({
+                    icon: "success",
+                    title: "Informations enregistrées",
+                    background: '#F6F5EE',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'generation_cle'
+                    },
+                });
             }
             else{
-                alert("il vous manque un chiffre");
+                Toast.fire({
+                    icon: "error",
+                    title: "Le mot de passe doit contenir un chiffre",
+                    background: '#F6F5EE',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'generation_cle'
+                    },
+                });
                 event.preventDefault();
 
             }
         }
         else{
-            alert("Il vous manque une minuscule");
+            Toast.fire({
+                icon: "error",
+                title: "Le mot de passe doit contenir une minuscule",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
             event.preventDefault();
 
         }
 
     else{
-            alert("Il vous manque une Majuscule");
+        Toast.fire({
+            icon: "error",
+            title: "Le mot de passe doit contenir une majuscule",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
             event.preventDefault();
 
         }
@@ -106,10 +157,20 @@ document.getElementById('submit').addEventListener('click', function(event) {
 		console.log(confirmationMotDePasse);
 	
 		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
-
-			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
+            Toast.fire({
+                icon: "error",
+                title: "Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
+			
             event.preventDefault();
 		}
+      
 	}
+
         
 )

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/inscription.css')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modifier votre compte</title>
 </head>
 
 <body>
@@ -122,7 +122,7 @@
                     @endphp
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control Telephone" value="{!! $telephone !!}" maxlength="10" pattern="^\d{10}$" required>
+                        class="form-control Telephone" value="{!! $telephone !!}" maxlength="14" pattern="^\d{10}$" required>
                         
 
                     <label for="mail_pers">*Adresse E-mail:</label>

@@ -421,7 +421,7 @@
           @endif
             <div>
               <p class="note">{!! $values->pseudo_pers !!}</p>
-              <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
+              <p class="commentaire">{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
             </div>
           </div>
           <div class="etoile_div">

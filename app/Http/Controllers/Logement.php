@@ -94,9 +94,14 @@ class Logement extends Controller
         //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
         
         //dd($request->file());
-        for($i = 0; $i < count($request->file()); $i++) {
-            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file()[$i], "img" . ($i - 1) . ".jpg");
-        }
+       $files = $request->file('photo_complementaire_logement');
+
+if ($files) {
+    foreach ($files as $index => $file) {
+        Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $file, "img" . $index . ".jpg");
+    }
+}
+
 
         //dd($APP_URL));
 

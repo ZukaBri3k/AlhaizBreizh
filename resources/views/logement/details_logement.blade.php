@@ -378,8 +378,10 @@
           <h3>{!! $moyenne !!} de moyenne | {!! $nb_com !!} commentaire(s)</h3>
         </div>
       </div>
+      @php
       dd($role);
-      
+      @endphp
+      @if ($role[0]->role == 1)
       <div class="creation_avis">
         <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">
           @csrf
@@ -399,7 +401,7 @@
           </div>
         </form>
       </div>
-      
+      @endif
 
       <hr id="id_hr">
 

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         console.log(res);
-        this.value = res;
+        this.value = res.trim();
     }
 })
 

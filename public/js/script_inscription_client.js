@@ -178,13 +178,11 @@ document.getElementById('iban').addEventListener('input', function(event) {
     var iban = document.getElementById("iban");
     const input = event.target;
     const regex_num = /[0-9]/;
-    const regex_letter = /[a-zA-Z]/; // Modification ici pour inclure les majuscules également
-    console.log("ici");
+    const regex_letter = /[a-zA-Z]/;
 
-    if (iban.value.length < 2) { // Correction ici pour utiliser la propriété value
-        console.log("ici 2");
+    if (iban.value.length < 2) { // Vérification des deux premiers caractères
         if (!regex_letter.test(input.value)) {
-            input.value = "";
+            input.value = input.value.slice(0, -1);
             Toast.fire({
                 icon: "warning",
                 title: "Les deux premiers caractères doivent être des lettres",

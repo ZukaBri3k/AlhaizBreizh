@@ -21,12 +21,14 @@ class AuthController extends Controller
             'typeCompte' => 'required'
         ]);
 
+        $this->logout();
+
         if (auth()->attempt(['mail_pers' => $request->mail_pers, "password" => $request->mdp_pers])) {
             $request->session()->regenerate();
             if (in_array('1', explode(' ', auth()->user()->role)) && $request->typeCompte == 'client') {
-                return redirect()->back();
+                return redirect()->route('myClientAccount', ['id' => auth()->user()->id]);
             } else if (in_array('2', explode(' ', auth()->user()->role)) && $request->get('typeCompte') == 'proprietaire') {
-                return redirect()->back();
+                return redirect()->route('myProprietaireAccount', ['id' => auth()->user()->id]);
             } else if (auth()->user()->role == '3') {
                 return redirect()->route('myAdminAccount');
             } else {

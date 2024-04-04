@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="{{route('devis-client')}}">Messagerie</a></li>
                 <li><a href="{{route('inscription_proprio')}}">Propriétaire</a></li>
-                <li><a href="#">À propos</a></li>
+                <li><a href="{{route('naps')}}">À propos</a></li>
             </ul>
         </div>
         <div class="footer-column">
@@ -36,7 +36,7 @@
         </div>
         <div class=""footer-column>
         <a href="{{route ('myClientAccount', ['id' => $id])}}">
-            <button type="button">Profile</button>
+            <button type="button">Profil</button>
         </a>
         </div>
     </div>
@@ -63,7 +63,7 @@
             <ul>
                 <li><a href="{{route('devis-client')}}">Messagerie</a></li>
                 <li><a href="{{route('inscription_client')}}">Client</a></li>
-                <li><a href="#">À propos</a></li>
+                <li><a href="{{route('naps')}}">À propos</a></li>
             </ul>
         </div>
         <div class="footer-column">
@@ -84,7 +84,7 @@
         </div>
         <div class=""footer-column>
         <a href="{{route ('myProprietaireAccount', ['id' => $id])}}">
-            <button type="button">Profile</button>
+            <button type="button">Profil</button>
         </a>
         </div>
     </div>
@@ -112,7 +112,7 @@
             <h3>Pages</h3>
             <ul>
                 <li><a href="{{route('devis-client')}}">Messagerie</a></li>
-                <li><a href="#">À propos</a></li>
+                <li><a href="{{route('naps')}}">À propos</a></li>
             </ul>
         </div>
         <div class="footer-column">

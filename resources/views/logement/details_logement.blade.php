@@ -392,12 +392,34 @@
                 maxZoom: 19,
             }).addTo(Mamap);
 
-            //mise en place du marqueur
-            var marker = L.marker([{{ $logement->latitude_logement }}, {{ $logement->longitude_logement }}]).addTo(Mamap);
-            console.log(marker);
-            console.log($logement->latitude_logement);
-            console.log($logement->longitude_logement);
-            marker.bindPopup("<b>{{ $logement->libelle_logement }}</b><br>{{ $logement->adresse_logement }}").openPopup();
+            //coordonnées du logement $logement->ville_logement
+            async function getCoordinates(cityName) {
+              try {
+                  const response = await fetch(`https://nominatim.openstreetmap.org/search?city=${cityName}&format=json`);
+                  const data = await response.json();
+
+                  if (data.length > 0) {
+                      const latitude = parseFloat(data[0].lat);
+                      const longitude = parseFloat(data[0].lon);
+                      return [latitude, longitude];
+                  } else {
+                      console.error('No results found for city:', cityName);
+                      return null; // Retourne null si aucune donnée n'est trouvée
+                  }
+              } catch (error) {
+                  console.error('Error:', error.message);
+                  return null; // Retourne null en cas d'erreur
+              }
+          }
+
+          async function main() {
+              const coordinates = await getCoordinates("{{$logement->ville_logement}}");
+              if (coordinates) {
+                  Mamap.setView(coordinates, 13);
+                  L.marker(coordinates).addTo(Mamap);
+              }
+          }
+
         </script>
     <!-- Avis -->
     <hr id="id_hr">

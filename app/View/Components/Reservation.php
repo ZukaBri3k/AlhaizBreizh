@@ -5,12 +5,16 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class Reservation extends Component
 {
     /**
      * Create a new component instance.
      */
+
+    public $role;
+
     public function __construct(
         public string $libelle,
         public string $pseudo,
@@ -32,6 +36,11 @@ class Reservation extends Component
         $this->idreservation = $idreservation;
         $this->prix = $prix;
         $this->natlogement = $natlogement;
+        if(Auth::check()) {
+            $this->role = Auth::user()->role;
+        } else {
+            $this->role = null;
+        }
     }
 
     /**

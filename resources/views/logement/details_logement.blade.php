@@ -441,7 +441,7 @@
       @if(count($role) != 0)
         @if ($bool_resa == true)
         <div class="creation_avis">
-          <form id="formAvis" action="{{route('creation_avis')}}" method="post" class="avis_form">
+          <form id="myForm formAvis" action="{{route('creation_avis')}}" method="post" class="avis_form">
             @csrf
             <div class="rating">
               <span class="star" data-value="5">★</span>

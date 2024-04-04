@@ -113,6 +113,13 @@ if ($files) {
     }
 
     public function getInfoLogement(Request $request) {
+        if (auth()->user() == 1) {
+            $id_role = 1;
+        } elseif(auth()->user() == 2) {
+            $id_role = 2;
+        } else {
+            $id_role = null;
+        }
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
@@ -121,7 +128,7 @@ if ($files) {
         'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
         'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
         'avis' => DB::select('select pseudo_pers, ville_pers, pays_pers, photo_pers, id, com_avis, note_avis from personnes inner join avis on personnes.id = avis.id_personne_avis where id_logement_avis = ?', [intval($request->id)]),
-        'role' => DB::select('select role from personnes where id = ?', [auth()->user()->id])[0]->role,
+        'role' => DB::select('select role from personnes where id = ?', $id_role),
     ]);
     }
 

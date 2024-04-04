@@ -374,13 +374,12 @@
             $note_total = count($avis) == 0 ? 0 : array_sum(array_column($avis, 'note_avis'));
             $moyenne = count($avis) == 0 ? 0 : $note_total / count($avis);
             $nb_com = count($avis);
-            dd($role);
           @endphp
           <h3>{!! $moyenne !!} de moyenne | {!! $nb_com !!} commentaire(s)</h3>
         </div>
       </div>
       
-      @if ($role == 1)
+      @if ($role->role == 1)
       <div class="creation_avis">
         <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">
           @csrf

@@ -19,6 +19,13 @@
     /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
 }
 
+@font-face {
+	font-family: "Montserrat-ExtraLight";
+	font-weight: 400;
+    src: url("/fonts/Montserrat-ExtraLight.woff2") format("woff2");
+}
+
+
 body {
     background-color: #F6F5EE !important;
 }

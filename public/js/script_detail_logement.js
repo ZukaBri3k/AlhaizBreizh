@@ -20,26 +20,26 @@ textElements.forEach((textElement, index) => {
 });
 
 
-// ma popup pour la creation d'un devis
-var devis = document.getElementById('devis_demande');
+//Ici mon JS pour la création d'un devis
+document.querySelector('.devis_demande').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-devis.addEventListener('click', function(event) {
-    event.preventDefault();
-    var url = this.href;
-
-    Swal.fire({
+  Swal.fire({
       title: "Envoyer !",
-      text: "Votre demande à bien été prise en compte !",
+      text: "Votre demande de devis à bien été envoyer !",
       icon: "success",
       confirmButtonColor: "#21610B",
+      confirmButtonText: "OK",
       background: '#F6F5EE',
-      allowOutsideClick: false,
       customClass: {
           title: 'generation_cle'
       },
-    }).then(() => {
-        window.location.href = url;
-    }); 
+      allowOutsideClick: false,
+  }).then((result) => {
+      if (result.isConfirmed) {
+          this.submit();
+      }
+  });
 });
 
 
@@ -63,6 +63,27 @@ devis.addEventListener('click', function(event) {
     }).then((result) => {
         window.location.href = url;
     }); 
+});
+
+document.querySelector('.formAvis').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  Swal.fire({
+      title: "Envoyer !",
+      text: "Votre avis à bien été poster !",
+      icon: "success",
+      confirmButtonColor: "#21610B",
+      confirmButtonText: "OK",
+      background: '#F6F5EE',
+      customClass: {
+          title: 'generation_cle'
+      },
+      allowOutsideClick: false,
+  }).then((result) => {
+      if (result.isConfirmed) {
+          this.submit();
+      }
+  });
 });
 
 

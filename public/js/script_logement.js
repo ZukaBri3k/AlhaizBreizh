@@ -318,7 +318,7 @@ function validatePage4() {
                     Swal.fire({
             icon: "error",
             title:"Erreur",
-            text:"Veuillez remplir tous les champs de(s) chambre(s)",
+            text:"Veuillez remplir tous les champs de la chambre", %i,
             background: '#F6F5EE',
             allowOutsideClick: false,
         });

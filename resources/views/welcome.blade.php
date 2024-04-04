@@ -248,11 +248,11 @@
                     let prixSlider = document.getElementById('prixSlider');
 
                     noUiSlider.create(prixSlider, {
-                        start: [0, 5000], // valeurs de départ
+                        start: [0, 1000], // valeurs de départ
                         connect: true, // relie les deux points de sélection
                         range: {
                             'min': 0, // prix minimum
-                            'max': 5000 // prix maximum
+                            'max': 1000 // prix maximum
                         },
                         tooltips: [true, true] // ajoute des tooltips aux curseurs
                     });

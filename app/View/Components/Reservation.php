@@ -39,7 +39,6 @@ class Reservation extends Component
         $this->natlogement = $natlogement;
         $this->bool_resa = false;
         if(Auth::check()) {
-            $this->id = Auth::user()->id;
             $this->role = Auth::user()->role;
         } else {
             $this->role = null;

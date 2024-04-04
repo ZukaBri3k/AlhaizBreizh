@@ -19,7 +19,7 @@ class DemandeDevisClient extends Component
         public string $id,
         public string $iddevis,
         public string $idreservation,
-        public string $proprietaire_nom
+        public string $nom_proprio
     )
     {
         $this->libelle = $libelle;
@@ -29,7 +29,7 @@ class DemandeDevisClient extends Component
         $this->idlogement = $id;
         $this->iddevis = $iddevis;
         $this->idreservation = $idreservation;
-        $this->proprietaire_nom = $proprietaire_nom;
+        $this->nom_proprio = $nom_proprio;
     }
 
     /**

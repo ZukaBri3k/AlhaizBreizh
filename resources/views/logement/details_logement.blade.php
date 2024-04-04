@@ -329,20 +329,147 @@
         @endif
         <br>
 
-        <div id="Mamap"></div>
-          <script>
-            function initMap() {
-              var uluru = {lat: {{ $logement->latitude_logement }}, lng: {{ $logement->longitude_logement }}};
-              var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: uluru
+        <div id="Mamap" style="height: 200px; width: 100%;"></div>
+        <script type="text/javascript">
+          var mymap = L.map('mapid', {
+                  center: [47.9991200, -3.2733700],
+                  zoom: 8,
+                  gestureHandling: true,
+                  gestureHandlingOptions: {
+                      duration: 1000,
+                      text: {
+                          touch: "Utilisez deux doigts pour déplacer la carte",
+                          scroll: "Utiliser CTRL + scroll pour zoomer la carte",
+                          scrollMac: "Utiliser \u2318 + scroll pour zoomer la carte"
+                      }
+                  }
               });
-              var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-              });
-            }
-          </script>
+
+          //ajout de la carte
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 19,
+              attribution: '© OpenStreetMap'
+          }).addTo(mymap);
+
+          //empecher le scroll
+          mymap.scrollWheelZoom.disable();
+
+          //ajout des marqueurs
+          var markerGroup = L.layerGroup();
+
+          //récupération des coordonnées des villes
+          async function getCoordinates(cityName) {
+              try {
+                  const response = await fetch(`https://nominatim.openstreetmap.org/search?city=${cityName}&format=json`);
+                  const data = await response.json();
+
+                  if (data.length > 0) {
+                      const latitude = parseFloat(data[0].lat);
+                      const longitude = parseFloat(data[0].lon);
+                      return [latitude, longitude];
+                  } else {
+                      console.error('No results found for city:', cityName);
+                      return null; // Retourne null si aucune donnée n'est trouvée
+                  }
+              } catch (error) {
+                  console.error('Error:', error.message);
+                  return null; // Retourne null en cas d'erreur
+              }
+          }
+
+          // Obtention de toutes les villes des logements
+          var cities = [
+              @foreach ($logementsRecents as $logement)
+                  "{{ $logement->ville_logement }}",
+              @endforeach
+          ];
+
+          //obtention des autres infos que la ville :
+          var logements = [
+              @foreach ($logementsRecents as $logement)
+                  {
+                      id: "{{ $logement->id }}",
+                      libelle: "{{ $logement->libelle_logement }}",
+                      prix: "{{ $logement->prix_logement }}",
+                      nature: "{{ $logement->nature_logement }}",
+                  },
+              @endforeach
+          ];
+
+          async function addMarkersForAllCities(cities, logements) {
+              for (let i = 0; i < cities.length; i++) {
+                  const coords = await getCoordinates(cities[i]);
+                  if (coords) {
+                      const latitude = coords[0] + (Math.random() - 0.5) / 100;
+                      const longitude = coords[1] + (Math.random() - 0.5) / 100;
+                      const marker = L.marker([latitude, longitude]);
+                      const logement = logements[i];
+                      const imageUrl = 'https://site-sae-ubisoufte.bigpapoo.com/storage/logement' + logement.id + '/img0.jpg';
+                      marker.bindPopup(`
+                          <img src="${imageUrl}" alt="Image du logement" style="width: 150px;"><br/>
+                          <strong>${logement.libelle}</strong><br/>
+                          Nature: ${logement.nature}<br/>
+                          Prix: ${logement.prix}<br/>
+                          <a href="/logement/${logement.id}/details">Voir les détails</a>
+                      `).on('click', function () { this.openPopup(); });
+
+                      // Ajout de la propriété 'name' au marqueur
+                      marker.options.name = cities[i];
+
+                      markerGroup.addLayer(marker);
+                  }
+              }
+          }
+
+          // Ajout des marqueurs pour toutes les villes
+          addMarkersForAllCities(cities, logements);
+
+
+          var baseMaps = {
+              "carte classique": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  maxZoom: 19,
+                  attribution: '© OpenStreetMap'
+              }).addTo(mymap),
+              "carte en relief": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                  maxZoom: 19,
+                  attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+              }),
+              "carte en breton": L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
+                  maxZoom: 19
+              }),
+              "carte humanitaire": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+                  maxZoom: 19,
+                  attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'
+              })
+          };
+
+          var overlayMaps = {
+              @foreach ($logementsRecents as $logement)
+                  "{{ $logement->nature_logement }}": markerGroup,
+              @endforeach
+          };
+
+          L.control.layers(baseMaps).addTo(mymap);
+
+
+
+          // Ajout du controle de recherche
+          var searchControl = new L.Control.Search({
+              layer: markerGroup,
+              propertyName: 'name',
+              marker: false,
+              moveToLocation: function (latlng, title, map) {
+                  map.setView(latlng, 13);
+              }
+          });
+
+          searchControl.on('search:locationfound', function (e) {
+              e.layer.openPopup();
+          });
+
+          mymap.addControl(searchControl);
+
+      </script>
     </div>
 
       <div class="leStick">

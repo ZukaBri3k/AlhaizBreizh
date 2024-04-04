@@ -110,10 +110,14 @@ class Logement extends Controller
 
     public function getInfoLogement(Request $request) {
         dd(auth()->check());
-        if(endauth()->user()->id) {
-            $id_role = auth()->user()->id;
+        if(!auth()->check()) {
+            $id_role = null;
         } else {
-            $id_role = 0;
+            if(auth()->user()->role == 1) {
+                $id_role = 1;
+            } else {
+                $id_role = 2;
+            }
         }
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  

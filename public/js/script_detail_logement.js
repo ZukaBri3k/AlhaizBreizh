@@ -46,6 +46,7 @@ document.getElementById('devis_demande').addEventListener('click', function(even
 document.getElementById('formAvis').addEventListener('click', function(event) {
   event.preventDefault();
   let url = this.href;
+  console.log(url);
   
   Swal.fire({
       title: "Envoyer !",

@@ -453,6 +453,7 @@
             </div>
             <input type="hidden" name="ratingValue" id="ratingValue" value="5">
             <input type="hidden" name="id" id="id" value="{!! $logement->id_logement !!}">
+            <input type="hidden" name="id_reserv" id="id_reserv" value="{!! $id_reserv->id_reserv !!}">
             <div>
               <label for="note_avis">Commentaire :</label>
               <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>

@@ -453,6 +453,7 @@
         }
       }
     @endphp
+    </div>
     <!-- Fin des avis -->
 
     <x-FooterClient></x-FooterClient>

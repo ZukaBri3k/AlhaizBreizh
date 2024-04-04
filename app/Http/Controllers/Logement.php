@@ -161,7 +161,7 @@ if ($files) {
 
     public function getLogementsClient(Request $request) {
         $id = auth()->user()->id;
-        $logements = DB::select("select * from logement where id_proprio_logement = ?", [$id]);
+        $logements = DB::select("select * from logement where id_proprio_logement = ?", [$id]);        
         
         foreach ($logements as $logement) {
             $logement->lien = "/logement/" . $logement->id_logement . "/details";

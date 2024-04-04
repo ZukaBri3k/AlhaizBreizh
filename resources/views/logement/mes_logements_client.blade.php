@@ -19,6 +19,7 @@
         @endphp
         <div class="listeMesDevis">
         @foreach($tabDevis as $devis)
+            @php dd($tabDevis); @endphp
             <x-DemandeDevisClient libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}" nomproprio="{{$devis->nom_pers}}"></x-DemandeDevisClient>
         @endforeach
         <hr>

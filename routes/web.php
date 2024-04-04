@@ -121,7 +121,7 @@ Route::get("/spawnLink", function () {
 
 Route::get("/naps", function () {
     return view('naps');
-});
+})->name('naps');
 
 Route::fallback(function() {
     return view('404');

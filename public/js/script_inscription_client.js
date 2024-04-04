@@ -180,7 +180,7 @@ document.getElementById('iban').addEventListener('input', function(event) {
     const regex_num = /[0-9]/;
     const regex_letter = /[a-zA-Z]/;
 
-    if (iban.value.length < 2) { // Vérification des deux premiers caractères
+    if (iban.value.length <= 2) { // Vérification des deux premiers caractères
         if (!regex_letter.test(input.value)) {
             input.value = input.value.slice(0, -1);
             Toast.fire({

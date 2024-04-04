@@ -3,7 +3,7 @@ var toggleElements = document.querySelectorAll('.toggle');
 
 textElements.forEach((textElement, index) => {
     let fullText = textElement.textContent;
-    let shortText = fullText.slice(0, 200) + '...';
+    let shortText = fullText.slice(0, 100) + '...';
 
     textElement.textContent = shortText;
 
@@ -20,25 +20,52 @@ textElements.forEach((textElement, index) => {
 });
 
 
-function showPopup() {
-    swal({
-      title: "Succès",
-      text: "Votre demande de devis a été créée avec succès.",
-      icon: "success",
-      background: "#F6F5EE",
-      button: {
-        text: "Ok",
-        closeModal: false,
-        className: "customButton"
-      },
-      closeOnClickOutside: false,
-      dangerMode: true,
-    });
-  }
+//Ici mon JS pour la création d'un devis
+/* document.getElementById('devis_demande').addEventListener('click', function(event) {
+  event.preventDefault();
+  let url = this.href;
+  console.log(url);
 
-  function submitForm() {
-      document.getElementById('myForm').submit(); // Soumet le formulaire
-  }
+  Swal.fire({
+      title: "Envoyer !",
+      text: "Votre demande de devis à bien été envoyer !",
+      icon: "success",
+      confirmButtonColor: "#21610B",
+      confirmButtonText: "OK",
+      background: '#F6F5EE',
+      customClass: {
+          title: 'generation_cle'
+      },
+      allowOutsideClick: false,
+  }).then((result) => {
+      if (result.isConfirmed) {
+          //window.location.href = url;
+      }
+  });
+});
+
+document.getElementById('formAvis').addEventListener('click', function(event) {
+  event.preventDefault();
+  let url = this.href;
+  console.log(url);
+  
+  Swal.fire({
+      title: "Envoyer !",
+      text: "Votre avis à bien été poster !",
+      icon: "success",
+      confirmButtonColor: "#21610B",
+      confirmButtonText: "OK",
+      background: '#F6F5EE',
+      customClass: {
+          title: 'generation_cle'
+      },
+      allowOutsideClick: false,
+  }).then((result) => {
+      if (result.isConfirmed) {
+          window.location.href = url;
+      }
+  });
+}); */
 
 
 const stars = document.querySelectorAll(".star");

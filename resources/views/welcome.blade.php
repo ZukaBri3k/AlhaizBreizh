@@ -12,6 +12,8 @@
     <script src="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.js"></script>
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nouislider@14.6.4/distribute/nouislider.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.6.4/distribute/nouislider.min.js"></script>
 </head>
 <body id="accueil">
     <x-Navbar></x-Navbar>
@@ -72,11 +74,12 @@
                 const longitude = parseFloat(data[0].lon);
                 return [latitude, longitude];
             } else {
-                throw new Error("No results found");
+                console.error('No results found for city:', cityName);
+                return null; // Retourne null si aucune donnée n'est trouvée
             }
         } catch (error) {
             console.error('Error:', error.message);
-            throw error; // Rejette l'erreur pour être gérée plus tard
+            return null; // Retourne null en cas d'erreur
         }
     }
 
@@ -86,8 +89,6 @@
             "{{ $logement->ville_logement }}",
         @endforeach
     ];
-
-    console.log("villes : " + cities);
 
     //obtention des autres infos que la ville :
     var logements = [
@@ -101,20 +102,13 @@
         @endforeach
     ];
 
-    console.log('logements :', logements.map(logement => JSON.stringify(logement)));
-
-    logements.forEach(logement => {
-        console.log('id :', logement.id);
-        console.log('libelle :', logement.libelle);
-        console.log('prix :', logement.prix);
-        console.log('nature :', logement.nature);
-    });
-
     async function addMarkersForAllCities(cities, logements) {
         for (let i = 0; i < cities.length; i++) {
             const coords = await getCoordinates(cities[i]);
             if (coords) {
-                const marker = L.marker(coords);
+                const latitude = coords[0] + (Math.random() - 0.5) / 100;
+                const longitude = coords[1] + (Math.random() - 0.5) / 100;
+                const marker = L.marker([latitude, longitude]);
                 const logement = logements[i];
                 const imageUrl = 'https://site-sae-ubisoufte.bigpapoo.com/storage/logement' + logement.id + '/img0.jpg';
                 marker.bindPopup(`
@@ -161,7 +155,7 @@
         @endforeach
     };
 
-    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+    L.control.layers(baseMaps).addTo(mymap);
 
 
 
@@ -249,21 +243,118 @@
                         conteneurCard.appendChild(carte);
                     });    
                 }
-            </script>
-            <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
-            <button id="btnTriNote" onclick="triNote()">Trier par note croissante</button>
-            <select id="selectionFiltre">
-                <option value="Aucun">Tous</option>
-                <option value="Appartement">Appartements</option>
-                <option value="Villa">Villa</option>
-                <option value="Maison">Maison</option>
-                <option value="Bateau">Bateau</option>
-                <option value="Mhote">Maison d'hôte</option>
-                <option value="Chote">Chambre d'hôte</option>
-                <option value="Cabane">Cabane</option>
-                <option value="Caravane">Caravane</option>
-            </select>
-        </div>
+
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    let prixSlider = document.getElementById('prixSlider');
+
+                    noUiSlider.create(prixSlider, {
+                        start: [0, 5000], // valeurs de départ
+                        connect: true, // relie les deux points de sélection
+                        range: {
+                            'min': 0, // prix minimum
+                            'max': 5000 // prix maximum
+                        },
+                        tooltips: [true, true] // ajoute des tooltips aux curseurs
+                    });
+
+                    prixSlider.noUiSlider.on('start', function () {
+                        prixSlider.classList.add('noUi-active');
+                    });
+
+                    prixSlider.noUiSlider.on('end', function () {
+                        prixSlider.classList.remove('noUi-active');
+                    });
+
+                    prixSlider.noUiSlider.on('update', function (values, handle) {
+                        let prixMin = Math.round(values[0]);
+                        let prixMax = Math.round(values[1]);
+
+                        // Mettez à jour votre filtre de prix ici
+                        filtrePrix(prixMin, prixMax);
+                    });
+                });
+
+                function filtrePrix(prixMin, prixMax) {
+                    let ListeCard = document.querySelectorAll(".autres .lienCard");
+                    let tabCard = Array.from(ListeCard);
+                    let typeSelectionne = document.getElementById('selectionFiltre').value; // récupère le type de logement sélectionné
+                    let counter = 0;
+
+                    tabCard.forEach((carte) => {
+                        let prix = parseInt(carte.classList[1]);
+                        let type = carte.classList[2]; // récupère le type de logement de la carte
+
+                        // Vérifie si le prix de la carte est dans la plage de prix et si son type correspond au type sélectionné
+                        if(prix >= prixMin && prix <= prixMax && (typeSelectionne === "Aucun" || type === typeSelectionne)) {
+                            carte.style.display = "block";
+                            counter++;
+                        } else {
+                            carte.style.display = "none";
+                        }
+                    });
+
+                    let msgFiltreVide = document.querySelector("#msgFiltreVide");
+
+                    if(counter == 0) {
+                        msgFiltreVide.style.display = "block";
+                    } else {
+                        msgFiltreVide.style.display = "none";
+                    }
+                }
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var nomL = [
+                    @foreach ($logementsRecents as $logement)
+                        {
+                            libelle: "{{ $logement->libelle_logement }}",
+                        },
+                    @endforeach
+                ];
+
+                document.getElementById('rechercheLogement').addEventListener('input', function(e) {
+                    let recherche = e.target.value.toLowerCase();
+                    let cartes = document.querySelectorAll('.autres .lienCard');
+
+                    cartes.forEach((carte, index) => {
+                        let nom = nomL[index].libelle.toLowerCase();
+
+                        // Vérifie si la carte est actuellement visible
+                        if (carte.style.display !== "none") {
+                            if (nom.includes(recherche)) {
+                                carte.style.display = "block";
+                            } else {
+                                carte.style.display = "none";
+                            }
+                        }
+
+                        // Si le champ de recherche est vide, réapplique le filtre de prix
+                        if (recherche === '') {
+                            let prixSlider = document.getElementById('prixSlider');
+                            let prixMin = Math.round(prixSlider.noUiSlider.get()[0]);
+                            let prixMax = Math.round(prixSlider.noUiSlider.get()[1]);
+                            filtrePrix(prixMin, prixMax);
+                        }
+                    });
+                });
+            });
+        </script>
+    <div id="lesboutons">
+        <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
+        <button id="btnTriNote" onclick="triNote()">Trier par note croissante</button>
+        <input type="text" id="rechercheLogement" placeholder="Rechercher un logement">
+    </div>
+    <select id="selectionFiltre">
+        <option value="Aucun">Tous</option>
+        <option value="Appartement">Appartements</option>
+        <option value="Villa">Villa</option>
+        <option value="Maison">Maison</option>
+        <option value="Bateau">Bateau</option>
+        <option value="Mhote">Maison d'hôte</option>
+        <option value="Chote">Chambre d'hôte</option>
+        <option value="Cabane">Cabane</option>
+        <option value="Caravane">Caravane</option>
+    </select>
+    <div id="prixSlider"></div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)
                 <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}" ville="{{$logement->ville_logement}}"></x-Card>

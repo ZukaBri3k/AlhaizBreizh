@@ -6,10 +6,20 @@
     <link href="{{asset('/css/styles_detail_logement.css')}}" rel="stylesheet"></link>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search/dist/leaflet-search.min.css" />
+    <script src="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
+    <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nouislider@14.6.4/distribute/nouislider.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.6.4/distribute/nouislider.min.js"></script>
     <title>Détails d'un logement</title>
 </head>
 <body>
     <x-Navbar></x-Navbar>
+    <script src="{{asset('js/script_detail_logement.js')}}" defer></script>
     <!--Code pour le carrousel-->
     <div class="carou">
       <div id="carouselExampleIndicators" class="carousel slide">
@@ -53,7 +63,7 @@
     </div>
     <div class="second">
       <div>
-        <h1>{!! $logement->libelle_logement !!} n°{!! $logement->id_logement !!} / {!! $logement->accroche_logement !!}</h1>
+        <h1>{!! $logement->libelle_logement !!} / {!! $logement->accroche_logement !!}</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           @php
@@ -288,11 +298,11 @@
             }
           elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
             $value = strtolower($charge);
-            $value = str_replace(' ', '_', $value);
+            $affichage = str_replace('_', ' ', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
-            <p>{!! $charge !!}</p>
+            <p>{!! $affichage !!}</p>
           </div>
           @php 
             }
@@ -332,7 +342,7 @@
 
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} €/ mois</p>
-          <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>
+          <p>Propriétaire : {!! $nom_proprio[0]->nom_pers !!}</p>
           <p>Nombre de personne max : {{ $logement->nb_personne_max }}</p>
           <ul>
             <li class="ville">Ville : {{ $logement->ville_logement }}</li>
@@ -346,7 +356,7 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <form id="myForm" action="{{route('demande_devis')}}" method="post" class="demande_devis">
+          <form id="Myform" action="{{route('demande_devis')}}" method="post" class="demande_devis">
             @csrf
             <div>
               <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">
@@ -357,12 +367,61 @@
               <label for="dateFin">Date de fin</label>
               <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
             </div>
-            <button type="submit" onclick="event.preventDefault(); showPopup();">Demander un devis</button>
+            <button type="submit" id="devis_demande">Demander un devis</button>
           </form>
       </div>
     </div>
 
+    <div id="mapid" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+        <script type="text/javascript">
+            var Mamap = L.map('mapid', {
+                center: [47.9991200, -3.2733700],
+                zoom: 8,
+                gestureHandling: true,
+                gestureHandlingOptions: {
+                    duration: 1000,
+                    text: {
+                        touch: "Utilisez deux doigts pour déplacer la carte",
+                        scroll: "Utiliser CTRL + scroll pour zoomer la carte",
+                        scrollMac: "Utiliser \u2318 + scroll pour zoomer la carte"
+                    }
+                }
+            });
 
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(Mamap);
+
+            //coordonnées du logement $logement->ville_logement
+            async function getCoordinates(cityName) {
+              try {
+                  const response = await fetch(`https://nominatim.openstreetmap.org/search?city=${cityName}&format=json`);
+                  const data = await response.json();
+
+                  if (data.length > 0) {
+                      const latitude = parseFloat(data[0].lat);
+                      const longitude = parseFloat(data[0].lon);
+                      return [latitude, longitude];
+                  } else {
+                      console.error('No results found for city:', cityName);
+                      return null; // Retourne null si aucune donnée n'est trouvée
+                  }
+              } catch (error) {
+                  console.error('Error:', error.message);
+                  return null; // Retourne null en cas d'erreur
+              }
+          }
+
+          //utilisation de la fonction getCoordinates
+          ville = "{{$logement->ville_logement}}";
+          getCoordinates(ville).then((coordinates) => {
+              if (coordinates) {
+                  Mamap.setView(coordinates, 13);
+                  L.marker(coordinates).addTo(Mamap);
+              }
+          });
+
+        </script>
     <!-- Avis -->
     <hr id="id_hr">
     <div>
@@ -370,127 +429,107 @@
         <h1>Avis :</h1>
         <div>
           <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="etoile">
-          <h3>4.5 | 6 commentaires</h3>
+          @php
+            $note_total = count($avis) == 0 ? 0 : array_sum(array_column($avis, 'note_avis'));
+            $moyenne = count($avis) == 0 ? 0 : $note_total / count($avis);
+            $nb_com = count($avis);
+            dd($bool_resa);
+          @endphp
+          <h3>{!! $moyenne !!} de moyenne | {!! $nb_com !!} commentaire(s)</h3>
         </div>
       </div>
-
-      <div class="creation_avis">
-        <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">
-          @csrf
-          <div class="rating">
-            <span class="star" data-value="5">★</span>
-            <span class="star" data-value="4">★</span>
-            <span class="star" data-value="3">★</span>
-            <span class="star" data-value="2">★</span>
-            <span class="star" data-value="1">★</span>
-            <label for="note_avis">: Notez</label>
-          </div>
-          <input type="hidden" name="ratingValue" id="ratingValue" value="0">
-          <div>
-            <label for="note_avis">Commentaire :</label>
-            <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
-            <button type="submit" onclick="event.preventDefault(); showPopup();" class="form-button">Envoyer</button>
-          </div>
-        </form>
-      </div>
+      
+      @if(count($role) != 0)
+        @if ($bool_resa == true)
+        <div class="creation_avis">
+          <form id="myForm" action="{{route('creation_avis')}}" method="post" class="avis_form">
+            @csrf
+            <div class="rating">
+              <span class="star" data-value="5">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="1">★</span>
+              <label for="note_avis">: Notez</label>
+            </div>
+            <input type="hidden" name="ratingValue" id="ratingValue" value="5">
+            <input type="hidden" name="id" id="id" value="{!! $logement->id_logement !!}">
+            <input type="hidden" name="id_reserv" id="id_reserv" value="{!! $id_reserv->id_reserv !!}">
+            <div>
+              <label for="note_avis">Commentaire :</label>
+              <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
+              <button type="submit" id="formAvis" class="form-button">Envoyer</button>
+              
+            </div>
+          </form>
+        </div>
+        @endif
+      @endif
 
       <hr id="id_hr">
 
 
     <div class="les_avis">
 
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
+    @php
+      if($avis == null) { @endphp
+        <p>Il n'y a pas d'avis pour le moment</p>
+    @php
+      } else {
+        foreach ($avis as $values) {
+          if(strlen($values->com_avis) < 200) {
+    @endphp
+        <div class="un_avis_simple">
+          <div class="pp_avis">
+          @if ($values->photo_pers == "pp_profile.png")
+              <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp" alt="photo de profil">
+          @else
+              <img id="image_pp_previsu" src="{{ asset('pp/pp' . $values->id . '/img1.png')}}" class="pp" alt="photo de profil">
+          @endif
+            <div>
+              <p class="note">{!! $values->pseudo_pers !!}</p>
+              <p class="commentaire">{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
+            </div>
+          </div>
+          <div class="note_avis">
+            <div class="etoile_div">
+              <p class="note">{!! $values->note_avis !!}/5</p>
+              <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="note_etoile">
+            </div>
+            <p class="commentaire">{!! $values->com_avis !!}</p>
           </div>
         </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p>Très bon logement, je recommande</p>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
+    @php  } else { @endphp
+        <div class="un_avis">
+          <div class="pp_avis">
+          @if ($values->photo_pers == "pp_profile.png")
+              <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp" alt="photo de profil">
+          @else
+              <img id="image_pp_previsu" src="{{ asset('pp/pp' . $values->id . '/img1.png')}}" class="pp" alt="photo de profil">
+          @endif
+            <div class="div_note">
+              <p class="note">{!! $values->pseudo_pers !!}</p>
+              <p class="commentaire">{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
+            </div>
           </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p>Très bon logement, je recommande</p>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
+          <div class="note_avis">
+          <div class="etoile_div">
+              <p class="note">{!! $values->note_avis !!}/5</p>
+              <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="note_etoile">
+            </div>
+            <p class="text">{!! $values->com_avis !!}</p>
+            <a href="#" class="toggle">en savoir plus</a>
           </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p>Très bon logement, je recommandeTrès bon logement, je recommande
-          </p>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
-          </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p class="text">Très bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommande, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas</p>
-          <a href="#" class="toggle">en savoir plus</a>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
-          </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p class="text">je recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment anticonstitutionnelementadazdzadaz</p>
-          <a href="#" class="toggle">en savoir plus</a>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
-          </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p>Très bon logement, je recommandeTrès bon logement, je recommande
-          </p>
-        </div>
-      </div>
+        </div>   
+    @php
+          }
+        }
+      }
+    @endphp
     </div>
     <!-- Fin des avis -->
 
     <x-FooterClient></x-FooterClient>
-    <script src="{{asset('js/script_detail_logement.js')}}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

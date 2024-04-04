@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.0/css/countrySelect.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/inscription.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('js/script_inscription_client.js')}}" defer>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,7 +93,7 @@
 
                     <label for="password">*Mot de Passe:</label>
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
-                        class="form-control" maxlength="60" required>
+                        class="form-control" minlenght="5" maxlength="60" required>
 
                     <label for="confirmerMotDePasse">*Confirmation du Mot de Passe:</label>
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"
@@ -101,11 +102,11 @@
                     <div id="message"></div>
 
                     <label for="iban">IBAN:</label>
-                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
+                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" maxlength="27" style="text-transform: uppercase;">
                 </div>
             </div>
         </div>
-        <button type="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
+        <button type="submit" id="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
         <br>
         <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
         

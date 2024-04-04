@@ -50,6 +50,7 @@ Route::prefix('/logement')->group(function() {
     Route::get('/{id}/details_previsu', [Logement::class, 'getInfoLogementPrevisu'])->where('id', '[0-9]+')->name('details_previsu')->middleware(['auth', 'isProprietaire']);
 
     Route::get('/mes-logements', [Logement::class, 'getLogementsProprietaire'])->name('mes_logements')->middleware(['auth', 'isProprietaire']);
+    Route::get('/mes-logements-client', [Logement::class, 'getLogementsClient'])->name('mes_logements_client')->middleware(['auth', 'isClient']);
     Route::get('/mes-logements#sectionLogement', [Logement::class, 'getLogementsProprietaire'])->name('mes_logementsLogement')->middleware(['auth', 'isProprietaire']);
     Route::get('/mes-logements#sectionDevis', [Logement::class, 'getLogementsProprietaire'])->name('mes_logementsDevis')->middleware(['auth', 'isProprietaire']);
 
@@ -60,6 +61,9 @@ Route::prefix('/logement')->group(function() {
     Route::get('/delLogement/{id}', [Logement::class, 'delLogement'])->name('delLogement')->middleware(['auth', 'isProprietaire']);
     Route::get('/updateLogement/{id}', [Logement::class, 'updateLogement'])->name('updateLogement')->middleware(['auth', 'isProprietaire']);
     Route::post('/updateLogementBDD/{id}', [Logement::class, 'updateLogementBDD'])->name('updateLogementBDD')->middleware(['auth', 'isProprietaire']);
+
+    Route::post('/creation_avis', [Logement::class, 'creationAvis'])->name('creation_avis')->middleware(['auth', 'isClient']);
+    Route::get('/{id}/details#id_hr', [Logement::class, 'getInfoLogement'])->where('id', '[0-9]+')->name('retourAvis');
 });
 
 Route::prefix('/account')->group(function () {

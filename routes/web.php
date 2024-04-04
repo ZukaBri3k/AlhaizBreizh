@@ -50,6 +50,7 @@ Route::prefix('/logement')->group(function() {
     Route::get('/{id}/details_previsu', [Logement::class, 'getInfoLogementPrevisu'])->where('id', '[0-9]+')->name('details_previsu')->middleware(['auth', 'isProprietaire']);
 
     Route::get('/mes-logements', [Logement::class, 'getLogementsProprietaire'])->name('mes_logements')->middleware(['auth', 'isProprietaire']);
+    Route::get('/mes-logements-client', [Logement::class, 'getLogementsClient'])->name('mes_logements_client')->middleware(['auth', 'isClient']);
     Route::get('/mes-logements#sectionLogement', [Logement::class, 'getLogementsProprietaire'])->name('mes_logementsLogement')->middleware(['auth', 'isProprietaire']);
     Route::get('/mes-logements#sectionDevis', [Logement::class, 'getLogementsProprietaire'])->name('mes_logementsDevis')->middleware(['auth', 'isProprietaire']);
 

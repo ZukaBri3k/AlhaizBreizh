@@ -53,6 +53,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="inscription">
                         <li><a href="{{ route('myClientAccount', ['id' => $id])}}" class="dropdown-item">Profil</a></li>
+                        <li><a href="{{route('mes_logements_client')}}" class="dropdown-item">Mes réservations</a></li>
                         <li><a href="#" class="dropdown-item" id="connexionButton">Mon compte propriétaire</a></li>
                         <li><a href="{{ route('logout') }}" class="dropdown-item deconnexion">Déconnexion</a></li>
                     </ul>

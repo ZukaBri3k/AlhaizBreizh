@@ -404,13 +404,16 @@
         <p>Il n'y a pas d'avis pour le moment</p>
     @php
       } else {
-        dd($avis);
         foreach ($avis as $values) {
           if(strlen($values->com_avis) < 200) {
     @endphp
         <div class="un_avis">
           <div class="pp_avis">
-            <img src="{{asset('/img/{!! $values->photo_pers !!}.png')}}" alt="photo de profil d'un utilisateur">
+          @if ($values->photo_pers == "pp_profile.png")
+              <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp" alt="photo de profil">
+          @else
+              <img id="image_pp_previsu" src="{{ asset('pp/pp' . $avis->id . '/img1.png')}}" class="pp" alt="photo de profil">
+          @endif
             <div>
               <p>{!! $values->nom_pers !!}</p>
               <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
@@ -424,7 +427,11 @@
     @php  } else { @endphp
         <div class="un_avis">
           <div class="pp_avis">
-            <img src="{{asset('/img/{!! $values->photo_pers !!}.png')}}" alt="photo de profil d'un utilisateur">
+          @if ($values->photo_pers == "pp_profile.png")
+              <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp" alt="photo de profil">
+          @else
+              <img id="image_pp_previsu" src="{{ asset('pp/pp' . $avis->id . '/img1.png')}}" class="pp" alt="photo de profil">
+          @endif
             <div>
               <p>{!! $values->nom_pers !!}</p>
               <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>

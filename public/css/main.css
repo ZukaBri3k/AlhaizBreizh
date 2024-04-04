@@ -425,6 +425,25 @@ nav {
     font-family: 'Montserrat';
     transition: 0.4s;
 }
+.boutonsdevis {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background-color: #F6F5EE;
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    padding: 15px;
+    margin: 0 0 0 25px;
+}
+
+.boutonsdevis:hover {
+    border-radius: 6px;
+    border: 1px solid #EC3B53;
+    background-color: #EC3B53;
+    color: #F6F5EE;
+    padding: 5px 15px;
+    font-family: 'Montserrat';
+    transition: 0.4s;
+}
 
 #map-container {
     height: 300px;

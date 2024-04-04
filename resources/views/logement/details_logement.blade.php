@@ -411,14 +411,15 @@
               }
           }
 
-          async function main() {
-            console.log($logement->ville_logement);
-              const coordinates = await getCoordinates("{{$logement->ville_logement}}");
+          //utilisation de la fonction getCoordinates
+          ville = "{{$logement->ville_logement}}";
+          console.log(ville);
+          getCoordinates(ville).then((coordinates) => {
               if (coordinates) {
                   Mamap.setView(coordinates, 13);
                   L.marker(coordinates).addTo(Mamap);
               }
-          }
+          });
 
         </script>
     <!-- Avis -->

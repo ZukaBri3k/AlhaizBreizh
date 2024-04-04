@@ -180,8 +180,9 @@ document.getElementById('iban').addEventListener('input', function(event) {
     const input = event.target;
     const regex_num = /[0-9]/;
     const regex_letter = /[a-z]/
-    
+    console.log("ici")
 if(iban.lenght<=2){
+    console.log("ici 2")
     if (!regex_letter.test(input.value)) {
         input.value = input.value.slice(0, -1);
         Toast.fire({
@@ -198,7 +199,7 @@ if(iban.lenght<=2){
         input.setCustomValidity("");
     }
 }else{
-        if (!regex.test(input.value)) {
+        if (!regex_num.test(input.value)) {
             input.value = input.value.slice(0, -1);
             input.setCustomValidity("Seuls les chiffres sont autorisés.");
             Toast.fire({

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fr">    
+<html lang="fr">  
+    <title>inscription client</title>  
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -32,7 +33,7 @@
                 <div class="form-container">
                     <label for="civilite_pers">Civilité:</label>
                     <select id="civilite_pers" name="civilite_pers" class="form-control">
-                    <option selected disabled hidden>civilite</option>
+                    <option selected disabled hidden>civilité</option>
                     <option value="--">none</option>
                     <option value="M.">M.</option>
                     <option value="MME.">MME.</option>

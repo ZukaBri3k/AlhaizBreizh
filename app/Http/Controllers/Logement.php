@@ -113,9 +113,9 @@ if ($files) {
     }
 
     public function getInfoLogement(Request $request) {
-        if (auth()->user() == 1) {
+        if (auth()->user()->id == 1) {
             $id_role = 1;
-        } elseif(auth()->user() == 2) {
+        } elseif(auth()->user()->id == 2) {
             $id_role = 2;
         } else {
             $id_role = null;

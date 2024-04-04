@@ -393,6 +393,9 @@
 
             //mise en place du marqueur
             var marker = L.marker([{{ $logement->latitude_logement }}, {{ $logement->longitude_logement }}]).addTo(Mamap);
+            console.log(marker);
+            console.log($logement->latitude_logement);
+            console.log($logement->longitude_logement);
             marker.bindPopup("<b>{{ $logement->libelle_logement }}</b><br>{{ $logement->adresse_logement }}").openPopup();
         </script>
     <!-- Avis -->

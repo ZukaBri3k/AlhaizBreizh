@@ -7,4 +7,5 @@
     <p><strong>Du</strong> {{$dated}}</p>
     <p><strong>au</strong> {{$datef}}</p>
     <p><strong>{{$prix}} €</strong></p>
+    <a href="{{ route('creation_avis') }}" class="btn btn-primary">Écrire un avis</a>
 </div>

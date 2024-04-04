@@ -414,7 +414,6 @@
 
           //utilisation de la fonction getCoordinates
           ville = "{{$logement->ville_logement}}";
-          console.log(ville);
           getCoordinates(ville).then((coordinates) => {
               if (coordinates) {
                   Mamap.setView(coordinates, 13);

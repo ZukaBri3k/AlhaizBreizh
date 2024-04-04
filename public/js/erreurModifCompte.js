@@ -42,7 +42,7 @@ let codePostal = document.getElementsByClassName('codePostal');
 for (let i = 0; i < codePostal.length; i++) {
     codePostal[i].addEventListener('input', function () {
         if(!this.value.match(/^[0-9AaBb]+$/)) {
-            this.value = this.value.replace(/^[0-9AaBb]+$/, '');
+            this.value = this.value.replace(/[^0-9AaBb]+/g, '');
         }
     })
 }

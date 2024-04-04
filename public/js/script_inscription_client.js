@@ -36,7 +36,8 @@
         var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
 		console.log(confirmationMotDePasse);
 	
-		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "") {
+		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
+
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
 		}
 	}
@@ -99,4 +100,16 @@ document.getElementById('submit').addEventListener('click', function(event) {
             event.preventDefault();
 
         }
-})
+        
+        var motDePasse = document.getElementById("password").value;
+        var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
+		console.log(confirmationMotDePasse);
+	
+		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
+
+			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
+            event.preventDefault();
+		}
+	}
+        
+)

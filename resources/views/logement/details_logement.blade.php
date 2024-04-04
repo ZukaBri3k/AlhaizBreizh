@@ -379,26 +379,28 @@
         </div>
       </div>
       
-      @if ($role[0]->role == 1)
-      <div class="creation_avis">
-        <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">
-          @csrf
-          <div class="rating">
-            <span class="star" data-value="5">★</span>
-            <span class="star" data-value="4">★</span>
-            <span class="star" data-value="3">★</span>
-            <span class="star" data-value="2">★</span>
-            <span class="star" data-value="1">★</span>
-            <label for="note_avis">: Notez</label>
-          </div>
-          <input type="hidden" name="ratingValue" id="ratingValue" value="0">
-          <div>
-            <label for="note_avis">Commentaire :</label>
-            <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
-            <button type="submit" onclick="event.preventDefault(); showPopup();" class="form-button">Envoyer</button>
-          </div>
-        </form>
-      </div>
+      @if(strlen($role) == 0)
+        @if ($role[0]->role == 1)
+        <div class="creation_avis">
+          <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">
+            @csrf
+            <div class="rating">
+              <span class="star" data-value="5">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="1">★</span>
+              <label for="note_avis">: Notez</label>
+            </div>
+            <input type="hidden" name="ratingValue" id="ratingValue" value="0">
+            <div>
+              <label for="note_avis">Commentaire :</label>
+              <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
+              <button type="submit" onclick="event.preventDefault(); showPopup();" class="form-button">Envoyer</button>
+            </div>
+          </form>
+        </div>
+        @endif
       @endif
 
       <hr id="id_hr">

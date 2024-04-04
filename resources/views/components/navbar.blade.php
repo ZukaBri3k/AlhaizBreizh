@@ -97,11 +97,11 @@
                           {{ $error }}
                         @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
+                          <button style="width: fit-content" class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">pas de compte ?</p>
-                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                          <button style="width: fit-content" type="button" class="btn btn-outline-danger">Créer un compte</button>
                         </div>
                       </form>
                     </div>
@@ -313,11 +313,11 @@ deconnexionNavBar.forEach((btn) => {
                           {{ $error }}
                         @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
+                          <button style="width: fit-content" class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">pas de compte ?</p>
-                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                          <button style="width: fit-content" type="button" class="btn btn-outline-danger">Créer un compte</button>
                         </div>
                       </form>
                     </div>
@@ -536,11 +536,11 @@ deconnexionNavBar.forEach((btn) => {
                           {{ $error }}
                         @endforeach 
                         <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
+                          <button style="width: fit-content" class="btn btn-primary btn-block fa-lg mb-3" id="connexion" type="submit" disabled>Connexion</button>
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">pas de compte ?</p>
-                          <button type="button" class="btn btn-outline-danger">Créer un compte</button>
+                          <button style="width: fit-content" type="button" class="btn btn-outline-danger">Créer un compte</button>
                         </div>
                       </form>
                     </div>

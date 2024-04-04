@@ -38,7 +38,7 @@ textElements.forEach((textElement, index) => {
 
   function submitForm() {
       document.getElementById('myForm').submit(); // Soumet le formulaire
-  }
+  } */
 
 
 const stars = document.querySelectorAll(".star");
@@ -61,4 +61,4 @@ function highlightStars(value) {
       star.textContent = "☆";
     }
   });
-} */
+}

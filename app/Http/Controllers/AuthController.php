@@ -21,7 +21,7 @@ class AuthController extends Controller
             'typeCompte' => 'required'
         ]);
 
-        auth()->logout();
+        $this->logout();
 
         if (auth()->attempt(['mail_pers' => $request->mail_pers, "password" => $request->mdp_pers])) {
             $request->session()->regenerate();

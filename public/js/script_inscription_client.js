@@ -174,3 +174,46 @@ document.getElementById('submit').addEventListener('click', function(event) {
 
         
 )
+document.getElementById('code_postal_pers').addEventListener('input', function(event) {
+
+    var iban = dociment.getElementById("iban")
+    const input = event.target;
+    const regex_num = /[0-9]/;
+    const regex_letter = /[a-z]/
+    
+if(iban.lenght<=2){
+    if (!regex_letter.test(input.value)) {
+        input.value = input.value.slice(0, -1);
+        Toast.fire({
+            icon: "warning",
+            title: "Les deux premier charactère doivent être des lettres",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
+        
+    } else {
+        input.setCustomValidity("");
+    }
+}else{
+        if (!regex.test(input.value)) {
+            input.value = input.value.slice(0, -1);
+            input.setCustomValidity("Seuls les chiffres sont autorisés.");
+            Toast.fire({
+                icon: "warning",
+                title: "A partir du troisième caractère seuls les chiffres sont autorisés.",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
+            
+        } else {
+            input.setCustomValidity("");
+        }
+    }
+
+});

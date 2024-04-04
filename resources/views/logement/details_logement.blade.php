@@ -405,6 +405,7 @@
     @php
       } else {
         foreach ($avis as $values) {
+          dd($values->id)
           if(strlen($values->com_avis) < 200) {
     @endphp
         <div class="un_avis">

@@ -57,7 +57,7 @@
 
     document.getElementById('code_postal_pers').addEventListener('input', function(event) {
         const input = event.target;
-        const regex = /^[0-9]+$/;
+        const regex = /[0-9]/;
         
     
         if (!regex.test(input.value)) {
@@ -68,3 +68,30 @@
             input.setCustomValidity("");
         }
     });
+
+
+    function verifierMajuscule(motDePasse) {
+        // Vérifier si le mot de passe contient au moins une majuscule
+        var regex_maj = /[A-Z]/;
+        var regex_min = /[a-z]/;
+        var regex_chiffre = /[0-9]/;
+        var MDP = document.getElementById("password").value;
+        if (MDP.match(regex_maj)){
+            if(MDP.match(regex_min)){
+                if(MDP.match(regex_chiffre)){
+
+                }
+                else{
+                    alert("il vous manque un chiffre");
+                }
+            }
+            else{
+                alert("Il vous manque une minuscule");
+            }
+
+        }else{
+            alert("Il vous manque une Majuscule");
+        }
+        
+    }
+    

@@ -53,11 +53,12 @@ for (let i = 0; i < btnSubmit.length; i++) {
     btnSubmit[i].addEventListener('click', function (e) {
         e.preventDefault();
         url = this.url
+        console.log(url);
 
         let telephone = document.getElementsByClassName('Telephone');
 
         telephone[0].value = telephone[0].value.replace(/\s/g, '');
 
-        window.location.href = url;
+        //window.location.href = url;
     })
 }

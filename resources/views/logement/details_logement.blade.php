@@ -6,6 +6,15 @@
     <link href="{{asset('/css/styles_detail_logement.css')}}" rel="stylesheet"></link>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search/dist/leaflet-search.min.css" />
+    <script src="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
+    <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nouislider@14.6.4/distribute/nouislider.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.6.4/distribute/nouislider.min.js"></script>
     <title>Détails d'un logement</title>
 </head>
 <body>
@@ -17,7 +26,7 @@
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
-                <div>
+                <div id="imgGolmon">
                   @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
                       <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                   @endfor
@@ -43,11 +52,11 @@
             @endfor
           </div>  
       </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button style="z-index: 0" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button style="z-index: 0" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -270,11 +279,11 @@
             if(count(explode(";", $logement->charge_additionnel_libelle)) > 1) {
             foreach ($charge as $values) {
               $value = strtolower($values);
-              $value = str_replace(' ', '_', $value);
+              $value = str_replace('_', ' ', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
-            <p>{!! $values !!}</p>
+            <p>{!! $value !!}</p>
           </div>
           @php 
             }
@@ -289,11 +298,11 @@
             }
           elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
             $value = strtolower($charge);
-            $value = str_replace(' ', '_', $value);
+            $affichage = str_replace('_', ' ', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
-            <p>{!! $charge !!}</p>
+            <p>{!! $affichage !!}</p>
           </div>
           @php 
             }
@@ -363,7 +372,56 @@
       </div>
     </div>
 
+    <div id="mapid" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+        <script type="text/javascript">
+            var Mamap = L.map('mapid', {
+                center: [47.9991200, -3.2733700],
+                zoom: 8,
+                gestureHandling: true,
+                gestureHandlingOptions: {
+                    duration: 1000,
+                    text: {
+                        touch: "Utilisez deux doigts pour déplacer la carte",
+                        scroll: "Utiliser CTRL + scroll pour zoomer la carte",
+                        scrollMac: "Utiliser \u2318 + scroll pour zoomer la carte"
+                    }
+                }
+            });
 
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(Mamap);
+
+            //coordonnées du logement $logement->ville_logement
+            async function getCoordinates(cityName) {
+              try {
+                  const response = await fetch(`https://nominatim.openstreetmap.org/search?city=${cityName}&format=json`);
+                  const data = await response.json();
+
+                  if (data.length > 0) {
+                      const latitude = parseFloat(data[0].lat);
+                      const longitude = parseFloat(data[0].lon);
+                      return [latitude, longitude];
+                  } else {
+                      console.error('No results found for city:', cityName);
+                      return null; // Retourne null si aucune donnée n'est trouvée
+                  }
+              } catch (error) {
+                  console.error('Error:', error.message);
+                  return null; // Retourne null en cas d'erreur
+              }
+          }
+
+          //utilisation de la fonction getCoordinates
+          ville = "{{$logement->ville_logement}}";
+          getCoordinates(ville).then((coordinates) => {
+              if (coordinates) {
+                  Mamap.setView(coordinates, 13);
+                  L.marker(coordinates).addTo(Mamap);
+              }
+          });
+
+        </script>
     <!-- Avis -->
     <hr id="id_hr">
     <div>

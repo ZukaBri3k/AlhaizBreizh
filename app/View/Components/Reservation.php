@@ -5,12 +5,17 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Reservation extends Component
 {
     /**
      * Create a new component instance.
      */
+
+    public $role;
+
     public function __construct(
         public string $libelle,
         public string $pseudo,
@@ -32,6 +37,24 @@ class Reservation extends Component
         $this->idreservation = $idreservation;
         $this->prix = $prix;
         $this->natlogement = $natlogement;
+        $this->bool_resa = false;
+        if(Auth::check()) {
+            $this->role = Auth::user()->role;
+        } else {
+            $this->role = null;
+        }
+        $id_resa = DB::select('select id_reserv from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join logement on reservation.id_logement_reserv = logement.id_logement where id_client_devis = ? and id_logement = ?', [auth()->user()->id, intval($this->idlogement)]);
+                if($id_resa != null){
+                    $resa = DB::select('select id_reserv_avis from avis inner join reservation on avis.id_reserv_avis = reservation.id_reserv inner join logement on avis.id_logement_avis = logement.id_logement where id_reserv = ? and id_logement_avis = ?', [$id_resa[0]->id_reserv, intval($this->idlogement)]);
+                    if($resa != null) {
+                        $this->bool_resa = true;
+                    }
+                    else {
+                        $this->bool_resa = false;
+                    }
+                } else {
+                    $this->bool_resa = false;
+                }
     }
 
     /**
@@ -39,6 +62,8 @@ class Reservation extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.reservation');
+        return view('components.reservation', [
+            'bool_resa' => $this->bool_resa,
+        ]);
     }
 }

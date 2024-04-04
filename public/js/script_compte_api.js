@@ -6,7 +6,7 @@ deconnexion.addEventListener('click', function(event) {
     var url = this.href;
 
     Swal.fire({
-        title: "Êtes vous sûr de vouloir vous déconnectez ?",
+        title: "Êtes vous sûr de vouloir vous déconnecter ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#21610B",
@@ -43,7 +43,7 @@ copierTexte = (e, cle) => {
         });
         Toast.fire({
             icon: "success",
-            title: "Votre clé API à été copiée dans le presse papier",
+            title: "Texte copié dans le presse papier",
             background: '#F6F5EE',
             allowOutsideClick: false,
             customClass: {
@@ -81,65 +81,11 @@ for (var i = 0; i < deleteLinks.length; i++) {
             },
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Supprimer !",
-                    text: "Votre clé API à bien été supprimer.",
-                    icon: "success",
-                    confirmButtonColor: "#21610B",
-                    background: '#F6F5EE',
-                    allowOutsideClick: false,
-                    customClass: {
-                        title: 'generation_cle'
-                    },
-                    //En dessous je fait la redirection après la confirmation de la suppression de la clé API
-                }).then(() => {
-                    window.location.href = url;
-                });
-            } else {
-                Swal.fire({
-                    title: "Annuler !",
-                    text: "Votre clé API n'a pas été supprimer.",
-                    icon: "error",
-                    confirmButtonColor: "#21610B",
-                    background: '#F6F5EE',
-                    allowOutsideClick: false,
-                    customClass: {
-                        title: 'generation_cle'
-                    },
-                });
+                window.location.href = url;
             }
         });
     });
 }
-
-
-
-
-
-//Ici mon JS pour la génération de la clé API
-document.querySelector('.api').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    Swal.fire({
-        title: "La clé a bien été créée",
-        icon: "success",
-        confirmButtonColor: "#21610B",
-        confirmButtonText: "OK",
-        background: '#F6F5EE',
-        customClass: {
-            title: 'generation_cle'
-        },
-        allowOutsideClick: false,
-    }).then((result) => {
-        if (result.isConfirmed) {
-            this.submit();
-        }
-    });
-});
-
-
-
-
 
 
 //Ici mon JS pour la suppression d'un compte
@@ -218,33 +164,62 @@ cloturer.addEventListener('click', function(event) {
                     }
                 },
                 allowOutsideClick: () => !Swal.isLoading()
-            }).then((result) => {
-                if(trigger === false) {
-                    Swal.fire({
-                        title: "Annuler !",
-                        text: "Votre compte n'a pas été supprimer.",
-                        icon: "error",
-                        confirmButtonColor: "#21610B",
-                        background: '#F6F5EE',
-                        allowOutsideClick: false,
-                        customClass: {
-                            title: 'popupFeedBack'
-                        },
-                    });
-                }
-            });
-        } else {
-            Swal.fire({
-                title: "Annuler !",
-                text: "Votre compte n'a pas été supprimer.",
-                icon: "error",
-                confirmButtonColor: "#21610B",
-                background: '#F6F5EE',
-                allowOutsideClick: false,
-                customClass: {
-                    title: 'popupFeedBack'
-                },
             });
         }
     });
 });
+
+function checkIcalInputs(e) {
+    let checkboxReservations = document.getElementById('reservation');
+    let checkboxDevis = document.getElementById('demande_reservation');
+    let date_deb = document.getElementById('date_deb');
+    let date_fin = document.getElementById('date_fin');
+    let messageErreur = document.getElementById('icalErreur');
+
+    if(!checkboxReservations.checked && !checkboxDevis.checked) {
+        e.preventDefault();
+        messageErreur.innerHTML = "Veuillez sélectionner au moins une option";
+        messageErreur.style.visibility = "visible";
+    } else if(date_deb.value > date_fin.value) {
+        e.preventDefault();
+        messageErreur.innerHTML = "La date de début doit être inférieure à la date de fin";
+        messageErreur.style.visibility = "visible";
+    } else if (date_deb.value === "" || date_fin.value === "") {
+        e.preventDefault();
+        messageErreur.innerHTML = "Veuillez remplir les dates";
+        messageErreur.style.visibility = "visible";
+    } else if (date_deb.value === date_fin.value) {
+        e.preventDefault();
+        messageErreur.innerHTML = "Les dates ne peuvent pas être identiques";
+        messageErreur.style.visibility = "visible";
+    }
+}
+
+let btnDelIcal = document.getElementsByClassName("delIcal")
+
+for(let i = 0; i < btnDelIcal.length; i++) {
+    btnDelIcal[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        var url = this.href;
+
+        Swal.fire({
+            title: "Êtes vous sûr de vouloir supprimer ce lien d'abonnement",
+            text: "Tous les agendas synchronisés avec ce lien ne seront plus mis à jour !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#21610B",
+            cancelButtonColor: "#EC3B53",
+            background: '#F6F5EE',
+            cancelButtonText: "Annuler",
+            confirmButtonText: "Confirmer",
+            allowOutsideClick: false,
+            customClass: {
+                title: 'generation_cle'
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {               
+                window.location.href = url;
+            }
+        });
+    })
+};

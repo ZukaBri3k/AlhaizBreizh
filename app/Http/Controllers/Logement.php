@@ -43,7 +43,7 @@ class Logement extends Controller
             $request->charge_additionnel_libelle,
             $request->charge_additionnel_prix,
         ];
-        dd($tab);
+
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,
@@ -95,9 +95,14 @@ class Logement extends Controller
         //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
         
         //dd($request->file());
-        for($i = 1; $i <= count($request->file()); $i++) {
-            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i - 1 . ".jpg");
-        }
+       $files = $request->file('photo_complementaire_logement');
+
+if ($files) {
+    foreach ($files as $index => $file) {
+        Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $file, "img" . $index . ".jpg");
+    }
+}
+
 
         //dd($APP_URL));
 
@@ -172,7 +177,21 @@ class Logement extends Controller
         return View("logement/mes_logements", ['logements' => $logements, 'tabDevis' => $tabDevis, 'tabReserv' => $tabReserv]);
     }
 
+    public function getLogementsClient(Request $request) {
+        $id = auth()->user()->id;
+        $logements = DB::select("select * from logement where id_proprio_logement = ?", [$id]);        
+        
+        foreach ($logements as $logement) {
+            $logement->lien = "/logement/" . $logement->id_logement . "/details";
+            $logement->id = $logement->id_logement;
+        }
+        
+        $tabDevis = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv where devis.id_client_devis = ?", [$id]);
+        $tabReserv = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv where devis.id_client_devis = ?", [$id]);
 
+        return View("logement/mes_logements_client", ['logements' => $logements, 'tabDevis' => $tabDevis, 'tabReserv' => $tabReserv]);
+    }
+  
     public function setLogementHorsLigne(Request $request) {
         $enLigne = DB::select('select en_ligne from logement where id_logement = ?', [intval($request->id)]);
         //dd($enLigne[0]->en_ligne);

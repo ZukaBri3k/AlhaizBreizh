@@ -26,7 +26,7 @@ document.getElementById('devis_demande').addEventListener('submit', function (ev
 
   Swal.fire({
       title: "Envoyer !",
-      text: "Votre demande de devis à bien été envoyer !",
+      text: "Votre demande de devis à bien été envoyé !",
       icon: "success",
       confirmButtonColor: "#21610B",
       confirmButtonText: "OK",
@@ -47,7 +47,7 @@ document.getElementById('formAvis').addEventListener('submit', function(event) {
   
   Swal.fire({
       title: "Envoyer !",
-      text: "Votre avis à bien été poster !",
+      text: "Votre avis à bien été posté !",
       icon: "success",
       confirmButtonColor: "#21610B",
       confirmButtonText: "OK",

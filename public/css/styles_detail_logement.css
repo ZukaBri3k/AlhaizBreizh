@@ -594,6 +594,16 @@ body {
     margin-left: 5% !important;
 }
 
+.text {
+    color: #000 !important;
+    font-family: 'Montserrat-Light' !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    margin-left: 5% !important;
+}
+
 .note_avis {
     margin-left: 2%;
 }

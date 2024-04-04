@@ -36,3 +36,13 @@ for (let i = 0; i < pasLettre.length; i++) {
         }
     })
 }
+
+let codePostal = document.getElementsByClassName('CodePostal');
+
+for (let i = 0; i < codePostal.length; i++) {
+    codePostal[i].addEventListener('input', function () {
+        if(this.value.match(/^[0-9AaBb]+$/)) {
+            this.value = this.value.replace(/^[0-9AaBb]+$/, '');
+        }
+    })
+}

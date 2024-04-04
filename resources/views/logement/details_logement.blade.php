@@ -396,8 +396,8 @@
             <div>
               <label for="note_avis">Commentaire :</label>
               <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
-              <button type="submit" onclick="event.preventDefault(); showPopup();" class="form-button">Envoyer</button>
             </div>
+            <button type="submit" onclick="event.preventDefault(); showPopup();" class="form-button">Envoyer</button>
           </form>
         </div>
         @endif

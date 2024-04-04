@@ -2,7 +2,7 @@ var textElement = document.getElementById('text');
 var toggleElement = document.getElementById('toggle');
 
 var fullText = textElement.textContent;
-var shortText = fullText.slice(0, 200) + '...';
+var shortText = fullText.slice(0, 100) + '...';
 
 textElement.textContent = shortText;
 

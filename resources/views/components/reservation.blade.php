@@ -8,7 +8,7 @@
     <p><strong>au</strong> {{ $datef }}</p>
     <p><strong>{{ $prix }} €</strong></p>
     @php
-    dd($avisExist);
+    //dd($avisExist);
     @endphp
     @if ($role == 1)
         @if ($avisExist)

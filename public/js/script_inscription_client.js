@@ -113,7 +113,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
             else{
                 Toast.fire({
                     icon: "error",
-                    title: "Le mot de passe doit contenir un chiffre",
+                    title: "Le mot de passe doit contenir au moin une majuscule,une minucule et un nombre",
                     background: '#F6F5EE',
                     allowOutsideClick: false,
                     customClass: {
@@ -127,7 +127,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
         else{
             Toast.fire({
                 icon: "error",
-                title: "Le mot de passe doit contenir une minuscule",
+                title: "Le mot de passe doit contenir au moin une majuscule,une minucule et un nombre",
                 background: '#F6F5EE',
                 allowOutsideClick: false,
                 customClass: {
@@ -141,7 +141,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
     else{
         Toast.fire({
             icon: "error",
-            title: "Le mot de passe doit contenir une majuscule",
+            title: "Le mot de passe doit contenir au moin une majuscule,une minucule et un nombre",
             background: '#F6F5EE',
             allowOutsideClick: false,
             customClass: {

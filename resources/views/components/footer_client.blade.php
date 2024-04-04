@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="{{route('devis-client')}}">Messagerie</a></li>
                 <li><a href="{{route('inscription_proprio')}}">Propriétaire</a></li>
-                <li><a href="#">À propos</a></li>
+                <li><a href="{{route('naps')}}">À propos</a></li>
             </ul>
         </div>
         <div class="footer-column">

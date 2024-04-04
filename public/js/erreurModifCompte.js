@@ -1,20 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let telephone = document.getElementsByClassName('Telephone');
-
-    for (let i = 0; i < telephone.length; i++) {
-        res = ""
-        for(let j = 0; j < telephone[i].value.length; j++) {
-            if((j + 1) % 2 == 0 && j != 0) {
-                res += telephone[i].value[j] + " ";
-            } else {
-                res += telephone[i].value[j];
-            }
-        }
-        console.log(res);
-        this.value = res;
-    }
-})
-
 let pasChiffre = document.getElementsByClassName('pasChiffre');
 
 for (let i = 0; i < pasChiffre.length; i++) {
@@ -41,5 +24,40 @@ for (let i = 0; i < telephone.length; i++) {
     telephone[i].addEventListener('input', function () {
         this.value = this.value.replace(/\s/g, '');
         this.value = this.value.replace(/(\d{2})(?=\d)/g, '$1 ');
+    })
+}
+
+let pasLettre = document.getElementsByClassName('pasLettre');
+
+for (let i = 0; i < pasLettre.length; i++) {
+    pasLettre[i].addEventListener('input', function () {
+        if (this.value.match(/[a-zA-Z]+/)) {
+            this.value = this.value.replace(/[a-zA-Z]+/, '');
+        }
+    })
+}
+
+let codePostal = document.getElementsByClassName('codePostal');
+
+for (let i = 0; i < codePostal.length; i++) {
+    codePostal[i].addEventListener('input', function () {
+        if(!this.value.match(/^[0-9AaBb]+$/)) {
+            this.value = this.value.replace(/[^0-9AaBb]+/g, '');
+        }
+    })
+}
+
+let btnSubmit = document.getElementsByClassName('create-account-btn');
+
+for (let i = 0; i < btnSubmit.length; i++) {
+    btnSubmit[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        url = this.url
+
+        let telephone = document.getElementsByClassName('Telephone');
+
+        telephone[0].value = telephone[0].value.replace(/\s/g, '');
+
+        window.location.href = url;
     })
 }

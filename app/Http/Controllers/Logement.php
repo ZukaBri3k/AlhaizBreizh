@@ -114,11 +114,14 @@ if ($files) {
     }
 
     public function getInfoLogement(Request $request) {
-        dd(auth()->check());
-        if(endauth()->user()->id) {
-            $id_role = auth()->user()->id;
-        } else {
+        if(!auth()->check()) {
             $id_role = 0;
+        } else {
+            if(auth()->user()->role == 1) {
+                $id_role = 1;
+            } else {
+                $id_role = 2;
+            }
         }
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
@@ -128,7 +131,7 @@ if ($files) {
         'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
         'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
         'avis' => DB::select('select pseudo_pers, ville_pers, pays_pers, photo_pers, id, com_avis, note_avis from personnes inner join avis on personnes.id = avis.id_personne_avis where id_logement_avis = ?', [intval($request->id)]),
-        'role' => DB::select('select role from personnes where id = ?', [intval($id_role)])[0]->role,
+        'role' => DB::select('select role from personnes where id = ?', [intval($id_role)]),
     ]);
     }
 
@@ -289,12 +292,12 @@ if ($files) {
         $role = DB::select('select role from personnes where id = ?', [$id]);
         $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($req->id)]);
         
-        if($id == $idProprietaireLogment[0]->id_proprio_logement || $role != 1) {
-            return redirect()->back();
+        if($id == $idProprietaireLogment[0]->id_proprio_logement || $role[0]->role != 1) {
+            return redirect()->route('retourAvis', ['id' => $req->id]);
         } else {
             $tab = [
-                $req->note,
-                $req->commentaire,
+                $req->ratingValue,
+                $req->com_avis,
                 null,
                 $req->id,
                 $id,
@@ -303,6 +306,6 @@ if ($files) {
             DB::insert('insert into avis (note_avis, com_avis, id_reserv_avis, id_logement_avis, id_personne_avis) values (?, ?, ?, ?, ?)', $tab);
         }
 
-        return redirect()->back();
+        return redirect()->route('retourAvis', ['id' => $req->id]);
     }
 }

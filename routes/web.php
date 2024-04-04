@@ -61,6 +61,9 @@ Route::prefix('/logement')->group(function() {
     Route::get('/delLogement/{id}', [Logement::class, 'delLogement'])->name('delLogement')->middleware(['auth', 'isProprietaire']);
     Route::get('/updateLogement/{id}', [Logement::class, 'updateLogement'])->name('updateLogement')->middleware(['auth', 'isProprietaire']);
     Route::post('/updateLogementBDD/{id}', [Logement::class, 'updateLogementBDD'])->name('updateLogementBDD')->middleware(['auth', 'isProprietaire']);
+
+    Route::post('/creation_avis', [Logement::class, 'creationAvis'])->name('creation_avis')->middleware(['auth', 'isClient']);
+    Route::get('/{id}/details#id_hr', [Logement::class, 'getInfoLogement'])->where('id', '[0-9]+')->name('retourAvis');
 });
 
 Route::prefix('/account')->group(function () {

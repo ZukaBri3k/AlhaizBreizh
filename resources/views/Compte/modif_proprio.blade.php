@@ -110,7 +110,7 @@
 
                     <label for="code_postal_pers">*Code Postal:</label>
                     <input type="text" id="code_postal_pers" name="code_postal_pers" placeholder="Entrez votre code postal"
-                        class="form-control" value="{!! $personnes->code_postal_pers !!}" maxlength="5" pattern="^\d{5}$" required>
+                        class="form-control codePostal" value="{!! $personnes->code_postal_pers !!}" maxlength="5" pattern="^\d{5}$" required>
 
                     <label for="date_de_naissance">*Date de Naissance:</label>
                     <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Entrez votre date de naissance"
@@ -118,11 +118,29 @@
 
                     @php
                         $telephone = $personnes->telephone_pers;
-                        $telephone = preg_replace('/^\+\d{2}/', '0', $telephone);
+                        $telephone = "0" . substr($telephone, 3);
+                        
+                        $caracteres = str_split($telephone);
+
+                        // Initialisation de la chaîne résultante
+                        $chaineAvecEspaces = '';
+
+                        // Parcours des caractères
+                        foreach ($caracteres as $index => $caractere) {
+                            // Ajout du caractère au résultat
+                            $chaineAvecEspaces .= $caractere;
+                            
+                            // Ajout d'un espace tous les deux caractères, sauf pour le dernier caractère
+                            if (($index + 1) % 2 == 0 && $index < count($caracteres) - 1) {
+                                $chaineAvecEspaces .= ' ';
+                            }
+                        }
+
+                        $telephone = $chaineAvecEspaces;
                     @endphp
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control Telephone" value="{!! $telephone !!}" maxlength="14" pattern="^\d{10}$" required>
+                        class="form-control Telephone pasLettre pasSigne" value="{!! $telephone !!}" maxlength="14" required>
                         
 
                     <label for="mail_pers">*Adresse E-mail:</label>

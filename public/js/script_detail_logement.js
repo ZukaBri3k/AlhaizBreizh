@@ -20,7 +20,7 @@ textElements.forEach((textElement, index) => {
 });
 
 
-function showPopup() {
+/* function showPopup() {
     swal({
       title: "Succès",
       text: "Votre demande de devis a été créée avec succès.",
@@ -38,7 +38,7 @@ function showPopup() {
 
   function submitForm() {
       document.getElementById('myForm').submit(); // Soumet le formulaire
-  }
+  } */
 
 
 const stars = document.querySelectorAll(".star");

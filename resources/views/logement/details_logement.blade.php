@@ -19,6 +19,7 @@
 </head>
 <body>
     <x-Navbar></x-Navbar>
+    <script src="{{asset('js/script_detail_logement.js')}}" defer></script>
     <!--Code pour le carrousel-->
     <div class="carou">
       <div id="carouselExampleIndicators" class="carousel slide">
@@ -62,7 +63,7 @@
     </div>
     <div class="second">
       <div>
-        <h1>{!! $logement->libelle_logement !!} n°{!! $logement->id_logement !!} / {!! $logement->accroche_logement !!}</h1>
+        <h1>{!! $logement->libelle_logement !!} / {!! $logement->accroche_logement !!}</h1>
         <h1>Nature et type de logement :</h1>
         <div class="Caracteristiques">
           @php
@@ -437,27 +438,30 @@
           <h3>{!! $moyenne !!} de moyenne | {!! $nb_com !!} commentaire(s)</h3>
         </div>
       </div>
-       
-      @if ($role == 1)
-      <div class="creation_avis">
-        <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">
-          @csrf
-          <div class="rating">
-            <span class="star" data-value="5">★</span>
-            <span class="star" data-value="4">★</span>
-            <span class="star" data-value="3">★</span>
-            <span class="star" data-value="2">★</span>
-            <span class="star" data-value="1">★</span>
-            <label for="note_avis">: Notez</label>
-          </div>
-          <input type="hidden" name="ratingValue" id="ratingValue" value="0">
-          <div>
-            <label for="note_avis">Commentaire :</label>
-            <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
-            <button type="submit" onclick="event.preventDefault(); showPopup();" class="form-button">Envoyer</button>
-          </div>
-        </form>
-      </div>
+      
+      @if(count($role) != 0)
+        @if ($role[0]->role == 1)
+        <div class="creation_avis">
+          <form id="myForm" action="{{route('creation_avis')}}" method="post" class="avis_form">
+            @csrf
+            <div class="rating">
+              <span class="star" data-value="5">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="1">★</span>
+              <label for="note_avis">: Notez</label>
+            </div>
+            <input type="hidden" name="ratingValue" id="ratingValue" value="5">
+            <input type="hidden" name="id" id="id" value="{!! $logement->id_logement !!}">
+            <div>
+              <label for="note_avis">Commentaire :</label>
+              <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
+              <button type="submit" class="form-button">Envoyer</button>
+            </div>
+          </form>
+        </div>
+        @endif
       @endif
 
       <hr id="id_hr">
@@ -524,7 +528,6 @@
     <!-- Fin des avis -->
 
     <x-FooterClient></x-FooterClient>
-    <script src="{{asset('js/script_detail_logement.js')}}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

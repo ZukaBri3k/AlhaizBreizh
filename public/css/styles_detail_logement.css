@@ -594,6 +594,7 @@ body {
     font-weight: 500 !important;
     line-height: normal !important;
     margin-left: 5% !important;
+    word-wrap: break-word;
 }
 
 .text {

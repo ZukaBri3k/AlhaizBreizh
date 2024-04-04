@@ -196,6 +196,7 @@ if(iban.lenght<=2){
         });
         
     } else {
+        input.toUppercase();
         input.setCustomValidity("");
     }
 }else{

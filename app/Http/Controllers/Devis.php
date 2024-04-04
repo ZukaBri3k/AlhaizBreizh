@@ -100,7 +100,6 @@ class Devis extends Controller
                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
                 )', $tabDevis);
 
-                
 
                 $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id, $request->dateDebut, $request->dateFin]);
 

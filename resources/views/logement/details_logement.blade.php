@@ -424,7 +424,7 @@
               <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
             </div>
           </div>
-          <div class="note_avis">
+          <div class="etoile_div">
             <div class="div_note">
               <p class="note">{!! $values->note_avis !!}/5</p>
               <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="note_etoile">
@@ -446,7 +446,7 @@
             </div>
           </div>
           <div class="note_avis">
-          <div class="div_note">
+          <div class="etoile_div">
               <p class="note">{!! $values->note_avis !!}/5</p>
               <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="note_etoile">
             </div>

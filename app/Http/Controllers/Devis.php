@@ -52,7 +52,7 @@ class Devis extends Controller
     
             $prixtot = $nombreDeJours * $request->prix_tot;
             //recuperation du proprietaire du logement en liant l'ID du logement à l'ID du proprietaire avec une jointure
-            $proprietaire = DB::select('select * from personnes p join logements l on p.id = l.id_proprio_logement where l.id = ?', [$id_logement]);
+            $proprietaire = DB::select('select * from personnes p join logements l on p.id_logement = l.id where l.id_logement = ?', [$id_logement]);
 
             $tabDevis = [
                 NULL,

@@ -40,7 +40,7 @@ document.getElementById('devis_demande').addEventListener('submit', function (ev
       allowOutsideClick: false,
   }).then((result) => {
       if (result.isConfirmed) {
-          window.location.href = url;
+          //window.location.href = url;
       }
   });
 });

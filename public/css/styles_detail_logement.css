@@ -716,3 +716,12 @@ body {
     font-size: 40px;
     cursor: pointer;
 }
+
+.div_note {
+    display: flex;
+}
+
+.div_note img {
+    width: 10%;
+    margin-right: 2%;
+}

@@ -338,9 +338,11 @@
                 });
             });
         </script>
-    <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
-    <button id="btnTriNote" onclick="triNote()">Trier par note croissante</button>
-    <input type="text" id="rechercheLogement" placeholder="Rechercher un logement">
+    <div id="lesboutons">
+        <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
+        <button id="btnTriNote" onclick="triNote()">Trier par note croissante</button>
+        <input type="text" id="rechercheLogement" placeholder="Rechercher un logement">
+    </div>
     <select id="selectionFiltre">
         <option value="Aucun">Tous</option>
         <option value="Appartement">Appartements</option>

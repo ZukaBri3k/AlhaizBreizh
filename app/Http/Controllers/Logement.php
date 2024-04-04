@@ -161,7 +161,7 @@ class Logement extends Controller
 
         return View("logement/mes_logements_client", ['logements' => $logements, 'tabDevis' => $tabDevis, 'tabReserv' => $tabReserv]);
     }
-
+  
     public function setLogementHorsLigne(Request $request) {
         $enLigne = DB::select('select en_ligne from logement where id_logement = ?', [intval($request->id)]);
         //dd($enLigne[0]->en_ligne);

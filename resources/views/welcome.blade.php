@@ -74,11 +74,12 @@
                 const longitude = parseFloat(data[0].lon);
                 return [latitude, longitude];
             } else {
-                throw new Error("No results found");
+                console.error('No results found for city:', cityName);
+                return null; // Retourne null si aucune donnée n'est trouvée
             }
         } catch (error) {
             console.error('Error:', error.message);
-            throw error; // Rejette l'erreur pour être gérée plus tard
+            return null; // Retourne null en cas d'erreur
         }
     }
 
@@ -133,6 +134,8 @@
                 marker.options.name = cities[i];
 
                 markerGroup.addLayer(marker);
+            }catch (error) {
+                console.error(`Error getting coordinates for city ${cities[i]}:`, error.message);
             }
         }
     }

@@ -92,7 +92,15 @@ document.getElementById('submit').addEventListener('click', function(event) {
     if (MDP.match(regex_maj))
         if(MDP.match(regex_min)){
             if(MDP.match(regex_chiffre)){
-                //window.location.href=url;
+                Toast.fire({
+                    icon: "success",
+                    title: "Informations enregistrées",
+                    background: '#F6F5EE',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'generation_cle'
+                    },
+                });
             }
             else{
                 Toast.fire({
@@ -153,15 +161,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
             event.preventDefault();
 		}
-        Toast.fire({
-            icon: "success",
-            title: "Informations enregistrées",
-            background: '#F6F5EE',
-            allowOutsideClick: false,
-            customClass: {
-                title: 'generation_cle'
-            },
-        });
+      
 	}
 
         

@@ -439,7 +439,7 @@
       </div>
       
       @if(count($role) != 0)
-        @if ($role[0]->role == 1 && $bool_resa == true)
+        @if ($bool_resa == true)
         <div class="creation_avis">
           <form id="myForm" action="{{route('creation_avis')}}" method="post" class="avis_form">
             @csrf
@@ -457,6 +457,7 @@
               <label for="note_avis">Commentaire :</label>
               <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
               <button type="submit" id="formAvis" class="form-button">Envoyer</button>
+              
             </div>
           </form>
         </div>

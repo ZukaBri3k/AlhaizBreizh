@@ -21,8 +21,10 @@ textElements.forEach((textElement, index) => {
 
 
 //Ici mon JS pour la création d'un devis
-document.getElementById('#devis_demande').addEventListener('submit', function(event) {
+/* document.getElementById('devis_demande').addEventListener('click', function(event) {
   event.preventDefault();
+  let url = this.href;
+  console.log(url);
 
   Swal.fire({
       title: "Envoyer !",
@@ -37,14 +39,16 @@ document.getElementById('#devis_demande').addEventListener('submit', function(ev
       allowOutsideClick: false,
   }).then((result) => {
       if (result.isConfirmed) {
-          this.submit();
+          //window.location.href = url;
       }
   });
 });
 
-document.getElementById('#formAvis').addEventListener('submit', function(event) {
+document.getElementById('formAvis').addEventListener('click', function(event) {
   event.preventDefault();
-
+  let url = this.href;
+  console.log(url);
+  
   Swal.fire({
       title: "Envoyer !",
       text: "Votre avis à bien été poster !",
@@ -58,10 +62,10 @@ document.getElementById('#formAvis').addEventListener('submit', function(event) 
       allowOutsideClick: false,
   }).then((result) => {
       if (result.isConfirmed) {
-          this.submit();
+          window.location.href = url;
       }
   });
-});
+}); */
 
 
 const stars = document.querySelectorAll(".star");

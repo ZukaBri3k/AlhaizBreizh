@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style_profile_prive.css')}}" />
-    <title>Son profile privée</title>
+    <title>Son profil privé</title>
 </head>
 <body>
     <x-Navbar></x-Navbar>
@@ -219,10 +219,10 @@
                     <div class="line">
                         <p>Réservation: {{ $i->reserv_suivi ? '✅' : '❌' }}</p>
                         <p>Devis: {{ $i->devis_suivi ? '✅' : '❌' }}</p>
-                        <p>{{ $i->date_deb }}</p>
-                        <p>{{ $i->date_fin }}</p>
+                        <p>Du {{ $i->date_deb }}</p>
+                        <p> Au{{ $i->date_fin }}</p>
                         <button onclick="copierTexte(event, '{{"http://site-sae-ubisoufte.bigpapoo.com/getIcal/" . $i->token}}')" >Copier</button>
-                        <a href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a>
+                        <a class="delIcal" href="{{route('delIcal', ['token' => $i->token])}}">Supprimer</a>
                     </div>
                 @endforeach
             </div>            

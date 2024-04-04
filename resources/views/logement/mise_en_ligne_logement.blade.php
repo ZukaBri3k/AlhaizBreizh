@@ -437,7 +437,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
                 <span>Ustensile de cuisine</span>
             </button>
         </div>
-        <button type="button" onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="velo">
+        <button type="button" onclick="selectItemDroite_page_6(this, 'selectedSize')" class="image-button page-6-button boutton_selection" value="vélo">
         <div class="image-container">
             <img src="{{asset('img/services/vélo.png')}}" alt="Vélo">
         </div>

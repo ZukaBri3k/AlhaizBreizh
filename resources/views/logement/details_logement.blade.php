@@ -6,7 +6,7 @@
     <link href="{{asset('/css/styles_detail_logement.css')}}" rel="stylesheet"></link>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Détails d'un logement</title>
 </head>
 <body>
     <x-Navbar></x-Navbar>
@@ -16,7 +16,7 @@
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
-                <div>
+                <div id="imgGolmon">
                   @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
                       <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                   @endfor
@@ -269,11 +269,11 @@
             if(count(explode(";", $logement->charge_additionnel_libelle)) > 1) {
             foreach ($charge as $values) {
               $value = strtolower($values);
-              $value = str_replace(' ', '_', $value);
+              $value = str_replace('_', ' ', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
-            <p>{!! $values !!}</p>
+            <p>{!! $value !!}</p>
           </div>
           @php 
             }
@@ -359,31 +359,138 @@
             </div>
             <button type="submit" onclick="event.preventDefault(); showPopup();">Demander un devis</button>
           </form>
-          <script>
-            function showPopup() {
-              swal({
-                title: "Succès",
-                text: "Votre demande de devis a été créée avec succès.",
-                icon: "success",
-                background: "#F6F5EE",
-                button: {
-                  text: "Ok",
-                  closeModal: false,
-                  className: "customButton"
-                },
-                closeOnClickOutside: false,
-                dangerMode: true,
-              });
-                setTimeout(submitForm, 2500); // Attend 2.5 secondes avant de soumettre le formulaire
-            }
-
-            function submitForm() {
-                document.getElementById('myForm').submit(); // Soumet le formulaire
-            }
-            </script>
       </div>
     </div>
+
+
+    <!-- Avis -->
+    <hr id="id_hr">
+    <div>
+      <div class="avis">
+        <h1>Avis :</h1>
+        <div>
+          <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="etoile">
+          <h3>4.5 | 6 commentaires</h3>
+        </div>
+      </div>
+
+      <div class="creation_avis">
+        <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">
+          @csrf
+          <div class="rating">
+            <span class="star" data-value="5">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="1">★</span>
+            <label for="note_avis">: Notez</label>
+          </div>
+          <input type="hidden" name="ratingValue" id="ratingValue" value="0">
+          <div>
+            <label for="note_avis">Commentaire :</label>
+            <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
+            <button type="submit" onclick="event.preventDefault(); showPopup();" class="form-button">Envoyer</button>
+          </div>
+        </form>
+      </div>
+
+      <hr id="id_hr">
+
+
+    <div class="les_avis">
+
+      <div class="un_avis">
+        <div class="pp_avis">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
+          <div>
+            <p>Utilisateur 1</p>
+            <p>Rennes, France</p>
+          </div>
+        </div>
+        <div class="note_avis">
+          <p>4.5/5</p>
+          <p>Très bon logement, je recommande</p>
+        </div>
+      </div>
+
+      <div class="un_avis">
+        <div class="pp_avis">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
+          <div>
+            <p>Utilisateur 1</p>
+            <p>Rennes, France</p>
+          </div>
+        </div>
+        <div class="note_avis">
+          <p>4.5/5</p>
+          <p>Très bon logement, je recommande</p>
+        </div>
+      </div>
+
+      <div class="un_avis">
+        <div class="pp_avis">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
+          <div>
+            <p>Utilisateur 1</p>
+            <p>Rennes, France</p>
+          </div>
+        </div>
+        <div class="note_avis">
+          <p>4.5/5</p>
+          <p>Très bon logement, je recommandeTrès bon logement, je recommande
+          </p>
+        </div>
+      </div>
+
+      <div class="un_avis">
+        <div class="pp_avis">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
+          <div>
+            <p>Utilisateur 1</p>
+            <p>Rennes, France</p>
+          </div>
+        </div>
+        <div class="note_avis">
+          <p>4.5/5</p>
+          <p class="text">Très bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommande, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas</p>
+          <a href="#" class="toggle">en savoir plus</a>
+        </div>
+      </div>
+
+      <div class="un_avis">
+        <div class="pp_avis">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
+          <div>
+            <p>Utilisateur 1</p>
+            <p>Rennes, France</p>
+          </div>
+        </div>
+        <div class="note_avis">
+          <p>4.5/5</p>
+          <p class="text">je recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment anticonstitutionnelementadazdzadaz</p>
+          <a href="#" class="toggle">en savoir plus</a>
+        </div>
+      </div>
+
+      <div class="un_avis">
+        <div class="pp_avis">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
+          <div>
+            <p>Utilisateur 1</p>
+            <p>Rennes, France</p>
+          </div>
+        </div>
+        <div class="note_avis">
+          <p>4.5/5</p>
+          <p>Très bon logement, je recommandeTrès bon logement, je recommande
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Fin des avis -->
+
     <x-FooterClient></x-FooterClient>
+    <script src="{{asset('js/script_detail_logement.js')}}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

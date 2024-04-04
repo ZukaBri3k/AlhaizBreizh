@@ -235,3 +235,7 @@ input::-o-outer-spin-button {
 -o-appearance: none;
 margin:0
 }
+
+/*#iban {
+  text-transform: uppercarse;
+}*/

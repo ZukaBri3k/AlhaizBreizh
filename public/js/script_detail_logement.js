@@ -21,7 +21,7 @@ textElements.forEach((textElement, index) => {
 
 
 //Ici mon JS pour la création d'un devis
-/* document.getElementById('devis_demande').addEventListener('click', function(event) {
+document.getElementById('devis_demande').addEventListener('click', (event) => {
   event.preventDefault();
   let url = this.href;
   console.log(url);
@@ -44,7 +44,7 @@ textElements.forEach((textElement, index) => {
   });
 });
 
-document.getElementById('formAvis').addEventListener('click', function(event) {
+/*document.getElementById('formAvis').addEventListener('click', function(event) {
   event.preventDefault();
   let url = this.href;
   console.log(url);

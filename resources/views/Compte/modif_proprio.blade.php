@@ -52,11 +52,11 @@
                     </script>
 
                     <label for="nom_pers">*Nom:</label>
-                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" value="{!! $personnes->nom_pers !!}" pattern="[A-Za-z\-'\s]+" 
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control pasChiffre" value="{!! $personnes->nom_pers !!}" pattern="[A-Za-z\-'\s]+" 
                         maxlength="20" required>
 
                     <label for="prenom_pers">*Prénom:</label>
-                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control" value="{!! $personnes->prenom_pers !!}" pattern="[A-Za-z\-'\s]+" 
+                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control pasChiffre pasSigne" value="{!! $personnes->prenom_pers !!}" pattern="[A-Za-z\-'\s]+" 
                         maxlength="30" required>
 
                     <label for="pseudo_pers">*Pseudo:</label>
@@ -64,11 +64,11 @@
                         class="form-control" value="{!! $personnes->pseudo_pers !!}" maxlength="15" required>
 
                     <label for="ville_pers">*Ville:</label>
-                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control" value="{!! $personnes->ville_pers !!}" 
+                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control pasChiffre pasSigne" value="{!! $personnes->ville_pers !!}" 
                         maxlength="60" required>
 
                     <label for="pays_pers">*Pays:</label>
-                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="{!! $personnes->pays_pers !!}" class="form-control" required>
+                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="{!! $personnes->pays_pers !!}" class="form-control pasChiffre pasSigne" required>
                     <script>
                         jQuery(document).ready(function() {
                             jQuery("#pays_pers").countrySelect();

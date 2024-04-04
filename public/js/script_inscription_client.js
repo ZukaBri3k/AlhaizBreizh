@@ -36,7 +36,8 @@
         var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
 		console.log(confirmationMotDePasse);
 	
-		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "") {
+		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
+
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
 		}
 	}
@@ -70,7 +71,6 @@
     });
 
 document.getElementById('submit').addEventListener('click', function(event) {
-    event.preventDefault();
     console.log("ici");
     var url = this.href;
     // Vérifier si le mot de passe contient au moins une majuscule
@@ -81,17 +81,35 @@ document.getElementById('submit').addEventListener('click', function(event) {
     if (MDP.match(regex_maj))
         if(MDP.match(regex_min)){
             if(MDP.match(regex_chiffre)){
-                window.location.href=url;
+                //window.location.href=url;
             }
             else{
                 alert("il vous manque un chiffre");
+                event.preventDefault();
+
             }
         }
         else{
             alert("Il vous manque une minuscule");
+            event.preventDefault();
+
         }
 
     else{
             alert("Il vous manque une Majuscule");
+            event.preventDefault();
+
         }
-})
+        
+        var motDePasse = document.getElementById("password").value;
+        var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
+		console.log(confirmationMotDePasse);
+	
+		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
+
+			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
+            event.preventDefault();
+		}
+	}
+        
+)

@@ -540,12 +540,12 @@ body {
 .avis div {
     display: flex;
     align-items: center;
-    width: 25%;
+    width: 39%;
 }
 
 #etoile {
     margin-right: 2%;
-    width: 10%;
+    width: 7%;
 }
 
 .un_avis {
@@ -577,24 +577,34 @@ body {
     width: 70%;
 }
 
-.pp_avis p {
-    color: #000;
-    font-family: 'Montserrat';
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-left: 5%;
+.note {
+    color: #000 !important;
+    font-family: 'Montserrat' !important;
+    font-size: 25px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    margin-left: 5% !important;
 }
 
-.pp_avis p + p {
-    color: #000;
-    font-family: 'Montserrat-Light';
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-left: 5%;
+.commentaire {
+    color: #000 !important;
+    font-family: 'Montserrat-Light' !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    margin-left: 5% !important;
+}
+
+.text {
+    color: #000 !important;
+    font-family: 'Montserrat-Light' !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    margin-left: 5% !important;
 }
 
 .note_avis {
@@ -718,4 +728,13 @@ body {
     display: inline-block;
     font-size: 40px;
     cursor: pointer;
+}
+
+.div_note {
+    display: flex;
+}
+
+#note_etoile {
+    width: 32px;
+    height: 32px;
 }

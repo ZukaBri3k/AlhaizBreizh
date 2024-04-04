@@ -19,11 +19,15 @@
         @endphp
         <div class="listeMesDevis">
         @foreach($tabDevis as $devis)
-            <!-- Assurez-vous de remplacer 'proprietaire_nom' par le nom de la colonne appropriée dans votre base de données -->
             @php 
-                $proprietaire_nom = DB::select('select nom_proprietaire from logement where id_logement = ?', [$devis->id_logement]);
+                // Récupérer le nom du propriétaire en effectuant une jointure entre logement et personnes
+                $proprietaire_nom = DB::table('logement')
+                                    ->join('personnes', 'logement.id_proprio_logement', '=', 'personnes.id')
+                                    ->select('personnes.nom_pers')
+                                    ->where('logement.id_logement', $devis->id_logement)
+                                    ->first();
             @endphp
-            <x-DemandeDevisClient libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}" proprietaire_nom="{{$proprietaire_nom}}"></x-DemandeDevisClient>
+            <x-DemandeDevisClient libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}" proprietaire_nom="{{$proprietaire_nom->nom_pers}}"></x-DemandeDevisClient>
         @endforeach
         <hr>
     </section>

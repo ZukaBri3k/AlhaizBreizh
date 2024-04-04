@@ -412,7 +412,7 @@
         foreach ($avis as $values) {
           if(strlen($values->com_avis) < 200) {
     @endphp
-        <div class="un_avis">
+        <div class="un_avis_simple">
           <div class="pp_avis">
           @if ($values->photo_pers == "pp_profile.png")
               <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp" alt="photo de profil">
@@ -420,12 +420,12 @@
               <img id="image_pp_previsu" src="{{ asset('pp/pp' . $values->id . '/img1.png')}}" class="pp" alt="photo de profil">
           @endif
             <div>
-              <p>{!! $values->pseudo_pers !!}</p>
-              <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
+              <p class="note">{!! $values->pseudo_pers !!}</p>
+              <p class="commentaire">{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
             </div>
           </div>
           <div class="note_avis">
-            <div class="div_note">
+            <div class="etoile_div">
               <p class="note">{!! $values->note_avis !!}/5</p>
               <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="note_etoile">
             </div>
@@ -446,7 +446,7 @@
             </div>
           </div>
           <div class="note_avis">
-          <div class="div_note">
+          <div class="etoile_div">
               <p class="note">{!! $values->note_avis !!}/5</p>
               <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="note_etoile">
             </div>

@@ -86,3 +86,48 @@ function showOptions() {
             input.setCustomValidity("");
         }
     });
+
+
+    document.getElementById('submit').addEventListener('click', function(event) {
+        console.log("ici");
+        var url = this.href;
+        // Vérifier si le mot de passe contient au moins une majuscule
+        var regex_maj = /[A-Z]/;
+        var regex_min = /[a-z]/;
+        var regex_chiffre = /[0-9]/;
+        var MDP = document.getElementById("password").value;
+        if (MDP.match(regex_maj))
+            if(MDP.match(regex_min)){
+                if(MDP.match(regex_chiffre)){
+                    //window.location.href=url;
+                }
+                else{
+                    alert("il vous manque un chiffre");
+                    event.preventDefault();
+    
+                }
+            }
+            else{
+                alert("Il vous manque une minuscule");
+                event.preventDefault();
+    
+            }
+    
+        else{
+                alert("Il vous manque une Majuscule");
+                event.preventDefault();
+    
+            }
+            
+            var motDePasse = document.getElementById("password").value;
+            var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
+            console.log(confirmationMotDePasse);
+        
+            if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
+    
+                alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
+                event.preventDefault();
+            }
+        }
+            
+    )

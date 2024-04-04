@@ -578,13 +578,13 @@ body {
 }
 
 .note {
-    color: #000 !important;
-    font-family: 'Montserrat' !important;
-    font-size: 25px !important;
-    font-style: normal !important;
-    font-weight: 500 !important;
-    line-height: normal !important;
-    margin-left: 5% !important;
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 5%;
 }
 
 .commentaire {
@@ -730,11 +730,25 @@ body {
     cursor: pointer;
 }
 
-.div_note {
+.etoile_div {
     display: flex;
 }
 
 #note_etoile {
     width: 32px;
     height: 32px;
+}
+
+
+.un_avis_simple {
+    display: flex;
+    margin-top: 2%;
+    flex-direction: column;
+    width: 50%;
+    background-color: #EDECE2;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    height: fit-content;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }

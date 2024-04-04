@@ -52,7 +52,7 @@
                     </script>
 
                     <label for="nom_pers">*Nom:</label>
-                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control pasChiffre" value="{!! $personnes->nom_pers !!}" pattern="[A-Za-z\-'\s]+" 
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control pasChiffre pasSigne" value="{!! $personnes->nom_pers !!}" pattern="[A-Za-z\-'\s]+" 
                         maxlength="20" required>
 
                     <label for="prenom_pers">*Prénom:</label>
@@ -122,7 +122,7 @@
                     @endphp
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control" value="{!! $telephone !!}" maxlength="12" pattern="^\d{10}$" required>
+                        class="form-control Telephone" value="{!! $telephone !!}" maxlength="10" pattern="^\d{10}$" required>
                         
 
                     <label for="mail_pers">*Adresse E-mail:</label>

@@ -114,7 +114,6 @@ if ($files) {
     }
 
     public function getInfoLogement(Request $request) {
-        dd(auth()->check());
         if(!auth()->check()) {
             $id_role = null;
         } else {

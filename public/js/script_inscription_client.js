@@ -193,7 +193,9 @@ document.getElementById('iban').addEventListener('input', function(event) {
                 },
             });
         } else {
+            input.toUpperCase();
             input.setCustomValidity("");
+            
         }
     } else {
         if (!regex_num.test(input.value)) {

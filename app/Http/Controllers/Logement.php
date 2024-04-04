@@ -116,6 +116,7 @@ class Logement extends Controller
         'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
         'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
         'avis' => DB::select('select pseudo_pers, ville_pers, pays_pers, photo_pers, id, com_avis, note_avis from personnes inner join avis on personnes.id = avis.id_personne_avis where id_logement_avis = ?', [intval($request->id)]),
+        'role' => DB::select('select role from personnes where id = ?', [auth()->user()->id])[0]->role,
     ]);
     }
 
@@ -255,5 +256,27 @@ class Logement extends Controller
         } else {
             return redirect()->back();
         }
+    }
+
+    public function creationAvis(Request $req) {
+        $id = auth()->user()->id;
+        $role = DB::select('select role from personnes where id = ?', [$id]);
+        $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($req->id)]);
+        
+        if($id == $idProprietaireLogment[0]->id_proprio_logement || $role != 1) {
+            return redirect()->back();
+        } else {
+            $tab = [
+                $req->note,
+                $req->commentaire,
+                null,
+                $req->id,
+                $id,
+            ];
+
+            DB::insert('insert into avis (note_avis, com_avis, id_reserv_avis, id_logement_avis, id_personne_avis) values (?, ?, ?, ?, ?)', $tab);
+        }
+
+        return redirect()->back();
     }
 }

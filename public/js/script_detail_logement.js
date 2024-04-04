@@ -42,10 +42,8 @@ document.getElementById('devis_demande').addEventListener('submit', function (ev
   });
 });
 
-/*document.getElementById('formAvis').addEventListener('click', function(event) {
+document.getElementById('formAvis').addEventListener('submit', function(event) {
   event.preventDefault();
-  let url = this.href;
-  console.log(url);
   
   Swal.fire({
       title: "Envoyer !",
@@ -60,10 +58,10 @@ document.getElementById('devis_demande').addEventListener('submit', function (ev
       allowOutsideClick: false,
   }).then((result) => {
       if (result.isConfirmed) {
-          window.location.href = url;
+          this.submit();
       }
   });
-}); */
+});
 
 
 const stars = document.querySelectorAll(".star");

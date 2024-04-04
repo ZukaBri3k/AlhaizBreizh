@@ -441,7 +441,7 @@
       @if(count($role) != 0)
         @if ($bool_resa == true)
         <div class="creation_avis">
-          <form id="myForm" action="{{route('creation_avis')}}" method="post" class="avis_form">
+          <form id="formAvis" action="{{route('creation_avis')}}" method="post" class="avis_form">
             @csrf
             <div class="rating">
               <span class="star" data-value="5">★</span>
@@ -457,7 +457,7 @@
             <div>
               <label for="note_avis">Commentaire :</label>
               <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>
-              <button type="submit" id="formAvis" class="form-button">Envoyer</button>
+              <button type="submit" class="form-button">Envoyer</button>
               
             </div>
           </form>

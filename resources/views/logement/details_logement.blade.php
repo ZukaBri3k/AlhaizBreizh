@@ -16,7 +16,7 @@
           <div class="carousel-inner" id="carousel">
             <div class="carousel-item active">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img0.jpg') }}" class="d-block w-100">
-                <div>
+                <div id="imgGolmon">
                   @for($i = 1; $i < intval($nb_photo) && $i < 3; $i++)
                       <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                   @endfor
@@ -27,7 +27,7 @@
               <div class="carousel-item">
                 <img src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $i . '.jpg')}}" class="d-block w-100">
                 
-                <div id="imgGolmon">
+                <div>
                   @for($j = $i + 1; $j < intval($nb_photo)-1 && $counter < 2; $j++)
                     @php $counter++; @endphp
                     <img class="1" src="{{ asset('storage/logement' . $logement->id_logement . '/img' . $j . '.jpg')}}" class="d-block w-100">

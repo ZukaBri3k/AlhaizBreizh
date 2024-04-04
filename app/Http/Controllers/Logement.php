@@ -93,7 +93,7 @@ class Logement extends Controller
         //dd($request->file("image-upload2"));
         //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
         
-        dd($request->file());
+        //dd($request->file());
         for($i = 1; $i <= count($request->file()); $i++) {
             Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i - 1 . ".jpg");
         }

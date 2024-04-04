@@ -18,7 +18,7 @@ for (let i = 0; i < pasSigne.length; i++) {
     })
 }
 
-let telephone = document.getElementById('Telephone');
+let telephone = document.getElementsByClassName('Telephone');
 
 for (let i = 0; i < telephone.length; i++) {
     telephone[i].addEventListener('input', function () {

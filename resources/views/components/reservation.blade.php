@@ -12,9 +12,9 @@
     @endphp
     @if ($role == 1)
         @if ($bool_resa == false)
-            <button id="btnfiltre" disabled>Vous avez déjà posté un avis</button>
+            <button class="boutonsdevis" disabled>Vous avez déjà posté un avis</button>
         @else
-            <button id="btnfiltre" onclick="window.location.href='{{ route('retourAvis', ['id' => $id]) }}'">Écrire un avis</button>
+            <button class="boutonsdevis" onclick="window.location.href='{{ route('retourAvis', ['id' => $id]) }}'">Écrire un avis</button>
         @endif
     @endif
 </div>

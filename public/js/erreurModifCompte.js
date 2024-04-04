@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', function() {
+    let telephone = document.getElementsByClassName('Telephone');
+
+    for (let i = 0; i < telephone.length; i++) {
+        this.value = this.value.replace(/\s/g, '');
+        this.value = this.value.replace(/(\d{2})(?=\d)/g, '$1 ');
+    }
+})
+
 let pasChiffre = document.getElementsByClassName('pasChiffre');
 
 for (let i = 0; i < pasChiffre.length; i++) {

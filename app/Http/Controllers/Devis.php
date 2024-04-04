@@ -52,6 +52,9 @@ class Devis extends Controller
     
             $prixtot = $nombreDeJours * $request->prix_tot;
 
+            dd($id_logement);
+            $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [$id_logement]);
+    
             $tabDevis = [
                 NULL,
                 $request->dateDebut,

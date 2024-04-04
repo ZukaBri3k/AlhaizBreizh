@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Personne;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class Logement extends Controller
 {
@@ -42,7 +43,7 @@ class Logement extends Controller
             $request->charge_additionnel_libelle,
             $request->charge_additionnel_prix,
         ];
-        dd($tab);
+
         DB::insert('insert into logement (
         libelle_logement,
         accroche_logement,
@@ -94,9 +95,14 @@ class Logement extends Controller
         //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
         
         //dd($request->file());
-        for($i = 1; $i <= count($request->file()); $i++) {
-            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i - 1 . ".jpg");
-        }
+       $files = $request->file('photo_complementaire_logement');
+
+if ($files) {
+    foreach ($files as $index => $file) {
+        Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $file, "img" . $index . ".jpg");
+    }
+}
+
 
         //dd($APP_URL));
 
@@ -108,6 +114,25 @@ class Logement extends Controller
     }
 
     public function getInfoLogement(Request $request) {
+        $bool_resa = false;
+        if(!auth()->check()) {
+            $id_role = 0;
+        } else {
+            if(auth()->user()->role == 1) {
+                $id_role = 1;
+                $id_resa = DB::select('select id_reserv from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join logement on reservation.id_logement_reserv = logement.id_logement where id_client_devis = ? and id_logement = ?', [auth()->user()->id, intval($request->id)]);
+                if($id_resa != null){
+                    foreach($id_resa as $values) {
+                        $resa = DB::select('select id_reserv_avis from avis inner join reservation on avis.id_reserv_avis = reservation.id_reserv inner join logement on avis.id_logement_avis = logement.id_logement where id_reserv = ? and id_logement_avis = ?', [$values->id_reserv, intval($request->id)]);
+                        if($resa != null) {
+                            $bool_resa = true;
+                        }
+                    }
+                }
+            } else {
+                $id_role = 2;
+            }
+        }
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  
         'chambre' => DB::select('select * from chambre where id_logement = ?', [intval($request->id)]), 
@@ -115,6 +140,9 @@ class Logement extends Controller
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
         'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
+        'avis' => DB::select('select pseudo_pers, ville_pers, pays_pers, photo_pers, id, com_avis, note_avis from personnes inner join avis on personnes.id = avis.id_personne_avis where id_logement_avis = ?', [intval($request->id)]),
+        'role' => DB::select('select role from personnes where id = ?', [intval($id_role)]),
+        'bool_resa' => $bool_resa,
     ]);
     }
 
@@ -145,7 +173,21 @@ class Logement extends Controller
         return View("logement/mes_logements", ['logements' => $logements, 'tabDevis' => $tabDevis, 'tabReserv' => $tabReserv]);
     }
 
+    public function getLogementsClient(Request $request) {
+        $id = auth()->user()->id;
+        $logements = DB::select("select * from logement where id_proprio_logement = ?", [$id]);        
+        
+        foreach ($logements as $logement) {
+            $logement->lien = "/logement/" . $logement->id_logement . "/details";
+            $logement->id = $logement->id_logement;
+        }
+        
+        $tabDevis = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv where devis.id_client_devis = ?", [$id]);
+        $tabReserv = DB::select("select * from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join personnes on personnes.id = devis.id_client_devis inner join logement on logement.id_logement = reservation.id_logement_reserv where devis.id_client_devis = ?", [$id]);
 
+        return View("logement/mes_logements_client", ['logements' => $logements, 'tabDevis' => $tabDevis, 'tabReserv' => $tabReserv]);
+    }
+  
     public function setLogementHorsLigne(Request $request) {
         $enLigne = DB::select('select en_ligne from logement where id_logement = ?', [intval($request->id)]);
         //dd($enLigne[0]->en_ligne);
@@ -254,5 +296,27 @@ class Logement extends Controller
         } else {
             return redirect()->back();
         }
+    }
+
+    public function creationAvis(Request $req) {
+        $id = auth()->user()->id;
+        $role = DB::select('select role from personnes where id = ?', [$id]);
+        $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($req->id)]);
+        
+        if($id == $idProprietaireLogment[0]->id_proprio_logement || $role[0]->role != 1) {
+            return redirect()->route('retourAvis', ['id' => $req->id]);
+        } else {
+            $tab = [
+                $req->ratingValue,
+                $req->com_avis,
+                null,
+                $req->id,
+                $id,
+            ];
+
+            DB::insert('insert into avis (note_avis, com_avis, id_reserv_avis, id_logement_avis, id_personne_avis) values (?, ?, ?, ?, ?)', $tab);
+        }
+
+        return redirect()->route('retourAvis', ['id' => $req->id]);
     }
 }

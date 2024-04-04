@@ -12,6 +12,8 @@
     <script src="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.js"></script>
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nouislider@14.6.4/distribute/nouislider.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.6.4/distribute/nouislider.min.js"></script>
 </head>
 <body id="accueil">
     <x-Navbar></x-Navbar>
@@ -26,7 +28,7 @@
         <h2>Logements les mieux notés :</h2>
         <div class="liste-card">
             @foreach ($logements as $logement)
-                <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}" ville="{{$logement->ville_logement}}"></x-Card>
+                <x-Card prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}" ville="{{$logement->ville_logement}}" titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}"></x-Card>
             @endforeach
         </div>
     </section>
@@ -72,11 +74,12 @@
                 const longitude = parseFloat(data[0].lon);
                 return [latitude, longitude];
             } else {
-                throw new Error("No results found");
+                console.error('No results found for city:', cityName);
+                return null; // Retourne null si aucune donnée n'est trouvée
             }
         } catch (error) {
             console.error('Error:', error.message);
-            throw error; // Rejette l'erreur pour être gérée plus tard
+            return null; // Retourne null en cas d'erreur
         }
     }
 
@@ -86,8 +89,6 @@
             "{{ $logement->ville_logement }}",
         @endforeach
     ];
-
-    console.log("villes : " + cities);
 
     //obtention des autres infos que la ville :
     var logements = [
@@ -101,20 +102,13 @@
         @endforeach
     ];
 
-    console.log('logements :', logements.map(logement => JSON.stringify(logement)));
-
-    logements.forEach(logement => {
-        console.log('id :', logement.id);
-        console.log('libelle :', logement.libelle);
-        console.log('prix :', logement.prix);
-        console.log('nature :', logement.nature);
-    });
-
     async function addMarkersForAllCities(cities, logements) {
         for (let i = 0; i < cities.length; i++) {
             const coords = await getCoordinates(cities[i]);
             if (coords) {
-                const marker = L.marker(coords);
+                const latitude = coords[0] + (Math.random() - 0.5) / 100;
+                const longitude = coords[1] + (Math.random() - 0.5) / 100;
+                const marker = L.marker([latitude, longitude]);
                 const logement = logements[i];
                 const imageUrl = 'https://site-sae-ubisoufte.bigpapoo.com/storage/logement' + logement.id + '/img0.jpg';
                 marker.bindPopup(`
@@ -161,7 +155,7 @@
         @endforeach
     };
 
-    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+    L.control.layers(baseMaps).addTo(mymap);
 
 
 
@@ -182,181 +176,6 @@
     mymap.addControl(searchControl);
 
 </script>
-
-
-
-
-
-
-
-
-
-
-    <script>
-    /*async function getCoordinates(cityName) {
-        try {
-            console.log('Recherche de coordonnées pour', cityName);
-            const response = await fetch(`https://nominatim.openstreetmap.org/search?city=${cityName}&format=json`);
-            const data = await response.json();
-
-            if (data.length > 0) {
-                const latitude = parseFloat(data[0].lat);
-                const longitude = parseFloat(data[0].lon);
-                return [latitude, longitude];
-            } else {
-                throw new Error("No results found");
-            }
-        } catch (error) {
-            console.error('Error:', error.message);
-            throw error; // Rejette l'erreur pour être gérée plus tard
-        }
-    }
-
-    var logementId = "{{ $logement->id }}";
-    console.log("logementId : " + logementId); // Affichez l'ID du logement pour le débogage
-
-        async function createMarker(cityName, logementId, imageUrl, housingType, customIcon) {
-            console.log('Création du marqueur pour', cityName); // Affichez le nom de la ville pour le débogage
-        const coordinates = await getCoordinates(cityName);
-
-        // Utilisez L.marker avec l'icône personnalisée
-        const marker = L.marker(coordinates, {
-            icon: customIcon,
-            name: cityName,
-            housingType: housingType
-        });
-
-        const popupContent = document.createElement('div');
-        popupContent.innerHTML = '<img src="' + imageUrl + '" alt="Image de couverture de la maison" style="width: 150px;"><br>Logement situé à ' + cityName + '.';
-        popupContent.addEventListener('click', function () {
-            window.location.href = '/logement/' + logementId + '/details';
-        });
-        marker.bindPopup(popupContent).on('click', function () { this.openPopup(); });
-
-        return marker;
-    }
-
-    console.log("chargement des cartes..."); // Affichez un message pour le débogage
-    document.addEventListener('DOMContentLoaded', async (event) => {
-        let ListeCard = document.querySelectorAll(".autres .lienCard");
-        let tabCard = Array.from(ListeCard);
-        console.log("tabCard : " + tabCard); // Affichez les cartes pour le débogage
-
-        // Récupérez les villes uniques des cartes
-        const cities = [];
-        const logementTypes = [];
-        const markerGroups = {};
-        const markers = [];
-
-        const myIcon = L.icon({
-            iconUrl: "{{ asset('img/loger.png') }}",
-            iconSize: [45, 45],
-            iconAnchor: [-1, 40],
-            popupAnchor: [24, -40]
-        });
-
-        for (const carte of tabCard) {
-            const logementId = carte.classList[4];
-            const imageUrl = 'https://site-sae-ubisoufte.bigpapoo.com/storage/logement' + logementId + '/img0.jpg';
-            const city = carte.classList[3];
-            const housingType = carte.classList[2];
-            console.log("city : " + city); // Affichez la ville pour le débogage
-
-            if (city && !cities.includes(city)) {
-                cities.push(city);
-            }
-
-            if (housingType && !logementTypes.includes(housingType)) {
-                logementTypes.push(housingType);
-            }
-
-            const marker = await createMarker(city, logementId, imageUrl, housingType, myIcon);
-
-            if (!markerGroups[housingType]) {
-                markerGroups[housingType] = L.layerGroup();
-            }
-
-            markerGroups[housingType].addLayer(marker);
-        }
-
-        console.log("villes : " + cities); // Affichez les villes pour le débogage
-        console.log("types de logement : " + logementTypes); // Affichez les types de logement pour le débogage
-
-        const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        });
-
-        const osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'
-        });
-
-        const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
-        });
-
-        const bzh = L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        });
-
-        console.log("initialisation de la carte..."); // Affichez un message pour le débogage
-        const map = L.map('mapid', {
-            center: [47.9991200, -3.2733700],
-            zoom: 8,
-            layers: [osm].concat(Object.values(markerGroups)),
-            gestureHandling: true,
-            gestureHandlingOptions: {
-                duration: 1000,
-                text: {
-                    touch: "Utilisez deux doigts pour déplacer la carte",
-                    scroll: "Utiliser CTRL + scroll pour zoomer la carte",
-                    scrollMac: "Utiliser \u2318 + scroll pour zoomer la carte"
-                }
-            }
-        });
-
-        const baseMaps = {
-            "carte classique": osm,
-            "carte en relief": openTopoMap,
-            "carte en breton": bzh,
-            "carte humanitaire": osmHOT
-        };
-
-        const overlayMaps = {};
-        for (const housingType in markerGroups) {
-            overlayMaps[housingType] = markerGroups[housingType];
-        }
-
-        const layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
-
-        // Créez le contrôle de recherche initial
-        const searchControl = new L.Control.Search({
-            layer: L.layerGroup(Object.values(markerGroups).flatMap(group => group.getLayers())),
-            propertyName: 'name',
-            marker: false,
-            moveToLocation: function (latlng, title, map) {
-                map.setView(latlng, 13);
-            }
-        });
-
-        searchControl.on('search:locationfound', function (e) {
-            e.layer.openPopup();
-        });
-
-        map.addControl(searchControl);
-
-        map.on('overlayadd', function (e) {
-            L.layerGroup(Object.values(markerGroups)).addLayer(markerGroups[e.name]);
-        });
-
-        map.on('overlayremove', function (e) {
-            L.layerGroup(Object.values(markerGroups)).removeLayer(markerGroups[e.name]);
-        });
-    });*/
-</script>
-
 
     <section class="autres">
         <h2>Nos logements les plus récents</h2>
@@ -393,20 +212,149 @@
                         conteneurCard.appendChild(carte);
                     });    
                 }
-            </script>
-            <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
-            <select id="selectionFiltre">
-                <option value="Aucun">Tous</option>
-                <option value="Appartement">Appartements</option>
-                <option value="Villa">Villa</option>
-                <option value="Maison">Maison</option>
-                <option value="Bateau">Bateau</option>
-                <option value="Mhote">Maison d'hôte</option>
-                <option value="Chote">Chambre d'hôte</option>
-                <option value="Cabane">Cabane</option>
-                <option value="Caravane">Caravane</option>
-            </select>
-        </div>
+
+                function triNote() {
+                    let ListeCard = document.querySelectorAll(".autres .lienCard");
+                    let tabCard = Array.from(ListeCard);
+                    let btnTriNote = document.querySelector("#btnTriNote");
+                    
+                    if(tri == 0) {
+                        tri = 1;
+                        btnTriNote.innerHTML = "Trier par note décroissante";
+                        tabCard.sort((a, b) => {
+                            let noteA = parseInt(a.classList[3]);
+                            let noteB = parseInt(b.classList[3]);
+                            return noteA - noteB;
+                        });
+                    } else {
+                        tri = 0;
+                        btnTriNote.innerHTML = "Trier par note croissante";
+                        tabCard.sort((a, b) => {
+                            let noteA = parseInt(a.classList[3]);
+                            let noteB = parseInt(b.classList[3]);
+                            return noteB - noteA;
+                        });
+                    }
+
+                    let conteneurCard = document.querySelector(".autres .liste-card");
+                    conteneurCard.innerHTML = "";
+
+                    tabCard.forEach((carte) => {
+                        conteneurCard.appendChild(carte);
+                    });    
+                }
+
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    let prixSlider = document.getElementById('prixSlider');
+
+                    noUiSlider.create(prixSlider, {
+                        start: [0, 5000], // valeurs de départ
+                        connect: true, // relie les deux points de sélection
+                        range: {
+                            'min': 0, // prix minimum
+                            'max': 5000 // prix maximum
+                        },
+                        tooltips: [true, true] // ajoute des tooltips aux curseurs
+                    });
+
+                    prixSlider.noUiSlider.on('start', function () {
+                        prixSlider.classList.add('noUi-active');
+                    });
+
+                    prixSlider.noUiSlider.on('end', function () {
+                        prixSlider.classList.remove('noUi-active');
+                    });
+
+                    prixSlider.noUiSlider.on('update', function (values, handle) {
+                        let prixMin = Math.round(values[0]);
+                        let prixMax = Math.round(values[1]);
+
+                        // Mettez à jour votre filtre de prix ici
+                        filtrePrix(prixMin, prixMax);
+                    });
+                });
+
+                function filtrePrix(prixMin, prixMax) {
+                    let ListeCard = document.querySelectorAll(".autres .lienCard");
+                    let tabCard = Array.from(ListeCard);
+                    let typeSelectionne = document.getElementById('selectionFiltre').value; // récupère le type de logement sélectionné
+                    let counter = 0;
+
+                    tabCard.forEach((carte) => {
+                        let prix = parseInt(carte.classList[1]);
+                        let type = carte.classList[2]; // récupère le type de logement de la carte
+
+                        // Vérifie si le prix de la carte est dans la plage de prix et si son type correspond au type sélectionné
+                        if(prix >= prixMin && prix <= prixMax && (typeSelectionne === "Aucun" || type === typeSelectionne)) {
+                            carte.style.display = "block";
+                            counter++;
+                        } else {
+                            carte.style.display = "none";
+                        }
+                    });
+
+                    let msgFiltreVide = document.querySelector("#msgFiltreVide");
+
+                    if(counter == 0) {
+                        msgFiltreVide.style.display = "block";
+                    } else {
+                        msgFiltreVide.style.display = "none";
+                    }
+                }
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var nomL = [
+                    @foreach ($logementsRecents as $logement)
+                        {
+                            libelle: "{{ $logement->libelle_logement }}",
+                        },
+                    @endforeach
+                ];
+
+                document.getElementById('rechercheLogement').addEventListener('input', function(e) {
+                    let recherche = e.target.value.toLowerCase();
+                    let cartes = document.querySelectorAll('.autres .lienCard');
+
+                    cartes.forEach((carte, index) => {
+                        let nom = nomL[index].libelle.toLowerCase();
+
+                        // Vérifie si la carte est actuellement visible
+                        if (carte.style.display !== "none") {
+                            if (nom.includes(recherche)) {
+                                carte.style.display = "block";
+                            } else {
+                                carte.style.display = "none";
+                            }
+                        }
+
+                        // Si le champ de recherche est vide, réapplique le filtre de prix
+                        if (recherche === '') {
+                            let prixSlider = document.getElementById('prixSlider');
+                            let prixMin = Math.round(prixSlider.noUiSlider.get()[0]);
+                            let prixMax = Math.round(prixSlider.noUiSlider.get()[1]);
+                            filtrePrix(prixMin, prixMax);
+                        }
+                    });
+                });
+            });
+        </script>
+    <div id="lesboutons">
+        <button id="btnTriPrix" onclick="triPrix()">Trier par prix croissant</button>
+        <button id="btnTriNote" onclick="triNote()">Trier par note croissante</button>
+        <input type="text" id="rechercheLogement" placeholder="Rechercher un logement">
+    </div>
+    <select id="selectionFiltre">
+        <option value="Aucun">Tous</option>
+        <option value="Appartement">Appartements</option>
+        <option value="Villa">Villa</option>
+        <option value="Maison">Maison</option>
+        <option value="Bateau">Bateau</option>
+        <option value="Mhote">Maison d'hôte</option>
+        <option value="Chote">Chambre d'hôte</option>
+        <option value="Cabane">Cabane</option>
+        <option value="Caravane">Caravane</option>
+    </select>
+    <div id="prixSlider"></div>
         <div class="liste-card">
             @foreach ($logementsRecents as $logement)
                 <x-Card titre="{{$logement->libelle_logement}}" desc="{{$logement->accroche_logement}}" note="{{$logement->moyenne_avis_logement}}" prix="{{$logement->prix_logement}}" lien="{{$logement->lien}}" id="{{$logement->id}}" natLogement="{{$logement->nature_logement}}" ville="{{$logement->ville_logement}}"></x-Card>

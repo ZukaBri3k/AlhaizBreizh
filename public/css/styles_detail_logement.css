@@ -19,6 +19,13 @@
     /*src: url("{{asset('/fonts/RocaOne-Rg.woff2')}}") format("woff2");*/
 }
 
+@font-face {
+	font-family: "Montserrat-ExtraLight";
+	font-weight: 400;
+    src: url("/fonts/Montserrat-ExtraLight.woff2") format("woff2");
+}
+
+
 body {
     background-color: #F6F5EE !important;
 }
@@ -506,4 +513,259 @@ body {
 
 .customButton {
     background-color: #21610B !important;
+}
+
+#imgGolmon {
+    max-width: 20vw;
+    overflow: hidden;
+}
+
+.avis {
+    display: flex;
+    align-items: baseline;
+    width: 85%;
+    justify-content: space-between;
+    margin-left: 9%;
+}
+
+.avis h1 {
+    color: #EC3B53;
+    margin-top: 2%;
+    height: 10%;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    font-family: 'RocaOne';
+}
+
+.avis h3 {
+    margin-bottom: 2px;
+}
+
+.avis div {
+    display: flex;
+    align-items: center;
+    width: 39%;
+}
+
+#etoile {
+    margin-right: 2%;
+    width: 7%;
+}
+
+.un_avis {
+    display: flex;
+    margin-top: 1%;
+    flex-direction: column;
+    width: 40%;
+    background-color: #EDECE2;
+    border-radius: 10px;
+    margin-left: 2%;
+    height: fit-content;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.pp_avis {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.pp_avis img {
+    width: 15%;
+    border-radius: 50%;
+}
+
+.pp_avis div {
+    margin-top: 3%;
+    width: 70%;
+}
+
+.note {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 5%;
+}
+
+.commentaire {
+    color: #000 !important;
+    font-family: 'Montserrat-Light' !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    margin-left: 5% !important;
+    word-wrap: break-word;
+}
+
+.text {
+    color: #000 !important;
+    font-family: 'Montserrat-Light' !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    margin-left: 5% !important;
+}
+
+.note_avis {
+    margin-left: 2%;
+}
+
+.note_avis p {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.note_avis p + p{
+    color: #000;
+    font-family: 'Montserrat-Light';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 100%;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.note_avis a {
+    color: #EC3B53;
+    font-family: 'Montserrat';
+    text-decoration: none;
+}
+
+.note_avis a:hover {
+    text-decoration: underline;
+}
+
+
+.les_avis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#id_hr {
+    width: 85%;
+    margin-left: 9%;
+}
+
+.creation_avis {
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    margin-left: 9%;
+    margin-top: 2%;
+}
+
+.creation_avis form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 18%;
+}
+
+#com_avis {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-bottom: 2%;
+    padding: 2%;
+    width: 100%;
+    height: 150%;
+    clear: both;
+    resize: none;
+}
+
+.form-button {
+    border-radius: 6px !important;
+    border: 1px solid #EC3B53;
+    background: #F6F5EE;
+    color: #EC3B53;
+    text-align: center;
+    font-family: 'Montserrat' !important;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal !important;
+    letter-spacing: -0.3px;
+    width: 11%;
+    height: 50px;
+}
+
+.form-button:hover {
+    background-color: #EC3B53;
+    color: #F6F5EE;
+    transition: 0.5s;
+}
+
+.avis_form label {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 1rem;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.star {
+    color: #4BCBFF;
+    display: inline-block;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.etoile_div {
+    display: flex;
+}
+
+#note_etoile {
+    width: 32px;
+    height: 32px;
+}
+
+
+.un_avis_simple {
+    display: flex;
+    margin-top: 1%;
+    flex-direction: column;
+    width: 40%;
+    background-color: #EDECE2;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    height: 233px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.generation_cle {
+    color: #000;
+    font-family: 'Montserrat-ExtraLight';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+    letter-spacing: -0.3px;
 }

@@ -38,29 +38,18 @@ class Reservation extends Component
         $this->idreservation = $idreservation;
         $this->prix = $prix;
         $this->natlogement = $natlogement;
-        if (Auth::check()) {
-            $this->role = Auth::user()->role;
-            // Vérification de la présence d'un avis pour cette réservation et ce logement
-            $id_resa = DB::select('
-                SELECT id_reserv 
-                FROM reservation 
-                INNER JOIN devis ON reservation.facture_reserv = devis.ref_devis 
-                INNER JOIN logement ON reservation.id_logement_reserv = logement.id_logement 
-                WHERE id_client_devis = ? AND id_logement = ?', 
-                [Auth::user()->id, $id]
-            );
-            $this->avisExist = DB::select('
-                SELECT id_reserv_avis 
-                FROM avis 
-                INNER JOIN reservation ON avis.id_reserv_avis = reservation.id_reserv 
-                INNER JOIN logement ON avis.id_logement_avis = logement.id_logement 
-                WHERE id_reserv = ? AND id_logement_avis = ?', 
-                [$id_resa[0]->id_reserv, $id]
-            );
-        } else {
-            $this->role = null;
-            $this->avisExist = null;
-        }
+        $id_resa = DB::select('select id_reserv from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join logement on reservation.id_logement_reserv = logement.id_logement where id_client_devis = ? and id_logement = ?', [auth()->user()->id, intval($request->id)]);
+                if($id_resa != null){
+                    $resa = DB::select('select id_reserv_avis from avis inner join reservation on avis.id_reserv_avis = reservation.id_reserv inner join logement on avis.id_logement_avis = logement.id_logement where id_reserv = ? and id_logement_avis = ?', [$id_resa[0]->id_reserv, intval($request->id)]);
+                    if($resa != null) {
+                        $bool_resa = true;
+                    }
+                    else {
+                        $bool_resa = false;
+                    }
+                } else {
+                    $bool_resa = false;
+                }
     }
 
     /**
@@ -69,7 +58,7 @@ class Reservation extends Component
     public function render(): View|Closure|string
     {
         return view('components.reservation', [
-            'avisExist' => $this->avisExist,
+            'bool_resa' => $bool_resa
         ]);
     }
 }

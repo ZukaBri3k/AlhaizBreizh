@@ -81,7 +81,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
     if (MDP.match(regex_maj))
         if(MDP.match(regex_min)){
             if(MDP.match(regex_chiffre)){
-                window.location.href=url;
+                //window.location.href=url;
             }
             else{
                 alert("il vous manque un chiffre");

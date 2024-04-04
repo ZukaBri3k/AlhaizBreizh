@@ -64,6 +64,7 @@ for (var i = 0; i < deleteLinks.length; i++) {
     deleteLinks[i].addEventListener('click', function(event) {
         event.preventDefault();
         var url = this.href;
+        console.log(url);
 
         Swal.fire({
             title: "Êtes vous sûr de vouloir supprimer votre clé API ?",

@@ -288,11 +288,11 @@
             }
           elseif(count(explode(";", $logement->charge_additionnel_libelle)) == 1) {
             $value = strtolower($charge);
-            $value = str_replace(' ', '_', $value);
+            $affichage = str_replace('_', ' ', $value);
           @endphp
           <div class="rectangle">
             <img src="{{asset('/img/charges/'. $value .'.png')}}" class="d-block w-80">
-            <p>{!! $charge !!}</p>
+            <p>{!! $affichage !!}</p>
           </div>
           @php 
             }

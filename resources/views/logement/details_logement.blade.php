@@ -431,7 +431,7 @@
           <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="etoile">
           @php
             $note_total = count($avis) == 0 ? 0 : array_sum(array_column($avis, 'note_avis'));
-            $moyenne = count($avis) == 0 ? 0 : $note_total / count($avis);
+            round($moyenne) = count($avis) == 0 ? 0 : $note_total / count($avis);
             $nb_com = count($avis);
           @endphp
           <h3>{!! $moyenne !!} de moyenne | {!! $nb_com !!} commentaire(s)</h3>

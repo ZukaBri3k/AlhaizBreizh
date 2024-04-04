@@ -340,7 +340,7 @@
 
         <div id="Mamap" style="height: 200px; width: 100%;"></div>
         <script type="text/javascript">
-          var mymap = L.map('mapid', {
+          var Mamap = L.map('mapid', {
                   center: [47.9991200, -3.2733700],
                   zoom: 8,
                   gestureHandling: true,
@@ -358,10 +358,10 @@
           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               maxZoom: 19,
               attribution: '© OpenStreetMap'
-          }).addTo(mymap);
+          }).addTo(Mamap);
 
           //empecher le scroll
-          mymap.scrollWheelZoom.disable();
+          Mamap.scrollWheelZoom.disable();
       </script>
     </div>
 

@@ -420,7 +420,7 @@
               <img id="image_pp_previsu" src="{{ asset('pp/pp' . $values->id . '/img1.png')}}" class="pp" alt="photo de profil">
           @endif
             <div>
-              <p>{!! $values->pseudo_pers !!}</p>
+              <p class="note">{!! $values->pseudo_pers !!}</p>
               <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
             </div>
           </div>

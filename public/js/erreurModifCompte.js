@@ -23,6 +23,6 @@ let telephone = document.getElementById('Telephone');
 for (let i = 0; i < telephone.length; i++) {
     telephone[i].addEventListener('input', function () {
         this.value = this.value.replace(/\s/g, '');
-        this.value = this.value.replace(/(\d{2})(?=\d)/g, '$1 ');
+        this.value = this.value.replace(/(\d{2})(?=\d)/g, ' ');
     })
 }

@@ -54,11 +54,11 @@
                     </script>
 
                     <label for="nom_pers">*Nom:</label>
-                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" value="{!! $personnes->nom_pers !!}" pattern="[A-Za-z\-'\s]+" 
+                    <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control pasChiffre pasSigne" value="{!! $personnes->nom_pers !!}" pattern="[A-Za-z\-'\s]+" 
                         maxlength="20" required>
 
                     <label for="prenom_pers">*Prénom:</label>
-                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control" value="{!! $personnes->prenom_pers !!}" pattern="[A-Za-z\-'\s]+" 
+                    <input type="text" id="prenom_pers" name="prenom_pers" placeholder="Entrez votre prénom" class="form-control pasChiffre pasSigne" value="{!! $personnes->prenom_pers !!}" pattern="[A-Za-z\-'\s]+" 
                         maxlength="30" required>
 
                     <label for="pseudo_pers">*Pseudo:</label>
@@ -66,11 +66,11 @@
                         class="form-control" value="{!! $personnes->pseudo_pers !!}" maxlength="15" required>
 
                     <label for="ville_pers">*Ville:</label>
-                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control" value="{!! $personnes->ville_pers !!}" 
+                    <input type="text" id="ville_pers" name="ville_pers" placeholder="Entrez votre ville" class="form-control pasChiffre pasSigne" value="{!! $personnes->ville_pers !!}" 
                         maxlength="60" required>
 
                     <label for="pays_pers">*Pays:</label>
-                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="{!! $personnes->pays_pers !!}" class="form-control" required>
+                    <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="{!! $personnes->pays_pers !!}" class="form-control pasChiffre pasSigne" required>
                     <script>
                         jQuery(document).ready(function() {
                             jQuery("#pays_pers").countrySelect();
@@ -113,7 +113,7 @@
 
                     <label for="code_postal_pers">*Code Postal:</label>
                     <input type="text" id="code_postal_pers" name="code_postal_pers" placeholder="Entrez votre code postal"
-                        class="form-control" value="{!! $personnes->code_postal_pers !!}" maxlength="5" pattern="^\d{5}$" required>
+                        class="form-control codePostal" value="{!! $personnes->code_postal_pers !!}" maxlength="5" pattern="^\d{5}$" required>
 
                     <label for="date_de_naissance">*Date de Naissance:</label>
                     <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Entrez votre date de naissance"
@@ -125,7 +125,7 @@
                     @endphp
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control" value="{!! $telephone !!}" maxlength="12" pattern="^\d{10}$" required>
+                        class="form-control Telephone pasLettre pasSigne" value="{!! $telephone !!}" maxlength="12" pattern="^\d{10}$" required>
                         
 
                     <label for="mail_pers">*Adresse E-mail:</label>

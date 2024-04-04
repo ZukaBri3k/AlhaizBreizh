@@ -405,7 +405,6 @@
     @php
       } else {
         foreach ($avis as $values) {
-          dd($values->id);
           if(strlen($values->com_avis) < 200) {
     @endphp
         <div class="un_avis">
@@ -413,7 +412,7 @@
           @if ($values->photo_pers == "pp_profile.png")
               <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp" alt="photo de profil">
           @else
-              <img id="image_pp_previsu" src="{{ asset('pp/pp' . $avis->id . '/img1.png')}}" class="pp" alt="photo de profil">
+              <img id="image_pp_previsu" src="{{ asset('pp/pp' . $values->id . '/img1.png')}}" class="pp" alt="photo de profil">
           @endif
             <div>
               <p>{!! $values->nom_pers !!}</p>
@@ -431,7 +430,7 @@
           @if ($values->photo_pers == "pp_profile.png")
               <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp" alt="photo de profil">
           @else
-              <img id="image_pp_previsu" src="{{ asset('pp/pp' . $avis->id . '/img1.png')}}" class="pp" alt="photo de profil">
+              <img id="image_pp_previsu" src="{{ asset('pp/pp' . $values->id . '/img1.png')}}" class="pp" alt="photo de profil">
           @endif
             <div>
               <p>{!! $values->nom_pers !!}</p>

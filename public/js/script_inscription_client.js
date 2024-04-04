@@ -174,7 +174,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
 
         
 )
-document.getElementById('code_postal_pers').addEventListener('input', function(event) {
+document.getElementById('iban').addEventListener('input', function(event) {
 
     var iban = dociment.getElementById("iban")
     const input = event.target;

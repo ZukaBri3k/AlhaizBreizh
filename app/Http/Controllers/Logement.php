@@ -115,6 +115,7 @@ if ($files) {
 
     public function getInfoLogement(Request $request) {
         $bool_resa = false;
+        $id_reserv = null;
         if(!auth()->check()) {
             $id_role = 0;
         } else {
@@ -126,6 +127,7 @@ if ($files) {
                         $resa = DB::select('select id_reserv_avis from avis inner join reservation on avis.id_reserv_avis = reservation.id_reserv inner join logement on avis.id_logement_avis = logement.id_logement where id_reserv = ? and id_logement_avis = ?', [$values->id_reserv, intval($request->id)]);
                         if($resa == null) {
                             $bool_resa = true;
+                            $id_reserv = $values->id_reserv;
                         }
                     }
                 }
@@ -143,6 +145,7 @@ if ($files) {
         'avis' => DB::select('select pseudo_pers, ville_pers, pays_pers, photo_pers, id, com_avis, note_avis from personnes inner join avis on personnes.id = avis.id_personne_avis where id_logement_avis = ?', [intval($request->id)]),
         'role' => DB::select('select role from personnes where id = ?', [intval($id_role)]),
         'bool_resa' => $bool_resa,
+        'id_reserv' => $id_reserv,
     ]);
     }
 
@@ -309,7 +312,7 @@ if ($files) {
             $tab = [
                 $req->ratingValue,
                 $req->com_avis,
-                null,
+                $req->id_reserv,
                 $req->id,
                 $id,
             ];

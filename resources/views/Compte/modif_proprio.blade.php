@@ -140,7 +140,7 @@
                     @endphp
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control Telephone pasLettre pasSigne" value="{!! $telephone !!}" maxlength="14" pattern="^\d{10}$" required>
+                        class="form-control Telephone pasLettre pasSigne" value="{!! $telephone !!}" maxlength="14" required>
                         
 
                     <label for="mail_pers">*Adresse E-mail:</label>

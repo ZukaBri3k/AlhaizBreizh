@@ -1,9 +1,8 @@
-var textElements = document.getElementsByClassName('text');
-var toggleElements = document.getElementsByClassName('toggle');
+var textToggleGroups = document.querySelectorAll('.text-toggle-group');
 
-for (let i = 0; i < textElements.length; i++) {
-    let textElement = textElements[i];
-    let toggleElement = toggleElements[i];
+textToggleGroups.forEach(function(group) {
+    let textElement = group.querySelector('.text');
+    let toggleElement = group.querySelector('.toggle');
 
     let fullText = textElement.textContent;
     let shortText = fullText.slice(0, 200) + '...';
@@ -20,7 +19,7 @@ for (let i = 0; i < textElements.length; i++) {
             toggleElement.textContent = 'en savoir plus';
         }
     });
-}
+});
 
 
 function showPopup() {

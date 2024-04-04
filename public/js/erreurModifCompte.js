@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 res += telephone[i].value[j];
             }
         }
+        console.log(res);
         this.value = res;
     }
 })

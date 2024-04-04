@@ -724,7 +724,6 @@ body {
     display: flex;
 }
 
-.div_note img {
+#note_etoile {
     width: 10%;
-    margin-right: 2%;
 }

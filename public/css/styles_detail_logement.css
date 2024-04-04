@@ -537,12 +537,12 @@ body {
 .avis div {
     display: flex;
     align-items: center;
-    width: 25%;
+    width: 39%;
 }
 
 #etoile {
     margin-right: 2%;
-    width: 10%;
+    width: 7%;
 }
 
 .un_avis {
@@ -722,5 +722,6 @@ body {
 }
 
 #note_etoile {
-    width: 10%;
+    width: 32px;
+    height: 32px;
 }

@@ -20,7 +20,7 @@ textElements.forEach((textElement, index) => {
 });
 
 
-function showPopup() {
+/* function showPopup() {
     swal({
       title: "Succès",
       text: "Votre demande de devis a été créée avec succès.",
@@ -61,4 +61,4 @@ function highlightStars(value) {
       star.textContent = "☆";
     }
   });
-}
+} */

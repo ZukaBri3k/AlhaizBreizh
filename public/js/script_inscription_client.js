@@ -1,4 +1,15 @@
 
+const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+    }
+});
                         function showOptions() {
                             var select = document.getElementById('civilite_pers');
                             select.innerHTML = ''; // Efface l'option civilité
@@ -110,6 +121,16 @@ document.getElementById('submit').addEventListener('click', function(event) {
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
             event.preventDefault();
 		}
+        Toast.fire({
+            icon: "success",
+            title: "Informations enregistrées",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
 	}
+
         
 )

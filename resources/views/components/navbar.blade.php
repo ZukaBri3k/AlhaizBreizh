@@ -101,7 +101,7 @@
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">Pas de compte ?</p>
-                          <button style="width: fit-content" type="button" class="btn btn-outline-danger">Créer un compte</button>
+                          <a href="{{ route('inscription_proprio') }}" class="btn btn-outline-danger">Créer un compte</a>
                         </div>
                       </form>
                     </div>
@@ -317,7 +317,7 @@ deconnexionNavBar.forEach((btn) => {
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">Pas de compte ?</p>
-                          <button style="width: fit-content" type="button" class="btn btn-outline-danger">Créer un compte</button>
+                          <a href="{{ route('inscription_proprio') }}" class="btn btn-outline-danger">Créer un compte</a>
                         </div>
                       </form>
                     </div>
@@ -540,7 +540,7 @@ deconnexionNavBar.forEach((btn) => {
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">Pas de compte ?</p>
-                          <button style="width: fit-content" type="button" class="btn btn-outline-danger">Créer un compte</button>
+                          <a href="{{ route('inscription_proprio') }}" class="btn btn-outline-danger">Créer un compte</a>
                         </div>
                       </form>
                     </div>

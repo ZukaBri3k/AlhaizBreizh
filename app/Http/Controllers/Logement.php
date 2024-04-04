@@ -108,7 +108,6 @@ class Logement extends Controller
     }
 
     public function getInfoLogement(Request $request) {
-        dd(auth()->user()->id);
         if (auth()->user()->id == 1) {
             $id_role = 1;
         } elseif(auth()->user()->id == 2) {

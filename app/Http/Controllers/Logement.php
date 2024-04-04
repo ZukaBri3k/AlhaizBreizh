@@ -108,7 +108,7 @@ class Logement extends Controller
     }
 
     public function getInfoLogement(Request $request) {
-        dd(endauth()->user()->id);
+        dd(auth()->check());
         if(endauth()->user()->id) {
             $id_role = auth()->user()->id;
         } else {

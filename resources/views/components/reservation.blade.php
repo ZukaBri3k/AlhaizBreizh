@@ -7,5 +7,7 @@
     <p><strong>Du</strong> {{$dated}}</p>
     <p><strong>au</strong> {{$datef}}</p>
     <p><strong>{{$prix}} €</strong></p>
-    <button id="btnfiltre" onclick="window.location.href='{{ route('retourAvis', ['id' => $id]) }}'">Écrire un avis</button>
+    @if ($role == 1)
+        <button id="btnfiltre" onclick="window.location.href='{{ route('retourAvis', ['id' => $id]) }}'">Écrire un avis</button>
+    @endif
 </div>

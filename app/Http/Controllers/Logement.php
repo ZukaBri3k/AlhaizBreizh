@@ -271,6 +271,7 @@ class Logement extends Controller
     public function creationAvis(Request $req) {
         $id = auth()->user()->id;
         $role = DB::select('select role from personnes where id = ?', [$id]);
+        dd($role[0]->role);
         $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($req->id)]);
         
         if($id == $idProprietaireLogment[0]->id_proprio_logement || $role[0]->role != 1) {

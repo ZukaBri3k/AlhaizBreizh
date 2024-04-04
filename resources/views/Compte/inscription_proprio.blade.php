@@ -97,7 +97,7 @@
                         placeholder="Confirmez votre mot de passe" class="form-control" maxlength="60" required>
 
                     <label for="iban">IBAN:</label>
-                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
+                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" maxlength="27">
 
                     <label for="id-card" class="champ_img">Carte d'Identité (Recto Verso) :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>

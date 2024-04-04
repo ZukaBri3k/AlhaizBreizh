@@ -15,12 +15,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto p-2 rounded" style="background-color: #EC3B53;">
+            <ul class="navbar-nav ms-auto p-2 rounded" style="background-color: #EC3B53; visibility: hidden;">
                 <li class="navbar-item active dropdown separer">
                     <a href="#" class="nav-link dropdown-toggle" style="color: #F6F5EE" id="Departement" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Département
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="Departement" style="background-color: #F6F5EE; visibility: hidden;">
+                    <ul class="dropdown-menu" aria-labelledby="Departement" style="background-color: #F6F5EE;">
                         <li><a class="dropdown-item" href="#">Côtes-d'Armor</a></li>
                         <li><a class="dropdown-item" href="#">Île-et-Vilaine</a></li>
                         <li><a class="dropdown-item" href="#">Morbihan</a></li>
@@ -228,12 +228,12 @@ deconnexionNavBar.forEach((btn) => {
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto p-2 rounded" style="background-color: #EC3B53;">
+            <ul class="navbar-nav ms-auto p-2 rounded" style="background-color: #EC3B53; visibility: hidden;">
                 <li class="navbar-item active dropdown separer">
                     <a href="#" class="nav-link dropdown-toggle" style="color: #F6F5EE" id="Departement" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Département
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="Departement" style="background-color: #F6F5EE; visibility: hidden;">
+                    <ul class="dropdown-menu" aria-labelledby="Departement" style="background-color: #F6F5EE">
                         <li><a class="dropdown-item" href="#">Côtes-d'Armor</a></li>
                         <li><a class="dropdown-item" href="#">Île-et-Vilaine</a></li>
                         <li><a class="dropdown-item" href="#">Morbihan</a></li>

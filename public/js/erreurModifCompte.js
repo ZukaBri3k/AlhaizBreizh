@@ -59,6 +59,7 @@ for (let i = 0; i < btnSubmit.length; i++) {
 
         telephone[0].value = telephone[0].value.replace(/\s/g, '');
 
-        window.location.href = url;
+        console.log(telephone[0].value);
+        //window.location.href = url;
     })
 }

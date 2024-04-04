@@ -134,8 +134,6 @@
                 marker.options.name = cities[i];
 
                 markerGroup.addLayer(marker);
-            }catch (error) {
-                console.error(`Error getting coordinates for city ${cities[i]}:`, error.message);
             }
         }
     }

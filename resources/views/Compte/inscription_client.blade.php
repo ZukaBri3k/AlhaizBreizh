@@ -105,7 +105,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
+        <button type="submit" id="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
         <br>
         <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
         

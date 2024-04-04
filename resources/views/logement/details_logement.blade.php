@@ -412,7 +412,7 @@
         foreach ($avis as $values) {
           if(strlen($values->com_avis) < 200) {
     @endphp
-        <div class="un_avis">
+        <div class="un_avis_simple">
           <div class="pp_avis">
           @if ($values->photo_pers == "pp_profile.png")
               <img id="image_pp_previsu" src="{{ asset('img/pp_profile.png')}}" class="pp" alt="photo de profil">

@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let telephone = document.getElementsByClassName('Telephone');
 
     for (let i = 0; i < telephone.length; i++) {
+        res = ""
         for(let j = 0; j < telephone[i].value.length; j++) {
-            res = ""
             if(j % 2 == 0 && j != 0) {
                 res += telephone[i].value[j] + " ";
             } else {

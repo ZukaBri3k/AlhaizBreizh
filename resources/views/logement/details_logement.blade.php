@@ -356,7 +356,7 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <form id="Myform" action="{{route('demande_devis')}}" method="post" class="demande_devis">
+          <form id="devis_demande" action="{{route('demande_devis')}}" method="post" class="demande_devis">
             @csrf
             <div>
               <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">
@@ -367,7 +367,7 @@
               <label for="dateFin">Date de fin</label>
               <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
             </div>
-            <button type="submit" id="devis_demande">Demander un devis</button>
+            <button type="submit">Demander un devis</button>
           </form>
       </div>
     </div>
@@ -439,7 +439,7 @@
       </div>
       
       @if(count($role) != 0)
-        @if ($role[0]->role == 1 && $bool_resa == true)
+        @if ($bool_resa == true)
         <div class="creation_avis">
           <form id="myForm" action="{{route('creation_avis')}}" method="post" class="avis_form">
             @csrf
@@ -453,6 +453,7 @@
             </div>
             <input type="hidden" name="ratingValue" id="ratingValue" value="5">
             <input type="hidden" name="id" id="id" value="{!! $logement->id_logement !!}">
+            <input type="hidden" name="id_reserv" id="id_reserv" value="{!! $id_reserv !!}">
             <div>
               <label for="note_avis">Commentaire :</label>
               <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>

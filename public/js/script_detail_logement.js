@@ -21,9 +21,9 @@ textElements.forEach((textElement, index) => {
 
 
 //Ici mon JS pour la création d'un devis
-/* document.getElementById('devis_demande').addEventListener('click', function(event) {
+document.getElementById('devis_demande').addEventListener('submit', (event) => {
   event.preventDefault();
-  let url = this.href;
+  let url = this.action;
   console.log(url);
 
   Swal.fire({
@@ -44,7 +44,7 @@ textElements.forEach((textElement, index) => {
   });
 });
 
-document.getElementById('formAvis').addEventListener('click', function(event) {
+/*document.getElementById('formAvis').addEventListener('click', function(event) {
   event.preventDefault();
   let url = this.href;
   console.log(url);

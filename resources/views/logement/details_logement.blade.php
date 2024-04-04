@@ -347,7 +347,7 @@
           <ul>
             <li class="adresse">Adresse : {{ $logement->adresse_logement }}</li>
           </ul>
-          <form id="myForm" action="{{route('demande_devis')}}" method="post" class="demande_devis">
+          <form id="devis_demande" action="{{route('demande_devis')}}" method="post" class="demande_devis">
             @csrf
             <div>
               <input type="hidden" name="id_logement" value="{{$logement->id_logement}}">
@@ -358,7 +358,7 @@
               <label for="dateFin">Date de fin</label>
               <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
             </div>
-            <button type="submit" onclick="event.preventDefault(); showPopup();">Demander un devis</button>
+            <button type="submit">Demander un devis</button>
           </form>
       </div>
     </div>
@@ -383,7 +383,7 @@
       @if(count($role) != 0)
         @if ($role[0]->role == 1 && $bool_resa == true)
         <div class="creation_avis">
-          <form id="myForm" action="{{route('creation_avis')}}" method="post" class="avis_form">
+          <form id="formDevis" action="{{route('creation_avis')}}" method="post" class="avis_form">
             @csrf
             <div class="rating">
               <span class="star" data-value="5">★</span>

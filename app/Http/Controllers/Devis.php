@@ -100,7 +100,7 @@ class Devis extends Controller
                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
                 )', $tabDevis);
 
-                return View('devis/devis-proprio', ['nom_proprio' => $proprietaire[0]->nom_pers]);
+                
 
                 $devis = DB::select('select * from devis where id_client_devis = ? AND date_deb = ? AND date_fin = ?', [Auth::user()->id, $request->dateDebut, $request->dateFin]);
 

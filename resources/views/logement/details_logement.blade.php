@@ -378,7 +378,7 @@
           <h3>{!! $moyenne !!} de moyenne | {!! $nb_com !!} commentaire(s)</h3>
         </div>
       </div>
-      
+       
       @if ($role == 1)
       <div class="creation_avis">
         <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">

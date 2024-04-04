@@ -7,7 +7,9 @@
     <p><strong>Du</strong> {{ $dated }}</p>
     <p><strong>au</strong> {{ $datef }}</p>
     <p><strong>{{ $prix }} €</strong></p>
+    @php
     dd($avisExist);
+    @endphp
     @if ($role == 1)
         @if ($avisExist)
             <button id="btnfiltre" disabled>Vous avez déjà posté un avis</button>

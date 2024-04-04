@@ -287,6 +287,6 @@ class Logement extends Controller
             DB::insert('insert into avis (note_avis, com_avis, id_reserv_avis, id_logement_avis, id_personne_avis) values (?, ?, ?, ?, ?)', $tab);
         }
 
-        return redirect()->back();
+        return redirect()->route('retourAvis', ['id' => $req->id]);
     }
 }

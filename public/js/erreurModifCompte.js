@@ -37,7 +37,7 @@ for (let i = 0; i < pasLettre.length; i++) {
     })
 }
 
-let codePostal = document.getElementsByClassName('CodePostal');
+let codePostal = document.getElementsByClassName('codePostal');
 
 for (let i = 0; i < codePostal.length; i++) {
     codePostal[i].addEventListener('input', function () {

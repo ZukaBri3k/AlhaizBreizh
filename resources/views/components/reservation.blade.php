@@ -14,7 +14,7 @@
         @if ($bool_resa == false)
             <button class="boutonsdevis" disabled>Vous avez déjà posté un avis</button>
         @else
-            <button class="boutonsdevis" onclick="window.location.href='{{ route('retourAvis', ['id' => $id]) }}'">Écrire un avis</button>
+            <button class="boutonsdevis boutonDevisValide" onclick="window.location.href='{{ route('retourAvis', ['id' => $id]) }}'">Écrire un avis</button>
         @endif
     @endif
 </div>

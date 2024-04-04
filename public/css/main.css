@@ -431,11 +431,11 @@ nav {
     background-color: #F6F5EE;
     color: #EC3B53;
     font-family: 'Montserrat';
-    padding: 15px;
+    padding: 5px 15px;
     margin: 0 0 0 25px;
 }
 
-.boutonsdevis:hover {
+.boutonDevisValide:hover {
     border-radius: 6px;
     border: 1px solid #EC3B53;
     background-color: #EC3B53;

@@ -90,8 +90,6 @@
         @endforeach
     ];
 
-    console.log("villes : " + cities);
-
     //obtention des autres infos que la ville :
     var logements = [
         @foreach ($logementsRecents as $logement)
@@ -103,15 +101,6 @@
             },
         @endforeach
     ];
-
-    console.log('logements :', logements.map(logement => JSON.stringify(logement)));
-
-    logements.forEach(logement => {
-        console.log('id :', logement.id);
-        console.log('libelle :', logement.libelle);
-        console.log('prix :', logement.prix);
-        console.log('nature :', logement.nature);
-    });
 
     async function addMarkersForAllCities(cities, logements) {
         for (let i = 0; i < cities.length; i++) {

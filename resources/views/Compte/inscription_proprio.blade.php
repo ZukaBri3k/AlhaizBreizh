@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/inscription.css')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{asset('js/script_inscription_prop.js')}}" defer>
+
     <title>Création compte propriétaire</title>
 </head>
 
@@ -33,21 +35,6 @@
                     <option value="M.">M.</option>
                     <option value="MME.">MME.</option>
                 </select>
-                    <script>
-                        function showOptions() {
-                            var select = document.getElementById('civilite_pers');
-                            select.innerHTML = ''; // Efface l'option civilité
-
-                            // Ajoute les options
-                            var options = ['none', 'M.', 'MME.'];
-                            options.forEach(function (option) {
-                                var optionElement = document.createElement('option');
-                                optionElement.value = option;
-                                optionElement.text = option;
-                                select.add(optionElement);
-                            });
-                        }
-                    </script>
 
             
                     <label for="nom_pers">*Nom:</label>
@@ -66,12 +53,7 @@
 
                     <label for="pays_pers">*Pays:</label>
                     <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="France" class="form-control" required>
-                    <script>
-                        jQuery(document).ready(function() {
-                            jQuery("#pays_pers").countrySelect();
-                        });
-                    </script>
-
+                   
                     <label for="profile_pic" class="champ_img">
                         Insérer une photo de profil :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
@@ -79,17 +61,7 @@
                     <input type="file" id="profile_pic" name="profile_pic" style="display: none;">
 
                     <img id="image_pp_previsu" src="{{asset('img/pp_profile.png')}}" class="pp">
-                    <script>
-                        document.getElementById('profile_pic').addEventListener('change', function(e) {
-                            var reader = new FileReader();
-
-                            reader.onload = function(event) {
-                                document.getElementById('image_pp_previsu').src = event.target.result;
-                            }
-
-                            reader.readAsDataURL(e.target.files[0]);
-                        });
-                    </script>
+                
                 </div>
             </div>
 
@@ -109,7 +81,7 @@
                         class="form-control" required>
 
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
-                    <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
+                    <input type="number" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
                         class="form-control" required>
 
                     <label for="mail_pers">*Adresse E-mail:</label>
@@ -125,7 +97,7 @@
                         placeholder="Confirmez votre mot de passe" class="form-control" maxlength="60" required>
 
                     <label for="iban">IBAN:</label>
-                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
+                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" maxlength="27">
 
                     <label for="id-card" class="champ_img">Carte d'Identité (Recto Verso) :
                         <span class="upload-icon"><img src="{{asset('/img/Download.png')}}"></span>
@@ -133,28 +105,6 @@
                     <input type="file" id="id-card" name="id-card" style="display: none;">
                     <div id="id-card-message"></div>
                     <div id="id-card-preview"></div>
-                    <script>
-                        document.getElementById('id-card').addEventListener('change', function () {
-                            var fileInput = this;
-                            var file = fileInput.files[0];
-
-                            if (file) {
-                                var reader = new FileReader();
-
-                                reader.onload = function (e) {
-                                    var previewElement = document.getElementById('id-card-preview');
-                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="ID Card Preview" style="max-width: 100%;">';
-
-                                    var fileName = fileInput.value.split('\\').pop();
-                                    var message = "Carte d'Identité enregistrée : " + fileName;
-
-                                    document.getElementById('id-card-message').innerText = message;
-                                };
-
-                                reader.readAsDataURL(file);
-                            }
-                        });
-                    </script>
                 </div>
             </div>
         </div>

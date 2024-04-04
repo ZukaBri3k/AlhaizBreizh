@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">    
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.0/css/countrySelect.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/inscription.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{asset('js/script_inscription_client.js')}}" defer>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -21,8 +23,9 @@
     <x-Navbar></x-Navbar>
     <main class="container">
         <h1 class="text-center">Création de votre compte client</h1>
-        <form action="{{route('client_register')}}" method="post" enctype='multipart/form-data'>
+        <form name="inscription" action="{{route('client_register')}}" method="post" enctype='multipart/form-data'>
         @csrf
+
         <div class="row lapage">
             <div class="col-md-6">
                 <h2>Informations Personnelles publiques</h2>
@@ -34,21 +37,7 @@
                     <option value="M.">M.</option>
                     <option value="MME.">MME.</option>
                 </select>
-                    <script>
-                        function showOptions() {
-                            var select = document.getElementById('civilite_pers');
-                            select.innerHTML = ''; // Efface l'option civilité
-
-                            // Ajoute les options
-                            var options = ['none', 'M.', 'MME.'];
-                            options.forEach(function (option) {
-                                var optionElement = document.createElement('option');
-                                optionElement.value = option;
-                                optionElement.text = option;
-                                select.add(optionElement);
-                            });
-                        }
-                    </script>
+                    
 
                     <label for="nom_pers">*Nom:</label>
                     <input type="text" id="nom_pers" name="nom_pers" placeholder="Entrez votre nom" class="form-control" pattern="[A-Za-z\-'\s]+" 
@@ -67,11 +56,6 @@
 
                     <label for="pays_pers">*Pays:</label>
                     <input type="text" id="pays_pers" name="pays_pers" placeholder="Entrez votre pays" value="France" class="form-control" required>
-                    <script>
-                        jQuery(document).ready(function() {
-                            jQuery("#pays_pers").countrySelect();
-                        });
-                    </script>
 
                     <label for="profile_pic" class="champ_img">
                         Insérer une photo de profil :
@@ -80,17 +64,7 @@
                     <input type="file" id="profile_pic" name="profile_pic" style="display: none;">
 
                     <img id="image_pp_previsu" src="{{asset('img/pp_profile.png')}}" class="pp">
-                    <script>
-                        document.getElementById('profile_pic').addEventListener('change', function(e) {
-                            var reader = new FileReader();
-
-                            reader.onload = function(event) {
-                                document.getElementById('image_pp_previsu').src = event.target.result;
-                            }
-
-                            reader.readAsDataURL(e.target.files[0]);
-                        });
-                    </script>
+                    
                 </div>
             </div>
 
@@ -111,7 +85,7 @@
 
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control" required>
+                        class="form-control" pattern="[0-9]+" maxlength="10"required>
 
                     <label for="mail_pers">*Adresse E-mail:</label>
                     <input type="email" id="mail_pers" name="mail_pers" placeholder="Entrez votre adresse E-mail"
@@ -119,7 +93,7 @@
 
                     <label for="password">*Mot de Passe:</label>
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
-                        class="form-control" maxlength="60" required>
+                        class="form-control" minlenght="5" maxlength="60" required>
 
                     <label for="confirmerMotDePasse">*Confirmation du Mot de Passe:</label>
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"
@@ -128,13 +102,14 @@
                     <div id="message"></div>
 
                     <label for="iban">IBAN:</label>
-                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control">
+                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" maxlength="27">
                 </div>
             </div>
         </div>
-        <button type="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
+        <button type="submit" id="submit" class="create-account-btn create-account-button btn btn-primary">Créer le Compte</button>
         <br>
         <a href="{{route ('inscription_proprio')}}"> Vous souhaitez créer un compte Propriétaire</a>
+        
     </main>
     <x-FooterClient></x-FooterClient>
 </body>

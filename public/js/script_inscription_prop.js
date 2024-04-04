@@ -1,0 +1,183 @@
+function showOptions() {
+    var select = document.getElementById('civilite_pers');
+    select.innerHTML = ''; // Efface l'option civilité
+
+    // Ajoute les options
+    var options = ['none', 'M.', 'MME.'];
+    options.forEach(function (option) {
+        var optionElement = document.createElement('option');
+        optionElement.value = option;
+        optionElement.text = option;
+        select.add(optionElement);
+    });
+}
+                        jQuery(document).ready(function() {
+                            jQuery("#pays_pers").countrySelect();
+                        });
+                        
+                        document.getElementById('profile_pic').addEventListener('change', function(e) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(event) {
+                                document.getElementById('image_pp_previsu').src = event.target.result;
+                            }
+
+                            reader.readAsDataURL(e.target.files[0]);
+                        });
+
+                        document.getElementById('id-card').addEventListener('change', function () {
+                            var fileInput = this;
+                            var file = fileInput.files[0];
+
+                            if (file) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    var previewElement = document.getElementById('id-card-preview');
+                                    previewElement.innerHTML = '<img src="' + e.target.result + '" alt="ID Card Preview" style="max-width: 100%;">';
+
+                                    var fileName = fileInput.value.split('\\').pop();
+                                    var message = "Carte d'Identité enregistrée : " + fileName;
+
+                                    document.getElementById('id-card-message').innerText = message;
+                                };
+
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                        document.getElementById("confirmerMotDePasse").addEventListener("blur", verifierMotDePasse);
+
+                        function verifierMotDePasse() {
+                            
+                    
+                            var motDePasse = document.getElementById("password").value;
+                            var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
+                            console.log(confirmationMotDePasse);
+                        
+                            if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
+                    
+                                Toast.fire({
+                                    icon: "error",
+                                    title: "Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.",
+                                    background: '#F6F5EE',
+                                    allowOutsideClick: false,
+                                    customClass: {
+                                        title: 'generation_cle'
+                                    },
+                                });
+                            }
+                        }
+                    
+                        document.getElementById('telephone_pers').addEventListener('input', function(event) {
+                            const input = event.target;
+                            const regex = /^[0-9]+$/;
+                        
+                            if (!regex.test(input.value)) {
+                                input.value = input.value.slice(0, -1);
+                                input.setCustomValidity("Seuls les chiffres sont autorisés.");
+                            } else {
+                                input.setCustomValidity("");
+                            }
+                        });
+                    
+                    
+                    
+                        document.getElementById('code_postal_pers').addEventListener('input', function(event) {
+                            const input = event.target;
+                            const regex = /[0-9]/;
+                            
+                        
+                            if (!regex.test(input.value)) {
+                                input.value = input.value.slice(0, -1);
+                                input.setCustomValidity("Seuls les chiffres sont autorisés.");
+                                
+                            } else {
+                                input.setCustomValidity("");
+                            }
+                        });
+                    
+                    document.getElementById('submit').addEventListener('click', function(event) {
+                        console.log("ici");
+                        var url = this.href;
+                        // Vérifier si le mot de passe contient au moins une majuscule
+                        var regex_maj = /[A-Z]/;
+                        var regex_min = /[a-z]/;
+                        var regex_chiffre = /[0-9]/;
+                        var MDP = document.getElementById("password").value;
+                        if (MDP.match(regex_maj))
+                            if(MDP.match(regex_min)){
+                                if(MDP.match(regex_chiffre)){
+                                    Toast.fire({
+                                        icon: "success",
+                                        title: "Informations enregistrées",
+                                        background: '#F6F5EE',
+                                        allowOutsideClick: false,
+                                        customClass: {
+                                            title: 'generation_cle'
+                                        },
+                                    });
+                                }
+                                else{
+                                    Toast.fire({
+                                        icon: "error",
+                                        title: "Le mot de passe doit contenir un chiffre",
+                                        background: '#F6F5EE',
+                                        allowOutsideClick: false,
+                                        customClass: {
+                                            title: 'generation_cle'
+                                        },
+                                    });
+                                    event.preventDefault();
+                    
+                                }
+                            }
+                            else{
+                                Toast.fire({
+                                    icon: "error",
+                                    title: "Le mot de passe doit contenir une minuscule",
+                                    background: '#F6F5EE',
+                                    allowOutsideClick: false,
+                                    customClass: {
+                                        title: 'generation_cle'
+                                    },
+                                });
+                                event.preventDefault();
+                    
+                            }
+                    
+                        else{
+                            Toast.fire({
+                                icon: "error",
+                                title: "Le mot de passe doit contenir une majuscule",
+                                background: '#F6F5EE',
+                                allowOutsideClick: false,
+                                customClass: {
+                                    title: 'generation_cle'
+                                },
+                            });
+                                event.preventDefault();
+                    
+                            }
+                            
+                            var motDePasse = document.getElementById("password").value;
+                            var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
+                            console.log(confirmationMotDePasse);
+                        
+                            if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
+                                Toast.fire({
+                                    icon: "error",
+                                    title: "Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.",
+                                    background: '#F6F5EE',
+                                    allowOutsideClick: false,
+                                    customClass: {
+                                        title: 'generation_cle'
+                                    },
+                                });
+                                
+                                event.preventDefault();
+                            }
+                          
+                        }
+                    
+                            
+                    )

@@ -515,7 +515,10 @@ body {
     background-color: #21610B !important;
 }
 
-
+#imgGolmon {
+    max-width: 20vw;
+    overflow: hidden;
+}
 
 .avis {
     display: flex;

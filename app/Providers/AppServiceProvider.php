@@ -22,10 +22,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
-        $this->app['request']->server->set('HTTPS', $this->app->environment() != 'local' ? 'on' : 'off');
+        $this->app['request']->server->set('HTTPS', $this->app->environment() !== 'local');
+
+        //$this->app['request']->server->set('HTTPS', $this->app->environment() != 'local' ? 'on' : 'off');
         
         if ($this->app->environment() === 'production') {
             URL::forceScheme('https');
         }
+        
     }
 }

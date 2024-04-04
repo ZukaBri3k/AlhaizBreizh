@@ -1,21 +1,26 @@
-var textElement = document.getElementById('text');
-var toggleElement = document.getElementById('toggle');
+var textElements = document.getElementsByClassName('text');
+var toggleElements = document.getElementsByClassName('toggle');
 
-var fullText = textElement.textContent;
-var shortText = fullText.slice(0, 200) + '...';
+for (let i = 0; i < textElements.length; i++) {
+    let textElement = textElements[i];
+    let toggleElement = toggleElements[i];
 
-textElement.textContent = shortText;
+    let fullText = textElement.textContent;
+    let shortText = fullText.slice(0, 200) + '...';
 
-toggleElement.addEventListener('click', function(event) {
-    event.preventDefault();
-    if (textElement.textContent === shortText) {
-        textElement.textContent = fullText;
-        toggleElement.textContent = 'voir moins';
-    } else {
-        textElement.textContent = shortText;
-        toggleElement.textContent = 'en savoir plus';
-    }
-});
+    textElement.textContent = shortText;
+
+    toggleElement.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (textElement.textContent === shortText) {
+            textElement.textContent = fullText;
+            toggleElement.textContent = 'voir moins';
+        } else {
+            textElement.textContent = shortText;
+            toggleElement.textContent = 'en savoir plus';
+        }
+    });
+}
 
 
 function showPopup() {

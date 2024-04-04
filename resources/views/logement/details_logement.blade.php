@@ -467,7 +467,8 @@
         </div>
         <div class="note_avis">
           <p>4.5/5</p>
-          <p>hhhhhhhhhhhhhhhhhhhhhhhhhgthtrghtrghtrghtrygytghtryghtryghtryghtryghtryghtryghtrygtryghtryghtryghtryghtrghtrghyrthgyhghrytghtyrgytrghtryghrtgghtryghtyrghgthrygrytghtyrghrtghtryghtryghghtryghytrghtryr</p>
+          <p>hhhhhhhhhhhhhhhhhhhhhhhhhgthtrghtrghtrghtrygytghtryghtryghtryghtryghtryghtryghtrygtrygh 
+            tryghtryghtryghtrghtrghyrthgyhghrytghtyrgytrghtryghrtgghtryghtyrghgthrygrytghtyrghrtghtryghtryghghtryghytrghtry</p>
         </div>
       </div>
 

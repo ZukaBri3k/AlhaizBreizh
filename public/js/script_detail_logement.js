@@ -1,22 +1,20 @@
-var textToggleGroups = document.querySelectorAll('.text-toggle-group');
+var textElements = document.querySelectorAll('.text');
+var toggleElements = document.querySelectorAll('.toggle');
 
-textToggleGroups.forEach(function(group) {
-    let textElement = group.querySelector('.text');
-    let toggleElement = group.querySelector('.toggle');
-
+textElements.forEach((textElement, index) => {
     let fullText = textElement.textContent;
     let shortText = fullText.slice(0, 200) + '...';
 
     textElement.textContent = shortText;
 
-    toggleElement.addEventListener('click', function(event) {
+    toggleElements[index].addEventListener('click', function(event) {
         event.preventDefault();
         if (textElement.textContent === shortText) {
             textElement.textContent = fullText;
-            toggleElement.textContent = 'voir moins';
+            toggleElements[index].textContent = 'voir moins';
         } else {
             textElement.textContent = shortText;
-            toggleElement.textContent = 'en savoir plus';
+            toggleElements[index].textContent = 'en savoir plus';
         }
     });
 });

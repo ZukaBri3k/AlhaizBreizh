@@ -406,7 +406,7 @@
       } else {
         
         foreach ($avis as $values) {
-          if(count($values->com_avis) < 200) {
+          if(strlen($values->com_avis) < 200) {
     @endphp
         <div class="un_avis">
           <div class="pp_avis">

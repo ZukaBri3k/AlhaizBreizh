@@ -379,7 +379,7 @@
         </div>
       </div>
       
-      @if(strlen($role) == 0)
+      @if(strlen($role) != 0)
         @if ($role[0]->role == 1)
         <div class="creation_avis">
           <form id="myForm" action="{{route('accueil')}}" method="post" class="avis_form">

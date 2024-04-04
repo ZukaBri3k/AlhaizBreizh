@@ -71,7 +71,7 @@
 
 document.getElementById('submit').addEventListener('click', function(event) {
     event.preventDefault();
-
+    console.log("ici");
     var url = this.href;
     // Vérifier si le mot de passe contient au moins une majuscule
     var regex_maj = /[A-Z]/;

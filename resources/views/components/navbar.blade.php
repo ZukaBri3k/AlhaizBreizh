@@ -194,7 +194,7 @@ deconnexionNavBar.forEach((btn) => {
     var url = this.href;
 
     Swal.fire({
-        title: "Êtes vous sûr de vouloir vous déconnectez ?",
+        title: "Êtes vous sûr de vouloir vous déconnecter ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#21610B",
@@ -207,7 +207,9 @@ deconnexionNavBar.forEach((btn) => {
             title: 'generation_cle'
         },
     }).then((result) => {
-        window.location.href = url;
+        if (result.isConfirmed){
+          window.location.href = url;
+        }
       });
   });
 });
@@ -409,7 +411,7 @@ deconnexionNavBar.forEach((btn) => {
     var url = this.href;
 
     Swal.fire({
-        title: "Êtes vous sûr de vouloir vous déconnectez ?",
+        title: "Êtes vous sûr de vouloir vous déconnecter ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#21610B",
@@ -422,7 +424,9 @@ deconnexionNavBar.forEach((btn) => {
             title: 'generation_cle'
         },
     }).then((result) => {
-        window.location.href = url;
+        if (result.isConfirmed){
+          window.location.href = url;
+        }
       });
   });
 });

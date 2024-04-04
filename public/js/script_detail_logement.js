@@ -24,7 +24,7 @@ textElements.forEach((textElement, index) => {
 document.getElementById('devis_demande').addEventListener('click', (event) => {
   event.preventDefault();
   let url = this.href;
-  console.log(url);
+  console.log(this);
 
   Swal.fire({
       title: "Envoyer !",

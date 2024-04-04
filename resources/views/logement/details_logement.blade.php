@@ -427,7 +427,7 @@
           <div class="note_avis">
             <div class="div_note">
               <p class="note">{!! $values->note_avis !!}/5</p>
-              <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="etoile">
+              <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="note_etoile">
             </div>
             <p class="commentaire">{!! $values->com_avis !!}</p>
           </div>

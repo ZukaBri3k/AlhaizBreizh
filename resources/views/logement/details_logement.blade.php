@@ -467,7 +467,7 @@
         </div>
         <div class="note_avis">
           <p>4.5/5</p>
-          <p class="text">Très bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommande, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas</p>
+          <p class="text">je recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment anticonstitutionnelementadazdzadaz</p>
           <a href="#" class="toggle">en savoir plus</a>
         </div>
       </div>

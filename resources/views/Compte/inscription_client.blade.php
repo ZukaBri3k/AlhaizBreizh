@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.0/css/countrySelect.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/inscription.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('js/script_inscription_client.js')}}" defer>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

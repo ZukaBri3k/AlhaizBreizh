@@ -135,7 +135,7 @@ class Devis extends Controller
                     ?, ?, ?
                     )', $tabReservation);
         }
-        return route('details', ['id' => $id_logement]);
+        return redirect()->back();
     }
 
     public function infosDevis(Request $request) {

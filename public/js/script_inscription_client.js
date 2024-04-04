@@ -3,7 +3,7 @@ const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 3000,
+    timer: 4000,
     timerProgressBar: true,
     didOpen: (toast) => {
         toast.onmouseenter = Swal.stopTimer;
@@ -113,7 +113,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
             else{
                 Toast.fire({
                     icon: "error",
-                    title: "Le mot de passe doit contenir au moin une majuscule,une minucule et un nombre",
+                    title: "Le mot de passe doit contenir au moins une majuscule, une minucule et un chiffre",
                     background: '#F6F5EE',
                     allowOutsideClick: false,
                     customClass: {
@@ -127,7 +127,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
         else{
             Toast.fire({
                 icon: "error",
-                title: "Le mot de passe doit contenir au moin une majuscule,une minucule et un nombre",
+                title: "Le mot de passe doit contenir au moins une majuscule, une minucule et un chiffre",
                 background: '#F6F5EE',
                 allowOutsideClick: false,
                 customClass: {
@@ -141,7 +141,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
     else{
         Toast.fire({
             icon: "error",
-            title: "Le mot de passe doit contenir au moin une majuscule,une minucule et un nombre",
+            title: "Le mot de passe doit contenir au moins une majuscule, une minucule et un chiffre",
             background: '#F6F5EE',
             allowOutsideClick: false,
             customClass: {

@@ -367,7 +367,7 @@
               <label for="dateFin">Date de fin</label>
               <input type="date" id="dateFin" name="dateFin" value="dateFin" class="datepicker-input">
             </div>
-            <button type="submit" id="devis_demande">Demander un devis</button>
+            <button type="submit">Demander un devis</button>
           </form>
       </div>
     </div>

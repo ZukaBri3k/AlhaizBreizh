@@ -381,7 +381,7 @@
       </div>
       
       @if(count($role) != 0)
-        @if ($role[0]->role == 1 && $bool_resa[0]->bool_resa == true)
+        @if ($role[0]->role == 1 && $bool_resa == true)
         <div class="creation_avis">
           <form id="myForm" action="{{route('creation_avis')}}" method="post" class="avis_form">
             @csrf

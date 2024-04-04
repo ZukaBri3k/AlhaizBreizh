@@ -21,7 +21,7 @@ textElements.forEach((textElement, index) => {
 
 
 //Ici mon JS pour la création d'un devis
-document.querySelector('.devis_demande').addEventListener('submit', function(event) {
+document.querySelector('#devis_demande').addEventListener('submit', function(event) {
   event.preventDefault();
 
   Swal.fire({
@@ -42,30 +42,7 @@ document.querySelector('.devis_demande').addEventListener('submit', function(eve
   });
 });
 
-
-// ma popup pour la creation d'un devis
-var devis = document.getElementById('formDevis');
-
-devis.addEventListener('click', function(event) {
-    event.preventDefault();
-    var url = this.href;
-
-    Swal.fire({
-      title: "Envoyer !",
-      text: "Votre avis viens d'être poster !",
-      icon: "success",
-      confirmButtonColor: "#21610B",
-      background: '#F6F5EE',
-      allowOutsideClick: false,
-      customClass: {
-          title: 'generation_cle'
-      },
-    }).then((result) => {
-        window.location.href = url;
-    }); 
-});
-
-document.querySelector('.formAvis').addEventListener('submit', function(event) {
+document.querySelector('#formAvis').addEventListener('submit', function(event) {
   event.preventDefault();
 
   Swal.fire({

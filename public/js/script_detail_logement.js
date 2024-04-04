@@ -21,7 +21,7 @@ textElements.forEach((textElement, index) => {
 
 
 //Ici mon JS pour la création d'un devis
-document.querySelector('#devis_demande').addEventListener('submit', function(event) {
+document.getElementById('#devis_demande').addEventListener('submit', function(event) {
   event.preventDefault();
 
   Swal.fire({
@@ -42,7 +42,7 @@ document.querySelector('#devis_demande').addEventListener('submit', function(eve
   });
 });
 
-document.querySelector('#formAvis').addEventListener('submit', function(event) {
+document.getElementById('#formAvis').addEventListener('submit', function(event) {
   event.preventDefault();
 
   Swal.fire({

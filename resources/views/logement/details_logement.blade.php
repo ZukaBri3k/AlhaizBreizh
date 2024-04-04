@@ -446,7 +446,10 @@
             </div>
           </div>
           <div class="note_avis">
-            <p>{!! $values->note_avis !!}/5</p>
+          <div class="div_note">
+              <p class="note">{!! $values->note_avis !!}/5</p>
+              <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="note_etoile">
+            </div>
             <p class="text">{!! $values->com_avis !!}</p>
             <a href="#" class="toggle">en savoir plus</a>
           </div>

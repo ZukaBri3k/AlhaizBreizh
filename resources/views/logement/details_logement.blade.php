@@ -375,7 +375,7 @@
             $moyenne = count($avis) == 0 ? 0 : $note_total / count($avis);
             $nb_com = count($avis);
           @endphp
-          <h3>{!! $moyenne !!} | {!! $nb_com !!} commentaire(s)</h3>
+          <h3>{!! $moyenne !!} de moyenne | {!! $nb_com !!} commentaire(s)</h3>
         </div>
       </div>
 
@@ -425,8 +425,11 @@
             </div>
           </div>
           <div class="note_avis">
-            <p>{!! $values->note_avis !!}/5 ★</p>
-            <p>{!! $values->com_avis !!}</p>
+            <div class="div_note">
+              <p class="note">{!! $values->note_avis !!}/5</p>
+              <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="etoile">
+            </div>
+            <p class="commentaire">{!! $values->com_avis !!}</p>
           </div>
         </div>
     @php  } else { @endphp
@@ -437,13 +440,13 @@
           @else
               <img id="image_pp_previsu" src="{{ asset('pp/pp' . $values->id . '/img1.png')}}" class="pp" alt="photo de profil">
           @endif
-            <div>
-              <p>{!! $values->pseudo_pers !!}</p>
-              <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
+            <div class="div_note">
+              <p class="note">{!! $values->pseudo_pers !!}</p>
+              <p class="commentaire">{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
             </div>
           </div>
           <div class="note_avis">
-            <p>{!! $values->note_avis !!}/5 ★</p>
+            <p>{!! $values->note_avis !!}/5</p>
             <p class="text">{!! $values->com_avis !!}</p>
             <a href="#" class="toggle">en savoir plus</a>
           </div>

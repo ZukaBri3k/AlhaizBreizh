@@ -412,6 +412,7 @@
           }
 
           async function main() {
+            console.log($logement->ville_logement);
               const coordinates = await getCoordinates("{{$logement->ville_logement}}");
               if (coordinates) {
                   Mamap.setView(coordinates, 13);

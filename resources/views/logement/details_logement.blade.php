@@ -404,7 +404,7 @@
         <p>Il n'y a pas d'avis pour le moment</p>
     @php
       } else {
-        $
+        
         foreach ($avis as $values) {
           if(count($values->com_avis) < 200) {
     @endphp

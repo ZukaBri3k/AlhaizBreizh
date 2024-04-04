@@ -119,7 +119,7 @@
                     @php
                         $telephone = $personnes->telephone_pers;
                         
-                        $caracteres = str_split($chaine);
+                        $caracteres = str_split($telephone);
 
                         // Initialisation de la chaîne résultante
                         $chaineAvecEspaces = '';

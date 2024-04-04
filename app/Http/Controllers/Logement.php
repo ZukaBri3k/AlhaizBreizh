@@ -273,8 +273,8 @@ class Logement extends Controller
         $role = DB::select('select role from personnes where id = ?', [$id]);
         $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($req->id)]);
         
-        if($id == $idProprietaireLogment[0]->id_proprio_logement || $role != 1) {
-            return redirect()->back();
+        if($id == $idProprietaireLogment[0]->id_proprio_logement || $role[0]->role != 1) {
+            return redirect()->route('retourAvis', ['id' => $req->id]);
         } else {
             $tab = [
                 $req->ratingValue,

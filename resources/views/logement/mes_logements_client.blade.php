@@ -26,7 +26,7 @@
                                     ->where('logement.id_logement', $devis->id_logement)
                                     ->first();
             @endphp
-            <x-DemandeDevisClient libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}" proprietaire_nom="{{$proprietaire_nom ? $proprietaire_nom->nom_pers : $nom_proprio}}"></x-DemandeDevisClient>
+            <x-DemandeDevisClient libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}" proprietaire_nom="{{$nom_proprio->nom_pers}}"></x-DemandeDevisClient>
         @endforeach
         <hr>
     </section>

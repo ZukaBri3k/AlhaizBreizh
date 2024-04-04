@@ -24,7 +24,7 @@ textElements.forEach((textElement, index) => {
 document.getElementById('devis_demande').addEventListener('submit', function (event) {
   event.preventDefault();
   let url = this.action;
-  console.log(this.action);
+  //console.log(this.action);
 
   Swal.fire({
       title: "Envoyer !",
@@ -39,7 +39,7 @@ document.getElementById('devis_demande').addEventListener('submit', function (ev
       allowOutsideClick: false,
   }).then((result) => {
       if (result.isConfirmed) {
-          //window.location.href = url;
+          window.location.href = url;
       }
   });
 });

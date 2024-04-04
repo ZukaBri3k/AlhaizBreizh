@@ -8,7 +8,7 @@
     <p><strong>au</strong> {{ $datef }}</p>
     <p><strong>{{ $prix }} €</strong></p>
     @php
-        dd($role);
+        //dd($role);
     @endphp
     @if ($role == 1)
         @if ($bool_resa == false)

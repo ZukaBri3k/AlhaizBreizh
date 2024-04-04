@@ -92,7 +92,7 @@
 
                     <label for="password">*Mot de Passe:</label>
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"
-                        class="form-control" maxlength="60" required>
+                        class="form-control" minlenght="5" maxlength="60" required>
 
                     <label for="confirmerMotDePasse">*Confirmation du Mot de Passe:</label>
                     <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse"

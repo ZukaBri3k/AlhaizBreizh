@@ -70,7 +70,6 @@
     });
 
 document.getElementById('submit').addEventListener('click', function(event) {
-    event.preventDefault();
     console.log("ici");
     var url = this.href;
     // Vérifier si le mot de passe contient au moins une majuscule
@@ -85,13 +84,19 @@ document.getElementById('submit').addEventListener('click', function(event) {
             }
             else{
                 alert("il vous manque un chiffre");
+                event.preventDefault();
+
             }
         }
         else{
             alert("Il vous manque une minuscule");
+            event.preventDefault();
+
         }
 
     else{
             alert("Il vous manque une Majuscule");
+            event.preventDefault();
+
         }
 })

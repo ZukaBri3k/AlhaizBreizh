@@ -9,7 +9,6 @@
     <title>Détails d'un logement</title>
 </head>
 <body>
-    <script src="{{asset('/js/script_detail_logement.js')}}" defer></script>
     <x-Navbar></x-Navbar>
     <!--Code pour le carrousel-->
     <div class="carou">
@@ -363,7 +362,7 @@
       </div>
     </div>
 
-    
+
     <!-- Avis -->
     <hr id="id_hr">
     <div>
@@ -416,7 +415,7 @@
 
       <div class="un_avis">
         <div class="pp_avis">
-          <img src="{{asset('/img/pp.png')}}" alt="photo de profil d'un utilisateur">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
           <div>
             <p>Utilisateur 1</p>
             <p>Rennes, France</p>
@@ -430,7 +429,7 @@
 
       <div class="un_avis">
         <div class="pp_avis">
-          <img src="{{asset('/img/pp.png')}}" alt="photo de profil d'un utilisateur">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
           <div>
             <p>Utilisateur 1</p>
             <p>Rennes, France</p>
@@ -445,7 +444,7 @@
 
       <div class="un_avis">
         <div class="pp_avis">
-          <img src="{{asset('/img/pp.png')}}" alt="photo de profil d'un utilisateur">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
           <div>
             <p>Utilisateur 1</p>
             <p>Rennes, France</p>
@@ -460,7 +459,7 @@
 
       <div class="un_avis">
         <div class="pp_avis">
-          <img src="{{asset('/img/pp.png')}}" alt="photo de profil d'un utilisateur">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
           <div>
             <p>Utilisateur 1</p>
             <p>Rennes, France</p>
@@ -475,7 +474,7 @@
 
       <div class="un_avis">
         <div class="pp_avis">
-          <img src="{{asset('/img/pp.png')}}" alt="photo de profil d'un utilisateur">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
           <div>
             <p>Utilisateur 1</p>
             <p>Rennes, France</p>
@@ -491,6 +490,7 @@
     <!-- Fin des avis -->
 
     <x-FooterClient></x-FooterClient>
+    <script src="{{asset('js/script_detail_logement.js')}}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

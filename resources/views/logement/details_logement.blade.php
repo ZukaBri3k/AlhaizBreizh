@@ -467,8 +467,7 @@
         </div>
         <div class="note_avis">
           <p>4.5/5</p>
-          <p>hhhhhhhhhhhhhhhhhhhhhhhhhgthtrghtrghtrghtrygytghtryghtryghtryghtryghtryghtryghtrygtrygh 
-            tryghtryghtryghtrghtrghyrthgyhghrytghtyrgytrghtryghrtgghtryghtyrghgthrygrytghtyrghrtghtryghtryghghtryghytrghtry</p>
+          <p>je recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment anticonstitutionnelement</p>
         </div>
       </div>
 

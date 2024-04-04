@@ -113,13 +113,11 @@ if ($files) {
     }
 
     public function getInfoLogement(Request $request) {
-        dd(auth()->user()->id);
-        if (auth()->user()->id == 1) {
-            $id_role = 1;
-        } elseif(auth()->user()->id == 2) {
-            $id_role = 2;
+        dd(endauth()->user()->id);
+        if(endauth()->user()->id) {
+            $id_role = auth()->user()->id;
         } else {
-            $id_role = null;
+            $id_role = 0;
         }
         $id_proprio = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($request->id)]);
         return View("logement/details_logement" , ['logement' => DB::select('select * from logement where id_logement = ?', [intval($request->id)]) [0],  

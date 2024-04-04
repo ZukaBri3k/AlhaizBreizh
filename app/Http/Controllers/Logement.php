@@ -124,9 +124,9 @@ if ($files) {
                 $id_resa = DB::select('select id_reserv from reservation inner join devis on reservation.facture_reserv = devis.ref_devis inner join logement on reservation.id_logement_reserv = logement.id_logement where id_client_devis = ? and id_logement = ?', [auth()->user()->id, intval($request->id)]);
                 if($id_resa != null){
                     foreach($id_resa as $values) {
-                        $resa = DB::select('select id_reserv_avis from avis inner join reservation on avis.id_reserv_avis = reservation.id_reserv inner join logement on avis.id_logement_avis = logement.id_logement where id_reserv = ? and id_logement_avis = ?', [$values->id_reserv, intval($request->id)]);
-                        dd($resa);
-                        if($resa == null) {
+                        $resa_id = DB::select('select id_reserv_avis from avis inner join reservation on avis.id_reserv_avis = reservation.id_reserv inner join logement on avis.id_logement_avis = logement.id_logement where id_reserv = ? and id_logement_avis = ?', [$values->id_reserv, intval($request->id)]);
+                        dd($resa_id);
+                        if($resa_id == null) {
                             $bool_resa = true;
                             $id_reserv = $values->id_reserv;
                         }

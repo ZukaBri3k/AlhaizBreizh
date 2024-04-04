@@ -121,11 +121,29 @@
 
                     @php
                         $telephone = $personnes->telephone_pers;
-                        $telephone = preg_replace('/^\+\d{2}/', '0', $telephone);
+                        $telephone = "0" . substr($telephone, 3);
+                        
+                        $caracteres = str_split($telephone);
+
+                        // Initialisation de la chaîne résultante
+                        $chaineAvecEspaces = '';
+
+                        // Parcours des caractères
+                        foreach ($caracteres as $index => $caractere) {
+                            // Ajout du caractère au résultat
+                            $chaineAvecEspaces .= $caractere;
+                            
+                            // Ajout d'un espace tous les deux caractères, sauf pour le dernier caractère
+                            if (($index + 1) % 2 == 0 && $index < count($caracteres) - 1) {
+                                $chaineAvecEspaces .= ' ';
+                            }
+                        }
+
+                        $telephone = $chaineAvecEspaces;
                     @endphp
                     <label for="telephone_pers">*Numéro de Téléphone:</label>
                     <input type="tel" id="telephone_pers" name="telephone_pers" placeholder="Entrez votre numéro de téléphone"
-                        class="form-control Telephone pasLettre pasSigne" value="{!! $telephone !!}" maxlength="12" pattern="^\d{10}$" required>
+                        class="form-control Telephone pasLettre pasSigne" value="{!! $telephone !!}" maxlength="14" pattern="^\d{10}$" required>
                         
 
                     <label for="mail_pers">*Adresse E-mail:</label>

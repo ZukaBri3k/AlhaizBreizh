@@ -95,19 +95,43 @@ document.getElementById('submit').addEventListener('click', function(event) {
                 //window.location.href=url;
             }
             else{
-                alert("il vous manque un chiffre");
+                Toast.fire({
+                    icon: "error",
+                    title: "Le mot de passe doit contenir un chiffre",
+                    background: '#F6F5EE',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'generation_cle'
+                    },
+                });
                 event.preventDefault();
 
             }
         }
         else{
-            alert("Il vous manque une minuscule");
+            Toast.fire({
+                icon: "error",
+                title: "Le mot de passe doit contenir une minuscule",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
             event.preventDefault();
 
         }
 
     else{
-            alert("Il vous manque une Majuscule");
+        Toast.fire({
+            icon: "error",
+            title: "Le mot de passe doit contenir une majuscule",
+            background: '#F6F5EE',
+            allowOutsideClick: false,
+            customClass: {
+                title: 'generation_cle'
+            },
+        });
             event.preventDefault();
 
         }
@@ -117,7 +141,15 @@ document.getElementById('submit').addEventListener('click', function(event) {
 		console.log(confirmationMotDePasse);
 	
 		if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
-
+            Toast.fire({
+                icon: "error",
+                title: "Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
 			alert("Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.");
             event.preventDefault();
 		}

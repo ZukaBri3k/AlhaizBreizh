@@ -7,5 +7,5 @@
     <p><strong>Du</strong> {{$dated}}</p>
     <p><strong>au</strong> {{$datef}}</p>
     <p><strong>{{$prix}} €</strong></p>
-    <button id="btnTriPrix" onclick="{{ route('creation_avis') }}">Écrire un avis</button>
+    <button onclick="window.location.href='{{ route('creation_avis') }}'" class="btnTriPrix">Écrire un avis</button>
 </div>

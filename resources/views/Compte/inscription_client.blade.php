@@ -102,7 +102,7 @@
                     <div id="message"></div>
 
                     <label for="iban">IBAN:</label>
-                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" maxlength="27">
+                    <input type="text" id="iban" name="iban" placeholder="Entrez votre IBAN" class="form-control" maxlength="27" style="text-transform: uppercase;">
                 </div>
             </div>
         </div>

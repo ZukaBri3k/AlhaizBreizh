@@ -328,6 +328,21 @@
           <p class="have_paypal">Le propriétaire a paypal</p>
         @endif
         <br>
+
+        <div id="Mamap"></div>
+          <script>
+            function initMap() {
+              var uluru = {lat: {{ $logement->latitude_logement }}, lng: {{ $logement->longitude_logement }}};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+              });
+              var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+              });
+            }
+          </script>
     </div>
 
       <div class="leStick">

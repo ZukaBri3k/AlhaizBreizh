@@ -44,7 +44,7 @@ document.getElementById('#devis_demande').addEventListener('submit', function(ev
 
 document.getElementById('#formAvis').addEventListener('submit', function(event) {
   event.preventDefault();
-
+  
   Swal.fire({
       title: "Envoyer !",
       text: "Votre avis à bien été poster !",

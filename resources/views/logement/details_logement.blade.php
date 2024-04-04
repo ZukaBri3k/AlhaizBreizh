@@ -401,7 +401,7 @@
 
       <div class="un_avis">
         <div class="pp_avis">
-          <img src="{{asset('/img/pp.png')}}" alt="photo de profil d'un utilisateur">
+          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
           <div>
             <p>Utilisateur 1</p>
             <p>Rennes, France</p>

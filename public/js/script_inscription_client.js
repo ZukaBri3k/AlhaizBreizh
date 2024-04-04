@@ -76,7 +76,7 @@
         var regex_min = /[a-z]/;
         var regex_chiffre = /[0-9]/;
         var MDP = document.getElementById("password").value;
-        if (MDP.match(regex_maj)){
+        if (MDP.match(regex_maj))
             if(MDP.match(regex_min)){
                 if(MDP.match(regex_chiffre)){
 
@@ -89,7 +89,7 @@
                 alert("Il vous manque une minuscule");
             }
 
-        }else{
+    else{
             alert("Il vous manque une Majuscule");
         }
         

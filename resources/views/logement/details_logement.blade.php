@@ -427,6 +427,7 @@
           <div class="note_avis">
             <p>{!! $values->note_avis !!}/5</p>
             <p>{!! $values->com_avis !!}</p>
+            <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="etoile">
           </div>
         </div>
     @php  } else { @endphp
@@ -444,6 +445,7 @@
           </div>
           <div class="note_avis">
             <p>{!! $values->note_avis !!}/5</p>
+            <img src="{{asset('/img/etoile.png')}}" alt="étoile" id="etoile">
             <p class="text">{!! $values->com_avis !!}</p>
             <a href="#" class="toggle">en savoir plus</a>
           </div>

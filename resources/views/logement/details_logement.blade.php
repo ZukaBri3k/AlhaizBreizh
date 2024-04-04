@@ -338,27 +338,6 @@
           <p class="have_paypal">Le propriétaire a paypal</p>
         @endif
         <br>
-
-        <div id="mapid" style="height: 200px; width: 100%;"></div>
-        <script type="text/javascript">
-            var Mamap = L.map('mapid', {
-                center: [47.9991200, -3.2733700],
-                zoom: 8,
-                gestureHandling: true,
-                gestureHandlingOptions: {
-                    duration: 1000,
-                    text: {
-                        touch: "Utilisez deux doigts pour déplacer la carte",
-                        scroll: "Utiliser CTRL + scroll pour zoomer la carte",
-                        scrollMac: "Utiliser \u2318 + scroll pour zoomer la carte"
-                    }
-                }
-            });
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-            }).addTo(Mamap);
-        </script>
     </div>
 
       <div class="leStick">
@@ -393,7 +372,26 @@
       </div>
     </div>
 
+    <div id="mapid" style="height: 200px; width: 100%;"></div>
+        <script type="text/javascript">
+            var Mamap = L.map('mapid', {
+                center: [47.9991200, -3.2733700],
+                zoom: 8,
+                gestureHandling: true,
+                gestureHandlingOptions: {
+                    duration: 1000,
+                    text: {
+                        touch: "Utilisez deux doigts pour déplacer la carte",
+                        scroll: "Utiliser CTRL + scroll pour zoomer la carte",
+                        scrollMac: "Utiliser \u2318 + scroll pour zoomer la carte"
+                    }
+                }
+            });
 
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(Mamap);
+        </script>
     <!-- Avis -->
     <hr id="id_hr">
     <div>

@@ -176,7 +176,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
 )
 document.getElementById('iban').addEventListener('input', function(event) {
 
-    var iban = dociment.getElementById("iban")
+    var iban = document.getElementById("iban")
     const input = event.target;
     const regex_num = /[0-9]/;
     const regex_letter = /[a-z]/

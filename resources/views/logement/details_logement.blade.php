@@ -393,8 +393,8 @@
               <span class="star" data-value="1">★</span>
               <label for="note_avis">: Notez</label>
             </div>
-            <input type="hidden" name="ratingValue" id="ratingValue" value="0">
-            <input type="hidden" name="ratingValue" id="ratingValue" value="{!! $logement->id_logement !!}">
+            <input type="hidden" name="ratingValue" id="ratingValue" value="5">
+            <input type="hidden" name="id" id="id" value="{!! $logement->id_logement !!}">
             <div>
               <label for="note_avis">Commentaire :</label>
               <textarea id="com_avis" name="com_avis" placeholder="Rédigez ici votre commentaire" maxlength="400"></textarea>

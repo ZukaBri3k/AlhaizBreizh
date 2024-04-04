@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Personne;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class Logement extends Controller
 {

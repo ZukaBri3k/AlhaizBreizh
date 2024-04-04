@@ -288,6 +288,7 @@ if ($files) {
     }
 
     public function creationAvis(Request $req) {
+        dd($req);
         $id = auth()->user()->id;
         $role = DB::select('select role from personnes where id = ?', [$id]);
         $idProprietaireLogment = DB::select('select id_proprio_logement from logement where id_logement = ?', [intval($req->id)]);
@@ -296,8 +297,8 @@ if ($files) {
             return redirect()->back();
         } else {
             $tab = [
-                $req->note,
-                $req->commentaire,
+                $req->ratingValue,
+                $req->com_avis,
                 null,
                 $req->id,
                 $id,

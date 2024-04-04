@@ -118,7 +118,7 @@
 
                     @php
                         $telephone = $personnes->telephone_pers;
-                        $telephone = substr($chaine, 3);
+                        $telephone = substr($telephone, 3);
                         
                         $caracteres = str_split($telephone);
 

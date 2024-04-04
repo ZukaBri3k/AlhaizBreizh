@@ -174,3 +174,43 @@ document.getElementById('submit').addEventListener('click', function(event) {
 
         
 )
+document.getElementById('iban').addEventListener('input', function(event) {
+    var iban = document.getElementById("iban");
+    const input = event.target;
+    const regex_num = /[0-9]/;
+    const regex_letter = /[a-zA-Z]/;
+
+    if (iban.value.length <= 2) { // Vérification des deux premiers caractères
+        if (!regex_letter.test(input.value)) {
+            input.value = input.value.slice(0, -1);
+            Toast.fire({
+                icon: "warning",
+                title: "Les deux premiers caractères doivent être des lettres",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
+        } else {
+            input.setCustomValidity("");
+        }
+    } else {
+        if (!regex_num.test(input.value)) {
+            input.value = input.value.slice(0, -1);
+            input.setCustomValidity("Seuls les chiffres sont autorisés.");
+            Toast.fire({
+                icon: "warning",
+                title: "À partir du troisième caractère seuls les chiffres sont autorisés.",
+                background: '#F6F5EE',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'generation_cle'
+                },
+            });
+        } else {
+            input.setCustomValidity("");
+        }
+    }
+});
+

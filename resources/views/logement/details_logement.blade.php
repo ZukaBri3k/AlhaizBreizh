@@ -391,6 +391,10 @@
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
             }).addTo(Mamap);
+
+            //mise en place du marqueur
+            var marker = L.marker([{{ $logement->latitude_logement }}, {{ $logement->longitude_logement }}]).addTo(Mamap);
+            marker.bindPopup("<b>{{ $logement->libelle_logement }}</b><br>{{ $logement->adresse_logement }}").openPopup();
         </script>
     <!-- Avis -->
     <hr id="id_hr">

@@ -332,7 +332,7 @@
 
       <div class="leStick">
           <p>à partir de : {{ $logement->prix_logement }} €/ mois</p>
-          <p>Propriétaire : {{ $nom_proprio[0]->nom_pers }}</p>
+          <p>Propriétaire : {!! $nom_proprio[0]->nom_pers !!}</p>
           <p>Nombre de personne max : {{ $logement->nb_personne_max }}</p>
           <ul>
             <li class="ville">Ville : {{ $logement->ville_logement }}</li>
@@ -399,94 +399,48 @@
 
     <div class="les_avis">
 
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
+    @php
+      if($avis == null) { @endphp
+        <p>Il n'y a pas d'avis pour le moment</p>
+    @php
+      } else {
+        $
+        foreach ($avis as $values) {
+          if(count($values->com_avis) < 200) {
+    @endphp
+        <div class="un_avis">
+          <div class="pp_avis">
+            <img src="{{asset('/img/{!! $values->photo_pers !!}.png')}}" alt="photo de profil d'un utilisateur">
+            <div>
+              <p>{!! $values->nom_pers !!}</p>
+              <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
+            </div>
+          </div>
+          <div class="note_avis">
+            <p>{!! $values->note_avis !!}/5</p>
+            <p>{!! $values->com_avis !!}</p>
           </div>
         </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p>Très bon logement, je recommande</p>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
+    @php  } else { @endphp
+        <div class="un_avis">
+          <div class="pp_avis">
+            <img src="{{asset('/img/{!! $values->photo_pers !!}.png')}}" alt="photo de profil d'un utilisateur">
+            <div>
+              <p>{!! $values->nom_pers !!}</p>
+              <p>{!! $values->ville_pers !!}, {!! $values->pays_pers !!}</p>
+            </div>
           </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p>Très bon logement, je recommande</p>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
+          <div class="note_avis">
+            <p>{!! $values->note_avis !!}/5</p>
+            <p class="text">{!! $values->com_avis !!}</p>
+            <a href="#" class="toggle">en savoir plus</a>
           </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p>Très bon logement, je recommandeTrès bon logement, je recommande
-          </p>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
-          </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p class="text">Très bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommandeTrès bon logement, je recommande, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas, je recommande pas</p>
-          <a href="#" class="toggle">en savoir plus</a>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
-          </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p class="text">je recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment ce logement de golmon de con anticonstitutionnelementje recommande vraiment anticonstitutionnelementadazdzadaz</p>
-          <a href="#" class="toggle">en savoir plus</a>
-        </div>
-      </div>
-
-      <div class="un_avis">
-        <div class="pp_avis">
-          <img src="{{asset('/img/pp_profile.png')}}" alt="photo de profil d'un utilisateur">
-          <div>
-            <p>Utilisateur 1</p>
-            <p>Rennes, France</p>
-          </div>
-        </div>
-        <div class="note_avis">
-          <p>4.5/5</p>
-          <p>Très bon logement, je recommandeTrès bon logement, je recommande
-          </p>
-        </div>
-      </div>
-    </div>
+        </div>   
+    @php
+          }
+        }
+      }
+    @endphp
     <!-- Fin des avis -->
 
     <x-FooterClient></x-FooterClient>

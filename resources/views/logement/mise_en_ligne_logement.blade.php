@@ -514,7 +514,7 @@ votre logement à ce site, les champs dont les titres sont marqués d'un * (Ast�
             <div id="images_colonne_gauche">
                 <div id="drop_zone">
                     <p id="depot_image">Glissez-déposez jusqu'à 10 images ici.</p>
-                    <input type="file" id="file_input" name="photo_complementaire_logement" multiple>
+                    <input type="file" id="file_input" name="photo_complementaire_logement[]" multiple>
                     <output id="result"></output>
                 </div>
             </div>

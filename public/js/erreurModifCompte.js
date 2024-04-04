@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0; i < telephone.length; i++) {
         res = ""
         for(let j = 0; j < telephone[i].value.length; j++) {
-            if(j % 2 == 0 && j != 0) {
+            if((j + 1) % 2 == 0 && j != 0) {
                 res += telephone[i].value[j] + " ";
             } else {
                 res += telephone[i].value[j];

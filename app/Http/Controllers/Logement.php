@@ -94,8 +94,8 @@ class Logement extends Controller
         //Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("couverture"), "couverture.jpg");
         
         //dd($request->file());
-        for($i = 1; $i <= count($request->file()); $i++) {
-            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file("img" . $i), "img" . $i - 1 . ".jpg");
+        for($i = 0; $i < count($request->file()); $i++) {
+            Storage::disk('logements')->putFileAs("logement" . $id_logement[0]->id_logement, $request->file()[$i], "img" . ($i - 1) . ".jpg");
         }
 
         //dd($APP_URL));
@@ -115,6 +115,7 @@ class Logement extends Controller
         'paypal' => DB::select('select paypal_proprio from proprietaire where id_proprio = ?', [intval($id_proprio[0]->id_proprio_logement)]), 
         'calendrier' => DB::select('select * from calendrier where id_logement = ?', [intval($request->id)]),
         'nb_photo' => DB::select('select photo_complementaire_logement from logement where id_logement = ?', [intval($request->id)])[0]->photo_complementaire_logement,
+        'avis' => DB::select('select pseudo_pers, ville_pers, pays_pers, photo_pers, id, com_avis, note_avis from personnes inner join avis on personnes.id = avis.id_personne_avis where id_logement_avis = ?', [intval($request->id)]),
     ]);
     }
 

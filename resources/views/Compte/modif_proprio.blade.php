@@ -102,7 +102,7 @@
             </div>
 
             <div class="col-md-6 divider">
-                <h2 class="h2">Informations Personnelles privées</h2>
+                <h2 class="h2" style="z-index: 0;">Informations Personnelles privées</h2>
                 <div class="form-container">
                     <label for="adresse_pers">*Adresse:</label>
                     <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Entrez votre adresse"
@@ -178,5 +178,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="{{asset('js/erreurModifCompte.js')}}"></script>
 </body>
 </html>

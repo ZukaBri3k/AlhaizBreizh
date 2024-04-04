@@ -372,7 +372,7 @@
       </div>
     </div>
 
-    <div id="mapid"></div>
+    <div id="mapid" style="width: 100%; height: 300px;"></div>
         <script type="text/javascript">
             var Mamap = L.map('mapid', {
                 center: [47.9991200, -3.2733700],

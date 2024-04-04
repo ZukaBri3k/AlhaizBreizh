@@ -575,23 +575,23 @@ body {
 }
 
 .note {
-    color: #000;
-    font-family: 'Montserrat';
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-left: 5%;
+    color: #000 !important;
+    font-family: 'Montserrat' !important;
+    font-size: 25px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    margin-left: 5% !important;
 }
 
 .commentaire {
-    color: #000;
-    font-family: 'Montserrat-Light';
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-left: 5%;
+    color: #000 !important;
+    font-family: 'Montserrat-Light' !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    margin-left: 5% !important;
 }
 
 .note_avis {

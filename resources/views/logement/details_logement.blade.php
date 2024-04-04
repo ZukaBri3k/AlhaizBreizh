@@ -433,6 +433,7 @@
             $note_total = count($avis) == 0 ? 0 : array_sum(array_column($avis, 'note_avis'));
             $moyenne = count($avis) == 0 ? 0 : $note_total / count($avis);
             $nb_com = count($avis);
+            dd($id_reserv);
           @endphp
           <h3>{!! $moyenne !!} de moyenne | {!! $nb_com !!} commentaire(s)</h3>
         </div>

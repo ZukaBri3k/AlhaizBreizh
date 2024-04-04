@@ -105,7 +105,7 @@
             </div>
 
             <div class="col-md-6 divider">
-                <h2 class="h2">Informations Personnelles privées</h2>
+                <h2 class="h2" style="z-index: 0;">Informations Personnelles privées</h2>
                 <div class="form-container">
                     <label for="adresse_pers">*Adresse:</label>
                     <input type="text" id="adresse_pers" name="adresse_pers" placeholder="Entrez votre adresse"

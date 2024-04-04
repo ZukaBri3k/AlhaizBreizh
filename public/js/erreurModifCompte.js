@@ -26,3 +26,13 @@ for (let i = 0; i < telephone.length; i++) {
         this.value = this.value.replace(/(\d{2})(?=\d)/g, '$1 ');
     })
 }
+
+let pasLettre = document.getElementsByClassName('pasLettre');
+
+for (let i = 0; i < pasLettre.length; i++) {
+    pasLettre[i].addEventListener('input', function () {
+        if (this.value.match(/[a-zA-Z]+/)) {
+            this.value = this.value.replace(/[a-zA-Z]+/, '');
+        }
+    })
+}

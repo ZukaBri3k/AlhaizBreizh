@@ -467,8 +467,7 @@
         </div>
         <div class="note_avis">
           <p>4.5/5</p>
-          <p>Très bon logement, je recommandeTrès bon logement, je recommande
-          </p>
+          <p>hhhhhhhhhhhhhhhhhhhhhhhhhgthtrghtrghtrghtrygytghtryghtryghtryghtryghtryghtryghtrygtryghtryghtryghtryghtrghtrghyrthgyhghrytghtyrgytrghtryghrtgghtryghtyrghgthrygrytghtyrghrtghtryghtryghghtryghytrghtryr</p>
         </div>
       </div>
 

@@ -110,7 +110,7 @@
 
                     <label for="code_postal_pers">*Code Postal:</label>
                     <input type="text" id="code_postal_pers" name="code_postal_pers" placeholder="Entrez votre code postal"
-                        class="form-control" value="{!! $personnes->code_postal_pers !!}" maxlength="5" pattern="^\d{5}$" required>
+                        class="form-control codePostal" value="{!! $personnes->code_postal_pers !!}" maxlength="5" pattern="^\d{5}$" required>
 
                     <label for="date_de_naissance">*Date de Naissance:</label>
                     <input type="date" id="date_de_naissance" name="date_de_naissance" placeholder="Entrez votre date de naissance"

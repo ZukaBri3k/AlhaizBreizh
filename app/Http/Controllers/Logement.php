@@ -125,7 +125,7 @@ if ($files) {
                 if($id_resa != null){
                     foreach($id_resa as $values) {
                         $resa_id = DB::select('select id_reserv_avis from avis inner join reservation on avis.id_reserv_avis = reservation.id_reserv inner join logement on avis.id_logement_avis = logement.id_logement where id_reserv = ? and id_logement_avis = ?', [$values->id_reserv, intval($request->id)]);
-                        dd($resa_id);
+                        //dd($resa_id);
                         if($resa_id == null) {
                             $bool_resa = true;
                             $id_reserv = $values->id_reserv;

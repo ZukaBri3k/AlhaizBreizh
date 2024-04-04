@@ -21,10 +21,10 @@ textElements.forEach((textElement, index) => {
 
 
 //Ici mon JS pour la création d'un devis
-document.getElementById('devis_demande').addEventListener('submit', (event) => {
+document.getElementById('devis_demande').addEventListener('submit', function (event) {
   event.preventDefault();
   let url = this.action;
-  console.log(url);
+  console.log(this);
 
   Swal.fire({
       title: "Envoyer !",

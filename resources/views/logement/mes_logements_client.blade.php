@@ -18,16 +18,9 @@
             }
         @endphp
         <div class="listeMesDevis">
-        @foreach($tabDevis as $devis)
-            @php 
-                $proprietaire_nom = DB::table('logement')
-                                    ->join('personnes', 'logement.id_proprio_logement', '=', 'personnes.id')
-                                    ->select('personnes.nom_pers')
-                                    ->where('logement.id_logement', $devis->id_logement)
-                                    ->first();
-            @endphp
-            <x-DemandeDevisClient libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}" proprietaire_nom="{{$nom_proprio->nom_pers}}"></x-DemandeDevisClient>
-        @endforeach
+            @foreach($tabDevis as $devis)
+                <x-DemandeDevisClient libelle="{{$devis->libelle_logement}}" pseudo="{{$devis->pseudo_pers}}" dated="{{$devis->date_deb}}" datef="{{$devis->date_fin}}" id="{{$devis->id_logement}}" iddevis="{{$devis->ref_devis}}" idreservation="{{$devis->id_reserv}}" nom_proprio="{{$nom_proprio->nom_pers}}"></x-DemandeDevisClient>
+            @endforeach
         <hr>
     </section>
 

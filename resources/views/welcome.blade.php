@@ -116,7 +116,9 @@
         for (let i = 0; i < cities.length; i++) {
             const coords = await getCoordinates(cities[i]);
             if (coords) {
-                const marker = L.marker(coords);
+                const latitude = coords[0] + (Math.random() - 0.5) / 100;
+                const longitude = coords[1] + (Math.random() - 0.5) / 100;
+                const marker = L.marker([latitude, longitude]);
                 const logement = logements[i];
                 const imageUrl = 'https://site-sae-ubisoufte.bigpapoo.com/storage/logement' + logement.id + '/img0.jpg';
                 marker.bindPopup(`

@@ -89,6 +89,7 @@ if ($date) {
             $res_ical = $res_ical[0];
             $isProprietaire = DB::select('select * from proprietaire inner join personnes on personnes.id = proprietaire.id_proprio where id = ?', [$res_ical->id_personne]);
             $isProprietaire = $isProprietaire != null;
+            dd($isProprietaire);
             
             $ical = "BEGIN:VCALENDAR\n";
             $ical .= "VERSION:2.0\n";

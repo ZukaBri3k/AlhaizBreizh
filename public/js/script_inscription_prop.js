@@ -96,31 +96,45 @@ function showOptions() {
                             }
                         });
                     
-                    document.getElementById('submit').addEventListener('click', function(event) {
-                        console.log("ici");
-                        var url = this.href;
-                        // Vérifier si le mot de passe contient au moins une majuscule
-                        var regex_maj = /[A-Z]/;
-                        var regex_min = /[a-z]/;
-                        var regex_chiffre = /[0-9]/;
-                        var MDP = document.getElementById("password").value;
-                        if (MDP.match(regex_maj))
-                            if(MDP.match(regex_min)){
-                                if(MDP.match(regex_chiffre)){
-                                    Toast.fire({
-                                        icon: "success",
-                                        title: "Informations enregistrées",
-                                        background: '#F6F5EE',
-                                        allowOutsideClick: false,
-                                        customClass: {
-                                            title: 'generation_cle'
-                                        },
-                                    });
+                        document.getElementById('submit').addEventListener('click', function(event) {
+                            console.log("ici");
+                            var url = this.href;
+                            // Vérifier si le mot de passe contient au moins une majuscule
+                            var regex_maj = /[A-Z]/;
+                            var regex_min = /[a-z]/;
+                            var regex_chiffre = /[0-9]/;
+                            var MDP = document.getElementById("password").value;
+                            if (MDP.match(regex_maj))
+                                if(MDP.match(regex_min)){
+                                    if(MDP.match(regex_chiffre)){
+                                        Toast.fire({
+                                            icon: "success",
+                                            title: "Informations enregistrées",
+                                            background: '#F6F5EE',
+                                            allowOutsideClick: false,
+                                            customClass: {
+                                                title: 'generation_cle'
+                                            },
+                                        });
+                                    }
+                                    else{
+                                        Toast.fire({
+                                            icon: "error",
+                                            title: "Le mot de passe doit contenir au moins une majuscule, une minucule et un chiffre",
+                                            background: '#F6F5EE',
+                                            allowOutsideClick: false,
+                                            customClass: {
+                                                title: 'generation_cle'
+                                            },
+                                        });
+                                        event.preventDefault();
+                        
+                                    }
                                 }
                                 else{
                                     Toast.fire({
                                         icon: "error",
-                                        title: "Le mot de passe doit contenir un chiffre",
+                                        title: "Le mot de passe doit contenir au moins une majuscule, une minucule et un chiffre",
                                         background: '#F6F5EE',
                                         allowOutsideClick: false,
                                         customClass: {
@@ -128,56 +142,85 @@ function showOptions() {
                                         },
                                     });
                                     event.preventDefault();
-                    
+                        
                                 }
-                            }
+                        
                             else{
                                 Toast.fire({
                                     icon: "error",
-                                    title: "Le mot de passe doit contenir une minuscule",
+                                    title: "Le mot de passe doit contenir au moins une majuscule, une minucule et un chiffre",
                                     background: '#F6F5EE',
                                     allowOutsideClick: false,
                                     customClass: {
                                         title: 'generation_cle'
                                     },
                                 });
-                                event.preventDefault();
-                    
-                            }
-                    
-                        else{
-                            Toast.fire({
-                                icon: "error",
-                                title: "Le mot de passe doit contenir une majuscule",
-                                background: '#F6F5EE',
-                                allowOutsideClick: false,
-                                customClass: {
-                                    title: 'generation_cle'
-                                },
-                            });
-                                event.preventDefault();
-                    
-                            }
-                            
-                            var motDePasse = document.getElementById("password").value;
-                            var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
-                            console.log(confirmationMotDePasse);
+                                    event.preventDefault();
                         
-                            if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
-                                Toast.fire({
-                                    icon: "error",
-                                    title: "Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.",
-                                    background: '#F6F5EE',
-                                    allowOutsideClick: false,
-                                    customClass: {
-                                        title: 'generation_cle'
-                                    },
-                                });
+                                }
                                 
-                                event.preventDefault();
-                            }
-                          
-                        }
-                    
+                                var motDePasse = document.getElementById("password").value;
+                                var confirmationMotDePasse = document.getElementById("confirmerMotDePasse").value;
+                                console.log(confirmationMotDePasse);
                             
-                    )
+                                if (motDePasse != confirmationMotDePasse && confirmationMotDePasse != "" && motDePasse !="") {
+                                    Toast.fire({
+                                        icon: "error",
+                                        title: "Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.",
+                                        background: '#F6F5EE',
+                                        allowOutsideClick: false,
+                                        customClass: {
+                                            title: 'generation_cle'
+                                        },
+                                    });
+                                    
+                                    event.preventDefault();
+                                }
+                              
+                            }
+                        
+                                
+                        )
+                        document.getElementById('iban').addEventListener('input', function(event) {
+                            var iban = document.getElementById("iban");
+                            const input = event.target;
+                            const regex_num = /[0-9]/;
+                            const regex_letter = /[a-zA-Z]/;
+                        
+                            if (iban.value.length <= 2) { // Vérification des deux premiers caractères
+                                if (!regex_letter.test(input.value)) {
+                                    input.value = input.value.slice(0, -1);
+                                    Toast.fire({
+                                        icon: "warning",
+                                        title: "Les deux premiers caractères doivent être des lettres",
+                                        background: '#F6F5EE',
+                                        allowOutsideClick: false,
+                                        customClass: {
+                                            title: 'generation_cle'
+                                        },
+                                    });
+                                } else {
+                                    input.toUpperCase();
+                                    input.setCustomValidity("");
+                                    
+                                }
+                            } else {
+                                if (!regex_num.test(input.value)) {
+                                    input.value = input.value.slice(0, -1);
+                                    input.setCustomValidity("Seuls les chiffres sont autorisés.");
+                                    Toast.fire({
+                                        icon: "warning",
+                                        title: "À partir du troisième caractère seuls les chiffres sont autorisés.",
+                                        background: '#F6F5EE',
+                                        allowOutsideClick: false,
+                                        customClass: {
+                                            title: 'generation_cle'
+                                        },
+                                    });
+                                } else {
+                                    input.setCustomValidity("");
+                                }
+                            }
+                        });
+                        
+                        

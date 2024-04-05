@@ -176,6 +176,18 @@ function showOptions() {
                                     
                                     event.preventDefault();
                                 }
+                                if(motDePasse.size < 5){
+                                    Toast.fire({
+                                        icon: "error",
+                                        title: "Le mot de passe est trop court, veillez saisir au minimum 5 caractères",
+                                        background: '#F6F5EE',
+                                        allowOutsideClick: false,
+                                        customClass: {
+                                            title: 'generation_cle'
+                                        },
+                                    });
+
+                                }
                               
                             }
                         
